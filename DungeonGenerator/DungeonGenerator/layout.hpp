@@ -2,15 +2,13 @@
 
 #include "component.hpp"
 #include <vector>
-#include "vector.hpp"
+#include "line.hpp"
+//#include "vector.hpp"
 
 class Layout : public Component
 {
 private:
-	int sides;
-
-	std::vector<Math::NormalVector> wallNormals;
-	std::vector<Math::Vec3>			points;
+	std::vector<std::shared_ptr<Geometry::Line>> sides;
 
 public:
 	virtual void write(std::string path) override

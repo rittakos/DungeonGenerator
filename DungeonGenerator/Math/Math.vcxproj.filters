@@ -15,25 +15,22 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="room.hpp">
+    <ClInclude Include="..\DungeonGenerator\vector.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="dungeon.hpp">
+    <ClInclude Include="angle.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="generationSettings.hpp">
+    <ClInclude Include="isAllSame.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="component.hpp">
+    <ClInclude Include="math.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="layout.hpp">
+    <ClInclude Include="matrix.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="wall.hpp">
+    <ClInclude Include="vector.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -41,7 +38,10 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="room.cpp">
+    <ClCompile Include="vector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="angle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

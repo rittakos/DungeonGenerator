@@ -15,33 +15,18 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="room.hpp">
+    <ClInclude Include="line.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="dungeon.hpp">
+    <ClInclude Include="straightLine.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="generationSettings.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="component.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="layout.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="wall.hpp">
+    <ClInclude Include="transformation.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="room.cpp">
+    <ClCompile Include="straightLine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

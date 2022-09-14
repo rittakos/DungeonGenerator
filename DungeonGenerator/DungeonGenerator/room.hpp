@@ -1,9 +1,10 @@
 #pragma once
 #include <string>
 #include <vector>
-#include "vector.hpp"
+//#include "vector.hpp"
 #include "layout.hpp"
 #include "component.hpp"
+#include <memory>
 
 
 class Room
