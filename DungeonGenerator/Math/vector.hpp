@@ -11,6 +11,11 @@
 namespace Math
 {
 	template<int D, class Type = float>
+	class Vec;
+
+	typedef Vec<3, float> Vec3f;
+
+	template<int D, class Type>
 	class Vec
 	{
 		Type coords[D];
@@ -52,7 +57,7 @@ namespace Math
 		bool	operator==(const Vec& other) const
 		{
 			for (int idx = 0; idx < D; ++idx)
-				if (!isEqual(this->coords[idx] - other.coords[idx], 0.0f))
+				if (!isEqual(this->coords[idx], other.coords[idx]))
 					return false;
 			return true;
 		}
@@ -68,10 +73,17 @@ namespace Math
 
 			return result;
 		}
+
 		Vec		operator-(const Vec& other) const
 		{
 			return *this + (-1.0 * other);
 		}
+
+		Vec		operator-() const
+		{
+			return (* this * -1.0f);
+		}
+
 		float	operator*(const Vec& other) const
 		{
 			float result = 0;
@@ -87,17 +99,16 @@ namespace Math
 			return coords[idx];
 		}
 
-	/*private:
 		Type&	operator[](int idx)
 		{
 			return coords[idx];
-		}*/
+		}
 
 	public:
 
 
 		//other functions
-		float	length() const 
+		float			length() const 
 		{
 			float sum = 0;
 			for (int idx = 0; idx < D; ++idx)
@@ -105,23 +116,20 @@ namespace Math
 
 			return sqrtf(sum);
 		}
-		void	normalise()
+		void			normalise()
 		{
 			*this = *this / this->length();
 		}
-		
-		Vec		getNormalised() const
+		Vec				getNormalised() const
 		{
 			return *this / this->length();
 		}
-
-		Angle	angleWith(const Vec& other) const
+		Angle			angleWith(const Vec& other) const
 		{
 			float cosAngle = ((*this) * other) / (length() * other.length());
 			Angle angle = Angle(acosf(cosAngle));
 			return angle;
 		}
-
 
 		//external operators
 		template<int D1, class Type1 >	friend std::ostream&	operator<<(std::ostream& os, const Vec<D1, Type1>& vec);
@@ -130,9 +138,6 @@ namespace Math
 		template<int D1, class Type1 >	friend Vec<D1, Type1>	operator*(float skalar, const Vec<D1, Type1>& vec);
 		template<int D1, class Type1 >	friend Vec<D1, Type1>	operator/(const Vec<D1, Type1>& vec, float skalar);
 	};
-
-
-	typedef Vec<3, float> Vec3f;
 
 
 	template<int D, class Type > 
@@ -194,20 +199,6 @@ namespace Math
 	{
 		return (v1 - v2).length();
 	}
-
-	class NormalVector
-	{
-	private:
-		Vec3f normal;
-
-	public:
-
-		explicit NormalVector(Vec3f normalVector)
-		{
-			normal = normalVector;
-		}
-	};
-
 
 	namespace Constant
 	{

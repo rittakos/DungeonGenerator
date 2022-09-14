@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\DungeonGenerator\vector.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="angle.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
