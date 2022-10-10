@@ -8,14 +8,14 @@
 
 namespace Math
 {
-	class Angle
+	class Angle final
 	{
 	private:
 		float angleInRad;
 
 		void normalise()
 		{
-			int count = floorf(angleInRad / (Math::Constant::Pi * 2));
+			int count = static_cast<int>(floorf(angleInRad / (Math::Constant::Pi * 2)));
 			angleInRad -=  count * (2.0f * Math::Constant::Pi);
 		}
 
@@ -38,11 +38,11 @@ namespace Math
 		}
 		inline Angle	operator-() const
 		{
-			return Angle(-1.0 * angleInRad);
+			return Angle(-1.0f * angleInRad);
 		}
 
-		float getDeg() const { return angleInRad / Math::Constant::Pi * 180.0; }
-		float getRad() const { return angleInRad; }
+		float getDeg() const;
+		float getRad() const;
 
 		friend float sin(const Angle& angle);
 		friend float cos(const Angle& angle);
@@ -67,7 +67,7 @@ namespace Math
 
 	inline Angle operator-(const Angle& angle1, const Angle& angle2)
 	{
-		return angle1 + (-angle2);
+		return angle1 + (-1.0f * angle2);
 	}
 
 	inline Angle operator*(const Angle& angle1, const Angle& angle2)
@@ -132,16 +132,26 @@ namespace Math
 	{
 		return Angle(atanf(tan));
 	}
+
+	inline Angle AngleFromDeg(float deg)
+	{
+		return Angle(deg / 180.0f * Constant::Pi);
+	}
+
+	inline Angle AngleFromRad(float rad)
+	{
+		return Angle(rad);
+	}
 }
 
 inline Math::Angle operator "" _deg(long double degree)
 {
-	return Math::Angle((float)degree * Math::Constant::Pi / 180.0);
+	return Math::Angle(static_cast<float>(degree) * Math::Constant::Pi / 180.0f);
 }
 
 inline Math::Angle operator "" _rad(long double degree)
 {
-	return Math::Angle((float)degree);
+	return Math::Angle(static_cast<float>(degree));
 }
 
 

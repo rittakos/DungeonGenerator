@@ -126,7 +126,7 @@ TEST_F(VectorTest,IOTest)
 {
 	std::stringstream my_ss;
 	my_ss << v4;
-	EXPECT_EQ(my_ss.str(), "3.7 8.5 -0.8");
+	EXPECT_EQ(my_ss.str(), "3.7\t8.5\t-0.8");
 
 	Math::Vec3f in;
 	my_ss >> in;

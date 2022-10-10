@@ -2,38 +2,33 @@
 //#include "vector.hpp"
 #include <iostream>
 #include "vector.hpp"
+#include <optional>
+
+#include "equationSystem.hpp"
 
 namespace Geometry
 {
-	class Line
+	class Line final
 	{
 	private:
-		virtual void print(std::ostream& os) = 0;
-		virtual void read(std::istream& is) = 0;
+		Math::Vec2f P1;
+		Math::Vec2f P2;
+		Math::Vec2f normal;
+		Math::Vec2f v;
+
+		Math::LinearEquation<2> lineEquation;
 
 	public:
+		Line(const Math::Vec2f& P1, const Math::Vec2f& P2);
 
-		virtual float length() = 0;
-		virtual Math::Vec3f normal(const Math::Vec3f& at) = 0;
-		virtual Math::Vec3f getPointAtX(float x) = 0;
-		virtual Math::Vec3f getPointAtY(float y) = 0;
+		Math::Vec2f getNormal(/*const Math::Vec3f& at*/) const;
+		Math::Vec2f getPointAtX(float x) const;
+		Math::Vec2f getPointAtY(float y) const;
 
+		Math::LinearEquation<2> getEquation() const { return lineEquation; }
 
-
-		friend std::ostream& operator<<(std::ostream& os, std::shared_ptr<Line> line);
-		friend std::istream& operator>>(std::istream& is, std::shared_ptr<Line> line);
+		friend std::optional<Math::Vec2f> getIntersectionPoint(const Line& l1, const Line& l2);
 	};
 
-	inline std::ostream& operator<<(std::ostream& os, std::shared_ptr<Line> line)
-	{
-		line->print(os);
-		return os;
-	}
-
-	inline std::istream& operator>>(std::istream& is, std::shared_ptr<Line> line)
-	{
-		line->read(is);
-		return is;
-	}
-
+	std::optional<Math::Vec2f> getIntersectionPoint(const Line& l1, const Line& l2);
 }

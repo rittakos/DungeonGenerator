@@ -2,27 +2,26 @@
 
 #include "vector.hpp"
 #include "matrix.hpp"
+#include "quaternion.hpp"
 
-namespace Math
+using namespace Math;
+
+namespace Geometry
 {
 	enum RotationAxis { X, Y, Z };
 
 
-	Mat<3, 3, float> getRotationMatrix(Angle angle, RotationAxis axis = RotationAxis::Z)
+	Mat<3, 3, float> getRotationMatrix(Angle angle, RotationAxis axis = RotationAxis::Z);
+
+	Vec3f rotate(const Vec3f& v, Angle angle, const Vec3f& axis);
+	
+
+	Vec2f rotate(const Vec2f& v, Angle angle);
+	
+
+	template<int D, class Type> 
+	Vec<D, Type> shift(Vec<D, Type> base, Vec<D, Type> shiftVektor)
 	{
-		float cos = Math::cos(angle);
-		float sin = Math::sin(angle);
-
-		Mat3x3f rotationMatrix   {  1, 0  ,  0  ,
-									0, cos, -sin,
-									0, sin, -cos };
-
-		return rotationMatrix;
-	}
-
-	template<class Type>
-	Vec<3, Type> rotate(const Vec<3, Type>& v, Angle angle, RotationAxis axis = RotationAxis::Z/*, Vec<3, Type> center = Vec<3, Type>()*/)
-	{
-		return v * getRotationMatrix(angle, axis);
+		return base + shiftVektor;
 	}
 }

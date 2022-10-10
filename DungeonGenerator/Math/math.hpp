@@ -37,11 +37,16 @@ namespace Math
 		}*/
 	};
 
-	class ZeroDevisionException : public std::exception
+	class ZeroDivisionException : public std::exception
 	{
 
 	};
 
+
+
+	template <typename T>
+	concept HasEqual = requires(T t1, T t2) { Math::isEqual(t1, t2); };
+
 	template<typename T>
-	concept VecNumber = std::floating_point<T> || std::integral<T>;
+	concept VecNumber = HasEqual<T>;
 }

@@ -11,10 +11,10 @@ namespace Math
 	template<int X, int Y, VecNumber Type = float>
 	class Mat;
 
-	typedef Mat<3, 3, float> Mat3x3f;
+	using Mat3x3f = Mat<3, 3, float>;
 
 	template<int H, int W, VecNumber Type>
-	class Mat
+	class Mat final
 	{
 		Type coords[W * H];
 
@@ -73,9 +73,9 @@ namespace Math
 		//arithmetic operator
 		Mat		operator+(const Mat& other) const
 		{
-			Mat<W, H, Type> result;
+			Mat<H, W, Type> result;
 			for (int idx = 0; idx < length; ++idx)
-				result.coords[idx] = coords[idx] + other[idx];
+				result.coords[idx] = coords[idx] + other.coords[idx];
 
 			return result;
 		}
@@ -189,49 +189,40 @@ namespace Math
 
 			return result;
 		}
-		Vec<W, Type> toVector() const
+		Vec<W, Type> getVectorFromRow(int row = 0) const
 		{
-			/*if (width == 1)
-			{
-				Vec<H, Type> result;
+			Vec<W, Type> result;
 
-				for (int idx = 0; idx < height; ++idx)
-					result[idx] = (*this)(1, idx);
+			for (int idx = 0; idx < width; ++idx)
+				result[idx] = (*this)(row, idx);
 
-				return result;
-			}*/
+			return result;
+		}
+		Vec<H, Type> getVectorFromCol(int col = 0) const
+		{
+			Vec<H, Type> result;
 
-			if (height == 1)
-			{
-				Vec<W, Type> result;
+			for (int idx = 0; idx < height; ++idx)
+				result[idx] = (*this)(idx, col);
 
-				for (int idx = 0; idx < height; ++idx)
-					result[idx] = (*this)(0, idx);
-
-				return result;
-			}
-
-			throw new std::exception();
+			return result;
 		}
 
 		//external functions
 
-		template<int W1, int H1, class Type1 >	friend Mat<H1, W1, Type1>	T(const Mat<H1, W1, Type1>& m);
+		template<int W1, int H1, class Type1 >	friend Mat<W1, H1, Type1>	T(const Mat<H1, W1, Type1>& m);
 		template<int W1, int H1, class Type1 >	friend float	det(Mat<H1, W1, Type1> m);
 
 
 		//external operators
 		template<int H1, int W1, class Type1 >	friend std::ostream& operator<<(std::ostream& os, const Mat<H1, W1, Type1>& m);
 		template<int H1, int W1, class Type1 >	friend std::istream& operator>>(std::istream& is, Mat<W1, H1, Type1>& m);
-		template<int H1, int W1, class Type1 >	friend Mat<H1, W1, Type1>	operator*(const Mat<W1, H1, Type1>& m, float skalar);
-		template<int H1, int W1, class Type1 >	friend Mat<H1, W1, Type1>	operator*(float skalar, const Mat<W1, H1, Type1>& m);
-		template<int H1, int W1, class Type1 >	friend Mat<H1, W1, Type1>	operator/(const Mat<W1, H1, Type1>& m, float skalar);
+		template<int H1, int W1, class Type1 >	friend Mat<H1, W1, float>	operator*(const Mat<H1, W1, Type1>& m, float skalar);
+		template<int H1, int W1, class Type1 >	friend Mat<H1, W1, float>	operator*(float skalar, const Mat<H1, W1, Type1>& m);
+		template<int H1, int W1, class Type1 >	friend Mat<H1, W1, float>	operator/(const Mat<H1, W1, Type1>& m, float skalar);
 		
 		template<int W1, int W2, int H1, int H2, class Type1 >	
 		friend Mat<H1, W2, Type1>	operator*(const Mat<H1, W1, Type1>& m1, const Mat<H2, W2, Type1>& m2);
-
-		/*template<int W1, int H1, int D, class Type1 >
-		friend Vec<D, Type1>	operator*(const Vec<D, Type1>& v, const Mat<W1, H1, Type1>& m);*/
 	};
 
 	template<int D, class Type>
@@ -246,9 +237,9 @@ namespace Math
 	}
 
 	template<int W1, int H1, class Type1 >	//Transponate
-	Mat<H1, W1, Type1>	T(const Mat<H1, W1, Type1>& m)
+	Mat<W1, H1, Type1>	T(const Mat<H1, W1, Type1>& m)
 	{
-		Mat<H1, W1, Type1> result;
+		Mat<W1, H1, Type1> result;
 
 		for (int row = 0; row < m.height; ++row) 
 			for (int col = 0; col < m.width; ++col) 
@@ -274,53 +265,56 @@ namespace Math
 	template<int H1, int W1, class Type1 >
 	std::ostream& operator<<(std::ostream& os, const Mat<H1, W1, Type1>& m)
 	{
-		for (int y = 0; y < m.height; ++y)
+		/*os << m.height << "\t" << m.width << "\n";*/
+		for (int idx = 0; idx < m.length - 1; ++idx)
 		{
-			for (int x = 0; x < m.width; ++x)
-			{
-				os << m.coords[y * m.width + x] << "\t";
-			}
-			os << std::endl;
+				os << m.coords[idx] << "\t";
 		}
+		os << m.coords[m.length - 1];
 		return os;
 	}
 
 	template<int W1, int H1, class Type1 >	
 	std::istream& operator>>(std::istream& is, Mat<H1, W1, Type1>& m)
 	{
-		//TODO
+		float coord;
+		for (int idx = 0; idx < H1 * W1; ++idx)
+		{
+			is >> coord;
+			m.coords[idx] = coord;
+		}
+
 		return is;
 	}
 
-	template<int W1, int H1, class Type1 >	
-	Mat<H1, W1, Type1>	operator*(const Mat<H1, W1, Type1>& m, float skalar)
+	template<int H1, int W1, class Type1 >	
+	Mat<H1, W1, float>	operator*(const Mat<H1, W1, Type1>& m, float skalar)
 	{
-		Mat<W1, H1, Type1> result;
+		Mat<H1, W1, float> result;
 		for (int idx = 0; idx < m.length; ++idx)
 			result.coords[idx] = m.coords[idx] * skalar;
 
 		return result;
 	}
 
-	template<int W1, int H1, class Type1 >	
-	Mat<H1, W1, Type1>	operator*(float skalar, const Mat<H1, W1, Type1>& m)
+	template<int H1, int W1, class Type1 >	
+	Mat<H1, W1, float>	operator*(float skalar, const Mat<H1, W1, Type1>& m)
 	{
 		return m * skalar;
 	}
 
-	template<int W1, int H1, class Type1 >	
-	Mat<H1, W1, Type1>	operator/(const Mat<H1, W1, Type1>& m, float skalar)
+	template<int H1, int W1, class Type1 >	
+	Mat<H1, W1, float>	operator/(const Mat<H1, W1, Type1>& m, float skalar)
 	{
 		if (skalar == 0.0f)
-			throw new ZeroDevisionException();
+			throw new ZeroDivisionException();
 		return m * (1.0f / skalar);
 	}
 
 	template<int W1, int W2, int H1, int H2, class Type1 >
 	Mat<H1, W2, Type1>	operator*(const Mat<H1, W1, Type1>& m1, const Mat<H2, W2, Type1>& m2)
 	{
-		static_assert(W1 == H2);
-		std::cout << W1 << " " << H2 << std::endl;
+		static_assert(W1 == H2, "Can not multiple these matrixes!!'");
 		Mat<H1, W2, Type1> result;
 
 		for (int row = 0; row < m1.height; ++row) {
@@ -334,9 +328,23 @@ namespace Math
 		return result;
 	}
 
-	/*template<int W1, int H1, int D, class Type1 >
+	template<int W1, int H1, int D, class Type1 >
 	Vec<D, Type1>	operator*(const Vec<D, Type1>& v, const Mat<W1, H1, Type1>& m)
 	{
-		return (createMatrixFromVector(v) * m).toVector();
-	}*/
+		return (createMatrixFromVector(v) * m).getVectorFromRow();
+	}
+
+	template<int W1, int H1, int D, class Type1 >
+	Vec<D, Type1>	operator*(const Mat<W1, H1, Type1>& m, const Vec<D, Type1>& v)
+	{
+		Mat vm = T(createMatrixFromVector(v));
+		return (m * vm).getVectorFromCol();
+	}
+
+	namespace Constant
+	{
+		const Mat3x3f	E(	1.0f, 0.0f, 0.0f,
+							0.0f, 1.0f, 0.0f,
+							0.0f, 0.0f, 1.0f);
+	}
 }

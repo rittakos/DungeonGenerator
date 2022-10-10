@@ -3,6 +3,7 @@
 #include <random>
 #include <cassert>
 #include "matrix.hpp"
+#include <polygon.hpp>
 
 enum class Tile
 {
@@ -37,7 +38,8 @@ public:
 		assert(IsXInBounds(x));
 		assert(IsYInBounds(y));
 
-		data[x + xSize * y] = celltype;
+		int idx = x + xSize * y;
+		data[idx] = celltype;
 	}
 
 	Tile GetCell(int x, int y) const
@@ -45,7 +47,8 @@ public:
 		assert(IsXInBounds(x));
 		assert(IsYInBounds(y));
 
-		return data[x + xSize * y];
+		int idx = x + xSize * y;
+		return data[idx];
 	}
 
 	void SetCells(int xStart, int yStart, int xEnd, int yEnd, Tile cellType)
@@ -420,9 +423,12 @@ private:
 
 int main(int argc, char* argv[])
 {
-	//Math::Matrix<3, 3, int> m{ {1, 1, 1}, {1, 1, 1}, {1, 1, 1 } };
-	Math::Mat<2, 2, int> m( 1, 2, 3, 4 );
-	/*Math::Vec<2, int> v(1, 2);
-	Math::Mat<2, 2, int> m2(v, v);*/
-	std::cout << m;
+	std::vector<Math::Vec2f> points;
+	points.push_back(Math::Vec2f(0.0f, 0.0f));
+	points.push_back(Math::Vec2f(1.0f, 2.0f));
+	points.push_back(Math::Vec2f(2.0f, 0.0f));
+	points.push_back(Math::Vec2f(1.0f, 1.0f));
+
+	Geometry::Polygon p(points);
+	std::cout << p.Area();
 }

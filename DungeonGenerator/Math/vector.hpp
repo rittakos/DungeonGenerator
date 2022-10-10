@@ -13,10 +13,16 @@ namespace Math
 	template<int D, class Type = float>
 	class Vec;
 
-	typedef Vec<3, float> Vec3f;
+	using Vec3f = Vec<3, float>;
+	using Vec2f = Vec<2, float>;
+	/*template <>
+	class Vec<3, float>
+	{
+
+	};*/
 
 	template<int D, class Type>
-	class Vec
+	class Vec final
 	{
 		Type coords[D];
 
@@ -144,7 +150,7 @@ namespace Math
 	inline std::ostream& operator<<(std::ostream& os, const Vec<D, Type>& vec) 
 	{
 		for (int idx = 0; idx < D - 1; ++idx)
-			os << vec.coords[idx] << " ";
+			os << vec.coords[idx] << "\t";
 		os << vec.coords[D - 1];
 
 		return os;
@@ -155,15 +161,12 @@ namespace Math
 	std::istream& operator>>(std::istream& is, Vec<D, Type>& vec)
 	{
 		float coord;
-		for (int idx = 0; idx < D - 1; ++idx)
+		for (int idx = 0; idx < D; ++idx)
 		{
 			is >> coord;
 			vec.coords[idx] = coord;
 		}
 			
-		is >> coord;
-		vec.coords[D - 1] = coord;
-
 		return is;
 	}
 
@@ -190,7 +193,7 @@ namespace Math
 	Vec<D1, Type1> operator/(const Vec<D1, Type1>& vec, float skalar)
 	{
 		if (skalar == 0.0f)
-			throw new ZeroDevisionException();
+			throw new ZeroDivisionException();
 		return vec * (1.0f / skalar);
 	}
 
@@ -202,8 +205,29 @@ namespace Math
 
 	namespace Constant
 	{
-		const Vec3f	i			(1.0f, 0.0f, 0.0f);
-		const Vec3f	j			(0.0f, 1.0f, 0.0f);
-		const Vec3f	k			(0.0f, 0.0f, 1.0f);
+		const Vec3f	x			(1.0f, 0.0f, 0.0f);
+		const Vec3f	y			(0.0f, 1.0f, 0.0f);
+		const Vec3f	z			(0.0f, 0.0f, 1.0f);
+	}
+
+
+	inline Angle getAngle(Vec2f P1, Vec2f P2, Vec2f P3)
+	{
+		Vec2f v1 = P1 - P2;
+		Vec2f v2 = P3 - P2;
+
+		float result = atan2(v2[1], v2[0]) - atan2(v1[1], v1[0]);
+
+		if (result < 0)
+			result += Constant::Pi * 2.0f;
+
+		return Angle(result);
+
+		/*Angle a = v1.angleWith(v2);
+
+		if (v1[0] < v2[0])
+			a = -a;
+
+		return 180.0_deg - a;*/
 	}
 } //namespace Math

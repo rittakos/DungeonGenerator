@@ -6,18 +6,21 @@
 #include "component.hpp"
 #include <memory>
 
-
-class Room
+namespace Room
 {
-private:
+	class Room
+	{
+	private:
 
-	std::shared_ptr<Layout> layout;
+		std::shared_ptr<Layout> layout;
 
-	std::vector<std::shared_ptr<Component>> components;
+		std::vector<std::shared_ptr<Component>> components;
 
-public:
+	public:
 
-	Room();
+		Room();
 
-	void save(std::string path);
-};
+		void save(std::string path);
+	};
+}
+
