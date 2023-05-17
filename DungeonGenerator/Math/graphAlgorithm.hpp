@@ -7,20 +7,20 @@
 namespace Math
 {
 	template<class T>
-	void breadthFirst(Graph<T> graph, std::function<void(Node<T>)> f)
+	void breadthFirst(Graph<T>* graph/*, std::function<void(Node<T>)> f*/)
 	{
 
 	}
 
 
 	template<class T>
-	void depthFirst(Graph<T> graph, std::function<void(Node<T>)> f)
+	void depthFirst(Graph<T>* graph/*, std::function<void(Node<T>)> f*/)
 	{
 
 	}
 
 	template<class T>
-	Graph<T> Kruskal(const Graph<T>& graph)
+	Graph<T>* Kruskal(Graph<T>* graph)
 	{
 		Graph<T> result;
 
@@ -28,7 +28,14 @@ namespace Math
 	}
 
 	template<class T>
-	void sortestPath(Graph<T> graph)
+	void sortestPath(Graph<T>* graph)
+	{
+
+	}
+
+
+	template<class T>
+	void getCircles(Graph<T>* graph)
 	{
 
 	}

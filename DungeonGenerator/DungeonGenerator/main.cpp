@@ -4,6 +4,14 @@
 #include <cassert>
 #include "matrix.hpp"
 #include <polygon.hpp>
+#include "generator.hpp"
+#include <dungeonGenereatorSettings.hpp>
+#include <dungeonGenerator.hpp>
+#include <log.h>
+#include <dungeonData.hpp>
+#include "random.h"
+#include "dungeonWriter.hpp"
+#include "polygonGenerator.hpp"
 
 enum class Tile
 {
@@ -102,9 +110,6 @@ public:
 
 	void Print() const
 	{
-		// TODO: proper ostream iterator.
-		// TODO: proper lookup of character from enum.
-
 		for (auto y = 0; y != ySize; y++)
 		{
 			for (auto x = 0; x != xSize; x++)
@@ -148,7 +153,7 @@ private:
 	std::vector<Tile> data;
 };
 
-class DungeonGenerator
+class DungeonGenerator2
 {
 public:
 
@@ -160,7 +165,7 @@ public:
 
 	int ChanceRoom, ChanceCorridor;
 
-	DungeonGenerator() :
+	DungeonGenerator2() :
 		Seed(std::random_device()()),
 		XSize(80), YSize(25),
 		MaxFeatures(100),
@@ -168,7 +173,6 @@ public:
 
 	Map Generate()
 	{
-		// TODO: proper input validation.
 		assert(MaxFeatures > 0 && MaxFeatures <= 100);
 		assert(XSize > 3 && XSize <= 80);
 		assert(YSize > 3 && YSize <= 25);
@@ -419,16 +423,57 @@ private:
 //	map.Print();
 //}
 
+void graphTest()
+{
+	//Math::Graph graph;
+}
 
+void test()
+{
+	Log::info("Start");
+	Dungeon dungeon;
+
+	//DungeonGeneratorSettings settings(100);
+	//auto mazeSettings = settings.CreateMazeGeneratorSettings();
+
+	//dungeon.generate(settings);
+}
 
 int main(int argc, char* argv[])
 {
-	std::vector<Math::Vec2f> points;
+	/*std::vector<Math::Vec2f> points;
 	points.push_back(Math::Vec2f(0.0f, 0.0f));
 	points.push_back(Math::Vec2f(1.0f, 2.0f));
 	points.push_back(Math::Vec2f(2.0f, 0.0f));
 	points.push_back(Math::Vec2f(1.0f, 1.0f));
 
 	Geometry::Polygon p(points);
-	std::cout << p.Area();
+	std::cout << p.Area();*/
+
+	//graphTest();
+
+	//Random::SetSeed(Random::Seed(100));
+	//std::cout << Random::GetInteger(0, 100);
+
+	//for (int idx = 0; idx < 100; ++idx)
+	//{
+	//	//std::cout << Random::GetBool() << std::endl;
+	//	//std::cout << Random::GetFloat(-0.5f, 0.5f) << std::endl;
+	//}
+
+	/*Generator::PolygonGenerator g(4);
+	g.generate();*/
+	// problem seeds: 10500 1991662833
+	// working seed: 1870263446
+	DungeonGeneratorSettings generatorSettings(GeneratorAlgorithmType::Voronoi, 100);
+
+	Random::SetSeed(generatorSettings.getSeed());
+	
+	Dungeon dungeon;
+	dungeon.generate(generatorSettings);
+
+	dungeon.save("C:\\Users\\akosr\\OneDrive\\Desktop\\dungeon.dg");
+
+	//Data::DungeonData dungeonData;
+	//dungeonData.write(std::cout);
 }

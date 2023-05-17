@@ -13,7 +13,7 @@ void polygonTest()
     points.push_back(Math::Vec2f(0.0f, 0.0f));
     points.push_back(Math::Vec2f(1.0f, 2.0f));
     points.push_back(Math::Vec2f(2.0f, 0.0f));
-    points.push_back(Math::Vec2f(1.0f, 1.0f));
+    points.push_back(Math::Vec2f(1.0f, -1.0f));
 
     Line l(Math::Vec2f{ 0.0f, 0.0f }, Math::Vec2f{ 1.0f, 1.0f });
     Polygon p;
@@ -22,10 +22,7 @@ void polygonTest()
     p.addPoint(points[2]);
     p.addPoint(points[3]);
 
-    std::cout << (p.isConvex() ? "convex" : "concave") << std::endl;
-
-    Math::Quaternion q;
-    std::cout << q;
+    //std::cout << (p.isConvex() ? "convex" : "concave") << std::endl;
 
     Polygon p2({ points });
 
@@ -33,8 +30,13 @@ void polygonTest()
 
     //std::cout << p2.Area();
     std::vector<Math::Vec2f> intersections = getIntersectionPoints(l, p);
-    for (auto p : intersections)
-        std::cout << p << std::endl;
+    /*for (auto p : intersections)
+        std::cout << p << std::endl;*/
+
+    std::vector<Polygon> dividedPolygons = dividePolygonByLine(l, p);
+
+    for (Polygon poly : dividedPolygons)
+        std::cout << poly;
 }
 
 void lineTest()
@@ -79,11 +81,14 @@ void rotateTest()
     std::cout << Geometry::rotate(v, -90.0_deg);
 }
 
+void dividePolygonTest()
+{
+
+}
+
 int main()
 {
-    //polygonTest();
+    polygonTest();
     //lineTest();
     //rotateTest();
-
-    std::cout << (50.0_deg < 0.5_rad) << std::endl;
 }

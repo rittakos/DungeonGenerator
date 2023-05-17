@@ -39,7 +39,13 @@
     <ClInclude Include="generator.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="maze.hpp">
+    <ClInclude Include="roomSystem.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="roomInternal.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dungeonWriter.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -51,6 +57,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="generationSettings.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dungeon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dungeonWriter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

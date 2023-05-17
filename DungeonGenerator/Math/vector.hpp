@@ -1,3 +1,6 @@
+#ifndef VECTOR_HPP
+#define VECTOR_HPP
+
 #pragma once
 #include <iostream>
 #include <cstdarg>
@@ -10,18 +13,21 @@
 
 namespace Math
 {
-	template<int D, class Type = float>
+	template<int D, class Type = float> requires VecNumber<Type>
 	class Vec;
 
+	using Vec3i = Vec<3, int>;
 	using Vec3f = Vec<3, float>;
 	using Vec2f = Vec<2, float>;
+	using Vec2i = Vec<2, int>;
+
 	/*template <>
 	class Vec<3, float>
 	{
 
 	};*/
 
-	template<int D, class Type>
+	template<int D, class Type> requires VecNumber<Type>
 	class Vec final
 	{
 		Type coords[D];
@@ -62,10 +68,7 @@ namespace Math
 		//logical operators
 		bool	operator==(const Vec& other) const
 		{
-			for (int idx = 0; idx < D; ++idx)
-				if (!isEqual(this->coords[idx], other.coords[idx]))
-					return false;
-			return true;
+			return equals(*this, other, Math::Constant::epsilon);
 		}
 		bool	operator<(const Vec& other) = delete;
 		bool	operator>(const Vec& other) = delete;
@@ -143,6 +146,7 @@ namespace Math
 		template<int D1, class Type1 >	friend Vec<D1, Type1>	operator*(const Vec<D1, Type1>& vec, float skalar);
 		template<int D1, class Type1 >	friend Vec<D1, Type1>	operator*(float skalar, const Vec<D1, Type1>& vec);
 		template<int D1, class Type1 >	friend Vec<D1, Type1>	operator/(const Vec<D1, Type1>& vec, float skalar);
+		template<int D1, class Type1 >	friend bool equals(const Vec<D1, Type1>& v1, const Vec<D1, Type1>& v2, float epsilon);
 	};
 
 
@@ -203,6 +207,15 @@ namespace Math
 		return (v1 - v2).length();
 	}
 
+	template<int D1, class Type1>
+	bool equals(const Vec<D1, Type1>& v1, const Vec<D1, Type1>& v2, float epsilon)
+	{
+		for (int idx = 0; idx < D1; ++idx)
+			if (!isEqual(v1.coords[idx], v2.coords[idx], epsilon))
+				return false;
+		return (v1 - v2).length() < epsilon;
+	}
+
 	namespace Constant
 	{
 		const Vec3f	x			(1.0f, 0.0f, 0.0f);
@@ -231,3 +244,5 @@ namespace Math
 		return 180.0_deg - a;*/
 	}
 } //namespace Math
+
+#endif

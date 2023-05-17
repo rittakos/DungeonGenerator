@@ -1,5 +1,4 @@
 #include "polygon.hpp"
-#include "edge.hpp"
 
 namespace Geometry
 {
@@ -27,10 +26,24 @@ namespace Geometry
         convex = true;
     }
 
+    void Polygon::addEdges()
+    {
+        edges.clear();
+
+        if (n < 2)
+            return;
+
+        for (int idx = 0; idx < n - 1; ++idx)
+            edges.push_back(Edge(points[idx], points[idx + 1]));
+
+        edges.push_back(Edge(points[n - 1], points[0]));
+    }
+
     Polygon::Polygon(std::vector<Math::Vec2f> points)
     {
         this->points = points;
         this->n = points.size();
+        addEdges();
         calculateConvexity();
     }
 
@@ -39,6 +52,7 @@ namespace Geometry
         for (Math::Vec2f v : points)
             this->points.push_back(v);
         this->n = this->points.size();
+        addEdges();
         calculateConvexity();
     }
 
@@ -60,9 +74,69 @@ namespace Geometry
 
     void	Polygon::addPoint(Math::Vec2f p)
     {
+        if (containsPoint(p))
+            return;
         points.push_back(p);
         ++n;
+        addEdges();
         calculateConvexity();
+    }
+
+    bool	Polygon::exists() const
+    {
+        if (n < 3)
+            return false;
+        Math::Angle innerAngle = 0.0_deg;
+
+        for (const Edge& e1 : edges)
+        {
+            for (const Edge& e2 : edges)
+            {
+                if (e1 == e2)
+                    continue;
+
+                std::optional<Math::Vec2f> i = getIntersectionPoint(e1, e2);
+                if (!i.has_value())
+                    continue;
+                
+                Math::Vec2f I = i.value();
+                Math::Vec2f P1e1 = e1.getPoints()[0];
+                Math::Vec2f P2e1 = e1.getPoints()[1];
+                Math::Vec2f P1e2 = e2.getPoints()[0];
+                Math::Vec2f P2e2 = e2.getPoints()[1];
+
+                float epsilon = 0.001f;
+
+                if (Math::equals(I, P1e1, epsilon) || Math::equals(I, P2e1, epsilon))
+                    continue;
+                if (Math::equals(I, P1e2, epsilon) || Math::equals(I, P2e2, epsilon))
+                    continue;
+
+                return false;
+            }
+        }
+
+        innerAngle += Math::getAngle(points[n - 1], points[0], points[1]);
+        
+
+        for (int idx = 1; idx < n - 1; ++idx)
+            innerAngle += Math::getAngle(points[idx - 1], points[idx], points[idx + 1]);
+
+        innerAngle += Math::getAngle(points[n - 2], points[n - 1], points[0]);
+
+        return innerAngle == calcInnerAngle();
+    }
+
+    bool	Polygon::containsPoint(const Math::Vec2f& P) const
+    {
+        if (points.empty())
+            return false;
+
+        for (Math::Vec2f p : points)
+            if (p == P)
+                return true;
+
+        return false;
     }
 
 
@@ -70,30 +144,61 @@ namespace Geometry
     {
         std::vector<Math::Vec2f> intersectionPoints;
 
-        for (int idx = 0; idx < polygon.n; ++idx)
+        for (Edge edge : polygon.edges)
         {
-            int otherIdx = 0;
-            if (idx != polygon.n - 1)
-                otherIdx = idx + 1;
+            std::optional<Math::Vec2f> intersection = getIntersectionPoint(edge, line);
 
-            Math::Vec2f otherPoint = polygon.points[otherIdx];
-            Edge edge(polygon.points[otherIdx], otherPoint);
-
-            std::optional<Math::Vec2f> intersection = edge.getIntersectionPoint(line);
-
-            if (intersection.has_value())
+            if (intersection.has_value() &&
+                std::find(intersectionPoints.begin(), intersectionPoints.end(), intersection.value()) == intersectionPoints.end())
+            {
+                //std::cout << intersection.value() << std::endl;
                 intersectionPoints.push_back(intersection.value());
+                //std::cout << intersectionPoints.size() << std::endl;
+            }
         }
 
         return intersectionPoints;
     }
 
-    std::vector<Polygon> dividePolygonByLine(const Line& line, const Polygon& polygon)
+    std::vector<Polygon> dividePolygonByLine(const Line& line, const Polygon& polygon) //convex
     {
+
+        //epitek egy grafot es abban korkereses
+        if (!polygon.isConvex())
+            throw new std::exception();
+
         std::vector<Polygon> resultPolygons;
         std::vector<Math::Vec2f> intersectionPoints = getIntersectionPoints(line, polygon);
 
+        if (intersectionPoints.size() == 0 || intersectionPoints.size() == 1)
+            return { polygon };
 
+        resultPolygons.push_back(Polygon());
+        resultPolygons.push_back(Polygon());
+
+        for (Edge e : polygon.edges)
+        {
+            if (e.containsPoint(intersectionPoints[0]))
+            {
+                resultPolygons[0].addPoint(e.getPoints()[0]);
+                resultPolygons[0].addPoint(intersectionPoints[0]);
+                resultPolygons[1].addPoint(intersectionPoints[0]);
+                resultPolygons[1].addPoint(e.getPoints()[1]);
+                continue;
+            }
+
+            if (e.containsPoint(intersectionPoints[1]))
+            {
+                resultPolygons[0].addPoint(intersectionPoints[1]);
+                resultPolygons[0].addPoint(e.getPoints()[1]);
+                resultPolygons[1].addPoint(e.getPoints()[0]);
+                resultPolygons[1].addPoint(intersectionPoints[1]);
+                continue;
+            }
+
+            resultPolygons[0].addPoint(e.getPoints()[0]);
+            resultPolygons[0].addPoint(e.getPoints()[1]);
+        }
 
         return resultPolygons;
     }
@@ -147,5 +252,56 @@ namespace Geometry
         Math::Vec2f v;
 
         return polygon.points[nextPointIdx] + (v * t);
+    }
+
+    /*std::optional<Polygon> CreatePolygon(std::vector<Math::Vec2f> points)
+    {
+        std::optional<Polygon> result;
+
+
+
+        return result;
+    }*/
+
+    std::ostream& operator<<(std::ostream& os, const Polygon& polygon)
+    {
+        os << "polygon:" << std::endl;
+        for (Math::Vec2f p : polygon.points)
+            os << p << std::endl;
+        os << std::endl;
+
+        return os;
+    }
+
+
+    bool operator==(const Polygon& polygon1, const Polygon& polygon2)
+    {
+        if (polygon1.n != polygon2.n)
+            return false;
+
+        bool foundEqual = false;;
+
+        for (int idx = 0; idx < polygon2.n; ++idx)
+        {
+            if (polygon2.getPoints()[idx] == polygon1.getPoints()[0])
+            {
+                foundEqual = true;
+                for (int i = 1; i < polygon2.n; ++i)
+                {
+                    if (polygon1.getPoints()[i] != polygon2.getPoints()[(idx + i) % polygon2.n])
+                    {
+                        foundEqual = false;
+                        break;
+                    }
+                }
+            }
+        }
+        return foundEqual;
+    }
+
+
+    bool operator!=(const Polygon& polygon1, const Polygon& polygon2)
+    {
+        return !(polygon1 == polygon2);
     }
 }

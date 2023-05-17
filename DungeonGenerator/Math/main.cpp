@@ -1,6 +1,8 @@
 
 //#include <iostream>
 //
+//import std.core;
+
 #include "matrix.hpp"
 #include "vector.hpp"
 #include "graph.hpp"
@@ -27,7 +29,7 @@ void linerEQTest()
 
 
 	les.solve();
-	std::vector<float> solution = les.getSolution();
+	std::optional<std::vector<float>> solution = les.getSolution();
 }
 
 void quaternionTest()
@@ -56,15 +58,18 @@ void angleTest()
 	std::cout << Math::getAngle(P1, P2, P3).getDeg();
 }
 
+void graphTest()
+{
+	Log::info("Graph test");
+	LEMONGraph<int> graph;
+	//graph.f();
+}
+
 int main(int argc, char* argv[])
 {
 	LeakDetectionGuard leakGuard;
-	/*Math::Graph<A> graph;
-
-	A a(2);
-
-	graph.addNode(a);*/
 
 	//quaternionTest();
-	angleTest();
+	//angleTest();
+	graphTest();
 }

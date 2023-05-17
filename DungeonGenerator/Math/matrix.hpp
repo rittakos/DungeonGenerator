@@ -104,8 +104,8 @@ namespace Math
 		{
 			Mat result;
 
-			//TODO
-
+			// TODO inverz
+			// HACK fs
 			return result;
 		}
 

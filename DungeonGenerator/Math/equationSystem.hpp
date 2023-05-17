@@ -2,8 +2,10 @@
 
 #include <array>
 #include <vector>
+#include <assert.h>
 
 #include"matrix.hpp"
+#include <optional>
 
 namespace Math
 {
@@ -13,16 +15,30 @@ namespace Math
 	{
 	private:
 		std::array<float, VariableCount> values;
-		float solution;
+		float rightValue;
 
 	public:
 		LinearEquation() = default;
 
-		LinearEquation(float solution, std::array<float, VariableCount> variableValues) 
-			: solution{solution}, values{variableValues} {}
+		LinearEquation(float rightValue, std::array<float, VariableCount> variableValues) 
+			: rightValue{rightValue}, values{variableValues} {}
 
-		float getSolutionValue() const { return solution; }
+		float getRightValue() const { return rightValue; }
 		float getVariable(int idx) const { return values[idx]; }
+
+		bool isSolution(std::initializer_list<float> solution) const
+		{
+			assert(solution.size() == values.size());
+			if (solution.size() != values.size())
+				return false;
+			
+			float leftValue = 0.0f;
+			int idx = 0;
+			for (float s : solution)
+				leftValue += s * values[idx++];
+
+			return fabs(leftValue - rightValue) < Math::Constant::epsilon; // 0.01 epsilon
+		}
 	};
 
 	template<int VariableCount, int EquationCount = VariableCount>
@@ -41,7 +57,7 @@ namespace Math
 
 		bool solve();
 
-		std::vector<float> getSolution();
+		std::optional<std::vector<float>> getSolution();
 
 	};
 
@@ -55,7 +71,7 @@ namespace Math
 		{
 			for (int idx = 0; idx < VariableCount; ++idx)
 				matrix(line, idx) = le.getVariable(idx);
-			matrix(line, VariableCount) = le.getSolutionValue();
+			matrix(line, VariableCount) = le.getRightValue();
 			++line;
 		}
 		return matrix;
@@ -88,9 +104,11 @@ namespace Math
 	}
 
 	template<int VariableCount, int EquationCount>
-	inline std::vector<float> LinearEquationSystem<VariableCount, EquationCount>::getSolution()
+	inline std::optional<std::vector<float>> LinearEquationSystem<VariableCount, EquationCount>::getSolution()
 	{
 		std::vector<float> solutionVector(solution.begin(), solution.end());
+		if (solutionVector.size() == 0)
+			return {};
 		return solutionVector;
 	}
 

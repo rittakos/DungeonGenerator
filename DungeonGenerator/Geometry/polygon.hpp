@@ -2,6 +2,7 @@
 #include <vector>
 #include "line.hpp"
 #include "vector.hpp"
+#include "edge.hpp"
 
 namespace Geometry
 {
@@ -9,30 +10,47 @@ namespace Geometry
 	{
 	private:
 		std::vector<Math::Vec2f> points;
+		std::vector<Edge> edges;
 		int n;
 		bool convex;
 
 		void calculateConvexity ();
+		void addEdges();
 
 	public:
 		Polygon() : n(0) { calculateConvexity(); };
 		Polygon(std::vector<Math::Vec2f> points);
 		Polygon(std::initializer_list<Math::Vec2f> points);
 
+		std::vector<Math::Vec2f> getPoints() const { return points; }
+
 		float	Area() const;
 		void	addPoint(Math::Vec2f p);
 
 		bool	isConvex() const { return convex; }
+		bool	exists() const;
+		bool	containsPoint(const Math::Vec2f& P) const;
+		
+		Math::Angle calcInnerAngle() const { return (n - 2) * 180.0_deg; }
 
 		float	beauty() const;
 
 		friend std::vector<Math::Vec2f> getIntersectionPoints(const Line& line, const Polygon& polygon);
 		friend std::vector<Polygon> dividePolygonByLine(const Line& line, const Polygon& polygon);
 		friend Math::Vec2f cutPartFromPolygon(Math::Vec2f P, float targerArea, Polygon polygon);
+		friend std::ostream& operator<<(std::ostream& os, const Polygon& polygon);
+		friend bool operator==(const Polygon& polygon1, const Polygon& polygon2);
+		friend bool operator!=(const Polygon& polygon1, const Polygon& polygon2);
 	};
 
 	std::vector<Math::Vec2f> getIntersectionPoints(const Line& line, const Polygon& polygon);
 	std::vector<Polygon> dividePolygonByLine(const Line& line, const Polygon& polygon);
 	Math::Vec2f cutPartFromPolygon(Math::Vec2f P, float targerArea, Polygon polygon);
+
+	//std::optional<Polygon> CreatePolygon(std::vector<Math::Vec2f> points);
+
+	std::ostream& operator<<(std::ostream& os, const Polygon& polygon);
+	bool operator==(const Polygon& polygon1, const Polygon& polygon2);
+	bool operator!=(const Polygon& polygon1, const Polygon& polygon2);
 
 }

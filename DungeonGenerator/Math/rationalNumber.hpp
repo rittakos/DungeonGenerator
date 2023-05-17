@@ -16,7 +16,7 @@ namespace Math
 
 		operator float() const;
 
-		//TODO tovabbi operatorok
+		// TODO tovabbi operatorok
 	};
 
 }

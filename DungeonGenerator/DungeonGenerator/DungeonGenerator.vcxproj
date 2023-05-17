@@ -106,12 +106,12 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)\Math;$(SolutionDir)\Geometry;$(SolutionDir)\Base;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Math;$(SolutionDir)\Geometry;$(SolutionDir)\Base;$(SolutionDir)\Generator;$(SolutionDir)\additional_includes;$(SolutionDir)\Data;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>Math.lib;Geometry.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>lemon.lib;Base.lib;Math.lib;Geometry.lib;Data.lib;Generator.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)\libraries;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -141,14 +141,18 @@
   <ItemGroup>
     <ClInclude Include="component.hpp" />
     <ClInclude Include="dungeon.hpp" />
+    <ClInclude Include="dungeonWriter.hpp" />
     <ClInclude Include="generationSettings.hpp" />
     <ClInclude Include="generator.hpp" />
     <ClInclude Include="layout.hpp" />
-    <ClInclude Include="maze.hpp" />
     <ClInclude Include="room.hpp" />
+    <ClInclude Include="roomInternal.hpp" />
+    <ClInclude Include="roomSystem.hpp" />
     <ClInclude Include="wall.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="dungeon.cpp" />
+    <ClCompile Include="dungeonWriter.cpp" />
     <ClCompile Include="generationSettings.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="room.cpp" />

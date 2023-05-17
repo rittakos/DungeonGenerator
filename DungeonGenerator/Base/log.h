@@ -1,12 +1,10 @@
 #pragma once
 
-#include "spdlog/spdlog.h" //https://github.com/gabime/spdlog
-
-
 #include <string>
+#include <iostream>
 
-#define SPDLOG_TRACE_ON
-#define SPDLOG_LOG_LEVEL  SPDLOG_LEVEL_CRITICAL
+//#define SPDLOG_TRACE_ON
+//#define SPDLOG_LOG_LEVEL  SPDLOG_LEVEL_CRITICAL
 
 //std::shared_ptr < spdlog::logger> log = spdlog::stdout_logger_st("mylogger");
 //log->set_level(spdlog::level::trace);
@@ -18,34 +16,36 @@
 
 namespace Log
 {
-	enum LogType{Standard, Test};
+	enum LoggerType {None, Release, Debug};
 
-	struct LogData
+	class Logger
 	{
-		static const std::string	pattern;
-		static const std::string	testPattern;
-		static bool					setUp;
-		static LogType				logType;
-		//static std::shared_ptr < spdlog::logger> ;
+	private:
+		const std::string DebugPattern		= "[%H:%M:%S]%^%v%$";
+		const std::string NonePattern		= "";
+		const std::string ReleasePattern	= "[%H:%M:%S]%^%v%$";
+	public:
+		Logger(LoggerType type);
+
+		void info(std::string message);
+		void error(std::string message);
+		void warn(std::string message);
 	};
 
-	static void SetupLogger()
-	{
-		if (LogData::setUp)
-			return;
+	static Logger logger(LoggerType::Debug);
 
-		spdlog::set_pattern(LogData::testPattern);
+	static void info(std::string message)
+	{
+		logger.info(message);
 	}
 
 	static void error(std::string message)
 	{
-		SetupLogger();
-		spdlog::error("{}", message);
+		logger.error(message);
 	}
 
-	static void info(std::string message)
+	static void warn(std::string message)
 	{
-		SetupLogger();
-		spdlog::info("{}", message);
+		logger.warn(message);
 	}
 }

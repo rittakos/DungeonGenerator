@@ -3,16 +3,19 @@
 #include "component.hpp"
 #include <vector>
 #include "line.hpp"
+
+//import <polygon.hpp>;
+#include "polygon.hpp"
 //#include "vector.hpp"
 
-class Layout : public Component
+class Layout //: public Component
 {
 private:
-	std::vector<std::shared_ptr<Geometry::Line>> sides;
+	Geometry::Polygon polygon;
 
 public:
-	virtual void write(std::string path) override
+	/*virtual void write(std::string path) override
 	{
 
-	}
+	}*/
 };

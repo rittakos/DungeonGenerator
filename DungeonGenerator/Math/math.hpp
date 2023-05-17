@@ -1,4 +1,8 @@
+#ifndef MATH_HPP
+#define MATH_HPP
+
 #pragma once
+
 #include <math.h>
 #include <concepts>
 #include <exception>
@@ -11,9 +15,9 @@ namespace Math
 		const float Pi		=	3.141592653589793238462643383276f;
 	}
 
-	static bool isEqual(float f1, float f2)
+	static bool isEqual(float f1, float f2, float epsilon = Constant::epsilon)
 	{
-		return fabs(f1 - f2) < Constant::epsilon;
+		return fabs(f1 - f2) < epsilon;
 	}
 
 	class TooMuchParametersException : std::exception
@@ -49,4 +53,10 @@ namespace Math
 
 	template<typename T>
 	concept VecNumber = HasEqual<T>;
+
+	template <typename T>
+	concept GraphType = std::same_as<T, int> ||
+						std::same_as<T, double>;
 }
+
+#endif

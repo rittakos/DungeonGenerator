@@ -28,6 +28,16 @@ namespace Math
 		{
 			return isEqual(this->angleInRad, other.angleInRad);
 		}
+		inline Angle operator +=(const Angle& other)
+		{
+			*this = *this + other;
+			return *this;
+		}
+		inline Angle operator -=(const Angle& other)
+		{
+			*this = *this - other;
+			return *this;
+		}
 		inline bool		operator<(const Angle& other) const
 		{
 			return this->angleInRad < other.angleInRad;

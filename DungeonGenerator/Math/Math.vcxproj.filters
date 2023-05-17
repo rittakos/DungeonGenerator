@@ -45,6 +45,18 @@
     <ClInclude Include="quaternion.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="MyGraph.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="internalGraph.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LEMONGraph.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="secondDegreeEquation.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -60,6 +72,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="rationalNumber.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="secondDegreeEquation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
