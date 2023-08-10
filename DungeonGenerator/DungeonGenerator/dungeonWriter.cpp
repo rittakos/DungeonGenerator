@@ -63,7 +63,7 @@ namespace IO
 	{
 		for (Data::WallData& wall : data.getWalls())
 		{
-			file << "Wall-" << endOfLine;
+			file << "Wall" << endOfLine;
 			file << wall.getPoints().size() << " " << wall.getTrianglesClockWise().size() + wall.getTrianglesCounterClockwise().size() << endOfLine;
 			for (Math::Vec3f point : wall.getPoints())
 			{

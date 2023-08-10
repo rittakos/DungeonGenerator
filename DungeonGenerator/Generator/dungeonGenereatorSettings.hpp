@@ -5,7 +5,7 @@
 #include "random.h"
 #include "mazeGeneratorSettings.hpp"
 
-enum GeneratorAlgorithmType {Voronoi, PolygonDivision};
+enum GeneratorAlgorithmType {Voronoi, Delaunay, PolygonDivision};
 
 class DungeonGeneratorSettings
 {

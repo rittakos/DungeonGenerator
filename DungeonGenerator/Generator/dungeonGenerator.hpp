@@ -3,6 +3,7 @@
 #include "dungeonGenereatorSettings.hpp"
 #include "dungeonData.hpp"
 #include "polygonGenerator.hpp"
+#include "delaunay.hpp"
 //#include <mazeGenerator.hpp>
 #include "log.h"
 #include <guard.h>
@@ -21,6 +22,10 @@ public:
 		case Voronoi:
 			Log::info("Generation with Voronoi based algorithm!");
 			algorithm = std::make_shared<Generator::VoronoiBasedGeneratorAlgorithm>();
+			break;
+		case Delaunay:
+			Log::info("Generation with Delanuay based algorithm!");
+			algorithm = std::make_shared<Generator::DelaunayBasedGeneratorAlgorithm>();
 			break;
 		default:
 			algorithm = nullptr;

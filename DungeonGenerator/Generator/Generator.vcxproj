@@ -133,6 +133,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="delaunay.cpp" />
     <ClCompile Include="dungeonGenereatorSettings.cpp" />
     <ClCompile Include="Generator.cpp" />
     <ClCompile Include="generatorAlgorithm.cpp" />
@@ -141,6 +142,7 @@
     <ClCompile Include="polygonGenerator.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="delaunay.hpp" />
     <ClInclude Include="dungeonGenerator.hpp" />
     <ClInclude Include="dungeonGenereatorSettings.hpp" />
     <ClInclude Include="generatorAlgorithm.hpp" />

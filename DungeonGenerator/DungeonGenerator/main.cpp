@@ -465,7 +465,7 @@ int main(int argc, char* argv[])
 	g.generate();*/
 	// problem seeds: 10500 1991662833
 	// working seed: 1870263446
-	DungeonGeneratorSettings generatorSettings(GeneratorAlgorithmType::Voronoi, 100);
+	DungeonGeneratorSettings generatorSettings(GeneratorAlgorithmType::Voronoi, 10);
 
 	Random::SetSeed(generatorSettings.getSeed());
 	
