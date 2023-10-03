@@ -8,22 +8,25 @@
 
 //undirected
 template<class Type>
-class LEMONGraph final : public InternalGraph
+class LEMONGraph final //: public InternalGraph
 {
 private:
-	lemon::ListGraph::NodeMap<Type>* nodeIds;
+	lemon::ListGraph::NodeMap<Type>* nodeMap;
 	lemon::ListGraph* graph;
+	std::vector<lemon::ListDigraph::Arc> edges;
 public:
 	
 	LEMONGraph() 
 	{
 		graph = new lemon::ListGraph();
+		nodeMap = new lemon::ListGraph::NodeMap<Type>(*graph);
 		//Log::info("Graph (LEMON) Created!");
 	}
 
 	~LEMONGraph()
 	{
 		delete graph;
+		delete nodeMap;
 	}
 
 	/*void f()
@@ -33,21 +36,37 @@ public:
 		lemon::ListGraph::NodeMap<int> nodeIds(graph);
 	}*/
 
-	virtual void addNode() override
+	virtual void addNode(const Type& value)
 	{
+		lemon::ListGraph::Node newNode = graph->addNode();
+		(*nodeMap)[newNode] = value;
 		
 		/*lemon::ListGraph::Node newNode = graph->addNode();
 		(*nodeIds)[newNode] = lemon::countNodes<lemon::ListGraph>(*graph);*/
 	}
 
-	virtual void addEdge() override
+	virtual void addEdge(const Type& value1, const Type& value2)
 	{
+		lemon::ListGraph::Node N1;
+		lemon::ListGraph::Node N2;
+
+		for (lemon::ListGraph::NodeIt u(*graph); u != lemon::INVALID; ++u)
+		{
+			lemon::ListGraph::Node N = u;
+			if ((*nodeMap)[N] == value1)
+				N1 = u;
+			if ((*nodeMap)[N] == value2)
+				N2 = u;
+		}
+
+
+		graph->addEdge(N1, N2);
 		//graph.addEdge();
 	}
 
-	virtual void listNodes() override
+	virtual void listNodes()
 	{
-		//for (lemon::ListGraph::NodeIt n(graph); n != lemon::INVALID; ++n)
-			//std::cout << nodeIds[n] << std::endl;
+		/*for (lemon::ListGraph::NodeIt n(graph); n != lemon::INVALID; ++n)
+			std::cout << nodeMap[n] << std::endl;*/
 	}
 };

@@ -4,6 +4,7 @@
 #include "polygon.hpp"
 #include "transformation.hpp"
 #include "quaternion.hpp"
+#include "delaunay.hpp"
 
 using namespace Geometry;
 
@@ -86,9 +87,40 @@ void dividePolygonTest()
 
 }
 
+
+void delanuayTest()
+{
+    std::vector<Math::Vec2f> vertices;
+
+    Math::Vec2f o(0.0f, 0.0f);
+    Math::Vec2f v(0.0f, 1.0f);
+    Math::Vec2f u(1.0f, 0.0f);
+
+    /*std::cout << v.angleWith(u).getDeg() << std::endl;
+    std::cout << u.angleWith(v).getDeg() << std::endl;
+
+    std::cout << Math::getAngle(v, o, u).getDeg() << std::endl;
+    std::cout << Math::getAngle(u, o, v).getDeg() << std::endl;*/
+
+    //vertices.push_back(Math::Vec2f(0.0f, 0.0f));
+    vertices.push_back(Math::Vec2f(1.0f, 0.0f));
+    vertices.push_back(Math::Vec2f(0.0f, 1.0f));
+    vertices.push_back(Math::Vec2f(2.0f, 1.0f));
+    vertices.push_back(Math::Vec2f(1.0f, 1.5f));
+
+    Geometry::Delaunay::DelaunayTriangulator triangulator(vertices);
+
+    Geometry::Delaunay::DelaunayTriangulation triangulation = triangulator.Triangulate();
+    
+    for(const Delaunay::Triangle triangle : triangulation.Triangles)
+        std::cout << triangle.P0.index << "\t" << triangle.P1.index << "\t" << triangle.P2.index << std::endl;
+}
+
 int main()
 {
-    polygonTest();
+    //polygonTest();
     //lineTest();
     //rotateTest();
+
+    delanuayTest();
 }

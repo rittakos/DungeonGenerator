@@ -112,6 +112,8 @@ namespace Math
 		//other functions
 
 		bool hasInverse() { return width == height && !isEqual(Det(*this), 0.0f); }
+
+
 		void swapRows(int row1, int row2)
 		{
 			std::vector<Type> tempRow1;
@@ -126,8 +128,12 @@ namespace Math
 				(*this)(row2, idx) = tempRow1[idx];
 			}
 		}
-		Mat gaussianEliminate()
+
+
+		Mat gaussianEliminate(int& sign)
 		{
+			sign = 1;
+
 			Mat result(*this);
 
 			int rows = height;
@@ -163,6 +169,7 @@ namespace Math
 						if (max_row != row) {
 							result.swapRows(max_row, row);
 							pivot_found = true;
+							sign *= -1;
 						}
 						else {
 							col++;
@@ -189,6 +196,8 @@ namespace Math
 
 			return result;
 		}
+
+
 		Vec<W, Type> getVectorFromRow(int row = 0) const
 		{
 			Vec<W, Type> result;
@@ -198,6 +207,8 @@ namespace Math
 
 			return result;
 		}
+
+
 		Vec<H, Type> getVectorFromCol(int col = 0) const
 		{
 			Vec<H, Type> result;
@@ -254,10 +265,13 @@ namespace Math
 		if (W1 != H1)
 			throw new std::exception();
 		float det = 1.0f;
+		int signal;
 
-		Mat gauss = m.gaussianEliminate();
+		Mat gauss = m.gaussianEliminate(signal);
 		for (int idx = 0; idx < W1 && idx < H1; ++idx)
 			det *= gauss(idx, idx);
+
+		det *= (float)signal;
 
 		return det;
 	}

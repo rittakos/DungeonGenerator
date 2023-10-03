@@ -60,8 +60,17 @@ void angleTest()
 
 void graphTest()
 {
+
 	Log::info("Graph test");
-	LEMONGraph<int> graph;
+	//LEMONGraph<Room> graph;
+
+	/*graph.addNode("alma");
+	graph.addNode("korte");
+	graph.addNode("barack");
+
+	graph.addEdge("alma", "barack");
+	graph.addEdge("alma", "korte");*/
+
 	//graph.f();
 }
 

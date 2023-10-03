@@ -3,7 +3,7 @@
 #include "dungeonGenereatorSettings.hpp"
 #include "dungeonData.hpp"
 #include "polygonGenerator.hpp"
-#include "delaunay.hpp"
+#include "delaunayGenerator.hpp"
 //#include <mazeGenerator.hpp>
 #include "log.h"
 #include <guard.h>
@@ -25,7 +25,7 @@ public:
 			break;
 		case Delaunay:
 			Log::info("Generation with Delanuay based algorithm!");
-			algorithm = std::make_shared<Generator::DelaunayBasedGeneratorAlgorithm>();
+			algorithm = std::make_shared<Generator::DelaunayBasedGeneratorAlgorithm>(settings);
 			break;
 		default:
 			algorithm = nullptr;

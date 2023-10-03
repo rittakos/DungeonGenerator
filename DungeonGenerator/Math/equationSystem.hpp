@@ -89,7 +89,8 @@ namespace Math
 		if (VariableCount > EquationCount)
 			return false;
 
-		Math::Mat<EquationCount, VariableCount + 1> matrix = createMatrix().gaussianEliminate();
+		int signal;
+		Math::Mat<EquationCount, VariableCount + 1> matrix = createMatrix().gaussianEliminate(signal);
 
 		
 		for (int idx = VariableCount - 1; idx >= 0; --idx)

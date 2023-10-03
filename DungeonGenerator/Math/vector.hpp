@@ -224,7 +224,7 @@ namespace Math
 	}
 
 
-	inline Angle getAngle(Vec2f P1, Vec2f P2, Vec2f P3)
+	inline Angle getAngle(Vec2f P1, Vec2f P2, Vec2f P3) //bigger angle if counterclockwise, smaller if clockwise
 	{
 		Vec2f v1 = P1 - P2;
 		Vec2f v2 = P3 - P2;

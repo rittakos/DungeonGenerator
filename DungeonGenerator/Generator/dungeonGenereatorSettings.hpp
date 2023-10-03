@@ -19,17 +19,19 @@ private:
 	float wallWidth;
 	unsigned int level;
 	const GeneratorAlgorithmType generatorAlgorithmType;
+	int roomCount;
 public:
-	DungeonGeneratorSettings(GeneratorAlgorithmType algorithmType, int seed) 
+	DungeonGeneratorSettings(GeneratorAlgorithmType algorithmType, unsigned int seed, std::optional<int> roomCount) 
 		: seed{ seed }, generatorAlgorithmType(algorithmType)
 	{
-		
+		roomCount = roomCount.value();
 	}
 	//DungeonGeneratorSettings() : seed(){}
 
 
-	Random::Seed getSeed() const { return seed; }
+	Random::Seed getSeed() const					{ return seed; }
 	GeneratorAlgorithmType getAlgorithmType() const { return generatorAlgorithmType; }
+	int getRoomCount() const						{ return roomCount; }
 
 	//std::shared_ptr<RoomsGeneratorSettings>			CreateRoomsGenerationSettings();
 	//std::shared_ptr<RoomInternalGeneratorSettings>	CreateRoomInternalGeneratorSettings();
