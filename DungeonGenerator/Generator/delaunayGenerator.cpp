@@ -18,7 +18,7 @@ namespace Generator
 		}
 	}
 
-	std::vector<Geometry::Polygon> DelaunayBasedGeneratorAlgorithm::createPolygons(const std::vector<Geometry::Delaunay::Triangle>& triangles) const
+	std::vector<Geometry::Polygon> DelaunayBasedGeneratorAlgorithm::createPolygons(const Geometry::Delaunay::DelaunayTriangulation& triangulation) const
 	{
 		//TODO
 		return std::vector<Geometry::Polygon>();
@@ -43,10 +43,10 @@ namespace Generator
 	{
 		Geometry::Delaunay::DelaunayTriangulator triangulator(points);
 
-		std::vector<Geometry::Delaunay::Triangle> triangles = triangulator.Triangulate(Geometry::Delaunay::ClockWise);
+		Geometry::Delaunay::DelaunayTriangulation triangulation = triangulator.Triangulate(Geometry::Delaunay::ClockWise);
 
 
-		for (Geometry::Polygon poly : createPolygons(triangles))
+		for (Geometry::Polygon poly : createPolygons(triangulation))
 		{
 			dungeonData.floors.push_back(Data::LayoutData(poly));
 		}

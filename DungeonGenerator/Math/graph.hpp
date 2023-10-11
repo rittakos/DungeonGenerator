@@ -96,6 +96,9 @@ namespace Math
 		void addNode(const Type& value, bool forcedAdd = false);
 		void addEdge(const Type& from, const Type& to, bool forcedAdd = false);
 
+		std::unordered_map<Node, Type>				getNodes() const { return values; }
+		std::unordered_map<Node, std::vector<Node>> getEdges() const { return neighbours; }
+
 
 		template<class Type1, class Type2> 
 		friend bool operator==(Graph<Type1> graph1, Graph<Type2> graph2);
@@ -144,7 +147,7 @@ namespace Math
 			++maxId;
 		}
 
-		throw new std::exception("Can not add Node!");
+		//throw new std::exception("Can not add Node!");
 	}
 
 	template<class Type>
@@ -155,7 +158,7 @@ namespace Math
 			neighbours[getNodeFromValue(from)].push_back(getNodeFromValue(to));
 		}
 
-		throw new std::exception("Can not add Edge!");
+		//throw new std::exception("Can not add Edge!");
 	}
 
 	template<class Type1, class Type2>

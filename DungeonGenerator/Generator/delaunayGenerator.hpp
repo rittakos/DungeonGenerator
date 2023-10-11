@@ -15,7 +15,7 @@ namespace Generator
 		std::vector<Math::Vec2f> points;
 
 		void generatePoints();
-		std::vector<Geometry::Polygon> createPolygons(const std::vector<Geometry::Delaunay::Triangle>& triangles) const;
+		std::vector<Geometry::Polygon> createPolygons(const Geometry::Delaunay::DelaunayTriangulation& triangulation) const;
 
 		Math::Vec2f calcOutterCircleCenter(const Geometry::Delaunay::Triangle& triangle) const;
 

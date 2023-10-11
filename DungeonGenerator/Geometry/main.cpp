@@ -92,9 +92,9 @@ void delanuayTest()
 {
     std::vector<Math::Vec2f> vertices;
 
-    Math::Vec2f o(0.0f, 0.0f);
+    /*Math::Vec2f o(0.0f, 0.0f);
     Math::Vec2f v(0.0f, 1.0f);
-    Math::Vec2f u(1.0f, 0.0f);
+    Math::Vec2f u(1.0f, 0.0f);*/
 
     /*std::cout << v.angleWith(u).getDeg() << std::endl;
     std::cout << u.angleWith(v).getDeg() << std::endl;
@@ -106,6 +106,7 @@ void delanuayTest()
     vertices.push_back(Math::Vec2f(1.0f, 0.0f));
     vertices.push_back(Math::Vec2f(0.0f, 1.0f));
     vertices.push_back(Math::Vec2f(2.0f, 1.0f));
+    vertices.push_back(Math::Vec2f(1.5f, 2.0f));
     vertices.push_back(Math::Vec2f(1.0f, 1.5f));
 
     Geometry::Delaunay::DelaunayTriangulator triangulator(vertices);
@@ -114,6 +115,10 @@ void delanuayTest()
     
     for(const Delaunay::Triangle triangle : triangulation.Triangles)
         std::cout << triangle.P0.index << "\t" << triangle.P1.index << "\t" << triangle.P2.index << std::endl;
+
+    auto nodes = triangulation.Neighbours.getNodes();
+    auto edges = triangulation.Neighbours.getEdges();
+    //for(auto& [key, value] : triangulation.Neighbours.getNodes())
 }
 
 int main()
