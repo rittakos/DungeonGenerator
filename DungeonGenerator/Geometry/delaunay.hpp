@@ -48,9 +48,10 @@ namespace Geometry
 
 			Triangle(const PointIndex& p0, const PointIndex& p1, const PointIndex& p2);
 
-			bool				hasPoint(const PointIndex& P) const;
-			bool				hasEdge(const Edge& edge) const;
-			std::array<Edge, 3> getEdges() const;
+			bool						hasPoint(const PointIndex& P) const;
+			bool						hasEdge(const Edge& edge) const;
+			std::array<Edge, 3>			getEdges() const;
+			std::array<PointIndex, 3>	getPoints() const;
 
 			void rotate();
 

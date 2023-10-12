@@ -1,5 +1,6 @@
 #include "generatorAlgorithm.hpp"
 #include <math.h>
+#include "log.h"
 
 namespace Generator
 {

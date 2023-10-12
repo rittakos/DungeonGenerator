@@ -13,11 +13,14 @@ namespace Generator
 	private:
 		const unsigned int pointCount;
 		std::vector<Math::Vec2f> points;
+		Geometry::Delaunay::DelaunayTriangulation triangulation;
 
 		void generatePoints();
 		std::vector<Geometry::Polygon> createPolygons(const Geometry::Delaunay::DelaunayTriangulation& triangulation) const;
 
 		Math::Vec2f calcOutterCircleCenter(const Geometry::Delaunay::Triangle& triangle) const;
+		Math::Angle getSumAngleAroundPoint(int pointIdx, const std::vector<Geometry::Delaunay::Triangle>& trainglesAround) const;
+		Math::Angle getAngleOfTriangle(const Geometry::Delaunay::Triangle& triangle, int pointIdx) const;
 
 	public:
 		DelaunayBasedGeneratorAlgorithm(const DungeonGeneratorSettings& settings);

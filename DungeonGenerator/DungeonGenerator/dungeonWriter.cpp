@@ -1,6 +1,7 @@
 #include "dungeonWriter.hpp"
 #include "fstream"
 #include "cassert"
+#include "log.h"
 
 namespace IO
 {

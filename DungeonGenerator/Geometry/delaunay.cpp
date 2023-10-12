@@ -277,6 +277,11 @@ namespace Geometry
             return edges;
         }
 
+        std::array<PointIndex, 3> Triangle::getPoints() const
+        {
+            return { P0, P1, P2 };
+        }
+
         Edge& Edge::operator=(const Edge& other)
         {
             this->P0 = other.P0;
