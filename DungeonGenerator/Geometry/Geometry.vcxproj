@@ -20,20 +20,24 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="delaunay.hpp" />
+    <ClInclude Include="delaunayBase.hpp" />
     <ClInclude Include="edge.hpp" />
     <ClInclude Include="geometry.hpp" />
     <ClInclude Include="line.hpp" />
     <ClInclude Include="polygon.hpp" />
+    <ClInclude Include="polygonTriangulator.hpp" />
     <ClInclude Include="straightLine.hpp" />
     <ClInclude Include="transformation.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="delaunay.cpp" />
+    <ClCompile Include="delaunayBase.cpp" />
     <ClCompile Include="edge.cpp" />
     <ClCompile Include="geometry.cpp" />
     <ClCompile Include="line.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="polygon.cpp" />
+    <ClCompile Include="polygonTriangulator.cpp" />
     <ClCompile Include="straightLine.cpp" />
     <ClCompile Include="transformation.cpp" />
   </ItemGroup>

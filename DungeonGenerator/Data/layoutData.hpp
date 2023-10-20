@@ -2,6 +2,8 @@
 
 #include "polygon.hpp"
 
+#include "delaunay.hpp"
+
 namespace Data
 {
 
@@ -20,11 +22,20 @@ namespace Data
 			for (Math::Vec2f p : polygon.getPoints())
 				points.push_back(Math::Vec3f(p[0], p[1], 0.0f));
 
-			for (int idx = 1; idx < points.size() - 1; ++idx)
+			Geometry::Delaunay::DelaunayTriangulator triangulator(polygon.getPoints());
+			Geometry::Delaunay::DelaunayTriangulation triangulation = triangulator.Triangulate(Geometry::Delaunay::ClockWise);
+				
+			for (const auto& triangle : triangulation.Triangles)
+			{
+				triangles.push_back(Math::Vec3i(triangle.P0.index, triangle.P1.index, triangle.P2.index));
+				counterTriangles.push_back(Math::Vec3i(triangle.P2.index, triangle.P1.index, triangle.P0.index));
+			}
+
+			/*for (int idx = 1; idx < points.size() - 1; ++idx)
 			{
 				triangles.push_back(Math::Vec3i(idx + 1, idx, 0));
 				counterTriangles.push_back(Math::Vec3i(0, idx, idx + 1));
-			}
+			}*/
 		}
 
 

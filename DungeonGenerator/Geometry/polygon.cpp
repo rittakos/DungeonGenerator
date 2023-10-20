@@ -82,6 +82,23 @@ namespace Geometry
         calculateConvexity();
     }
 
+    bool Polygon::addHole(const Polygon& hole)
+    {
+        for (const Math::Vec2f& p : hole.getPoints())
+            if (!isPointInside(p))
+                return false;
+
+        holes.push_back(hole);
+
+        return true;
+    }
+
+    bool Polygon::isPointInside(const Math::Vec2f& point) const
+    {
+        // TODO
+        return true;
+    }
+
     bool	Polygon::exists() const
     {
         if (n < 3)

@@ -6,7 +6,7 @@
 namespace IO
 {
 
-	DungeonWriter::DungeonWriter(const Data::DungeonData& dungeonData, std::string path) : file(path), data(dungeonData)
+	DungeonWriter::DungeonWriter(const Data::DungeonData& dungeonData, std::string path) : file(path, std::ofstream::out), data(dungeonData)
 	{
 		assert(file.is_open());
 		if (!file.is_open())

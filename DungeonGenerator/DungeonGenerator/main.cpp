@@ -472,7 +472,7 @@ int main(int argc, char* argv[])
 	Dungeon dungeon;
 	dungeon.generate(generatorSettings);
 
-	dungeon.save("C:\\Users\\akosr\\OneDrive\\Desktop\\dungeon.dg");
+	dungeon.save("C:\\Projects\\dungeon.dg");
 
 	//Data::DungeonData dungeonData;
 	//dungeonData.write(std::cout);

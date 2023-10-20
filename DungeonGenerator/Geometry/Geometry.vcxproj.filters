@@ -36,6 +36,12 @@
     <ClInclude Include="geometry.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="delaunayBase.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="polygonTriangulator.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="straightLine.cpp">
@@ -60,6 +66,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="geometry.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="delaunayBase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="polygonTriangulator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

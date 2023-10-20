@@ -14,6 +14,8 @@ namespace Geometry
 		int n;
 		bool convex;
 
+		std::vector<Polygon> holes;
+
 		void calculateConvexity ();
 		void addEdges();
 
@@ -27,6 +29,10 @@ namespace Geometry
 		float	Area() const;
 		void	addPoint(Math::Vec2f p);
 
+		bool					addHole(const Polygon& hole);
+		std::vector<Polygon>	getHoles() const { return holes; }
+
+		bool	isPointInside(const Math::Vec2f& point) const;
 		bool	isConvex() const { return convex; }
 		bool	exists() const;
 		bool	containsPoint(const Math::Vec2f& P) const;

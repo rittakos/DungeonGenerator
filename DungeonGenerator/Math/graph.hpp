@@ -133,8 +133,18 @@ namespace Math
 	template<class Type>
 	bool Graph<Type>::containsEdge(const Type& from, const Type& to) const
 	{
-		//TODO
-		return false;
+		Node fromNode = getNodeFromValue(from);
+		Node toNode = getNodeFromValue(to);
+
+		try
+		{
+			std::vector<Node> nextNodes = neighbours.at(fromNode);
+			return std::find(nextNodes.begin(), nextNodes.end(), toNode) != std::end(nextNodes);
+		}
+		catch (...)
+		{
+			return false;
+		}
 	}
 
 	template<class Type>

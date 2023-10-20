@@ -12,11 +12,14 @@ namespace Generator
 		{
 			//Math::Vec2f newPoint;
 
+			float i = 0.0f;
+
 			for (int col = 0; col < 3; col++)
 			{
 				for (int row = 0; row < 3; row++)
 				{
-					points.push_back(Math::Vec2f{row * 100.0f, col * 100.0f});
+					points.push_back(Math::Vec2f{row * 100.0f, col * 100.0f + i});
+					i += 10.0f;
 				}
 			}
 
@@ -43,15 +46,45 @@ namespace Generator
 				relevantPoints.push_back(idx);
 		}
 
+		std::vector<std::vector<int>> polygonsWithIndices; //nope
+		std::vector<Geometry::Polygon> polygons;
+
+		for (int i = 0; i < relevantPoints.size(); ++i)
+		{
+			int p = relevantPoints[i];
+			//std::vector<Geometry::Delaunay::Triangle> trianglesInOrder;
+			std::vector<int> trianglesInOrder;
+			trianglesInOrder.push_back(0);
+			while (trianglesInOrder.size() != points[p].size())
+			{
+				for (int idx = 1; idx < points[p].size(); ++idx)
+				{
+					if (std::find(trianglesInOrder.begin(), trianglesInOrder.end(), idx) != std::end(trianglesInOrder))
+						continue;
+					if (triangulation.Neighbours.containsEdge(points[p][idx], points[p][trianglesInOrder.back()]))
+						trianglesInOrder.push_back(idx);
+				}
+			}
+
+			Geometry::Polygon newPolygon;
+
+			for (int triangleId : trianglesInOrder)
+			{
+				newPolygon.addPoint(calcOutterCircleCenter(points[p][triangleId]));
+			}
+
+			polygons.push_back(newPolygon);
+		}
+
 		//TODO
-		return std::vector<Geometry::Polygon>();
+		return polygons;
 	}
 
 	Math::Vec2f DelaunayBasedGeneratorAlgorithm::calcOutterCircleCenter(const Geometry::Delaunay::Triangle& triangle) const
 	{
-		Math::Vec2f A = points[0];
-		Math::Vec2f B = points[1];
-		Math::Vec2f C = points[2];
+		Math::Vec2f A = points[triangle.P0.index];
+		Math::Vec2f B = points[triangle.P1.index];
+		Math::Vec2f C = points[triangle.P2.index];
 
 		return Geometry::calcTriangleOutterCircleCenter({ A, B, C });
 	}
