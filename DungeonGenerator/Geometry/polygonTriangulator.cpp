@@ -16,7 +16,21 @@ namespace Geometry::Delaunay
 		if (polygon.getHoles().empty())
 			return;
 
-		//TODO
+		std::vector<Triangle> neededTriangles;
+
+		for (const Triangle& triangle : triangulation.Triangles)
+		{
+			if (holeIds.contains(triangle.P0.index) &&
+				holeIds.contains(triangle.P1.index) &&
+				holeIds.contains(triangle.P2.index))
+			{
+				continue;
+			}
+
+			neededTriangles.push_back(triangle);
+		}
+
+		triangulation.Triangles = neededTriangles;
 
 	}
 

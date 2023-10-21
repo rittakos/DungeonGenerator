@@ -20,14 +20,18 @@ namespace Data
 	public:
 		LayoutData(const Geometry::Polygon& polygon) : polygon(polygon)
 		{
-			for (Math::Vec2f p : polygon.getPoints())
-				points.push_back(Math::Vec3f(p[0], p[1], 0.0f));
+			/*for (Math::Vec2f p : polygon.getPoints())
+				points.push_back(Math::Vec3f(p[0], p[1], 0.0f));*/
 
 			//Geometry::Delaunay::DelaunayTriangulator triangulator(polygon.getPoints());
 			//Geometry::Delaunay::DelaunayTriangulation triangulation = triangulator.Triangulate(Geometry::Delaunay::ClockWise);
+			
 			Geometry::Delaunay::PolygonTriangulator triangulator(polygon);
 			Geometry::Delaunay::DelaunayTriangulation triangulation = triangulator.Triangulate(Geometry::Delaunay::ClockWise);
 				
+			for (Math::Vec2f p : triangulation.Vertices)
+				points.push_back(Math::Vec3f(p[0], p[1], 0.0f));
+
 			for (const auto& triangle : triangulation.Triangles)
 			{
 				triangles.push_back(Math::Vec3i(triangle.P0.index, triangle.P1.index, triangle.P2.index));

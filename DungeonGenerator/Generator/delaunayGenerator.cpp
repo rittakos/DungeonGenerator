@@ -149,6 +149,17 @@ namespace Generator
 
 		for (Geometry::Polygon poly : createPolygons(triangulation))
 		{
+			Geometry::Polygon hole;
+
+			hole.addPoint(Math::Vec2f(90.0f, 90.0f));
+			hole.addPoint(Math::Vec2f(90.0f, 120.0f));
+			hole.addPoint(Math::Vec2f(120.0f, 90.0f));
+			hole.addPoint(Math::Vec2f(120.0f, 120.0f));
+
+			bool succes = poly.addHole(hole);
+			if (!succes)
+				std::cout << "cant add hole";
+
 			Data::RoomData room (poly);
 			dungeonData.addRoom(room);
 			//dungeonData.floors.push_back(Data::LayoutData(poly));
