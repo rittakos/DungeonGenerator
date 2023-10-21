@@ -3,9 +3,10 @@
 
 #pragma once
 
-#include "polygon.hpp"
-#include <optional>
-#include "roomDescription.hpp"
+#include <vector>
+
+#include "layoutData.hpp"
+#include "wallData.hpp"
 
 namespace Data
 {
@@ -13,10 +14,17 @@ namespace Data
 	class RoomData
 	{
 	private:
-		int id; //0, 1...
-		std::optional<RoomDescriptionData> roomDescription;
+		static int nextId;
+
+		const int id; //0, 1... unique
+
+		LayoutData floor;
+		std::vector<WallData> walls;
 	public:
-		RoomData();
+		RoomData(const Geometry::Polygon& polygon);
+
+		LayoutData				getFloor() const { return floor; }
+		std::vector<WallData>	getWalls() const { return walls; }
 	};
 
 }

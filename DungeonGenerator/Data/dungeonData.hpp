@@ -23,9 +23,9 @@ namespace Data
 		std::vector<RoomData> rooms;
 		MazeData mazeData;
 
-	public:
 		std::vector<LayoutData> floors;
 		std::vector<WallData> walls;
+	public:
 
 		DungeonData() : seed(Random::GetSeed()) {}
 
@@ -38,10 +38,12 @@ namespace Data
 		}
 		virtual ~DungeonData() override = default;
 
+		void addRoom(const RoomData& room);
+
 		int getVersion() const { return version; }
 		unsigned int getSeed() const { return seed.getUnsignedValue(); }
-		std::vector<LayoutData> getFloors() const { return floors; }
-		std::vector<WallData> getWalls() const { return walls; }
+		std::vector<LayoutData> getFloors() const;
+		std::vector<WallData> getWalls() const;
 	};
 }
 

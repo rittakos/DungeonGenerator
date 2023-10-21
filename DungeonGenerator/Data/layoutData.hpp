@@ -3,6 +3,7 @@
 #include "polygon.hpp"
 
 #include "delaunay.hpp"
+#include <polygonTriangulator.hpp>
 
 namespace Data
 {
@@ -22,7 +23,9 @@ namespace Data
 			for (Math::Vec2f p : polygon.getPoints())
 				points.push_back(Math::Vec3f(p[0], p[1], 0.0f));
 
-			Geometry::Delaunay::DelaunayTriangulator triangulator(polygon.getPoints());
+			//Geometry::Delaunay::DelaunayTriangulator triangulator(polygon.getPoints());
+			//Geometry::Delaunay::DelaunayTriangulation triangulation = triangulator.Triangulate(Geometry::Delaunay::ClockWise);
+			Geometry::Delaunay::PolygonTriangulator triangulator(polygon);
 			Geometry::Delaunay::DelaunayTriangulation triangulation = triangulator.Triangulate(Geometry::Delaunay::ClockWise);
 				
 			for (const auto& triangle : triangulation.Triangles)
@@ -41,11 +44,6 @@ namespace Data
 
 		std::vector<Math::Vec3i> getTrianglesClockWise() const
 		{
-			/*std::vector<Math::Vec3i> triangles;
-
-			triangles.push_back(Math::Vec3i{ 0, 1, 2 });
-			triangles.push_back(Math::Vec3i{ 0, 2, 3 });*/
-
 			return triangles;
 		}
 
@@ -56,15 +54,6 @@ namespace Data
 
 		std::vector<Math::Vec3f> getPoints() const
 		{
-			/*std::vector<Math::Vec3f> points;
-
-			points.push_back(Math::Vec3f{   0.0f,   0.0f, 0.0f });
-			points.push_back(Math::Vec3f{   0.0f, 100.0f, 0.0f });
-			points.push_back(Math::Vec3f{ 100.0f, 100.0f, 0.0f });
-			points.push_back(Math::Vec3f{ 100.0f,   0.0f, 0.0f });
-
-			return points;*/
-
 			return points;
 		}
 	};

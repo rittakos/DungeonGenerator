@@ -146,12 +146,15 @@ namespace Generator
 		triangulation = triangulator.Triangulate(Geometry::Delaunay::ClockWise);
 
 
+
 		for (Geometry::Polygon poly : createPolygons(triangulation))
 		{
-			dungeonData.floors.push_back(Data::LayoutData(poly));
+			Data::RoomData room (poly);
+			dungeonData.addRoom(room);
+			//dungeonData.floors.push_back(Data::LayoutData(poly));
 		}
 
-		for (const Data::LayoutData& poly : dungeonData.floors)
+		/*for (const Data::LayoutData& poly : dungeonData.floors)
 		{
 			std::vector<Math::Vec3f> points = poly.getPoints();
 			for (int idx = 0; idx < points.size() - 1; ++idx)
@@ -159,7 +162,7 @@ namespace Generator
 				dungeonData.walls.push_back(Data::WallData(points[idx], points[idx + 1]));
 			}
 			dungeonData.walls.push_back(Data::WallData(points[points.size() - 1], points[0]));
-		}
+		}*/
 	}
 
 }

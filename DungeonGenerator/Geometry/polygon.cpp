@@ -95,8 +95,26 @@ namespace Geometry
 
     bool Polygon::isPointInside(const Math::Vec2f& point) const
     {
-        // TODO
-        return true;
+        Math::Vec2f v(1.0f, 0.0f);
+        Line line(point, point + v);
+
+        int intersectionCount = 0;
+
+        for (const Edge& edge : edges)
+        {
+            std::optional<Math::Vec2f> i = getIntersectionPoint(edge, line);
+            if (!i.has_value())
+                continue;
+
+            float x = i.value()[0];
+            if (x > point[0])
+                ++intersectionCount;
+        }
+
+        if (intersectionCount % 2 == 1)
+            return true;
+
+        return false;
     }
 
     bool	Polygon::exists() const
