@@ -3,6 +3,8 @@
 #include "cassert"
 #include "log.h"
 
+#include "write.hpp"
+
 namespace IO
 {
 
@@ -41,22 +43,7 @@ namespace IO
 	{
 		for (Data::LayoutData& layout : data.getFloors())
 		{
-			file << "Floor" << endOfLine;
-			file << layout.getPoints().size() << " " << layout.getTrianglesClockWise().size() + layout.getTrianglesCounterClockwise().size() << endOfLine;
-			for (Math::Vec3f point : layout.getPoints())
-			{
-				file << point[0] << " " << point[1] << " " << point[2] << endOfLine;
-			}
-
-			for (Math::Vec3i triangle : layout.getTrianglesClockWise())
-			{
-				file << triangle[0] << " " << triangle[1] << " " << triangle[2] << endOfLine;
-			}
-
-			for (Math::Vec3i triangle : layout.getTrianglesCounterClockwise())
-			{
-				file << triangle[0] << " " << triangle[1] << " " << triangle[2] << endOfLine;
-			}
+			IO::write(layout, file);
 		}
 	}
 
@@ -64,22 +51,7 @@ namespace IO
 	{
 		for (Data::WallData& wall : data.getWalls())
 		{
-			file << "Wall" << endOfLine;
-			file << wall.getPoints().size() << " " << wall.getTrianglesClockWise().size() + wall.getTrianglesCounterClockwise().size() << endOfLine;
-			for (Math::Vec3f point : wall.getPoints())
-			{
-				file << point[0] << " " << point[1] << " " << point[2] << endOfLine;
-			}
-
-			for (Math::Vec3i triangle : wall.getTrianglesClockWise())
-			{
-				file << triangle[0] << " " << triangle[1] << " " << triangle[2] << endOfLine;
-			}
-
-			for (Math::Vec3i triangle : wall.getTrianglesCounterClockwise())
-			{
-				file << triangle[0] << " " << triangle[1] << " " << triangle[2] << endOfLine;
-			}
+			IO::write(wall, file);
 		}
 	}
 

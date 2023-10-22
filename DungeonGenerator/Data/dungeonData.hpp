@@ -12,7 +12,7 @@
 
 namespace Data
 {
-	class DungeonData : public PersistentData
+	class DungeonData
 	{
 	private:
 		int version = 0;
@@ -29,14 +29,13 @@ namespace Data
 
 		DungeonData() : seed(Random::GetSeed()) {}
 
-		virtual std::string toString() const override
+		std::string toString() const
 		{
 			std::string result = "";
 			result += std::to_string(version) + "\n";
 			result += "DG\n";
 			return result;
 		}
-		virtual ~DungeonData() override = default;
 
 		void addRoom(const RoomData& room);
 

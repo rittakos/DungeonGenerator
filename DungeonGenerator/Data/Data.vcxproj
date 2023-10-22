@@ -144,7 +144,6 @@
     <ClInclude Include="layoutData.hpp" />
     <ClInclude Include="maze.hpp" />
     <ClInclude Include="room.hpp" />
-    <ClInclude Include="roomDescription.hpp" />
     <ClInclude Include="wallData.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

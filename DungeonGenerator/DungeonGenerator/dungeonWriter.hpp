@@ -11,7 +11,6 @@ namespace IO
 		std::ofstream file;
 		Data::DungeonData data;
 
-		const std::string endOfLine = "\n";
 	public:
 		DungeonWriter(const Data::DungeonData& dungeonData, std::string path);
 		~DungeonWriter();

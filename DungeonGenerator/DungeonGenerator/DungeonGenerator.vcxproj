@@ -139,23 +139,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="component.hpp" />
     <ClInclude Include="dungeon.hpp" />
     <ClInclude Include="dungeonWriter.hpp" />
     <ClInclude Include="generationSettings.hpp" />
-    <ClInclude Include="generator.hpp" />
-    <ClInclude Include="layout.hpp" />
-    <ClInclude Include="room.hpp" />
-    <ClInclude Include="roomInternal.hpp" />
-    <ClInclude Include="roomSystem.hpp" />
-    <ClInclude Include="wall.hpp" />
+    <ClInclude Include="write.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dungeon.cpp" />
     <ClCompile Include="dungeonWriter.cpp" />
     <ClCompile Include="generationSettings.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="room.cpp" />
+    <ClCompile Include="write.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

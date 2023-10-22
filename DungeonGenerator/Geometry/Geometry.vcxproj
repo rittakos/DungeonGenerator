@@ -26,7 +26,6 @@
     <ClInclude Include="line.hpp" />
     <ClInclude Include="polygon.hpp" />
     <ClInclude Include="polygonTriangulator.hpp" />
-    <ClInclude Include="straightLine.hpp" />
     <ClInclude Include="transformation.hpp" />
   </ItemGroup>
   <ItemGroup>
@@ -38,7 +37,6 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="polygon.cpp" />
     <ClCompile Include="polygonTriangulator.cpp" />
-    <ClCompile Include="straightLine.cpp" />
     <ClCompile Include="transformation.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

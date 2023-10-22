@@ -35,9 +35,6 @@
     <ClInclude Include="dungeonData.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="roomDescription.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="data.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>

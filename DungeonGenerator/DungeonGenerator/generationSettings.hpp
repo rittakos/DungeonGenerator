@@ -18,39 +18,3 @@ public:
 	void save(std::string path);
 	void save();
 };
-
-//#include <memory>
-//
-//
-////class GenerationSettings
-////{
-////private:
-////	bool	fixSeed;
-////	long	seed;
-////
-////
-////	void	generateSeed();
-////
-////protected:
-////	GenerationSettings(int seed);
-////	GenerationSettings();
-////public:
-////
-////	int		getSeed() const;
-////};
-//
-//class RoomsGeneratorSettings;
-//class RoomInternalGeneratorSettings;
-//class MazeGeneratorSettings;
-//
-//
-//
-//class RoomsGeneratorSettings
-//{
-//
-//};
-//
-//class RoomInternalGeneratorSettings
-//{
-//
-//};

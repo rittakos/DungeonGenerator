@@ -18,42 +18,21 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="room.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="dungeon.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="generationSettings.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="component.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="layout.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="wall.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="generator.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="roomSystem.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="roomInternal.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="dungeonWriter.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="write.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="room.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="generationSettings.cpp">
@@ -63,6 +42,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="dungeonWriter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="write.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
