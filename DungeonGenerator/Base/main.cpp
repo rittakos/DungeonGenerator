@@ -1,11 +1,11 @@
 
 //#include "log.h"
-#include "random.h"
+//#include "random.h"
 //import log;
 
 
 
-int main(int argc, char* argv[])
+int main()
 {
 	/*Log::Logger logger;
 	logger.info("dsfdsf");*/

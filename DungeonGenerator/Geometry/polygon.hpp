@@ -39,7 +39,7 @@ namespace Geometry
 		
 		Math::Angle calcInnerAngle() const { return ((float)(n - 2)) * 180.0_deg; }
 
-		float	beauty() const;
+		float	beauty() const { return 0.0f; /*TODO*/ }
 
 		friend std::vector<Math::Vec2f> getIntersectionPoints(const Line& line, const Polygon& polygon);
 		friend std::vector<Polygon> dividePolygonByLine(const Line& line, const Polygon& polygon);

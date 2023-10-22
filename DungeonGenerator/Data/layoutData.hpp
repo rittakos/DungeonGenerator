@@ -1,9 +1,7 @@
 #pragma once
 
 #include "polygon.hpp"
-
-#include "delaunay.hpp"
-#include <polygonTriangulator.hpp>
+#include "polygonTriangulator.hpp"
 
 namespace Data
 {

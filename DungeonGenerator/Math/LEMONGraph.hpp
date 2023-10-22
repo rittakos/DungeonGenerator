@@ -1,7 +1,5 @@
 #pragma once
 
-#include "internalGraph.hpp"
-
 #include "lemon/list_graph.h"
 
 //using: http://lemon.cs.elte.hu/trac/lemon
@@ -36,7 +34,7 @@ public:
 		lemon::ListGraph::NodeMap<int> nodeIds(graph);
 	}*/
 
-	virtual void addNode(const Type& value)
+	void addNode(const Type& value) override
 	{
 		lemon::ListGraph::Node newNode = graph->addNode();
 		(*nodeMap)[newNode] = value;
@@ -45,26 +43,28 @@ public:
 		(*nodeIds)[newNode] = lemon::countNodes<lemon::ListGraph>(*graph);*/
 	}
 
-	virtual void addEdge(const Type& value1, const Type& value2)
+	void addEdge(const Type& value1, const Type& value2) override
 	{
 		lemon::ListGraph::Node N1;
 		lemon::ListGraph::Node N2;
 
-		for (lemon::ListGraph::NodeIt u(*graph); u != lemon::INVALID; ++u)
+
+		// TODO ?????
+		/*for (lemon::ListGraph::NodeIt u(*graph); u != lemon::INVALID; ++u)
 		{
 			lemon::ListGraph::Node N = u;
 			if ((*nodeMap)[N] == value1)
 				N1 = u;
 			if ((*nodeMap)[N] == value2)
 				N2 = u;
-		}
+		}*/
 
 
 		graph->addEdge(N1, N2);
 		//graph.addEdge();
 	}
 
-	virtual void listNodes()
+	void listNodes() override
 	{
 		/*for (lemon::ListGraph::NodeIt n(graph); n != lemon::INVALID; ++n)
 			std::cout << nodeMap[n] << std::endl;*/

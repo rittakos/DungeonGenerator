@@ -1,6 +1,5 @@
 #include "quaternion.hpp"
 
-#include "math.hpp"
 #include <iostream>
 
 namespace Math

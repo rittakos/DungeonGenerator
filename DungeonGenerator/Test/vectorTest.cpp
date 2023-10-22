@@ -72,7 +72,6 @@ TEST_F(VectorTest, LogicalOperatorVec3Test)
 
 TEST_F(VectorTest, ArithmeticlOperatorVec3fTest)
 {
-	Math::Vec3f v;
 	EXPECT_TRUE(nullVector == v1 - v1);							//-
 	EXPECT_TRUE(v2 - v4 == Math::Vec3f(1.3f, -8.0f, -6.2f));	//-
 	EXPECT_TRUE(v2 - nullVector == v2);							//-

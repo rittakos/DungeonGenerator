@@ -76,7 +76,7 @@ namespace std
 	template <>
 	struct hash<Geometry::Delaunay::DelaunayTriangulation>
 	{
-		size_t operator()(const Geometry::Delaunay::DelaunayTriangulation& record) const
+		size_t operator()(const Geometry::Delaunay::DelaunayTriangulation& record) const noexcept
 		{
 			return hash<int>()(record.Triangles.size());
 		}

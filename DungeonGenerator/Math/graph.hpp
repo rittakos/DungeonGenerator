@@ -10,7 +10,6 @@
 #include <map>
 #include <unordered_map>
 
-#include "internalGraph.hpp"
 
 namespace Math
 {

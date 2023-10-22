@@ -9,32 +9,31 @@ class Guard
 {
 public: 
 
-	virtual void end() const = 0;
+	virtual ~Guard() = default;
 };
 
-class LeakDetectionGuard : public Guard
+class LeakDetectionGuard final : public Guard
 {
 public:
 	LeakDetectionGuard() = default;
 
-	virtual void end() const override { _CrtDumpMemoryLeaks(); }
-	virtual ~LeakDetectionGuard() { end(); };
+	void end() const { _CrtDumpMemoryLeaks(); }
+	virtual ~LeakDetectionGuard() override { end(); }
 };
 
-class TimeGuard : public Guard
+class TimeGuard final : public Guard
 {
-private:
 	std::chrono::steady_clock::time_point startTime;
 	const std::string text;
 public:
-	TimeGuard(std::string text = "") : text{text} { startTime = std::chrono::steady_clock::now(); }
+	explicit TimeGuard(std::string text = "") : text{text} { startTime = std::chrono::steady_clock::now(); }
 
-	virtual void end() const override 
+	void end() const 
 	{ 
 		std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
 		long long elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end - startTime).count();
 		std::string result = "elapsed time: " + std::to_string(elapsed) + "ms";
 		Log::info(text + " " + result);
 	}
-	virtual ~TimeGuard() { end(); };
+	virtual ~TimeGuard() override { end(); }
 };

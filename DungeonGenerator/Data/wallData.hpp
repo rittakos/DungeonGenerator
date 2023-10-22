@@ -45,7 +45,7 @@ namespace Data
 			points.push_back(Math::Vec3f{   0.0f, 100.0f, 0.0f });
 			points.push_back(Math::Vec3f{ 100.0f, 100.0f, 0.0f });
 			points.push_back(Math::Vec3f{ 100.0f, 0.0f, 0.0f });*/
-			Math::Vec3f v = (P1 - P2).getNormalised();
+			//Math::Vec3f v = (P1 - P2).getNormalised();
 			Math::Vec3f up(0.0f, 0.0f, 1.0f);
 			
 			points.push_back(P1);

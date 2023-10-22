@@ -5,10 +5,10 @@
 
 #include "room.hpp"
 #include "maze.hpp"
-#include "data.hpp"
 #include <random.h>
 #include "layoutData.hpp"
 #include "wallData.hpp"
+#include <string>
 
 namespace Data
 {
@@ -19,7 +19,7 @@ namespace Data
 		Random::Seed seed;
 
 	private:
-		int roomCount;
+		//int roomCount;
 		std::vector<RoomData> rooms;
 		MazeData mazeData;
 

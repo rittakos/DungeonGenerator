@@ -4,7 +4,7 @@
 #include <random>
 
 Random::Seed  Random::seed = Random::Seed(std::random_device()());
-std::mt19937  Random::rng = std::mt19937(Random::seed.getUnsignedValue ());
+std::mt19937  Random::rng = std::mt19937(seed.getUnsignedValue ());
 
 //Random::Random::Random() : seed(Seed(std::random_device()()))
 //{

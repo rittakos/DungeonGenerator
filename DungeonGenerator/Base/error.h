@@ -15,13 +15,12 @@ namespace Error
 
 	class Error
 	{
-	private:
 		const std::map<const ErrorType, std::string> messages =
 													{
-														{ErrorType::NoError,	"OK"},
-														{ErrorType::Basic,		"Error"}
+														{NoError,	"OK"},
+														{Basic,		"Error"}
 													};
-	private:
+
 		const ErrorType type;
 		const std::optional<std::string> errorMessage;
 
@@ -40,7 +39,7 @@ namespace Error
 
 		static bool LogErrors;
 
-		Error(ErrorType type = Basic, std::optional<std::string> message = {}) : 
+		explicit Error(const ErrorType type = Basic, std::optional<std::string> message = {}) : 
 			type(type), errorMessage(message)
 		{
 			
@@ -66,7 +65,7 @@ namespace Error
 
 		bool operator!=(const Error& other) const
 		{
-			return !((*this) == other);
+			return !(*this == other);
 		}
 
 		std::ostream& operator<<(std::ostream& os) const
@@ -80,7 +79,7 @@ namespace Error
 
 	bool Error::LogErrors = true;
 	
-	Error Ok = Error(ErrorType::NoError);
-	Error Err = Error(ErrorType::NoError);
+	inline Error Ok = Error(NoError);
+	inline Error Err = Error(NoError);
 }
 	

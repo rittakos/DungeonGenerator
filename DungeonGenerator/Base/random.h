@@ -9,10 +9,9 @@ public:
 
 	class Seed
 	{
-	private:
 		unsigned int seed;
 	public:
-		explicit Seed(unsigned int seed) : seed{ seed } {}
+		explicit Seed(const unsigned int seed) : seed{ seed } {}
 
 		unsigned int getUnsignedValue() const { return seed; }
 	};
@@ -23,7 +22,7 @@ private:
 
 public:
 
-	static void SetSeed(Seed seed)
+	static void SetSeed(const Seed seed)
 	{
 		Random::seed = seed;
 		rng = std::mt19937(seed.getUnsignedValue());
@@ -33,24 +32,24 @@ public:
 
 	static long int GetInteger(long int min, long int max)
 	{
-		return std::uniform_int_distribution<int>(min, max)(Random::rng);
+		return std::uniform_int_distribution<int>(min, max)(rng);
 	}
 
 	static float GetFloat(float min, float max)
 	{
-		return std::uniform_real_distribution<float>(min, max)(Random::rng);
+		return std::uniform_real_distribution<float>(min, max)(rng);
 	}
 
-	static std::vector<float> GetFloatWithFixedSum(int count, float sum, float spread = 0.0f)
+	static std::vector<float> GetFloatWithFixedSum(const int count, const float sum, const float spread = 0.0f)
 	{
 		std::vector<float> result;
 
 		for (int idx = 0; idx < count; ++idx)
-			result.push_back(sum / (float)count);
+			result.push_back(sum / static_cast<float>(count));
 
 		for (int idx = 0; idx < count; ++idx)
 		{
-			float diff = Random::GetFloat(-spread, spread);
+			float diff = GetFloat(-spread, spread);
 			result[idx] += diff;
 
 			for (int i = 0; i < count; ++i)
@@ -58,7 +57,7 @@ public:
 				if (i == idx)
 					continue;
 
-				result[i] -= diff / (float)(count - 1);
+				result[i] -= diff / static_cast<float>(count - 1);
 			}
 		}
 

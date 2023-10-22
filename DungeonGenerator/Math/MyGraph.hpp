@@ -40,7 +40,7 @@ namespace Math
 			return *value;
 		}
 
-		void addNeighbour();
+		void addNeighbour() {/*TODO*/}
 	};
 
 

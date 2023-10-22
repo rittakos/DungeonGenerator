@@ -1,5 +1,5 @@
 #include "polygonTriangulator.hpp"
-
+#include "delaunay.hpp"
 
 
 namespace Geometry::Delaunay

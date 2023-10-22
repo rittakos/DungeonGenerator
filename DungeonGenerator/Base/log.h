@@ -20,19 +20,18 @@ namespace Log
 
 	class Logger
 	{
-	private:
 		const std::string DebugPattern		= "[%H:%M:%S]%^%v%$";
 		const std::string NonePattern		= "";
 		const std::string ReleasePattern	= "[%H:%M:%S]%^%v%$";
 	public:
-		Logger(LoggerType type);
+		explicit Logger(LoggerType type);
 
 		void info(std::string message);
 		void error(std::string message);
 		void warn(std::string message);
 	};
 
-	static Logger logger(LoggerType::Debug);
+	static Logger logger(Debug);
 
 	static void info(std::string message)
 	{

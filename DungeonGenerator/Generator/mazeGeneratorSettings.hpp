@@ -14,5 +14,5 @@ private:
 	Random::Seed seed;
 
 public:
-	MazeGeneratorSettings(Random::Seed seed) : seed{seed} {}
+	explicit MazeGeneratorSettings(Random::Seed seed) : seed{seed}, hardness(Easy), type(Kruskal) {}
 };

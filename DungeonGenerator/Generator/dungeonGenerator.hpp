@@ -2,7 +2,6 @@
 
 #include "dungeonGenereatorSettings.hpp"
 #include "dungeonData.hpp"
-#include "polygonGenerator.hpp"
 #include "delaunayGenerator.hpp"
 //#include <mazeGenerator.hpp>
 #include "log.h"

@@ -6,10 +6,14 @@
 
 namespace Generator
 {
+	// TODO ki kene pofozni
+
 	class PolygonGeneratorAlgorithm// : public GeneratorAlgorithm
 	{
 	public:
 		virtual Geometry::Polygon generate(int verticesCount) = 0;
+
+		virtual ~PolygonGeneratorAlgorithm() = default;
 	};
 
 	enum PolygonGeneratorType { BaseConvex, Custom };
@@ -44,6 +48,8 @@ namespace Generator
 	public:
 		BaseConvexPolygonGeneratorAlgorithm(GenerationParameters parameters);
 		virtual Geometry::Polygon generate(int verticesCount) override;
+
+		virtual ~BaseConvexPolygonGeneratorAlgorithm() = default;
 	};
 
 	//template <class Algorithm = BaseConvexPolygonGeneratorAlgorithm>

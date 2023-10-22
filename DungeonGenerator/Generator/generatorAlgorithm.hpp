@@ -4,21 +4,24 @@
 
 namespace Generator
 {
+	// TODO ki kellen pofozni
 
 	class GeneratorAlgorithm
 	{
 	public:
 		virtual void Generate(Data::DungeonData& dungeonData) = 0;
 		//virtual void operator()() = 0;
+
+		virtual ~GeneratorAlgorithm() = default;
 	};
 
 	class VoronoiBasedGeneratorAlgorithm : public GeneratorAlgorithm
 	{
 	private:
-		int width;			// count of the horisontal cells
-		int height;			//count of the horisontal cells
+		int width = 0;			// count of the horisontal cells
+		int height = 0;			//count of the horisontal cells
 
-		float maxRadius;	// if the distance of a point is greater than this, 
+		float maxRadius = 0;	// if the distance of a point is greater than this, 
 							// than the point belong to an other point
 
 		std::vector<Math::Vec3f> centers;
@@ -173,6 +176,8 @@ namespace Generator
 		std::vector<Geometry::Polygon> generatePolygons();
 
 	public:
+		virtual ~VoronoiBasedGeneratorAlgorithm() = default;
+
 		virtual void Generate(Data::DungeonData& dungeonData) override
 		{
 			const Math::Vec2i roomCount(3, 3);

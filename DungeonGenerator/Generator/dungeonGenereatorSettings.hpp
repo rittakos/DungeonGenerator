@@ -3,7 +3,6 @@
 #include <memory>
 #include <optional>
 #include "random.h"
-#include "mazeGeneratorSettings.hpp"
 
 enum GeneratorAlgorithmType {Voronoi, Delaunay, PolygonDivision};
 
@@ -16,15 +15,15 @@ private:
 
 	Random::Seed seed;
 	std::optional<std::string> path;
-	float wallWidth;
+	//float wallWidth;
 	unsigned int level;
 	const GeneratorAlgorithmType generatorAlgorithmType;
 	int roomCount;
 public:
 	DungeonGeneratorSettings(GeneratorAlgorithmType algorithmType, unsigned int seed, std::optional<int> roomCount) 
-		: seed{ seed }, generatorAlgorithmType(algorithmType)
+		: seed{ seed }, generatorAlgorithmType(algorithmType), roomCount (roomCount.value()), level(0)
 	{
-		roomCount = roomCount.value();
+		
 	}
 	//DungeonGeneratorSettings() : seed(){}
 

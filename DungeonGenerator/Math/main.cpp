@@ -3,7 +3,6 @@
 //
 //import std.core;
 
-#include "matrix.hpp"
 #include "vector.hpp"
 #include "graph.hpp"
 
@@ -34,10 +33,10 @@ void linerEQTest()
 
 void quaternionTest()
 {
-	Math::Quaternion q0;
+	/*Math::Quaternion q0;
 	Math::Quaternion q1(5);
 	Math::Quaternion q2(5, 4, 3, 2);
-	Math::Quaternion q3(1, 2, 3, 4);
+	Math::Quaternion q3(1, 2, 3, 4);*/
 
 	/*std::cout << q3.norm() << std::endl;
 	std::cout << q3.conjugation().norm() << std::endl;*/

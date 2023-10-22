@@ -31,11 +31,11 @@ namespace Log
 		spdlog::set_pattern(LogData::testPattern);
 	}*/
 
-	export void error(std::string message)
-	{
+	//export void error(std::string message)
+	//{
 		//SetupLogger();
 		//spdlog::error("{}", message);
-	}
+	//}
 
 	/*static void info(std::string message)
 	{

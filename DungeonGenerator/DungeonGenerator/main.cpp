@@ -2,15 +2,8 @@
 #include <string>
 #include <random>
 #include <cassert>
-#include "matrix.hpp"
-#include <polygon.hpp>
 #include <dungeonGenereatorSettings.hpp>
-#include <dungeonGenerator.hpp>
-#include <log.h>
-#include <dungeonData.hpp>
 #include "random.h"
-#include "dungeonWriter.hpp"
-#include "polygonGenerator.hpp"
 #include "dungeon.hpp"
 
 enum class Tile
@@ -430,8 +423,8 @@ void graphTest()
 
 void test()
 {
-	Log::info("Start");
-	Dungeon dungeon;
+	//Log::info("Start");
+	//Dungeon dungeon;
 
 	//DungeonGeneratorSettings settings(100);
 	//auto mazeSettings = settings.CreateMazeGeneratorSettings();

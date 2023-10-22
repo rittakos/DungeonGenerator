@@ -3,7 +3,6 @@
 #include "vector.hpp"
 #include "random.h"
 #include "transformation.hpp"
-#include "secondDegreeEquation.hpp"
 
 
 namespace Generator

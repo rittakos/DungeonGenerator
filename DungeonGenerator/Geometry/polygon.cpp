@@ -281,12 +281,16 @@ namespace Geometry
             break;
         }
 
-        float A = cutDown.Area() - targerArea;
+        //float A = cutDown.Area() - targerArea;
 
         float t = 1.0f;
         Math::Vec2f v;
 
-        return polygon.points[nextPointIdx] + (v * t);
+        if (lastPointIdx == -1)
+            return Math::Vec2f();
+
+        return polygon.points[lastPointIdx] + (v * t);
+        // lehet ez lenne a jo: return polygon.points[nextPointIdx] + (v * t);
     }
 
     /*std::optional<Polygon> CreatePolygon(std::vector<Math::Vec2f> points)

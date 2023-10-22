@@ -1,7 +1,6 @@
 #pragma once
 
 #include "polygon.hpp"
-#include "delaunay.hpp"
 #include "delaunayBase.hpp"
 #include <set>
 

@@ -47,7 +47,7 @@ namespace Math
 	private:
 		std::array<float, VariableCount> solution;
 		std::vector<LinearEquation<VariableCount>> equations;
-		bool solved;
+		bool solved = false;
 		
 		Math::Mat<EquationCount, VariableCount + 1> createMatrix();
 

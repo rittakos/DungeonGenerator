@@ -1,9 +1,5 @@
 #pragma once
 #include <vector>
-#include "room.hpp"
-#include "maze.hpp"
-#include <polygon.hpp>
-#include "generationSettings.hpp"
 #include "dungeonGenereatorSettings.hpp"
 #include "dungeonData.hpp"
 

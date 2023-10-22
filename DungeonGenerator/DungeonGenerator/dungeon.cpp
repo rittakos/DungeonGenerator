@@ -1,7 +1,6 @@
 #include "dungeon.hpp"
 #include "dungeonWriter.hpp"
-#include <dungeonGenerator.hpp>
-#include <log.h>
+#include "dungeonGenerator.hpp"
 
 
 Dungeon::Dungeon()

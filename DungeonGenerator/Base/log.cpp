@@ -4,17 +4,17 @@
 
 namespace Log
 {
-	Logger::Logger(LoggerType type)
+	Logger::Logger(const LoggerType type)
 	{
 		switch (type)
 		{
-			case LoggerType::Debug:
+			case Debug:
 				spdlog::set_pattern(DebugPattern);
 				break;
-			case LoggerType::Release:
+			case Release:
 				spdlog::set_pattern(ReleasePattern);
 				break;
-			case LoggerType::None:
+			case None:
 				spdlog::set_pattern(NonePattern);
 				break;
 			default:

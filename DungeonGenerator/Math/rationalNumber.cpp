@@ -1,4 +1,5 @@
 #include "rationalNumber.hpp"
+#include "math.hpp"
 
 namespace Math
 {

@@ -2,13 +2,12 @@
 
 #include "generatorAlgorithm.hpp"
 #include "dungeonGenereatorSettings.hpp"
-#include "delaunay.hpp"
 
 namespace Generator
 {
 
 	// https://en.wikipedia.org/wiki/Delaunay_triangulation
-	class DelaunayBasedGeneratorAlgorithm : public GeneratorAlgorithm
+	class DelaunayBasedGeneratorAlgorithm final : public GeneratorAlgorithm
 	{
 	private:
 		const unsigned int pointCount;
@@ -26,6 +25,8 @@ namespace Generator
 		DelaunayBasedGeneratorAlgorithm(const DungeonGeneratorSettings& settings);
 
 		virtual void Generate(Data::DungeonData& dungeonData) override;
+
+		virtual ~DelaunayBasedGeneratorAlgorithm() = default;
 	};
 
 }

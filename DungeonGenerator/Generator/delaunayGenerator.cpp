@@ -1,6 +1,5 @@
 #include "delaunayGenerator.hpp"
 #include "delaunay.hpp"
-#include "equationSystem.hpp"
 #include "geometry.hpp"
 
 namespace Generator

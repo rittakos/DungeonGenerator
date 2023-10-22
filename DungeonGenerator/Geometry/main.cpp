@@ -25,10 +25,6 @@ void polygonTest()
 
     //std::cout << (p.isConvex() ? "convex" : "concave") << std::endl;
 
-    Polygon p2({ points });
-
-    Polygon p3(points);
-
     //std::cout << p2.Area();
     std::vector<Math::Vec2f> intersections = getIntersectionPoints(l, p);
     /*for (auto p : intersections)
