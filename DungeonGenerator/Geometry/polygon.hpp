@@ -37,7 +37,7 @@ namespace Geometry
 		bool	exists() const;
 		bool	containsPoint(const Math::Vec2f& P) const;
 		
-		Math::Angle calcInnerAngle() const { return (n - 2) * 180.0_deg; }
+		Math::Angle calcInnerAngle() const { return ((float)(n - 2)) * 180.0_deg; }
 
 		float	beauty() const;
 
