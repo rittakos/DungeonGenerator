@@ -33,9 +33,12 @@ jobs:
     - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v1.0.2
 
+    - name: Restore NuGet packages
+      working-directory: ${{github.workspace}}
+      run: nuget restore .\DungeonGenerator
+
     - name: Build
-      working-directory: ${{ github.workspace }}
-      
+      working-directory: ${{github.workspace}}
       # Add additional options to the MSBuild command line here (like platform or verbosity level).
       # See https://docs.microsoft.com/visualstudio/msbuild/msbuild-command-line-reference
       run: msbuild .\DungeonGenerator\DungeonGenerator.sln
