@@ -4,7 +4,6 @@
 #include <cassert>
 #include "matrix.hpp"
 #include <polygon.hpp>
-#include "generator.hpp"
 #include <dungeonGenereatorSettings.hpp>
 #include <dungeonGenerator.hpp>
 #include <log.h>
@@ -12,6 +11,7 @@
 #include "random.h"
 #include "dungeonWriter.hpp"
 #include "polygonGenerator.hpp"
+#include "dungeon.hpp"
 
 enum class Tile
 {
@@ -414,14 +414,14 @@ private:
 
 };
 
-//int main()
-//{
-//	DungeonGenerator generator;
-//
-//	auto map = generator.Generate();
-//
-//	map.Print();
-//}
+void otherGenerator()
+{
+	DungeonGenerator2 generator;
+
+	auto map = generator.Generate();
+
+	map.Print();
+}
 
 void graphTest()
 {
@@ -476,4 +476,6 @@ int main(int argc, char* argv[])
 
 	//Data::DungeonData dungeonData;
 	//dungeonData.write(std::cout);
+
+	//otherGenerator();
 }
