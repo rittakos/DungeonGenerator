@@ -4,6 +4,15 @@ namespace IO
 {
 	void write(const Data::RoomData& roomData, std::ofstream& os)
 	{
+		os << "Room" << endOfLine;
+		os << roomData.getId() << endOfLine;
+
+		write(roomData.getFloor(), os);
+
+		for (const Data::WallData& wall : roomData.getWalls())
+		{
+			write(wall, os);
+		}
 	}
 
 	void write(const Data::LayoutData& layout, std::ofstream& os)

@@ -9,10 +9,6 @@ enum GeneratorAlgorithmType {Voronoi, Delaunay, PolygonDivision};
 class DungeonGeneratorSettings
 {
 private:
-	//std::shared_ptr<RoomsGeneratorSettings> roomsGeneratorSettings;
-	//std::shared_ptr<MazeGeneratorSettings> mazeGeneratorSettings;
-	//std::optional<std::shared_ptr<RoomInternalGeneratorSettings>> roomInternalGeneratorSettings;
-
 	Random::Seed seed;
 	std::optional<std::string> path;
 	//float wallWidth;
@@ -25,15 +21,12 @@ public:
 	{
 		
 	}
-	//DungeonGeneratorSettings() : seed(){}
 
 
 	Random::Seed getSeed() const					{ return seed; }
 	GeneratorAlgorithmType getAlgorithmType() const { return generatorAlgorithmType; }
 	int getRoomCount() const						{ return roomCount; }
 
-	//std::shared_ptr<RoomsGeneratorSettings>			CreateRoomsGenerationSettings();
-	//std::shared_ptr<RoomInternalGeneratorSettings>	CreateRoomInternalGeneratorSettings();
 	/*std::shared_ptr<MazeGeneratorSettings>				CreateMazeGeneratorSettings()
 	{
 		mazeGeneratorSettings = std::make_shared<MazeGeneratorSettings>(seed);

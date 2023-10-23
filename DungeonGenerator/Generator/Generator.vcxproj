@@ -138,11 +138,12 @@
   <ItemGroup>
     <ClCompile Include="delaunayGenerator.cpp" />
     <ClCompile Include="dungeonGenereatorSettings.cpp" />
-    <ClCompile Include="Generator.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="generatorAlgorithm.cpp" />
     <ClCompile Include="mazeGenerator.cpp" />
     <ClCompile Include="mazeGeneratorSettings.cpp" />
     <ClCompile Include="polygonGenerator.cpp" />
+    <ClCompile Include="voronoiGenerator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="delaunayGenerator.hpp" />
@@ -152,6 +153,7 @@
     <ClInclude Include="mazeGenerator.hpp" />
     <ClInclude Include="mazeGeneratorSettings.hpp" />
     <ClInclude Include="polygonGenerator.hpp" />
+    <ClInclude Include="voronoiGenerator.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

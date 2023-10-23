@@ -3,6 +3,7 @@
 #include "dungeonGenereatorSettings.hpp"
 #include "dungeonData.hpp"
 #include "delaunayGenerator.hpp"
+#include "voronoiGenerator.hpp"
 //#include <mazeGenerator.hpp>
 #include "log.h"
 #include <guard.h>

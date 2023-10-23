@@ -25,8 +25,11 @@ namespace Data
 
 		LayoutData				getFloor() const { return floor; }
 		std::vector<WallData>	getWalls() const { return walls; }
+
+		int getId() const { return id; }
 	};
 
 }
+
 
 #endif

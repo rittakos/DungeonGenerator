@@ -7,18 +7,19 @@ namespace Generator
 
 	void DelaunayBasedGeneratorAlgorithm::generatePoints()
 	{
+		// TODO kirakni valahova
 		//for (int idx = 0; idx < pointCount; ++idx)
 		{
 			//Math::Vec2f newPoint;
 
 			float i = 0.0f;
 
-			for (int col = 0; col < 3; col++)
+			for (int col = 0; col < 10; col++)
 			{
-				for (int row = 0; row < 3; row++)
+				for (int row = 0; row < 10; row++)
 				{
 					points.push_back(Math::Vec2f{row * 100.0f, col * 100.0f + i});
-					i += 10.0f;
+					i += 20.0f;
 				}
 			}
 
@@ -51,8 +52,8 @@ namespace Generator
 		for (int i = 0; i < relevantPoints.size(); ++i)
 		{
 			int p = relevantPoints[i];
-			//std::vector<Geometry::Delaunay::Triangle> trianglesInOrder;
 			std::vector<int> trianglesInOrder;
+
 			trianglesInOrder.push_back(0);
 			while (trianglesInOrder.size() != points[p].size())
 			{
@@ -148,31 +149,9 @@ namespace Generator
 
 		for (Geometry::Polygon poly : createPolygons(triangulation))
 		{
-			Geometry::Polygon hole;
-
-			hole.addPoint(Math::Vec2f(90.0f, 90.0f));
-			hole.addPoint(Math::Vec2f(90.0f, 120.0f));
-			hole.addPoint(Math::Vec2f(120.0f, 90.0f));
-			hole.addPoint(Math::Vec2f(120.0f, 120.0f));
-
-			bool succes = poly.addHole(hole);
-			if (!succes)
-				std::cout << "cant add hole";
-
 			Data::RoomData room (poly);
 			dungeonData.addRoom(room);
-			//dungeonData.floors.push_back(Data::LayoutData(poly));
 		}
-
-		/*for (const Data::LayoutData& poly : dungeonData.floors)
-		{
-			std::vector<Math::Vec3f> points = poly.getPoints();
-			for (int idx = 0; idx < points.size() - 1; ++idx)
-			{
-				dungeonData.walls.push_back(Data::WallData(points[idx], points[idx + 1]));
-			}
-			dungeonData.walls.push_back(Data::WallData(points[points.size() - 1], points[0]));
-		}*/
 	}
 
 }
