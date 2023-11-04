@@ -15,6 +15,9 @@ namespace Geometry
 	public:
 		Edge() = default;
 		Edge(Math::Vec2f p1, Math::Vec2f p2);
+		
+		Edge(const Edge& other);
+		Edge& operator=(const Edge& other);
 
 		Line convertToLine() const;
 

@@ -21,7 +21,7 @@ namespace Data
 	private:
 		//int roomCount;
 		std::vector<RoomData> rooms;
-		MazeData mazeData;
+		MazeData maze;
 
 		std::vector<LayoutData> floors;
 		std::vector<WallData> walls;
@@ -39,8 +39,12 @@ namespace Data
 
 		void addRoom(const RoomData& room);
 
+		MazeData& getMaze() { return maze; }
+
 		int getVersion() const { return version; }
 		unsigned int getSeed() const { return seed.getUnsignedValue(); }
+
+		std::vector<RoomData> getRooms() const { return rooms; }
 		std::vector<LayoutData> getFloors() const;
 		std::vector<WallData> getWalls() const;
 	};

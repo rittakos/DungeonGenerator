@@ -4,6 +4,8 @@
 #include "generatorAlgorithm.hpp"
 
 #include "log.h"
+#include <guard.h>
+#include "kruskalGenerator.hpp"
 
 namespace Generator
 {
@@ -20,7 +22,7 @@ namespace Generator
 			{
 			case Kruskal:
 				Log::info("Maze generation with Kruskal based algorithm!");
-				//algorithm = std::make_shared<>();
+				algorithm = std::make_shared<KruskalGenerator>();
 				break;
 			default:
 				algorithm = nullptr;
@@ -29,9 +31,10 @@ namespace Generator
 
 
 
-		void generate()
+		void generate(Data::MazeData& maze)
 		{
-			algorithm->Generate();
+			TimeGuard timeGuard("Maz Generation");
+			algorithm->Generate(maze);
 			Log::info("Maze generated");
 		}
 	};

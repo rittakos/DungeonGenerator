@@ -7,6 +7,7 @@ namespace Data
 	private:
 		Math::Vec3f P1;
 		Math::Vec3f P2;
+		// TODO refaktor, hogy itt Edge legyen es ne 3D koordinatat kapjon, azt csak itt szamolja
 
 		std::optional<float> width;
 		float height;
@@ -15,6 +16,12 @@ namespace Data
 		WallData(Math::Vec3f P1, Math::Vec3f P2) : P1(P1), P2(P2)
 		{
 			height = 100.0f;
+		}
+
+		Geometry::Edge getWallBase() const
+		{
+			Geometry::Edge wallBase(Math::Vec2f(P1[0], P1[1]), Math::Vec2f(P2[0], P2[1]));
+			return wallBase;
 		}
 
 		std::vector<Math::Vec3i> getTrianglesClockWise() const

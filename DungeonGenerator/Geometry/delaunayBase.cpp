@@ -1,5 +1,6 @@
 #include "delaunayBase.hpp"
 #include <exception>
+#include "edge.hpp"
 
 namespace Geometry
 {
@@ -54,6 +55,7 @@ namespace Geometry
         {
             return { P0, P1, P2 };
         }
+
 
         Edge& Edge::operator=(const Edge& other)
         {

@@ -26,7 +26,12 @@ namespace Data
 		{
 			for (const WallData& wall : room.getWalls())
 			{
-				walls.push_back(wall);
+				//container.find(element) != container.end()
+				//if(maze.getNotWallEdges().find(wall.getWallBase()) == maze.getNotWallEdges().end())
+				std::vector<Geometry::Edge> wallsNotToInclude = maze.getNotWallEdges();
+				//if (std::find(wallsNotToInclude.begin(), wallsNotToInclude.end(), wall.getWallBase()) == std::end(wallsNotToInclude))
+					walls.push_back(wall);
+				// MUST vagy operator< vagy ne setet kapjon
 			}
 		}
 

@@ -43,6 +43,7 @@ namespace Data
 			}*/
 		}
 
+		Geometry::Polygon getPolygon() const { return polygon; }
 
 		std::vector<Math::Vec3i> getTrianglesClockWise() const
 		{

@@ -1,16 +1,23 @@
 #include "dungeon.hpp"
 #include "dungeonWriter.hpp"
 #include "dungeonGenerator.hpp"
+#include "mazeGenerator.hpp"
 
 
 Dungeon::Dungeon()
 {
 }
 
-void Dungeon::generate(DungeonGeneratorSettings settings)
+void Dungeon::generateDungeon(const DungeonGeneratorSettings& settings)
 {
-	DungeonGenerator generator(settings);
+	Generator::DungeonGenerator generator(settings);
 	generator.generate(dungeonData);
+}
+
+void Dungeon::generateMaze(const MazeGeneratorSettings& settings)
+{
+	Generator::MazeGenerator generator(settings);
+	generator.generate(dungeonData.getMaze());
 }
 
 void Dungeon::save(std::string path)

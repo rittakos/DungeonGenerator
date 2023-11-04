@@ -5,6 +5,7 @@
 #include <dungeonGenereatorSettings.hpp>
 #include "random.h"
 #include "dungeon.hpp"
+#include <mazeGenerator.hpp>
 
 enum class Tile
 {
@@ -459,11 +460,13 @@ int main(int argc, char* argv[])
 	// problem seeds: 10500 1991662833
 	// working seed: 1870263446
 	DungeonGeneratorSettings generatorSettings(GeneratorAlgorithmType::Delaunay, 10, 10);
+	MazeGeneratorSettings mazeGeneratorSettings(MazeGeneratorType::Kruskal, 10);
 
 	Random::SetSeed(generatorSettings.getSeed());
 	
 	Dungeon dungeon;
-	dungeon.generate(generatorSettings);
+	dungeon.generateDungeon(generatorSettings);
+	dungeon.generateMaze(mazeGeneratorSettings);
 
 	dungeon.save("C:\\Projects\\dungeon.dg");
 
