@@ -16,55 +16,28 @@
 namespace Math
 {
 
-	//enum InternalGraphType {LEMON};
-
-
-
-	/*template<class Type>
-	class Graph
-	{
-	private:
-		InternalGraph* internalGraph;
-		const InternalGraphType type;
-
-	public:
-		Graph(InternalGraphType type = InternalGraphType::LEMON) : type{type}
-		{
-			switch (this->type)
-			{
-				case LEMON:
-					internalGraph = new LEMONGraph<Type>();
-					break;
-				default:
-					Log::error("Unhandled Internal Graph Type!!");
-					throw std::exception();
-					break;
-			}
-		}
-	};*/
-
 	class Node
 	{
-	private:
 	public:
-		const int id;
-		Node(int id = -1) : id(id) {}
+		//const int id;
+		int id;
+		explicit Node(int id = -1) : id(id) {}
 
-		bool operator== (const Node& other) const
-		{
-			return id == other.id;
-		}
+		bool operator== (const Node& other) const = default;
 	};
 
 	class Edge
 	{
 	private:
-		const Node from;
-		const Node to;
+		//const Node from;
+		Node from;
+		//const Node to;
+		Node to;
 
 
 	public:
-		const int id;
+		//const int id;
+		int id;
 
 		Edge(Node from, Node to, int id = -1) : from(from), to(to), id(id) {}
 
@@ -75,7 +48,6 @@ namespace Math
 
 	};
 }
-
 
 namespace std
 {
@@ -120,8 +92,10 @@ namespace Math
 		static const Node InvalidNode;
 
 		Graph();
+		~Graph();
 
-		Graph<NodeType, EdgeType> operator=(const Graph<NodeType, EdgeType>& other);
+		Graph(const Graph& other);
+		Graph<NodeType, EdgeType>& operator=(const Graph<NodeType, EdgeType>& other);
 
 		bool containsValue(const NodeType& value) const;
 		bool containsEdge(const NodeType& from, const NodeType& to) const;
@@ -148,19 +122,33 @@ namespace Math
 
 	}
 
-	template<class NodeType, class EdgeType>
-	Graph<NodeType, EdgeType> Graph<NodeType, EdgeType>::operator=(const Graph<NodeType, EdgeType>& other)
+	template<class NodeType, class EdgeType /*= int*/>
+	Math::Graph<NodeType, EdgeType>::Graph (const Graph& other)
 	{
-		// MUST coperator=
+
+	}
+
+	template<class NodeType, class EdgeType /*= int*/>
+	Math::Graph<NodeType, EdgeType>::~Graph ()
+	{
+
+	}
+
+	template<class NodeType, class EdgeType>
+	Graph<NodeType, EdgeType>& Graph<NodeType, EdgeType>::operator=(const Graph<NodeType, EdgeType>& other)
+	{
+		// MUST operator=
 
 		maxId = other.maxId;
 
-		//values = other.values;
-		//edgeValues = other.edgeValues;
+		for (auto& [key, value] : other.values)
+			values[key] = value;
 
-		for()
+		for (auto& [key, value] : other.edgeValues)
+			edgeValues[key] = value;
 
-		neighbours = other.neighbours;
+		for (auto& [key, value] : other.neighbours)
+			neighbours[key] = value;
 
 		return *this;
 	}

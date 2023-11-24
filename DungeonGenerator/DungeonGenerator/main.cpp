@@ -468,7 +468,7 @@ int main(int argc, char* argv[])
 	dungeon.generateDungeon(generatorSettings);
 	dungeon.generateMaze(mazeGeneratorSettings);
 
-	dungeon.save("C:\\Projects\\dungeon.dg");
+	dungeon.save("C:\\Dev\\DungeonGenerator\\dungeon.dg");
 
 	//Data::DungeonData dungeonData;
 	//dungeonData.write(std::cout);
