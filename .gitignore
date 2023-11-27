@@ -351,3 +351,13 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+/DungeonGenerator/libraries/Base.idb
+/DungeonGenerator/libraries/Base.lib
+/DungeonGenerator/libraries/Data.idb
+/DungeonGenerator/libraries/Data.lib
+/DungeonGenerator/libraries/Generator.idb
+/DungeonGenerator/libraries/Generator.lib
+/DungeonGenerator/libraries/Geometry.idb
+/DungeonGenerator/libraries/Geometry.lib
+/DungeonGenerator/libraries/Math.idb
+/DungeonGenerator/libraries/Math.lib
