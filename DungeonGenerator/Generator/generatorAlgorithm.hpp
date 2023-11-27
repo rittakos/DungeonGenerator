@@ -16,7 +16,7 @@ namespace Generator
 	class MazeGeneratorAlgorithm
 	{
 	public:
-		virtual void Generate() = 0;
+		virtual void Generate(Data::MazeData& mazeData) = 0;
 
 		virtual ~MazeGeneratorAlgorithm() = default;
 	};

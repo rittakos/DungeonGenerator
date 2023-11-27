@@ -6,7 +6,7 @@
 
 namespace Generator
 {
-	// TODO ki kene pofozni
+	// MUST ki kene pofozni, atvinni amit lehet cppbe
 
 	class PolygonGeneratorAlgorithm// : public GeneratorAlgorithm
 	{

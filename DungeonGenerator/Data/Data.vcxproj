@@ -136,6 +136,7 @@
   <ItemGroup>
     <ClCompile Include="dungeonData.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="maze.cpp" />
     <ClCompile Include="room.cpp" />
   </ItemGroup>
   <ItemGroup>

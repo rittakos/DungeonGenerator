@@ -23,6 +23,9 @@ namespace Data
 	public:
 		RoomData(const Geometry::Polygon& polygon);
 
+		RoomData& operator=(const RoomData& other);
+		//RoomData(const RoomData& other);
+
 		LayoutData				getFloor() const { return floor; }
 		std::vector<WallData>	getWalls() const { return walls; }
 

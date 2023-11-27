@@ -5,6 +5,7 @@
 #include <dungeonGenereatorSettings.hpp>
 #include "random.h"
 #include "dungeon.hpp"
+#include <mazeGenerator.hpp>
 
 enum class Tile
 {
@@ -416,59 +417,17 @@ void otherGenerator()
 	map.Print();
 }
 
-void graphTest()
-{
-	//Math::Graph graph;
-}
-
-void test()
-{
-	//Log::info("Start");
-	//Dungeon dungeon;
-
-	//DungeonGeneratorSettings settings(100);
-	//auto mazeSettings = settings.CreateMazeGeneratorSettings();
-
-	//dungeon.generate(settings);
-}
 
 int main(int argc, char* argv[])
 {
-	/*std::vector<Math::Vec2f> points;
-	points.push_back(Math::Vec2f(0.0f, 0.0f));
-	points.push_back(Math::Vec2f(1.0f, 2.0f));
-	points.push_back(Math::Vec2f(2.0f, 0.0f));
-	points.push_back(Math::Vec2f(1.0f, 1.0f));
-
-	Geometry::Polygon p(points);
-	std::cout << p.Area();*/
-
-	//graphTest();
-
-	//Random::SetSeed(Random::Seed(100));
-	//std::cout << Random::GetInteger(0, 100);
-
-	//for (int idx = 0; idx < 100; ++idx)
-	//{
-	//	//std::cout << Random::GetBool() << std::endl;
-	//	//std::cout << Random::GetFloat(-0.5f, 0.5f) << std::endl;
-	//}
-
-	/*Generator::PolygonGenerator g(4);
-	g.generate();*/
-	// problem seeds: 10500 1991662833
-	// working seed: 1870263446
 	DungeonGeneratorSettings generatorSettings(GeneratorAlgorithmType::Delaunay, 10, 10);
+	MazeGeneratorSettings mazeGeneratorSettings(MazeGeneratorType::Kruskal, 10);
 
 	Random::SetSeed(generatorSettings.getSeed());
 	
 	Dungeon dungeon;
-	dungeon.generate(generatorSettings);
+	dungeon.generateDungeon(generatorSettings);
+	dungeon.generateMaze(mazeGeneratorSettings);
 
-	dungeon.save("C:\\Projects\\dungeon.dg");
-
-	//Data::DungeonData dungeonData;
-	//dungeonData.write(std::cout);
-
-	//otherGenerator();
+	dungeon.save("C:\\Projects\\DungeonGenerator\\dungeon.dg");
 }

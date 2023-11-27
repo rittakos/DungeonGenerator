@@ -14,6 +14,20 @@ namespace Geometry
 		return Line(p1, p2);
 	}
 
+	Edge::Edge(const Edge& other)
+	{
+		p1 = other.p1;
+		p2 = other.p2;
+	}
+
+	Edge& Edge::operator=(const Edge& other)
+	{
+		p1 = other.p1;
+		p2 = other.p2;
+
+		return *this;
+	}
+
 	bool Edge::containsPoint(Math::Vec2f p) const
 	{
 		Geometry::Line l(p1, p2);
@@ -60,7 +74,7 @@ namespace Geometry
 
 	bool operator==(const Edge& e1, const Edge& e2)
 	{
-		return e1.p1 == e2.p1 && e1.p2 == e2.p2;
+		return (e1.p1 == e2.p1 && e1.p2 == e2.p2) || (e1.p1 == e2.p2 && e1.p2 == e2.p1);
 	}
 
 	bool operator!=(const Edge& e1, const Edge& e2)

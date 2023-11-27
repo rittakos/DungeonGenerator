@@ -2,6 +2,24 @@
 
 namespace Data
 {
+	DungeonData::DungeonData(const DungeonData& other) : DungeonData()
+	{
+		*this = other;
+	}
+
+	DungeonData& DungeonData::operator=(const DungeonData& other)
+	{
+		this->version = other.version;
+		this->seed = other.seed;
+
+		this->maze = other.maze;
+
+		this->rooms = other.rooms;
+		this->walls = other.walls;
+		this->floors = other.floors;
+
+		return *this;
+	}
 
 	void DungeonData::addRoom(const RoomData& room)
 	{
@@ -26,7 +44,12 @@ namespace Data
 		{
 			for (const WallData& wall : room.getWalls())
 			{
-				walls.push_back(wall);
+				//container.find(element) != container.end()
+				//if(maze.getNotWallEdges().find(wall.getWallBase()) == maze.getNotWallEdges().end())
+				std::vector<Geometry::Edge> wallsNotToInclude = maze.getNotWallEdges();
+				if (std::find(wallsNotToInclude.begin(), wallsNotToInclude.end(), wall.getWallBase()) == std::end(wallsNotToInclude))
+					walls.push_back(wall);
+				// MUST vagy operator< vagy ne setet kapjon
 			}
 		}
 

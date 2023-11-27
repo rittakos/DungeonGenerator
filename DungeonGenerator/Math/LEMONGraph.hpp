@@ -4,6 +4,8 @@
 
 //using: http://lemon.cs.elte.hu/trac/lemon
 
+// LOW lemon graph eltavolitasa?
+
 //undirected
 template<class Type>
 class LEMONGraph final //: public InternalGraph
@@ -49,7 +51,6 @@ public:
 		lemon::ListGraph::Node N2;
 
 
-		// TODO ?????
 		/*for (lemon::ListGraph::NodeIt u(*graph); u != lemon::INVALID; ++u)
 		{
 			lemon::ListGraph::Node N = u;

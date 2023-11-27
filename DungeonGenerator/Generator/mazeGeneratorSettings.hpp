@@ -14,7 +14,7 @@ private:
 	Random::Seed seed;
 
 public:
-	explicit MazeGeneratorSettings(Random::Seed seed) : seed{seed}, hardness(Easy), type(Kruskal) {}
+	explicit MazeGeneratorSettings(MazeGeneratorType algorithmType, unsigned int seed) : seed{seed}, hardness(Easy), type(algorithmType) {}
 
 	MazeGeneratorType getAlgorithmType() const { return type; }
 };

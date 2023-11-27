@@ -7,16 +7,16 @@ namespace Generator
 
 	void DelaunayBasedGeneratorAlgorithm::generatePoints()
 	{
-		// TODO kirakni valahova
+		// MUST kirakni valahova
 		//for (int idx = 0; idx < pointCount; ++idx)
 		{
 			//Math::Vec2f newPoint;
 
 			float i = 0.0f;
 
-			for (int col = 0; col < 10; col++)
+			for (int col = 0; col < 5; col++)
 			{
-				for (int row = 0; row < 10; row++)
+				for (int row = 0; row < 5; row++)
 				{
 					points.push_back(Math::Vec2f{row * 100.0f, col * 100.0f + i});
 					i += 20.0f;
@@ -29,7 +29,6 @@ namespace Generator
 
 	std::vector<Geometry::Polygon> DelaunayBasedGeneratorAlgorithm::createPolygons(const Geometry::Delaunay::DelaunayTriangulation& triangulation) const
 	{
-		//std::map<int, std::vector<Geometry::Delaunay::Triangle>> point;
 		std::vector<std::vector<Geometry::Delaunay::Triangle>> points(triangulation.Vertices.size());
 		for (const auto& triangle : triangulation.Triangles)
 		{
@@ -46,7 +45,7 @@ namespace Generator
 				relevantPoints.push_back(idx);
 		}
 
-		std::vector<std::vector<int>> polygonsWithIndices; //nope
+		std::vector<std::vector<int>> polygonsWithIndices; // TODO mi van it???? nope
 		std::vector<Geometry::Polygon> polygons;
 
 		for (int i = 0; i < relevantPoints.size(); ++i)
@@ -76,7 +75,6 @@ namespace Generator
 			polygons.push_back(newPolygon);
 		}
 
-		//TODO
 		return polygons;
 	}
 
@@ -145,13 +143,33 @@ namespace Generator
 
 		triangulation = triangulator.Triangulate(Geometry::Delaunay::ClockWise);
 
-
+		Math::Graph<int, Geometry::Edge> maze;
 
 		for (Geometry::Polygon poly : createPolygons(triangulation))
 		{
 			Data::RoomData room (poly);
 			dungeonData.addRoom(room);
+			maze.addNode(room.getId());
 		}
+
+		const int roomCount = dungeonData.getRooms().size();
+		
+		for (int roomIdx1 = 0; roomIdx1 < roomCount - 1; ++roomIdx1)
+		{
+			Data::RoomData room1 = dungeonData.getRooms()[roomIdx1];
+			for (int roomIdx2 = roomIdx1 + 1; roomIdx2 < roomCount; ++roomIdx2)
+			{
+				Data::RoomData room2 = dungeonData.getRooms()[roomIdx2];
+				std::optional<Geometry::Edge> commonEdge = Geometry::getCommonEdge(room1.getFloor().getPolygon(), room2.getFloor().getPolygon());
+				if (commonEdge.has_value())
+				{
+					maze.addEdge(room1.getId(), room2.getId(), commonEdge.value());
+					maze.addEdge(room2.getId(), room1.getId(), commonEdge.value());
+				}
+			}
+		}
+
+		dungeonData.getMaze().setGraph(maze);
 	}
 
 }

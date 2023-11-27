@@ -11,7 +11,6 @@ class DungeonGeneratorSettings
 private:
 	Random::Seed seed;
 	std::optional<std::string> path;
-	//float wallWidth;
 	unsigned int level;
 	const GeneratorAlgorithmType generatorAlgorithmType;
 	int roomCount;

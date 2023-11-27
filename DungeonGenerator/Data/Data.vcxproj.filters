@@ -24,6 +24,9 @@
     <ClCompile Include="dungeonData.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="maze.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="maze.hpp">

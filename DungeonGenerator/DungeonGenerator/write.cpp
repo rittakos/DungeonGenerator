@@ -4,8 +4,8 @@ namespace IO
 {
 	void write(const Data::RoomData& roomData, std::ofstream& os)
 	{
-		os << "Room" << endOfLine;
-		os << roomData.getId() << endOfLine;
+		//os << "Room" << endOfLine;
+		//os << roomData.getId() << endOfLine;
 
 		write(roomData.getFloor(), os);
 
