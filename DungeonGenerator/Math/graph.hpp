@@ -23,7 +23,10 @@ namespace Math
 		int id;
 		explicit Node(int id = -1) : id(id) {}
 
-		bool operator== (const Node& other) const = default;
+		bool operator== (const Node& other) const
+		{
+			return id == other.id;
+		}
 	};
 
 	class Edge
@@ -43,7 +46,7 @@ namespace Math
 
 		bool operator== (const Edge& other) const
 		{
-			return id == other.id;
+			return from == other.from && to == other.to;
 		}
 
 	};
@@ -102,10 +105,23 @@ namespace Math
 			
 		void addNode(const NodeType& value, bool forcedAdd = false);
 		void addEdge(const NodeType& from, const NodeType& to, std::optional<EdgeType> edgeValue = {}, bool forcedAdd = false);
+		// TODO addEdges from Nodes
 
-		std::unordered_map<Node, NodeType>			getNodes() const { return values; }
-		std::unordered_map<Node, std::vector<Node>> getEdges() const { return neighbours; }
-		std::vector<EdgeType>						getEdgeValues() const;
+		void removeEdge(const NodeType& from, const NodeType& to);
+
+		std::unordered_map<Node, NodeType>					getNodes() const 
+		{ 
+			return values; 
+		}
+		std::unordered_map<Node, std::vector<Node>>			getEdges() const 
+		{ 
+			return neighbours; 
+		}
+		std::vector<EdgeType>								getEdgeValues() const;
+		std::unordered_map<Edge, std::optional<EdgeType>>	getEdgesWithValues() const 
+		{ 
+			return edgeValues; 
+		}
 
 
 		template<class NodeType1, class EdgeType1>
@@ -123,9 +139,9 @@ namespace Math
 	}
 
 	template<class NodeType, class EdgeType /*= int*/>
-	Math::Graph<NodeType, EdgeType>::Graph (const Graph& other)
+	Math::Graph<NodeType, EdgeType>::Graph (const Graph& other) : Graph()
 	{
-
+		*this = other;
 	}
 
 	template<class NodeType, class EdgeType /*= int*/>
@@ -137,8 +153,6 @@ namespace Math
 	template<class NodeType, class EdgeType>
 	Graph<NodeType, EdgeType>& Graph<NodeType, EdgeType>::operator=(const Graph<NodeType, EdgeType>& other)
 	{
-		// MUST operator=
-
 		maxId = other.maxId;
 
 		for (auto& [key, value] : other.values)
@@ -221,6 +235,24 @@ namespace Math
 		}
 
 		//throw new std::exception("Can not add Edge!");
+	}
+
+	template<class NodeType, class EdgeType>
+	void Graph<NodeType, EdgeType>::removeEdge(const NodeType& from, const NodeType& to)
+	{
+		if (containsEdge(from, to))
+		{
+			neighbours[getNodeFromValue(from)].push_back(getNodeFromValue(to));
+			std::vector<NodeType> n = neighbours[getNodeFromValue(from)];
+			n.erase(std::remove(n.begin(), n.end(), to), n.end());
+
+			if (n.empty())
+				neighbours.erase(getNodeFromValue(from));
+
+			Edge edge(getNodeFromValue(from), getNodeFromValue(to));
+			edgeValues.erase(edge);
+
+		}
 	}
 
 	template<class NodeType, class EdgeType>

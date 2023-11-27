@@ -16,4 +16,9 @@ namespace Data
 		walls.push_back(Data::WallData(points[points.size() - 1], points[0]));
 	}
 
+	RoomData& RoomData::operator=(const RoomData& other)
+	{
+		return *this;
+	}
+
 }

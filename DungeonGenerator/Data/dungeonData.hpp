@@ -29,6 +29,9 @@ namespace Data
 
 		DungeonData() : seed(Random::GetSeed()) {}
 
+		DungeonData(const DungeonData& other);
+		DungeonData& operator=(const DungeonData& other);
+
 		std::string toString() const
 		{
 			std::string result = "";

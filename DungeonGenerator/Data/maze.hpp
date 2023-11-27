@@ -13,7 +13,7 @@ namespace Data
 	class MazeData
 	{
 	private:
-		Math::Graph<int> maze;
+		Math::Graph<int, Geometry::Edge> maze;
 		Math::Graph<int, Geometry::Edge> graph;
 	public:
 		MazeData() = default;
@@ -23,7 +23,16 @@ namespace Data
 			this->graph = graph;
 		}
 
-		Math::Graph<int> getMaze() const { return maze; }
+		void setMaze(const Math::Graph<int, Geometry::Edge>& graph)
+		{
+			this->maze = graph;
+		}
+
+		Math::Graph<int, Geometry::Edge> getMaze() const { return maze; }
+		Math::Graph<int, Geometry::Edge> getGraph() const 
+		{ 
+			return graph; 
+		}
 		std::vector<Geometry::Edge> getNotWallEdges() const;
 	};
 }

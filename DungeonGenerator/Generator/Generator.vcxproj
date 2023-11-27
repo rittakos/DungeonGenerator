@@ -136,6 +136,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="controlPointGenerator.cpp" />
     <ClCompile Include="delaunayGenerator.cpp" />
     <ClCompile Include="dungeonGenereatorSettings.cpp" />
     <ClCompile Include="kruskalGenerator.cpp" />
@@ -147,6 +148,7 @@
     <ClCompile Include="voronoiGenerator.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="controlPointGenerator.hpp" />
     <ClInclude Include="delaunayGenerator.hpp" />
     <ClInclude Include="dungeonGenerator.hpp" />
     <ClInclude Include="dungeonGenereatorSettings.hpp" />

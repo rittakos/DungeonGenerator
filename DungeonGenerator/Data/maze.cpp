@@ -4,6 +4,6 @@ namespace Data
 {
 	std::vector<Geometry::Edge> MazeData::getNotWallEdges() const
 	{
-		return graph.getEdgeValues();
+		return maze.getEdgeValues();
 	}
 }

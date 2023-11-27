@@ -14,9 +14,9 @@ namespace Generator
 
 			float i = 0.0f;
 
-			for (int col = 0; col < 4; col++)
+			for (int col = 0; col < 5; col++)
 			{
-				for (int row = 0; row < 4; row++)
+				for (int row = 0; row < 5; row++)
 				{
 					points.push_back(Math::Vec2f{row * 100.0f, col * 100.0f + i});
 					i += 20.0f;
