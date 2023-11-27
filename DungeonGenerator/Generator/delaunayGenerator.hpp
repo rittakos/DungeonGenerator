@@ -2,6 +2,7 @@
 
 #include "generatorAlgorithm.hpp"
 #include "dungeonGenereatorSettings.hpp"
+#include "delaunayBase.hpp"
 
 namespace Generator
 {

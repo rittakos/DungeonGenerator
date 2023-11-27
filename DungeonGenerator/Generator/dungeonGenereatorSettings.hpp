@@ -15,7 +15,7 @@ private:
 	const GeneratorAlgorithmType generatorAlgorithmType;
 	int roomCount;
 public:
-	DungeonGeneratorSettings(GeneratorAlgorithmType algorithmType, unsigned int seed, std::optional<int> roomCount) 
+	DungeonGeneratorSettings(GeneratorAlgorithmType algorithmType, Random::Seed seed, std::optional<int> roomCount) 
 		: seed{ seed }, generatorAlgorithmType(algorithmType), roomCount (roomCount.value()), level(0)
 	{
 		
