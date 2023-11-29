@@ -7,7 +7,7 @@ namespace IO
 		//os << "Room" << endOfLine;
 		//os << roomData.getId() << endOfLine;
 
-		write(roomData.getFloor(), os);
+		write(roomData.getFloorConst(), os);
 
 		for (const Data::WallData& wall : roomData.getWalls())
 		{

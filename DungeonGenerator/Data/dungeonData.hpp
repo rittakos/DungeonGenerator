@@ -47,7 +47,7 @@ namespace Data
 		int getVersion() const { return version; }
 		unsigned int getSeed() const { return seed.getUnsignedValue(); }
 
-		std::vector<RoomData> getRooms() const { return rooms; }
+		std::vector<RoomData>& getRooms() { return rooms; }
 		std::vector<LayoutData> getFloors() const;
 		std::vector<WallData> getWalls() const;
 	};

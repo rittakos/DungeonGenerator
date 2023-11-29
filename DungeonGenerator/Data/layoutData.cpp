@@ -25,8 +25,13 @@ namespace Data
 		Geometry::Delaunay::PolygonTriangulator triangulator(polygon);
 		Geometry::Delaunay::DelaunayTriangulation triangulation = triangulator.Triangulate(Geometry::Delaunay::ClockWise);
 
+		points.clear();
+
 		for (Math::Vec2f p : triangulation.Vertices)
 			points.push_back(Math::Vec3f(p[0], p[1], 0.0f));
+
+		triangles.clear();
+		counterTriangles.clear();
 
 		for (const auto& triangle : triangulation.Triangles)
 		{

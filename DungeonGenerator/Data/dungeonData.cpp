@@ -31,7 +31,7 @@ namespace Data
 		std::vector<LayoutData> floors;
 
 		for (const RoomData& room : rooms)
-			floors.push_back(room.getFloor());
+			floors.push_back(room.getFloorConst());
 
 		return floors;
 	}

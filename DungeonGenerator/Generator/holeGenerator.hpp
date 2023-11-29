@@ -3,6 +3,7 @@
 #include "holeGeneratorSettings.hpp"
 #include "generatorAlgorithm.hpp"
 
+
 namespace Generator
 {
 

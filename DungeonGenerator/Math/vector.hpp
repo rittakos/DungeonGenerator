@@ -83,6 +83,24 @@ namespace Math
 			return result;
 		}
 
+		Vec&	operator+=(const Vec& other)
+		{
+			*this = *this + other;
+			return *this;
+		}
+
+		Vec& operator-=(const Vec& other)
+		{
+			*this = *this - other;
+			return *this;
+		}
+
+		Vec& operator/=(float other)
+		{
+			*this = *this / other;
+			return *this;
+		}
+
 		Vec		operator-(const Vec& other) const
 		{
 			return *this + (-1.0 * other);
