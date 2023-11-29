@@ -20,4 +20,12 @@ namespace Generator
 
 		virtual ~MazeGeneratorAlgorithm() = default;
 	};
+
+	class HoleGeneratorAlgorithm
+	{
+	public:
+		virtual void Generate(Data::DungeonData& dungeonData) = 0;
+
+		virtual ~HoleGeneratorAlgorithm() = default;
+	};
 }

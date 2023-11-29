@@ -5,7 +5,8 @@
 #include <dungeonGenereatorSettings.hpp>
 #include "random.h"
 #include "dungeon.hpp"
-#include <mazeGenerator.hpp>
+#include <mazeGeneratorSettings.hpp>
+#include <holeGeneratorSettings.hpp>
 
 enum class Tile
 {
@@ -420,14 +421,18 @@ void otherGenerator()
 
 int main(int argc, char* argv[])
 {
-	DungeonGeneratorSettings generatorSettings(GeneratorAlgorithmType::Delaunay, 10, 10);
-	MazeGeneratorSettings mazeGeneratorSettings(MazeGeneratorType::Kruskal, 10);
+	Random::Seed seed(10);
+
+	DungeonGeneratorSettings generatorSettings(GeneratorAlgorithmType::Delaunay, seed, 10);
+	MazeGeneratorSettings mazeGeneratorSettings(MazeGeneratorType::Kruskal, seed);
+	HoleGeneratorSettings holeGeneratorSettings(HoleGeneratorType::Basic, seed);
 
 	Random::SetSeed(generatorSettings.getSeed());
 	
 	Dungeon dungeon;
 	dungeon.generateDungeon(generatorSettings);
 	dungeon.generateMaze(mazeGeneratorSettings);
+	dungeon.generateHoles(holeGeneratorSettings);
 
 	dungeon.save("C:\\Projects\\DungeonGenerator\\dungeon.dg");
 }

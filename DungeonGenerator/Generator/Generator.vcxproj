@@ -136,9 +136,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="basicHoleGenerator.cpp" />
     <ClCompile Include="controlPointGenerator.cpp" />
     <ClCompile Include="delaunayGenerator.cpp" />
+    <ClCompile Include="dungeonGenerator.cpp" />
     <ClCompile Include="dungeonGenereatorSettings.cpp" />
+    <ClCompile Include="holeGenerator.cpp" />
     <ClCompile Include="kruskalGenerator.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="generatorAlgorithm.cpp" />
@@ -148,11 +151,14 @@
     <ClCompile Include="voronoiGenerator.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="basicHoleGenerator.hpp" />
     <ClInclude Include="controlPointGenerator.hpp" />
     <ClInclude Include="delaunayGenerator.hpp" />
     <ClInclude Include="dungeonGenerator.hpp" />
     <ClInclude Include="dungeonGenereatorSettings.hpp" />
     <ClInclude Include="generatorAlgorithm.hpp" />
+    <ClInclude Include="holeGenerator.hpp" />
+    <ClInclude Include="holeGeneratorSettings.hpp" />
     <ClInclude Include="kruskalGenerator.hpp" />
     <ClInclude Include="mazeGenerator.hpp" />
     <ClInclude Include="mazeGeneratorSettings.hpp" />

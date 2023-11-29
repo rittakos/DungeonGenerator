@@ -31,7 +31,7 @@ namespace Data
 		std::vector<LayoutData> floors;
 
 		for (const RoomData& room : rooms)
-			floors.push_back(room.getFloor());
+			floors.push_back(room.getFloorConst());
 
 		return floors;
 	}
@@ -49,7 +49,6 @@ namespace Data
 				std::vector<Geometry::Edge> wallsNotToInclude = maze.getNotWallEdges();
 				if (std::find(wallsNotToInclude.begin(), wallsNotToInclude.end(), wall.getWallBase()) == std::end(wallsNotToInclude))
 					walls.push_back(wall);
-				// MUST vagy operator< vagy ne setet kapjon
 			}
 		}
 
