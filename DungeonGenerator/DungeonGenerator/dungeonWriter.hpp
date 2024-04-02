@@ -8,8 +8,9 @@ namespace IO
 	class DungeonWriter
 	{
 	private:
-		std::ofstream file;
-		Data::DungeonData data;
+		std::ofstream		file;
+		std::string			filePath;
+		Data::DungeonData	data;
 
 	public:
 		DungeonWriter(const Data::DungeonData& dungeonData, std::string path);

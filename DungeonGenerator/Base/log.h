@@ -17,34 +17,69 @@
 namespace Log
 {
 	enum LoggerType {None, Release, Debug};
+	enum Platform	{Win, Mac, Independent};
 
-	class Logger
+	class Logger // logger interface
+	{
+	public:
+
+		virtual void info(std::string message) = 0;
+		virtual void error(std::string message) = 0;
+		virtual void warn(std::string message) = 0;
+	};
+
+	class SpdLogger : public Logger // with spdlog
 	{
 		const std::string DebugPattern		= "[%H:%M:%S]%^%v%$";
 		const std::string NonePattern		= "";
 		const std::string ReleasePattern	= "[%H:%M:%S]%^%v%$";
 	public:
-		explicit Logger(LoggerType type);
+		explicit SpdLogger(LoggerType type);
 
-		void info(std::string message);
-		void error(std::string message);
-		void warn(std::string message);
+		virtual void info(std::string message) override;
+		virtual void error(std::string message) override;
+		virtual void warn(std::string message) override;
 	};
 
-	static Logger logger(Debug);
+
+	class WinLogger : public Logger // Windows specific logger
+	{
+	private:
+		void*  hConsole;
+
+		const int white = 15;
+		const int green = 10;
+		const int red = 12;
+		const int yellow = 14;
+
+		const int defaultColor = white;
+		const int infoColor = green;
+		const int errorColor = red;
+		const int warningColor = yellow;
+
+	public:
+		WinLogger ();
+
+		virtual void info(std::string message) override;
+		virtual void error(std::string message) override;
+		virtual void warn(std::string message) override;
+	};
+
+
+	static Logger* logger = new WinLogger ();
 
 	static void info(std::string message)
 	{
-		logger.info(message);
+		logger->info(message);
 	}
 
 	static void error(std::string message)
 	{
-		logger.error(message);
+		logger->error(message);
 	}
 
 	static void warn(std::string message)
 	{
-		logger.warn(message);
+		logger->warn(message);
 	}
 }

@@ -3,9 +3,6 @@
 
 #pragma once
 
-
-//#include "log.h"
-
 #include <map>
 #include <memory>
 #include <optional>

@@ -78,7 +78,7 @@ namespace std
 	{
 		size_t operator()(const Geometry::Delaunay::DelaunayTriangulation& record) const noexcept
 		{
-			return hash<int>()(record.Triangles.size());
+			return hash<size_t>()(record.Triangles.size());
 		}
 	};
 }

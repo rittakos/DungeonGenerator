@@ -1,5 +1,7 @@
 #include "polygon.hpp"
 
+#define assertm(exp, msg) assert(((void)msg, exp))
+
 namespace Geometry
 {
     void Polygon::calculateConvexity()
@@ -80,13 +82,18 @@ namespace Geometry
         ++n;
         addEdges();
         calculateConvexity();
+
+        //assertm(exists(), "Polygon with the added point does not exists!");
     }
 
     bool Polygon::addHole(const Polygon& hole)
     {
         for (const Math::Vec2f& p : hole.getPoints())
+        {
+            //assert(isPointInside(p));
             if (!isPointInside(p))
                 return false;
+        }
 
         holes.push_back(hole);
 

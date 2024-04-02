@@ -10,6 +10,7 @@ namespace IO
 
 	DungeonWriter::DungeonWriter(const Data::DungeonData& dungeonData, std::string path) : file(path, std::ofstream::out), data(dungeonData)
 	{
+		filePath = path;
 		assert(file.is_open());
 		if (!file.is_open())
 			Log::error("Can not open file!");
@@ -39,7 +40,7 @@ namespace IO
 
 		file.close();
 
-		Log::info("File saved!");
+		Log::info("File saved! (" + filePath + ")");
 	}
 
 	void DungeonWriter::writeFloors()
