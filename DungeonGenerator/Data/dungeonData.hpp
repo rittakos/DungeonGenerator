@@ -23,8 +23,8 @@ namespace Data
 		std::vector<RoomData> rooms;
 		MazeData maze;
 
-		std::vector<LayoutData> floors;
-		std::vector<WallData> walls;
+		//std::vector<LayoutData> floors;
+		//std::vector<WallData> walls;
 	public:
 
 		DungeonData() : seed(Random::GetSeed()) {}

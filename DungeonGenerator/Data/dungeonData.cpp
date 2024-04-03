@@ -15,8 +15,8 @@ namespace Data
 		this->maze = other.maze;
 
 		this->rooms = other.rooms;
-		this->walls = other.walls;
-		this->floors = other.floors;
+		//this->walls = other.walls;
+		//this->floors = other.floors;
 
 		return *this;
 	}

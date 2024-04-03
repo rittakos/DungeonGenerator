@@ -13,8 +13,8 @@ namespace Data
 	class MazeData
 	{
 	private:
-		Math::Graph<int, Geometry::Edge> maze;
-		Math::Graph<int, Geometry::Edge> graph;
+		Math::Graph<int, Geometry::Edge> maze;	// maze, edges are the doors
+		Math::Graph<int, Geometry::Edge> graph; // neighbours
 	public:
 		MazeData() = default;
 

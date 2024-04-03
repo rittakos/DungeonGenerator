@@ -4,6 +4,7 @@
 
 using namespace Math;
 
+
 class MatrixTest : public ::testing::Test
 {
 protected:

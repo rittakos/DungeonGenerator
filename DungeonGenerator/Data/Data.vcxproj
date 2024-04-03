@@ -141,7 +141,6 @@
     <ClCompile Include="room.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="data.hpp" />
     <ClInclude Include="dungeonData.hpp" />
     <ClInclude Include="layoutData.hpp" />
     <ClInclude Include="maze.hpp" />
