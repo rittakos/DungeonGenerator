@@ -47,15 +47,32 @@ jobs:
       uses: darenm/Setup-VSTest@v1
       id: setup_vstest
 
-    - name: Setup GoogleTest
-      uses: Bacondish2023/setup-googletest@v1.0.1
-      with:
+    #- name: Setup GoogleTest
+    #  uses: Bacondish2023/setup-googletest@v1.0.1
+    #  with:
         # Tag or branch name. Default is latest main.
         # tag: # optional, default is main
         # Build type. One of {Debug, Release, RelWithDebInfo, MinSizeRel}. Default is Release.
-        build-type: Debug
+        # build-type: Debug
         # Logging level. One of {OFF, CRITICAL, ERROR, WARNING, INFO, DEBUG}. Default is INFO.
         #loglevel: # optional, default is INFO
+
+    - name: Get Google Test
+      # You may pin to the exact commit or the version.
+      # uses: LazyPanda07/get-gtest@911d6f10f712801713462722f34d36e422d3ece1
+      uses: LazyPanda07/get-gtest@v1
+      with:
+        # Google Test repository path
+        #repository-path: # optional, default is gtest
+        # Build configuration of Google Test
+        build-type: Debug
+        # Google Test branch name to clone
+        # branch-name: # optional, default is v1.14.x
+        # Build result path(include, lib folders) relative to github.workspace
+        install-path: .\DungeonGenerator\libraries
+        # Windows specific setting, static or shared CRT build
+        # force-shared-crt: # optional, default is ON
+          
 
     - name: Run VSTest
       id: run_vstest
