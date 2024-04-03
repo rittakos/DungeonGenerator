@@ -49,11 +49,11 @@ jobs:
 
     - name: Setup GoogleTest
       uses: Bacondish2023/setup-googletest@v1.0.1
-      # with:
+      with:
         # Tag or branch name. Default is latest main.
         # tag: # optional, default is main
         # Build type. One of {Debug, Release, RelWithDebInfo, MinSizeRel}. Default is Release.
-        # build-type: # optional, default is Release
+        build-type: Debug
         # Logging level. One of {OFF, CRITICAL, ERROR, WARNING, INFO, DEBUG}. Default is INFO.
         #loglevel: # optional, default is INFO
 
