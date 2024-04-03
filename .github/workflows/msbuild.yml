@@ -47,6 +47,11 @@ jobs:
       uses: darenm/Setup-VSTest@v1
       id: setup_vstest
 
+    - name: Setup GoogleTest
+    - uses: Bacondish2023/setup-googletest@v1.0.1
+      with:
+        tag: 
+
     - name: Run VSTest
       id: run_vstest
       working-directory: ${{github.workspace}}
