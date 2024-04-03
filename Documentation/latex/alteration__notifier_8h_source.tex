@@ -1,0 +1,478 @@
+\doxysection{alteration\+\_\+notifier.\+h}
+\hypertarget{alteration__notifier_8h_source}{}\label{alteration__notifier_8h_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/lemon/bits/alteration\_notifier.h@{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/lemon/bits/alteration\_notifier.h}}
+\mbox{\hyperlink{alteration__notifier_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00001}00001\ \textcolor{comment}{/*\ -\/*-\/\ mode:\ C++;\ indent-\/tabs-\/mode:\ nil;\ -\/*-\/}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00002}00002\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00003}00003\ \textcolor{comment}{\ *\ This\ file\ is\ a\ part\ of\ LEMON,\ a\ generic\ C++\ optimization\ library.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00004}00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00005}00005\ \textcolor{comment}{\ *\ Copyright\ (C)\ 2003-\/2013}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00006}00006\ \textcolor{comment}{\ *\ Egervary\ Jeno\ Kombinatorikus\ Optimalizalasi\ Kutatocsoport}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00007}00007\ \textcolor{comment}{\ *\ (Egervary\ Research\ Group\ on\ Combinatorial\ Optimization,\ EGRES).}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00008}00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00009}00009\ \textcolor{comment}{\ *\ Permission\ to\ use,\ modify\ and\ distribute\ this\ software\ is\ granted}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00010}00010\ \textcolor{comment}{\ *\ provided\ that\ this\ copyright\ notice\ appears\ in\ all\ copies.\ For}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00011}00011\ \textcolor{comment}{\ *\ precise\ terms\ see\ the\ accompanying\ LICENSE\ file.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00012}00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00013}00013\ \textcolor{comment}{\ *\ This\ software\ is\ provided\ "{}AS\ IS"{}\ with\ no\ warranty\ of\ any\ kind,}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00014}00014\ \textcolor{comment}{\ *\ express\ or\ implied,\ and\ with\ no\ claim\ as\ to\ its\ suitability\ for\ any}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00015}00015\ \textcolor{comment}{\ *\ purpose.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00016}00016\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00017}00017\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00019}00019\ \textcolor{preprocessor}{\#ifndef\ LEMON\_BITS\_ALTERATION\_NOTIFIER\_H}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00020}00020\ \textcolor{preprocessor}{\#define\ LEMON\_BITS\_ALTERATION\_NOTIFIER\_H}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00023}00023\ \textcolor{preprocessor}{\#include\ <list>}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00025}00025\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{lemon_2core_8h}{lemon/core.h}}>}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00026}00026\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{lock_8h}{lemon/bits/lock.h}}>}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00028}00028\ \textcolor{comment}{//\(\backslash\)ingroup\ graphbits}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00029}00029\ \textcolor{comment}{//\(\backslash\)file}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00030}00030\ \textcolor{comment}{//\(\backslash\)brief\ Observer\ notifier\ for\ graph\ alteration\ observers.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00032}00032\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacelemon}{lemon}}\ \{}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00034}00034\ \ \ \textcolor{comment}{//\ \(\backslash\)ingroup\ graphbits}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00035}00035\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00036}00036\ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Notifier\ class\ to\ notify\ observes\ about\ alterations\ in}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00037}00037\ \ \ \textcolor{comment}{//\ a\ container.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00038}00038\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00039}00039\ \ \ \textcolor{comment}{//\ The\ simple\ graphs\ can\ be\ refered\ as\ two\ containers:\ a\ node\ container}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00040}00040\ \ \ \textcolor{comment}{//\ and\ an\ edge\ container.\ But\ they\ do\ not\ store\ values\ directly,\ they}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00041}00041\ \ \ \textcolor{comment}{//\ are\ just\ key\ continars\ for\ more\ value\ containers,\ which\ are\ the}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00042}00042\ \ \ \textcolor{comment}{//\ node\ and\ edge\ maps.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00043}00043\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00044}00044\ \ \ \textcolor{comment}{//\ The\ node\ and\ edge\ sets\ of\ the\ graphs\ can\ be\ changed\ as\ we\ add\ or\ erase}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00045}00045\ \ \ \textcolor{comment}{//\ nodes\ and\ edges\ in\ the\ graph.\ LEMON\ would\ like\ to\ handle\ easily}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00046}00046\ \ \ \textcolor{comment}{//\ that\ the\ node\ and\ edge\ maps\ should\ contain\ values\ for\ all\ nodes\ or}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00047}00047\ \ \ \textcolor{comment}{//\ edges.\ If\ we\ want\ to\ check\ on\ every\ indicing\ if\ the\ map\ contains}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00048}00048\ \ \ \textcolor{comment}{//\ the\ current\ indicing\ key\ that\ cause\ a\ drawback\ in\ the\ performance}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00049}00049\ \ \ \textcolor{comment}{//\ in\ the\ library.\ We\ use\ another\ solution:\ we\ notify\ all\ maps\ about}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00050}00050\ \ \ \textcolor{comment}{//\ an\ alteration\ in\ the\ graph,\ which\ cause\ only\ drawback\ on\ the}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00051}00051\ \ \ \textcolor{comment}{//\ alteration\ of\ the\ graph.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00052}00052\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00053}00053\ \ \ \textcolor{comment}{//\ This\ class\ provides\ an\ interface\ to\ a\ node\ or\ edge\ container.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00054}00054\ \ \ \textcolor{comment}{//\ The\ first()\ and\ next()\ member\ functions\ make\ possible}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00055}00055\ \ \ \textcolor{comment}{//\ to\ iterate\ on\ the\ keys\ of\ the\ container.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00056}00056\ \ \ \textcolor{comment}{//\ The\ id()\ function\ returns\ an\ integer\ id\ for\ each\ key.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00057}00057\ \ \ \textcolor{comment}{//\ The\ maxId()\ function\ gives\ back\ an\ upper\ bound\ of\ the\ ids.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00058}00058\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00059}00059\ \ \ \textcolor{comment}{//\ For\ the\ proper\ functonality\ of\ this\ class,\ we\ should\ notify\ it}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00060}00060\ \ \ \textcolor{comment}{//\ about\ each\ alteration\ in\ the\ container.\ The\ alterations\ have\ four\ type:}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00061}00061\ \ \ \textcolor{comment}{//\ add(),\ erase(),\ build()\ and\ clear().\ The\ add()\ and}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00062}00062\ \ \ \textcolor{comment}{//\ erase()\ signal\ that\ only\ one\ or\ few\ items\ added\ or\ erased\ to\ or}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00063}00063\ \ \ \textcolor{comment}{//\ from\ the\ graph.\ If\ all\ items\ are\ erased\ from\ the\ graph\ or\ if\ a\ new\ graph}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00064}00064\ \ \ \textcolor{comment}{//\ is\ built\ from\ an\ empty\ graph,\ then\ it\ can\ be\ signaled\ with\ the}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00065}00065\ \ \ \textcolor{comment}{//\ clear()\ and\ build()\ members.\ Important\ rule\ that\ if\ we\ erase\ items}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00066}00066\ \ \ \textcolor{comment}{//\ from\ graphs\ we\ should\ first\ signal\ the\ alteration\ and\ after\ that\ erase}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00067}00067\ \ \ \textcolor{comment}{//\ them\ from\ the\ container,\ on\ the\ other\ way\ on\ item\ addition\ we\ should}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00068}00068\ \ \ \textcolor{comment}{//\ first\ extend\ the\ container\ and\ just\ after\ that\ signal\ the\ alteration.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00069}00069\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00070}00070\ \ \ \textcolor{comment}{//\ The\ alteration\ can\ be\ observed\ with\ a\ class\ inherited\ from\ the}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00071}00071\ \ \ \textcolor{comment}{//\ ObserverBase\ nested\ class.\ The\ signals\ can\ be\ handled\ with}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00072}00072\ \ \ \textcolor{comment}{//\ overriding\ the\ virtual\ functions\ defined\ in\ the\ base\ class.\ \ The}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00073}00073\ \ \ \textcolor{comment}{//\ observer\ base\ can\ be\ attached\ to\ the\ notifier\ with\ the}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00074}00074\ \ \ \textcolor{comment}{//\ attach()\ member\ and\ can\ be\ detached\ with\ detach()\ function.\ The}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00075}00075\ \ \ \textcolor{comment}{//\ alteration\ handlers\ should\ not\ call\ any\ function\ which\ signals}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00076}00076\ \ \ \textcolor{comment}{//\ an\ other\ alteration\ in\ the\ same\ notifier\ and\ should\ not}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00077}00077\ \ \ \textcolor{comment}{//\ detach\ any\ observer\ from\ the\ notifier.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00078}00078\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00079}00079\ \ \ \textcolor{comment}{//\ Alteration\ observers\ try\ to\ be\ exception\ safe.\ If\ an\ add()\ or}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00080}00080\ \ \ \textcolor{comment}{//\ a\ clear()\ function\ throws\ an\ exception\ then\ the\ remaining}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00081}00081\ \ \ \textcolor{comment}{//\ observeres\ will\ not\ be\ notified\ and\ the\ fulfilled\ additions\ will}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00082}00082\ \ \ \textcolor{comment}{//\ be\ rolled\ back\ by\ calling\ the\ erase()\ or\ clear()\ functions.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00083}00083\ \ \ \textcolor{comment}{//\ Hence\ erase()\ and\ clear()\ should\ not\ throw\ exception.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00084}00084\ \ \ \textcolor{comment}{//\ Actullay,\ they\ can\ throw\ only\ \(\backslash\)ref\ ImmediateDetach\ exception,}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00085}00085\ \ \ \textcolor{comment}{//\ which\ detach\ the\ observer\ from\ the\ notifier.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00086}00086\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00087}00087\ \ \ \textcolor{comment}{//\ There\ are\ some\ cases,\ when\ the\ alteration\ observing\ is\ not\ completly}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00088}00088\ \ \ \textcolor{comment}{//\ reliable.\ If\ we\ want\ to\ carry\ out\ the\ node\ degree\ in\ the\ graph}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00089}00089\ \ \ \textcolor{comment}{//\ as\ in\ the\ \(\backslash\)ref\ InDegMap\ and\ we\ use\ the\ reverseArc(),\ then\ it\ cause}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00090}00090\ \ \ \textcolor{comment}{//\ unreliable\ functionality.\ Because\ the\ alteration\ observing\ signals}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00091}00091\ \ \ \textcolor{comment}{//\ only\ erasing\ and\ adding\ but\ not\ the\ reversing,\ it\ will\ stores\ bad}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00092}00092\ \ \ \textcolor{comment}{//\ degrees.\ Apart\ form\ that\ the\ subgraph\ adaptors\ cannot\ even\ signal}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00093}00093\ \ \ \textcolor{comment}{//\ the\ alterations\ because\ just\ a\ setting\ in\ the\ filter\ map\ can\ modify}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00094}00094\ \ \ \textcolor{comment}{//\ the\ graph\ and\ this\ cannot\ be\ watched\ in\ any\ way.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00095}00095\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00096}00096\ \ \ \textcolor{comment}{//\ \(\backslash\)param\ \_Container\ The\ container\ which\ is\ observed.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00097}00097\ \ \ \textcolor{comment}{//\ \(\backslash\)param\ \_Item\ The\ item\ type\ which\ is\ obserbved.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00099}00099\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ \_Container,\ \textcolor{keyword}{typename}\ \_Item>}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00100}\mbox{\hyperlink{classlemon_1_1_alteration_notifier}{00100}}\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_alteration_notifier}{AlterationNotifier}}\ \{}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00101}00101\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00103}\mbox{\hyperlink{classlemon_1_1_alteration_notifier_a9aeb0942588f7d74f20d03e9f879e160}{00103}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{structlemon_1_1_true}{True}}\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_a9aeb0942588f7d74f20d03e9f879e160}{Notifier}};}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00105}\mbox{\hyperlink{classlemon_1_1_alteration_notifier_a8492663ea4b446757a03d51fb1baf572}{00105}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_Container}}\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_a8492663ea4b446757a03d51fb1baf572}{Container}};}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00106}\mbox{\hyperlink{classlemon_1_1_alteration_notifier_acf79afb06bcf8b1938162ce45b165a20}{00106}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_Item}}\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_acf79afb06bcf8b1938162ce45b165a20}{Item}};}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00108}00108\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Exception\ which\ can\ be\ called\ from\ clear()\ and}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00109}00109\ \ \ \ \ \textcolor{comment}{//\ erase().}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00110}00110\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00111}00111\ \ \ \ \ \textcolor{comment}{//\ From\ the\ clear()\ and\ erase()\ function\ only\ this}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00112}00112\ \ \ \ \ \textcolor{comment}{//\ exception\ is\ allowed\ to\ throw.\ The\ exception\ immediatly}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00113}00113\ \ \ \ \ \textcolor{comment}{//\ detaches\ the\ current\ observer\ from\ the\ notifier.\ Because\ the}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00114}00114\ \ \ \ \ \textcolor{comment}{//\ clear()\ and\ erase()\ should\ not\ throw\ other\ exceptions}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00115}00115\ \ \ \ \ \textcolor{comment}{//\ it\ can\ be\ used\ to\ invalidate\ the\ observer.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00116}\mbox{\hyperlink{structlemon_1_1_alteration_notifier_1_1_immediate_detach}{00116}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_alteration_notifier_1_1_immediate_detach}{ImmediateDetach}}\ \{\};}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00117}00117\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00118}00118\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ ObserverBase\ is\ the\ base\ class\ for\ the\ observers.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00119}00119\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00120}00120\ \ \ \ \ \textcolor{comment}{//\ ObserverBase\ is\ the\ abstract\ base\ class\ for\ the\ observers.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00121}00121\ \ \ \ \ \textcolor{comment}{//\ It\ will\ be\ notified\ about\ an\ item\ was\ inserted\ into\ or}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00122}00122\ \ \ \ \ \textcolor{comment}{//\ erased\ from\ the\ graph.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00123}00123\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00124}00124\ \ \ \ \ \textcolor{comment}{//\ The\ observer\ interface\ contains\ some\ pure\ virtual\ functions}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00125}00125\ \ \ \ \ \textcolor{comment}{//\ to\ override.\ The\ add()\ and\ erase()\ functions\ are}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00126}00126\ \ \ \ \ \textcolor{comment}{//\ to\ notify\ the\ oberver\ when\ one\ item\ is\ added\ or\ erased.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00127}00127\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00128}00128\ \ \ \ \ \textcolor{comment}{//\ The\ build()\ and\ clear()\ members\ are\ to\ notify\ the\ observer}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00129}00129\ \ \ \ \ \textcolor{comment}{//\ about\ the\ container\ is\ built\ from\ an\ empty\ container\ or}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00130}00130\ \ \ \ \ \textcolor{comment}{//\ is\ cleared\ to\ an\ empty\ container.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00131}\mbox{\hyperlink{classlemon_1_1_alteration_notifier_1_1_observer_base}{00131}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_alteration_notifier_1_1_observer_base}{ObserverBase}}\ \{}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00132}00132\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00133}\mbox{\hyperlink{classlemon_1_1_alteration_notifier_1_1_observer_base_ad6e34e2876a2579ab8e7150a1b330b7c}{00133}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier}{AlterationNotifier}}\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_1_1_observer_base_ad6e34e2876a2579ab8e7150a1b330b7c}{Notifier}};}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00135}\mbox{\hyperlink{classlemon_1_1_alteration_notifier_1_1_observer_base_a4d17438dd0acb9b57ba6ec32c801523b}{00135}}\ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_alteration_notifier}{AlterationNotifier}};}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00136}00136\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00137}00137\ \ \ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Default\ constructor.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00138}00138\ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00139}00139\ \ \ \ \ \ \ \textcolor{comment}{//\ Default\ constructor\ for\ ObserverBase.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00140}\mbox{\hyperlink{classlemon_1_1_alteration_notifier_1_1_observer_base_aec99cfd21852ff8c26e4f9e1300ed5cc}{00140}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_1_1_observer_base_aec99cfd21852ff8c26e4f9e1300ed5cc}{ObserverBase}}()\ :\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_1_1_observer_base_aec82aae6de35754fc1b9674fb90fb6d5}{\_notifier}}(0)\ \{\}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00141}00141\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00142}00142\ \ \ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Constructor\ which\ attach\ the\ observer\ into\ notifier.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00143}00143\ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00144}00144\ \ \ \ \ \ \ \textcolor{comment}{//\ Constructor\ which\ attach\ the\ observer\ into\ notifier.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00145}\mbox{\hyperlink{classlemon_1_1_alteration_notifier_1_1_observer_base_a1071f18eb00d3d14a96719f77d461da0}{00145}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_1_1_observer_base_a1071f18eb00d3d14a96719f77d461da0}{ObserverBase}}(\mbox{\hyperlink{classlemon_1_1_alteration_notifier}{AlterationNotifier}}\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{nf}})\ \{}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00146}00146\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_1_1_observer_base_a620298cc9d915fe2938b24525991c6c0}{attach}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{nf}});}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00147}00147\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00148}00148\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00149}00149\ \ \ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Constructor\ which\ attach\ the\ obserever\ to\ the\ same\ notifier.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00150}00150\ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00151}00151\ \ \ \ \ \ \ \textcolor{comment}{//\ Constructor\ which\ attach\ the\ obserever\ to\ the\ same\ notifier\ as}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00152}00152\ \ \ \ \ \ \ \textcolor{comment}{//\ the\ other\ observer\ is\ attached\ to.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00153}\mbox{\hyperlink{classlemon_1_1_alteration_notifier_1_1_observer_base_af6ab5621431dc02e100162650123c628}{00153}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_1_1_observer_base_af6ab5621431dc02e100162650123c628}{ObserverBase}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_1_1_observer_base}{ObserverBase}}\&\ copy)\ \{}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00154}00154\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (copy.attached())\ \{}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_1_1_observer_base_a620298cc9d915fe2938b24525991c6c0}{attach}}(*copy.notifier());}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00156}00156\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00157}00157\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00158}00158\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00159}00159\ \ \ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Destructor}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00160}\mbox{\hyperlink{classlemon_1_1_alteration_notifier_1_1_observer_base_a7d5909284f8dd172bfcdd1293648bed5}{00160}}\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_1_1_observer_base_a7d5909284f8dd172bfcdd1293648bed5}{\string~ObserverBase}}()\ \{}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00161}00161\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_alteration_notifier_1_1_observer_base_a8c2993b88b189485a4b7872063055cec}{attached}}())\ \{}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_1_1_observer_base_a38cff902ac4794069878a46cc0b30ef4}{detach}}();}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00163}00163\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00164}00164\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00165}00165\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00166}00166\ \ \ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Attaches\ the\ observer\ into\ an\ AlterationNotifier.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00167}00167\ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00168}00168\ \ \ \ \ \ \ \textcolor{comment}{//\ This\ member\ attaches\ the\ observer\ into\ an\ AlterationNotifier.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00169}\mbox{\hyperlink{classlemon_1_1_alteration_notifier_1_1_observer_base_a620298cc9d915fe2938b24525991c6c0}{00169}}\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_1_1_observer_base_a620298cc9d915fe2938b24525991c6c0}{attach}}(\mbox{\hyperlink{classlemon_1_1_alteration_notifier}{AlterationNotifier}}\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{nf}})\ \{}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00170}00170\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{nf}}.attach(*\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00171}00171\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00172}00172\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00173}00173\ \ \ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Detaches\ the\ observer\ into\ an\ AlterationNotifier.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00174}00174\ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00175}00175\ \ \ \ \ \ \ \textcolor{comment}{//\ This\ member\ detaches\ the\ observer\ from\ an\ AlterationNotifier.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00176}\mbox{\hyperlink{classlemon_1_1_alteration_notifier_1_1_observer_base_a38cff902ac4794069878a46cc0b30ef4}{00176}}\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_1_1_observer_base_a38cff902ac4794069878a46cc0b30ef4}{detach}}()\ \{}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00177}00177\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_1_1_observer_base_aec82aae6de35754fc1b9674fb90fb6d5}{\_notifier}}-\/>\mbox{\hyperlink{classlemon_1_1_alteration_notifier_adb9caca2711d520b9c2e96325af9c67c}{detach}}(*\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00178}00178\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00179}00179\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00180}00180\ \ \ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Gives\ back\ a\ pointer\ to\ the\ notifier\ which\ the\ map}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00181}00181\ \ \ \ \ \ \ \textcolor{comment}{//\ attached\ into.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00182}00182\ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00183}00183\ \ \ \ \ \ \ \textcolor{comment}{//\ This\ function\ gives\ back\ a\ pointer\ to\ the\ notifier\ which\ the\ map}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00184}00184\ \ \ \ \ \ \ \textcolor{comment}{//\ attached\ into.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00185}\mbox{\hyperlink{classlemon_1_1_alteration_notifier_1_1_observer_base_aa71f8eb9f83b99477eb38c345b3dacca}{00185}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_alteration_notifier}{Notifier}}*\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_1_1_observer_base_aa71f8eb9f83b99477eb38c345b3dacca}{notifier}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{const\_cast<}\mbox{\hyperlink{classlemon_1_1_alteration_notifier}{Notifier}}*\textcolor{keyword}{>}(\mbox{\hyperlink{classlemon_1_1_alteration_notifier_1_1_observer_base_aec82aae6de35754fc1b9674fb90fb6d5}{\_notifier}});\ \}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00186}00186\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00187}00187\ \ \ \ \ \ \ \textcolor{comment}{//\ Gives\ back\ true\ when\ the\ observer\ is\ attached\ into\ a\ notifier.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00188}\mbox{\hyperlink{classlemon_1_1_alteration_notifier_1_1_observer_base_a8c2993b88b189485a4b7872063055cec}{00188}}\ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_1_1_observer_base_a8c2993b88b189485a4b7872063055cec}{attached}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_1_1_observer_base_aec82aae6de35754fc1b9674fb90fb6d5}{\_notifier}}\ !=\ 0;\ \}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00189}00189\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00190}00190\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00191}00191\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00192}\mbox{\hyperlink{classlemon_1_1_alteration_notifier_1_1_observer_base_a377c3debc3ae4cc948ff996508075070}{00192}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_1_1_observer_base}{ObserverBase}}\&\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_1_1_observer_base_a377c3debc3ae4cc948ff996508075070}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_1_1_observer_base}{ObserverBase}}\&\ copy);}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00193}00193\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00194}00194\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00195}00195\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00196}\mbox{\hyperlink{classlemon_1_1_alteration_notifier_1_1_observer_base_aec82aae6de35754fc1b9674fb90fb6d5}{00196}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_alteration_notifier}{Notifier}}*\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_1_1_observer_base_aec82aae6de35754fc1b9674fb90fb6d5}{\_notifier}};}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00197}\mbox{\hyperlink{classlemon_1_1_alteration_notifier_1_1_observer_base_ab4a3857df564a6bd45037c858604f839}{00197}}\ \ \ \ \ \ \ \textcolor{keyword}{typename}\ std::list<ObserverBase*>::iterator\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_1_1_observer_base_ab4a3857df564a6bd45037c858604f839}{\_index}};}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00198}00198\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00199}00199\ \ \ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ The\ member\ function\ to\ notificate\ the\ observer\ about\ an}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00200}00200\ \ \ \ \ \ \ \textcolor{comment}{//\ item\ is\ added\ to\ the\ container.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00201}00201\ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00202}00202\ \ \ \ \ \ \ \textcolor{comment}{//\ The\ add()\ member\ function\ notificates\ the\ observer\ about\ an\ item}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00203}00203\ \ \ \ \ \ \ \textcolor{comment}{//\ is\ added\ to\ the\ container.\ It\ have\ to\ be\ overrided\ in\ the}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00204}00204\ \ \ \ \ \ \ \textcolor{comment}{//\ subclasses.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00205}\mbox{\hyperlink{classlemon_1_1_alteration_notifier_1_1_observer_base_a51e96fe065bfd994c045ab1515278874}{00205}}\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_1_1_observer_base_a51e96fe065bfd994c045ab1515278874}{add}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Item}}\&)\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00206}00206\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00207}00207\ \ \ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ The\ member\ function\ to\ notificate\ the\ observer\ about}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00208}00208\ \ \ \ \ \ \ \textcolor{comment}{//\ more\ item\ is\ added\ to\ the\ container.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00209}00209\ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00210}00210\ \ \ \ \ \ \ \textcolor{comment}{//\ The\ add()\ member\ function\ notificates\ the\ observer\ about\ more\ item}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00211}00211\ \ \ \ \ \ \ \textcolor{comment}{//\ is\ added\ to\ the\ container.\ It\ have\ to\ be\ overrided\ in\ the}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00212}00212\ \ \ \ \ \ \ \textcolor{comment}{//\ subclasses.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00213}\mbox{\hyperlink{classlemon_1_1_alteration_notifier_1_1_observer_base_ab441264b417f2f53bb05008febf5aed7}{00213}}\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_1_1_observer_base_ab441264b417f2f53bb05008febf5aed7}{add}}(\textcolor{keyword}{const}\ std::vector<Item>\&\ items)\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00214}00214\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00215}00215\ \ \ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ The\ member\ function\ to\ notificate\ the\ observer\ about\ an}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00216}00216\ \ \ \ \ \ \ \textcolor{comment}{//\ item\ is\ erased\ from\ the\ container.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00217}00217\ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00218}00218\ \ \ \ \ \ \ \textcolor{comment}{//\ The\ erase()\ member\ function\ notificates\ the\ observer\ about\ an}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00219}00219\ \ \ \ \ \ \ \textcolor{comment}{//\ item\ is\ erased\ from\ the\ container.\ It\ have\ to\ be\ overrided\ in}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00220}00220\ \ \ \ \ \ \ \textcolor{comment}{//\ the\ subclasses.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00221}\mbox{\hyperlink{classlemon_1_1_alteration_notifier_1_1_observer_base_a412b569ac2589ec71f2c83390a62519c}{00221}}\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_1_1_observer_base_a412b569ac2589ec71f2c83390a62519c}{erase}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Item}}\&)\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00222}00222\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00223}00223\ \ \ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ The\ member\ function\ to\ notificate\ the\ observer\ about}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00224}00224\ \ \ \ \ \ \ \textcolor{comment}{//\ more\ item\ is\ erased\ from\ the\ container.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00225}00225\ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00226}00226\ \ \ \ \ \ \ \textcolor{comment}{//\ The\ erase()\ member\ function\ notificates\ the\ observer\ about\ more\ item}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00227}00227\ \ \ \ \ \ \ \textcolor{comment}{//\ is\ erased\ from\ the\ container.\ It\ have\ to\ be\ overrided\ in\ the}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00228}00228\ \ \ \ \ \ \ \textcolor{comment}{//\ subclasses.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00229}\mbox{\hyperlink{classlemon_1_1_alteration_notifier_1_1_observer_base_af32d1fae73b8d80c0db9c47067d876e8}{00229}}\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_1_1_observer_base_af32d1fae73b8d80c0db9c47067d876e8}{erase}}(\textcolor{keyword}{const}\ std::vector<Item>\&\ items)\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00230}00230\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00231}00231\ \ \ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ The\ member\ function\ to\ notificate\ the\ observer\ about\ the}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00232}00232\ \ \ \ \ \ \ \textcolor{comment}{//\ container\ is\ built.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00233}00233\ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00234}00234\ \ \ \ \ \ \ \textcolor{comment}{//\ The\ build()\ member\ function\ notificates\ the\ observer\ about\ the}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00235}00235\ \ \ \ \ \ \ \textcolor{comment}{//\ container\ is\ built\ from\ an\ empty\ container.\ It\ have\ to\ be}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00236}00236\ \ \ \ \ \ \ \textcolor{comment}{//\ overrided\ in\ the\ subclasses.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00237}\mbox{\hyperlink{classlemon_1_1_alteration_notifier_1_1_observer_base_a38b8fa5fc933977b4681eca4b7dc050c}{00237}}\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_1_1_observer_base_a38b8fa5fc933977b4681eca4b7dc050c}{build}}()\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00238}00238\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00239}00239\ \ \ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ The\ member\ function\ to\ notificate\ the\ observer\ about\ all}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00240}00240\ \ \ \ \ \ \ \textcolor{comment}{//\ items\ are\ erased\ from\ the\ container.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00241}00241\ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00242}00242\ \ \ \ \ \ \ \textcolor{comment}{//\ The\ clear()\ member\ function\ notificates\ the\ observer\ about\ all}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00243}00243\ \ \ \ \ \ \ \textcolor{comment}{//\ items\ are\ erased\ from\ the\ container.\ It\ have\ to\ be\ overrided\ in}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00244}00244\ \ \ \ \ \ \ \textcolor{comment}{//\ the\ subclasses.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00245}\mbox{\hyperlink{classlemon_1_1_alteration_notifier_1_1_observer_base_a601d35e6364321b8911cfa5a77f095b6}{00245}}\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_1_1_observer_base_a601d35e6364321b8911cfa5a77f095b6}{clear}}()\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00246}00246\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00247}00247\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00248}00248\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00249}00249\ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00250}00250\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00251}\mbox{\hyperlink{classlemon_1_1_alteration_notifier_aef3739a2bc6c07efd507b047b60747a8}{00251}}\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Container}}*\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_aef3739a2bc6c07efd507b047b60747a8}{container}};}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00252}00252\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00253}\mbox{\hyperlink{classlemon_1_1_alteration_notifier_a1f94d327ca9cc61468ea85f9a77427c0}{00253}}\ \ \ \ \ \textcolor{keyword}{typedef}\ std::list<ObserverBase*>\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_a1f94d327ca9cc61468ea85f9a77427c0}{Observers}};}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00254}\mbox{\hyperlink{classlemon_1_1_alteration_notifier_a268aa791e13ab8d3f001e158c42bbb55}{00254}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_a1f94d327ca9cc61468ea85f9a77427c0}{Observers}}\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_a268aa791e13ab8d3f001e158c42bbb55}{\_observers}};}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00255}\mbox{\hyperlink{classlemon_1_1_alteration_notifier_a8ee4dcab9705372e6325b0a329bd46e3}{00255}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1bits_1_1_lock}{lemon::bits::Lock}}\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_a8ee4dcab9705372e6325b0a329bd46e3}{\_lock}};}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00256}00256\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00257}00257\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00258}00258\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00259}00259\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Default\ constructor.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00260}00260\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00261}00261\ \ \ \ \ \textcolor{comment}{//\ The\ default\ constructor\ of\ the\ AlterationNotifier.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00262}00262\ \ \ \ \ \textcolor{comment}{//\ It\ creates\ an\ empty\ notifier.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00263}\mbox{\hyperlink{classlemon_1_1_alteration_notifier_a36f212c34a49a0b1f16184019f9539cc}{00263}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_a36f212c34a49a0b1f16184019f9539cc}{AlterationNotifier}}()}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00264}00264\ \ \ \ \ \ \ :\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_aef3739a2bc6c07efd507b047b60747a8}{container}}(0)\ \{\}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00265}00265\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00266}00266\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Constructor.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00267}00267\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00268}00268\ \ \ \ \ \textcolor{comment}{//\ Constructor\ with\ the\ observed\ container\ parameter.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00269}\mbox{\hyperlink{classlemon_1_1_alteration_notifier_aa79122e9d8912825b9630c46f720d63a}{00269}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_aa79122e9d8912825b9630c46f720d63a}{AlterationNotifier}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Container}}\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_container}})}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00270}00270\ \ \ \ \ \ \ :\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_aef3739a2bc6c07efd507b047b60747a8}{container}}(\&\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_container}})\ \{\}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00271}00271\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00272}00272\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Copy\ Constructor\ of\ the\ AlterationNotifier.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00273}00273\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00274}00274\ \ \ \ \ \textcolor{comment}{//\ Copy\ constructor\ of\ the\ AlterationNotifier.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00275}00275\ \ \ \ \ \textcolor{comment}{//\ It\ creates\ only\ an\ empty\ notifier\ because\ the\ copiable}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00276}00276\ \ \ \ \ \textcolor{comment}{//\ notifier's\ observers\ have\ to\ be\ registered\ still\ into\ that\ notifier.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00277}\mbox{\hyperlink{classlemon_1_1_alteration_notifier_a6b964fffb3e3e3d08bf2afbcf1f61fe0}{00277}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_a6b964fffb3e3e3d08bf2afbcf1f61fe0}{AlterationNotifier}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier}{AlterationNotifier}}\&\ \_notifier)}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00278}00278\ \ \ \ \ \ \ :\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_aef3739a2bc6c07efd507b047b60747a8}{container}}(\_notifier.\mbox{\hyperlink{classlemon_1_1_alteration_notifier_aef3739a2bc6c07efd507b047b60747a8}{container}})\ \{\}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00279}00279\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00280}00280\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Destructor.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00281}00281\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00282}00282\ \ \ \ \ \textcolor{comment}{//\ Destructor\ of\ the\ AlterationNotifier.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00283}\mbox{\hyperlink{classlemon_1_1_alteration_notifier_af0d161417dd77264b25391fa57bc44a2}{00283}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_af0d161417dd77264b25391fa57bc44a2}{\string~AlterationNotifier}}()\ \{}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00284}00284\ \ \ \ \ \ \ \textcolor{keyword}{typename}\ Observers::iterator\ it;}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00285}00285\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (it\ =\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_a268aa791e13ab8d3f001e158c42bbb55}{\_observers}}.begin();\ it\ !=\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_a268aa791e13ab8d3f001e158c42bbb55}{\_observers}}.end();\ ++it)\ \{}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00286}00286\ \ \ \ \ \ \ \ \ (*it)-\/>\_notifier\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00287}00287\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00288}00288\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00289}00289\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00290}00290\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Sets\ the\ container.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00291}00291\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00292}00292\ \ \ \ \ \textcolor{comment}{//\ Sets\ the\ container.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00293}\mbox{\hyperlink{classlemon_1_1_alteration_notifier_a29dcea98e5dc808b3195b4caf725d145}{00293}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_a29dcea98e5dc808b3195b4caf725d145}{setContainer}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Container}}\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_container}})\ \{}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00294}00294\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_aef3739a2bc6c07efd507b047b60747a8}{container}}\ =\ \&\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_container}};}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00295}00295\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00296}00296\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00297}00297\ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00298}00298\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00299}\mbox{\hyperlink{classlemon_1_1_alteration_notifier_a39e169228c236ecd9ada8ac0474239a3}{00299}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_alteration_notifier}{AlterationNotifier}}\&\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_a39e169228c236ecd9ada8ac0474239a3}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier}{AlterationNotifier}}\&);}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00300}00300\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00301}00301\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00302}00302\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00303}00303\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ First\ item\ in\ the\ container.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00304}00304\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00305}00305\ \ \ \ \ \textcolor{comment}{//\ Returns\ the\ first\ item\ in\ the\ container.\ It\ is}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00306}00306\ \ \ \ \ \textcolor{comment}{//\ for\ start\ the\ iteration\ on\ the\ container.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00307}\mbox{\hyperlink{classlemon_1_1_alteration_notifier_a416c723d1f83c43e0acc974a199155e0}{00307}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_a416c723d1f83c43e0acc974a199155e0}{first}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Item}}\&\ item)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00308}00308\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_aef3739a2bc6c07efd507b047b60747a8}{container}}-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a23ed3a4a39b3d5724f67e27ad8bafc77}{first}}(item);}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00309}00309\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00310}00310\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00311}00311\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Next\ item\ in\ the\ container.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00312}00312\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00313}00313\ \ \ \ \ \textcolor{comment}{//\ Returns\ the\ next\ item\ in\ the\ container.\ It\ is}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00314}00314\ \ \ \ \ \textcolor{comment}{//\ for\ iterate\ on\ the\ container.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00315}\mbox{\hyperlink{classlemon_1_1_alteration_notifier_ad5611c48170b2847ad2e992e9ec5c7ce}{00315}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_ad5611c48170b2847ad2e992e9ec5c7ce}{next}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Item}}\&\ item)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00316}00316\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_aef3739a2bc6c07efd507b047b60747a8}{container}}-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a0cfd891938ddddea6beb693c92ac6510}{next}}(item);}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00317}00317\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00318}00318\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00319}00319\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Returns\ the\ id\ of\ the\ item.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00320}00320\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00321}00321\ \ \ \ \ \textcolor{comment}{//\ Returns\ the\ id\ of\ the\ item\ provided\ by\ the\ container.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00322}\mbox{\hyperlink{classlemon_1_1_alteration_notifier_abc5ec72c159e7d4cc2edf9bcf326c772}{00322}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_abc5ec72c159e7d4cc2edf9bcf326c772}{id}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Item}}\&\ item)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00323}00323\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_aef3739a2bc6c07efd507b047b60747a8}{container}}-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_afa1b705fa74e19045a04063063665ee9}{id}}(item);}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00324}00324\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00325}00325\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00326}00326\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Returns\ the\ maximum\ id\ of\ the\ container.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00327}00327\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00328}00328\ \ \ \ \ \textcolor{comment}{//\ Returns\ the\ maximum\ id\ of\ the\ container.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00329}\mbox{\hyperlink{classlemon_1_1_alteration_notifier_ad646e4c1fa8f60de4b18a584b24005f3}{00329}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_ad646e4c1fa8f60de4b18a584b24005f3}{maxId}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00330}00330\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_aef3739a2bc6c07efd507b047b60747a8}{container}}-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_extender_a9d363ecde5150221914f7c3d8f184c8e}{maxId}}(\mbox{\hyperlink{classlemon_1_1_alteration_notifier_acf79afb06bcf8b1938162ce45b165a20}{Item}}());}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00331}00331\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00332}00332\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00333}00333\ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00334}00334\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00335}\mbox{\hyperlink{classlemon_1_1_alteration_notifier_ab4c67ca2c129f3904c427133ad837d8d}{00335}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_ab4c67ca2c129f3904c427133ad837d8d}{attach}}(\mbox{\hyperlink{classlemon_1_1_alteration_notifier_1_1_observer_base}{ObserverBase}}\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{observer}})\ \{}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00336}00336\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_a8ee4dcab9705372e6325b0a329bd46e3}{\_lock}}.\mbox{\hyperlink{classlemon_1_1bits_1_1_lock_a5dc9d881164e703341210065218c5534}{lock}}();}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00337}00337\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{observer}}.\_index\ =\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_a268aa791e13ab8d3f001e158c42bbb55}{\_observers}}.insert(\mbox{\hyperlink{classlemon_1_1_alteration_notifier_a268aa791e13ab8d3f001e158c42bbb55}{\_observers}}.begin(),\ \&\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{observer}});}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00338}00338\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{observer}}.\_notifier\ =\ \textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00339}00339\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_a8ee4dcab9705372e6325b0a329bd46e3}{\_lock}}.\mbox{\hyperlink{classlemon_1_1bits_1_1_lock_a124d0043853e1e0e70d3e026f96fdcc6}{unlock}}();}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00340}00340\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00341}00341\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00342}\mbox{\hyperlink{classlemon_1_1_alteration_notifier_adb9caca2711d520b9c2e96325af9c67c}{00342}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_adb9caca2711d520b9c2e96325af9c67c}{detach}}(\mbox{\hyperlink{classlemon_1_1_alteration_notifier_1_1_observer_base}{ObserverBase}}\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{observer}})\ \{}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00343}00343\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_a8ee4dcab9705372e6325b0a329bd46e3}{\_lock}}.\mbox{\hyperlink{classlemon_1_1bits_1_1_lock_a5dc9d881164e703341210065218c5534}{lock}}();}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00344}00344\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_a268aa791e13ab8d3f001e158c42bbb55}{\_observers}}.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_ac7332c70f1a0d6b49993c5506dc3c787}{erase}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{observer}}.\_index);}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00345}00345\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{observer}}.\_index\ =\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_a268aa791e13ab8d3f001e158c42bbb55}{\_observers}}.end();}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00346}00346\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{observer}}.\_notifier\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00347}00347\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_a8ee4dcab9705372e6325b0a329bd46e3}{\_lock}}.\mbox{\hyperlink{classlemon_1_1bits_1_1_lock_a124d0043853e1e0e70d3e026f96fdcc6}{unlock}}();}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00348}00348\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00349}00349\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00350}00350\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00351}00351\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00352}00352\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Notifies\ all\ the\ registed\ observers\ about\ an\ item\ added\ to}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00353}00353\ \ \ \ \ \textcolor{comment}{//\ the\ container.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00354}00354\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00355}00355\ \ \ \ \ \textcolor{comment}{//\ It\ notifies\ all\ the\ registed\ observers\ about\ an\ item\ added\ to}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00356}00356\ \ \ \ \ \textcolor{comment}{//\ the\ container.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00357}\mbox{\hyperlink{classlemon_1_1_alteration_notifier_a4999a713bc88165dd15daf2dec6a68e2}{00357}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_a4999a713bc88165dd15daf2dec6a68e2}{add}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Item}}\&\ item)\ \{}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00358}00358\ \ \ \ \ \ \ \textcolor{keyword}{typename}\ Observers::reverse\_iterator\ it;}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00359}00359\ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00360}00360\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (it\ =\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_a268aa791e13ab8d3f001e158c42bbb55}{\_observers}}.rbegin();\ it\ !=\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_a268aa791e13ab8d3f001e158c42bbb55}{\_observers}}.rend();\ ++it)\ \{}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00361}00361\ \ \ \ \ \ \ \ \ \ \ (*it)-\/>add(item);}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00362}00362\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00363}00363\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (...)\ \{}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00364}00364\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ Observers::iterator\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{jt}};}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00365}00365\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{jt}}\ =\ it.base();\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{jt}}\ !=\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_a268aa791e13ab8d3f001e158c42bbb55}{\_observers}}.end();\ ++\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{jt}})\ \{}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00366}00366\ \ \ \ \ \ \ \ \ \ \ (*jt)-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_ac7332c70f1a0d6b49993c5506dc3c787}{erase}}(item);}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00367}00367\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00368}00368\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw};}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00369}00369\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00370}00370\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00371}00371\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00372}00372\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Notifies\ all\ the\ registed\ observers\ about\ more\ item\ added\ to}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00373}00373\ \ \ \ \ \textcolor{comment}{//\ the\ container.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00374}00374\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00375}00375\ \ \ \ \ \textcolor{comment}{//\ It\ notifies\ all\ the\ registed\ observers\ about\ more\ item\ added\ to}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00376}00376\ \ \ \ \ \textcolor{comment}{//\ the\ container.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00377}\mbox{\hyperlink{classlemon_1_1_alteration_notifier_a1a19623082d28f5042cb9695ad111651}{00377}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_a1a19623082d28f5042cb9695ad111651}{add}}(\textcolor{keyword}{const}\ std::vector<Item>\&\ items)\ \{}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00378}00378\ \ \ \ \ \ \ \textcolor{keyword}{typename}\ Observers::reverse\_iterator\ it;}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00379}00379\ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00380}00380\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (it\ =\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_a268aa791e13ab8d3f001e158c42bbb55}{\_observers}}.rbegin();\ it\ !=\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_a268aa791e13ab8d3f001e158c42bbb55}{\_observers}}.rend();\ ++it)\ \{}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00381}00381\ \ \ \ \ \ \ \ \ \ \ (*it)-\/>add(items);}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00382}00382\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00383}00383\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (...)\ \{}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00384}00384\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ Observers::iterator\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{jt}};}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00385}00385\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{jt}}\ =\ it.base();\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{jt}}\ !=\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_a268aa791e13ab8d3f001e158c42bbb55}{\_observers}}.end();\ ++\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{jt}})\ \{}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00386}00386\ \ \ \ \ \ \ \ \ \ \ (*jt)-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_ac7332c70f1a0d6b49993c5506dc3c787}{erase}}(items);}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00387}00387\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00388}00388\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw};}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00389}00389\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00390}00390\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00391}00391\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00392}00392\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Notifies\ all\ the\ registed\ observers\ about\ an\ item\ erased\ from}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00393}00393\ \ \ \ \ \textcolor{comment}{//\ the\ container.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00394}00394\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00395}00395\ \ \ \ \ \textcolor{comment}{//\ It\ notifies\ all\ the\ registed\ observers\ about\ an\ item\ erased\ from}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00396}00396\ \ \ \ \ \textcolor{comment}{//\ the\ container.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00397}\mbox{\hyperlink{classlemon_1_1_alteration_notifier_aeca8a072c99515f246b07bb846f3f4a5}{00397}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_aeca8a072c99515f246b07bb846f3f4a5}{erase}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Item}}\&\ item)\ \textcolor{keywordflow}{throw}()\ \{}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00398}00398\ \ \ \ \ \ \ \textcolor{keyword}{typename}\ Observers::iterator\ it\ =\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_a268aa791e13ab8d3f001e158c42bbb55}{\_observers}}.begin();}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00399}00399\ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (it\ !=\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_a268aa791e13ab8d3f001e158c42bbb55}{\_observers}}.end())\ \{}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00400}00400\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00401}00401\ \ \ \ \ \ \ \ \ \ \ (*it)-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_ac7332c70f1a0d6b49993c5506dc3c787}{erase}}(item);}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00402}00402\ \ \ \ \ \ \ \ \ \ \ ++it;}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00403}00403\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{structlemon_1_1_alteration_notifier_1_1_immediate_detach}{ImmediateDetach}}\&)\ \{}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00404}00404\ \ \ \ \ \ \ \ \ \ \ (*it)-\/>\_index\ =\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_a268aa791e13ab8d3f001e158c42bbb55}{\_observers}}.end();}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00405}00405\ \ \ \ \ \ \ \ \ \ \ (*it)-\/>\_notifier\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00406}00406\ \ \ \ \ \ \ \ \ \ \ it\ =\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_a268aa791e13ab8d3f001e158c42bbb55}{\_observers}}.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_ac7332c70f1a0d6b49993c5506dc3c787}{erase}}(it);}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00407}00407\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00408}00408\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00409}00409\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00410}00410\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00411}00411\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Notifies\ all\ the\ registed\ observers\ about\ more\ item\ erased}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00412}00412\ \ \ \ \ \textcolor{comment}{//\ from\ the\ container.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00413}00413\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00414}00414\ \ \ \ \ \textcolor{comment}{//\ It\ notifies\ all\ the\ registed\ observers\ about\ more\ item\ erased\ from}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00415}00415\ \ \ \ \ \textcolor{comment}{//\ the\ container.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00416}\mbox{\hyperlink{classlemon_1_1_alteration_notifier_a8ae33c7742a44e060a4536717adec0fc}{00416}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_a8ae33c7742a44e060a4536717adec0fc}{erase}}(\textcolor{keyword}{const}\ std::vector<Item>\&\ items)\ \{}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00417}00417\ \ \ \ \ \ \ \textcolor{keyword}{typename}\ Observers::iterator\ it\ =\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_a268aa791e13ab8d3f001e158c42bbb55}{\_observers}}.begin();}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00418}00418\ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (it\ !=\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_a268aa791e13ab8d3f001e158c42bbb55}{\_observers}}.end())\ \{}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00419}00419\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00420}00420\ \ \ \ \ \ \ \ \ \ \ (*it)-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_ac7332c70f1a0d6b49993c5506dc3c787}{erase}}(items);}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00421}00421\ \ \ \ \ \ \ \ \ \ \ ++it;}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00422}00422\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{structlemon_1_1_alteration_notifier_1_1_immediate_detach}{ImmediateDetach}}\&)\ \{}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00423}00423\ \ \ \ \ \ \ \ \ \ \ (*it)-\/>\_index\ =\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_a268aa791e13ab8d3f001e158c42bbb55}{\_observers}}.end();}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00424}00424\ \ \ \ \ \ \ \ \ \ \ (*it)-\/>\_notifier\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00425}00425\ \ \ \ \ \ \ \ \ \ \ it\ =\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_a268aa791e13ab8d3f001e158c42bbb55}{\_observers}}.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_ac7332c70f1a0d6b49993c5506dc3c787}{erase}}(it);}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00426}00426\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00427}00427\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00428}00428\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00429}00429\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00430}00430\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Notifies\ all\ the\ registed\ observers\ about\ the\ container\ is}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00431}00431\ \ \ \ \ \textcolor{comment}{//\ built.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00432}00432\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00433}00433\ \ \ \ \ \textcolor{comment}{//\ Notifies\ all\ the\ registed\ observers\ about\ the\ container\ is\ built}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00434}00434\ \ \ \ \ \textcolor{comment}{//\ from\ an\ empty\ container.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00435}\mbox{\hyperlink{classlemon_1_1_alteration_notifier_ab12722a4b49bda6aa8cd4b7ebbdc38ef}{00435}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_ab12722a4b49bda6aa8cd4b7ebbdc38ef}{build}}()\ \{}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00436}00436\ \ \ \ \ \ \ \textcolor{keyword}{typename}\ Observers::reverse\_iterator\ it;}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00437}00437\ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00438}00438\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (it\ =\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_a268aa791e13ab8d3f001e158c42bbb55}{\_observers}}.rbegin();\ it\ !=\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_a268aa791e13ab8d3f001e158c42bbb55}{\_observers}}.rend();\ ++it)\ \{}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00439}00439\ \ \ \ \ \ \ \ \ \ \ (*it)-\/>build();}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00440}00440\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00441}00441\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (...)\ \{}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00442}00442\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ Observers::iterator\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{jt}};}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00443}00443\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{jt}}\ =\ it.base();\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{jt}}\ !=\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_a268aa791e13ab8d3f001e158c42bbb55}{\_observers}}.end();\ ++\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{jt}})\ \{}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00444}00444\ \ \ \ \ \ \ \ \ \ \ (*jt)-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_af2726dacd301d1fdc114b18b6eeb5f51}{clear}}();}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00445}00445\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00446}00446\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw};}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00447}00447\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00448}00448\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00449}00449\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00450}00450\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Notifies\ all\ the\ registed\ observers\ about\ all\ items\ are}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00451}00451\ \ \ \ \ \textcolor{comment}{//\ erased.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00452}00452\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00453}00453\ \ \ \ \ \textcolor{comment}{//\ Notifies\ all\ the\ registed\ observers\ about\ all\ items\ are\ erased}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00454}00454\ \ \ \ \ \textcolor{comment}{//\ from\ the\ container.}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00455}\mbox{\hyperlink{classlemon_1_1_alteration_notifier_a0ef1f781f588b5a5ddf81e5737e03a42}{00455}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_a0ef1f781f588b5a5ddf81e5737e03a42}{clear}}()\ \{}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00456}00456\ \ \ \ \ \ \ \textcolor{keyword}{typename}\ Observers::iterator\ it\ =\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_a268aa791e13ab8d3f001e158c42bbb55}{\_observers}}.begin();}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00457}00457\ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (it\ !=\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_a268aa791e13ab8d3f001e158c42bbb55}{\_observers}}.end())\ \{}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00458}00458\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00459}00459\ \ \ \ \ \ \ \ \ \ \ (*it)-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_af2726dacd301d1fdc114b18b6eeb5f51}{clear}}();}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00460}00460\ \ \ \ \ \ \ \ \ \ \ ++it;}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00461}00461\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{structlemon_1_1_alteration_notifier_1_1_immediate_detach}{ImmediateDetach}}\&)\ \{}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00462}00462\ \ \ \ \ \ \ \ \ \ \ (*it)-\/>\_index\ =\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_a268aa791e13ab8d3f001e158c42bbb55}{\_observers}}.end();}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00463}00463\ \ \ \ \ \ \ \ \ \ \ (*it)-\/>\_notifier\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00464}00464\ \ \ \ \ \ \ \ \ \ \ it\ =\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier_a268aa791e13ab8d3f001e158c42bbb55}{\_observers}}.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_ac7332c70f1a0d6b49993c5506dc3c787}{erase}}(it);}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00465}00465\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00466}00466\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00467}00467\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00468}00468\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00469}00469\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00470}00470\ \}}
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00471}00471\ }
+\DoxyCodeLine{\Hypertarget{alteration__notifier_8h_source_l00472}00472\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

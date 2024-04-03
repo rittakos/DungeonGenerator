@@ -1,0 +1,7 @@
+<map id="Generator::MazeGenerator" name="Generator::MazeGenerator">
+<area shape="rect" id="Node000001" title=" " alt="" coords="6,315,173,405"/>
+<area shape="rect" id="Node000002" href="$class_maze_generator_settings.html" title=" " alt="" coords="5,160,173,251"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="92,251,92,298,87,298,87,251"/>
+<area shape="rect" id="Node000003" href="$class_random_1_1_seed.html" title=" " alt="" coords="21,5,157,96"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="92,96,92,143,87,143,87,96"/>
+</map>

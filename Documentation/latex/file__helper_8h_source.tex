@@ -1,0 +1,67 @@
+\doxysection{file\+\_\+helper.\+h}
+\hypertarget{file__helper_8h_source}{}\label{file__helper_8h_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/spdlog/details/file\_helper.h@{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/spdlog/details/file\_helper.h}}
+\mbox{\hyperlink{file__helper_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00001}00001\ \textcolor{comment}{//\ Copyright(c)\ 2015-\/present,\ Gabi\ Melman\ \&\ spdlog\ contributors.}}
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00002}00002\ \textcolor{comment}{//\ Distributed\ under\ the\ MIT\ License\ (http://opensource.org/licenses/MIT)}}
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00004}00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{common_8h}{spdlog/common.h}}>}}
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <tuple>}}
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00009}00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacespdlog}{spdlog}}\ \{}
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00010}00010\ \textcolor{keyword}{namespace\ }details\ \{}
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00012}00012\ \textcolor{comment}{//\ Helper\ class\ for\ file\ sinks.}}
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00013}00013\ \textcolor{comment}{//\ When\ failing\ to\ open\ a\ file,\ retry\ several\ times(5)\ with\ a\ delay\ interval(10\ ms).}}
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00014}00014\ \textcolor{comment}{//\ Throw\ spdlog\_ex\ exception\ on\ errors.}}
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00016}\mbox{\hyperlink{classspdlog_1_1details_1_1file__helper}{00016}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{common_8h_a52ddbd25f1bb074a1b09e10a3e5b177d}{SPDLOG\_API}}\ \mbox{\hyperlink{classspdlog_1_1details_1_1file__helper}{file\_helper}}\ \{}
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00017}00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00018}\mbox{\hyperlink{classspdlog_1_1details_1_1file__helper_aa11a5129c9d7492638a68d849d66d47d}{00018}}\ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1details_1_1file__helper_aa11a5129c9d7492638a68d849d66d47d}{file\_helper}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00019}00019\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classspdlog_1_1details_1_1file__helper}{file\_helper}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1file__event__handlers}{file\_event\_handlers}}\ \&event\_handlers);}
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00021}\mbox{\hyperlink{classspdlog_1_1details_1_1file__helper_ab68b7720555f7656a8f387f8e0dcb37d}{00021}}\ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1details_1_1file__helper_ab68b7720555f7656a8f387f8e0dcb37d}{file\_helper}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classspdlog_1_1details_1_1file__helper}{file\_helper}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00022}\mbox{\hyperlink{classspdlog_1_1details_1_1file__helper_add01a5108885a4deebde6bc88e2e1714}{00022}}\ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1details_1_1file__helper}{file\_helper}}\ \&\mbox{\hyperlink{classspdlog_1_1details_1_1file__helper_add01a5108885a4deebde6bc88e2e1714}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classspdlog_1_1details_1_1file__helper}{file\_helper}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00023}00023\ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1details_1_1file__helper}{\string~file\_helper}}();}
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00025}00025\ \ \ \ \ \textcolor{keywordtype}{void}\ open(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacespdlog_a6fe9554b72972dc15ebf3ca0eb24f5a5}{filename\_t}}\ \&fname,\ \textcolor{keywordtype}{bool}\ truncate\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00026}00026\ \ \ \ \ \textcolor{keywordtype}{void}\ reopen(\textcolor{keywordtype}{bool}\ truncate);}
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00027}00027\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacespdlog_1_1details_a22274995cf879a5d0a08d1f7513ee4fba86f354b8575a1a736775ae003fa344e5}{flush}}();}
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00028}00028\ \ \ \ \ \textcolor{keywordtype}{void}\ sync();}
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00029}00029\ \ \ \ \ \textcolor{keywordtype}{void}\ close();}
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00030}00030\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{format_8h_ae4ee88335d231f18bf091ba820592525}{write}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacespdlog_a9ae6875ab28ec95e33921c45ae451633}{memory\_buf\_t}}\ \&buf);}
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00031}00031\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ size()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00032}00032\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespacespdlog_a6fe9554b72972dc15ebf3ca0eb24f5a5}{filename\_t}}\ \&filename()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00034}00034\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00035}00035\ \ \ \ \ \textcolor{comment}{//\ return\ file\ path\ and\ its\ extension:}}
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00036}00036\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00037}00037\ \ \ \ \ \textcolor{comment}{//\ "{}mylog.txt"{}\ =>\ ("{}mylog"{},\ "{}.txt"{})}}
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00038}00038\ \ \ \ \ \textcolor{comment}{//\ "{}mylog"{}\ =>\ ("{}mylog"{},\ "{}"{})}}
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00039}00039\ \ \ \ \ \textcolor{comment}{//\ "{}mylog."{}\ =>\ ("{}mylog."{},\ "{}"{})}}
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00040}00040\ \ \ \ \ \textcolor{comment}{//\ "{}/dir1/dir2/mylog.txt"{}\ =>\ ("{}/dir1/dir2/mylog"{},\ "{}.txt"{})}}
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00041}00041\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00042}00042\ \ \ \ \ \textcolor{comment}{//\ the\ starting\ dot\ in\ filenames\ is\ ignored\ (hidden\ files):}}
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00043}00043\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00044}00044\ \ \ \ \ \textcolor{comment}{//\ "{}.mylog"{}\ =>\ ("{}.mylog"{}.\ "{}"{})}}
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00045}00045\ \ \ \ \ \textcolor{comment}{//\ "{}my\_folder/.mylog"{}\ =>\ ("{}my\_folder/.mylog"{},\ "{}"{})}}
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00046}00046\ \ \ \ \ \textcolor{comment}{//\ "{}my\_folder/.mylog.txt"{}\ =>\ ("{}my\_folder/.mylog"{},\ "{}.txt"{})}}
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00047}00047\ \ \ \ \ \textcolor{keyword}{static}\ std::tuple<filename\_t,\ filename\_t>\ split\_by\_extension(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacespdlog_a6fe9554b72972dc15ebf3ca0eb24f5a5}{filename\_t}}\ \&fname);}
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00049}00049\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00050}\mbox{\hyperlink{classspdlog_1_1details_1_1file__helper_a9c8bc437925a4bcec30d5c23e4b1c62d}{00050}}\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ open\_tries\_\ =\ 5;}
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00051}\mbox{\hyperlink{classspdlog_1_1details_1_1file__helper_aa8a6b9d61d2bc80d5f07172d872fc512}{00051}}\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ open\_interval\_\ =\ 10;}
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00052}\mbox{\hyperlink{classspdlog_1_1details_1_1file__helper_af0cd3904e6fe42890540bbe7a42b4ac7}{00052}}\ \ \ \ \ std::FILE\ *fd\_\{\textcolor{keyword}{nullptr}\};}
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00053}\mbox{\hyperlink{classspdlog_1_1details_1_1file__helper_ae552832a8b115ce8aeac34cd80450758}{00053}}\ \ \ \ \ \mbox{\hyperlink{namespacespdlog_a6fe9554b72972dc15ebf3ca0eb24f5a5}{filename\_t}}\ \mbox{\hyperlink{classspdlog_1_1details_1_1file__helper_ae552832a8b115ce8aeac34cd80450758}{filename\_}};}
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00054}\mbox{\hyperlink{classspdlog_1_1details_1_1file__helper_aff4d025b23e38173ad809c801d9e11a8}{00054}}\ \ \ \ \ \mbox{\hyperlink{structspdlog_1_1file__event__handlers}{file\_event\_handlers}}\ \mbox{\hyperlink{classspdlog_1_1details_1_1file__helper_aff4d025b23e38173ad809c801d9e11a8}{event\_handlers\_}};}
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00055}00055\ \};}
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00056}00056\ \}\ \ \textcolor{comment}{//\ namespace\ details}}
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00057}00057\ \}\ \ \textcolor{comment}{//\ namespace\ spdlog}}
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00059}00059\ \textcolor{preprocessor}{\#ifdef\ SPDLOG\_HEADER\_ONLY}}
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00060}00060\ \textcolor{preprocessor}{\ \ \ \ \#include\ "{}\mbox{\hyperlink{file__helper-inl_8h}{file\_helper-\/inl.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{file__helper_8h_source_l00061}00061\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

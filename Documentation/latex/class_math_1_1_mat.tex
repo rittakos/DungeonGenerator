@@ -1,0 +1,716 @@
+\doxysection{Math\+::Mat\texorpdfstring{$<$}{<} H, W, Type \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_math_1_1_mat}{}\label{class_math_1_1_mat}\index{Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}}
+
+
+{\ttfamily \#include $<$matrix.\+hpp$>$}
+
+
+
+Collaboration diagram for Math\+::Mat\texorpdfstring{$<$}{<} H, W, Type \texorpdfstring{$>$}{>}\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=201pt]{class_math_1_1_mat__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_math_1_1_mat_a90b7936572ccec8379e5361c741d18b5}{Mat}} ()
+\item 
+{\footnotesize template$<$typename ... T$>$ }\\\mbox{\hyperlink{class_math_1_1_mat_ae4e3157263d5bad4616170390be738f9}{Mat}} (T... args)
+\item 
+bool \mbox{\hyperlink{class_math_1_1_mat_af6b0845e52d47b9366313f5f1d5bed58}{operator==}} (const \mbox{\hyperlink{class_math_1_1_mat}{Mat}} \&other) const
+\item 
+bool \mbox{\hyperlink{class_math_1_1_mat_ad03408a65b5b54203aeaaec57ed179ca}{operator$<$}} (const \mbox{\hyperlink{class_math_1_1_mat}{Mat}} \&other)=delete
+\item 
+bool \mbox{\hyperlink{class_math_1_1_mat_ad994b2cf5dec3945d232b582956080c3}{operator$>$}} (const \mbox{\hyperlink{class_math_1_1_mat}{Mat}} \&other)=delete
+\item 
+\mbox{\hyperlink{class_math_1_1_mat}{Mat}} \mbox{\hyperlink{class_math_1_1_mat_a303c936eabfd35c087a30abe3f6f7173}{operator+}} (const \mbox{\hyperlink{class_math_1_1_mat}{Mat}} \&other) const
+\item 
+\mbox{\hyperlink{class_math_1_1_mat}{Mat}} \mbox{\hyperlink{class_math_1_1_mat_a37b36d2b925d906ee67119dd9f7bcb02}{operator-\/}} (const \mbox{\hyperlink{class_math_1_1_mat}{Mat}} \&other) const
+\item 
+\mbox{\hyperlink{class_math_1_1_mat}{Mat}} \mbox{\hyperlink{class_math_1_1_mat_ad346b1bc51e7bac0a485ccab9fae7ee6}{operator-\/}} () const
+\item 
+Type \& \mbox{\hyperlink{class_math_1_1_mat_aed2b630f5e25c88c6e2c80283caa4457}{operator()}} (int row, int col)
+\item 
+Type \mbox{\hyperlink{class_math_1_1_mat_a4519dbbf18cb0efc6270080e3f064aed}{operator()}} (int row, int col) const
+\item 
+\mbox{\hyperlink{class_math_1_1_mat}{Mat}} \mbox{\hyperlink{class_math_1_1_mat_aaa53bffbff488f39230c1a1df2226931}{operator\texorpdfstring{$\sim$}{\string~}}} () const
+\item 
+bool \mbox{\hyperlink{class_math_1_1_mat_a05f83755707894349059cf2074398b91}{has\+Inverse}} ()
+\item 
+void \mbox{\hyperlink{class_math_1_1_mat_a2daa4191769a86606ee7805a36341f09}{swap\+Rows}} (int row1, int row2)
+\item 
+\mbox{\hyperlink{class_math_1_1_mat}{Mat}} \mbox{\hyperlink{class_math_1_1_mat_a8240f85e3ea39ab44e0a793429bbaaa9}{gaussian\+Eliminate}} (int \&sign)
+\item 
+\mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ W, Type $>$ \mbox{\hyperlink{class_math_1_1_mat_afb6403569d8acf2e13786265adea8848}{get\+Vector\+From\+Row}} (int row=0) const
+\item 
+\mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ H, Type $>$ \mbox{\hyperlink{class_math_1_1_mat_aded90c97c64634b19138107df8ae29df}{get\+Vector\+From\+Col}} (int col=0) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Type \mbox{\hyperlink{class_math_1_1_mat_a85b24a2a0861361430225315a640aea1}{coords}} \mbox{[}W \texorpdfstring{$\ast$}{*}H\mbox{]}
+\item 
+int \mbox{\hyperlink{class_math_1_1_mat_afb14c5ece4abb9e4c50b5ae4d9e27349}{length}}
+\item 
+int \mbox{\hyperlink{class_math_1_1_mat_a1168929b2b537dc294de182ba1f02719}{width}} = W
+\item 
+int \mbox{\hyperlink{class_math_1_1_mat_a24bd14c58add0b2d8ed6b1fe94d0baba}{height}} = H
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$int W1, int H1, class Type1 $>$ }\\\mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ W1, H1, Type1 $>$ \mbox{\hyperlink{class_math_1_1_mat_ac6d8eb230910430f3bb4e4364054593c}{T}} (const \mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W1, Type1 $>$ \&m)
+\item 
+{\footnotesize template$<$int W1, int H1, class Type1 $>$ }\\float \mbox{\hyperlink{class_math_1_1_mat_a27dfcf6cf547691c63cf5ca83cc7827f}{det}} (\mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W1, Type1 $>$ m)
+\item 
+{\footnotesize template$<$int H1, int W1, class Type1 $>$ }\\std\+::ostream \& \mbox{\hyperlink{class_math_1_1_mat_a3f6d85d84c2574e69b4c75a2da89a971}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W1, Type1 $>$ \&m)
+\item 
+{\footnotesize template$<$int H1, int W1, class Type1 $>$ }\\std\+::istream \& \mbox{\hyperlink{class_math_1_1_mat_ad5889e08445bfd3808fd08fd6ea88862}{operator$>$$>$}} (std\+::istream \&is, \mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ W1, H1, Type1 $>$ \&m)
+\item 
+{\footnotesize template$<$int H1, int W1, class Type1 $>$ }\\\mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W1, float $>$ \mbox{\hyperlink{class_math_1_1_mat_acca04589c2762aed6a26d8c1e01d8da7}{operator\texorpdfstring{$\ast$}{*}}} (const \mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W1, Type1 $>$ \&m, float skalar)
+\item 
+{\footnotesize template$<$int H1, int W1, class Type1 $>$ }\\\mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W1, float $>$ \mbox{\hyperlink{class_math_1_1_mat_a2f92bcdce2f0969e6b4d03a0d87a59b9}{operator\texorpdfstring{$\ast$}{*}}} (float skalar, const \mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W1, Type1 $>$ \&m)
+\item 
+{\footnotesize template$<$int H1, int W1, class Type1 $>$ }\\\mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W1, float $>$ \mbox{\hyperlink{class_math_1_1_mat_ade6bc015aece0119cd2e2eedc2d62166}{operator/}} (const \mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W1, Type1 $>$ \&m, float skalar)
+\item 
+{\footnotesize template$<$int W1, int W2, int H1, int H2, class Type1 $>$ }\\\mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W2, Type1 $>$ \mbox{\hyperlink{class_math_1_1_mat_ac4e0048001acb48d6ac64558d1aa4471}{operator\texorpdfstring{$\ast$}{*}}} (const \mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W1, Type1 $>$ \&m1, const \mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H2, W2, Type1 $>$ \&m2)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$int H, int W, Vec\+Number Type$>$\newline
+class Math\+::\+Mat$<$ H, W, Type $>$}
+
+
+Definition at line \mbox{\hyperlink{matrix_8hpp_source_l00017}{17}} of file \mbox{\hyperlink{matrix_8hpp_source}{matrix.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_math_1_1_mat_a90b7936572ccec8379e5361c741d18b5}\label{class_math_1_1_mat_a90b7936572ccec8379e5361c741d18b5} 
+\index{Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}!Mat@{Mat}}
+\index{Mat@{Mat}!Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}}
+\doxysubsubsection{\texorpdfstring{Mat()}{Mat()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$int H, int W, Vec\+Number Type$>$ \\
+\mbox{\hyperlink{class_math_1_1_mat}{Math\+::\+Mat}}$<$ H, W, Type $>$\+::\+Mat (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{matrix_8hpp_source_l00028}{28}} of file \mbox{\hyperlink{matrix_8hpp_source}{matrix.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_mat_afb14c5ece4abb9e4c50b5ae4d9e27349}{length}}\ =\ W\ *\ H;}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ 0;\ idx\ <\ \mbox{\hyperlink{class_math_1_1_mat_afb14c5ece4abb9e4c50b5ae4d9e27349}{length}};\ ++idx)}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_mat_a85b24a2a0861361430225315a640aea1}{coords}}[idx]\ =\ 0;}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_math_1_1_mat_ae4e3157263d5bad4616170390be738f9}\label{class_math_1_1_mat_ae4e3157263d5bad4616170390be738f9} 
+\index{Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}!Mat@{Mat}}
+\index{Mat@{Mat}!Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}}
+\doxysubsubsection{\texorpdfstring{Mat()}{Mat()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$int H, int W, Vec\+Number Type$>$ \\
+template$<$typename ... T$>$ \\
+\mbox{\hyperlink{class_math_1_1_mat}{Math\+::\+Mat}}$<$ H, W, Type $>$\+::\+Mat (\begin{DoxyParamCaption}\item[{T...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Definition at line \mbox{\hyperlink{matrix_8hpp_source_l00037}{37}} of file \mbox{\hyperlink{matrix_8hpp_source}{matrix.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{class_math_1_1_mat_a90b7936572ccec8379e5361c741d18b5}{Mat}}() }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_assert}(\mbox{\hyperlink{structis__all__same}{is\_all\_same}}<Type,\ \mbox{\hyperlink{class_math_1_1_mat_ac6d8eb230910430f3bb4e4364054593c}{T}}...>::value,\ \textcolor{stringliteral}{"{}Type\ mismatch!"{}});}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Type>\ vec\ =\ \{\ args...\ \};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_math_1_1_mat_afb14c5ece4abb9e4c50b5ae4d9e27349}{length}}\ !=\ vec.size())}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ TooMuchParametersException(\textcolor{comment}{/*length,\ vec.size()*/});}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ i\ =\ 0;\ i\ <\ vec.size();\ ++i)\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_mat_a85b24a2a0861361430225315a640aea1}{coords}}[i]\ =\ vec[i];}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_math_1_1_mat_a8240f85e3ea39ab44e0a793429bbaaa9}\label{class_math_1_1_mat_a8240f85e3ea39ab44e0a793429bbaaa9} 
+\index{Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}!gaussianEliminate@{gaussianEliminate}}
+\index{gaussianEliminate@{gaussianEliminate}!Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}}
+\doxysubsubsection{\texorpdfstring{gaussianEliminate()}{gaussianEliminate()}}
+{\footnotesize\ttfamily template$<$int H, int W, Vec\+Number Type$>$ \\
+\mbox{\hyperlink{class_math_1_1_mat}{Mat}} \mbox{\hyperlink{class_math_1_1_mat}{Math\+::\+Mat}}$<$ H, W, Type $>$\+::gaussian\+Eliminate (\begin{DoxyParamCaption}\item[{int \&}]{sign }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{matrix_8hpp_source_l00132}{132}} of file \mbox{\hyperlink{matrix_8hpp_source}{matrix.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ sign\ =\ 1;}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_mat_a90b7936572ccec8379e5361c741d18b5}{Mat}}\ result(*\textcolor{keyword}{this});}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ rows\ =\ \mbox{\hyperlink{class_math_1_1_mat_a24bd14c58add0b2d8ed6b1fe94d0baba}{height}};}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cols\ =\ \mbox{\hyperlink{class_math_1_1_mat_a1168929b2b537dc294de182ba1f02719}{width}};}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ Acols\ =\ cols\ -\/\ 1;}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ eps\ =\ \mbox{\hyperlink{namespace_math_1_1_constant_adb2a456ef71c62332f477d01b4c46fb9}{Math::Constant::epsilon}};}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ row\ =\ 0;\ \textcolor{comment}{//\ row\ tracker}}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ col\ =\ 0;\ \textcolor{comment}{//\ column\ tracker}}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ iterate\ through\ the\ rows}}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (row\ <\ rows)}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ find\ a\ pivot\ for\ the\ row}}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ pivot\_found\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (col\ <\ Acols\ \&\&\ !pivot\_found)}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (result(row,\ col)\ !=\ 0)\ \{\ \textcolor{comment}{//\ pivot\ not\ equal\ to\ 0}}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pivot\_found\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{\ \textcolor{comment}{//\ check\ for\ a\ possible\ swap}}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ max\_row\ =\ row;}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ max\_val\ =\ 0;}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ row\ +\ 1;\ k\ <\ rows;\ ++k)}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ cur\_abs\ =\ result(k,\ col)\ >=\ 0\ ?\ result(k,\ col)\ :\ -\/1\ *\ result(k,\ col);}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cur\_abs\ >\ max\_val)}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ max\_row\ =\ k;}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ max\_val\ =\ cur\_abs;}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (max\_row\ !=\ row)\ \{}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result.swapRows(max\_row,\ row);}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pivot\_found\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sign\ *=\ -\/1;}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ col++;}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ perform\ elimination\ as\ normal\ if\ pivot\ was\ found}}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pivot\_found)}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ t\ =\ row\ +\ 1;\ t\ <\ rows;\ ++t)\ \{}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ s\ =\ col\ +\ 1;\ s\ <\ cols;\ ++s)\ \{}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result(t,\ s)\ =\ result(t,\ s)\ -\/\ result(row,\ s)\ *\ (result(t,\ col)\ /\ result(row,\ col));}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (result(t,\ s)\ <\ eps\ \&\&\ result(t,\ s)\ >\ -\/1\ *\ eps)}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result(t,\ s)\ =\ 0;}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result(t,\ col)\ =\ 0;}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ row++;}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ col++;}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_math_1_1_mat_a8240f85e3ea39ab44e0a793429bbaaa9_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_math_1_1_mat_a8240f85e3ea39ab44e0a793429bbaaa9_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_math_1_1_mat_aded90c97c64634b19138107df8ae29df}\label{class_math_1_1_mat_aded90c97c64634b19138107df8ae29df} 
+\index{Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}!getVectorFromCol@{getVectorFromCol}}
+\index{getVectorFromCol@{getVectorFromCol}!Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}}
+\doxysubsubsection{\texorpdfstring{getVectorFromCol()}{getVectorFromCol()}}
+{\footnotesize\ttfamily template$<$int H, int W, Vec\+Number Type$>$ \\
+\mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ H, Type $>$ \mbox{\hyperlink{class_math_1_1_mat}{Math\+::\+Mat}}$<$ H, W, Type $>$\+::get\+Vector\+From\+Col (\begin{DoxyParamCaption}\item[{int}]{col = {\ttfamily 0} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{matrix_8hpp_source_l00211}{211}} of file \mbox{\hyperlink{matrix_8hpp_source}{matrix.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ Vec<H,\ Type>\ result;}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ 0;\ idx\ <\ \mbox{\hyperlink{class_math_1_1_mat_a24bd14c58add0b2d8ed6b1fe94d0baba}{height}};\ ++idx)}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result[idx]\ =\ (*\textcolor{keyword}{this})(idx,\ col);}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_math_1_1_mat_afb6403569d8acf2e13786265adea8848}\label{class_math_1_1_mat_afb6403569d8acf2e13786265adea8848} 
+\index{Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}!getVectorFromRow@{getVectorFromRow}}
+\index{getVectorFromRow@{getVectorFromRow}!Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}}
+\doxysubsubsection{\texorpdfstring{getVectorFromRow()}{getVectorFromRow()}}
+{\footnotesize\ttfamily template$<$int H, int W, Vec\+Number Type$>$ \\
+\mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ W, Type $>$ \mbox{\hyperlink{class_math_1_1_mat}{Math\+::\+Mat}}$<$ H, W, Type $>$\+::get\+Vector\+From\+Row (\begin{DoxyParamCaption}\item[{int}]{row = {\ttfamily 0} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{matrix_8hpp_source_l00200}{200}} of file \mbox{\hyperlink{matrix_8hpp_source}{matrix.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ Vec<W,\ Type>\ result;}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ 0;\ idx\ <\ \mbox{\hyperlink{class_math_1_1_mat_a1168929b2b537dc294de182ba1f02719}{width}};\ ++idx)}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result[idx]\ =\ (*\textcolor{keyword}{this})(row,\ idx);}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_math_1_1_mat_a05f83755707894349059cf2074398b91}\label{class_math_1_1_mat_a05f83755707894349059cf2074398b91} 
+\index{Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}!hasInverse@{hasInverse}}
+\index{hasInverse@{hasInverse}!Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}}
+\doxysubsubsection{\texorpdfstring{hasInverse()}{hasInverse()}}
+{\footnotesize\ttfamily template$<$int H, int W, Vec\+Number Type$>$ \\
+bool \mbox{\hyperlink{class_math_1_1_mat}{Math\+::\+Mat}}$<$ H, W, Type $>$\+::has\+Inverse (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{matrix_8hpp_source_l00113}{113}} of file \mbox{\hyperlink{matrix_8hpp_source}{matrix.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00113\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_math_1_1_mat_a1168929b2b537dc294de182ba1f02719}{width}}\ ==\ \mbox{\hyperlink{class_math_1_1_mat_a24bd14c58add0b2d8ed6b1fe94d0baba}{height}}\ \&\&\ !\mbox{\hyperlink{namespace_math_a42a948d5fe666f25ee0f13d5b02b2a74}{isEqual}}(Det(*\textcolor{keyword}{this}),\ 0.0f);\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=304pt]{class_math_1_1_mat_a05f83755707894349059cf2074398b91_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_math_1_1_mat_aed2b630f5e25c88c6e2c80283caa4457}\label{class_math_1_1_mat_aed2b630f5e25c88c6e2c80283caa4457} 
+\index{Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$int H, int W, Vec\+Number Type$>$ \\
+Type \& \mbox{\hyperlink{class_math_1_1_mat}{Math\+::\+Mat}}$<$ H, W, Type $>$\+::operator() (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{col }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{matrix_8hpp_source_l00092}{92}} of file \mbox{\hyperlink{matrix_8hpp_source}{matrix.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_math_1_1_mat_a85b24a2a0861361430225315a640aea1}{coords}}[row\ *\ \mbox{\hyperlink{class_math_1_1_mat_a1168929b2b537dc294de182ba1f02719}{width}}\ +\ col];}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_math_1_1_mat_a4519dbbf18cb0efc6270080e3f064aed}\label{class_math_1_1_mat_a4519dbbf18cb0efc6270080e3f064aed} 
+\index{Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$int H, int W, Vec\+Number Type$>$ \\
+Type \mbox{\hyperlink{class_math_1_1_mat}{Math\+::\+Mat}}$<$ H, W, Type $>$\+::operator() (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{col }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{matrix_8hpp_source_l00096}{96}} of file \mbox{\hyperlink{matrix_8hpp_source}{matrix.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_math_1_1_mat_a85b24a2a0861361430225315a640aea1}{coords}}[row\ *\ \mbox{\hyperlink{class_math_1_1_mat_a1168929b2b537dc294de182ba1f02719}{width}}\ +\ col];}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_math_1_1_mat_a303c936eabfd35c087a30abe3f6f7173}\label{class_math_1_1_mat_a303c936eabfd35c087a30abe3f6f7173} 
+\index{Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}!operator+@{operator+}}
+\index{operator+@{operator+}!Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}}
+{\footnotesize\ttfamily template$<$int H, int W, Vec\+Number Type$>$ \\
+\mbox{\hyperlink{class_math_1_1_mat}{Mat}} \mbox{\hyperlink{class_math_1_1_mat}{Math\+::\+Mat}}$<$ H, W, Type $>$\+::operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H, W, Type $>$ \&}]{other }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{matrix_8hpp_source_l00074}{74}} of file \mbox{\hyperlink{matrix_8hpp_source}{matrix.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ Mat<H,\ W,\ Type>\ result;}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ 0;\ idx\ <\ \mbox{\hyperlink{class_math_1_1_mat_afb14c5ece4abb9e4c50b5ae4d9e27349}{length}};\ ++idx)}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result.coords[idx]\ =\ \mbox{\hyperlink{class_math_1_1_mat_a85b24a2a0861361430225315a640aea1}{coords}}[idx]\ +\ other.coords[idx];}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_math_1_1_mat_ad346b1bc51e7bac0a485ccab9fae7ee6}\label{class_math_1_1_mat_ad346b1bc51e7bac0a485ccab9fae7ee6} 
+\index{Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$int H, int W, Vec\+Number Type$>$ \\
+\mbox{\hyperlink{class_math_1_1_mat}{Mat}} \mbox{\hyperlink{class_math_1_1_mat}{Math\+::\+Mat}}$<$ H, W, Type $>$\+::operator-\/ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{matrix_8hpp_source_l00086}{86}} of file \mbox{\hyperlink{matrix_8hpp_source}{matrix.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this}\ *\ -\/1.0;}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_math_1_1_mat_a37b36d2b925d906ee67119dd9f7bcb02}\label{class_math_1_1_mat_a37b36d2b925d906ee67119dd9f7bcb02} 
+\index{Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$int H, int W, Vec\+Number Type$>$ \\
+\mbox{\hyperlink{class_math_1_1_mat}{Mat}} \mbox{\hyperlink{class_math_1_1_mat}{Math\+::\+Mat}}$<$ H, W, Type $>$\+::operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H, W, Type $>$ \&}]{other }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{matrix_8hpp_source_l00082}{82}} of file \mbox{\hyperlink{matrix_8hpp_source}{matrix.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this}\ +\ (-\/1.0\ *\ other);}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_math_1_1_mat_ad03408a65b5b54203aeaaec57ed179ca}\label{class_math_1_1_mat_ad03408a65b5b54203aeaaec57ed179ca} 
+\index{Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily template$<$int H, int W, Vec\+Number Type$>$ \\
+bool \mbox{\hyperlink{class_math_1_1_mat}{Math\+::\+Mat}}$<$ H, W, Type $>$\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H, W, Type $>$ \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{class_math_1_1_mat_af6b0845e52d47b9366313f5f1d5bed58}\label{class_math_1_1_mat_af6b0845e52d47b9366313f5f1d5bed58} 
+\index{Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}!operator==@{operator==}}
+\index{operator==@{operator==}!Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily template$<$int H, int W, Vec\+Number Type$>$ \\
+bool \mbox{\hyperlink{class_math_1_1_mat}{Math\+::\+Mat}}$<$ H, W, Type $>$\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H, W, Type $>$ \&}]{other }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{matrix_8hpp_source_l00063}{63}} of file \mbox{\hyperlink{matrix_8hpp_source}{matrix.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ 0;\ idx\ <\ \mbox{\hyperlink{class_math_1_1_mat_afb14c5ece4abb9e4c50b5ae4d9e27349}{length}};\ ++idx)}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{namespace_math_a42a948d5fe666f25ee0f13d5b02b2a74}{isEqual}}(this-\/>\mbox{\hyperlink{class_math_1_1_mat_a85b24a2a0861361430225315a640aea1}{coords}}[idx],\ other.coords[idx]))}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=306pt]{class_math_1_1_mat_af6b0845e52d47b9366313f5f1d5bed58_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_math_1_1_mat_ad994b2cf5dec3945d232b582956080c3}\label{class_math_1_1_mat_ad994b2cf5dec3945d232b582956080c3} 
+\index{Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}}
+\doxysubsubsection{\texorpdfstring{operator$>$()}{operator>()}}
+{\footnotesize\ttfamily template$<$int H, int W, Vec\+Number Type$>$ \\
+bool \mbox{\hyperlink{class_math_1_1_mat}{Math\+::\+Mat}}$<$ H, W, Type $>$\+::operator$>$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H, W, Type $>$ \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{class_math_1_1_mat_aaa53bffbff488f39230c1a1df2226931}\label{class_math_1_1_mat_aaa53bffbff488f39230c1a1df2226931} 
+\index{Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}!operator\texorpdfstring{$\sim$}{\string~}@{operator\texorpdfstring{$\sim$}{\string~}}}
+\index{operator\texorpdfstring{$\sim$}{\string~}@{operator\texorpdfstring{$\sim$}{\string~}}!Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\sim$}{\string~}()}{operator\string~()}}
+{\footnotesize\ttfamily template$<$int H, int W, Vec\+Number Type$>$ \\
+\mbox{\hyperlink{class_math_1_1_mat}{Mat}} \mbox{\hyperlink{class_math_1_1_mat}{Math\+::\+Mat}}$<$ H, W, Type $>$\+::operator\texorpdfstring{$\sim$}{\string~} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{matrix_8hpp_source_l00103}{103}} of file \mbox{\hyperlink{matrix_8hpp_source}{matrix.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_mat_a90b7936572ccec8379e5361c741d18b5}{Mat}}\ result;}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO\ inverz\ implemetalasa}}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_math_1_1_mat_a2daa4191769a86606ee7805a36341f09}\label{class_math_1_1_mat_a2daa4191769a86606ee7805a36341f09} 
+\index{Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}!swapRows@{swapRows}}
+\index{swapRows@{swapRows}!Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}}
+\doxysubsubsection{\texorpdfstring{swapRows()}{swapRows()}}
+{\footnotesize\ttfamily template$<$int H, int W, Vec\+Number Type$>$ \\
+void \mbox{\hyperlink{class_math_1_1_mat}{Math\+::\+Mat}}$<$ H, W, Type $>$\+::swap\+Rows (\begin{DoxyParamCaption}\item[{int}]{row1,  }\item[{int}]{row2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{matrix_8hpp_source_l00116}{116}} of file \mbox{\hyperlink{matrix_8hpp_source}{matrix.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Type>\ tempRow1;}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ 0;\ idx\ <\ \mbox{\hyperlink{class_math_1_1_mat_a1168929b2b537dc294de182ba1f02719}{width}};\ ++idx)}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tempRow1.push\_back((*\textcolor{keyword}{this})(row1,\ idx));}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*this)(row1,\ idx)\ =\ (*\textcolor{keyword}{this})(row2,\ idx);}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ 0;\ idx\ <\ \mbox{\hyperlink{class_math_1_1_mat_a1168929b2b537dc294de182ba1f02719}{width}};\ ++idx)}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*this)(row2,\ idx)\ =\ tempRow1[idx];}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_math_1_1_mat_a2daa4191769a86606ee7805a36341f09_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{class_math_1_1_mat_a27dfcf6cf547691c63cf5ca83cc7827f}\label{class_math_1_1_mat_a27dfcf6cf547691c63cf5ca83cc7827f} 
+\index{Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}!det@{det}}
+\index{det@{det}!Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}}
+\doxysubsubsection{\texorpdfstring{det}{det}}
+{\footnotesize\ttfamily template$<$int H, int W, Vec\+Number Type$>$ \\
+template$<$int W1, int H1, class Type1 $>$ \\
+float det (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W1, Type1 $>$}]{m }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+\Hypertarget{class_math_1_1_mat_acca04589c2762aed6a26d8c1e01d8da7}\label{class_math_1_1_mat_acca04589c2762aed6a26d8c1e01d8da7} 
+\index{Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}}{operator*}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$int H, int W, Vec\+Number Type$>$ \\
+template$<$int H1, int W1, class Type1 $>$ \\
+\mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W1, float $>$ operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W1, Type1 $>$ \&}]{m,  }\item[{float}]{skalar }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line \mbox{\hyperlink{matrix_8hpp_source_l00304}{304}} of file \mbox{\hyperlink{matrix_8hpp_source}{matrix.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00305\ \ \ \ \ \{}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ Mat<H1,\ W1,\ float>\ result;}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ 0;\ idx\ <\ m.length;\ ++idx)}
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ \ \ \ \ result.coords[idx]\ =\ m.coords[idx]\ *\ skalar;}
+\DoxyCodeLine{00309\ }
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00311\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_math_1_1_mat_ac4e0048001acb48d6ac64558d1aa4471}\label{class_math_1_1_mat_ac4e0048001acb48d6ac64558d1aa4471} 
+\index{Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}}{operator*}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$int H, int W, Vec\+Number Type$>$ \\
+template$<$int W1, int W2, int H1, int H2, class Type1 $>$ \\
+\mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W2, Type1 $>$ operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W1, Type1 $>$ \&}]{m1,  }\item[{const \mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H2, W2, Type1 $>$ \&}]{m2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line \mbox{\hyperlink{matrix_8hpp_source_l00328}{328}} of file \mbox{\hyperlink{matrix_8hpp_source}{matrix.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00329\ \ \ \ \ \{}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_assert}(W1\ ==\ H2,\ \textcolor{stringliteral}{"{}Can\ not\ multiple\ these\ matrixes!!'"{}});}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ Mat<H1,\ W2,\ Type1>\ result;}
+\DoxyCodeLine{00332\ }
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ row\ =\ 0;\ row\ <\ m1.height;\ ++row)\ \{}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ col\ =\ 0;\ col\ <\ m2.width;\ ++col)\ \{}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ 0;\ k\ <\ m1.width;\ ++k)\ \{}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result(row,\ col)\ +=\ (m1(row,\ k)\ *\ m2(k,\ col));}
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00340\ }
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00342\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_math_1_1_mat_a2f92bcdce2f0969e6b4d03a0d87a59b9}\label{class_math_1_1_mat_a2f92bcdce2f0969e6b4d03a0d87a59b9} 
+\index{Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}}{operator*}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$int H, int W, Vec\+Number Type$>$ \\
+template$<$int H1, int W1, class Type1 $>$ \\
+\mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W1, float $>$ operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{float}]{skalar,  }\item[{const \mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W1, Type1 $>$ \&}]{m }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line \mbox{\hyperlink{matrix_8hpp_source_l00314}{314}} of file \mbox{\hyperlink{matrix_8hpp_source}{matrix.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00315\ \ \ \ \ \{}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\ *\ skalar;}
+\DoxyCodeLine{00317\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_math_1_1_mat_ade6bc015aece0119cd2e2eedc2d62166}\label{class_math_1_1_mat_ade6bc015aece0119cd2e2eedc2d62166} 
+\index{Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}!operator/@{operator/}}
+\index{operator/@{operator/}!Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}}
+\doxysubsubsection{\texorpdfstring{operator/}{operator/}}
+{\footnotesize\ttfamily template$<$int H, int W, Vec\+Number Type$>$ \\
+template$<$int H1, int W1, class Type1 $>$ \\
+\mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W1, float $>$ operator/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W1, Type1 $>$ \&}]{m,  }\item[{float}]{skalar }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line \mbox{\hyperlink{matrix_8hpp_source_l00320}{320}} of file \mbox{\hyperlink{matrix_8hpp_source}{matrix.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00321\ \ \ \ \ \{}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (skalar\ ==\ 0.0f)}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ ZeroDivisionException();}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\ *\ (1.0f\ /\ skalar);}
+\DoxyCodeLine{00325\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_math_1_1_mat_a3f6d85d84c2574e69b4c75a2da89a971}\label{class_math_1_1_mat_a3f6d85d84c2574e69b4c75a2da89a971} 
+\index{Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily template$<$int H, int W, Vec\+Number Type$>$ \\
+template$<$int H1, int W1, class Type1 $>$ \\
+std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W1, Type1 $>$ \&}]{m }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line \mbox{\hyperlink{matrix_8hpp_source_l00279}{279}} of file \mbox{\hyperlink{matrix_8hpp_source}{matrix.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00280\ \ \ \ \ \{}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*os\ <<\ m.height\ <<\ "{}\(\backslash\)t"{}\ <<\ m.width\ <<\ "{}\(\backslash\)n"{};*/}}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ 0;\ idx\ <\ m.length\ -\/\ 1;\ ++idx)}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ m.coords[idx]\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)t"{}};}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ os\ <<\ m.coords[m.length\ -\/\ 1];}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ os;}
+\DoxyCodeLine{00288\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_math_1_1_mat_ad5889e08445bfd3808fd08fd6ea88862}\label{class_math_1_1_mat_ad5889e08445bfd3808fd08fd6ea88862} 
+\index{Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$}{operator>>}}
+{\footnotesize\ttfamily template$<$int H, int W, Vec\+Number Type$>$ \\
+template$<$int H1, int W1, class Type1 $>$ \\
+std\+::istream \& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{is,  }\item[{\mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ W1, H1, Type1 $>$ \&}]{m }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+\Hypertarget{class_math_1_1_mat_ac6d8eb230910430f3bb4e4364054593c}\label{class_math_1_1_mat_ac6d8eb230910430f3bb4e4364054593c} 
+\index{Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}!T@{T}}
+\index{T@{T}!Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}}
+\doxysubsubsection{\texorpdfstring{T}{T}}
+{\footnotesize\ttfamily template$<$int H, int W, Vec\+Number Type$>$ \\
+template$<$int W1, int H1, class Type1 $>$ \\
+\mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ W1, H1, Type1 $>$ T (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W1, Type1 $>$ \&}]{m }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line \mbox{\hyperlink{matrix_8hpp_source_l00250}{250}} of file \mbox{\hyperlink{matrix_8hpp_source}{matrix.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00251\ \ \ \ \ \{}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ Mat<W1,\ H1,\ Type1>\ result;}
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ row\ =\ 0;\ row\ <\ m.height;\ ++row)\ }
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ col\ =\ 0;\ col\ <\ m.width;\ ++col)\ }
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result(col,\ row)\ =\ m(row,\ col);}
+\DoxyCodeLine{00257\ }
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00259\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_math_1_1_mat_a85b24a2a0861361430225315a640aea1}\label{class_math_1_1_mat_a85b24a2a0861361430225315a640aea1} 
+\index{Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}!coords@{coords}}
+\index{coords@{coords}!Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}}
+\doxysubsubsection{\texorpdfstring{coords}{coords}}
+{\footnotesize\ttfamily template$<$int H, int W, Vec\+Number Type$>$ \\
+Type \mbox{\hyperlink{class_math_1_1_mat}{Math\+::\+Mat}}$<$ H, W, Type $>$\+::coords\mbox{[}W \texorpdfstring{$\ast$}{*}H\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{matrix_8hpp_source_l00019}{19}} of file \mbox{\hyperlink{matrix_8hpp_source}{matrix.\+hpp}}.
+
+\Hypertarget{class_math_1_1_mat_a24bd14c58add0b2d8ed6b1fe94d0baba}\label{class_math_1_1_mat_a24bd14c58add0b2d8ed6b1fe94d0baba} 
+\index{Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}!height@{height}}
+\index{height@{height}!Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}}
+\doxysubsubsection{\texorpdfstring{height}{height}}
+{\footnotesize\ttfamily template$<$int H, int W, Vec\+Number Type$>$ \\
+int \mbox{\hyperlink{class_math_1_1_mat}{Math\+::\+Mat}}$<$ H, W, Type $>$\+::height = H\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{matrix_8hpp_source_l00023}{23}} of file \mbox{\hyperlink{matrix_8hpp_source}{matrix.\+hpp}}.
+
+\Hypertarget{class_math_1_1_mat_afb14c5ece4abb9e4c50b5ae4d9e27349}\label{class_math_1_1_mat_afb14c5ece4abb9e4c50b5ae4d9e27349} 
+\index{Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}!length@{length}}
+\index{length@{length}!Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}}
+\doxysubsubsection{\texorpdfstring{length}{length}}
+{\footnotesize\ttfamily template$<$int H, int W, Vec\+Number Type$>$ \\
+int \mbox{\hyperlink{class_math_1_1_mat}{Math\+::\+Mat}}$<$ H, W, Type $>$\+::length\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{matrix_8hpp_source_l00021}{21}} of file \mbox{\hyperlink{matrix_8hpp_source}{matrix.\+hpp}}.
+
+\Hypertarget{class_math_1_1_mat_a1168929b2b537dc294de182ba1f02719}\label{class_math_1_1_mat_a1168929b2b537dc294de182ba1f02719} 
+\index{Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}!width@{width}}
+\index{width@{width}!Math::Mat$<$ H, W, Type $>$@{Math::Mat$<$ H, W, Type $>$}}
+\doxysubsubsection{\texorpdfstring{width}{width}}
+{\footnotesize\ttfamily template$<$int H, int W, Vec\+Number Type$>$ \\
+int \mbox{\hyperlink{class_math_1_1_mat}{Math\+::\+Mat}}$<$ H, W, Type $>$\+::width = W\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{matrix_8hpp_source_l00022}{22}} of file \mbox{\hyperlink{matrix_8hpp_source}{matrix.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Math/\mbox{\hyperlink{matrix_8hpp}{matrix.\+hpp}}\end{DoxyCompactItemize}

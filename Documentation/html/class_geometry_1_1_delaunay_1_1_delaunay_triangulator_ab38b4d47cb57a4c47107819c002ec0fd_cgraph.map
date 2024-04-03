@@ -1,0 +1,9 @@
+<map id="Geometry::Delaunay::DelaunayTriangulator::hasCommonEdge" name="Geometry::Delaunay::DelaunayTriangulator::hasCommonEdge">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,31,156,89"/>
+<area shape="rect" id="Node000002" href="$class_geometry_1_1_delaunay_1_1_triangle.html#ad714b105eb74b4b4277c18812f9753c5" title=" " alt="" coords="204,5,344,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="156,44,188,39,189,44,157,50"/>
+<area shape="rect" id="Node000003" href="$class_geometry_1_1_delaunay_1_1_triangle.html#a63caa8d311a44e0726a243fced8c44f6" title=" " alt="" coords="204,72,344,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="157,70,189,76,188,81,156,76"/>
+<area shape="rect" id="Node000004" href="$class_geometry_1_1_delaunay_1_1_triangle.html#a6375459284ef90ef48bab163a79e67b0" title=" " alt="" coords="392,72,532,115"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="344,91,377,91,377,96,344,96"/>
+</map>

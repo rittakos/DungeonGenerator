@@ -1,0 +1,236 @@
+\doxysection{Data\+::Wall\+Data Class Reference}
+\hypertarget{class_data_1_1_wall_data}{}\label{class_data_1_1_wall_data}\index{Data::WallData@{Data::WallData}}
+
+
+{\ttfamily \#include $<$wall\+Data.\+hpp$>$}
+
+
+
+Collaboration diagram for Data\+::Wall\+Data\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{class_data_1_1_wall_data__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_data_1_1_wall_data_adcc15bf827e14e6f75bf490ca91ce584}{Wall\+Data}} (\mbox{\hyperlink{namespace_math_a753baf5938292fd107023b09e4287523}{Math\+::\+Vec3f}} \mbox{\hyperlink{class_data_1_1_wall_data_a07c6648401571089c3cb1def94f51960}{P1}}, \mbox{\hyperlink{namespace_math_a753baf5938292fd107023b09e4287523}{Math\+::\+Vec3f}} \mbox{\hyperlink{class_data_1_1_wall_data_a1d07d8aaa2d66e5bd0dbc540d13fc3ae}{P2}})
+\item 
+\mbox{\hyperlink{class_geometry_1_1_edge}{Geometry\+::\+Edge}} \mbox{\hyperlink{class_data_1_1_wall_data_a851d16b464ad540f90cda4e77d8e6d8f}{get\+Wall\+Base}} () const
+\item 
+std\+::vector$<$ \mbox{\hyperlink{namespace_math_a38403b98e9aeb47ec7fd300a7a8e896a}{Math\+::\+Vec3i}} $>$ \mbox{\hyperlink{class_data_1_1_wall_data_a6ba6ad900ddd81dd4986a1492601cf72}{get\+Triangles\+Clock\+Wise}} () const
+\item 
+std\+::vector$<$ \mbox{\hyperlink{namespace_math_a38403b98e9aeb47ec7fd300a7a8e896a}{Math\+::\+Vec3i}} $>$ \mbox{\hyperlink{class_data_1_1_wall_data_a9a5641bdc6ff1bf22068e5a17ba139bb}{get\+Triangles\+Counter\+Clockwise}} () const
+\item 
+std\+::vector$<$ \mbox{\hyperlink{namespace_math_a753baf5938292fd107023b09e4287523}{Math\+::\+Vec3f}} $>$ \mbox{\hyperlink{class_data_1_1_wall_data_ad7f335867aac54c148f682453a012855}{get\+Points}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespace_math_a753baf5938292fd107023b09e4287523}{Math\+::\+Vec3f}} \mbox{\hyperlink{class_data_1_1_wall_data_a07c6648401571089c3cb1def94f51960}{P1}}
+\item 
+\mbox{\hyperlink{namespace_math_a753baf5938292fd107023b09e4287523}{Math\+::\+Vec3f}} \mbox{\hyperlink{class_data_1_1_wall_data_a1d07d8aaa2d66e5bd0dbc540d13fc3ae}{P2}}
+\item 
+std\+::optional$<$ float $>$ \mbox{\hyperlink{class_data_1_1_wall_data_a568610775ff9c0c74bd717602bc5dd0b}{width}}
+\item 
+float \mbox{\hyperlink{class_data_1_1_wall_data_a72905221469969820f24fb1b4f003f22}{height}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{wall_data_8hpp_source_l00005}{5}} of file \mbox{\hyperlink{wall_data_8hpp_source}{wall\+Data.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_data_1_1_wall_data_adcc15bf827e14e6f75bf490ca91ce584}\label{class_data_1_1_wall_data_adcc15bf827e14e6f75bf490ca91ce584} 
+\index{Data::WallData@{Data::WallData}!WallData@{WallData}}
+\index{WallData@{WallData}!Data::WallData@{Data::WallData}}
+\doxysubsubsection{\texorpdfstring{WallData()}{WallData()}}
+{\footnotesize\ttfamily Data\+::\+Wall\+Data\+::\+Wall\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_math_a753baf5938292fd107023b09e4287523}{Math\+::\+Vec3f}}}]{P1,  }\item[{\mbox{\hyperlink{namespace_math_a753baf5938292fd107023b09e4287523}{Math\+::\+Vec3f}}}]{P2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{wall_data_8hpp_source_l00016}{16}} of file \mbox{\hyperlink{wall_data_8hpp_source}{wall\+Data.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{class_data_1_1_wall_data_a07c6648401571089c3cb1def94f51960}{P1}}(\mbox{\hyperlink{class_data_1_1_wall_data_a07c6648401571089c3cb1def94f51960}{P1}}),\ \mbox{\hyperlink{class_data_1_1_wall_data_a1d07d8aaa2d66e5bd0dbc540d13fc3ae}{P2}}(\mbox{\hyperlink{class_data_1_1_wall_data_a1d07d8aaa2d66e5bd0dbc540d13fc3ae}{P2}}) }
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_data_1_1_wall_data_a72905221469969820f24fb1b4f003f22}{height}}\ =\ 100.0f;}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_data_1_1_wall_data_ad7f335867aac54c148f682453a012855}\label{class_data_1_1_wall_data_ad7f335867aac54c148f682453a012855} 
+\index{Data::WallData@{Data::WallData}!getPoints@{getPoints}}
+\index{getPoints@{getPoints}!Data::WallData@{Data::WallData}}
+\doxysubsubsection{\texorpdfstring{getPoints()}{getPoints()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{namespace_math_a753baf5938292fd107023b09e4287523}{Math\+::\+Vec3f}} $>$ Data\+::\+Wall\+Data\+::get\+Points (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{wall_data_8hpp_source_l00047}{47}} of file \mbox{\hyperlink{wall_data_8hpp_source}{wall\+Data.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Math::Vec3f>\ points;}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*points.push\_back(Math::Vec3f\{\ \ \ 0.0f,\ 0.0f,\ 0.0f\ \}); }}
+\DoxyCodeLine{00052\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ points.push\_back(Math::Vec3f\{\ \ \ 0.0f,\ 100.0f,\ 0.0f\ \}); }}
+\DoxyCodeLine{00053\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ points.push\_back(Math::Vec3f\{\ 100.0f,\ 100.0f,\ 0.0f\ \}); }}
+\DoxyCodeLine{00054\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ points.push\_back(Math::Vec3f\{\ 100.0f,\ 0.0f,\ 0.0f\ \});*/}}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Math::Vec3f\ v\ =\ (P1\ -\/\ P2).getNormalised();}}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec3f}}\ up(0.0f,\ 0.0f,\ 1.0f);}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ points.push\_back(\mbox{\hyperlink{class_data_1_1_wall_data_a07c6648401571089c3cb1def94f51960}{P1}});}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ points.push\_back(\mbox{\hyperlink{class_data_1_1_wall_data_a1d07d8aaa2d66e5bd0dbc540d13fc3ae}{P2}});}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ points.push\_back(\mbox{\hyperlink{class_data_1_1_wall_data_a1d07d8aaa2d66e5bd0dbc540d13fc3ae}{P2}}\ +\ \mbox{\hyperlink{class_data_1_1_wall_data_a72905221469969820f24fb1b4f003f22}{height}}\ *\ up);}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ points.push\_back(\mbox{\hyperlink{class_data_1_1_wall_data_a07c6648401571089c3cb1def94f51960}{P1}}\ +\ \mbox{\hyperlink{class_data_1_1_wall_data_a72905221469969820f24fb1b4f003f22}{height}}\ *\ up);}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ points;}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=297pt]{class_data_1_1_wall_data_ad7f335867aac54c148f682453a012855_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_data_1_1_wall_data_a6ba6ad900ddd81dd4986a1492601cf72}\label{class_data_1_1_wall_data_a6ba6ad900ddd81dd4986a1492601cf72} 
+\index{Data::WallData@{Data::WallData}!getTrianglesClockWise@{getTrianglesClockWise}}
+\index{getTrianglesClockWise@{getTrianglesClockWise}!Data::WallData@{Data::WallData}}
+\doxysubsubsection{\texorpdfstring{getTrianglesClockWise()}{getTrianglesClockWise()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{namespace_math_a38403b98e9aeb47ec7fd300a7a8e896a}{Math\+::\+Vec3i}} $>$ Data\+::\+Wall\+Data\+::get\+Triangles\+Clock\+Wise (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{wall_data_8hpp_source_l00027}{27}} of file \mbox{\hyperlink{wall_data_8hpp_source}{wall\+Data.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Math::Vec3i>\ triangles;}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ triangles.push\_back(\mbox{\hyperlink{class_math_1_1_vec}{Math::Vec3i}}\{\ 0,\ 1,\ 2\ \});}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ triangles.push\_back(\mbox{\hyperlink{class_math_1_1_vec}{Math::Vec3i}}\{\ 0,\ 2,\ 3\ \});}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ triangles;}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=309pt]{class_data_1_1_wall_data_a6ba6ad900ddd81dd4986a1492601cf72_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_data_1_1_wall_data_a9a5641bdc6ff1bf22068e5a17ba139bb}\label{class_data_1_1_wall_data_a9a5641bdc6ff1bf22068e5a17ba139bb} 
+\index{Data::WallData@{Data::WallData}!getTrianglesCounterClockwise@{getTrianglesCounterClockwise}}
+\index{getTrianglesCounterClockwise@{getTrianglesCounterClockwise}!Data::WallData@{Data::WallData}}
+\doxysubsubsection{\texorpdfstring{getTrianglesCounterClockwise()}{getTrianglesCounterClockwise()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{namespace_math_a38403b98e9aeb47ec7fd300a7a8e896a}{Math\+::\+Vec3i}} $>$ Data\+::\+Wall\+Data\+::get\+Triangles\+Counter\+Clockwise (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{wall_data_8hpp_source_l00037}{37}} of file \mbox{\hyperlink{wall_data_8hpp_source}{wall\+Data.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Math::Vec3i>\ triangles;}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ triangles.push\_back(\mbox{\hyperlink{class_math_1_1_vec}{Math::Vec3i}}\{\ 2,\ 1,\ 0\ \});}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ triangles.push\_back(\mbox{\hyperlink{class_math_1_1_vec}{Math::Vec3i}}\{\ 3,\ 2,\ 0\ \});}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ triangles;}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=309pt]{class_data_1_1_wall_data_a9a5641bdc6ff1bf22068e5a17ba139bb_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_data_1_1_wall_data_a851d16b464ad540f90cda4e77d8e6d8f}\label{class_data_1_1_wall_data_a851d16b464ad540f90cda4e77d8e6d8f} 
+\index{Data::WallData@{Data::WallData}!getWallBase@{getWallBase}}
+\index{getWallBase@{getWallBase}!Data::WallData@{Data::WallData}}
+\doxysubsubsection{\texorpdfstring{getWallBase()}{getWallBase()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_geometry_1_1_edge}{Geometry\+::\+Edge}} Data\+::\+Wall\+Data\+::get\+Wall\+Base (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{wall_data_8hpp_source_l00021}{21}} of file \mbox{\hyperlink{wall_data_8hpp_source}{wall\+Data.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_edge}{Geometry::Edge}}\ wallBase(\mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}(\mbox{\hyperlink{class_data_1_1_wall_data_a07c6648401571089c3cb1def94f51960}{P1}}[0],\ \mbox{\hyperlink{class_data_1_1_wall_data_a07c6648401571089c3cb1def94f51960}{P1}}[1]),\ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}(\mbox{\hyperlink{class_data_1_1_wall_data_a1d07d8aaa2d66e5bd0dbc540d13fc3ae}{P2}}[0],\ \mbox{\hyperlink{class_data_1_1_wall_data_a1d07d8aaa2d66e5bd0dbc540d13fc3ae}{P2}}[1]));}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ wallBase;}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_data_1_1_wall_data_a72905221469969820f24fb1b4f003f22}\label{class_data_1_1_wall_data_a72905221469969820f24fb1b4f003f22} 
+\index{Data::WallData@{Data::WallData}!height@{height}}
+\index{height@{height}!Data::WallData@{Data::WallData}}
+\doxysubsubsection{\texorpdfstring{height}{height}}
+{\footnotesize\ttfamily float Data\+::\+Wall\+Data\+::height\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{wall_data_8hpp_source_l00013}{13}} of file \mbox{\hyperlink{wall_data_8hpp_source}{wall\+Data.\+hpp}}.
+
+\Hypertarget{class_data_1_1_wall_data_a07c6648401571089c3cb1def94f51960}\label{class_data_1_1_wall_data_a07c6648401571089c3cb1def94f51960} 
+\index{Data::WallData@{Data::WallData}!P1@{P1}}
+\index{P1@{P1}!Data::WallData@{Data::WallData}}
+\doxysubsubsection{\texorpdfstring{P1}{P1}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespace_math_a753baf5938292fd107023b09e4287523}{Math\+::\+Vec3f}} Data\+::\+Wall\+Data\+::\+P1\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{wall_data_8hpp_source_l00008}{8}} of file \mbox{\hyperlink{wall_data_8hpp_source}{wall\+Data.\+hpp}}.
+
+\Hypertarget{class_data_1_1_wall_data_a1d07d8aaa2d66e5bd0dbc540d13fc3ae}\label{class_data_1_1_wall_data_a1d07d8aaa2d66e5bd0dbc540d13fc3ae} 
+\index{Data::WallData@{Data::WallData}!P2@{P2}}
+\index{P2@{P2}!Data::WallData@{Data::WallData}}
+\doxysubsubsection{\texorpdfstring{P2}{P2}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespace_math_a753baf5938292fd107023b09e4287523}{Math\+::\+Vec3f}} Data\+::\+Wall\+Data\+::\+P2\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{wall_data_8hpp_source_l00009}{9}} of file \mbox{\hyperlink{wall_data_8hpp_source}{wall\+Data.\+hpp}}.
+
+\Hypertarget{class_data_1_1_wall_data_a568610775ff9c0c74bd717602bc5dd0b}\label{class_data_1_1_wall_data_a568610775ff9c0c74bd717602bc5dd0b} 
+\index{Data::WallData@{Data::WallData}!width@{width}}
+\index{width@{width}!Data::WallData@{Data::WallData}}
+\doxysubsubsection{\texorpdfstring{width}{width}}
+{\footnotesize\ttfamily std\+::optional$<$float$>$ Data\+::\+Wall\+Data\+::width\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{wall_data_8hpp_source_l00012}{12}} of file \mbox{\hyperlink{wall_data_8hpp_source}{wall\+Data.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Data/\mbox{\hyperlink{wall_data_8hpp}{wall\+Data.\+hpp}}\end{DoxyCompactItemize}

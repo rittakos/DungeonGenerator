@@ -1,0 +1,7 @@
+<map id="Data::DungeonData::getWalls" name="Data::DungeonData::getWalls">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,148,48"/>
+<area shape="rect" id="Node000002" href="$class_data_1_1_maze_data.html#a3b9f1eaa1af5c8ee0775228b637f8486" title=" " alt="" coords="196,5,383,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="148,24,180,24,180,29,148,29"/>
+<area shape="rect" id="Node000003" href="$class_math_1_1_graph.html#ab4241d1809a7c631192d5e9c4dc02596" title=" " alt="" coords="431,13,620,40"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="383,24,416,24,416,29,383,29"/>
+</map>

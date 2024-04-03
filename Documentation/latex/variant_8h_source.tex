@@ -1,0 +1,500 @@
+\doxysection{variant.\+h}
+\hypertarget{variant_8h_source}{}\label{variant_8h_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/lemon/bits/variant.h@{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/lemon/bits/variant.h}}
+\mbox{\hyperlink{variant_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00001}00001\ \textcolor{comment}{/*\ -\/*-\/\ mode:\ C++;\ indent-\/tabs-\/mode:\ nil;\ -\/*-\/}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00002}00002\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00003}00003\ \textcolor{comment}{\ *\ This\ file\ is\ a\ part\ of\ LEMON,\ a\ generic\ C++\ optimization\ library.}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00004}00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00005}00005\ \textcolor{comment}{\ *\ Copyright\ (C)\ 2003-\/2009}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00006}00006\ \textcolor{comment}{\ *\ Egervary\ Jeno\ Kombinatorikus\ Optimalizalasi\ Kutatocsoport}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00007}00007\ \textcolor{comment}{\ *\ (Egervary\ Research\ Group\ on\ Combinatorial\ Optimization,\ EGRES).}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00008}00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00009}00009\ \textcolor{comment}{\ *\ Permission\ to\ use,\ modify\ and\ distribute\ this\ software\ is\ granted}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00010}00010\ \textcolor{comment}{\ *\ provided\ that\ this\ copyright\ notice\ appears\ in\ all\ copies.\ For}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00011}00011\ \textcolor{comment}{\ *\ precise\ terms\ see\ the\ accompanying\ LICENSE\ file.}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00012}00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00013}00013\ \textcolor{comment}{\ *\ This\ software\ is\ provided\ "{}AS\ IS"{}\ with\ no\ warranty\ of\ any\ kind,}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00014}00014\ \textcolor{comment}{\ *\ express\ or\ implied,\ and\ with\ no\ claim\ as\ to\ its\ suitability\ for\ any}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00015}00015\ \textcolor{comment}{\ *\ purpose.}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00016}00016\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00017}00017\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00019}00019\ \textcolor{preprocessor}{\#ifndef\ LEMON\_BITS\_VARIANT\_H}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00020}00020\ \textcolor{preprocessor}{\#define\ LEMON\_BITS\_VARIANT\_H}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{assert_8h}{lemon/assert.h}}>}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00024}00024\ \textcolor{comment}{//\ \(\backslash\)file}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00025}00025\ \textcolor{comment}{//\ \(\backslash\)brief\ Variant\ types}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00027}00027\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacelemon}{lemon}}\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00029}\mbox{\hyperlink{namespacelemon_1_1__variant__bits}{00029}}\ \ \ \textcolor{keyword}{namespace\ }\_variant\_bits\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00031}00031\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{int}\ left,\ \textcolor{keywordtype}{int}\ right>}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00032}\mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_c_t_max}{00032}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_c_t_max}{CTMax}}\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00033}\mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_c_t_max_aedde283d56679d82a3e85b1eca4095ae}{00033}}\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classvalue}{value}}\ =\ left\ <\ right\ ?\ right\ :\ left;}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00034}00034\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00036}00036\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00039}00039\ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Simple\ Variant\ type\ for\ two\ types}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00040}00040\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00041}00041\ \ \ \textcolor{comment}{//\ Simple\ Variant\ type\ for\ two\ types.\ The\ Variant\ type\ is\ a\ type-\/safe}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00042}00042\ \ \ \textcolor{comment}{//\ union.\ C++\ has\ strong\ limitations\ for\ using\ unions,\ for}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00043}00043\ \ \ \textcolor{comment}{//\ example\ you\ cannot\ store\ a\ type\ with\ non-\/default\ constructor\ or}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00044}00044\ \ \ \textcolor{comment}{//\ destructor\ in\ a\ union.\ This\ class\ always\ knowns\ the\ current}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00045}00045\ \ \ \textcolor{comment}{//\ state\ of\ the\ variant\ and\ it\ cares\ for\ the\ proper\ construction}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00046}00046\ \ \ \textcolor{comment}{//\ and\ destruction.}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00047}00047\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ \_First,\ \textcolor{keyword}{typename}\ \_Second>}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00048}\mbox{\hyperlink{classlemon_1_1_bi_variant}{00048}}\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_bi_variant}{BiVariant}}\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00049}00049\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00051}00051\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ The\ \(\backslash\)c\ First\ type.}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00052}\mbox{\hyperlink{classlemon_1_1_bi_variant_a8d926b86ae686c08ebe9cbe178db0883}{00052}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_First}}\ \mbox{\hyperlink{classlemon_1_1_bi_variant_a8d926b86ae686c08ebe9cbe178db0883}{First}};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00053}00053\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ The\ \(\backslash\)c\ Second\ type.}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00054}\mbox{\hyperlink{classlemon_1_1_bi_variant_af1965d534f7e4d0d599189bb7c6e372d}{00054}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_Second}}\ \mbox{\hyperlink{classlemon_1_1_bi_variant_af1965d534f7e4d0d599189bb7c6e372d}{Second}};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00056}00056\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Constructor}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00057}00057\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00058}00058\ \ \ \ \ \textcolor{comment}{//\ This\ constructor\ initalizes\ to\ the\ default\ value\ of\ the\ \(\backslash\)c\ First}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00059}00059\ \ \ \ \ \textcolor{comment}{//\ type.}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00060}\mbox{\hyperlink{classlemon_1_1_bi_variant_a5e1eb882e4fb7d13139dd929edeec7b9}{00060}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bi_variant_a5e1eb882e4fb7d13139dd929edeec7b9}{BiVariant}}()\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00061}00061\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bi_variant_a5d1098745289f19865a79b1432011c2a}{flag}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00062}00062\ \ \ \ \ \ \ \textcolor{keyword}{new}(\textcolor{keyword}{reinterpret\_cast<}\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{First}}*\textcolor{keyword}{>}(\mbox{\hyperlink{classlemon_1_1_bi_variant_ad0af52164aabc48819974df9c815b229}{data}}))\ \mbox{\hyperlink{classlemon_1_1_bi_variant_a8d926b86ae686c08ebe9cbe178db0883}{First}}();}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00063}00063\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00065}00065\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Constructor}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00066}00066\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00067}00067\ \ \ \ \ \textcolor{comment}{//\ This\ constructor\ initalizes\ to\ the\ given\ value\ of\ the\ \(\backslash\)c\ First}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00068}00068\ \ \ \ \ \textcolor{comment}{//\ type.}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00069}\mbox{\hyperlink{classlemon_1_1_bi_variant_ae5b47b15bca4d60f214984ff0d01ef01}{00069}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bi_variant_ae5b47b15bca4d60f214984ff0d01ef01}{BiVariant}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{First}}\&\ f)\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00070}00070\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bi_variant_a5d1098745289f19865a79b1432011c2a}{flag}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00071}00071\ \ \ \ \ \ \ \textcolor{keyword}{new}(\textcolor{keyword}{reinterpret\_cast<}\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{First}}*\textcolor{keyword}{>}(\mbox{\hyperlink{classlemon_1_1_bi_variant_ad0af52164aabc48819974df9c815b229}{data}}))\ \mbox{\hyperlink{classlemon_1_1_bi_variant_a8d926b86ae686c08ebe9cbe178db0883}{First}}(f);}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00072}00072\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00074}00074\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Constructor}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00075}00075\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00076}00076\ \ \ \ \ \textcolor{comment}{//\ This\ constructor\ initalizes\ to\ the\ given\ value\ of\ the\ \(\backslash\)c}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00077}00077\ \ \ \ \ \textcolor{comment}{//\ Second\ type.}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00078}\mbox{\hyperlink{classlemon_1_1_bi_variant_a2d801691ec6a339b9b251a10649767af}{00078}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bi_variant_a2d801691ec6a339b9b251a10649767af}{BiVariant}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Second}}\&\ s)\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00079}00079\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bi_variant_a5d1098745289f19865a79b1432011c2a}{flag}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00080}00080\ \ \ \ \ \ \ \textcolor{keyword}{new}(\textcolor{keyword}{reinterpret\_cast<}\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Second}}*\textcolor{keyword}{>}(\mbox{\hyperlink{classlemon_1_1_bi_variant_ad0af52164aabc48819974df9c815b229}{data}}))\ \mbox{\hyperlink{classlemon_1_1_bi_variant_af1965d534f7e4d0d599189bb7c6e372d}{Second}}(s);}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00081}00081\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00083}00083\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Copy\ constructor}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00084}00084\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00085}00085\ \ \ \ \ \textcolor{comment}{//\ Copy\ constructor}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00086}\mbox{\hyperlink{classlemon_1_1_bi_variant_acc1a4f0fc2bb79f62a391cba3643089c}{00086}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bi_variant_acc1a4f0fc2bb79f62a391cba3643089c}{BiVariant}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_bi_variant}{BiVariant}}\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bivariant}})\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00087}00087\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bi_variant_a5d1098745289f19865a79b1432011c2a}{flag}}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bivariant}}.flag;}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00088}00088\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_bi_variant_a5d1098745289f19865a79b1432011c2a}{flag}})\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00089}00089\ \ \ \ \ \ \ \ \ \textcolor{keyword}{new}(\textcolor{keyword}{reinterpret\_cast<}\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{First}}*\textcolor{keyword}{>}(\mbox{\hyperlink{classlemon_1_1_bi_variant_ad0af52164aabc48819974df9c815b229}{data}}))\ \mbox{\hyperlink{classlemon_1_1_bi_variant_a8d926b86ae686c08ebe9cbe178db0883}{First}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bivariant}}.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a23ed3a4a39b3d5724f67e27ad8bafc77}{first}}());}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00090}00090\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00091}00091\ \ \ \ \ \ \ \ \ \textcolor{keyword}{new}(\textcolor{keyword}{reinterpret\_cast<}\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Second}}*\textcolor{keyword}{>}(\mbox{\hyperlink{classlemon_1_1_bi_variant_ad0af52164aabc48819974df9c815b229}{data}}))\ \mbox{\hyperlink{classlemon_1_1_bi_variant_af1965d534f7e4d0d599189bb7c6e372d}{Second}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bivariant}}.second());}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00092}00092\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00093}00093\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00095}00095\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Destrcutor}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00096}00096\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00097}00097\ \ \ \ \ \textcolor{comment}{//\ Destructor}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00098}\mbox{\hyperlink{classlemon_1_1_bi_variant_adba4e2f2e754b78482dc32a84fbe09ba}{00098}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bi_variant_adba4e2f2e754b78482dc32a84fbe09ba}{\string~BiVariant}}()\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00099}00099\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bi_variant_aa9c531a664367909edfda70648aae362}{destroy}}();}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00100}00100\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00102}00102\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Set\ to\ the\ default\ value\ of\ the\ \(\backslash\)c\ First\ type.}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00103}00103\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00104}00104\ \ \ \ \ \textcolor{comment}{//\ This\ function\ sets\ the\ variant\ to\ the\ default\ value\ of\ the\ \(\backslash\)c}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00105}00105\ \ \ \ \ \textcolor{comment}{//\ First\ type.}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00106}\mbox{\hyperlink{classlemon_1_1_bi_variant_a5c56f34afa9b326db04521881d91ab72}{00106}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bi_variant}{BiVariant}}\&\ \mbox{\hyperlink{classlemon_1_1_bi_variant_a5c56f34afa9b326db04521881d91ab72}{setFirst}}()\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00107}00107\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bi_variant_aa9c531a664367909edfda70648aae362}{destroy}}();}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00108}00108\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bi_variant_a5d1098745289f19865a79b1432011c2a}{flag}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00109}00109\ \ \ \ \ \ \ \textcolor{keyword}{new}(\textcolor{keyword}{reinterpret\_cast<}\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{First}}*\textcolor{keyword}{>}(\mbox{\hyperlink{classlemon_1_1_bi_variant_ad0af52164aabc48819974df9c815b229}{data}}))\ \mbox{\hyperlink{classlemon_1_1_bi_variant_a8d926b86ae686c08ebe9cbe178db0883}{First}}();}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00110}00110\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00111}00111\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00113}00113\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Set\ to\ the\ given\ value\ of\ the\ \(\backslash\)c\ First\ type.}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00114}00114\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00115}00115\ \ \ \ \ \textcolor{comment}{//\ This\ function\ sets\ the\ variant\ to\ the\ given\ value\ of\ the\ \(\backslash\)c}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00116}00116\ \ \ \ \ \textcolor{comment}{//\ First\ type.}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00117}\mbox{\hyperlink{classlemon_1_1_bi_variant_a81d88ab17fceb1517944bb7955e8d66d}{00117}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bi_variant}{BiVariant}}\&\ \mbox{\hyperlink{classlemon_1_1_bi_variant_a81d88ab17fceb1517944bb7955e8d66d}{setFirst}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{First}}\&\ f)\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00118}00118\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bi_variant_aa9c531a664367909edfda70648aae362}{destroy}}();}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00119}00119\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bi_variant_a5d1098745289f19865a79b1432011c2a}{flag}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00120}00120\ \ \ \ \ \ \ \textcolor{keyword}{new}(\textcolor{keyword}{reinterpret\_cast<}\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{First}}*\textcolor{keyword}{>}(\mbox{\hyperlink{classlemon_1_1_bi_variant_ad0af52164aabc48819974df9c815b229}{data}}))\ \mbox{\hyperlink{classlemon_1_1_bi_variant_a8d926b86ae686c08ebe9cbe178db0883}{First}}(f);}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00121}00121\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00122}00122\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00124}00124\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Set\ to\ the\ default\ value\ of\ the\ \(\backslash\)c\ Second\ type.}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00125}00125\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00126}00126\ \ \ \ \ \textcolor{comment}{//\ This\ function\ sets\ the\ variant\ to\ the\ default\ value\ of\ the\ \(\backslash\)c}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00127}00127\ \ \ \ \ \textcolor{comment}{//\ Second\ type.}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00128}\mbox{\hyperlink{classlemon_1_1_bi_variant_a5b4b427fe29fdaf0fc3db48413313be7}{00128}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bi_variant}{BiVariant}}\&\ \mbox{\hyperlink{classlemon_1_1_bi_variant_a5b4b427fe29fdaf0fc3db48413313be7}{setSecond}}()\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00129}00129\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bi_variant_aa9c531a664367909edfda70648aae362}{destroy}}();}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00130}00130\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bi_variant_a5d1098745289f19865a79b1432011c2a}{flag}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00131}00131\ \ \ \ \ \ \ \textcolor{keyword}{new}(\textcolor{keyword}{reinterpret\_cast<}\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Second}}*\textcolor{keyword}{>}(\mbox{\hyperlink{classlemon_1_1_bi_variant_ad0af52164aabc48819974df9c815b229}{data}}))\ \mbox{\hyperlink{classlemon_1_1_bi_variant_af1965d534f7e4d0d599189bb7c6e372d}{Second}}();}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00132}00132\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00133}00133\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00135}00135\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Set\ to\ the\ given\ value\ of\ the\ \(\backslash\)c\ Second\ type.}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00136}00136\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00137}00137\ \ \ \ \ \textcolor{comment}{//\ This\ function\ sets\ the\ variant\ to\ the\ given\ value\ of\ the\ \(\backslash\)c}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00138}00138\ \ \ \ \ \textcolor{comment}{//\ Second\ type.}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00139}\mbox{\hyperlink{classlemon_1_1_bi_variant_a0b1d7dae6cdd73b4ffd1c9c963cf3222}{00139}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bi_variant}{BiVariant}}\&\ \mbox{\hyperlink{classlemon_1_1_bi_variant_a0b1d7dae6cdd73b4ffd1c9c963cf3222}{setSecond}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Second}}\&\ s)\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00140}00140\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bi_variant_aa9c531a664367909edfda70648aae362}{destroy}}();}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00141}00141\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bi_variant_a5d1098745289f19865a79b1432011c2a}{flag}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00142}00142\ \ \ \ \ \ \ \textcolor{keyword}{new}(\textcolor{keyword}{reinterpret\_cast<}\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Second}}*\textcolor{keyword}{>}(\mbox{\hyperlink{classlemon_1_1_bi_variant_ad0af52164aabc48819974df9c815b229}{data}}))\ \mbox{\hyperlink{classlemon_1_1_bi_variant_af1965d534f7e4d0d599189bb7c6e372d}{Second}}(s);}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00143}00143\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00144}00144\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00145}00145\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00146}00146\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Operator\ form\ of\ the\ \(\backslash\)c\ setFirst()}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00147}\mbox{\hyperlink{classlemon_1_1_bi_variant_a011024209a096b8de58f5f5230ab2f9e}{00147}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bi_variant}{BiVariant}}\&\ \mbox{\hyperlink{classlemon_1_1_bi_variant_a011024209a096b8de58f5f5230ab2f9e}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{First}}\&\ f)\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00148}00148\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_bi_variant_a5c56f34afa9b326db04521881d91ab72}{setFirst}}(f);}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00149}00149\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00150}00150\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00151}00151\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Operator\ form\ of\ the\ \(\backslash\)c\ setSecond()}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00152}\mbox{\hyperlink{classlemon_1_1_bi_variant_a5205f6f32e1ac1a650fea50a9310ae14}{00152}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bi_variant}{BiVariant}}\&\ \mbox{\hyperlink{classlemon_1_1_bi_variant_a5205f6f32e1ac1a650fea50a9310ae14}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Second}}\&\ s)\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00153}00153\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_bi_variant_a5b4b427fe29fdaf0fc3db48413313be7}{setSecond}}(s);}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00154}00154\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00155}00155\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00156}00156\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Assign\ operator}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00157}\mbox{\hyperlink{classlemon_1_1_bi_variant_ac80346a3ad50a527777015b47bca458d}{00157}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bi_variant}{BiVariant}}\&\ \mbox{\hyperlink{classlemon_1_1_bi_variant_ac80346a3ad50a527777015b47bca458d}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_bi_variant}{BiVariant}}\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bivariant}})\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00158}00158\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bivariant}})\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00159}00159\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bi_variant_aa9c531a664367909edfda70648aae362}{destroy}}();}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00160}00160\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bi_variant_a5d1098745289f19865a79b1432011c2a}{flag}}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bivariant}}.flag;}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00161}00161\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_bi_variant_a5d1098745289f19865a79b1432011c2a}{flag}})\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00162}00162\ \ \ \ \ \ \ \ \ \textcolor{keyword}{new}(\textcolor{keyword}{reinterpret\_cast<}\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{First}}*\textcolor{keyword}{>}(\mbox{\hyperlink{classlemon_1_1_bi_variant_ad0af52164aabc48819974df9c815b229}{data}}))\ \mbox{\hyperlink{classlemon_1_1_bi_variant_a8d926b86ae686c08ebe9cbe178db0883}{First}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bivariant}}.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a23ed3a4a39b3d5724f67e27ad8bafc77}{first}}());}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00163}00163\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00164}00164\ \ \ \ \ \ \ \ \ \textcolor{keyword}{new}(\textcolor{keyword}{reinterpret\_cast<}\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Second}}*\textcolor{keyword}{>}(\mbox{\hyperlink{classlemon_1_1_bi_variant_ad0af52164aabc48819974df9c815b229}{data}}))\ \mbox{\hyperlink{classlemon_1_1_bi_variant_af1965d534f7e4d0d599189bb7c6e372d}{Second}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bivariant}}.second());}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00165}00165\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00166}00166\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00167}00167\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00168}00168\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00169}00169\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Reference\ to\ the\ value}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00170}00170\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00171}00171\ \ \ \ \ \textcolor{comment}{//\ Reference\ to\ the\ value\ of\ the\ \(\backslash\)c\ First\ type.}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00172}00172\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)pre\ The\ BiVariant\ should\ store\ value\ of\ \(\backslash\)c\ First\ type.}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00173}\mbox{\hyperlink{classlemon_1_1_bi_variant_a6809f23c939096723902908d460eacec}{00173}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{First}}\&\ \mbox{\hyperlink{classlemon_1_1_bi_variant_a6809f23c939096723902908d460eacec}{first}}()\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00174}00174\ \ \ \ \ \ \ \mbox{\hyperlink{assert_8h_acbefc04b0335938603649e96af183843}{LEMON\_DEBUG}}(\mbox{\hyperlink{classlemon_1_1_bi_variant_a5d1098745289f19865a79b1432011c2a}{flag}},\ \textcolor{stringliteral}{"{}Variant\ wrong\ state"{}});}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00175}00175\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{reinterpret\_cast<}\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{First}}*\textcolor{keyword}{>}(\mbox{\hyperlink{classlemon_1_1_bi_variant_ad0af52164aabc48819974df9c815b229}{data}});}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00176}00176\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00177}00177\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00178}00178\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Const\ reference\ to\ the\ value}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00179}00179\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00180}00180\ \ \ \ \ \textcolor{comment}{//\ Const\ reference\ to\ the\ value\ of\ the\ \(\backslash\)c\ First\ type.}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00181}00181\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)pre\ The\ BiVariant\ should\ store\ value\ of\ \(\backslash\)c\ First\ type.}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00182}\mbox{\hyperlink{classlemon_1_1_bi_variant_a935bb6ddc9f909f817d98d90a561896a}{00182}}\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{First}}\&\ \mbox{\hyperlink{classlemon_1_1_bi_variant_a935bb6ddc9f909f817d98d90a561896a}{first}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00183}00183\ \ \ \ \ \ \ \mbox{\hyperlink{assert_8h_acbefc04b0335938603649e96af183843}{LEMON\_DEBUG}}(\mbox{\hyperlink{classlemon_1_1_bi_variant_a5d1098745289f19865a79b1432011c2a}{flag}},\ \textcolor{stringliteral}{"{}Variant\ wrong\ state"{}});}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00184}00184\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const\ }\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{First}}*\textcolor{keyword}{>}(\mbox{\hyperlink{classlemon_1_1_bi_variant_ad0af52164aabc48819974df9c815b229}{data}});}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00185}00185\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00186}00186\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00187}00187\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Operator\ form\ of\ the\ \(\backslash\)c\ first()}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00188}\mbox{\hyperlink{classlemon_1_1_bi_variant_a62a5a2b24714ad713842e10e31b1f9f1}{00188}}\ \ \ \ \ \textcolor{keyword}{operator}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{First}}\&()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_bi_variant_a6809f23c939096723902908d460eacec}{first}}();\ \}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00189}00189\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Operator\ form\ of\ the\ const\ \(\backslash\)c\ first()}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00190}\mbox{\hyperlink{classlemon_1_1_bi_variant_a9e1feb31f080f13114e6c3679ae02c31}{00190}}\ \ \ \ \ \textcolor{keyword}{operator}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{First}}\&()\ \textcolor{keyword}{const}\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_bi_variant_a6809f23c939096723902908d460eacec}{first}}();\ \}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00191}00191\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00192}00192\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Reference\ to\ the\ value}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00193}00193\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00194}00194\ \ \ \ \ \textcolor{comment}{//\ Reference\ to\ the\ value\ of\ the\ \(\backslash\)c\ Second\ type.}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00195}00195\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)pre\ The\ BiVariant\ should\ store\ value\ of\ \(\backslash\)c\ Second\ type.}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00196}\mbox{\hyperlink{classlemon_1_1_bi_variant_a216e10090478ad913463038e129c6192}{00196}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Second}}\&\ \mbox{\hyperlink{classlemon_1_1_bi_variant_a216e10090478ad913463038e129c6192}{second}}()\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00197}00197\ \ \ \ \ \ \ \mbox{\hyperlink{assert_8h_acbefc04b0335938603649e96af183843}{LEMON\_DEBUG}}(!\mbox{\hyperlink{classlemon_1_1_bi_variant_a5d1098745289f19865a79b1432011c2a}{flag}},\ \textcolor{stringliteral}{"{}Variant\ wrong\ state"{}});}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00198}00198\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{reinterpret\_cast<}\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Second}}*\textcolor{keyword}{>}(\mbox{\hyperlink{classlemon_1_1_bi_variant_ad0af52164aabc48819974df9c815b229}{data}});}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00199}00199\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00200}00200\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00201}00201\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Const\ reference\ to\ the\ value}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00202}00202\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00203}00203\ \ \ \ \ \textcolor{comment}{//\ Const\ reference\ to\ the\ value\ of\ the\ \(\backslash\)c\ Second\ type.}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00204}00204\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)pre\ The\ BiVariant\ should\ store\ value\ of\ \(\backslash\)c\ Second\ type.}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00205}\mbox{\hyperlink{classlemon_1_1_bi_variant_ad96ceeade3b6d38499ad181bc7aca490}{00205}}\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Second}}\&\ \mbox{\hyperlink{classlemon_1_1_bi_variant_ad96ceeade3b6d38499ad181bc7aca490}{second}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00206}00206\ \ \ \ \ \ \ \mbox{\hyperlink{assert_8h_acbefc04b0335938603649e96af183843}{LEMON\_DEBUG}}(!\mbox{\hyperlink{classlemon_1_1_bi_variant_a5d1098745289f19865a79b1432011c2a}{flag}},\ \textcolor{stringliteral}{"{}Variant\ wrong\ state"{}});}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00207}00207\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const\ }\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Second}}*\textcolor{keyword}{>}(\mbox{\hyperlink{classlemon_1_1_bi_variant_ad0af52164aabc48819974df9c815b229}{data}});}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00208}00208\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00209}00209\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00210}00210\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Operator\ form\ of\ the\ \(\backslash\)c\ second()}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00211}\mbox{\hyperlink{classlemon_1_1_bi_variant_a3986c7e7dc02903dc9c88a5924301a1a}{00211}}\ \ \ \ \ \textcolor{keyword}{operator}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Second}}\&()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_bi_variant_a216e10090478ad913463038e129c6192}{second}}();\ \}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00212}00212\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Operator\ form\ of\ the\ const\ \(\backslash\)c\ second()}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00213}\mbox{\hyperlink{classlemon_1_1_bi_variant_afce855b26e11f594b0444e8b385fe03f}{00213}}\ \ \ \ \ \textcolor{keyword}{operator}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Second}}\&()\ \textcolor{keyword}{const}\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_bi_variant_a216e10090478ad913463038e129c6192}{second}}();\ \}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00214}00214\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00215}00215\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ \%True\ when\ the\ variant\ is\ in\ the\ first\ state}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00216}00216\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00217}00217\ \ \ \ \ \textcolor{comment}{//\ \%True\ when\ the\ variant\ stores\ value\ of\ the\ \(\backslash\)c\ First\ type.}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00218}\mbox{\hyperlink{classlemon_1_1_bi_variant_a8754e81d516b2b2bee0d586a051ab1bc}{00218}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_bi_variant_a8754e81d516b2b2bee0d586a051ab1bc}{firstState}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_bi_variant_a5d1098745289f19865a79b1432011c2a}{flag}};\ \}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00219}00219\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00220}00220\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ \%True\ when\ the\ variant\ is\ in\ the\ second\ state}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00221}00221\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00222}00222\ \ \ \ \ \textcolor{comment}{//\ \%True\ when\ the\ variant\ stores\ value\ of\ the\ \(\backslash\)c\ Second\ type.}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00223}\mbox{\hyperlink{classlemon_1_1_bi_variant_abe71e25bbfd891009b85f17efad58e06}{00223}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_bi_variant_abe71e25bbfd891009b85f17efad58e06}{secondState}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ !\mbox{\hyperlink{classlemon_1_1_bi_variant_a5d1098745289f19865a79b1432011c2a}{flag}};\ \}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00224}00224\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00225}00225\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00226}00226\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00227}\mbox{\hyperlink{classlemon_1_1_bi_variant_aa9c531a664367909edfda70648aae362}{00227}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_bi_variant_aa9c531a664367909edfda70648aae362}{destroy}}()\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00228}00228\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_bi_variant_a5d1098745289f19865a79b1432011c2a}{flag}})\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00229}00229\ \ \ \ \ \ \ \ \ \textcolor{keyword}{reinterpret\_cast<}\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{First}}*\textcolor{keyword}{>}(\mbox{\hyperlink{classlemon_1_1_bi_variant_ad0af52164aabc48819974df9c815b229}{data}})-\/>\string~\mbox{\hyperlink{classlemon_1_1_bi_variant_a8d926b86ae686c08ebe9cbe178db0883}{First}}();}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00230}00230\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00231}00231\ \ \ \ \ \ \ \ \ \textcolor{keyword}{reinterpret\_cast<}\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Second}}*\textcolor{keyword}{>}(\mbox{\hyperlink{classlemon_1_1_bi_variant_ad0af52164aabc48819974df9c815b229}{data}})-\/>\string~\mbox{\hyperlink{classlemon_1_1_bi_variant_af1965d534f7e4d0d599189bb7c6e372d}{Second}}();}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00232}00232\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00233}00233\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00234}00234\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00235}\mbox{\hyperlink{classlemon_1_1_bi_variant_ad0af52164aabc48819974df9c815b229}{00235}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structdata}{data}}[\mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_c_t_max}{\_variant\_bits::CTMax}}<\textcolor{keyword}{sizeof}(\mbox{\hyperlink{classlemon_1_1_bi_variant_a8d926b86ae686c08ebe9cbe178db0883}{First}}),\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Second}})>\mbox{\hyperlink{classvalue}{::value}}];}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00236}\mbox{\hyperlink{classlemon_1_1_bi_variant_a5d1098745289f19865a79b1432011c2a}{00236}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_bi_variant_a5d1098745289f19865a79b1432011c2a}{flag}};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00237}00237\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00238}00238\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00239}00239\ \ \ \textcolor{keyword}{namespace\ }\_variant\_bits\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00240}00240\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00241}00241\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{int}\ \_\textcolor{keywordtype}{id}x,\ \textcolor{keyword}{typename}\ \_TypeMap>}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00242}\mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_memory}{00242}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_memory}{Memory}}\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00243}00243\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00244}\mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_memory_aeb58c9a05dd87ed0b7b24374caf02741}{00244}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ \_TypeMap::template\ \mbox{\hyperlink{class_map}{Map<\_idx>::Type}}\ \mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_memory_aeb58c9a05dd87ed0b7b24374caf02741}{Current}};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00245}00245\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00246}\mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_memory_aba51d1687c800537fded73cd593fc845}{00246}}\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_memory_aba51d1687c800537fded73cd593fc845}{destroy}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a7fc0249f0f8ba720115d2430f5b86cbaa6a992d5529f459a44fee58c733255e86}{index}},\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{place}})\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00247}00247\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a7fc0249f0f8ba720115d2430f5b86cbaa6a992d5529f459a44fee58c733255e86}{index}}\ ==\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_idx}})\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00248}00248\ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{reinterpret\_cast<}\mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_memory_aeb58c9a05dd87ed0b7b24374caf02741}{Current}}*\textcolor{keyword}{>}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{place}})-\/>\string~\mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_memory_aeb58c9a05dd87ed0b7b24374caf02741}{Current}}();}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00249}00249\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00250}00250\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_memory_aba51d1687c800537fded73cd593fc845}{Memory<\_idx\ -\/\ 1,\ \_TypeMap>::destroy}}(\mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a7fc0249f0f8ba720115d2430f5b86cbaa6a992d5529f459a44fee58c733255e86}{index}},\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{place}});}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00251}00251\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00252}00252\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00253}00253\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00254}\mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_memory_abb6c5a60a76123314a89387c63bf9560}{00254}}\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_memory_abb6c5a60a76123314a89387c63bf9560}{copy}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a7fc0249f0f8ba720115d2430f5b86cbaa6a992d5529f459a44fee58c733255e86}{index}},\ \textcolor{keywordtype}{char}*\ to,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ from)\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00255}00255\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a7fc0249f0f8ba720115d2430f5b86cbaa6a992d5529f459a44fee58c733255e86}{index}}\ ==\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_idx}})\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00256}00256\ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ (\textcolor{keyword}{reinterpret\_cast<}\mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_memory_aeb58c9a05dd87ed0b7b24374caf02741}{Current}}*\textcolor{keyword}{>}(to))}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00257}00257\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_memory_aeb58c9a05dd87ed0b7b24374caf02741}{Current}}(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const\ }\mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_memory_aeb58c9a05dd87ed0b7b24374caf02741}{Current}}*\textcolor{keyword}{>}(from));}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00258}00258\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00259}00259\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_memory_abb6c5a60a76123314a89387c63bf9560}{Memory<\_idx\ -\/\ 1,\ \_TypeMap>::copy}}(\mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a7fc0249f0f8ba720115d2430f5b86cbaa6a992d5529f459a44fee58c733255e86}{index}},\ to,\ from);}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00260}00260\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00261}00261\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00262}00262\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00263}00263\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00264}00264\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00265}00265\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ \_TypeMap>}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00266}\mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_memory_3-1_00_01___type_map_01_4}{00266}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_memory}{Memory}}<-\/1,\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_TypeMap}}>\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00267}00267\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00268}\mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_memory_3-1_00_01___type_map_01_4_a47a5e731175dc5d787210950644397f7}{00268}}\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_memory_3-1_00_01___type_map_01_4_a47a5e731175dc5d787210950644397f7}{destroy}}(\textcolor{keywordtype}{int},\ \textcolor{keywordtype}{char}*)\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00269}00269\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{assert_8h_acbefc04b0335938603649e96af183843}{LEMON\_DEBUG}}(\textcolor{keyword}{false},\ \textcolor{stringliteral}{"{}Variant\ wrong\ index."{}});}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00270}00270\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00271}00271\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00272}\mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_memory_3-1_00_01___type_map_01_4_ae9996999f98e995abc69737382a9bd70}{00272}}\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_memory_3-1_00_01___type_map_01_4_ae9996999f98e995abc69737382a9bd70}{copy}}(\textcolor{keywordtype}{int},\ \textcolor{keywordtype}{char}*,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*)\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00273}00273\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{assert_8h_acbefc04b0335938603649e96af183843}{LEMON\_DEBUG}}(\textcolor{keyword}{false},\ \textcolor{stringliteral}{"{}Variant\ wrong\ index."{}});}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00274}00274\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00275}00275\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00276}00276\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00277}00277\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{int}\ \_\textcolor{keywordtype}{id}x,\ \textcolor{keyword}{typename}\ \_TypeMap>}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00278}\mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_size}{00278}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_size}{Size}}\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00279}\mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_size_a6fd1e609e43f666d11f0361f75871acc}{00279}}\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classvalue}{value}}\ =}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00280}00280\ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_c_t_max}{CTMax}}<\textcolor{keyword}{sizeof}(\textcolor{keyword}{typename}\ \_TypeMap::template\ \mbox{\hyperlink{class_map}{Map<\_idx>::Type}}),}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00281}00281\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_size}{Size<\_idx\ -\/\ 1,\ \_TypeMap>::value}}>\mbox{\hyperlink{classvalue}{::value}};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00282}00282\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00283}00283\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00284}00284\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ \_TypeMap>}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00285}\mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_size_3_010_00_01___type_map_01_4}{00285}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_size}{Size}}<0,\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_TypeMap}}>\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00286}\mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_size_3_010_00_01___type_map_01_4_adc153ee1f8bf8d86a2aa14c02e04e4e8}{00286}}\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classvalue}{value}}\ =}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00287}00287\ \ \ \ \ \ \ \textcolor{keyword}{sizeof}(\textcolor{keyword}{typename}\ \_TypeMap::template\ \mbox{\hyperlink{class_map}{Map<0>::Type}});}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00288}00288\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00289}00289\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00290}00290\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00291}00291\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00292}00292\ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Variant\ type}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00293}00293\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00294}00294\ \ \ \textcolor{comment}{//\ Simple\ Variant\ type.\ The\ Variant\ type\ is\ a\ type-\/safe\ union.}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00295}00295\ \ \ \textcolor{comment}{//\ C++\ has\ strong\ limitations\ for\ using\ unions,\ for\ example\ you}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00296}00296\ \ \ \textcolor{comment}{//\ cannot\ store\ type\ with\ non-\/default\ constructor\ or\ destructor\ in}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00297}00297\ \ \ \textcolor{comment}{//\ a\ union.\ This\ class\ always\ knowns\ the\ current\ state\ of\ the}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00298}00298\ \ \ \textcolor{comment}{//\ variant\ and\ it\ cares\ for\ the\ proper\ construction\ and}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00299}00299\ \ \ \textcolor{comment}{//\ destruction.}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00300}00300\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00301}00301\ \ \ \textcolor{comment}{//\ \(\backslash\)param\ \_num\ The\ number\ of\ the\ types\ which\ can\ be\ stored\ in\ the}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00302}00302\ \ \ \textcolor{comment}{//\ variant\ type.}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00303}00303\ \ \ \textcolor{comment}{//\ \(\backslash\)param\ \_TypeMap\ This\ class\ describes\ the\ types\ of\ the\ Variant.\ The}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00304}00304\ \ \ \textcolor{comment}{//\ \_TypeMap::Map<index>::Type\ should\ be\ a\ valid\ type\ for\ each\ index}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00305}00305\ \ \ \textcolor{comment}{//\ in\ the\ range\ \{0,\ 1,\ ...,\ \_num\ -\/\ 1\}.\ The\ \(\backslash\)c\ VariantTypeMap\ is\ helper}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00306}00306\ \ \ \textcolor{comment}{//\ class\ to\ define\ such\ type\ mappings\ up\ to\ 10\ types.}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00307}00307\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00308}00308\ \ \ \textcolor{comment}{//\ And\ the\ usage\ of\ the\ class:}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00309}00309\ \ \ \textcolor{comment}{//\(\backslash\)code}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00310}00310\ \ \ \textcolor{comment}{//\ typedef\ Variant<3,\ VariantTypeMap<int,\ std::string,\ double>\ >\ MyVariant;}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00311}00311\ \ \ \textcolor{comment}{//\ MyVariant\ var;}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00312}00312\ \ \ \textcolor{comment}{//\ var.set<0>(12);}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00313}00313\ \ \ \textcolor{comment}{//\ std::cout\ <<\ var.get<0>()\ <<\ std::endl;}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00314}00314\ \ \ \textcolor{comment}{//\ var.set<1>("{}alpha"{});}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00315}00315\ \ \ \textcolor{comment}{//\ std::cout\ <<\ var.get<1>()\ <<\ std::endl;}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00316}00316\ \ \ \textcolor{comment}{//\ var.set<2>(0.75);}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00317}00317\ \ \ \textcolor{comment}{//\ std::cout\ <<\ var.get<2>()\ <<\ std::endl;}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00318}00318\ \ \ \textcolor{comment}{//\(\backslash\)endcode}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00319}00319\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00320}00320\ \ \ \textcolor{comment}{//\ The\ result\ of\ course:}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00321}00321\ \ \ \textcolor{comment}{//\(\backslash\)code}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00322}00322\ \ \ \textcolor{comment}{//\ 12}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00323}00323\ \ \ \textcolor{comment}{//\ alpha}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00324}00324\ \ \ \textcolor{comment}{//\ 0.75}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00325}00325\ \ \ \textcolor{comment}{//\(\backslash\)endcode}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00326}00326\ \ \ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{int}\ \_num,\ \textcolor{keyword}{typename}\ \_TypeMap>}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00327}\mbox{\hyperlink{classlemon_1_1_variant}{00327}}\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_variant}{Variant}}\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00328}00328\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00329}00329\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00330}\mbox{\hyperlink{classlemon_1_1_variant_aac8e53d5939aaf23275dbd61de1784eb}{00330}}\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_variant_aac8e53d5939aaf23275dbd61de1784eb}{num}}\ =\ \_num;}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00331}00331\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00332}\mbox{\hyperlink{classlemon_1_1_variant_ab2da5fcc02883d568fdc12003bd6e901}{00332}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_TypeMap}}\ \mbox{\hyperlink{classlemon_1_1_variant_ab2da5fcc02883d568fdc12003bd6e901}{TypeMap}};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00333}00333\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00334}00334\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Constructor}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00335}00335\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00336}00336\ \ \ \ \ \textcolor{comment}{//\ This\ constructor\ initalizes\ to\ the\ default\ value\ of\ the\ \(\backslash\)c\ type}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00337}00337\ \ \ \ \ \textcolor{comment}{//\ with\ 0\ index.}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00338}\mbox{\hyperlink{classlemon_1_1_variant_a154910e7ccb5f28ce94ab8feba48718a}{00338}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_variant_a154910e7ccb5f28ce94ab8feba48718a}{Variant}}()\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00339}00339\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_variant_a15d6f0dfb4eff8bf1502727a5bd793e7}{flag}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00340}00340\ \ \ \ \ \ \ \textcolor{keyword}{new}(\textcolor{keyword}{reinterpret\_cast<}\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{typename}}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph_ad796f9759d4cee1e9ca22532a084eb47}{TypeMap::template}}\ \mbox{\hyperlink{class_map}{Map<0>::Type}}*\textcolor{keyword}{>}(\mbox{\hyperlink{classlemon_1_1_variant_a6bb367bd29be1d64547ce60d9f3b94e4}{data}}))}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00341}00341\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph_ad796f9759d4cee1e9ca22532a084eb47}{TypeMap::template}}\ \mbox{\hyperlink{class_map}{Map<0>::Type}}();}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00342}00342\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00343}00343\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00344}00344\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00345}00345\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Copy\ constructor}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00346}00346\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00347}00347\ \ \ \ \ \textcolor{comment}{//\ Copy\ constructor}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00348}\mbox{\hyperlink{classlemon_1_1_variant_a1a819e980661f44371f9380606cdd608}{00348}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_variant_a1a819e980661f44371f9380606cdd608}{Variant}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_variant}{Variant}}\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{variant}})\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00349}00349\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_variant_a15d6f0dfb4eff8bf1502727a5bd793e7}{flag}}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{variant}}.flag;}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00350}00350\ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_memory_abb6c5a60a76123314a89387c63bf9560}{\_variant\_bits::Memory<num\ -\/\ 1,\ TypeMap>::copy}}(\mbox{\hyperlink{classlemon_1_1_variant_a15d6f0dfb4eff8bf1502727a5bd793e7}{flag}},\ \mbox{\hyperlink{structdata}{data}},\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{variant}}.data);}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00351}00351\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00352}00352\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00353}00353\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Assign\ operator}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00354}00354\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00355}00355\ \ \ \ \ \textcolor{comment}{//\ Assign\ operator}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00356}\mbox{\hyperlink{classlemon_1_1_variant_a8760c7196f41d1aa05bce22d9ba693dc}{00356}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_variant}{Variant}}\&\ \mbox{\hyperlink{classlemon_1_1_variant_a8760c7196f41d1aa05bce22d9ba693dc}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_variant}{Variant}}\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{variant}})\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00357}00357\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{variant}})\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00358}00358\ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_memory_aba51d1687c800537fded73cd593fc845}{\_variant\_bits::Memory<num\ -\/\ 1,\ TypeMap>::}}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00359}00359\ \mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_memory_aba51d1687c800537fded73cd593fc845}{\ \ \ \ \ \ \ \ destroy}}(\mbox{\hyperlink{classlemon_1_1_variant_a15d6f0dfb4eff8bf1502727a5bd793e7}{flag}},\ \mbox{\hyperlink{structdata}{data}});}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00360}00360\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_variant_a15d6f0dfb4eff8bf1502727a5bd793e7}{flag}}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{variant}}.flag;}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00361}00361\ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_memory_abb6c5a60a76123314a89387c63bf9560}{\_variant\_bits::Memory<num\ -\/\ 1,\ TypeMap>::}}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00362}00362\ \mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_memory_abb6c5a60a76123314a89387c63bf9560}{\ \ \ \ \ \ \ \ copy}}(\mbox{\hyperlink{classlemon_1_1_variant_a15d6f0dfb4eff8bf1502727a5bd793e7}{flag}},\ \mbox{\hyperlink{structdata}{data}},\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{variant}}.data);}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00363}00363\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00364}00364\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00365}00365\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00366}00366\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Destrcutor}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00367}00367\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00368}00368\ \ \ \ \ \textcolor{comment}{//\ Destructor}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00369}\mbox{\hyperlink{classlemon_1_1_variant_a52a640498edb87cf158ac9e49798fc99}{00369}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_variant_a52a640498edb87cf158ac9e49798fc99}{\string~Variant}}()\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00370}00370\ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_memory_aba51d1687c800537fded73cd593fc845}{\_variant\_bits::Memory<num\ -\/\ 1,\ TypeMap>::destroy}}(\mbox{\hyperlink{classlemon_1_1_variant_a15d6f0dfb4eff8bf1502727a5bd793e7}{flag}},\ \mbox{\hyperlink{structdata}{data}});}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00371}00371\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00372}00372\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00373}00373\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Set\ to\ the\ default\ value\ of\ the\ type\ with\ \(\backslash\)c\ \_idx\ index.}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00374}00374\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00375}00375\ \ \ \ \ \textcolor{comment}{//\ This\ function\ sets\ the\ variant\ to\ the\ default\ value\ of\ the}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00376}00376\ \ \ \ \ \textcolor{comment}{//\ type\ with\ \(\backslash\)c\ \_idx\ index.}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00377}00377\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{int}\ \_\textcolor{keywordtype}{id}x>}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00378}\mbox{\hyperlink{classlemon_1_1_variant_a6e4403bde664707f3915d1223d84e963}{00378}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_variant}{Variant}}\&\ \mbox{\hyperlink{classlemon_1_1_variant_a6e4403bde664707f3915d1223d84e963}{set}}()\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00379}00379\ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_memory_aba51d1687c800537fded73cd593fc845}{\_variant\_bits::Memory<num\ -\/\ 1,\ TypeMap>::destroy}}(\mbox{\hyperlink{classlemon_1_1_variant_a15d6f0dfb4eff8bf1502727a5bd793e7}{flag}},\ \mbox{\hyperlink{structdata}{data}});}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00380}00380\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_variant_a15d6f0dfb4eff8bf1502727a5bd793e7}{flag}}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_idx}};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00381}00381\ \ \ \ \ \ \ \textcolor{keyword}{new}(\textcolor{keyword}{reinterpret\_cast<}\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{typename}}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph_ad796f9759d4cee1e9ca22532a084eb47}{TypeMap::template}}\ \mbox{\hyperlink{class_map}{Map<\_idx>::Type}}*\textcolor{keyword}{>}(\mbox{\hyperlink{classlemon_1_1_variant_a6bb367bd29be1d64547ce60d9f3b94e4}{data}}))}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00382}00382\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph_ad796f9759d4cee1e9ca22532a084eb47}{TypeMap::template}}\ \mbox{\hyperlink{class_map}{Map<\_idx>::Type}}();}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00383}00383\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00384}00384\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00385}00385\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00386}00386\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Set\ to\ the\ given\ value\ of\ the\ type\ with\ \(\backslash\)c\ \_idx\ index.}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00387}00387\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00388}00388\ \ \ \ \ \textcolor{comment}{//\ This\ function\ sets\ the\ variant\ to\ the\ given\ value\ of\ the\ type}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00389}00389\ \ \ \ \ \textcolor{comment}{//\ with\ \(\backslash\)c\ \_idx\ index.}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00390}00390\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{int}\ \_\textcolor{keywordtype}{id}x>}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00391}\mbox{\hyperlink{classlemon_1_1_variant_a694ea7fa2b0322234bb2927fdae36a8f}{00391}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_variant}{Variant}}\&\ \mbox{\hyperlink{classlemon_1_1_variant_a694ea7fa2b0322234bb2927fdae36a8f}{set}}(\textcolor{keyword}{const}\ \textcolor{keyword}{typename}\ \_TypeMap::template\ \mbox{\hyperlink{class_map}{Map<\_idx>::Type}}\&\ init)\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00392}00392\ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_memory_aba51d1687c800537fded73cd593fc845}{\_variant\_bits::Memory<num\ -\/\ 1,\ TypeMap>::destroy}}(\mbox{\hyperlink{classlemon_1_1_variant_a15d6f0dfb4eff8bf1502727a5bd793e7}{flag}},\ \mbox{\hyperlink{structdata}{data}});}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00393}00393\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_variant_a15d6f0dfb4eff8bf1502727a5bd793e7}{flag}}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_idx}};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00394}00394\ \ \ \ \ \ \ \textcolor{keyword}{new}(\textcolor{keyword}{reinterpret\_cast<}\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{typename}}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph_ad796f9759d4cee1e9ca22532a084eb47}{TypeMap::template}}\ \mbox{\hyperlink{class_map}{Map<\_idx>::Type}}*\textcolor{keyword}{>}(\mbox{\hyperlink{classlemon_1_1_variant_a6bb367bd29be1d64547ce60d9f3b94e4}{data}}))}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00395}00395\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph_ad796f9759d4cee1e9ca22532a084eb47}{TypeMap::template}}\ \mbox{\hyperlink{class_map}{Map<\_idx>::Type}}(init);}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00396}00396\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00397}00397\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00398}00398\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00399}00399\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Gets\ the\ current\ value\ of\ the\ type\ with\ \(\backslash\)c\ \_idx\ index.}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00400}00400\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00401}00401\ \ \ \ \ \textcolor{comment}{//\ Gets\ the\ current\ value\ of\ the\ type\ with\ \(\backslash\)c\ \_idx\ index.}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00402}00402\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{int}\ \_\textcolor{keywordtype}{id}x>}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00403}\mbox{\hyperlink{classlemon_1_1_variant_ac8eb6274afb830813d4f552d397af935}{00403}}\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph_ad796f9759d4cee1e9ca22532a084eb47}{TypeMap::template}}\ \mbox{\hyperlink{class_map}{Map<\_idx>::Type}}\&\ \mbox{\hyperlink{classlemon_1_1_variant_ac8eb6274afb830813d4f552d397af935}{get}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00404}00404\ \ \ \ \ \ \ \mbox{\hyperlink{assert_8h_acbefc04b0335938603649e96af183843}{LEMON\_DEBUG}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_idx}}\ ==\ \mbox{\hyperlink{classlemon_1_1_variant_a15d6f0dfb4eff8bf1502727a5bd793e7}{flag}},\ \textcolor{stringliteral}{"{}Variant\ wrong\ index"{}});}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00405}00405\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const\ }\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{typename}}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{TypeMap}}::}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00406}00406\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{template}}\ \mbox{\hyperlink{class_map}{Map<\_idx>::Type}}*\textcolor{keyword}{>}(\mbox{\hyperlink{classlemon_1_1_variant_a6bb367bd29be1d64547ce60d9f3b94e4}{data}});}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00407}00407\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00408}00408\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00409}00409\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Gets\ the\ current\ value\ of\ the\ type\ with\ \(\backslash\)c\ \_idx\ index.}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00410}00410\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00411}00411\ \ \ \ \ \textcolor{comment}{//\ Gets\ the\ current\ value\ of\ the\ type\ with\ \(\backslash\)c\ \_idx\ index.}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00412}00412\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{int}\ \_\textcolor{keywordtype}{id}x>}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00413}\mbox{\hyperlink{classlemon_1_1_variant_a121a1c26a30fe613e77cc99ea5b2d0b7}{00413}}\ \ \ \ \ \textcolor{keyword}{typename}\ \_TypeMap::template\ \mbox{\hyperlink{class_map}{Map<\_idx>::Type}}\&\ \mbox{\hyperlink{classlemon_1_1_variant_a121a1c26a30fe613e77cc99ea5b2d0b7}{get}}()\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00414}00414\ \ \ \ \ \ \ \mbox{\hyperlink{assert_8h_acbefc04b0335938603649e96af183843}{LEMON\_DEBUG}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_idx}}\ ==\ \mbox{\hyperlink{classlemon_1_1_variant_a15d6f0dfb4eff8bf1502727a5bd793e7}{flag}},\ \textcolor{stringliteral}{"{}Variant\ wrong\ index"{}});}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00415}00415\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{reinterpret\_cast<}\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{typename}}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph_ad796f9759d4cee1e9ca22532a084eb47}{TypeMap::template}}\ \mbox{\hyperlink{class_map}{Map<\_idx>::Type}}*\textcolor{keyword}{>}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00416}00416\ \ \ \ \ \ \ \ \ (\mbox{\hyperlink{classlemon_1_1_variant_a6bb367bd29be1d64547ce60d9f3b94e4}{data}});}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00417}00417\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00418}00418\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00419}00419\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Returns\ the\ current\ state\ of\ the\ variant.}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00420}00420\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00421}00421\ \ \ \ \ \textcolor{comment}{//\ Returns\ the\ current\ state\ of\ the\ variant.}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00422}\mbox{\hyperlink{classlemon_1_1_variant_a6dd877a73911885326c0e76c80720ba8}{00422}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_variant_a6dd877a73911885326c0e76c80720ba8}{state}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00423}00423\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_variant_a15d6f0dfb4eff8bf1502727a5bd793e7}{flag}};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00424}00424\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00425}00425\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00426}00426\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00427}00427\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00428}\mbox{\hyperlink{classlemon_1_1_variant_a6bb367bd29be1d64547ce60d9f3b94e4}{00428}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structdata}{data}}[\mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_size}{\_variant\_bits::Size}}<\mbox{\hyperlink{classlemon_1_1_variant_aac8e53d5939aaf23275dbd61de1784eb}{num}}\ -\/\ 1,\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{TypeMap}}>\mbox{\hyperlink{classvalue}{::value}}];}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00429}\mbox{\hyperlink{classlemon_1_1_variant_a15d6f0dfb4eff8bf1502727a5bd793e7}{00429}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_variant_a15d6f0dfb4eff8bf1502727a5bd793e7}{flag}};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00430}00430\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00431}00431\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00432}00432\ \ \ \textcolor{keyword}{namespace\ }\_variant\_bits\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00433}00433\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00434}00434\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{int}\ \_index,\ \textcolor{keyword}{typename}\ \_List>}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00435}\mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_get}{00435}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_get}{Get}}\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00436}\mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_get_aa1a7a55cb820da6abbe298cfe673c1cf}{00436}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_get}{Get}}<\_index\ -\/\ 1,\ \textcolor{keyword}{typename}\ \_List::Next>\mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_get_aa1a7a55cb820da6abbe298cfe673c1cf}{::Type}}\ \mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_get_aa1a7a55cb820da6abbe298cfe673c1cf}{Type}};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00437}00437\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00438}00438\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00439}00439\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ \_List>}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00440}\mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_get_3_010_00_01___list_01_4}{00440}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_get}{Get}}<0,\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_List}}>\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00441}\mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_get_3_010_00_01___list_01_4_a1d4e6df4c0beee75204b98e91e53b684}{00441}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ \_List::Type\ \mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_get_3_010_00_01___list_01_4_a1d4e6df4c0beee75204b98e91e53b684}{Type}};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00442}00442\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00443}00443\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00444}\mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_list}{00444}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_list}{List}}\ \{\};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00445}00445\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00446}00446\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ \_Type,\ \textcolor{keyword}{typename}\ \_List>}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00447}\mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_insert}{00447}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_insert}{Insert}}\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00448}\mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_insert_a22efff0d28cf8eb39f164f7217edd5f5}{00448}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_List}}\ \mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_insert_a22efff0d28cf8eb39f164f7217edd5f5}{Next}};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00449}\mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_insert_a9832320e776ffa5ef9c5331d5d175b73}{00449}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_Type}}\ \mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_insert_a9832320e776ffa5ef9c5331d5d175b73}{Type}};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00450}00450\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00451}00451\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00452}00452\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_idx}},\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_T0}},\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_T1}},\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_T2}},}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00453}00453\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_T3}},\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_T4}},\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_T5}},\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_T6}},}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00454}00454\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_T7}},\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_T8}},\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_T9}}>}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00455}\mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_mapper}{00455}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_mapper}{Mapper}}\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00456}\mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_mapper_a9da31e799d9bcf84d11340fc21941039}{00456}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_list}{List}}\ \mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_mapper_a9da31e799d9bcf84d11340fc21941039}{L10}};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00457}\mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_mapper_aca2707d1351b4d1782da61964d8f0605}{00457}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Insert<\_T9,\ L10>}}\ \mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_mapper_aca2707d1351b4d1782da61964d8f0605}{L9}};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00458}\mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_mapper_ac08a16b5b068ad5095d74589fbc0c024}{00458}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Insert<\_T8,\ L9>}}\ \mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_mapper_ac08a16b5b068ad5095d74589fbc0c024}{L8}};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00459}\mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_mapper_a1d9da1a4af893fa04f4ce489e4727a43}{00459}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Insert<\_T7,\ L8>}}\ \mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_mapper_a1d9da1a4af893fa04f4ce489e4727a43}{L7}};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00460}\mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_mapper_afb1d5a04d5f6fea58127f3ee668e09a4}{00460}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Insert<\_T6,\ L7>}}\ \mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_mapper_afb1d5a04d5f6fea58127f3ee668e09a4}{L6}};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00461}\mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_mapper_a29ed7748694cbc09c3f287c30c01ae6f}{00461}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Insert<\_T5,\ L6>}}\ \mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_mapper_a29ed7748694cbc09c3f287c30c01ae6f}{L5}};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00462}\mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_mapper_a04a75bde4cd0b612c0e82aa26fcdb79c}{00462}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Insert<\_T4,\ L5>}}\ \mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_mapper_a04a75bde4cd0b612c0e82aa26fcdb79c}{L4}};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00463}\mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_mapper_ac7a676ce1b07bfe6ce616340442f94ec}{00463}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Insert<\_T3,\ L4>}}\ \mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_mapper_ac7a676ce1b07bfe6ce616340442f94ec}{L3}};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00464}\mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_mapper_a49197fe4c6a4e62c406bae4482f945b1}{00464}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Insert<\_T2,\ L3>}}\ \mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_mapper_a49197fe4c6a4e62c406bae4482f945b1}{L2}};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00465}\mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_mapper_ae9d80ad4d6340d2482c1c58b6b6adf69}{00465}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Insert<\_T1,\ L2>}}\ \mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_mapper_ae9d80ad4d6340d2482c1c58b6b6adf69}{L1}};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00466}\mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_mapper_ae9f1bac673ada3ac03c241a092d22924}{00466}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Insert<\_T0,\ L1>}}\ \mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_mapper_ae9f1bac673ada3ac03c241a092d22924}{L0}};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00467}\mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_mapper_a2991e8aef6aceeeab591b43fdcff224e}{00467}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_get_aa1a7a55cb820da6abbe298cfe673c1cf}{Get<\_idx,\ L0>::Type}}\ \mbox{\hyperlink{structlemon_1_1__variant__bits_1_1_mapper_a2991e8aef6aceeeab591b43fdcff224e}{Type}};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00468}00468\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00469}00469\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00470}00470\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00471}00471\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00472}00472\ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Helper\ class\ for\ Variant}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00473}00473\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00474}00474\ \ \ \textcolor{comment}{//\ Helper\ class\ to\ define\ type\ mappings\ for\ Variant.\ This\ class}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00475}00475\ \ \ \textcolor{comment}{//\ converts\ the\ template\ parameters\ to\ be\ mappable\ by\ integer.}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00476}00476\ \ \ \textcolor{comment}{//\ \(\backslash\)see\ Variant}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00477}00477\ \ \ \textcolor{keyword}{template}\ <}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00478}00478\ \ \ \ \ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_T0}},}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00479}00479\ \ \ \ \ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_T1}}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{void}},\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_T2}}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{void}},\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_T3}}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{void}},}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00480}00480\ \ \ \ \ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_T4}}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{void}},\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_T5}}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{void}},\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_T6}}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{void}},}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00481}00481\ \ \ \ \ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_T7}}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{void}},\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_T8}}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{void}},\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_T9}}\ =\ \textcolor{keywordtype}{void}>}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00482}\mbox{\hyperlink{structlemon_1_1_variant_type_map}{00482}}\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_variant_type_map}{VariantTypeMap}}\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00483}00483\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{int}\ \_\textcolor{keywordtype}{id}x>}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00484}\mbox{\hyperlink{structlemon_1_1_variant_type_map_1_1_map}{00484}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_variant_type_map_1_1_map}{Map}}\ \{}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00485}00485\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ \_variant\_bits::}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00486}00486\ \ \ \ \ \ \ Mapper<\_idx,\ \_T0,\ \_T1,\ \_T2,\ \_T3,\ \_T4,\ \_T5,\ \_T6,\ \_T7,\ \_T8,\ \_T9>::Type}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00487}\mbox{\hyperlink{structlemon_1_1_variant_type_map_1_1_map_ab73711283e76d1084dac6e4450e8b34c}{00487}}\ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_variant_type_map_1_1_map_ab73711283e76d1084dac6e4450e8b34c}{Type}};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00488}00488\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00489}00489\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00490}00490\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00491}00491\ \}}
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00492}00492\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00493}00493\ }
+\DoxyCodeLine{\Hypertarget{variant_8h_source_l00494}00494\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

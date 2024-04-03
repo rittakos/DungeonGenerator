@@ -1,0 +1,110 @@
+\doxysection{Leak\+Detection\+Guard Class Reference}
+\hypertarget{class_leak_detection_guard}{}\label{class_leak_detection_guard}\index{LeakDetectionGuard@{LeakDetectionGuard}}
+
+
+{\ttfamily \#include $<$guard.\+h$>$}
+
+
+
+Inheritance diagram for Leak\+Detection\+Guard\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{class_leak_detection_guard__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Leak\+Detection\+Guard\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{class_leak_detection_guard__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_leak_detection_guard_aa7d5fa0199457301f95c1d5a02410979}{Leak\+Detection\+Guard}} ()=default
+\item 
+void \mbox{\hyperlink{class_leak_detection_guard_aeeab5b40bc9ad69427e6ab5d97a35fa6}{end}} () const
+\item 
+virtual \mbox{\hyperlink{class_leak_detection_guard_abb499b0b03e27045423f0107ee9c6ec4}{\texorpdfstring{$\sim$}{\string~}\+Leak\+Detection\+Guard}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_guard}{Guard}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_guard_ae0c8b6eda313da41baffbc79b17b6607}{\texorpdfstring{$\sim$}{\string~}\+Guard}} ()=default
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{guard_8h_source_l00015}{15}} of file \mbox{\hyperlink{guard_8h_source}{guard.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_leak_detection_guard_aa7d5fa0199457301f95c1d5a02410979}\label{class_leak_detection_guard_aa7d5fa0199457301f95c1d5a02410979} 
+\index{LeakDetectionGuard@{LeakDetectionGuard}!LeakDetectionGuard@{LeakDetectionGuard}}
+\index{LeakDetectionGuard@{LeakDetectionGuard}!LeakDetectionGuard@{LeakDetectionGuard}}
+\doxysubsubsection{\texorpdfstring{LeakDetectionGuard()}{LeakDetectionGuard()}}
+{\footnotesize\ttfamily Leak\+Detection\+Guard\+::\+Leak\+Detection\+Guard (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{class_leak_detection_guard_abb499b0b03e27045423f0107ee9c6ec4}\label{class_leak_detection_guard_abb499b0b03e27045423f0107ee9c6ec4} 
+\index{LeakDetectionGuard@{LeakDetectionGuard}!````~LeakDetectionGuard@{\texorpdfstring{$\sim$}{\string~}LeakDetectionGuard}}
+\index{````~LeakDetectionGuard@{\texorpdfstring{$\sim$}{\string~}LeakDetectionGuard}!LeakDetectionGuard@{LeakDetectionGuard}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}LeakDetectionGuard()}{\string~LeakDetectionGuard()}}
+{\footnotesize\ttfamily virtual Leak\+Detection\+Guard\+::\texorpdfstring{$\sim$}{\string~}\+Leak\+Detection\+Guard (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line \mbox{\hyperlink{guard_8h_source_l00021}{21}} of file \mbox{\hyperlink{guard_8h_source}{guard.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00021\ \{\ \mbox{\hyperlink{class_leak_detection_guard_aeeab5b40bc9ad69427e6ab5d97a35fa6}{end}}();\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_leak_detection_guard_abb499b0b03e27045423f0107ee9c6ec4_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_leak_detection_guard_aeeab5b40bc9ad69427e6ab5d97a35fa6}\label{class_leak_detection_guard_aeeab5b40bc9ad69427e6ab5d97a35fa6} 
+\index{LeakDetectionGuard@{LeakDetectionGuard}!end@{end}}
+\index{end@{end}!LeakDetectionGuard@{LeakDetectionGuard}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily void Leak\+Detection\+Guard\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{guard_8h_source_l00020}{20}} of file \mbox{\hyperlink{guard_8h_source}{guard.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00020\ \{\ \_CrtDumpMemoryLeaks();\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_leak_detection_guard_aeeab5b40bc9ad69427e6ab5d97a35fa6_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Base/\mbox{\hyperlink{guard_8h}{guard.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,35 @@
+\doxysection{control\+Point\+Generator.\+hpp}
+\hypertarget{control_point_generator_8hpp_source}{}\label{control_point_generator_8hpp_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/Generator/controlPointGenerator.hpp@{C:/Dev/DungeonGenerator/DungeonGenerator/Generator/controlPointGenerator.hpp}}
+\mbox{\hyperlink{control_point_generator_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{control_point_generator_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{control_point_generator_8hpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{vector_8hpp}{vector.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{control_point_generator_8hpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{control_point_generator_8hpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{control_point_generator_8hpp_source_l00005}00005\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_generator}{Generator}}}
+\DoxyCodeLine{\Hypertarget{control_point_generator_8hpp_source_l00006}00006\ \{}
+\DoxyCodeLine{\Hypertarget{control_point_generator_8hpp_source_l00007}00007\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ Po\textcolor{keywordtype}{int}>}
+\DoxyCodeLine{\Hypertarget{control_point_generator_8hpp_source_l00008}\mbox{\hyperlink{class_generator_1_1_control_point_generator}{00008}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_generator_1_1_control_point_generator}{ControlPointGenerator}}}
+\DoxyCodeLine{\Hypertarget{control_point_generator_8hpp_source_l00009}00009\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{control_point_generator_8hpp_source_l00010}00010\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{control_point_generator_8hpp_source_l00011}\mbox{\hyperlink{class_generator_1_1_control_point_generator_a30031e5f0dbb4dbf107e0bf110547ae4}{00011}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::vector<Point>\ \mbox{\hyperlink{class_generator_1_1_control_point_generator_a30031e5f0dbb4dbf107e0bf110547ae4}{generate}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{control_point_generator_8hpp_source_l00012}00012\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{control_point_generator_8hpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{control_point_generator_8hpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{control_point_generator_8hpp_source_l00015}\mbox{\hyperlink{class_generator_1_1_grid2_d_control_point_generator}{00015}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_generator_1_1_grid2_d_control_point_generator}{Grid2DControlPointGenerator}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_generator_1_1_control_point_generator}{ControlPointGenerator}}<Math::Vec2f>}
+\DoxyCodeLine{\Hypertarget{control_point_generator_8hpp_source_l00016}00016\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{control_point_generator_8hpp_source_l00017}\mbox{\hyperlink{class_generator_1_1_grid2_d_control_point_generator_a34695deb095079bcc7b802068d4261a5}{00017}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ \mbox{\hyperlink{class_generator_1_1_grid2_d_control_point_generator_a34695deb095079bcc7b802068d4261a5}{leftUpCorner}};}
+\DoxyCodeLine{\Hypertarget{control_point_generator_8hpp_source_l00018}\mbox{\hyperlink{class_generator_1_1_grid2_d_control_point_generator_a79daf9f34611405c60d47862ba201143}{00018}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ \mbox{\hyperlink{class_generator_1_1_grid2_d_control_point_generator_a79daf9f34611405c60d47862ba201143}{rightDownCorner}};}
+\DoxyCodeLine{\Hypertarget{control_point_generator_8hpp_source_l00019}00019\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{control_point_generator_8hpp_source_l00020}\mbox{\hyperlink{class_generator_1_1_grid2_d_control_point_generator_a46f897ef4167bfb2e33ac4a8c8b444b1}{00020}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_generator_1_1_grid2_d_control_point_generator_a46f897ef4167bfb2e33ac4a8c8b444b1}{height}};}
+\DoxyCodeLine{\Hypertarget{control_point_generator_8hpp_source_l00021}\mbox{\hyperlink{class_generator_1_1_grid2_d_control_point_generator_abe75d28f0e974f9a9d3c36726cb9edd5}{00021}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_generator_1_1_grid2_d_control_point_generator_abe75d28f0e974f9a9d3c36726cb9edd5}{width}};}
+\DoxyCodeLine{\Hypertarget{control_point_generator_8hpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{control_point_generator_8hpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{control_point_generator_8hpp_source_l00024}00024\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{control_point_generator_8hpp_source_l00025}\mbox{\hyperlink{class_generator_1_1_grid2_d_control_point_generator_a20097dac0d42528ddae48105aaede0e4}{00025}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_generator_1_1_grid2_d_control_point_generator_a20097dac0d42528ddae48105aaede0e4}{Grid2DControlPointGenerator}}(\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_generator_1_1_grid2_d_control_point_generator_abe75d28f0e974f9a9d3c36726cb9edd5}{width}},\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_generator_1_1_grid2_d_control_point_generator_a46f897ef4167bfb2e33ac4a8c8b444b1}{height}});}
+\DoxyCodeLine{\Hypertarget{control_point_generator_8hpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{control_point_generator_8hpp_source_l00027}00027\ \ \ \ \ \ \ \ \ std::vector<Math::Vec2f>\ \mbox{\hyperlink{class_generator_1_1_grid2_d_control_point_generator_ad4cb4680961e769fa300afdd9275952f}{generate}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{\Hypertarget{control_point_generator_8hpp_source_l00028}00028\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{control_point_generator_8hpp_source_l00029}00029\ \}}
+
+\end{DoxyCode}

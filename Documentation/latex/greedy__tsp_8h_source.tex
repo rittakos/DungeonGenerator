@@ -1,0 +1,182 @@
+\doxysection{greedy\+\_\+tsp.\+h}
+\hypertarget{greedy__tsp_8h_source}{}\label{greedy__tsp_8h_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/lemon/greedy\_tsp.h@{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/lemon/greedy\_tsp.h}}
+\mbox{\hyperlink{greedy__tsp_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00001}00001\ \textcolor{comment}{/*\ -\/*-\/\ mode:\ C++;\ indent-\/tabs-\/mode:\ nil;\ -\/*-\/}}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00002}00002\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00003}00003\ \textcolor{comment}{\ *\ This\ file\ is\ a\ part\ of\ LEMON,\ a\ generic\ C++\ optimization\ library.}}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00004}00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00005}00005\ \textcolor{comment}{\ *\ Copyright\ (C)\ 2003-\/2013}}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00006}00006\ \textcolor{comment}{\ *\ Egervary\ Jeno\ Kombinatorikus\ Optimalizalasi\ Kutatocsoport}}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00007}00007\ \textcolor{comment}{\ *\ (Egervary\ Research\ Group\ on\ Combinatorial\ Optimization,\ EGRES).}}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00008}00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00009}00009\ \textcolor{comment}{\ *\ Permission\ to\ use,\ modify\ and\ distribute\ this\ software\ is\ granted}}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00010}00010\ \textcolor{comment}{\ *\ provided\ that\ this\ copyright\ notice\ appears\ in\ all\ copies.\ For}}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00011}00011\ \textcolor{comment}{\ *\ precise\ terms\ see\ the\ accompanying\ LICENSE\ file.}}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00012}00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00013}00013\ \textcolor{comment}{\ *\ This\ software\ is\ provided\ "{}AS\ IS"{}\ with\ no\ warranty\ of\ any\ kind,}}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00014}00014\ \textcolor{comment}{\ *\ express\ or\ implied,\ and\ with\ no\ claim\ as\ to\ its\ suitability\ for\ any}}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00015}00015\ \textcolor{comment}{\ *\ purpose.}}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00016}00016\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00017}00017\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00019}00019\ \textcolor{preprocessor}{\#ifndef\ LEMON\_GREEDY\_TSP\_H}}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00020}00020\ \textcolor{preprocessor}{\#define\ LEMON\_GREEDY\_TSP\_H}}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00026}00026\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00027}00027\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00028}00028\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{full__graph_8h}{lemon/full\_graph.h}}>}}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00029}00029\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{unionfind_8h}{lemon/unionfind.h}}>}}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00031}00031\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacelemon}{lemon}}\ \{}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00052}00052\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ CM>}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00053}\mbox{\hyperlink{classlemon_1_1_greedy_tsp}{00053}}\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_greedy_tsp}{GreedyTsp}}}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00054}00054\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00055}00055\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00058}\mbox{\hyperlink{classlemon_1_1_greedy_tsp_a5e30815d8d9bc6b06e32c849ada3b980}{00058}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CM}}\ \mbox{\hyperlink{classlemon_1_1_greedy_tsp_a5e30815d8d9bc6b06e32c849ada3b980}{CostMap}};}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00060}\mbox{\hyperlink{classlemon_1_1_greedy_tsp_a7ee5a095719993265b399aae331d635e}{00060}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ CM::Value\ \mbox{\hyperlink{classlemon_1_1_greedy_tsp_a7ee5a095719993265b399aae331d635e}{Cost}};}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00062}00062\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00064}\mbox{\hyperlink{classlemon_1_1_greedy_tsp_a5e1fe7b7ff6adaa6f300e4c26d292183}{00064}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_greedy_tsp_a5e1fe7b7ff6adaa6f300e4c26d292183}{GRAPH\_TYPEDEFS}}(\mbox{\hyperlink{classlemon_1_1_full_graph}{FullGraph}});}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00066}\mbox{\hyperlink{classlemon_1_1_greedy_tsp_ab4c0246c51bcd3e843ee1818a7ff9f8d}{00066}}\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_full_graph}{FullGraph}}\ \&\mbox{\hyperlink{classlemon_1_1_greedy_tsp_ab4c0246c51bcd3e843ee1818a7ff9f8d}{\_gr}};}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00067}\mbox{\hyperlink{classlemon_1_1_greedy_tsp_acc382b857aae2af1299fa6e61c5a6b26}{00067}}\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CostMap}}\ \&\mbox{\hyperlink{classlemon_1_1_greedy_tsp_acc382b857aae2af1299fa6e61c5a6b26}{\_cost}};}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00068}\mbox{\hyperlink{classlemon_1_1_greedy_tsp_ae6ecb5eb91c98a15784630f932ece33e}{00068}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_greedy_tsp_a7ee5a095719993265b399aae331d635e}{Cost}}\ \mbox{\hyperlink{classlemon_1_1_greedy_tsp_ae6ecb5eb91c98a15784630f932ece33e}{\_sum}};}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00069}\mbox{\hyperlink{classlemon_1_1_greedy_tsp_a0fb29919ee37e395b2958c8eaae0c8c3}{00069}}\ \ \ \ \ \ \ std::vector<Node>\ \mbox{\hyperlink{classlemon_1_1_greedy_tsp_a0fb29919ee37e395b2958c8eaae0c8c3}{\_path}};}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00071}00071\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00073}00073\ \ \ \ \ \ \ \textcolor{comment}{//\ Functor\ class\ to\ compare\ edges\ by\ their\ costs}}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00074}\mbox{\hyperlink{classlemon_1_1_greedy_tsp_1_1_edge_comp}{00074}}\ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_greedy_tsp_1_1_edge_comp}{EdgeComp}}\ \{}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00075}00075\ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00076}\mbox{\hyperlink{classlemon_1_1_greedy_tsp_1_1_edge_comp_a55204e6f394250d71e8fc2b2a9699a30}{00076}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CostMap}}\ \&\mbox{\hyperlink{classlemon_1_1_greedy_tsp_1_1_edge_comp_a55204e6f394250d71e8fc2b2a9699a30}{\_cost}};}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00078}00078\ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00079}\mbox{\hyperlink{classlemon_1_1_greedy_tsp_1_1_edge_comp_a6662b72b5cdb0d87fe224cbb88737a83}{00079}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_greedy_tsp_1_1_edge_comp_a6662b72b5cdb0d87fe224cbb88737a83}{EdgeComp}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CostMap}}\ \&\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cost}})\ :\ \mbox{\hyperlink{classlemon_1_1_greedy_tsp_1_1_edge_comp_a55204e6f394250d71e8fc2b2a9699a30}{\_cost}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cost}})\ \{\}}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00081}\mbox{\hyperlink{classlemon_1_1_greedy_tsp_1_1_edge_comp_a736b7b7dbbb60dbe05235cb30a27f8e7}{00081}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_greedy_tsp_1_1_edge_comp_a736b7b7dbbb60dbe05235cb30a27f8e7}{operator()}}(\textcolor{keyword}{const}\ Edge\ \&a,\ \textcolor{keyword}{const}\ Edge\ \&b)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_greedy_tsp_1_1_edge_comp_a55204e6f394250d71e8fc2b2a9699a30}{\_cost}}[a]\ <\ \mbox{\hyperlink{classlemon_1_1_greedy_tsp_1_1_edge_comp_a55204e6f394250d71e8fc2b2a9699a30}{\_cost}}[b];}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00083}00083\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00084}00084\ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00086}00086\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00093}\mbox{\hyperlink{classlemon_1_1_greedy_tsp_a7ff0389deea229f33e824cc13c2f5010}{00093}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_greedy_tsp_a7ff0389deea229f33e824cc13c2f5010}{GreedyTsp}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_full_graph}{FullGraph}}\ \&\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{gr}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CostMap}}\ \&\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cost}})}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00094}00094\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classlemon_1_1_greedy_tsp_ab4c0246c51bcd3e843ee1818a7ff9f8d}{\_gr}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{gr}}),\ \mbox{\hyperlink{classlemon_1_1_greedy_tsp_acc382b857aae2af1299fa6e61c5a6b26}{\_cost}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cost}})\ \{\}}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00104}\mbox{\hyperlink{classlemon_1_1_greedy_tsp_aed98e92d745d8c64f6442b6213182850}{00104}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_greedy_tsp_a7ee5a095719993265b399aae331d635e}{Cost}}\ \mbox{\hyperlink{classlemon_1_1_greedy_tsp_aed98e92d745d8c64f6442b6213182850}{run}}()\ \{}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00105}00105\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_greedy_tsp_a0fb29919ee37e395b2958c8eaae0c8c3}{\_path}}.clear();}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00107}00107\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_greedy_tsp_ab4c0246c51bcd3e843ee1818a7ff9f8d}{\_gr}}.\mbox{\hyperlink{classlemon_1_1_full_graph_a773a38833c4382c6d017fa4af02ce581}{nodeNum}}()\ ==\ 0)\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_greedy_tsp_ae6ecb5eb91c98a15784630f932ece33e}{\_sum}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00108}00108\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_greedy_tsp_ab4c0246c51bcd3e843ee1818a7ff9f8d}{\_gr}}.\mbox{\hyperlink{classlemon_1_1_full_graph_a773a38833c4382c6d017fa4af02ce581}{nodeNum}}()\ ==\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_greedy_tsp_a0fb29919ee37e395b2958c8eaae0c8c3}{\_path}}.push\_back(\mbox{\hyperlink{classlemon_1_1_greedy_tsp_ab4c0246c51bcd3e843ee1818a7ff9f8d}{\_gr}}(0));}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_greedy_tsp_ae6ecb5eb91c98a15784630f932ece33e}{\_sum}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00111}00111\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00113}00113\ \ \ \ \ \ \ \ \ std::vector<int>\ plist;}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00114}00114\ \ \ \ \ \ \ \ \ plist.resize(\mbox{\hyperlink{classlemon_1_1_greedy_tsp_ab4c0246c51bcd3e843ee1818a7ff9f8d}{\_gr}}.\mbox{\hyperlink{classlemon_1_1_full_graph_a773a38833c4382c6d017fa4af02ce581}{nodeNum}}()*2,\ -\/1);}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00116}00116\ \ \ \ \ \ \ \ \ std::vector<Edge>\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{sorted\_edges}};}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00117}00117\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{sorted\_edges}}.reserve(\mbox{\hyperlink{classlemon_1_1_greedy_tsp_ab4c0246c51bcd3e843ee1818a7ff9f8d}{\_gr}}.\mbox{\hyperlink{classlemon_1_1_full_graph_ac1279c5b024fba0f55079546ebc20c15}{edgeNum}}());}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00118}00118\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (EdgeIt\ e(\mbox{\hyperlink{classlemon_1_1_greedy_tsp_ab4c0246c51bcd3e843ee1818a7ff9f8d}{\_gr}});\ e\ !=\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ ++e)}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{sorted\_edges}}.push\_back(e);}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00120}00120\ \ \ \ \ \ \ \ \ std::sort(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{sorted\_edges}}.begin(),\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{sorted\_edges}}.end(),\ \mbox{\hyperlink{classlemon_1_1_greedy_tsp_1_1_edge_comp}{EdgeComp}}(\mbox{\hyperlink{classlemon_1_1_greedy_tsp_acc382b857aae2af1299fa6e61c5a6b26}{\_cost}}));}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00122}00122\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_graph_extender_1_1_node_map}{FullGraph::NodeMap<int>}}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{item\_int\_map}}(\mbox{\hyperlink{classlemon_1_1_greedy_tsp_ab4c0246c51bcd3e843ee1818a7ff9f8d}{\_gr}});}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00123}00123\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{UnionFind<FullGraph::NodeMap<int>}}\ >\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{union\_find}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{item\_int\_map}});}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00124}00124\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (NodeIt\ n(\mbox{\hyperlink{classlemon_1_1_greedy_tsp_ab4c0246c51bcd3e843ee1818a7ff9f8d}{\_gr}});\ n\ !=\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ ++n)}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{union\_find}}.insert(n);}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00126}00126\ }
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00127}00127\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_graph_extender_1_1_node_map}{FullGraph::NodeMap<int>}}\ degree(\mbox{\hyperlink{classlemon_1_1_greedy_tsp_ab4c0246c51bcd3e843ee1818a7ff9f8d}{\_gr}},\ 0);}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00129}00129\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{nodesNum}}\ =\ 0,\ i\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00130}00130\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{nodesNum}}\ !=\ \mbox{\hyperlink{classlemon_1_1_greedy_tsp_ab4c0246c51bcd3e843ee1818a7ff9f8d}{\_gr}}.\mbox{\hyperlink{classlemon_1_1_full_graph_a773a38833c4382c6d017fa4af02ce581}{nodeNum}}()-\/1)\ \{}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ Edge\ e\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{sorted\_edges}}[i++];}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ Node\ u\ =\ \mbox{\hyperlink{classlemon_1_1_greedy_tsp_ab4c0246c51bcd3e843ee1818a7ff9f8d}{\_gr}}.u(e),}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ v\ =\ \mbox{\hyperlink{classlemon_1_1_greedy_tsp_ab4c0246c51bcd3e843ee1818a7ff9f8d}{\_gr}}.v(e);}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (degree[u]\ <=\ 1\ \&\&\ degree[v]\ <=\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{union\_find}}.join(u,\ v))\ \{}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{uid}}\ =\ \mbox{\hyperlink{classlemon_1_1_greedy_tsp_ab4c0246c51bcd3e843ee1818a7ff9f8d}{\_gr}}.id(u),}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{vid}}\ =\ \mbox{\hyperlink{classlemon_1_1_greedy_tsp_ab4c0246c51bcd3e843ee1818a7ff9f8d}{\_gr}}.id(v);}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00139}00139\ }
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ plist[\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{uid}}*2\ +\ degree[u]]\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{vid}};}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ plist[\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{vid}}*2\ +\ degree[v]]\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{uid}};}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00142}00142\ }
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ++degree[u];}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ++degree[v];}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ++\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{nodesNum}};}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00148}00148\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00149}00149\ }
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00150}00150\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0,\ n=-\/1;\ i<\mbox{\hyperlink{classlemon_1_1_greedy_tsp_ab4c0246c51bcd3e843ee1818a7ff9f8d}{\_gr}}.\mbox{\hyperlink{classlemon_1_1_full_graph_a773a38833c4382c6d017fa4af02ce581}{nodeNum}}()*2;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (plist[i]\ ==\ -\/1)\ \{}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (n==-\/1)\ \{}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ n\ =\ i;}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ plist[n]\ =\ i/2;}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00156}00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ plist[i]\ =\ n/2;}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00157}00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00159}00159\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00160}00160\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00161}00161\ }
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00162}00162\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0,\ next=0,\ last=-\/1;\ i!=\mbox{\hyperlink{classlemon_1_1_greedy_tsp_ab4c0246c51bcd3e843ee1818a7ff9f8d}{\_gr}}.\mbox{\hyperlink{classlemon_1_1_full_graph_a773a38833c4382c6d017fa4af02ce581}{nodeNum}}();\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_greedy_tsp_a0fb29919ee37e395b2958c8eaae0c8c3}{\_path}}.push\_back(\mbox{\hyperlink{classlemon_1_1_greedy_tsp_ab4c0246c51bcd3e843ee1818a7ff9f8d}{\_gr}}.nodeFromId(next));}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00164}00164\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (plist[2*next]\ !=\ last)\ \{}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ last\ =\ next;}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \ \ next\ =\ plist[2*next];}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00167}00167\ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00168}00168\ \ \ \ \ \ \ \ \ \ \ \ \ last\ =\ next;}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \ \ next\ =\ plist[2*next+1];}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00171}00171\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00172}00172\ }
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00173}00173\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_greedy_tsp_ae6ecb5eb91c98a15784630f932ece33e}{\_sum}}\ =\ \mbox{\hyperlink{classlemon_1_1_greedy_tsp_acc382b857aae2af1299fa6e61c5a6b26}{\_cost}}[\mbox{\hyperlink{classlemon_1_1_greedy_tsp_ab4c0246c51bcd3e843ee1818a7ff9f8d}{\_gr}}.\mbox{\hyperlink{classlemon_1_1_full_graph_a34765b3146252a03e645aa64a6a8775e}{edge}}(\mbox{\hyperlink{classlemon_1_1_greedy_tsp_a0fb29919ee37e395b2958c8eaae0c8c3}{\_path}}.back(),\ \mbox{\hyperlink{classlemon_1_1_greedy_tsp_a0fb29919ee37e395b2958c8eaae0c8c3}{\_path}}.front())];}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00174}00174\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{int}}(\mbox{\hyperlink{classlemon_1_1_greedy_tsp_a0fb29919ee37e395b2958c8eaae0c8c3}{\_path}}.size())-\/1;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00175}00175\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_greedy_tsp_ae6ecb5eb91c98a15784630f932ece33e}{\_sum}}\ +=\ \mbox{\hyperlink{classlemon_1_1_greedy_tsp_acc382b857aae2af1299fa6e61c5a6b26}{\_cost}}[\mbox{\hyperlink{classlemon_1_1_greedy_tsp_ab4c0246c51bcd3e843ee1818a7ff9f8d}{\_gr}}.\mbox{\hyperlink{classlemon_1_1_full_graph_a34765b3146252a03e645aa64a6a8775e}{edge}}(\mbox{\hyperlink{classlemon_1_1_greedy_tsp_a0fb29919ee37e395b2958c8eaae0c8c3}{\_path}}[i],\ \mbox{\hyperlink{classlemon_1_1_greedy_tsp_a0fb29919ee37e395b2958c8eaae0c8c3}{\_path}}[i+1])];}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00176}00176\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00177}00177\ }
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00178}00178\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_greedy_tsp_ae6ecb5eb91c98a15784630f932ece33e}{\_sum}};}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00179}00179\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00180}00180\ }
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00182}00182\ }
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00185}00185\ }
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00191}\mbox{\hyperlink{classlemon_1_1_greedy_tsp_a93f5828ddacf0b53407cffea58dd2476}{00191}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_greedy_tsp_a7ee5a095719993265b399aae331d635e}{Cost}}\ \mbox{\hyperlink{classlemon_1_1_greedy_tsp_a93f5828ddacf0b53407cffea58dd2476}{tourCost}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00192}00192\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_greedy_tsp_ae6ecb5eb91c98a15784630f932ece33e}{\_sum}};}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00193}00193\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00194}00194\ }
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00202}\mbox{\hyperlink{classlemon_1_1_greedy_tsp_aab801ff0cd87b4f4970fdc16d5c32552}{00202}}\ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<Node>\&\ \mbox{\hyperlink{classlemon_1_1_greedy_tsp_aab801ff0cd87b4f4970fdc16d5c32552}{tourNodes}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00203}00203\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_greedy_tsp_a0fb29919ee37e395b2958c8eaae0c8c3}{\_path}};}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00204}00204\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00205}00205\ }
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00223}00223\ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Iterator>}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00224}\mbox{\hyperlink{classlemon_1_1_greedy_tsp_a53ad6ae55cb3b8c541fec6a59610516d}{00224}}\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_greedy_tsp_a53ad6ae55cb3b8c541fec6a59610516d}{tourNodes}}(Iterator\ out)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00225}00225\ \ \ \ \ \ \ \ \ std::copy(\mbox{\hyperlink{classlemon_1_1_greedy_tsp_a0fb29919ee37e395b2958c8eaae0c8c3}{\_path}}.begin(),\ \mbox{\hyperlink{classlemon_1_1_greedy_tsp_a0fb29919ee37e395b2958c8eaae0c8c3}{\_path}}.end(),\ out);}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00226}00226\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00227}00227\ }
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00234}00234\ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Path>}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00235}\mbox{\hyperlink{classlemon_1_1_greedy_tsp_a0a697b896beecea46ad4ebad3ae239f5}{00235}}\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_greedy_tsp_a0a697b896beecea46ad4ebad3ae239f5}{tour}}(\mbox{\hyperlink{classlemon_1_1_path}{Path}}\ \&path)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00236}00236\ \ \ \ \ \ \ \ \ path.\mbox{\hyperlink{classlemon_1_1_path_ab931fba957386b19cb1512a63784459e}{clear}}();}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00237}00237\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{int}}(\mbox{\hyperlink{classlemon_1_1_greedy_tsp_a0fb29919ee37e395b2958c8eaae0c8c3}{\_path}}.size())\ -\/\ 1;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00238}00238\ \ \ \ \ \ \ \ \ \ \ path.\mbox{\hyperlink{classlemon_1_1_path_a83376dd53f4e6c72782e5e73cb150d8a}{addBack}}(\mbox{\hyperlink{classlemon_1_1_greedy_tsp_ab4c0246c51bcd3e843ee1818a7ff9f8d}{\_gr}}.\mbox{\hyperlink{classlemon_1_1_full_graph_a517d7643cfd6b856c95572159b10f4d8}{arc}}(\mbox{\hyperlink{classlemon_1_1_greedy_tsp_a0fb29919ee37e395b2958c8eaae0c8c3}{\_path}}[i],\ \mbox{\hyperlink{classlemon_1_1_greedy_tsp_a0fb29919ee37e395b2958c8eaae0c8c3}{\_path}}[i+1]));}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00239}00239\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00240}00240\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keywordtype}{int}(\mbox{\hyperlink{classlemon_1_1_greedy_tsp_a0fb29919ee37e395b2958c8eaae0c8c3}{\_path}}.size())\ >=\ 2)\ \{}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00241}00241\ \ \ \ \ \ \ \ \ \ \ path.\mbox{\hyperlink{classlemon_1_1_path_a83376dd53f4e6c72782e5e73cb150d8a}{addBack}}(\mbox{\hyperlink{classlemon_1_1_greedy_tsp_ab4c0246c51bcd3e843ee1818a7ff9f8d}{\_gr}}.\mbox{\hyperlink{classlemon_1_1_full_graph_a517d7643cfd6b856c95572159b10f4d8}{arc}}(\mbox{\hyperlink{classlemon_1_1_greedy_tsp_a0fb29919ee37e395b2958c8eaae0c8c3}{\_path}}.back(),\ \mbox{\hyperlink{classlemon_1_1_greedy_tsp_a0fb29919ee37e395b2958c8eaae0c8c3}{\_path}}.front()));}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00242}00242\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00243}00243\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00244}00244\ }
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00246}00246\ }
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00247}00247\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00248}00248\ }
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00249}00249\ \};\ \textcolor{comment}{//\ namespace\ lemon}}
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00250}00250\ }
+\DoxyCodeLine{\Hypertarget{greedy__tsp_8h_source_l00251}00251\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

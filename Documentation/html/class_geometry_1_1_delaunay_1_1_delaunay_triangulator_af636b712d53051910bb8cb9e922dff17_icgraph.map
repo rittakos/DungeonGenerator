@@ -1,0 +1,21 @@
+<map id="Geometry::Delaunay::DelaunayTriangulator::createSuperTriangle" name="Geometry::Delaunay::DelaunayTriangulator::createSuperTriangle">
+<area shape="rect" id="Node000001" title=" " alt="" coords="1127,48,1277,107"/>
+<area shape="rect" id="Node000002" href="$class_geometry_1_1_delaunay_1_1_delaunay_triangulator.html#ad4897f8bf662366cd4ef0c5ff4ab4df4" title=" " alt="" coords="929,48,1079,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1112,80,1079,80,1079,75,1112,75"/>
+<area shape="rect" id="Node000003" href="$class_geometry_1_1_delaunay_1_1_delaunay_triangulator.html#a921bd03d4bfa6885387c960c66293e01" title=" " alt="" coords="730,48,881,107"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="913,80,881,80,881,75,913,75"/>
+<area shape="rect" id="Node000004" href="$_geometry_2main_8cpp.html#a3f2bb9b3d218349ecd3dcc0a49e6c829" title=" " alt="" coords="536,5,634,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="715,56,682,47,634,34,635,29,683,41,716,50"/>
+<area shape="rect" id="Node000006" href="$class_generator_1_1_delaunay_based_generator_algorithm.html#ad3c444ceb88e6094c3895ce8e80d5fdd" title=" " alt="" coords="488,56,682,99"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="715,80,683,80,683,75,715,75"/>
+<area shape="rect" id="Node000007" href="$class_geometry_1_1_delaunay_1_1_polygon_triangulator.html#af16f9414e72248d90710aade9710cfdb" title=" " alt="" coords="514,123,657,181"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="717,110,658,130,656,125,715,105"/>
+<area shape="rect" id="Node000005" href="$_geometry_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="320,5,370,32"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="521,21,370,21,370,16,521,16"/>
+<area shape="rect" id="Node000008" href="$class_data_1_1_layout_data.html#a04efcfe6e95802616126cc961b3126cf" title=" " alt="" coords="250,139,440,165"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="498,155,440,155,440,149,498,149"/>
+<area shape="rect" id="Node000009" href="$class_data_1_1_layout_data.html#a070b01671003c628c6f1e54d0eb7bd98" title=" " alt="" coords="5,113,202,140"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="234,143,202,140,202,134,234,138"/>
+<area shape="rect" id="Node000010" href="$class_data_1_1_layout_data.html#a2296e02f19e06eb0f99ea267c63da4e4" title=" " alt="" coords="6,164,201,191"/>
+<area shape="poly" id="edge9_Node000008_Node000010" title=" " alt="" coords="234,166,202,170,201,164,234,161"/>
+</map>

@@ -1,0 +1,158 @@
+\doxysection{IO Namespace Reference}
+\hypertarget{namespace_i_o}{}\label{namespace_i_o}\index{IO@{IO}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_i_o_1_1_dungeon_writer}{Dungeon\+Writer}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespace_i_o_ab979242afe8bf9f39df609bf7cd8e1fe}{write}} (const \mbox{\hyperlink{class_data_1_1_room_data}{Data\+::\+Room\+Data}} \&room\+Data, std\+::ofstream \&os)
+\item 
+void \mbox{\hyperlink{namespace_i_o_aa8da4e301f58739977028749a7898d12}{write}} (const \mbox{\hyperlink{class_data_1_1_layout_data}{Data\+::\+Layout\+Data}} \&layout, std\+::ofstream \&os)
+\item 
+void \mbox{\hyperlink{namespace_i_o_abdf0a680b30d8298ad2aa6d813accc30}{write}} (const \mbox{\hyperlink{class_data_1_1_wall_data}{Data\+::\+Wall\+Data}} \&wall, std\+::ofstream \&os)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const std\+::string \mbox{\hyperlink{namespace_i_o_a9943de923a977491a8be5298467bd19b}{end\+Of\+Line}} = "{}\textbackslash{}n"{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespace_i_o_aa8da4e301f58739977028749a7898d12}\label{namespace_i_o_aa8da4e301f58739977028749a7898d12} 
+\index{IO@{IO}!write@{write}}
+\index{write@{write}!IO@{IO}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void IO\+::write (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_data_1_1_layout_data}{Data\+::\+Layout\+Data}} \&}]{layout,  }\item[{std\+::ofstream \&}]{os }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{write_8cpp_source_l00018}{18}} of file \mbox{\hyperlink{write_8cpp_source}{write.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00019\ \ \ \ \ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}Floor"{}}\ <<\ \mbox{\hyperlink{namespace_i_o_a9943de923a977491a8be5298467bd19b}{endOfLine}};}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ os\ <<\ layout.\mbox{\hyperlink{class_data_1_1_layout_data_ad0327c57353bc5f5407a436d980b073d}{getPoints}}().size()\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ layout.\mbox{\hyperlink{class_data_1_1_layout_data_a2407f920a97acbeec2e4928a62627816}{getTrianglesClockWise}}().size()\ +\ layout.\mbox{\hyperlink{class_data_1_1_layout_data_af2ae57fc3a964ee0220f340d32817ae1}{getTrianglesCounterClockwise}}().size()\ <<\ \mbox{\hyperlink{namespace_i_o_a9943de923a977491a8be5298467bd19b}{endOfLine}};}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{class_math_1_1_vec}{Math::Vec3f}}\ point\ :\ layout.getPoints())}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ point[0]\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ point[1]\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ point[2]\ <<\ \mbox{\hyperlink{namespace_i_o_a9943de923a977491a8be5298467bd19b}{endOfLine}};}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{class_math_1_1_vec}{Math::Vec3i}}\ triangle\ :\ layout.getTrianglesClockWise())}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ triangle[0]\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ triangle[1]\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ triangle[2]\ <<\ endOfLine;}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{class_math_1_1_vec}{Math::Vec3i}}\ triangle\ :\ layout.getTrianglesCounterClockwise())}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ triangle[0]\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ triangle[1]\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ triangle[2]\ <<\ \mbox{\hyperlink{namespace_i_o_a9943de923a977491a8be5298467bd19b}{endOfLine}};}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00036\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=318pt]{namespace_i_o_aa8da4e301f58739977028749a7898d12_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespace_i_o_ab979242afe8bf9f39df609bf7cd8e1fe}\label{namespace_i_o_ab979242afe8bf9f39df609bf7cd8e1fe} 
+\index{IO@{IO}!write@{write}}
+\index{write@{write}!IO@{IO}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void IO\+::write (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_data_1_1_room_data}{Data\+::\+Room\+Data}} \&}]{room\+Data,  }\item[{std\+::ofstream \&}]{os }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{write_8cpp_source_l00005}{5}} of file \mbox{\hyperlink{write_8cpp_source}{write.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00006\ \ \ \ \ \{}
+\DoxyCodeLine{00007\ \ \ \ \ \ \ \ \ \textcolor{comment}{//os\ <<\ "{}Room"{}\ <<\ endOfLine;}}
+\DoxyCodeLine{00008\ \ \ \ \ \ \ \ \ \textcolor{comment}{//os\ <<\ roomData.getId()\ <<\ endOfLine;}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_i_o_ab979242afe8bf9f39df609bf7cd8e1fe}{write}}(roomData.\mbox{\hyperlink{class_data_1_1_room_data_a7a7821606e884765005bf10a47dcfb1a}{getFloorConst}}(),\ os);}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{class_data_1_1_wall_data}{Data::WallData}}\&\ wall\ :\ roomData.getWalls())}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_i_o_ab979242afe8bf9f39df609bf7cd8e1fe}{write}}(wall,\ os);}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00016\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=300pt]{namespace_i_o_ab979242afe8bf9f39df609bf7cd8e1fe_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_i_o_ab979242afe8bf9f39df609bf7cd8e1fe_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespace_i_o_abdf0a680b30d8298ad2aa6d813accc30}\label{namespace_i_o_abdf0a680b30d8298ad2aa6d813accc30} 
+\index{IO@{IO}!write@{write}}
+\index{write@{write}!IO@{IO}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void IO\+::write (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_data_1_1_wall_data}{Data\+::\+Wall\+Data}} \&}]{wall,  }\item[{std\+::ofstream \&}]{os }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{write_8cpp_source_l00038}{38}} of file \mbox{\hyperlink{write_8cpp_source}{write.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00039\ \ \ \ \ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}Wall"{}}\ <<\ \mbox{\hyperlink{namespace_i_o_a9943de923a977491a8be5298467bd19b}{endOfLine}};}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ os\ <<\ wall.\mbox{\hyperlink{class_data_1_1_wall_data_ad7f335867aac54c148f682453a012855}{getPoints}}().size()\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ wall.\mbox{\hyperlink{class_data_1_1_wall_data_a6ba6ad900ddd81dd4986a1492601cf72}{getTrianglesClockWise}}().size()\ +\ wall.\mbox{\hyperlink{class_data_1_1_wall_data_a9a5641bdc6ff1bf22068e5a17ba139bb}{getTrianglesCounterClockwise}}().size()\ <<\ \mbox{\hyperlink{namespace_i_o_a9943de923a977491a8be5298467bd19b}{endOfLine}};}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{class_math_1_1_vec}{Math::Vec3f}}\ point\ :\ wall.getPoints())}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ point[0]\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ point[1]\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ point[2]\ <<\ \mbox{\hyperlink{namespace_i_o_a9943de923a977491a8be5298467bd19b}{endOfLine}};}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{class_math_1_1_vec}{Math::Vec3i}}\ triangle\ :\ wall.getTrianglesClockWise())}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ triangle[0]\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ triangle[1]\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ triangle[2]\ <<\ endOfLine;}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{class_math_1_1_vec}{Math::Vec3i}}\ triangle\ :\ wall.getTrianglesCounterClockwise())}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ triangle[0]\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ triangle[1]\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ triangle[2]\ <<\ \mbox{\hyperlink{namespace_i_o_a9943de923a977491a8be5298467bd19b}{endOfLine}};}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00056\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=309pt]{namespace_i_o_abdf0a680b30d8298ad2aa6d813accc30_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{namespace_i_o_a9943de923a977491a8be5298467bd19b}\label{namespace_i_o_a9943de923a977491a8be5298467bd19b} 
+\index{IO@{IO}!endOfLine@{endOfLine}}
+\index{endOfLine@{endOfLine}!IO@{IO}}
+\doxysubsubsection{\texorpdfstring{endOfLine}{endOfLine}}
+{\footnotesize\ttfamily const std\+::string IO\+::end\+Of\+Line = "{}\textbackslash{}n"{}}
+
+
+
+Definition at line \mbox{\hyperlink{write_8hpp_source_l00009}{9}} of file \mbox{\hyperlink{write_8hpp_source}{write.\+hpp}}.
+

@@ -1,0 +1,17 @@
+<map id="Generator::VoronoiBasedGeneratorAlgorithm::getBisectors" name="Generator::VoronoiBasedGeneratorAlgorithm::getBisectors">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,73,230,116"/>
+<area shape="rect" id="Node000002" href="$namespace_geometry.html#a5435940537ec27507ccd5e8f49808d32" title=" " alt="" coords="278,81,430,108"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="230,92,262,92,262,97,230,97"/>
+<area shape="rect" id="Node000003" href="$namespace_geometry.html#a2a037051bb9263fa553810b06691426c" title=" " alt="" coords="478,81,597,108"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="430,92,462,92,462,97,430,97"/>
+<area shape="rect" id="Node000004" href="$class_math_1_1_quaternion.html#a18d3a934c8bc11845841ce8824b209b8" title=" " alt="" coords="645,5,841,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="564,78,644,42,666,34,668,39,646,46,566,83"/>
+<area shape="rect" id="Node000006" href="$class_math_1_1_quaternion.html#ac6884d3900d18dc11ee565400f89ca73" title=" " alt="" coords="677,56,809,83"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="597,85,661,77,662,82,598,90"/>
+<area shape="rect" id="Node000007" href="$class_math_1_1_quaternion.html#a97853ababc2cba1bc0484fd02b33914d" title=" " alt="" coords="677,107,809,133"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="598,99,662,107,661,113,597,105"/>
+<area shape="rect" id="Node000008" href="$class_math_1_1_quaternion.html#a8b112e36c39b3ffa40a0110c73a1b236" title=" " alt="" coords="675,157,811,184"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="566,106,646,143,668,150,666,155,644,148,564,111"/>
+<area shape="rect" id="Node000005" href="$class_math_1_1_quaternion.html#a0af09a51ab263e76041a90a035af8e30" title=" " alt="" coords="889,5,1081,32"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="841,16,873,16,873,21,841,21"/>
+</map>

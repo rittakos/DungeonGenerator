@@ -1,0 +1,357 @@
+\doxysection{array\+\_\+map.\+h}
+\hypertarget{array__map_8h_source}{}\label{array__map_8h_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/lemon/bits/array\_map.h@{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/lemon/bits/array\_map.h}}
+\mbox{\hyperlink{array__map_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00001}00001\ \textcolor{comment}{/*\ -\/*-\/\ mode:\ C++;\ indent-\/tabs-\/mode:\ nil;\ -\/*-\/}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00002}00002\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00003}00003\ \textcolor{comment}{\ *\ This\ file\ is\ a\ part\ of\ LEMON,\ a\ generic\ C++\ optimization\ library.}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00004}00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00005}00005\ \textcolor{comment}{\ *\ Copyright\ (C)\ 2003-\/2013}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00006}00006\ \textcolor{comment}{\ *\ Egervary\ Jeno\ Kombinatorikus\ Optimalizalasi\ Kutatocsoport}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00007}00007\ \textcolor{comment}{\ *\ (Egervary\ Research\ Group\ on\ Combinatorial\ Optimization,\ EGRES).}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00008}00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00009}00009\ \textcolor{comment}{\ *\ Permission\ to\ use,\ modify\ and\ distribute\ this\ software\ is\ granted}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00010}00010\ \textcolor{comment}{\ *\ provided\ that\ this\ copyright\ notice\ appears\ in\ all\ copies.\ For}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00011}00011\ \textcolor{comment}{\ *\ precise\ terms\ see\ the\ accompanying\ LICENSE\ file.}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00012}00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00013}00013\ \textcolor{comment}{\ *\ This\ software\ is\ provided\ "{}AS\ IS"{}\ with\ no\ warranty\ of\ any\ kind,}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00014}00014\ \textcolor{comment}{\ *\ express\ or\ implied,\ and\ with\ no\ claim\ as\ to\ its\ suitability\ for\ any}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00015}00015\ \textcolor{comment}{\ *\ purpose.}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00016}00016\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00017}00017\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00019}00019\ \textcolor{preprocessor}{\#ifndef\ LEMON\_BITS\_ARRAY\_MAP\_H}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00020}00020\ \textcolor{preprocessor}{\#define\ LEMON\_BITS\_ARRAY\_MAP\_H}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00024}00024\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{traits_8h}{lemon/bits/traits.h}}>}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00025}00025\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{alteration__notifier_8h}{lemon/bits/alteration\_notifier.h}}>}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00026}00026\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{concept__check_8h}{lemon/concept\_check.h}}>}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00027}00027\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{concepts_2maps_8h}{lemon/concepts/maps.h}}>}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00029}00029\ \textcolor{comment}{//\ \(\backslash\)ingroup\ graphbits}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00030}00030\ \textcolor{comment}{//\ \(\backslash\)file}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00031}00031\ \textcolor{comment}{//\ \(\backslash\)brief\ Graph\ map\ based\ on\ the\ array\ storage.}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00033}00033\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacelemon}{lemon}}\ \{}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00035}00035\ \ \ \textcolor{comment}{//\ \(\backslash\)ingroup\ graphbits}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00036}00036\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00037}00037\ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Graph\ map\ based\ on\ the\ array\ storage.}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00038}00038\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00039}00039\ \ \ \textcolor{comment}{//\ The\ ArrayMap\ template\ class\ is\ graph\ map\ structure\ that\ automatically}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00040}00040\ \ \ \textcolor{comment}{//\ updates\ the\ map\ when\ a\ key\ is\ added\ to\ or\ erased\ from\ the\ graph.}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00041}00041\ \ \ \textcolor{comment}{//\ This\ map\ uses\ the\ allocators\ to\ implement\ the\ container\ functionality.}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00042}00042\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00043}00043\ \ \ \textcolor{comment}{//\ The\ template\ parameters\ are\ the\ Graph,\ the\ current\ Item\ type\ and}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00044}00044\ \ \ \textcolor{comment}{//\ the\ Value\ type\ of\ the\ map.}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00045}00045\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ \_Graph,\ \textcolor{keyword}{typename}\ \_Item,\ \textcolor{keyword}{typename}\ \_Value>}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00046}\mbox{\hyperlink{classlemon_1_1_array_map}{00046}}\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_array_map}{ArrayMap}}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00047}00047\ \ \ \ \ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1_item_set_traits}{ItemSetTraits}}<\_Graph,\ \_Item>::ItemNotifier::ObserverBase\ \{}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00048}00048\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00049}00049\ \ \ \ \ \textcolor{comment}{//\ The\ graph\ type.}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00050}\mbox{\hyperlink{classlemon_1_1_array_map_ab3f990d7915b6d6e1932633d1c896f4e}{00050}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \_Graph\ \mbox{\hyperlink{classlemon_1_1_array_map_ab3f990d7915b6d6e1932633d1c896f4e}{GraphType}};}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00051}00051\ \ \ \ \ \textcolor{comment}{//\ The\ item\ type.}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00052}\mbox{\hyperlink{classlemon_1_1_array_map_a868b775ffe5bd52f08cddce8d547e9fd}{00052}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_Item}}\ \mbox{\hyperlink{classlemon_1_1_array_map_a868b775ffe5bd52f08cddce8d547e9fd}{Item}};}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00053}00053\ \ \ \ \ \textcolor{comment}{//\ The\ reference\ map\ tag.}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00054}\mbox{\hyperlink{classlemon_1_1_array_map_a0b8f1f95652c22b53a9bf51f10175f6d}{00054}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{structlemon_1_1_true}{True}}\ \mbox{\hyperlink{classlemon_1_1_array_map_a0b8f1f95652c22b53a9bf51f10175f6d}{ReferenceMapTag}};}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00056}00056\ \ \ \ \ \textcolor{comment}{//\ The\ key\ type\ of\ the\ map.}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00057}\mbox{\hyperlink{classlemon_1_1_array_map_ad80fbef9f22d1b0f4581625b87c474ce}{00057}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_Item}}\ \mbox{\hyperlink{classlemon_1_1_array_map_ad80fbef9f22d1b0f4581625b87c474ce}{Key}};}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00058}00058\ \ \ \ \ \textcolor{comment}{//\ The\ value\ type\ of\ the\ map.}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00059}\mbox{\hyperlink{classlemon_1_1_array_map_ae8b521c1620f8e3b979a31e46b9f384b}{00059}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_Value}}\ \mbox{\hyperlink{classlemon_1_1_array_map_ae8b521c1620f8e3b979a31e46b9f384b}{Value}};}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00061}00061\ \ \ \ \ \textcolor{comment}{//\ The\ const\ reference\ type\ of\ the\ map.}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00062}\mbox{\hyperlink{classlemon_1_1_array_map_a75310b272c6eeda376ebe18fd853ad99}{00062}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_Value}}\&\ \mbox{\hyperlink{classlemon_1_1_array_map_a75310b272c6eeda376ebe18fd853ad99}{ConstReference}};}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00063}00063\ \ \ \ \ \textcolor{comment}{//\ The\ reference\ type\ of\ the\ map.}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00064}\mbox{\hyperlink{classlemon_1_1_array_map_a73cc4424c846a19d09973232f455aa2f}{00064}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_Value}}\&\ \mbox{\hyperlink{classlemon_1_1_array_map_a73cc4424c846a19d09973232f455aa2f}{Reference}};}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00066}00066\ \ \ \ \ \textcolor{comment}{//\ The\ map\ type.}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00067}\mbox{\hyperlink{classlemon_1_1_array_map_a69b239a5a444dab43a35cdbfed23bc02}{00067}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_array_map}{ArrayMap}}\ \mbox{\hyperlink{classlemon_1_1_array_map_a69b239a5a444dab43a35cdbfed23bc02}{Map}};}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00069}00069\ \ \ \ \ \textcolor{comment}{//\ The\ notifier\ type.}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00070}\mbox{\hyperlink{classlemon_1_1_array_map_a923ee67d7feea33b45c2058bdb126830}{00070}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classlemon_1_1_item_set_traits}{ItemSetTraits<\_Graph,\ \_Item>::ItemNotifier}}\ \mbox{\hyperlink{classlemon_1_1_array_map_a923ee67d7feea33b45c2058bdb126830}{Notifier}};}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00072}00072\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00074}00074\ \ \ \ \ \textcolor{comment}{//\ The\ MapBase\ of\ the\ Map\ which\ imlements\ the\ core\ regisitry\ function.}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00075}\mbox{\hyperlink{classlemon_1_1_array_map_a397b9c8237baa5479235508a29bb1893}{00075}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Notifier::ObserverBase\ \mbox{\hyperlink{classlemon_1_1_array_map_a397b9c8237baa5479235508a29bb1893}{Parent}};}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00077}\mbox{\hyperlink{classlemon_1_1_array_map_a2835bc870281accaedaa10f286073eb8}{00077}}\ \ \ \ \ \textcolor{keyword}{typedef}\ std::allocator<Value>\ \mbox{\hyperlink{classlemon_1_1_array_map_a2835bc870281accaedaa10f286073eb8}{Allocator}};}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00079}00079\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00081}00081\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Graph\ initialized\ map\ constructor.}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00082}00082\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00083}00083\ \ \ \ \ \textcolor{comment}{//\ Graph\ initialized\ map\ constructor.}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00084}\mbox{\hyperlink{classlemon_1_1_array_map_aef16e3f7ed75d8112e6bfaabce4af5cd}{00084}}\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classlemon_1_1_array_map_aef16e3f7ed75d8112e6bfaabce4af5cd}{ArrayMap}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_array_map_ab3f990d7915b6d6e1932633d1c896f4e}{GraphType}}\&\ graph)\ \{}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00085}00085\ \ \ \ \ \ \ Parent::attach(graph.notifier(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Item}}()));}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00086}00086\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_array_map_a8322def3646bcf32d14d7f23a2911c3a}{allocate\_memory}}();}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00087}00087\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_array_map_a923ee67d7feea33b45c2058bdb126830}{Notifier}}*\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{nf}}\ =\ Parent::notifier();}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00088}00088\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Item}}\ it;}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00089}00089\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{nf}}-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a23ed3a4a39b3d5724f67e27ad8bafc77}{first}}(it);\ it\ !=\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{nf}}-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a0cfd891938ddddea6beb693c92ac6510}{next}}(it))\ \{}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00090}00090\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{nf}}-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_afa1b705fa74e19045a04063063665ee9}{id}}(it);;}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00091}00091\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_array_map_ac5a617d63aaf080149612b78909fbc63}{allocator}}.construct(\&(\mbox{\hyperlink{classlemon_1_1_array_map_a4ae0dc80f0d9b283ea1e2b1e0178a2df}{values}}[\textcolor{keywordtype}{id}]),\ \mbox{\hyperlink{classlemon_1_1_array_map_ae8b521c1620f8e3b979a31e46b9f384b}{Value}}());}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00092}00092\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00093}00093\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00095}00095\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Constructor\ to\ use\ default\ value\ to\ initialize\ the\ map.}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00096}00096\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00097}00097\ \ \ \ \ \textcolor{comment}{//\ It\ constructs\ a\ map\ and\ initialize\ all\ of\ the\ the\ map.}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00098}\mbox{\hyperlink{classlemon_1_1_array_map_aa70c642633a2a73b7e28baf5d90a24c5}{00098}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_array_map_aa70c642633a2a73b7e28baf5d90a24c5}{ArrayMap}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_array_map_ab3f990d7915b6d6e1932633d1c896f4e}{GraphType}}\&\ graph,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Value}}\&\ \mbox{\hyperlink{classvalue}{value}})\ \{}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00099}00099\ \ \ \ \ \ \ Parent::attach(graph.notifier(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Item}}()));}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00100}00100\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_array_map_a8322def3646bcf32d14d7f23a2911c3a}{allocate\_memory}}();}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00101}00101\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_array_map_a923ee67d7feea33b45c2058bdb126830}{Notifier}}*\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{nf}}\ =\ Parent::notifier();}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00102}00102\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Item}}\ it;}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00103}00103\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{nf}}-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a23ed3a4a39b3d5724f67e27ad8bafc77}{first}}(it);\ it\ !=\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{nf}}-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a0cfd891938ddddea6beb693c92ac6510}{next}}(it))\ \{}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00104}00104\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{nf}}-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_afa1b705fa74e19045a04063063665ee9}{id}}(it);;}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00105}00105\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_array_map_ac5a617d63aaf080149612b78909fbc63}{allocator}}.construct(\&(\mbox{\hyperlink{classlemon_1_1_array_map_a4ae0dc80f0d9b283ea1e2b1e0178a2df}{values}}[\textcolor{keywordtype}{id}]),\ \mbox{\hyperlink{classvalue}{value}});}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00106}00106\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00107}00107\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00109}00109\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00110}00110\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Constructor\ to\ copy\ a\ map\ of\ the\ same\ map\ type.}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00111}00111\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00112}00112\ \ \ \ \ \textcolor{comment}{//\ Constructor\ to\ copy\ a\ map\ of\ the\ same\ map\ type.}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00113}\mbox{\hyperlink{classlemon_1_1_array_map_a8bb4e244f80e109678dd9077ff961f22}{00113}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_array_map_a8bb4e244f80e109678dd9077ff961f22}{ArrayMap}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_array_map}{ArrayMap}}\&\ copy)\ :\ \mbox{\hyperlink{classlemon_1_1_array_map_a397b9c8237baa5479235508a29bb1893}{Parent}}()\ \{}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00114}00114\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (copy.attached())\ \{}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00115}00115\ \ \ \ \ \ \ \ \ attach(*copy.notifier());}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00116}00116\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00117}00117\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_array_map_afcd7378dc6009eb16fb6860e4a077b08}{capacity}}\ =\ copy.capacity;}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00118}00118\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_array_map_afcd7378dc6009eb16fb6860e4a077b08}{capacity}}\ ==\ 0)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00119}00119\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_array_map_a4ae0dc80f0d9b283ea1e2b1e0178a2df}{values}}\ =\ \mbox{\hyperlink{classlemon_1_1_array_map_ac5a617d63aaf080149612b78909fbc63}{allocator}}.allocate(\mbox{\hyperlink{classlemon_1_1_array_map_afcd7378dc6009eb16fb6860e4a077b08}{capacity}});}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00120}00120\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_array_map_a923ee67d7feea33b45c2058bdb126830}{Notifier}}*\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{nf}}\ =\ Parent::notifier();}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00121}00121\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Item}}\ it;}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00122}00122\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{nf}}-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a23ed3a4a39b3d5724f67e27ad8bafc77}{first}}(it);\ it\ !=\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{nf}}-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a0cfd891938ddddea6beb693c92ac6510}{next}}(it))\ \{}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00123}00123\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{nf}}-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_afa1b705fa74e19045a04063063665ee9}{id}}(it);;}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00124}00124\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_array_map_ac5a617d63aaf080149612b78909fbc63}{allocator}}.construct(\&(\mbox{\hyperlink{classlemon_1_1_array_map_a4ae0dc80f0d9b283ea1e2b1e0178a2df}{values}}[\textcolor{keywordtype}{id}]),\ copy.values[id]);}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00125}00125\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00126}00126\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00128}00128\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Assign\ operator.}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00129}00129\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00130}00130\ \ \ \ \ \textcolor{comment}{//\ This\ operator\ assigns\ for\ each\ item\ in\ the\ map\ the}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00131}00131\ \ \ \ \ \textcolor{comment}{//\ value\ mapped\ to\ the\ same\ item\ in\ the\ copied\ map.}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00132}00132\ \ \ \ \ \textcolor{comment}{//\ The\ parameter\ map\ should\ be\ indiced\ with\ the\ same}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00133}00133\ \ \ \ \ \textcolor{comment}{//\ itemset\ because\ this\ assign\ operator\ does\ not\ change}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00134}00134\ \ \ \ \ \textcolor{comment}{//\ the\ container\ of\ the\ map.}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00135}\mbox{\hyperlink{classlemon_1_1_array_map_a73d783294fafac992aed1791ed3fa98a}{00135}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_array_map}{ArrayMap}}\&\ \mbox{\hyperlink{classlemon_1_1_array_map_a73d783294fafac992aed1791ed3fa98a}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_array_map}{ArrayMap}}\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cmap}})\ \{}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00136}00136\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{operator}=<\mbox{\hyperlink{classlemon_1_1_array_map}{ArrayMap}}>(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cmap}});}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00137}00137\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00138}00138\ }
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00139}00139\ }
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00140}00140\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Template\ assign\ operator.}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00141}00141\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00142}00142\ \ \ \ \ \textcolor{comment}{//\ The\ given\ parameter\ should\ conform\ to\ the\ ReadMap}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00143}00143\ \ \ \ \ \textcolor{comment}{//\ concecpt\ and\ could\ be\ indiced\ by\ the\ current\ item\ set\ of}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00144}00144\ \ \ \ \ \textcolor{comment}{//\ the\ NodeMap.\ In\ this\ case\ the\ value\ for\ each\ item}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00145}00145\ \ \ \ \ \textcolor{comment}{//\ is\ assigned\ by\ the\ value\ of\ the\ given\ ReadMap.}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00146}00146\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ CMap>}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00147}\mbox{\hyperlink{classlemon_1_1_array_map_a6b313011d4bcd0e5e8025e3cc77926c4}{00147}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_array_map}{ArrayMap}}\&\ \mbox{\hyperlink{classlemon_1_1_array_map_a6b313011d4bcd0e5e8025e3cc77926c4}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CMap}}\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cmap}})\ \{}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00148}00148\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{checkConcept<concepts::ReadMap<Key,\ \_Value>}},\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CMap}}>();}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00149}00149\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{typename}\ Parent::Notifier*\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{nf}}\ =\ Parent::notifier();}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00150}00150\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Item}}\ it;}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00151}00151\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{nf}}-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a23ed3a4a39b3d5724f67e27ad8bafc77}{first}}(it);\ it\ !=\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{nf}}-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a0cfd891938ddddea6beb693c92ac6510}{next}}(it))\ \{}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00152}00152\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{bundled_2ranges_8h_a080be1238e6ee3bd4b9f193b4181cf4dacdaeeeba9b4a4c5ebf042c0215a7bb0e}{set}}(it,\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cmap}}[it]);}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00153}00153\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00154}00154\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00155}00155\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00156}00156\ }
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00157}00157\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00158}00158\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ The\ destructor\ of\ the\ map.}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00159}00159\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00160}00160\ \ \ \ \ \textcolor{comment}{//\ The\ destructor\ of\ the\ map.}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00161}\mbox{\hyperlink{classlemon_1_1_array_map_a777e25658aa769ffabf9f1ec56f0703c}{00161}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classlemon_1_1_array_map_a777e25658aa769ffabf9f1ec56f0703c}{\string~ArrayMap}}()\ \{}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00162}00162\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (attached())\ \{}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00163}00163\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_array_map_a31963153fc6f03df28731482f145558c}{clear}}();}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00164}00164\ \ \ \ \ \ \ \ \ detach();}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00165}00165\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00166}00166\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00167}00167\ }
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00168}00168\ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00169}00169\ }
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00170}00170\ \ \ \ \ \textcolor{keyword}{using\ }Parent::attach;}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00171}00171\ \ \ \ \ \textcolor{keyword}{using\ }Parent::detach;}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00172}00172\ \ \ \ \ \textcolor{keyword}{using\ }Parent::attached;}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00173}00173\ }
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00174}00174\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00175}00175\ }
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00176}00176\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ The\ subscript\ operator.}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00177}00177\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00178}00178\ \ \ \ \ \textcolor{comment}{//\ The\ subscript\ operator.\ The\ map\ can\ be\ subscripted\ by\ the}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00179}00179\ \ \ \ \ \textcolor{comment}{//\ actual\ keys\ of\ the\ graph.}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00180}\mbox{\hyperlink{classlemon_1_1_array_map_a5d8eb3c305798bb4f1101c873ab003d4}{00180}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Value}}\&\ \mbox{\hyperlink{classlemon_1_1_array_map_a5d8eb3c305798bb4f1101c873ab003d4}{operator[]}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Key}}\&\ key)\ \{}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00181}00181\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id}\ =\ Parent::notifier()-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_afa1b705fa74e19045a04063063665ee9}{id}}(key);}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00182}00182\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_array_map_a4ae0dc80f0d9b283ea1e2b1e0178a2df}{values}}[id];}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00183}00183\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00184}00184\ }
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00185}00185\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ The\ const\ subscript\ operator.}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00186}00186\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00187}00187\ \ \ \ \ \textcolor{comment}{//\ The\ const\ subscript\ operator.\ The\ map\ can\ be\ subscripted\ by\ the}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00188}00188\ \ \ \ \ \textcolor{comment}{//\ actual\ keys\ of\ the\ graph.}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00189}\mbox{\hyperlink{classlemon_1_1_array_map_a7689ad50cb2440efa4586f5fce0687bf}{00189}}\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Value}}\&\ \mbox{\hyperlink{classlemon_1_1_array_map_a7689ad50cb2440efa4586f5fce0687bf}{operator[]}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Key}}\&\ key)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00190}00190\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id}\ =\ Parent::notifier()-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_afa1b705fa74e19045a04063063665ee9}{id}}(key);}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00191}00191\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_array_map_a4ae0dc80f0d9b283ea1e2b1e0178a2df}{values}}[id];}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00192}00192\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00193}00193\ }
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00194}00194\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Setter\ function\ of\ the\ map.}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00195}00195\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00196}00196\ \ \ \ \ \textcolor{comment}{//\ Setter\ function\ of\ the\ map.\ Equivalent\ with\ map[key]\ =\ val.}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00197}00197\ \ \ \ \ \textcolor{comment}{//\ This\ is\ a\ compatibility\ feature\ with\ the\ not\ dereferable\ maps.}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00198}\mbox{\hyperlink{classlemon_1_1_array_map_aa2d8d093c864c0e32ca1f1de8253d431}{00198}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_array_map_aa2d8d093c864c0e32ca1f1de8253d431}{set}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Key}}\&\ key,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Value}}\&\ val)\ \{}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00199}00199\ \ \ \ \ \ \ (*this)[key]\ =\ val;}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00200}00200\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00201}00201\ }
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00202}00202\ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00203}00203\ }
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00204}00204\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Adds\ a\ new\ key\ to\ the\ map.}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00205}00205\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00206}00206\ \ \ \ \ \textcolor{comment}{//\ It\ adds\ a\ new\ key\ to\ the\ map.\ It\ is\ called\ by\ the\ observer\ notifier}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00207}00207\ \ \ \ \ \textcolor{comment}{//\ and\ it\ overrides\ the\ add()\ member\ function\ of\ the\ observer\ base.}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00208}\mbox{\hyperlink{classlemon_1_1_array_map_a3b2eb5226acdfb9bb66284ea92d8a0ee}{00208}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_array_map_a3b2eb5226acdfb9bb66284ea92d8a0ee}{add}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Key}}\&\ key)\ \{}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00209}00209\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_array_map_a923ee67d7feea33b45c2058bdb126830}{Notifier}}*\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{nf}}\ =\ Parent::notifier();}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00210}00210\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{nf}}-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_afa1b705fa74e19045a04063063665ee9}{id}}(key);}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00211}00211\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keywordtype}{id}\ >=\ \mbox{\hyperlink{classlemon_1_1_array_map_afcd7378dc6009eb16fb6860e4a077b08}{capacity}})\ \{}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00212}00212\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{new\_capacity}}\ =\ (\mbox{\hyperlink{classlemon_1_1_array_map_afcd7378dc6009eb16fb6860e4a077b08}{capacity}}\ ==\ 0\ ?\ 1\ :\ \mbox{\hyperlink{classlemon_1_1_array_map_afcd7378dc6009eb16fb6860e4a077b08}{capacity}});}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00213}00213\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{new\_capacity}}\ <=\ \textcolor{keywordtype}{id})\ \{}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00214}00214\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{new\_capacity}}\ <<=\ 1;}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00215}00215\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00216}00216\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Value}}*\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{new\_values}}\ =\ \mbox{\hyperlink{classlemon_1_1_array_map_ac5a617d63aaf080149612b78909fbc63}{allocator}}.allocate(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{new\_capacity}});}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00217}00217\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Item}}\ it;}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00218}00218\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{nf}}-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a23ed3a4a39b3d5724f67e27ad8bafc77}{first}}(it);\ it\ !=\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{nf}}-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a0cfd891938ddddea6beb693c92ac6510}{next}}(it))\ \{}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00219}00219\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{jd}}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{nf}}-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_afa1b705fa74e19045a04063063665ee9}{id}}(it);;}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00220}00220\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keywordtype}{id}\ !=\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{jd}})\ \{}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00221}00221\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_array_map_ac5a617d63aaf080149612b78909fbc63}{allocator}}.construct(\&(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{new\_values}}[\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{jd}}]),\ \mbox{\hyperlink{classlemon_1_1_array_map_a4ae0dc80f0d9b283ea1e2b1e0178a2df}{values}}[\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{jd}}]);}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00222}00222\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_array_map_ac5a617d63aaf080149612b78909fbc63}{allocator}}.destroy(\&(\mbox{\hyperlink{classlemon_1_1_array_map_a4ae0dc80f0d9b283ea1e2b1e0178a2df}{values}}[\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{jd}}]));}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00223}00223\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00224}00224\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00225}00225\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_array_map_afcd7378dc6009eb16fb6860e4a077b08}{capacity}}\ !=\ 0)\ \mbox{\hyperlink{classlemon_1_1_array_map_ac5a617d63aaf080149612b78909fbc63}{allocator}}.deallocate(\mbox{\hyperlink{classlemon_1_1_array_map_a4ae0dc80f0d9b283ea1e2b1e0178a2df}{values}},\ \mbox{\hyperlink{classlemon_1_1_array_map_afcd7378dc6009eb16fb6860e4a077b08}{capacity}});}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00226}00226\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_array_map_a4ae0dc80f0d9b283ea1e2b1e0178a2df}{values}}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{new\_values}};}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00227}00227\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_array_map_afcd7378dc6009eb16fb6860e4a077b08}{capacity}}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{new\_capacity}};}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00228}00228\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00229}00229\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_array_map_ac5a617d63aaf080149612b78909fbc63}{allocator}}.construct(\&(\mbox{\hyperlink{classlemon_1_1_array_map_a4ae0dc80f0d9b283ea1e2b1e0178a2df}{values}}[\textcolor{keywordtype}{id}]),\ \mbox{\hyperlink{classlemon_1_1_array_map_ae8b521c1620f8e3b979a31e46b9f384b}{Value}}());}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00230}00230\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00231}00231\ }
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00232}00232\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Adds\ more\ new\ keys\ to\ the\ map.}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00233}00233\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00234}00234\ \ \ \ \ \textcolor{comment}{//\ It\ adds\ more\ new\ keys\ to\ the\ map.\ It\ is\ called\ by\ the\ observer\ notifier}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00235}00235\ \ \ \ \ \textcolor{comment}{//\ and\ it\ overrides\ the\ add()\ member\ function\ of\ the\ observer\ base.}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00236}\mbox{\hyperlink{classlemon_1_1_array_map_a57ad97a8b34cf1acc972d76761f891db}{00236}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_array_map_a57ad97a8b34cf1acc972d76761f891db}{add}}(\textcolor{keyword}{const}\ std::vector<Key>\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{keys}})\ \{}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00237}00237\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_array_map_a923ee67d7feea33b45c2058bdb126830}{Notifier}}*\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{nf}}\ =\ Parent::notifier();}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00238}00238\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{max\_id}}\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00239}00239\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{int}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{keys}}.size());\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00240}00240\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{nf}}-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_afa1b705fa74e19045a04063063665ee9}{id}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{keys}}[i]);}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00241}00241\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keywordtype}{id}\ >\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{max\_id}})\ \{}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00242}00242\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{max\_id}}\ =\ id;}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00243}00243\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00244}00244\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00245}00245\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{max\_id}}\ >=\ \mbox{\hyperlink{classlemon_1_1_array_map_afcd7378dc6009eb16fb6860e4a077b08}{capacity}})\ \{}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00246}00246\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{new\_capacity}}\ =\ (\mbox{\hyperlink{classlemon_1_1_array_map_afcd7378dc6009eb16fb6860e4a077b08}{capacity}}\ ==\ 0\ ?\ 1\ :\ \mbox{\hyperlink{classlemon_1_1_array_map_afcd7378dc6009eb16fb6860e4a077b08}{capacity}});}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00247}00247\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{new\_capacity}}\ <=\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{max\_id}})\ \{}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00248}00248\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{new\_capacity}}\ <<=\ 1;}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00249}00249\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00250}00250\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Value}}*\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{new\_values}}\ =\ \mbox{\hyperlink{classlemon_1_1_array_map_ac5a617d63aaf080149612b78909fbc63}{allocator}}.allocate(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{new\_capacity}});}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00251}00251\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Item}}\ it;}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00252}00252\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{nf}}-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a23ed3a4a39b3d5724f67e27ad8bafc77}{first}}(it);\ it\ !=\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{nf}}-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a0cfd891938ddddea6beb693c92ac6510}{next}}(it))\ \{}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00253}00253\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{nf}}-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_afa1b705fa74e19045a04063063665ee9}{id}}(it);}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00254}00254\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ found\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00255}00255\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{int}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{keys}}.size());\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00256}00256\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{jd}}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{nf}}-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_afa1b705fa74e19045a04063063665ee9}{id}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{keys}}[i]);}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00257}00257\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keywordtype}{id}\ ==\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{jd}})\ \{}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00258}00258\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ found\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00259}00259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00260}00260\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00261}00261\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00262}00262\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (found)\ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00263}00263\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_array_map_ac5a617d63aaf080149612b78909fbc63}{allocator}}.construct(\&(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{new\_values}}[\textcolor{keywordtype}{id}]),\ \mbox{\hyperlink{classlemon_1_1_array_map_a4ae0dc80f0d9b283ea1e2b1e0178a2df}{values}}[id]);}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00264}00264\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_array_map_ac5a617d63aaf080149612b78909fbc63}{allocator}}.destroy(\&(\mbox{\hyperlink{classlemon_1_1_array_map_a4ae0dc80f0d9b283ea1e2b1e0178a2df}{values}}[\textcolor{keywordtype}{id}]));}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00265}00265\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00266}00266\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_array_map_afcd7378dc6009eb16fb6860e4a077b08}{capacity}}\ !=\ 0)\ \mbox{\hyperlink{classlemon_1_1_array_map_ac5a617d63aaf080149612b78909fbc63}{allocator}}.deallocate(\mbox{\hyperlink{classlemon_1_1_array_map_a4ae0dc80f0d9b283ea1e2b1e0178a2df}{values}},\ \mbox{\hyperlink{classlemon_1_1_array_map_afcd7378dc6009eb16fb6860e4a077b08}{capacity}});}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00267}00267\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_array_map_a4ae0dc80f0d9b283ea1e2b1e0178a2df}{values}}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{new\_values}};}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00268}00268\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_array_map_afcd7378dc6009eb16fb6860e4a077b08}{capacity}}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{new\_capacity}};}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00269}00269\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00270}00270\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{int}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{keys}}.size());\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00271}00271\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{nf}}-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_afa1b705fa74e19045a04063063665ee9}{id}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{keys}}[i]);}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00272}00272\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_array_map_ac5a617d63aaf080149612b78909fbc63}{allocator}}.construct(\&(\mbox{\hyperlink{classlemon_1_1_array_map_a4ae0dc80f0d9b283ea1e2b1e0178a2df}{values}}[\textcolor{keywordtype}{id}]),\ \mbox{\hyperlink{classlemon_1_1_array_map_ae8b521c1620f8e3b979a31e46b9f384b}{Value}}());}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00273}00273\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00274}00274\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00275}00275\ }
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00276}00276\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Erase\ a\ key\ from\ the\ map.}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00277}00277\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00278}00278\ \ \ \ \ \textcolor{comment}{//\ Erase\ a\ key\ from\ the\ map.\ It\ is\ called\ by\ the\ observer\ notifier}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00279}00279\ \ \ \ \ \textcolor{comment}{//\ and\ it\ overrides\ the\ erase()\ member\ function\ of\ the\ observer\ base.}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00280}\mbox{\hyperlink{classlemon_1_1_array_map_a462fae1898375e0e9d502c1f46ccf440}{00280}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_array_map_a462fae1898375e0e9d502c1f46ccf440}{erase}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Key}}\&\ key)\ \{}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00281}00281\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id}\ =\ Parent::notifier()-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_afa1b705fa74e19045a04063063665ee9}{id}}(key);}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00282}00282\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_array_map_ac5a617d63aaf080149612b78909fbc63}{allocator}}.destroy(\&(\mbox{\hyperlink{classlemon_1_1_array_map_a4ae0dc80f0d9b283ea1e2b1e0178a2df}{values}}[\textcolor{keywordtype}{id}]));}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00283}00283\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00284}00284\ }
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00285}00285\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Erase\ more\ keys\ from\ the\ map.}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00286}00286\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00287}00287\ \ \ \ \ \textcolor{comment}{//\ Erase\ more\ keys\ from\ the\ map.\ It\ is\ called\ by\ the\ observer\ notifier}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00288}00288\ \ \ \ \ \textcolor{comment}{//\ and\ it\ overrides\ the\ erase()\ member\ function\ of\ the\ observer\ base.}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00289}\mbox{\hyperlink{classlemon_1_1_array_map_abcd9c68ab34725b27f0b7c40e224744b}{00289}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_array_map_abcd9c68ab34725b27f0b7c40e224744b}{erase}}(\textcolor{keyword}{const}\ std::vector<Key>\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{keys}})\ \{}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00290}00290\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{int}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{keys}}.size());\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00291}00291\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id}\ =\ Parent::notifier()-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_afa1b705fa74e19045a04063063665ee9}{id}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{keys}}[i]);}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00292}00292\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_array_map_ac5a617d63aaf080149612b78909fbc63}{allocator}}.destroy(\&(\mbox{\hyperlink{classlemon_1_1_array_map_a4ae0dc80f0d9b283ea1e2b1e0178a2df}{values}}[\textcolor{keywordtype}{id}]));}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00293}00293\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00294}00294\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00295}00295\ }
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00296}00296\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Builds\ the\ map.}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00297}00297\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00298}00298\ \ \ \ \ \textcolor{comment}{//\ It\ builds\ the\ map.\ It\ is\ called\ by\ the\ observer\ notifier}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00299}00299\ \ \ \ \ \textcolor{comment}{//\ and\ it\ overrides\ the\ build()\ member\ function\ of\ the\ observer\ base.}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00300}\mbox{\hyperlink{classlemon_1_1_array_map_a79102f9605b0b9c8979776ab42e7b34c}{00300}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_array_map_a79102f9605b0b9c8979776ab42e7b34c}{build}}()\ \{}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00301}00301\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_array_map_a923ee67d7feea33b45c2058bdb126830}{Notifier}}*\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{nf}}\ =\ Parent::notifier();}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00302}00302\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_array_map_a8322def3646bcf32d14d7f23a2911c3a}{allocate\_memory}}();}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00303}00303\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Item}}\ it;}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00304}00304\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{nf}}-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a23ed3a4a39b3d5724f67e27ad8bafc77}{first}}(it);\ it\ !=\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{nf}}-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a0cfd891938ddddea6beb693c92ac6510}{next}}(it))\ \{}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00305}00305\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{nf}}-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_afa1b705fa74e19045a04063063665ee9}{id}}(it);;}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00306}00306\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_array_map_ac5a617d63aaf080149612b78909fbc63}{allocator}}.construct(\&(\mbox{\hyperlink{classlemon_1_1_array_map_a4ae0dc80f0d9b283ea1e2b1e0178a2df}{values}}[\textcolor{keywordtype}{id}]),\ \mbox{\hyperlink{classlemon_1_1_array_map_ae8b521c1620f8e3b979a31e46b9f384b}{Value}}());}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00307}00307\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00308}00308\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00309}00309\ }
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00310}00310\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Clear\ the\ map.}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00311}00311\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00312}00312\ \ \ \ \ \textcolor{comment}{//\ It\ erase\ all\ items\ from\ the\ map.\ It\ is\ called\ by\ the\ observer\ notifier}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00313}00313\ \ \ \ \ \textcolor{comment}{//\ and\ it\ overrides\ the\ clear()\ member\ function\ of\ the\ observer\ base.}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00314}\mbox{\hyperlink{classlemon_1_1_array_map_a31963153fc6f03df28731482f145558c}{00314}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_array_map_a31963153fc6f03df28731482f145558c}{clear}}()\ \{}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00315}00315\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_array_map_a923ee67d7feea33b45c2058bdb126830}{Notifier}}*\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{nf}}\ =\ Parent::notifier();}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00316}00316\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_array_map_afcd7378dc6009eb16fb6860e4a077b08}{capacity}}\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00317}00317\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Item}}\ it;}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00318}00318\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{nf}}-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a23ed3a4a39b3d5724f67e27ad8bafc77}{first}}(it);\ it\ !=\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{nf}}-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a0cfd891938ddddea6beb693c92ac6510}{next}}(it))\ \{}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00319}00319\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{nf}}-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_afa1b705fa74e19045a04063063665ee9}{id}}(it);}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00320}00320\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_array_map_ac5a617d63aaf080149612b78909fbc63}{allocator}}.destroy(\&(\mbox{\hyperlink{classlemon_1_1_array_map_a4ae0dc80f0d9b283ea1e2b1e0178a2df}{values}}[\textcolor{keywordtype}{id}]));}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00321}00321\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00322}00322\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_array_map_ac5a617d63aaf080149612b78909fbc63}{allocator}}.deallocate(\mbox{\hyperlink{classlemon_1_1_array_map_a4ae0dc80f0d9b283ea1e2b1e0178a2df}{values}},\ \mbox{\hyperlink{classlemon_1_1_array_map_afcd7378dc6009eb16fb6860e4a077b08}{capacity}});}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00323}00323\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_array_map_afcd7378dc6009eb16fb6860e4a077b08}{capacity}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00324}00324\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00325}00325\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00326}00326\ }
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00327}00327\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00328}00328\ }
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00329}\mbox{\hyperlink{classlemon_1_1_array_map_a8322def3646bcf32d14d7f23a2911c3a}{00329}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_array_map_a8322def3646bcf32d14d7f23a2911c3a}{allocate\_memory}}()\ \{}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00330}00330\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{max\_id}}\ =\ Parent::notifier()-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_extender_a9d363ecde5150221914f7c3d8f184c8e}{maxId}}();}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00331}00331\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{max\_id}}\ ==\ -\/1)\ \{}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00332}00332\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_array_map_afcd7378dc6009eb16fb6860e4a077b08}{capacity}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00333}00333\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_array_map_a4ae0dc80f0d9b283ea1e2b1e0178a2df}{values}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00334}00334\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00335}00335\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00336}00336\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_array_map_afcd7378dc6009eb16fb6860e4a077b08}{capacity}}\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00337}00337\ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{classlemon_1_1_array_map_afcd7378dc6009eb16fb6860e4a077b08}{capacity}}\ <=\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{max\_id}})\ \{}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00338}00338\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_array_map_afcd7378dc6009eb16fb6860e4a077b08}{capacity}}\ <<=\ 1;}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00339}00339\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00340}00340\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_array_map_a4ae0dc80f0d9b283ea1e2b1e0178a2df}{values}}\ =\ \mbox{\hyperlink{classlemon_1_1_array_map_ac5a617d63aaf080149612b78909fbc63}{allocator}}.allocate(\mbox{\hyperlink{classlemon_1_1_array_map_afcd7378dc6009eb16fb6860e4a077b08}{capacity}});}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00341}00341\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00342}00342\ }
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00343}\mbox{\hyperlink{classlemon_1_1_array_map_afcd7378dc6009eb16fb6860e4a077b08}{00343}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_array_map_afcd7378dc6009eb16fb6860e4a077b08}{capacity}};}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00344}\mbox{\hyperlink{classlemon_1_1_array_map_a4ae0dc80f0d9b283ea1e2b1e0178a2df}{00344}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Value}}*\ \mbox{\hyperlink{classlemon_1_1_array_map_a4ae0dc80f0d9b283ea1e2b1e0178a2df}{values}};}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00345}\mbox{\hyperlink{classlemon_1_1_array_map_ac5a617d63aaf080149612b78909fbc63}{00345}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_array_map_a2835bc870281accaedaa10f286073eb8}{Allocator}}\ \mbox{\hyperlink{classlemon_1_1_array_map_ac5a617d63aaf080149612b78909fbc63}{allocator}};}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00346}00346\ }
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00347}00347\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00348}00348\ }
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00349}00349\ \}}
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00350}00350\ }
+\DoxyCodeLine{\Hypertarget{array__map_8h_source_l00351}00351\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

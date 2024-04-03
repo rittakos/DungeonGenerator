@@ -1,0 +1,150 @@
+\doxysection{rotating\+\_\+file\+\_\+sink-\/inl.h}
+\hypertarget{rotating__file__sink-inl_8h_source}{}\label{rotating__file__sink-inl_8h_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/spdlog/sinks/rotating\_file\_sink-\/inl.h@{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/spdlog/sinks/rotating\_file\_sink-\/inl.h}}
+\mbox{\hyperlink{rotating__file__sink-inl_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00001}00001\ \textcolor{comment}{//\ Copyright(c)\ 2015-\/present,\ Gabi\ Melman\ \&\ spdlog\ contributors.}}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00002}00002\ \textcolor{comment}{//\ Distributed\ under\ the\ MIT\ License\ (http://opensource.org/licenses/MIT)}}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00004}00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00006}00006\ \textcolor{preprocessor}{\#ifndef\ SPDLOG\_HEADER\_ONLY}}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00007}00007\ \textcolor{preprocessor}{\ \ \ \ \#include\ <\mbox{\hyperlink{rotating__file__sink_8h}{spdlog/sinks/rotating\_file\_sink.h}}>}}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00008}00008\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{common_8h}{spdlog/common.h}}>}}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{file__helper_8h}{spdlog/details/file\_helper.h}}>}}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{null__mutex_8h}{spdlog/details/null\_mutex.h}}>}}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fmt_8h}{spdlog/fmt/fmt.h}}>}}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00016}00016\ \textcolor{preprocessor}{\#include\ <cerrno>}}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00017}00017\ \textcolor{preprocessor}{\#include\ <chrono>}}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00018}00018\ \textcolor{preprocessor}{\#include\ <ctime>}}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <mutex>}}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00020}00020\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00021}00021\ \textcolor{preprocessor}{\#include\ <tuple>}}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00023}00023\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacespdlog}{spdlog}}\ \{}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00024}00024\ \textcolor{keyword}{namespace\ }sinks\ \{}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00026}00026\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Mutex>}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00027}\mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink_a8710f63c555669dff1e0704d42226044}{00027}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink_a8710f63c555669dff1e0704d42226044}{rotating\_file\_sink<Mutex>::rotating\_file\_sink}}(}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00028}00028\ \ \ \ \ \mbox{\hyperlink{namespacespdlog_a6fe9554b72972dc15ebf3ca0eb24f5a5}{filename\_t}}\ base\_filename,}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00029}00029\ \ \ \ \ std::size\_t\ max\_size,}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00030}00030\ \ \ \ \ std::size\_t\ max\_files,}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00031}00031\ \ \ \ \ \textcolor{keywordtype}{bool}\ rotate\_on\_open,}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00032}00032\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1file__event__handlers}{file\_event\_handlers}}\ \&event\_handlers)}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00033}00033\ \ \ \ \ :\ base\_filename\_(\mbox{\hyperlink{namespacestd}{std}}::move(base\_filename)),}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00034}00034\ \ \ \ \ \ \ max\_size\_(max\_size),}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00035}00035\ \ \ \ \ \ \ max\_files\_(max\_files),}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00036}00036\ \ \ \ \ \ \ file\_helper\_\{event\_handlers\}\ \{}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00037}00037\ \ \ \ \ \textcolor{keywordflow}{if}\ (max\_size\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00038}00038\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_ac3d8b7e83aad48720518fbac80836c3c}{throw\_spdlog\_ex}}(\textcolor{stringliteral}{"{}rotating\ sink\ constructor:\ max\_size\ arg\ cannot\ be\ zero"{}});}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00039}00039\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00041}00041\ \ \ \ \ \textcolor{keywordflow}{if}\ (max\_files\ >\ 200000)\ \{}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00042}00042\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_ac3d8b7e83aad48720518fbac80836c3c}{throw\_spdlog\_ex}}(\textcolor{stringliteral}{"{}rotating\ sink\ constructor:\ max\_files\ arg\ cannot\ exceed\ 200000"{}});}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00043}00043\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00044}00044\ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink_ac7a534a091f3751a3f481f6ed4127978}{file\_helper\_}}.\mbox{\hyperlink{classspdlog_1_1details_1_1file__helper_aecf4df8af7f7bd49ce59986d412ce74a}{open}}(\mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink_a7dc60b7e4c92116f2cb2a41c6a2e1a01}{calc\_filename}}(\mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink_a3b9e464dc329bce26b55bde67f501e9d}{base\_filename\_}},\ 0));}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00045}00045\ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink_a5af6bce75c796a236bb818277b445580}{current\_size\_}}\ =\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink_ac7a534a091f3751a3f481f6ed4127978}{file\_helper\_}}.\mbox{\hyperlink{classspdlog_1_1details_1_1file__helper_a3811a1dab9dee7435b60eb474d2cc347}{size}}();\ \ \textcolor{comment}{//\ expensive.\ called\ only\ once}}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00046}00046\ \ \ \ \ \textcolor{keywordflow}{if}\ (rotate\_on\_open\ \&\&\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink_a5af6bce75c796a236bb818277b445580}{current\_size\_}}\ >\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00047}00047\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink_af50b0d7d8f7c4b1c99dd97cea7e4fd35}{rotate\_}}();}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00048}00048\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink_a5af6bce75c796a236bb818277b445580}{current\_size\_}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00049}00049\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00050}00050\ \}}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00052}00052\ \textcolor{comment}{//\ calc\ filename\ according\ to\ index\ and\ file\ extension\ if\ exists.}}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00053}00053\ \textcolor{comment}{//\ e.g.\ calc\_filename("{}logs/mylog.txt,\ 3)\ =>\ "{}logs/mylog.3.txt"{}.}}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00054}00054\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Mutex>}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00055}\mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink_a7dc60b7e4c92116f2cb2a41c6a2e1a01}{00055}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \mbox{\hyperlink{namespacespdlog_a6fe9554b72972dc15ebf3ca0eb24f5a5}{filename\_t}}\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink_a7dc60b7e4c92116f2cb2a41c6a2e1a01}{rotating\_file\_sink<Mutex>::calc\_filename}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacespdlog_a6fe9554b72972dc15ebf3ca0eb24f5a5}{filename\_t}}\ \&filename,}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ \mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a7fc0249f0f8ba720115d2430f5b86cbaa6a992d5529f459a44fee58c733255e86}{index}})\ \{}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00057}00057\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a7fc0249f0f8ba720115d2430f5b86cbaa6a992d5529f459a44fee58c733255e86}{index}}\ ==\ 0u)\ \{}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00058}00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ filename;}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00059}00059\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00061}00061\ \ \ \ \ \mbox{\hyperlink{namespacespdlog_a6fe9554b72972dc15ebf3ca0eb24f5a5}{filename\_t}}\ basename,\ ext;}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00062}00062\ \ \ \ \ std::tie(basename,\ ext)\ =\ \mbox{\hyperlink{classspdlog_1_1details_1_1file__helper_a8e8a852ddd73ca81061a62a9c1ca51c5}{details::file\_helper::split\_by\_extension}}(filename);}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00063}00063\ \ \ \ \ \textcolor{keywordflow}{return}\ fmt\_lib::format(\mbox{\hyperlink{common_8h_a63d60ea1c1a925d3db13864d37bd2da2}{SPDLOG\_FILENAME\_T}}(\textcolor{stringliteral}{"{}\{\}.\{\}\{\}"{}}),\ basename,\ \mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a7fc0249f0f8ba720115d2430f5b86cbaa6a992d5529f459a44fee58c733255e86}{index}},\ ext);}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00064}00064\ \}}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00066}00066\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Mutex>}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00067}\mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink_a7c0a9c699bb8c3a59325d9498db4cdcc}{00067}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \mbox{\hyperlink{namespacespdlog_a6fe9554b72972dc15ebf3ca0eb24f5a5}{filename\_t}}\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink_a7c0a9c699bb8c3a59325d9498db4cdcc}{rotating\_file\_sink<Mutex>::filename}}()\ \{}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00068}00068\ \ \ \ \ std::lock\_guard<Mutex>\ lock(\mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink}{base\_sink<Mutex>::mutex\_}});}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00069}00069\ \ \ \ \ \textcolor{keywordflow}{return}\ file\_helper\_.filename();}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00070}00070\ \}}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00072}00072\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Mutex>}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00073}\mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink_ac16afbf9b9a9bcfb1fae090151215e21}{00073}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink_ac16afbf9b9a9bcfb1fae090151215e21}{rotating\_file\_sink<Mutex>::sink\_it\_}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&msg)\ \{}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00074}00074\ \ \ \ \ \mbox{\hyperlink{namespacespdlog_a9ae6875ab28ec95e33921c45ae451633}{memory\_buf\_t}}\ formatted;}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00075}00075\ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink}{base\_sink<Mutex>::formatter\_}}-\/>format(msg,\ formatted);}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00076}00076\ \ \ \ \ \textcolor{keyword}{auto}\ new\_size\ =\ current\_size\_\ +\ formatted.size();}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00078}00078\ \ \ \ \ \textcolor{comment}{//\ rotate\ if\ the\ new\ estimated\ file\ size\ exceeds\ max\ size.}}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00079}00079\ \ \ \ \ \textcolor{comment}{//\ rotate\ only\ if\ the\ real\ size\ >\ 0\ to\ better\ deal\ with\ full\ disk\ (see\ issue\ \#2261).}}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00080}00080\ \ \ \ \ \textcolor{comment}{//\ we\ only\ check\ the\ real\ size\ when\ new\_size\ >\ max\_size\_\ because\ it\ is\ relatively\ expensive.}}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00081}00081\ \ \ \ \ \textcolor{keywordflow}{if}\ (new\_size\ >\ max\_size\_)\ \{}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00082}00082\ \ \ \ \ \ \ \ \ file\_helper\_.\mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_a11cbe457cdd5168afee9ccf3d766e61f}{flush}}();}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00083}00083\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (file\_helper\_.size()\ >\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ rotate\_();}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ new\_size\ =\ formatted.size();}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00086}00086\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00087}00087\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00088}00088\ \ \ \ \ file\_helper\_.write(formatted);}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00089}00089\ \ \ \ \ current\_size\_\ =\ new\_size;}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00090}00090\ \}}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00092}00092\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Mutex>}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00093}\mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink_a4460acd8ced94d958d6882871f6e9954}{00093}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink_a4460acd8ced94d958d6882871f6e9954}{rotating\_file\_sink<Mutex>::flush\_}}()\ \{}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00094}00094\ \ \ \ \ file\_helper\_.flush();}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00095}00095\ \}}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00097}00097\ \textcolor{comment}{//\ Rotate\ files:}}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00098}00098\ \textcolor{comment}{//\ log.txt\ -\/>\ log.1.txt}}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00099}00099\ \textcolor{comment}{//\ log.1.txt\ -\/>\ log.2.txt}}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00100}00100\ \textcolor{comment}{//\ log.2.txt\ -\/>\ log.3.txt}}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00101}00101\ \textcolor{comment}{//\ log.3.txt\ -\/>\ delete}}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00102}00102\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Mutex>}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00103}\mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink_af50b0d7d8f7c4b1c99dd97cea7e4fd35}{00103}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink_af50b0d7d8f7c4b1c99dd97cea7e4fd35}{rotating\_file\_sink<Mutex>::rotate\_}}()\ \{}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00104}00104\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacespdlog_1_1details_1_1os_a1b7269cc914fd057cc37f936c5b1bf9c}{details::os::filename\_to\_str}};}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00105}00105\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacespdlog_1_1details_1_1os_adf9dc0aae835a2e5e3076f3582a42868}{details::os::path\_exists}};}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00107}00107\ \ \ \ \ file\_helper\_.close();}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00108}00108\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ =\ max\_files\_;\ i\ >\ 0;\ -\/-\/i)\ \{}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00109}00109\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_a6fe9554b72972dc15ebf3ca0eb24f5a5}{filename\_t}}\ src\ =\ calc\_filename(base\_filename\_,\ i\ -\/\ 1);}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00110}00110\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!path\_exists(src))\ \{}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00112}00112\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00113}00113\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_a6fe9554b72972dc15ebf3ca0eb24f5a5}{filename\_t}}\ target\ =\ calc\_filename(base\_filename\_,\ i);}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00115}00115\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!rename\_file\_(src,\ target))\ \{}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ failed\ try\ again\ after\ a\ small\ delay.}}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ this\ is\ a\ workaround\ to\ a\ windows\ issue,\ where\ very\ high\ rotation}}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ rates\ can\ cause\ the\ rename\ to\ fail\ with\ permission\ denied\ (because\ of\ antivirus?).}}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_1_1os_af2da5579c7ea1726de7699f3fbf3afb6}{details::os::sleep\_for\_millis}}(100);}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!rename\_file\_(src,\ target))\ \{}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ file\_helper\_.reopen(}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{true});\ \ \textcolor{comment}{//\ truncate\ the\ log\ file\ anyway\ to\ prevent\ it\ to\ grow\ beyond\ its\ limit!}}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ current\_size\_\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00124}00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_ac3d8b7e83aad48720518fbac80836c3c}{throw\_spdlog\_ex}}(\textcolor{stringliteral}{"{}rotating\_file\_sink:\ failed\ renaming\ "{}}\ +\ filename\_to\_str(src)\ +}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ to\ "{}}\ +\ filename\_to\_str(target),}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ errno);}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00128}00128\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00129}00129\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00130}00130\ \ \ \ \ file\_helper\_.reopen(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00131}00131\ \}}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00133}00133\ \textcolor{comment}{//\ delete\ the\ target\ if\ exists,\ and\ rename\ the\ src\ file\ \ to\ target}}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00134}00134\ \textcolor{comment}{//\ return\ true\ on\ success,\ false\ otherwise.}}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00135}00135\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Mutex>}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00136}\mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink_a0ea417e384308b828d35aceda586ea59}{00136}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1rotating__file__sink_a0ea417e384308b828d35aceda586ea59}{rotating\_file\_sink<Mutex>::rename\_file\_}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacespdlog_a6fe9554b72972dc15ebf3ca0eb24f5a5}{filename\_t}}\ \&src\_filename,}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespacespdlog_a6fe9554b72972dc15ebf3ca0eb24f5a5}{filename\_t}}\ \&target\_filename)\ \{}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00138}00138\ \ \ \ \ \textcolor{comment}{//\ try\ to\ delete\ the\ target\ file\ in\ case\ it\ already\ exists.}}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00139}00139\ \ \ \ \ (void)\mbox{\hyperlink{namespacespdlog_1_1details_1_1os_a4ef47eb60fab317f746fd6c8a2bc30c2}{details::os::remove}}(target\_filename);}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00140}00140\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacespdlog_1_1details_1_1os_aa11fb3661265ad941f79081777afd86c}{details::os::rename}}(src\_filename,\ target\_filename)\ ==\ 0;}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00141}00141\ \}}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00142}00142\ }
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00143}00143\ \}\ \ \textcolor{comment}{//\ namespace\ sinks}}
+\DoxyCodeLine{\Hypertarget{rotating__file__sink-inl_8h_source_l00144}00144\ \}\ \ \textcolor{comment}{//\ namespace\ spdlog}}
+
+\end{DoxyCode}

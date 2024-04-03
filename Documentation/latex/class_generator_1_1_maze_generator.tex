@@ -1,0 +1,141 @@
+\doxysection{Generator\+::Maze\+Generator Class Reference}
+\hypertarget{class_generator_1_1_maze_generator}{}\label{class_generator_1_1_maze_generator}\index{Generator::MazeGenerator@{Generator::MazeGenerator}}
+
+
+{\ttfamily \#include $<$maze\+Generator.\+hpp$>$}
+
+
+
+Collaboration diagram for Generator\+::Maze\+Generator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=206pt]{class_generator_1_1_maze_generator__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_generator_1_1_maze_generator_a4114c4017c24ed8d1e10d6cd35d43acb}{Maze\+Generator}} (const \mbox{\hyperlink{class_maze_generator_settings}{Maze\+Generator\+Settings}} \&\mbox{\hyperlink{class_generator_1_1_maze_generator_ab4627105f21232ee6eda5ffd84ef6474}{settings}})
+\item 
+void \mbox{\hyperlink{class_generator_1_1_maze_generator_a0c8a83b6a5dfc1977015ee4e3ceeb4f2}{generate}} (\mbox{\hyperlink{class_data_1_1_maze_data}{Data\+::\+Maze\+Data}} \&maze)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_generator_1_1_maze_generator_algorithm}{Generator\+::\+Maze\+Generator\+Algorithm}} $>$ \mbox{\hyperlink{class_generator_1_1_maze_generator_afac6f12e345a40813478288a9a9ea18d}{algorithm}}
+\item 
+\mbox{\hyperlink{class_maze_generator_settings}{Maze\+Generator\+Settings}} \mbox{\hyperlink{class_generator_1_1_maze_generator_ab4627105f21232ee6eda5ffd84ef6474}{settings}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{maze_generator_8hpp_source_l00010}{10}} of file \mbox{\hyperlink{maze_generator_8hpp_source}{maze\+Generator.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_generator_1_1_maze_generator_a4114c4017c24ed8d1e10d6cd35d43acb}\label{class_generator_1_1_maze_generator_a4114c4017c24ed8d1e10d6cd35d43acb} 
+\index{Generator::MazeGenerator@{Generator::MazeGenerator}!MazeGenerator@{MazeGenerator}}
+\index{MazeGenerator@{MazeGenerator}!Generator::MazeGenerator@{Generator::MazeGenerator}}
+\doxysubsubsection{\texorpdfstring{MazeGenerator()}{MazeGenerator()}}
+{\footnotesize\ttfamily Generator\+::\+Maze\+Generator\+::\+Maze\+Generator (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_maze_generator_settings}{Maze\+Generator\+Settings}} \&}]{settings }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{maze_generator_8cpp_source_l00010}{10}} of file \mbox{\hyperlink{maze_generator_8cpp_source}{maze\+Generator.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{class_generator_1_1_maze_generator_ab4627105f21232ee6eda5ffd84ef6474}{settings}}(\mbox{\hyperlink{class_generator_1_1_maze_generator_ab4627105f21232ee6eda5ffd84ef6474}{settings}}) }
+\DoxyCodeLine{00011\ \ \ \ \ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (\mbox{\hyperlink{class_generator_1_1_maze_generator_ab4627105f21232ee6eda5ffd84ef6474}{settings}}.\mbox{\hyperlink{class_maze_generator_settings_a51fb19290b5417c48ca3a00c69fe1343}{getAlgorithmType}}())}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{maze_generator_settings_8hpp_a7fe2da35a8bbff7280f9bc893f1e87b4a0d56e294d45de50e7bbbd3ea63617d92}{Kruskal}}:}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_log_acc334094de2c17174209b77597e7742d}{Log::info}}(\textcolor{stringliteral}{"{}Maze\ generation\ with\ Kruskal\ based\ algorithm!"{}});}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_generator_1_1_maze_generator_afac6f12e345a40813478288a9a9ea18d}{algorithm}}\ =\ std::make\_shared<KruskalGenerator>();}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_generator_1_1_maze_generator_afac6f12e345a40813478288a9a9ea18d}{algorithm}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00021\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_generator_1_1_maze_generator_a4114c4017c24ed8d1e10d6cd35d43acb_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_generator_1_1_maze_generator_a0c8a83b6a5dfc1977015ee4e3ceeb4f2}\label{class_generator_1_1_maze_generator_a0c8a83b6a5dfc1977015ee4e3ceeb4f2} 
+\index{Generator::MazeGenerator@{Generator::MazeGenerator}!generate@{generate}}
+\index{generate@{generate}!Generator::MazeGenerator@{Generator::MazeGenerator}}
+\doxysubsubsection{\texorpdfstring{generate()}{generate()}}
+{\footnotesize\ttfamily void Generator\+::\+Maze\+Generator\+::generate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_data_1_1_maze_data}{Data\+::\+Maze\+Data}} \&}]{maze }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{maze_generator_8cpp_source_l00023}{23}} of file \mbox{\hyperlink{maze_generator_8cpp_source}{maze\+Generator.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00024\ \ \ \ \ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_time_guard}{TimeGuard}}\ timeGuard(\textcolor{stringliteral}{"{}Maz\ Generation"{}});}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_generator_1_1_maze_generator_afac6f12e345a40813478288a9a9ea18d}{algorithm}}-\/>Generate(maze);}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_log_acc334094de2c17174209b77597e7742d}{Log::info}}(\textcolor{stringliteral}{"{}Maze\ generated"{}});}
+\DoxyCodeLine{00028\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_generator_1_1_maze_generator_a0c8a83b6a5dfc1977015ee4e3ceeb4f2_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_generator_1_1_maze_generator_a0c8a83b6a5dfc1977015ee4e3ceeb4f2_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_generator_1_1_maze_generator_afac6f12e345a40813478288a9a9ea18d}\label{class_generator_1_1_maze_generator_afac6f12e345a40813478288a9a9ea18d} 
+\index{Generator::MazeGenerator@{Generator::MazeGenerator}!algorithm@{algorithm}}
+\index{algorithm@{algorithm}!Generator::MazeGenerator@{Generator::MazeGenerator}}
+\doxysubsubsection{\texorpdfstring{algorithm}{algorithm}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_generator_1_1_maze_generator_algorithm}{Generator\+::\+Maze\+Generator\+Algorithm}}$>$ Generator\+::\+Maze\+Generator\+::algorithm\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{maze_generator_8hpp_source_l00012}{12}} of file \mbox{\hyperlink{maze_generator_8hpp_source}{maze\+Generator.\+hpp}}.
+
+\Hypertarget{class_generator_1_1_maze_generator_ab4627105f21232ee6eda5ffd84ef6474}\label{class_generator_1_1_maze_generator_ab4627105f21232ee6eda5ffd84ef6474} 
+\index{Generator::MazeGenerator@{Generator::MazeGenerator}!settings@{settings}}
+\index{settings@{settings}!Generator::MazeGenerator@{Generator::MazeGenerator}}
+\doxysubsubsection{\texorpdfstring{settings}{settings}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_maze_generator_settings}{Maze\+Generator\+Settings}} Generator\+::\+Maze\+Generator\+::settings\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{maze_generator_8hpp_source_l00013}{13}} of file \mbox{\hyperlink{maze_generator_8hpp_source}{maze\+Generator.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Generator/\mbox{\hyperlink{maze_generator_8hpp}{maze\+Generator.\+hpp}}\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Generator/\mbox{\hyperlink{maze_generator_8cpp}{maze\+Generator.\+cpp}}\end{DoxyCompactItemize}

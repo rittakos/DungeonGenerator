@@ -1,0 +1,123 @@
+\doxysection{thread\+\_\+pool.\+h}
+\hypertarget{thread__pool_8h_source}{}\label{thread__pool_8h_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/spdlog/details/thread\_pool.h@{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/spdlog/details/thread\_pool.h}}
+\mbox{\hyperlink{thread__pool_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00001}00001\ \textcolor{comment}{//\ Copyright(c)\ 2015-\/present,\ Gabi\ Melman\ \&\ spdlog\ contributors.}}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00002}00002\ \textcolor{comment}{//\ Distributed\ under\ the\ MIT\ License\ (http://opensource.org/licenses/MIT)}}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00004}00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{log__msg__buffer_8h}{spdlog/details/log\_msg\_buffer.h}}>}}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{mpmc__blocking__q_8h}{spdlog/details/mpmc\_blocking\_q.h}}>}}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{details_2os_8h}{spdlog/details/os.h}}>}}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <chrono>}}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <thread>}}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00016}00016\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacespdlog}{spdlog}}\ \{}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00017}00017\ \textcolor{keyword}{class\ }async\_logger;}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00019}00019\ \textcolor{keyword}{namespace\ }details\ \{}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00021}\mbox{\hyperlink{namespacespdlog_1_1details_ad68da632c0c09383c420a9d2b028bd67}{00021}}\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacespdlog_1_1details_ad68da632c0c09383c420a9d2b028bd67}{async\_logger\_ptr}}\ =\ std::shared\_ptr<spdlog::async\_logger>;}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00023}\mbox{\hyperlink{namespacespdlog_1_1details_a22274995cf879a5d0a08d1f7513ee4fb}{00023}}\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{namespacespdlog_1_1details_a22274995cf879a5d0a08d1f7513ee4fb}{async\_msg\_type}}\ \{\ \mbox{\hyperlink{namespacespdlog_1_1details_a22274995cf879a5d0a08d1f7513ee4fbadc1d71bbb5c4d2a5e936db79ef10c19f}{log}},\ \mbox{\hyperlink{namespacespdlog_1_1details_a22274995cf879a5d0a08d1f7513ee4fba86f354b8575a1a736775ae003fa344e5}{flush}},\ \mbox{\hyperlink{namespacespdlog_1_1details_a22274995cf879a5d0a08d1f7513ee4fba1459e53d3fbaa95cebaf90860dd7a259}{terminate}}\ \};}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00025}00025\ \textcolor{comment}{//\ Async\ msg\ to\ move\ to/from\ the\ queue}}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00026}00026\ \textcolor{comment}{//\ Movable\ only.\ should\ never\ be\ copied}}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00027}\mbox{\hyperlink{structspdlog_1_1details_1_1async__msg}{00027}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structspdlog_1_1details_1_1async__msg}{async\_msg}}\ :\ \mbox{\hyperlink{classspdlog_1_1details_1_1log__msg__buffer}{log\_msg\_buffer}}\ \{}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00028}\mbox{\hyperlink{structspdlog_1_1details_1_1async__msg_a02c7d8e28bc720dea6552042801a86c0}{00028}}\ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_a22274995cf879a5d0a08d1f7513ee4fb}{async\_msg\_type}}\ \mbox{\hyperlink{structspdlog_1_1details_1_1async__msg_a02c7d8e28bc720dea6552042801a86c0}{msg\_type}}\{\mbox{\hyperlink{namespacespdlog_1_1details_a22274995cf879a5d0a08d1f7513ee4fbadc1d71bbb5c4d2a5e936db79ef10c19f}{async\_msg\_type::log}}\};}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00029}\mbox{\hyperlink{structspdlog_1_1details_1_1async__msg_a11f8ca9e84e22b61fca4cd7fe88db5aa}{00029}}\ \ \ \ \ \mbox{\hyperlink{namespacespdlog_1_1details_ad68da632c0c09383c420a9d2b028bd67}{async\_logger\_ptr}}\ \mbox{\hyperlink{structspdlog_1_1details_1_1async__msg_a11f8ca9e84e22b61fca4cd7fe88db5aa}{worker\_ptr}};}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00031}\mbox{\hyperlink{structspdlog_1_1details_1_1async__msg_a1639729ae0bbefc841ec4b87c3369274}{00031}}\ \ \ \ \ \mbox{\hyperlink{structspdlog_1_1details_1_1async__msg_a1639729ae0bbefc841ec4b87c3369274}{async\_msg}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00032}\mbox{\hyperlink{structspdlog_1_1details_1_1async__msg_ab4a9c6bb231f8b467f4a9bf43820da45}{00032}}\ \ \ \ \ \mbox{\hyperlink{structspdlog_1_1details_1_1async__msg_ab4a9c6bb231f8b467f4a9bf43820da45}{\string~async\_msg}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00034}00034\ \ \ \ \ \textcolor{comment}{//\ should\ only\ be\ moved\ in\ or\ out\ of\ the\ queue..}}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00035}\mbox{\hyperlink{structspdlog_1_1details_1_1async__msg_ac61cf7969d3c60aa377cf4a40df6e6a7}{00035}}\ \ \ \ \ \mbox{\hyperlink{structspdlog_1_1details_1_1async__msg_ac61cf7969d3c60aa377cf4a40df6e6a7}{async\_msg}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1async__msg}{async\_msg}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00037}00037\ \textcolor{comment}{//\ support\ for\ vs2013\ move}}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00038}00038\ \textcolor{preprocessor}{\#if\ defined(\_MSC\_VER)\ \&\&\ \_MSC\_VER\ <=\ 1800}}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00039}00039\ \ \ \ \ \mbox{\hyperlink{structspdlog_1_1details_1_1async__msg_a1639729ae0bbefc841ec4b87c3369274}{async\_msg}}(\mbox{\hyperlink{structspdlog_1_1details_1_1async__msg}{async\_msg}}\ \&\&other)}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00040}00040\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classspdlog_1_1details_1_1log__msg__buffer}{log\_msg\_buffer}}(\mbox{\hyperlink{namespacestd}{std}}::move(other)),}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structspdlog_1_1details_1_1async__msg_a02c7d8e28bc720dea6552042801a86c0}{msg\_type}}(other.\mbox{\hyperlink{structspdlog_1_1details_1_1async__msg_a02c7d8e28bc720dea6552042801a86c0}{msg\_type}}),}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structspdlog_1_1details_1_1async__msg_a11f8ca9e84e22b61fca4cd7fe88db5aa}{worker\_ptr}}(\mbox{\hyperlink{namespacestd}{std}}::move(other.\mbox{\hyperlink{structspdlog_1_1details_1_1async__msg_a11f8ca9e84e22b61fca4cd7fe88db5aa}{worker\_ptr}}))\ \{\}}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00044}00044\ \ \ \ \ \mbox{\hyperlink{structspdlog_1_1details_1_1async__msg}{async\_msg}}\ \&\mbox{\hyperlink{structspdlog_1_1details_1_1async__msg_afbd98754000ac0af22fa886959f35177}{operator=}}(\mbox{\hyperlink{structspdlog_1_1details_1_1async__msg}{async\_msg}}\ \&\&other)\ \{}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00045}00045\ \ \ \ \ \ \ \ \ *\textcolor{keyword}{static\_cast<}\mbox{\hyperlink{classspdlog_1_1details_1_1log__msg__buffer}{log\_msg\_buffer}}\ *\textcolor{keyword}{>}(\textcolor{keyword}{this})\ =\ std::move(other);}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00046}00046\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structspdlog_1_1details_1_1async__msg_a02c7d8e28bc720dea6552042801a86c0}{msg\_type}}\ =\ other.msg\_type;}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00047}00047\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structspdlog_1_1details_1_1async__msg_a11f8ca9e84e22b61fca4cd7fe88db5aa}{worker\_ptr}}\ =\ std::move(other.worker\_ptr);}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00048}00048\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00049}00049\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00050}00050\ \textcolor{preprocessor}{\#else\ \ }\textcolor{comment}{//\ (\_MSC\_VER)\ \&\&\ \_MSC\_VER\ <=\ 1800}}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00051}\mbox{\hyperlink{structspdlog_1_1details_1_1async__msg_a2e618e34ed69ba387e8e5f069543f94a}{00051}}\ \ \ \ \ \mbox{\hyperlink{structspdlog_1_1details_1_1async__msg_a2e618e34ed69ba387e8e5f069543f94a}{async\_msg}}(\mbox{\hyperlink{structspdlog_1_1details_1_1async__msg}{async\_msg}}\ \&\&)\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00052}\mbox{\hyperlink{structspdlog_1_1details_1_1async__msg_afbd98754000ac0af22fa886959f35177}{00052}}\ \ \ \ \ \mbox{\hyperlink{structspdlog_1_1details_1_1async__msg}{async\_msg}}\ \&\mbox{\hyperlink{structspdlog_1_1details_1_1async__msg_afbd98754000ac0af22fa886959f35177}{operator=}}(\mbox{\hyperlink{structspdlog_1_1details_1_1async__msg}{async\_msg}}\ \&\&)\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00053}00053\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00055}00055\ \ \ \ \ \textcolor{comment}{//\ construct\ from\ log\_msg\ with\ given\ type}}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00056}\mbox{\hyperlink{structspdlog_1_1details_1_1async__msg_a6867adb721db681c3f7bd3ee0d6c0358}{00056}}\ \ \ \ \ \mbox{\hyperlink{structspdlog_1_1details_1_1async__msg_a6867adb721db681c3f7bd3ee0d6c0358}{async\_msg}}(\mbox{\hyperlink{namespacespdlog_1_1details_ad68da632c0c09383c420a9d2b028bd67}{async\_logger\_ptr}}\ \&\&worker,\ \mbox{\hyperlink{namespacespdlog_1_1details_a22274995cf879a5d0a08d1f7513ee4fb}{async\_msg\_type}}\ the\_type,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&m)}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00057}00057\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classspdlog_1_1details_1_1log__msg__buffer}{log\_msg\_buffer}}\{m\},}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structspdlog_1_1details_1_1async__msg_a02c7d8e28bc720dea6552042801a86c0}{msg\_type}}\{the\_type\},}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structspdlog_1_1details_1_1async__msg_a11f8ca9e84e22b61fca4cd7fe88db5aa}{worker\_ptr}}\{\mbox{\hyperlink{namespacestd}{std}}::move(worker)\}\ \{\}}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00061}\mbox{\hyperlink{structspdlog_1_1details_1_1async__msg_ace5999e830cd28f7b14f804952925379}{00061}}\ \ \ \ \ \mbox{\hyperlink{structspdlog_1_1details_1_1async__msg_ace5999e830cd28f7b14f804952925379}{async\_msg}}(\mbox{\hyperlink{namespacespdlog_1_1details_ad68da632c0c09383c420a9d2b028bd67}{async\_logger\_ptr}}\ \&\&worker,\ \mbox{\hyperlink{namespacespdlog_1_1details_a22274995cf879a5d0a08d1f7513ee4fb}{async\_msg\_type}}\ the\_type)}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00062}00062\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classspdlog_1_1details_1_1log__msg__buffer}{log\_msg\_buffer}}\{\},}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structspdlog_1_1details_1_1async__msg_a02c7d8e28bc720dea6552042801a86c0}{msg\_type}}\{the\_type\},}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structspdlog_1_1details_1_1async__msg_a11f8ca9e84e22b61fca4cd7fe88db5aa}{worker\_ptr}}\{\mbox{\hyperlink{namespacestd}{std}}::move(worker)\}\ \{\}}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00066}\mbox{\hyperlink{structspdlog_1_1details_1_1async__msg_a466b9eb427b14c12f59afeeeb98c0e01}{00066}}\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{structspdlog_1_1details_1_1async__msg_a466b9eb427b14c12f59afeeeb98c0e01}{async\_msg}}(\mbox{\hyperlink{namespacespdlog_1_1details_a22274995cf879a5d0a08d1f7513ee4fb}{async\_msg\_type}}\ the\_type)}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00067}00067\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{structspdlog_1_1details_1_1async__msg}{async\_msg}}\{nullptr,\ the\_type\}\ \{\}}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00068}00068\ \};}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00070}\mbox{\hyperlink{classspdlog_1_1details_1_1thread__pool}{00070}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{common_8h_a52ddbd25f1bb074a1b09e10a3e5b177d}{SPDLOG\_API}}\ \mbox{\hyperlink{classspdlog_1_1details_1_1thread__pool}{thread\_pool}}\ \{}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00071}00071\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00072}\mbox{\hyperlink{classspdlog_1_1details_1_1thread__pool_a997d954a51e8fa8aa92071d1a9c08536}{00072}}\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structspdlog_1_1details_1_1async__msg}{item\_type}}\ =\ \mbox{\hyperlink{structspdlog_1_1details_1_1async__msg}{async\_msg}};}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00073}\mbox{\hyperlink{classspdlog_1_1details_1_1thread__pool_a77d633d56b0b5e1fe37965faa4642df5}{00073}}\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classspdlog_1_1details_1_1mpmc__blocking__queue}{q\_type}}\ =\ \mbox{\hyperlink{classspdlog_1_1details_1_1mpmc__blocking__queue}{details::mpmc\_blocking\_queue<item\_type>}};}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00075}00075\ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1details_1_1thread__pool}{thread\_pool}}(\textcolor{keywordtype}{size\_t}\ q\_max\_items,}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ threads\_n,}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::function<\textcolor{keywordtype}{void}()>\ on\_thread\_start,}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::function<\textcolor{keywordtype}{void}()>\ on\_thread\_stop);}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00079}00079\ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1details_1_1thread__pool}{thread\_pool}}(\textcolor{keywordtype}{size\_t}\ q\_max\_items,\ \textcolor{keywordtype}{size\_t}\ threads\_n,\ std::function<\textcolor{keywordtype}{void}()>\ on\_thread\_start);}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00080}00080\ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1details_1_1thread__pool}{thread\_pool}}(\textcolor{keywordtype}{size\_t}\ q\_max\_items,\ \textcolor{keywordtype}{size\_t}\ threads\_n);}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00082}00082\ \ \ \ \ \textcolor{comment}{//\ message\ all\ threads\ to\ terminate\ gracefully\ and\ join\ them}}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00083}00083\ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1details_1_1thread__pool}{\string~thread\_pool}}();}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00085}\mbox{\hyperlink{classspdlog_1_1details_1_1thread__pool_a5e8f86d40f81af1d22a21ee0368287b2}{00085}}\ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1details_1_1thread__pool_a5e8f86d40f81af1d22a21ee0368287b2}{thread\_pool}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classspdlog_1_1details_1_1thread__pool}{thread\_pool}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00086}\mbox{\hyperlink{classspdlog_1_1details_1_1thread__pool_a9204417caf6f37791595a108a3721470}{00086}}\ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1details_1_1thread__pool}{thread\_pool}}\ \&\mbox{\hyperlink{classspdlog_1_1details_1_1thread__pool_a9204417caf6f37791595a108a3721470}{operator=}}(\mbox{\hyperlink{classspdlog_1_1details_1_1thread__pool}{thread\_pool}}\ \&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00088}00088\ \ \ \ \ \textcolor{keywordtype}{void}\ post\_log(\mbox{\hyperlink{namespacespdlog_1_1details_ad68da632c0c09383c420a9d2b028bd67}{async\_logger\_ptr}}\ \&\&worker\_ptr,}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&msg,}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_a42e109759a11c9514d3f6313a7709852}{async\_overflow\_policy}}\ overflow\_policy);}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00091}00091\ \ \ \ \ \textcolor{keywordtype}{void}\ post\_flush(\mbox{\hyperlink{namespacespdlog_1_1details_ad68da632c0c09383c420a9d2b028bd67}{async\_logger\_ptr}}\ \&\&worker\_ptr,\ \mbox{\hyperlink{namespacespdlog_a42e109759a11c9514d3f6313a7709852}{async\_overflow\_policy}}\ overflow\_policy);}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00092}00092\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ overrun\_counter();}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00093}00093\ \ \ \ \ \textcolor{keywordtype}{void}\ reset\_overrun\_counter();}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00094}00094\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ discard\_counter();}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00095}00095\ \ \ \ \ \textcolor{keywordtype}{void}\ reset\_discard\_counter();}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00096}00096\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ queue\_size();}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00098}00098\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00099}\mbox{\hyperlink{classspdlog_1_1details_1_1thread__pool_a37f2239d9ab89c73de8e1944e4cc7fa9}{00099}}\ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1details_1_1mpmc__blocking__queue}{q\_type}}\ \mbox{\hyperlink{classspdlog_1_1details_1_1thread__pool_a37f2239d9ab89c73de8e1944e4cc7fa9}{q\_}};}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00101}\mbox{\hyperlink{classspdlog_1_1details_1_1thread__pool_ad46f1d6cac99cda6311e7d16940f700d}{00101}}\ \ \ \ \ std::vector<std::thread>\ \mbox{\hyperlink{classspdlog_1_1details_1_1thread__pool_ad46f1d6cac99cda6311e7d16940f700d}{threads\_}};}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00103}00103\ \ \ \ \ \textcolor{keywordtype}{void}\ post\_async\_msg\_(\mbox{\hyperlink{structspdlog_1_1details_1_1async__msg}{async\_msg}}\ \&\&new\_msg,\ \mbox{\hyperlink{namespacespdlog_a42e109759a11c9514d3f6313a7709852}{async\_overflow\_policy}}\ overflow\_policy);}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00104}00104\ \ \ \ \ \textcolor{keywordtype}{void}\ worker\_loop\_();}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00106}00106\ \ \ \ \ \textcolor{comment}{//\ process\ next\ message\ in\ the\ queue}}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00107}00107\ \ \ \ \ \textcolor{comment}{//\ return\ true\ if\ this\ thread\ should\ still\ be\ active\ (while\ no\ terminate\ msg}}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00108}00108\ \ \ \ \ \textcolor{comment}{//\ was\ received)}}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00109}00109\ \ \ \ \ \textcolor{keywordtype}{bool}\ process\_next\_msg\_();}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00110}00110\ \};}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00112}00112\ \}\ \ \textcolor{comment}{//\ namespace\ details}}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00113}00113\ \}\ \ \textcolor{comment}{//\ namespace\ spdlog}}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00115}00115\ \textcolor{preprocessor}{\#ifdef\ SPDLOG\_HEADER\_ONLY}}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00116}00116\ \textcolor{preprocessor}{\ \ \ \ \#include\ "{}\mbox{\hyperlink{thread__pool-inl_8h}{thread\_pool-\/inl.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{thread__pool_8h_source_l00117}00117\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

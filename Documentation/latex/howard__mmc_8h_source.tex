@@ -1,0 +1,459 @@
+\doxysection{howard\+\_\+mmc.\+h}
+\hypertarget{howard__mmc_8h_source}{}\label{howard__mmc_8h_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/lemon/howard\_mmc.h@{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/lemon/howard\_mmc.h}}
+\mbox{\hyperlink{howard__mmc_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00001}00001\ \textcolor{comment}{/*\ -\/*-\/\ mode:\ C++;\ indent-\/tabs-\/mode:\ nil;\ -\/*-\/}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00002}00002\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00003}00003\ \textcolor{comment}{\ *\ This\ file\ is\ a\ part\ of\ LEMON,\ a\ generic\ C++\ optimization\ library.}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00004}00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00005}00005\ \textcolor{comment}{\ *\ Copyright\ (C)\ 2003-\/2013}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00006}00006\ \textcolor{comment}{\ *\ Egervary\ Jeno\ Kombinatorikus\ Optimalizalasi\ Kutatocsoport}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00007}00007\ \textcolor{comment}{\ *\ (Egervary\ Research\ Group\ on\ Combinatorial\ Optimization,\ EGRES).}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00008}00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00009}00009\ \textcolor{comment}{\ *\ Permission\ to\ use,\ modify\ and\ distribute\ this\ software\ is\ granted}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00010}00010\ \textcolor{comment}{\ *\ provided\ that\ this\ copyright\ notice\ appears\ in\ all\ copies.\ For}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00011}00011\ \textcolor{comment}{\ *\ precise\ terms\ see\ the\ accompanying\ LICENSE\ file.}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00012}00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00013}00013\ \textcolor{comment}{\ *\ This\ software\ is\ provided\ "{}AS\ IS"{}\ with\ no\ warranty\ of\ any\ kind,}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00014}00014\ \textcolor{comment}{\ *\ express\ or\ implied,\ and\ with\ no\ claim\ as\ to\ its\ suitability\ for\ any}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00015}00015\ \textcolor{comment}{\ *\ purpose.}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00016}00016\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00017}00017\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00019}00019\ \textcolor{preprocessor}{\#ifndef\ LEMON\_HOWARD\_MMC\_H}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00020}00020\ \textcolor{preprocessor}{\#define\ LEMON\_HOWARD\_MMC\_H}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00027}00027\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00028}00028\ \textcolor{preprocessor}{\#include\ <limits>}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00029}00029\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{lemon_2core_8h}{lemon/core.h}}>}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00030}00030\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{path_8h}{lemon/path.h}}>}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00031}00031\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{tolerance_8h}{lemon/tolerance.h}}>}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00032}00032\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{connectivity_8h}{lemon/connectivity.h}}>}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00034}00034\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacelemon}{lemon}}\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00042}00042\ \textcolor{preprocessor}{\#ifdef\ DOXYGEN}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00043}00043\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ GR,\ \textcolor{keyword}{typename}\ CM>}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00044}00044\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00045}00045\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ GR,\ \textcolor{keyword}{typename}\ CM,}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00046}00046\ \ \ \ \ \textcolor{keywordtype}{bool}\ integer\ =\ std::numeric\_limits<typename\ CM::Value>::is\_integer>}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00047}00047\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00048}\mbox{\hyperlink{structlemon_1_1_howard_mmc_default_traits}{00048}}\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_howard_mmc_default_traits}{HowardMmcDefaultTraits}}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00049}00049\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00051}\mbox{\hyperlink{structlemon_1_1_howard_mmc_default_traits_a14fea616d872cd9202de3e07b7d8932b}{00051}}\ \ \ \ \ \textcolor{keyword}{typedef}\ GR\ \mbox{\hyperlink{structlemon_1_1_howard_mmc_default_traits_a14fea616d872cd9202de3e07b7d8932b}{Digraph}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00053}\mbox{\hyperlink{structlemon_1_1_howard_mmc_default_traits_a2189b57c0c0116e93dc628d06df5109c}{00053}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CM}}\ \mbox{\hyperlink{structlemon_1_1_howard_mmc_default_traits_a2189b57c0c0116e93dc628d06df5109c}{CostMap}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00055}\mbox{\hyperlink{structlemon_1_1_howard_mmc_default_traits_a1bd685f25d4f338b4a5f1cc5424d90d0}{00055}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ CostMap::Value\ \mbox{\hyperlink{structlemon_1_1_howard_mmc_default_traits_a1bd685f25d4f338b4a5f1cc5424d90d0}{Cost}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00063}\mbox{\hyperlink{structlemon_1_1_howard_mmc_default_traits_a15da39aae1026e7398364c1155ff6453}{00063}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structlemon_1_1_howard_mmc_default_traits_a15da39aae1026e7398364c1155ff6453}{LargeCost}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00066}\mbox{\hyperlink{structlemon_1_1_howard_mmc_default_traits_ab46e76cd7f1c1a3226a9b06825e70db6}{00066}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{lemon::Tolerance<LargeCost>}}\ \mbox{\hyperlink{structlemon_1_1_howard_mmc_default_traits_ab46e76cd7f1c1a3226a9b06825e70db6}{Tolerance}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00073}\mbox{\hyperlink{structlemon_1_1_howard_mmc_default_traits_a871c7b448e5c4e14d288c58003861f8f}{00073}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{lemon::Path<Digraph>}}\ \mbox{\hyperlink{structlemon_1_1_howard_mmc_default_traits_a871c7b448e5c4e14d288c58003861f8f}{Path}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00074}00074\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00076}00076\ \ \ \textcolor{comment}{//\ Default\ traits\ class\ for\ integer\ cost\ types}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00077}00077\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ GR,\ \textcolor{keyword}{typename}\ CM>}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00078}\mbox{\hyperlink{structlemon_1_1_howard_mmc_default_traits_3_01_g_r_00_01_c_m_00_01true_01_4}{00078}}\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_howard_mmc_default_traits}{HowardMmcDefaultTraits}}<GR,\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CM}},\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{true}}>}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00079}00079\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00080}\mbox{\hyperlink{structlemon_1_1_howard_mmc_default_traits_3_01_g_r_00_01_c_m_00_01true_01_4_a93993b2ed4c828797607ff69d81cc9b9}{00080}}\ \ \ \ \ \textcolor{keyword}{typedef}\ GR\ \mbox{\hyperlink{structlemon_1_1_howard_mmc_default_traits_3_01_g_r_00_01_c_m_00_01true_01_4_a93993b2ed4c828797607ff69d81cc9b9}{Digraph}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00081}\mbox{\hyperlink{structlemon_1_1_howard_mmc_default_traits_3_01_g_r_00_01_c_m_00_01true_01_4_ab407581dbf3f6f3c09bd80484a8a80e8}{00081}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CM}}\ \mbox{\hyperlink{structlemon_1_1_howard_mmc_default_traits_3_01_g_r_00_01_c_m_00_01true_01_4_ab407581dbf3f6f3c09bd80484a8a80e8}{CostMap}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00082}\mbox{\hyperlink{structlemon_1_1_howard_mmc_default_traits_3_01_g_r_00_01_c_m_00_01true_01_4_a3e6d27c941a85d15f88f58badef0b131}{00082}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ CostMap::Value\ \mbox{\hyperlink{structlemon_1_1_howard_mmc_default_traits_3_01_g_r_00_01_c_m_00_01true_01_4_a3e6d27c941a85d15f88f58badef0b131}{Cost}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00083}00083\ \textcolor{preprocessor}{\#ifdef\ LEMON\_HAVE\_LONG\_LONG}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00084}00084\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{structlemon_1_1_howard_mmc_default_traits_a15da39aae1026e7398364c1155ff6453}{LargeCost}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00085}00085\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00086}\mbox{\hyperlink{structlemon_1_1_howard_mmc_default_traits_3_01_g_r_00_01_c_m_00_01true_01_4_a58999abc709d7920ce0e59f8a1e6025f}{00086}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{structlemon_1_1_howard_mmc_default_traits_3_01_g_r_00_01_c_m_00_01true_01_4_a58999abc709d7920ce0e59f8a1e6025f}{LargeCost}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00087}00087\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00088}\mbox{\hyperlink{structlemon_1_1_howard_mmc_default_traits_3_01_g_r_00_01_c_m_00_01true_01_4_a92f92b8a39513466dcb04024018720a7}{00088}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{lemon::Tolerance<LargeCost>}}\ \mbox{\hyperlink{structlemon_1_1_howard_mmc_default_traits_3_01_g_r_00_01_c_m_00_01true_01_4_a92f92b8a39513466dcb04024018720a7}{Tolerance}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00089}\mbox{\hyperlink{structlemon_1_1_howard_mmc_default_traits_3_01_g_r_00_01_c_m_00_01true_01_4_a19ca3103d692a62704a4f1306ef6062d}{00089}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{lemon::Path<Digraph>}}\ \mbox{\hyperlink{structlemon_1_1_howard_mmc_default_traits_3_01_g_r_00_01_c_m_00_01true_01_4_a19ca3103d692a62704a4f1306ef6062d}{Path}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00090}00090\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00114}00114\ \textcolor{preprocessor}{\#ifdef\ DOXYGEN}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00115}00115\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ GR,\ \textcolor{keyword}{typename}\ CM,\ \textcolor{keyword}{typename}\ TR>}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00116}00116\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00117}00117\ \ \ \textcolor{keyword}{template}\ <\ \textcolor{keyword}{typename}\ GR,}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CM}}\ =\ \textcolor{keyword}{typename}\ GR::template\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ArcMap<int>}},}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ TR\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{HowardMmcDefaultTraits<GR,\ CM>}}\ >}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00120}00120\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00121}\mbox{\hyperlink{classlemon_1_1_howard_mmc}{00121}}\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_howard_mmc}{HowardMmc}}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00122}00122\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00123}00123\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00126}\mbox{\hyperlink{classlemon_1_1_howard_mmc_ae9ccd755c5f3a24ef445d74824c34274}{00126}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ TR::Digraph\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_ae9ccd755c5f3a24ef445d74824c34274}{Digraph}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00128}\mbox{\hyperlink{classlemon_1_1_howard_mmc_aaaa8da10e1c6763b1796054b4fac1f96}{00128}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ TR::CostMap\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_aaaa8da10e1c6763b1796054b4fac1f96}{CostMap}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00130}\mbox{\hyperlink{classlemon_1_1_howard_mmc_ac8ac0fef87c4c0f3277bcf12146c99ba}{00130}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ TR::Cost\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_ac8ac0fef87c4c0f3277bcf12146c99ba}{Cost}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00137}\mbox{\hyperlink{classlemon_1_1_howard_mmc_a5f31a2767e8568a269e5c228b6719ca9}{00137}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ TR::LargeCost\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a5f31a2767e8568a269e5c228b6719ca9}{LargeCost}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00138}00138\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00140}\mbox{\hyperlink{classlemon_1_1_howard_mmc_abcc5f966db6638e01abfe379ce791f4f}{00140}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ TR::Tolerance\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_abcc5f966db6638e01abfe379ce791f4f}{Tolerance}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00141}00141\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00147}\mbox{\hyperlink{classlemon_1_1_howard_mmc_a30ecf730f1abb6e5d2ed91873f08eb40}{00147}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ TR::Path\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a30ecf730f1abb6e5d2ed91873f08eb40}{Path}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00148}00148\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00150}\mbox{\hyperlink{classlemon_1_1_howard_mmc_af69c5b8443f8aa3a99a5ed9ff285b513}{00150}}\ \ \ \ \ \textcolor{keyword}{typedef}\ TR\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_af69c5b8443f8aa3a99a5ed9ff285b513}{Traits}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00151}00151\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00157}\mbox{\hyperlink{classlemon_1_1_howard_mmc_ae420c5676e8b2b8c49c54c54cd3e823d}{00157}}\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_ae420c5676e8b2b8c49c54c54cd3e823d}{TerminationCause}}\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00158}00158\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00160}\mbox{\hyperlink{classlemon_1_1_howard_mmc_ae420c5676e8b2b8c49c54c54cd3e823dafff2d717e98114cf631b78b6f649de2c}{00160}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_ae420c5676e8b2b8c49c54c54cd3e823dafff2d717e98114cf631b78b6f649de2c}{NO\_CYCLE}}\ =\ 0,}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00161}00161\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00163}\mbox{\hyperlink{classlemon_1_1_howard_mmc_ae420c5676e8b2b8c49c54c54cd3e823da0479266e39995f30271a00cfe4a75310}{00163}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_ae420c5676e8b2b8c49c54c54cd3e823da0479266e39995f30271a00cfe4a75310}{OPTIMAL}}\ =\ 1,}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00164}00164\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00166}00166\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_ae420c5676e8b2b8c49c54c54cd3e823da671226f954ac5611617ea5b3be4280f9}{ITERATION\_LIMIT}}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00167}\mbox{\hyperlink{classlemon_1_1_howard_mmc_ae420c5676e8b2b8c49c54c54cd3e823da671226f954ac5611617ea5b3be4280f9}{00167}}\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00168}00168\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00169}00169\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00170}00170\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00171}\mbox{\hyperlink{classlemon_1_1_howard_mmc_adcb8b6706eac8d411ff11e7c5b491799}{00171}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_adcb8b6706eac8d411ff11e7c5b491799}{TEMPLATE\_DIGRAPH\_TYPEDEFS}}(\mbox{\hyperlink{classlemon_1_1_howard_mmc_ae9ccd755c5f3a24ef445d74824c34274}{Digraph}});}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00172}00172\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00173}00173\ \ \ \ \ \textcolor{comment}{//\ The\ digraph\ the\ algorithm\ runs\ on}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00174}\mbox{\hyperlink{classlemon_1_1_howard_mmc_a8a787b6310f1b27097a0d79cb3c0e736}{00174}}\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_ae9ccd755c5f3a24ef445d74824c34274}{Digraph}}\ \&\mbox{\hyperlink{classlemon_1_1_howard_mmc_a8a787b6310f1b27097a0d79cb3c0e736}{\_gr}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00175}00175\ \ \ \ \ \textcolor{comment}{//\ The\ cost\ of\ the\ arcs}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00176}\mbox{\hyperlink{classlemon_1_1_howard_mmc_a88484952d572a388c2ec535b31633849}{00176}}\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_aaaa8da10e1c6763b1796054b4fac1f96}{CostMap}}\ \&\mbox{\hyperlink{classlemon_1_1_howard_mmc_a88484952d572a388c2ec535b31633849}{\_cost}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00177}00177\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00178}00178\ \ \ \ \ \textcolor{comment}{//\ Data\ for\ the\ found\ cycles}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00179}\mbox{\hyperlink{classlemon_1_1_howard_mmc_adf0e6a5ff8b5fc694c94c4dab801e129}{00179}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a64257f1d705444732e25e6124a97a418}{\_curr\_found}},\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_adf0e6a5ff8b5fc694c94c4dab801e129}{\_best\_found}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00180}\mbox{\hyperlink{classlemon_1_1_howard_mmc_a3898b2a22ae23ce1e1bb8ada1bc2af8e}{00180}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a5f31a2767e8568a269e5c228b6719ca9}{LargeCost}}\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a25f19b2372ade0fe24dba3564a02e351}{\_curr\_cost}},\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a3898b2a22ae23ce1e1bb8ada1bc2af8e}{\_best\_cost}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00181}\mbox{\hyperlink{classlemon_1_1_howard_mmc_aafa52f0c49b3f479860e2b9596864054}{00181}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a800a472eab8a9865834768e207064d9a}{\_curr\_size}},\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_aafa52f0c49b3f479860e2b9596864054}{\_best\_size}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00182}\mbox{\hyperlink{classlemon_1_1_howard_mmc_a530f282c62ffd9ed66115b682f67b588}{00182}}\ \ \ \ \ Node\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a86ebfee107400bf2edf0fece863ed4a0}{\_curr\_node}},\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a530f282c62ffd9ed66115b682f67b588}{\_best\_node}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00183}00183\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00184}\mbox{\hyperlink{classlemon_1_1_howard_mmc_a3334d13d50d174ce8295224285577731}{00184}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a30ecf730f1abb6e5d2ed91873f08eb40}{Path}}\ *\mbox{\hyperlink{classlemon_1_1_howard_mmc_a3334d13d50d174ce8295224285577731}{\_cycle\_path}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00185}\mbox{\hyperlink{classlemon_1_1_howard_mmc_a54988fe2d987d71fd068e09283934b1d}{00185}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a54988fe2d987d71fd068e09283934b1d}{\_local\_path}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00186}00186\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00187}00187\ \ \ \ \ \textcolor{comment}{//\ Internal\ data\ used\ by\ the\ algorithm}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00188}\mbox{\hyperlink{classlemon_1_1_howard_mmc_a53d356e5ef73776e86de057210dbd462}{00188}}\ \ \ \ \ \textcolor{keyword}{typename}\ Digraph::template\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{NodeMap<Arc>}}\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a53d356e5ef73776e86de057210dbd462}{\_policy}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00189}\mbox{\hyperlink{classlemon_1_1_howard_mmc_a60e20817a4d6e349143f9862702583f2}{00189}}\ \ \ \ \ \textcolor{keyword}{typename}\ Digraph::template\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{NodeMap<bool>}}\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a60e20817a4d6e349143f9862702583f2}{\_reached}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00190}\mbox{\hyperlink{classlemon_1_1_howard_mmc_ad02a98fcfc3ea0480772859308c07f8f}{00190}}\ \ \ \ \ \textcolor{keyword}{typename}\ Digraph::template\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{NodeMap<int>}}\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_ad02a98fcfc3ea0480772859308c07f8f}{\_level}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00191}\mbox{\hyperlink{classlemon_1_1_howard_mmc_ade710a90bd4a9bce4e53e260533f4b51}{00191}}\ \ \ \ \ \textcolor{keyword}{typename}\ Digraph::template\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{NodeMap<LargeCost>}}\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_ade710a90bd4a9bce4e53e260533f4b51}{\_dist}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00192}00192\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00193}00193\ \ \ \ \ \textcolor{comment}{//\ Data\ for\ storing\ the\ strongly\ connected\ components}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00194}\mbox{\hyperlink{classlemon_1_1_howard_mmc_a9b7f18b35bfab234890a49fc0c9232af}{00194}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a9b7f18b35bfab234890a49fc0c9232af}{\_comp\_num}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00195}\mbox{\hyperlink{classlemon_1_1_howard_mmc_a215e56da62eccd10bc7e5ac498f465b8}{00195}}\ \ \ \ \ \textcolor{keyword}{typename}\ Digraph::template\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{NodeMap<int>}}\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a215e56da62eccd10bc7e5ac498f465b8}{\_comp}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00196}\mbox{\hyperlink{classlemon_1_1_howard_mmc_a7bf26f3218d8197985dc9ed1a19b84ff}{00196}}\ \ \ \ \ std::vector<std::vector<Node>\ >\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a7bf26f3218d8197985dc9ed1a19b84ff}{\_comp\_nodes}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00197}\mbox{\hyperlink{classlemon_1_1_howard_mmc_a79978bd0bb181a7288ee6f676a9c6aa0}{00197}}\ \ \ \ \ std::vector<Node>*\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a79978bd0bb181a7288ee6f676a9c6aa0}{\_nodes}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00198}\mbox{\hyperlink{classlemon_1_1_howard_mmc_af000f1cf0e5ad89910e509d7e48c0200}{00198}}\ \ \ \ \ \textcolor{keyword}{typename}\ Digraph::template\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{NodeMap<std::vector<Arc>}}\ >\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_af000f1cf0e5ad89910e509d7e48c0200}{\_in\_arcs}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00199}00199\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00200}00200\ \ \ \ \ \textcolor{comment}{//\ Queue\ used\ for\ BFS\ search}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00201}\mbox{\hyperlink{classlemon_1_1_howard_mmc_a9cfd3f8898fb3d366ba23ff8bac4a5f1}{00201}}\ \ \ \ \ std::vector<Node>\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a9cfd3f8898fb3d366ba23ff8bac4a5f1}{\_queue}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00202}\mbox{\hyperlink{classlemon_1_1_howard_mmc_a1b3cde8ed97cbdb20a70a7a58a92019c}{00202}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_ab6f1a7c46efe8ae1ad8479c3f7330136}{\_qfront}},\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a1b3cde8ed97cbdb20a70a7a58a92019c}{\_qback}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00203}00203\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00204}\mbox{\hyperlink{classlemon_1_1_howard_mmc_a0d7912e9a4f6ab988a280ec77e32141d}{00204}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_abcc5f966db6638e01abfe379ce791f4f}{Tolerance}}\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a0d7912e9a4f6ab988a280ec77e32141d}{\_tolerance}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00205}00205\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00206}00206\ \ \ \ \ \textcolor{comment}{//\ Infinite\ constant}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00207}\mbox{\hyperlink{classlemon_1_1_howard_mmc_a97fb3c496835321c3d50c4d20a7c88eb}{00207}}\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a5f31a2767e8568a269e5c228b6719ca9}{LargeCost}}\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a97fb3c496835321c3d50c4d20a7c88eb}{INF}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00208}00208\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00209}00209\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00210}00210\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00213}00213\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00214}00214\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00215}\mbox{\hyperlink{structlemon_1_1_howard_mmc_1_1_set_large_cost_traits}{00215}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_howard_mmc_1_1_set_large_cost_traits}{SetLargeCostTraits}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_af69c5b8443f8aa3a99a5ed9ff285b513}{Traits}}\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00216}\mbox{\hyperlink{structlemon_1_1_howard_mmc_1_1_set_large_cost_traits_a495e62a9cb222d12b527fcfa51e4a5fb}{00216}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ T\ \mbox{\hyperlink{structlemon_1_1_howard_mmc_1_1_set_large_cost_traits_a495e62a9cb222d12b527fcfa51e4a5fb}{LargeCost}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00217}\mbox{\hyperlink{structlemon_1_1_howard_mmc_1_1_set_large_cost_traits_acd2d1e2a4f54d6cfd43c92beb56e17e8}{00217}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{lemon::Tolerance<T>}}\ \mbox{\hyperlink{structlemon_1_1_howard_mmc_1_1_set_large_cost_traits_acd2d1e2a4f54d6cfd43c92beb56e17e8}{Tolerance}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00218}00218\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00219}00219\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00225}00225\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00226}\mbox{\hyperlink{structlemon_1_1_howard_mmc_1_1_set_large_cost}{00226}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_howard_mmc_1_1_set_large_cost}{SetLargeCost}}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00227}00227\ \ \ \ \ \ \ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1_howard_mmc}{HowardMmc}}<GR,\ CM,\ SetLargeCostTraits<T>\ >\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00228}\mbox{\hyperlink{structlemon_1_1_howard_mmc_1_1_set_large_cost_a81d1c89fb0257ad7121412b14fcf7a18}{00228}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{HowardMmc<GR,\ CM,\ SetLargeCostTraits<T>}}\ >\ \mbox{\hyperlink{structlemon_1_1_howard_mmc_1_1_set_large_cost_a81d1c89fb0257ad7121412b14fcf7a18}{Create}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00229}00229\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00230}00230\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00231}00231\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00232}\mbox{\hyperlink{structlemon_1_1_howard_mmc_1_1_set_path_traits}{00232}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_howard_mmc_1_1_set_path_traits}{SetPathTraits}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_af69c5b8443f8aa3a99a5ed9ff285b513}{Traits}}\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00233}\mbox{\hyperlink{structlemon_1_1_howard_mmc_1_1_set_path_traits_ab92e0c2a69e22db9b5e528b788067da1}{00233}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ T\ \mbox{\hyperlink{structlemon_1_1_howard_mmc_1_1_set_path_traits_ab92e0c2a69e22db9b5e528b788067da1}{Path}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00234}00234\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00235}00235\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00243}00243\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00244}\mbox{\hyperlink{structlemon_1_1_howard_mmc_1_1_set_path}{00244}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_howard_mmc_1_1_set_path}{SetPath}}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00245}00245\ \ \ \ \ \ \ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1_howard_mmc}{HowardMmc}}<GR,\ CM,\ SetPathTraits<T>\ >\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00246}\mbox{\hyperlink{structlemon_1_1_howard_mmc_1_1_set_path_a1a7e5973cd1c0f4abdbc5af5b6952045}{00246}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{HowardMmc<GR,\ CM,\ SetPathTraits<T>}}\ >\ \mbox{\hyperlink{structlemon_1_1_howard_mmc_1_1_set_path_a1a7e5973cd1c0f4abdbc5af5b6952045}{Create}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00247}00247\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00248}00248\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00250}00250\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00251}00251\ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00252}00252\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00253}\mbox{\hyperlink{classlemon_1_1_howard_mmc_a7fb190fba6e708cc14798483f3c9236d}{00253}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a7fb190fba6e708cc14798483f3c9236d}{HowardMmc}}()\ \{\}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00254}00254\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00255}00255\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00256}00256\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00263}\mbox{\hyperlink{classlemon_1_1_howard_mmc_a3062c3c2de64cbc19e358b917dda15db}{00263}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a3062c3c2de64cbc19e358b917dda15db}{HowardMmc}}(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_ae9ccd755c5f3a24ef445d74824c34274}{Digraph}}\ \&digraph,}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00264}00264\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_aaaa8da10e1c6763b1796054b4fac1f96}{CostMap}}\ \&\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cost}}\ )\ :}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00265}00265\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a8a787b6310f1b27097a0d79cb3c0e736}{\_gr}}(digraph),\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a88484952d572a388c2ec535b31633849}{\_cost}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cost}}),\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_adf0e6a5ff8b5fc694c94c4dab801e129}{\_best\_found}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{false}}),}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00266}00266\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a3898b2a22ae23ce1e1bb8ada1bc2af8e}{\_best\_cost}}(0),\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_aafa52f0c49b3f479860e2b9596864054}{\_best\_size}}(1),\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a3334d13d50d174ce8295224285577731}{\_cycle\_path}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{NULL}}),\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a54988fe2d987d71fd068e09283934b1d}{\_local\_path}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{false}}),}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00267}00267\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a53d356e5ef73776e86de057210dbd462}{\_policy}}(digraph),\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a60e20817a4d6e349143f9862702583f2}{\_reached}}(digraph),\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_ad02a98fcfc3ea0480772859308c07f8f}{\_level}}(digraph),\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_ade710a90bd4a9bce4e53e260533f4b51}{\_dist}}(digraph),}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00268}00268\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a215e56da62eccd10bc7e5ac498f465b8}{\_comp}}(digraph),\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_af000f1cf0e5ad89910e509d7e48c0200}{\_in\_arcs}}(digraph),}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00269}00269\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a97fb3c496835321c3d50c4d20a7c88eb}{INF}}(\mbox{\hyperlink{namespacestd}{std}}::\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{numeric\_limits}}<\mbox{\hyperlink{classlemon_1_1_howard_mmc_a5f31a2767e8568a269e5c228b6719ca9}{LargeCost}}>::\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{has\_infinity}}\ ?}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00270}00270\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacestd}{std}}::\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{numeric\_limits}}<\mbox{\hyperlink{classlemon_1_1_howard_mmc_a5f31a2767e8568a269e5c228b6719ca9}{LargeCost}}>::infinity()\ :}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00271}00271\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacestd}{std}}::\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{numeric\_limits}}<\mbox{\hyperlink{classlemon_1_1_howard_mmc_a5f31a2767e8568a269e5c228b6719ca9}{LargeCost}}>::max())}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00272}00272\ \ \ \ \ \{\}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00273}00273\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00275}\mbox{\hyperlink{classlemon_1_1_howard_mmc_a9ad5671cf5021966bb6ec97ed46b2d59}{00275}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a9ad5671cf5021966bb6ec97ed46b2d59}{\string~HowardMmc}}()\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00276}00276\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_howard_mmc_a54988fe2d987d71fd068e09283934b1d}{\_local\_path}})\ \textcolor{keyword}{delete}\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a3334d13d50d174ce8295224285577731}{\_cycle\_path}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00277}00277\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00278}00278\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00293}\mbox{\hyperlink{classlemon_1_1_howard_mmc_a58529c71285233bd408b15062e059a00}{00293}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc}{HowardMmc}}\&\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a58529c71285233bd408b15062e059a00}{cycle}}(\mbox{\hyperlink{classlemon_1_1_howard_mmc_a30ecf730f1abb6e5d2ed91873f08eb40}{Path}}\ \&path)\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00294}00294\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_howard_mmc_a54988fe2d987d71fd068e09283934b1d}{\_local\_path}})\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00295}00295\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a3334d13d50d174ce8295224285577731}{\_cycle\_path}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00296}00296\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a54988fe2d987d71fd068e09283934b1d}{\_local\_path}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00297}00297\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00298}00298\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a3334d13d50d174ce8295224285577731}{\_cycle\_path}}\ =\ \&path;}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00299}00299\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00300}00300\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00301}00301\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00307}\mbox{\hyperlink{classlemon_1_1_howard_mmc_aa1c6ab976b0de44e072ccc1c45477516}{00307}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc}{HowardMmc}}\&\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_aa1c6ab976b0de44e072ccc1c45477516}{tolerance}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_abcc5f966db6638e01abfe379ce791f4f}{Tolerance}}\&\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a6d5d45a3d4cd4d7be2bb6d29dcdb370e}{tolerance}})\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00308}00308\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a0d7912e9a4f6ab988a280ec77e32141d}{\_tolerance}}\ =\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a6d5d45a3d4cd4d7be2bb6d29dcdb370e}{tolerance}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00309}00309\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00310}00310\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00311}00311\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00316}\mbox{\hyperlink{classlemon_1_1_howard_mmc_a6d5d45a3d4cd4d7be2bb6d29dcdb370e}{00316}}\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_abcc5f966db6638e01abfe379ce791f4f}{Tolerance}}\&\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a6d5d45a3d4cd4d7be2bb6d29dcdb370e}{tolerance}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00317}00317\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a0d7912e9a4f6ab988a280ec77e32141d}{\_tolerance}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00318}00318\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00319}00319\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00325}00325\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00327}00327\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00340}\mbox{\hyperlink{classlemon_1_1_howard_mmc_aa243ca2ce948f5d082c456c8a69ec2e1}{00340}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_aa243ca2ce948f5d082c456c8a69ec2e1}{run}}()\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00341}00341\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_ae3d54101006744010a53ef784c3fd5fb}{findCycleMean}}()\ \&\&\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a082440fe7c7372a444a4c05d4ab89935}{findCycle}}();}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00342}00342\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00343}00343\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00364}\mbox{\hyperlink{classlemon_1_1_howard_mmc_ae3d54101006744010a53ef784c3fd5fb}{00364}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_ae420c5676e8b2b8c49c54c54cd3e823d}{TerminationCause}}\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_ae3d54101006744010a53ef784c3fd5fb}{findCycleMean}}(\textcolor{keywordtype}{int}\ limit\ =}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00365}00365\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::numeric\_limits<int>::max())\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00366}00366\ \ \ \ \ \ \ \textcolor{comment}{//\ Initialize\ and\ find\ strongly\ connected\ components}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00367}00367\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a77f073123b8dbab1e48eec9520a4958b}{init}}();}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00368}00368\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a674d17b6670c74d9a24277d88a180d92}{findComponents}}();}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00369}00369\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00370}00370\ \ \ \ \ \ \ \textcolor{comment}{//\ Find\ the\ minimum\ cycle\ mean\ in\ the\ components}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00371}00371\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{iter\_count}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00372}00372\ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{iter\_limit\_reached}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00373}00373\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ comp\ =\ 0;\ comp\ <\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a9b7f18b35bfab234890a49fc0c9232af}{\_comp\_num}};\ ++comp)\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00374}00374\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Find\ the\ minimum\ mean\ cycle\ in\ the\ current\ component}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00375}00375\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classlemon_1_1_howard_mmc_a7d25f44608811147f05ad0df100d1ba2}{buildPolicyGraph}}(comp))\ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00376}00376\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00377}00377\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (++\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{iter\_count}}\ >\ limit)\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00378}00378\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{iter\_limit\_reached}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00379}00379\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00380}00380\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00381}00381\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a0fcd58cdb8669a7e32c3901338ac33aa}{findPolicyCycle}}();}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00382}00382\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classlemon_1_1_howard_mmc_ab0040097e4e3643593b4b9c2a7c06a6b}{computeNodeDistances}}())\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00383}00383\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00384}00384\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00385}00385\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Update\ the\ best\ cycle\ (global\ minimum\ mean\ cycle)}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00386}00386\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a64257f1d705444732e25e6124a97a418}{\_curr\_found}}\ \&\&\ (!\mbox{\hyperlink{classlemon_1_1_howard_mmc_adf0e6a5ff8b5fc694c94c4dab801e129}{\_best\_found}}\ ||}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00387}00387\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a25f19b2372ade0fe24dba3564a02e351}{\_curr\_cost}}\ *\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_aafa52f0c49b3f479860e2b9596864054}{\_best\_size}}\ <\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a3898b2a22ae23ce1e1bb8ada1bc2af8e}{\_best\_cost}}\ *\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a800a472eab8a9865834768e207064d9a}{\_curr\_size}})\ )\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00388}00388\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_adf0e6a5ff8b5fc694c94c4dab801e129}{\_best\_found}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00389}00389\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a3898b2a22ae23ce1e1bb8ada1bc2af8e}{\_best\_cost}}\ =\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a25f19b2372ade0fe24dba3564a02e351}{\_curr\_cost}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00390}00390\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_aafa52f0c49b3f479860e2b9596864054}{\_best\_size}}\ =\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a800a472eab8a9865834768e207064d9a}{\_curr\_size}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00391}00391\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a530f282c62ffd9ed66115b682f67b588}{\_best\_node}}\ =\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a86ebfee107400bf2edf0fece863ed4a0}{\_curr\_node}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00392}00392\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00393}00393\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00394}00394\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{iter\_limit\_reached}})\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00395}00395\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00396}00396\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00397}00397\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{iter\_limit\_reached}})\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00398}00398\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_ae420c5676e8b2b8c49c54c54cd3e823da671226f954ac5611617ea5b3be4280f9}{ITERATION\_LIMIT}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00399}00399\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00400}00400\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_adf0e6a5ff8b5fc694c94c4dab801e129}{\_best\_found}}\ ?\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_ae420c5676e8b2b8c49c54c54cd3e823da0479266e39995f30271a00cfe4a75310}{OPTIMAL}}\ :\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_ae420c5676e8b2b8c49c54c54cd3e823dafff2d717e98114cf631b78b6f649de2c}{NO\_CYCLE}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00401}00401\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00402}00402\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00403}00403\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00412}\mbox{\hyperlink{classlemon_1_1_howard_mmc_a082440fe7c7372a444a4c05d4ab89935}{00412}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a082440fe7c7372a444a4c05d4ab89935}{findCycle}}()\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00413}00413\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classlemon_1_1_howard_mmc_adf0e6a5ff8b5fc694c94c4dab801e129}{\_best\_found}})\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00414}00414\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a3334d13d50d174ce8295224285577731}{\_cycle\_path}}-\/>addBack(\mbox{\hyperlink{classlemon_1_1_howard_mmc_a53d356e5ef73776e86de057210dbd462}{\_policy}}[\mbox{\hyperlink{classlemon_1_1_howard_mmc_a530f282c62ffd9ed66115b682f67b588}{\_best\_node}}]);}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00415}00415\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\ Node\ v\ =\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a530f282c62ffd9ed66115b682f67b588}{\_best\_node}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00416}00416\ \ \ \ \ \ \ \ \ \ \ \ \ (v\ =\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a8a787b6310f1b27097a0d79cb3c0e736}{\_gr}}.target(\mbox{\hyperlink{classlemon_1_1_howard_mmc_a53d356e5ef73776e86de057210dbd462}{\_policy}}[v]))\ !=\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a530f282c62ffd9ed66115b682f67b588}{\_best\_node}};\ )\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00417}00417\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a3334d13d50d174ce8295224285577731}{\_cycle\_path}}-\/>addBack(\mbox{\hyperlink{classlemon_1_1_howard_mmc_a53d356e5ef73776e86de057210dbd462}{\_policy}}[v]);}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00418}00418\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00419}00419\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00420}00420\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00421}00421\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00423}00423\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00428}00428\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00430}00430\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00437}\mbox{\hyperlink{classlemon_1_1_howard_mmc_a37ce61769280d0600937f996fc4d204a}{00437}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_ac8ac0fef87c4c0f3277bcf12146c99ba}{Cost}}\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a37ce61769280d0600937f996fc4d204a}{cycleCost}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00438}00438\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{classlemon_1_1_howard_mmc_ac8ac0fef87c4c0f3277bcf12146c99ba}{Cost}}\textcolor{keyword}{>}(\mbox{\hyperlink{classlemon_1_1_howard_mmc_a3898b2a22ae23ce1e1bb8ada1bc2af8e}{\_best\_cost}});}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00439}00439\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00440}00440\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00447}\mbox{\hyperlink{classlemon_1_1_howard_mmc_ae65457431e69d9012aee286586b439f7}{00447}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_ae65457431e69d9012aee286586b439f7}{cycleSize}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00448}00448\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_aafa52f0c49b3f479860e2b9596864054}{\_best\_size}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00449}00449\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00450}00450\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00463}\mbox{\hyperlink{classlemon_1_1_howard_mmc_a651f8add14668b6a3e7a09abb5ffcff5}{00463}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a651f8add14668b6a3e7a09abb5ffcff5}{cycleMean}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00464}00464\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(\mbox{\hyperlink{classlemon_1_1_howard_mmc_a3898b2a22ae23ce1e1bb8ada1bc2af8e}{\_best\_cost}})\ /\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_aafa52f0c49b3f479860e2b9596864054}{\_best\_size}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00465}00465\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00466}00466\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00474}\mbox{\hyperlink{classlemon_1_1_howard_mmc_a792a2b8e4996affc44435f5209c06ce5}{00474}}\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a30ecf730f1abb6e5d2ed91873f08eb40}{Path}}\&\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a792a2b8e4996affc44435f5209c06ce5}{cycle}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00475}00475\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\mbox{\hyperlink{classlemon_1_1_howard_mmc_a3334d13d50d174ce8295224285577731}{\_cycle\_path}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00476}00476\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00477}00477\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00479}00479\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00480}00480\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00481}00481\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00482}00482\ \ \ \ \ \textcolor{comment}{//\ Initialize}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00483}\mbox{\hyperlink{classlemon_1_1_howard_mmc_a77f073123b8dbab1e48eec9520a4958b}{00483}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a77f073123b8dbab1e48eec9520a4958b}{init}}()\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00484}00484\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classlemon_1_1_howard_mmc_a3334d13d50d174ce8295224285577731}{\_cycle\_path}})\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00485}00485\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a54988fe2d987d71fd068e09283934b1d}{\_local\_path}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00486}00486\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a3334d13d50d174ce8295224285577731}{\_cycle\_path}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a30ecf730f1abb6e5d2ed91873f08eb40}{Path}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00487}00487\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00488}00488\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a9cfd3f8898fb3d366ba23ff8bac4a5f1}{\_queue}}.resize(\mbox{\hyperlink{group__gutils_ga9156d36059e59ebc8dc14bad0112633d}{countNodes}}(\mbox{\hyperlink{classlemon_1_1_howard_mmc_a8a787b6310f1b27097a0d79cb3c0e736}{\_gr}}));}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00489}00489\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_adf0e6a5ff8b5fc694c94c4dab801e129}{\_best\_found}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00490}00490\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a3898b2a22ae23ce1e1bb8ada1bc2af8e}{\_best\_cost}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00491}00491\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_aafa52f0c49b3f479860e2b9596864054}{\_best\_size}}\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00492}00492\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a3334d13d50d174ce8295224285577731}{\_cycle\_path}}-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_af2726dacd301d1fdc114b18b6eeb5f51}{clear}}();}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00493}00493\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00494}00494\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00495}00495\ \ \ \ \ \textcolor{comment}{//\ Find\ strongly\ connected\ components\ and\ initialize\ \_comp\_nodes}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00496}00496\ \ \ \ \ \textcolor{comment}{//\ and\ \_in\_arcs}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00497}\mbox{\hyperlink{classlemon_1_1_howard_mmc_a674d17b6670c74d9a24277d88a180d92}{00497}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a674d17b6670c74d9a24277d88a180d92}{findComponents}}()\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00498}00498\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a9b7f18b35bfab234890a49fc0c9232af}{\_comp\_num}}\ =\ \mbox{\hyperlink{namespacelemon_a46f8c22f3e2989c4689faa4c46ec9436}{stronglyConnectedComponents}}(\mbox{\hyperlink{classlemon_1_1_howard_mmc_a8a787b6310f1b27097a0d79cb3c0e736}{\_gr}},\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a215e56da62eccd10bc7e5ac498f465b8}{\_comp}});}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00499}00499\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a7bf26f3218d8197985dc9ed1a19b84ff}{\_comp\_nodes}}.resize(\mbox{\hyperlink{classlemon_1_1_howard_mmc_a9b7f18b35bfab234890a49fc0c9232af}{\_comp\_num}});}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00500}00500\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_howard_mmc_a9b7f18b35bfab234890a49fc0c9232af}{\_comp\_num}}\ ==\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00501}00501\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a7bf26f3218d8197985dc9ed1a19b84ff}{\_comp\_nodes}}[0].clear();}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00502}00502\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (NodeIt\ n(\mbox{\hyperlink{classlemon_1_1_howard_mmc_a8a787b6310f1b27097a0d79cb3c0e736}{\_gr}});\ n\ !=\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ ++n)\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00503}00503\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a7bf26f3218d8197985dc9ed1a19b84ff}{\_comp\_nodes}}[0].push\_back(n);}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00504}00504\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_af000f1cf0e5ad89910e509d7e48c0200}{\_in\_arcs}}[n].\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_af2726dacd301d1fdc114b18b6eeb5f51}{clear}}();}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00505}00505\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (InArcIt\ a(\mbox{\hyperlink{classlemon_1_1_howard_mmc_a8a787b6310f1b27097a0d79cb3c0e736}{\_gr}},\ n);\ a\ !=\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ ++a)\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00506}00506\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_af000f1cf0e5ad89910e509d7e48c0200}{\_in\_arcs}}[n].push\_back(a);}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00507}00507\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00508}00508\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00509}00509\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00510}00510\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a9b7f18b35bfab234890a49fc0c9232af}{\_comp\_num}};\ ++i)}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00511}00511\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a7bf26f3218d8197985dc9ed1a19b84ff}{\_comp\_nodes}}[i].clear();}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00512}00512\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (NodeIt\ n(\mbox{\hyperlink{classlemon_1_1_howard_mmc_a8a787b6310f1b27097a0d79cb3c0e736}{\_gr}});\ n\ !=\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ ++n)\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00513}00513\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ k\ =\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a215e56da62eccd10bc7e5ac498f465b8}{\_comp}}[n];}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00514}00514\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a7bf26f3218d8197985dc9ed1a19b84ff}{\_comp\_nodes}}[k].push\_back(n);}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00515}00515\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_af000f1cf0e5ad89910e509d7e48c0200}{\_in\_arcs}}[n].\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_af2726dacd301d1fdc114b18b6eeb5f51}{clear}}();}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00516}00516\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (InArcIt\ a(\mbox{\hyperlink{classlemon_1_1_howard_mmc_a8a787b6310f1b27097a0d79cb3c0e736}{\_gr}},\ n);\ a\ !=\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ ++a)\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00517}00517\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_howard_mmc_a215e56da62eccd10bc7e5ac498f465b8}{\_comp}}[\mbox{\hyperlink{classlemon_1_1_howard_mmc_a8a787b6310f1b27097a0d79cb3c0e736}{\_gr}}.source(a)]\ ==\ k)\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_af000f1cf0e5ad89910e509d7e48c0200}{\_in\_arcs}}[n].push\_back(a);}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00518}00518\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00519}00519\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00520}00520\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00521}00521\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00522}00522\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00523}00523\ \ \ \ \ \textcolor{comment}{//\ Build\ the\ policy\ graph\ in\ the\ given\ strongly\ connected\ component}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00524}00524\ \ \ \ \ \textcolor{comment}{//\ (the\ out-\/degree\ of\ every\ node\ is\ 1)}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00525}\mbox{\hyperlink{classlemon_1_1_howard_mmc_a7d25f44608811147f05ad0df100d1ba2}{00525}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a7d25f44608811147f05ad0df100d1ba2}{buildPolicyGraph}}(\textcolor{keywordtype}{int}\ comp)\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00526}00526\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a79978bd0bb181a7288ee6f676a9c6aa0}{\_nodes}}\ =\ \&(\mbox{\hyperlink{classlemon_1_1_howard_mmc_a7bf26f3218d8197985dc9ed1a19b84ff}{\_comp\_nodes}}[comp]);}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00527}00527\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_howard_mmc_a79978bd0bb181a7288ee6f676a9c6aa0}{\_nodes}}-\/>size()\ <\ 1\ ||}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00528}00528\ \ \ \ \ \ \ \ \ \ \ (\mbox{\hyperlink{classlemon_1_1_howard_mmc_a79978bd0bb181a7288ee6f676a9c6aa0}{\_nodes}}-\/>size()\ ==\ 1\ \&\&\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_af000f1cf0e5ad89910e509d7e48c0200}{\_in\_arcs}}[(*\_nodes)[0]].size()\ ==\ 0))\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00529}00529\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00530}00530\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00531}00531\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{int}}(\mbox{\hyperlink{classlemon_1_1_howard_mmc_a79978bd0bb181a7288ee6f676a9c6aa0}{\_nodes}}-\/>size());\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00532}00532\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_ade710a90bd4a9bce4e53e260533f4b51}{\_dist}}[(*\_nodes)[i]]\ =\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a97fb3c496835321c3d50c4d20a7c88eb}{INF}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00533}00533\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00534}00534\ \ \ \ \ \ \ Node\ u,\ v;}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00535}00535\ \ \ \ \ \ \ Arc\ e;}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00536}00536\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{int}}(\mbox{\hyperlink{classlemon_1_1_howard_mmc_a79978bd0bb181a7288ee6f676a9c6aa0}{\_nodes}}-\/>size());\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00537}00537\ \ \ \ \ \ \ \ \ v\ =\ (*\_nodes)[i];}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00538}00538\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{int}}(\mbox{\hyperlink{classlemon_1_1_howard_mmc_af000f1cf0e5ad89910e509d7e48c0200}{\_in\_arcs}}[v].size());\ ++j)\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00539}00539\ \ \ \ \ \ \ \ \ \ \ e\ =\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_af000f1cf0e5ad89910e509d7e48c0200}{\_in\_arcs}}[v][j];}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00540}00540\ \ \ \ \ \ \ \ \ \ \ u\ =\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a8a787b6310f1b27097a0d79cb3c0e736}{\_gr}}.source(e);}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00541}00541\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_howard_mmc_a88484952d572a388c2ec535b31633849}{\_cost}}[e]\ <\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_ade710a90bd4a9bce4e53e260533f4b51}{\_dist}}[u])\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00542}00542\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_ade710a90bd4a9bce4e53e260533f4b51}{\_dist}}[u]\ =\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a88484952d572a388c2ec535b31633849}{\_cost}}[e];}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00543}00543\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a53d356e5ef73776e86de057210dbd462}{\_policy}}[u]\ =\ e;}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00544}00544\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00545}00545\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00546}00546\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00547}00547\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00548}00548\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00549}00549\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00550}00550\ \ \ \ \ \textcolor{comment}{//\ Find\ the\ minimum\ mean\ cycle\ in\ the\ policy\ graph}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00551}\mbox{\hyperlink{classlemon_1_1_howard_mmc_a0fcd58cdb8669a7e32c3901338ac33aa}{00551}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a0fcd58cdb8669a7e32c3901338ac33aa}{findPolicyCycle}}()\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00552}00552\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{int}}(\mbox{\hyperlink{classlemon_1_1_howard_mmc_a79978bd0bb181a7288ee6f676a9c6aa0}{\_nodes}}-\/>size());\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00553}00553\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_ad02a98fcfc3ea0480772859308c07f8f}{\_level}}[(*\_nodes)[i]]\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00554}00554\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00555}00555\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a5f31a2767e8568a269e5c228b6719ca9}{LargeCost}}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ccost}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00556}00556\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{csize}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00557}00557\ \ \ \ \ \ \ Node\ u,\ v;}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00558}00558\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a64257f1d705444732e25e6124a97a418}{\_curr\_found}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00559}00559\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{int}}(\mbox{\hyperlink{classlemon_1_1_howard_mmc_a79978bd0bb181a7288ee6f676a9c6aa0}{\_nodes}}-\/>size());\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00560}00560\ \ \ \ \ \ \ \ \ u\ =\ (*\_nodes)[i];}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00561}00561\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_howard_mmc_ad02a98fcfc3ea0480772859308c07f8f}{\_level}}[u]\ >=\ 0)\ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00562}00562\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (;\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_ad02a98fcfc3ea0480772859308c07f8f}{\_level}}[u]\ <\ 0;\ u\ =\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a8a787b6310f1b27097a0d79cb3c0e736}{\_gr}}.target(\mbox{\hyperlink{classlemon_1_1_howard_mmc_a53d356e5ef73776e86de057210dbd462}{\_policy}}[u]))\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00563}00563\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_ad02a98fcfc3ea0480772859308c07f8f}{\_level}}[u]\ =\ i;}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00564}00564\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00565}00565\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_howard_mmc_ad02a98fcfc3ea0480772859308c07f8f}{\_level}}[u]\ ==\ i)\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00566}00566\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ A\ cycle\ is\ found}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00567}00567\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ccost}}\ =\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a88484952d572a388c2ec535b31633849}{\_cost}}[\mbox{\hyperlink{classlemon_1_1_howard_mmc_a53d356e5ef73776e86de057210dbd462}{\_policy}}[u]];}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00568}00568\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{csize}}\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00569}00569\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (v\ =\ u;\ (v\ =\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a8a787b6310f1b27097a0d79cb3c0e736}{\_gr}}.target(\mbox{\hyperlink{classlemon_1_1_howard_mmc_a53d356e5ef73776e86de057210dbd462}{\_policy}}[v]))\ !=\ u;\ )\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00570}00570\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ccost}}\ +=\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a88484952d572a388c2ec535b31633849}{\_cost}}[\mbox{\hyperlink{classlemon_1_1_howard_mmc_a53d356e5ef73776e86de057210dbd462}{\_policy}}[v]];}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00571}00571\ \ \ \ \ \ \ \ \ \ \ \ \ ++\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{csize}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00572}00572\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00573}00573\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ !\mbox{\hyperlink{classlemon_1_1_howard_mmc_a64257f1d705444732e25e6124a97a418}{\_curr\_found}}\ ||}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00574}00574\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ccost}}\ *\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a800a472eab8a9865834768e207064d9a}{\_curr\_size}}\ <\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a25f19b2372ade0fe24dba3564a02e351}{\_curr\_cost}}\ *\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{csize}})\ )\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00575}00575\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a64257f1d705444732e25e6124a97a418}{\_curr\_found}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00576}00576\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a25f19b2372ade0fe24dba3564a02e351}{\_curr\_cost}}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ccost}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00577}00577\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a800a472eab8a9865834768e207064d9a}{\_curr\_size}}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{csize}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00578}00578\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a86ebfee107400bf2edf0fece863ed4a0}{\_curr\_node}}\ =\ u;}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00579}00579\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00580}00580\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00581}00581\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00582}00582\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00583}00583\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00584}00584\ \ \ \ \ \textcolor{comment}{//\ Contract\ the\ policy\ graph\ and\ compute\ node\ distances}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00585}\mbox{\hyperlink{classlemon_1_1_howard_mmc_ab0040097e4e3643593b4b9c2a7c06a6b}{00585}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_ab0040097e4e3643593b4b9c2a7c06a6b}{computeNodeDistances}}()\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00586}00586\ \ \ \ \ \ \ \textcolor{comment}{//\ Find\ the\ component\ of\ the\ main\ cycle\ and\ compute\ node\ distances}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00587}00587\ \ \ \ \ \ \ \textcolor{comment}{//\ using\ reverse\ BFS}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00588}00588\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{int}}(\mbox{\hyperlink{classlemon_1_1_howard_mmc_a79978bd0bb181a7288ee6f676a9c6aa0}{\_nodes}}-\/>size());\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00589}00589\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a60e20817a4d6e349143f9862702583f2}{\_reached}}[(*\_nodes)[i]]\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00590}00590\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00591}00591\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_ab6f1a7c46efe8ae1ad8479c3f7330136}{\_qfront}}\ =\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a1b3cde8ed97cbdb20a70a7a58a92019c}{\_qback}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00592}00592\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a9cfd3f8898fb3d366ba23ff8bac4a5f1}{\_queue}}[0]\ =\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a86ebfee107400bf2edf0fece863ed4a0}{\_curr\_node}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00593}00593\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a60e20817a4d6e349143f9862702583f2}{\_reached}}[\mbox{\hyperlink{classlemon_1_1_howard_mmc_a86ebfee107400bf2edf0fece863ed4a0}{\_curr\_node}}]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00594}00594\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_ade710a90bd4a9bce4e53e260533f4b51}{\_dist}}[\mbox{\hyperlink{classlemon_1_1_howard_mmc_a86ebfee107400bf2edf0fece863ed4a0}{\_curr\_node}}]\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00595}00595\ \ \ \ \ \ \ Node\ u,\ v;}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00596}00596\ \ \ \ \ \ \ Arc\ e;}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00597}00597\ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{classlemon_1_1_howard_mmc_ab6f1a7c46efe8ae1ad8479c3f7330136}{\_qfront}}\ <=\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a1b3cde8ed97cbdb20a70a7a58a92019c}{\_qback}})\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00598}00598\ \ \ \ \ \ \ \ \ v\ =\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a9cfd3f8898fb3d366ba23ff8bac4a5f1}{\_queue}}[\mbox{\hyperlink{classlemon_1_1_howard_mmc_ab6f1a7c46efe8ae1ad8479c3f7330136}{\_qfront}}++];}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00599}00599\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{int}}(\mbox{\hyperlink{classlemon_1_1_howard_mmc_af000f1cf0e5ad89910e509d7e48c0200}{\_in\_arcs}}[v].size());\ ++j)\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00600}00600\ \ \ \ \ \ \ \ \ \ \ e\ =\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_af000f1cf0e5ad89910e509d7e48c0200}{\_in\_arcs}}[v][j];}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00601}00601\ \ \ \ \ \ \ \ \ \ \ u\ =\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a8a787b6310f1b27097a0d79cb3c0e736}{\_gr}}.source(e);}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00602}00602\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_howard_mmc_a53d356e5ef73776e86de057210dbd462}{\_policy}}[u]\ ==\ e\ \&\&\ !\mbox{\hyperlink{classlemon_1_1_howard_mmc_a60e20817a4d6e349143f9862702583f2}{\_reached}}[u])\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00603}00603\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a60e20817a4d6e349143f9862702583f2}{\_reached}}[u]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00604}00604\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_ade710a90bd4a9bce4e53e260533f4b51}{\_dist}}[u]\ =\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_ade710a90bd4a9bce4e53e260533f4b51}{\_dist}}[v]\ +\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a88484952d572a388c2ec535b31633849}{\_cost}}[e]\ *\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a800a472eab8a9865834768e207064d9a}{\_curr\_size}}\ -\/\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a25f19b2372ade0fe24dba3564a02e351}{\_curr\_cost}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00605}00605\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a9cfd3f8898fb3d366ba23ff8bac4a5f1}{\_queue}}[++\mbox{\hyperlink{classlemon_1_1_howard_mmc_a1b3cde8ed97cbdb20a70a7a58a92019c}{\_qback}}]\ =\ u;}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00606}00606\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00607}00607\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00608}00608\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00609}00609\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00610}00610\ \ \ \ \ \ \ \textcolor{comment}{//\ Connect\ all\ other\ nodes\ to\ this\ component\ and\ compute\ node}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00611}00611\ \ \ \ \ \ \ \textcolor{comment}{//\ distances\ using\ reverse\ BFS}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00612}00612\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_ab6f1a7c46efe8ae1ad8479c3f7330136}{\_qfront}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00613}00613\ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{classlemon_1_1_howard_mmc_a1b3cde8ed97cbdb20a70a7a58a92019c}{\_qback}}\ <\ \textcolor{keywordtype}{int}(\mbox{\hyperlink{classlemon_1_1_howard_mmc_a79978bd0bb181a7288ee6f676a9c6aa0}{\_nodes}}-\/>size())-\/1)\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00614}00614\ \ \ \ \ \ \ \ \ v\ =\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a9cfd3f8898fb3d366ba23ff8bac4a5f1}{\_queue}}[\mbox{\hyperlink{classlemon_1_1_howard_mmc_ab6f1a7c46efe8ae1ad8479c3f7330136}{\_qfront}}++];}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00615}00615\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{int}}(\mbox{\hyperlink{classlemon_1_1_howard_mmc_af000f1cf0e5ad89910e509d7e48c0200}{\_in\_arcs}}[v].size());\ ++j)\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00616}00616\ \ \ \ \ \ \ \ \ \ \ e\ =\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_af000f1cf0e5ad89910e509d7e48c0200}{\_in\_arcs}}[v][j];}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00617}00617\ \ \ \ \ \ \ \ \ \ \ u\ =\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a8a787b6310f1b27097a0d79cb3c0e736}{\_gr}}.source(e);}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00618}00618\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classlemon_1_1_howard_mmc_a60e20817a4d6e349143f9862702583f2}{\_reached}}[u])\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00619}00619\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a60e20817a4d6e349143f9862702583f2}{\_reached}}[u]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00620}00620\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a53d356e5ef73776e86de057210dbd462}{\_policy}}[u]\ =\ e;}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00621}00621\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_ade710a90bd4a9bce4e53e260533f4b51}{\_dist}}[u]\ =\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_ade710a90bd4a9bce4e53e260533f4b51}{\_dist}}[v]\ +\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a88484952d572a388c2ec535b31633849}{\_cost}}[e]\ *\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a800a472eab8a9865834768e207064d9a}{\_curr\_size}}\ -\/\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a25f19b2372ade0fe24dba3564a02e351}{\_curr\_cost}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00622}00622\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a9cfd3f8898fb3d366ba23ff8bac4a5f1}{\_queue}}[++\mbox{\hyperlink{classlemon_1_1_howard_mmc_a1b3cde8ed97cbdb20a70a7a58a92019c}{\_qback}}]\ =\ u;}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00623}00623\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00624}00624\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00625}00625\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00626}00626\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00627}00627\ \ \ \ \ \ \ \textcolor{comment}{//\ Improve\ node\ distances}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00628}00628\ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{improved}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00629}00629\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{int}}(\mbox{\hyperlink{classlemon_1_1_howard_mmc_a79978bd0bb181a7288ee6f676a9c6aa0}{\_nodes}}-\/>size());\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00630}00630\ \ \ \ \ \ \ \ \ v\ =\ (*\_nodes)[i];}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00631}00631\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{int}}(\mbox{\hyperlink{classlemon_1_1_howard_mmc_af000f1cf0e5ad89910e509d7e48c0200}{\_in\_arcs}}[v].size());\ ++j)\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00632}00632\ \ \ \ \ \ \ \ \ \ \ e\ =\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_af000f1cf0e5ad89910e509d7e48c0200}{\_in\_arcs}}[v][j];}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00633}00633\ \ \ \ \ \ \ \ \ \ \ u\ =\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a8a787b6310f1b27097a0d79cb3c0e736}{\_gr}}.source(e);}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00634}00634\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a5f31a2767e8568a269e5c228b6719ca9}{LargeCost}}\ delta\ =\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_ade710a90bd4a9bce4e53e260533f4b51}{\_dist}}[v]\ +\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a88484952d572a388c2ec535b31633849}{\_cost}}[e]\ *\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a800a472eab8a9865834768e207064d9a}{\_curr\_size}}\ -\/\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a25f19b2372ade0fe24dba3564a02e351}{\_curr\_cost}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00635}00635\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_howard_mmc_a0d7912e9a4f6ab988a280ec77e32141d}{\_tolerance}}.less(delta,\ \mbox{\hyperlink{classlemon_1_1_howard_mmc_ade710a90bd4a9bce4e53e260533f4b51}{\_dist}}[u]))\ \{}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00636}00636\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_ade710a90bd4a9bce4e53e260533f4b51}{\_dist}}[u]\ =\ delta;}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00637}00637\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_howard_mmc_a53d356e5ef73776e86de057210dbd462}{\_policy}}[u]\ =\ e;}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00638}00638\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{improved}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00639}00639\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00640}00640\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00641}00641\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00642}00642\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{improved}};}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00643}00643\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00644}00644\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00645}00645\ \ \ \};\ \textcolor{comment}{//class\ HowardMmc}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00646}00646\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00648}00648\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00649}00649\ \}\ \textcolor{comment}{//namespace\ lemon}}
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00650}00650\ }
+\DoxyCodeLine{\Hypertarget{howard__mmc_8h_source_l00651}00651\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//LEMON\_HOWARD\_MMC\_H}}
+
+\end{DoxyCode}

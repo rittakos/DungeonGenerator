@@ -1,0 +1,7 @@
+<map id="Data::DungeonData::addRoom" name="Data::DungeonData::addRoom">
+<area shape="rect" id="Node000001" title=" " alt="" coords="278,39,420,81"/>
+<area shape="rect" id="Node000002" href="$class_generator_1_1_delaunay_based_generator_algorithm.html#ad3c444ceb88e6094c3895ce8e80d5fdd" title=" " alt="" coords="20,5,215,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="262,50,215,43,216,38,262,45"/>
+<area shape="rect" id="Node000003" href="$class_generator_1_1_voronoi_based_generator_algorithm.html#aa1cf5412e39ca7c7fae0853f971e055f" title=" " alt="" coords="5,72,230,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="262,75,231,80,230,74,262,70"/>
+</map>

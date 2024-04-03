@@ -1,0 +1,310 @@
+\doxysection{qt\+\_\+sinks.\+h}
+\hypertarget{qt__sinks_8h_source}{}\label{qt__sinks_8h_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/spdlog/sinks/qt\_sinks.h@{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/spdlog/sinks/qt\_sinks.h}}
+\mbox{\hyperlink{qt__sinks_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00001}00001\ \textcolor{comment}{//\ Copyright(c)\ 2015-\/present,\ Gabi\ Melman,\ mguludag\ and\ spdlog\ contributors.}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00002}00002\ \textcolor{comment}{//\ Distributed\ under\ the\ MIT\ License\ (http://opensource.org/licenses/MIT)}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00004}00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00006}00006\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00007}00007\ \textcolor{comment}{//\ Custom\ sink\ for\ QPlainTextEdit\ or\ QTextEdit\ and\ its\ childs(QTextBrowser...}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00008}00008\ \textcolor{comment}{//\ etc)\ Building\ and\ using\ requires\ Qt\ library.}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00009}00009\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00010}00010\ \textcolor{comment}{//\ Warning:\ the\ qt\_sink\ won't\ be\ notified\ if\ the\ target\ widget\ is\ destroyed.}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00011}00011\ \textcolor{comment}{//\ If\ the\ widget's\ lifetime\ can\ be\ shorter\ than\ the\ logger's\ one,\ you\ should\ provide\ some\ permanent}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00012}00012\ \textcolor{comment}{//\ QObject,\ and\ then\ use\ a\ standard\ signal/slot.}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00013}00013\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00015}00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{common_8h}{spdlog/common.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00016}00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{log__msg_8h}{spdlog/details/log\_msg.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00017}00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{synchronous__factory_8h}{spdlog/details/synchronous\_factory.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00018}00018\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{base__sink_8h}{spdlog/sinks/base\_sink.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00021}00021\ \textcolor{preprocessor}{\#include\ <QPlainTextEdit>}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <QTextEdit>}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00024}00024\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00025}00025\ \textcolor{comment}{//\ qt\_sink\ class}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00026}00026\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00027}00027\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacespdlog}{spdlog}}\ \{}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00028}00028\ \textcolor{keyword}{namespace\ }sinks\ \{}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00029}00029\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Mutex>}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00030}\mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__sink}{00030}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__sink}{qt\_sink}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink}{base\_sink}}<Mutex>\ \{}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00031}00031\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00032}\mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__sink_a450e8b183913b7e1ba8e597ca427926f}{00032}}\ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__sink_a450e8b183913b7e1ba8e597ca427926f}{qt\_sink}}(QObject\ *qt\_object,\ std::string\ meta\_method)}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00033}00033\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__sink_ac59b332f8a29c9a277c62dbe1d2d131f}{qt\_object\_}}(qt\_object),}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__sink_ac73c20df93429b3748697ad6ce4b0898}{meta\_method\_}}(\mbox{\hyperlink{namespacestd}{std}}::move(meta\_method))\ \{}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00035}00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__sink_ac59b332f8a29c9a277c62dbe1d2d131f}{qt\_object\_}})\ \{}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_ac3d8b7e83aad48720518fbac80836c3c}{throw\_spdlog\_ex}}(\textcolor{stringliteral}{"{}qt\_sink:\ qt\_object\ is\ null"{}});}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00037}00037\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00038}00038\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00040}\mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__sink_ad2316a926f6a15b8710565b50aaaed66}{00040}}\ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__sink_ad2316a926f6a15b8710565b50aaaed66}{\string~qt\_sink}}()\ \{\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__sink_a24e4c90988d4bb347648a7bfc2202c34}{flush\_}}();\ \}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00042}00042\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00043}\mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__sink_a45e7bcc8698fecf87931b37a4c8d9e7a}{00043}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__sink_a45e7bcc8698fecf87931b37a4c8d9e7a}{sink\_it\_}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&msg)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00044}00044\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_a9ae6875ab28ec95e33921c45ae451633}{memory\_buf\_t}}\ formatted;}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00045}00045\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink}{base\_sink<Mutex>::formatter\_}}-\/>format(msg,\ formatted);}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00046}00046\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespacespdlog_a26388f91e439f69a068bc6774caed2b1}{string\_view\_t}}\ str\ =\ \mbox{\hyperlink{namespacespdlog_a26388f91e439f69a068bc6774caed2b1}{string\_view\_t}}(formatted.data(),\ formatted.size());}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00047}00047\ \ \ \ \ \ \ \ \ QMetaObject::invokeMethod(}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__sink_ac59b332f8a29c9a277c62dbe1d2d131f}{qt\_object\_}},\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__sink_ac73c20df93429b3748697ad6ce4b0898}{meta\_method\_}}.c\_str(),\ Qt::AutoConnection,}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ Q\_ARG(QString,\ QString::fromUtf8(str.data(),\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(str.size())).trimmed()));}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00050}00050\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00052}\mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__sink_a24e4c90988d4bb347648a7bfc2202c34}{00052}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__sink_a24e4c90988d4bb347648a7bfc2202c34}{flush\_}}()\textcolor{keyword}{\ override\ }\{\}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00054}00054\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00055}\mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__sink_ac59b332f8a29c9a277c62dbe1d2d131f}{00055}}\ \ \ \ \ QObject\ *\mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__sink_ac59b332f8a29c9a277c62dbe1d2d131f}{qt\_object\_}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00056}\mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__sink_ac73c20df93429b3748697ad6ce4b0898}{00056}}\ \ \ \ \ std::string\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__sink_ac73c20df93429b3748697ad6ce4b0898}{meta\_method\_}};}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00057}00057\ \};}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00059}00059\ \textcolor{comment}{//\ QT\ color\ sink\ to\ QTextEdit.}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00060}00060\ \textcolor{comment}{//\ Color\ location\ is\ determined\ by\ the\ sink\ log\ pattern\ like\ in\ the\ rest\ of\ spdlog\ sinks.}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00061}00061\ \textcolor{comment}{//\ Colors\ can\ be\ modified\ if\ needed\ using\ sink-\/>set\_color(level,\ qtTextCharFormat).}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00062}00062\ \textcolor{comment}{//\ max\_lines\ is\ the\ maximum\ number\ of\ lines\ that\ the\ sink\ will\ hold\ before\ removing\ the\ oldest}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00063}00063\ \textcolor{comment}{//\ lines.\ By\ default,\ only\ ascii\ (latin1)\ is\ supported\ by\ this\ sink.\ Set\ is\_utf8\ to\ true\ if\ utf8}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00064}00064\ \textcolor{comment}{//\ support\ is\ needed.}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00065}00065\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Mutex>}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00066}\mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink}{00066}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink}{qt\_color\_sink}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink}{base\_sink}}<Mutex>\ \{}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00067}00067\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00068}\mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink_a05338448f5ef8a242509234e7711674d}{00068}}\ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink_a05338448f5ef8a242509234e7711674d}{qt\_color\_sink}}(QTextEdit\ *qt\_text\_edit,}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ max\_lines,}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ dark\_colors\ =\ \textcolor{keyword}{false},}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_aa775e2eb7e88a4d76cd37d63126aef11}{is\_utf8}}\ =\ \textcolor{keyword}{false})}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00072}00072\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink_a672bebaa2b170fbe403d9b7b4b974d17}{qt\_text\_edit\_}}(qt\_text\_edit),}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink_a7cf4fc91d896e53c437495b361d4492b}{max\_lines\_}}(max\_lines),}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink_a145a3655ea9175b6c5a1fb8f40c7116b}{is\_utf8\_}}(\mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_aa775e2eb7e88a4d76cd37d63126aef11}{is\_utf8}})\ \{}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00075}00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink_a672bebaa2b170fbe403d9b7b4b974d17}{qt\_text\_edit\_}})\ \{}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_ac3d8b7e83aad48720518fbac80836c3c}{throw\_spdlog\_ex}}(\textcolor{stringliteral}{"{}qt\_color\_text\_sink:\ text\_edit\ is\ null"{}});}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00077}00077\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00079}00079\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink_af676dfb8600c39535eda72de9db6cca9}{default\_color\_}}\ =\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink_a672bebaa2b170fbe403d9b7b4b974d17}{qt\_text\_edit\_}}-\/>currentCharFormat();}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00080}00080\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ set\ colors}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00081}00081\ \ \ \ \ \ \ \ \ QTextCharFormat\ \mbox{\hyperlink{spdlog_2fmt_2bundled_2color_8h_a8b34a9364f5d6ca43a8a24f96a6db55b}{format}};}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00082}00082\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ trace}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00083}00083\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{spdlog_2fmt_2bundled_2color_8h_a8b34a9364f5d6ca43a8a24f96a6db55b}{format}}.setForeground(dark\_colors\ ?\ Qt::darkGray\ :\ Qt::gray);}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00084}00084\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink_adc74f4090aafec411feae70e0de2da8c}{colors\_}}.at(\mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861add5891a1416461ee9e7d7e19d41af51f}{level::trace}})\ =\ \mbox{\hyperlink{spdlog_2fmt_2bundled_2color_8h_a8b34a9364f5d6ca43a8a24f96a6db55b}{format}};}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00085}00085\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ debug}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00086}00086\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{spdlog_2fmt_2bundled_2color_8h_a8b34a9364f5d6ca43a8a24f96a6db55b}{format}}.setForeground(dark\_colors\ ?\ Qt::darkCyan\ :\ Qt::cyan);}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00087}00087\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink_adc74f4090aafec411feae70e0de2da8c}{colors\_}}.at(\mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861aea632f71a316dac4dbaf2d98534c7ca5}{level::debug}})\ =\ \mbox{\hyperlink{spdlog_2fmt_2bundled_2color_8h_a8b34a9364f5d6ca43a8a24f96a6db55b}{format}};}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00088}00088\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ info}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00089}00089\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{spdlog_2fmt_2bundled_2color_8h_a8b34a9364f5d6ca43a8a24f96a6db55b}{format}}.setForeground(dark\_colors\ ?\ Qt::darkGreen\ :\ Qt::green);}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00090}00090\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink_adc74f4090aafec411feae70e0de2da8c}{colors\_}}.at(\mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861a7f09db55ad64d87e4124f10582cb016f}{level::info}})\ =\ \mbox{\hyperlink{spdlog_2fmt_2bundled_2color_8h_a8b34a9364f5d6ca43a8a24f96a6db55b}{format}};}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00091}00091\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ warn}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00092}00092\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{spdlog_2fmt_2bundled_2color_8h_a8b34a9364f5d6ca43a8a24f96a6db55b}{format}}.setForeground(dark\_colors\ ?\ Qt::darkYellow\ :\ Qt::yellow);}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00093}00093\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink_adc74f4090aafec411feae70e0de2da8c}{colors\_}}.at(\mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861a6c371ca09668dd308a1997eab47def05}{level::warn}})\ =\ \mbox{\hyperlink{spdlog_2fmt_2bundled_2color_8h_a8b34a9364f5d6ca43a8a24f96a6db55b}{format}};}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00094}00094\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ err}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00095}00095\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{spdlog_2fmt_2bundled_2color_8h_a8b34a9364f5d6ca43a8a24f96a6db55b}{format}}.setForeground(Qt::red);}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00096}00096\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink_adc74f4090aafec411feae70e0de2da8c}{colors\_}}.at(\mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861a4d723e295b98a75c1263d85fc165045f}{level::err}})\ =\ \mbox{\hyperlink{spdlog_2fmt_2bundled_2color_8h_a8b34a9364f5d6ca43a8a24f96a6db55b}{format}};}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00097}00097\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ critical}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00098}00098\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{spdlog_2fmt_2bundled_2color_8h_a8b34a9364f5d6ca43a8a24f96a6db55b}{format}}.setForeground(Qt::white);}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00099}00099\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{spdlog_2fmt_2bundled_2color_8h_a8b34a9364f5d6ca43a8a24f96a6db55b}{format}}.setBackground(Qt::red);}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00100}00100\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink_adc74f4090aafec411feae70e0de2da8c}{colors\_}}.at(\mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861a309b214a2b8629b6cf0048ce916e8a58}{level::critical}})\ =\ \mbox{\hyperlink{spdlog_2fmt_2bundled_2color_8h_a8b34a9364f5d6ca43a8a24f96a6db55b}{format}};}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00101}00101\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00103}\mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink_a5a3bf51261a55beb4cb97f3b029cf5dd}{00103}}\ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink_a5a3bf51261a55beb4cb97f3b029cf5dd}{\string~qt\_color\_sink}}()\ \{\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink_a08d79afcaab19b6d2c8d2d82f5b17198}{flush\_}}();\ \}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00105}\mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink_a64dc8ba090422a99379855f3b4930cc8}{00105}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink_a64dc8ba090422a99379855f3b4930cc8}{set\_default\_color}}(QTextCharFormat\ \mbox{\hyperlink{spdlog_2fmt_2bundled_2color_8h_a8b34a9364f5d6ca43a8a24f96a6db55b}{format}})\ \{}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00106}00106\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ std::lock\_guard<Mutex>\ lock(base\_sink<Mutex>::mutex\_);}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00107}00107\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink_af676dfb8600c39535eda72de9db6cca9}{default\_color\_}}\ =\ \mbox{\hyperlink{spdlog_2fmt_2bundled_2color_8h_a8b34a9364f5d6ca43a8a24f96a6db55b}{format}};}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00108}00108\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00110}\mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink_afd4abfb31de0193dead293cd07446fd8}{00110}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink_afd4abfb31de0193dead293cd07446fd8}{set\_level\_color}}(\mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861}{level::level\_enum}}\ color\_level,\ QTextCharFormat\ \mbox{\hyperlink{spdlog_2fmt_2bundled_2color_8h_a8b34a9364f5d6ca43a8a24f96a6db55b}{format}})\ \{}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00111}00111\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ std::lock\_guard<Mutex>\ lock(base\_sink<Mutex>::mutex\_);}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00112}00112\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink_adc74f4090aafec411feae70e0de2da8c}{colors\_}}.at(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(color\_level))\ =\ \mbox{\hyperlink{spdlog_2fmt_2bundled_2color_8h_a8b34a9364f5d6ca43a8a24f96a6db55b}{format}};}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00113}00113\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00115}\mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink_a40415dfb7b01a097b085d972661de9a2}{00115}}\ \ \ \ \ QTextCharFormat\ \&\mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink_a40415dfb7b01a097b085d972661de9a2}{get\_level\_color}}(\mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861}{level::level\_enum}}\ color\_level)\ \{}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00116}00116\ \ \ \ \ \ \ \ \ std::lock\_guard<Mutex>\ lock(\mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink}{base\_sink<Mutex>::mutex\_}});}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00117}00117\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink_adc74f4090aafec411feae70e0de2da8c}{colors\_}}.at(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(color\_level));}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00118}00118\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00120}\mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink_a8326f8ff90f9fc9fd17832e2fe4aae75}{00120}}\ \ \ \ \ QTextCharFormat\ \&\mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink_a8326f8ff90f9fc9fd17832e2fe4aae75}{get\_default\_color}}()\ \{}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00121}00121\ \ \ \ \ \ \ \ \ std::lock\_guard<Mutex>\ lock(\mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink}{base\_sink<Mutex>::mutex\_}});}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00122}00122\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink_af676dfb8600c39535eda72de9db6cca9}{default\_color\_}};}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00123}00123\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00125}00125\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00126}\mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params}{00126}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params}{invoke\_params}}\ \{}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00127}\mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_ab1b8cadde5d8ef13e609b9ebce307a65}{00127}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_ab1b8cadde5d8ef13e609b9ebce307a65}{invoke\_params}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_a179d9a3ada81dff5fb401557d524f373}{max\_lines}},}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ QTextEdit\ *\mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_ad34f75bb0b68a9c0bdbbaedbc30fbe01}{q\_text\_edit}},}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ QString\ \mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_a4edbe1074eb37b38ee826093d24e8703}{payload}},}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ QTextCharFormat\ \mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_ac80981bbe896af18d85c7a0b0c07313f}{default\_color}},}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ QTextCharFormat\ \mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_a4971911fe09c6c0a8f3e17285d94026d}{level\_color}},}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_acde0fee1784cfea991689a69abfa7a6e}{color\_range\_start}},}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_a131247ae2c15aec36709f00b10b9e3a2}{color\_range\_end}})}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_a179d9a3ada81dff5fb401557d524f373}{max\_lines}}(\mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_a179d9a3ada81dff5fb401557d524f373}{max\_lines}}),}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_ad34f75bb0b68a9c0bdbbaedbc30fbe01}{q\_text\_edit}}(\mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_ad34f75bb0b68a9c0bdbbaedbc30fbe01}{q\_text\_edit}}),}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_a4edbe1074eb37b38ee826093d24e8703}{payload}}(\mbox{\hyperlink{namespacestd}{std}}::move(\mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_a4edbe1074eb37b38ee826093d24e8703}{payload}})),}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_ac80981bbe896af18d85c7a0b0c07313f}{default\_color}}(\mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_ac80981bbe896af18d85c7a0b0c07313f}{default\_color}}),}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_a4971911fe09c6c0a8f3e17285d94026d}{level\_color}}(\mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_a4971911fe09c6c0a8f3e17285d94026d}{level\_color}}),}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_acde0fee1784cfea991689a69abfa7a6e}{color\_range\_start}}(\mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_acde0fee1784cfea991689a69abfa7a6e}{color\_range\_start}}),}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_a131247ae2c15aec36709f00b10b9e3a2}{color\_range\_end}}(\mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_a131247ae2c15aec36709f00b10b9e3a2}{color\_range\_end}})\ \{\}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00141}\mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_a179d9a3ada81dff5fb401557d524f373}{00141}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_a179d9a3ada81dff5fb401557d524f373}{max\_lines}};}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00142}\mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_ad34f75bb0b68a9c0bdbbaedbc30fbe01}{00142}}\ \ \ \ \ \ \ \ \ QTextEdit\ *\mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_ad34f75bb0b68a9c0bdbbaedbc30fbe01}{q\_text\_edit}};}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00143}\mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_a4edbe1074eb37b38ee826093d24e8703}{00143}}\ \ \ \ \ \ \ \ \ QString\ \mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_a4edbe1074eb37b38ee826093d24e8703}{payload}};}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00144}\mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_ac80981bbe896af18d85c7a0b0c07313f}{00144}}\ \ \ \ \ \ \ \ \ QTextCharFormat\ \mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_ac80981bbe896af18d85c7a0b0c07313f}{default\_color}};}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00145}\mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_a4971911fe09c6c0a8f3e17285d94026d}{00145}}\ \ \ \ \ \ \ \ \ QTextCharFormat\ \mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_a4971911fe09c6c0a8f3e17285d94026d}{level\_color}};}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00146}\mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_acde0fee1784cfea991689a69abfa7a6e}{00146}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_acde0fee1784cfea991689a69abfa7a6e}{color\_range\_start}};}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00147}\mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_a131247ae2c15aec36709f00b10b9e3a2}{00147}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_a131247ae2c15aec36709f00b10b9e3a2}{color\_range\_end}};}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00148}00148\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00149}00149\ }
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00150}\mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink_a9c6616fc760ac012a4d97de64b1c4b28}{00150}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink_a9c6616fc760ac012a4d97de64b1c4b28}{sink\_it\_}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&msg)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00151}00151\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_a9ae6875ab28ec95e33921c45ae451633}{memory\_buf\_t}}\ formatted;}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00152}00152\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink}{base\_sink<Mutex>::formatter\_}}-\/>format(msg,\ formatted);}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00153}00153\ }
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00154}00154\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespacespdlog_a26388f91e439f69a068bc6774caed2b1}{string\_view\_t}}\ str\ =\ \mbox{\hyperlink{namespacespdlog_a26388f91e439f69a068bc6774caed2b1}{string\_view\_t}}(formatted.data(),\ formatted.size());}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00155}00155\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ apply\ the\ color\ to\ the\ color\ range\ in\ the\ formatted\ message.}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00156}00156\ \ \ \ \ \ \ \ \ QString\ payload;}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00157}00157\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ color\_range\_start\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a87cb1c5f1ecd7415412722123e35d491}{color\_range\_start}});}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00158}00158\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ color\_range\_end\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a0dfc2763f8e6b73ca34e4cb7c5a9950a}{color\_range\_end}});}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00159}00159\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink_a145a3655ea9175b6c5a1fb8f40c7116b}{is\_utf8\_}})\ \{}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ payload\ =\ QString::fromUtf8(str.data(),\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(str.size()));}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ convert\ color\ ranges\ from\ byte\ index\ to\ character\ index.}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a87cb1c5f1ecd7415412722123e35d491}{color\_range\_start}}\ <\ msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a0dfc2763f8e6b73ca34e4cb7c5a9950a}{color\_range\_end}})\ \{}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ color\_range\_start\ =\ QString::fromUtf8(str.data(),\ msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a87cb1c5f1ecd7415412722123e35d491}{color\_range\_start}}).size();}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00164}00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ color\_range\_end\ =\ QString::fromUtf8(str.data(),\ msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a0dfc2763f8e6b73ca34e4cb7c5a9950a}{color\_range\_end}}).size();}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00166}00166\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00167}00167\ \ \ \ \ \ \ \ \ \ \ \ \ payload\ =\ QString::fromLatin1(str.data(),\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(str.size()));}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00168}00168\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00169}00169\ }
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00170}00170\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params}{invoke\_params}}\ params\{\mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink_a7cf4fc91d896e53c437495b361d4492b}{max\_lines\_}},\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ max\ lines}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink_a672bebaa2b170fbe403d9b7b4b974d17}{qt\_text\_edit\_}},\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ text\ edit\ to\ append\ to}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::move(payload),\ \ \ \ \ \textcolor{comment}{//\ text\ to\ append}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink_af676dfb8600c39535eda72de9db6cca9}{default\_color\_}},\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ default\ color}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00174}00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink_adc74f4090aafec411feae70e0de2da8c}{colors\_}}.at(msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a4142f4d66140a1ea24053311ebea5706}{level}}),\ \ \textcolor{comment}{//\ color\ to\ apply}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00175}00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ color\_range\_start,\ \ \ \ \ \ \textcolor{comment}{//\ color\ range\ start}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00176}00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ color\_range\_end\};\ \ \ \ \ \ \ \textcolor{comment}{//\ color\ range\ end}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00177}00177\ }
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00178}00178\ \ \ \ \ \ \ \ \ QMetaObject::invokeMethod(}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00179}00179\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink_a672bebaa2b170fbe403d9b7b4b974d17}{qt\_text\_edit\_}},\ [params]()\ \{\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink_a3979f62b3ea3cd6eebed81641675e0eb}{invoke\_method\_}}(params);\ \},\ Qt::AutoConnection);}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00180}00180\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00181}00181\ }
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00182}\mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink_a08d79afcaab19b6d2c8d2d82f5b17198}{00182}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink_a08d79afcaab19b6d2c8d2d82f5b17198}{flush\_}}()\textcolor{keyword}{\ override\ }\{\}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00183}00183\ }
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00184}00184\ \ \ \ \ \textcolor{comment}{//\ Add\ colored\ text\ to\ the\ text\ edit\ widget.\ This\ method\ is\ invoked\ in\ the\ GUI\ thread.}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00185}00185\ \ \ \ \ \textcolor{comment}{//\ It\ is\ a\ static\ method\ to\ ensure\ that\ it\ is\ handled\ correctly\ even\ if\ the\ sink\ is\ destroyed}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00186}00186\ \ \ \ \ \textcolor{comment}{//\ prematurely\ before\ it\ is\ invoked.}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00187}00187\ }
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00188}\mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink_a3979f62b3ea3cd6eebed81641675e0eb}{00188}}\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink_a3979f62b3ea3cd6eebed81641675e0eb}{invoke\_method\_}}(\mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params}{invoke\_params}}\ params)\ \{}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00189}00189\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ *document\ =\ params.\mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_ad34f75bb0b68a9c0bdbbaedbc30fbe01}{q\_text\_edit}}-\/>document();}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00190}00190\ \ \ \ \ \ \ \ \ QTextCursor\ cursor(document);}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00191}00191\ }
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00192}00192\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ remove\ first\ blocks\ if\ number\ of\ blocks\ exceeds\ max\_lines}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00193}00193\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (document-\/>blockCount()\ >\ params.\mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_a179d9a3ada81dff5fb401557d524f373}{max\_lines}})\ \{}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00194}00194\ \ \ \ \ \ \ \ \ \ \ \ \ cursor.select(QTextCursor::BlockUnderCursor);}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00195}00195\ \ \ \ \ \ \ \ \ \ \ \ \ cursor.removeSelectedText();}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00196}00196\ \ \ \ \ \ \ \ \ \ \ \ \ cursor.deleteChar();\ \ \textcolor{comment}{//\ delete\ the\ newline\ after\ the\ block}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00197}00197\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00198}00198\ }
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00199}00199\ \ \ \ \ \ \ \ \ cursor.movePosition(QTextCursor::End);}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00200}00200\ \ \ \ \ \ \ \ \ cursor.setCharFormat(params.\mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_ac80981bbe896af18d85c7a0b0c07313f}{default\_color}});}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00201}00201\ }
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00202}00202\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ color\ range\ not\ specified\ or\ not\ not\ valid,\ just\ append\ the\ text\ with\ default\ color}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00203}00203\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (params.\mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_a131247ae2c15aec36709f00b10b9e3a2}{color\_range\_end}}\ <=\ params.\mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_acde0fee1784cfea991689a69abfa7a6e}{color\_range\_start}})\ \{}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00204}00204\ \ \ \ \ \ \ \ \ \ \ \ \ cursor.insertText(params.\mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_a4edbe1074eb37b38ee826093d24e8703}{payload}});}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00205}00205\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00206}00206\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00207}00207\ }
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00208}00208\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ insert\ the\ text\ before\ the\ color\ range}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00209}00209\ \ \ \ \ \ \ \ \ cursor.insertText(params.\mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_a4edbe1074eb37b38ee826093d24e8703}{payload}}.left(params.\mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_acde0fee1784cfea991689a69abfa7a6e}{color\_range\_start}}));}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00210}00210\ }
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00211}00211\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ insert\ the\ colorized\ text}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00212}00212\ \ \ \ \ \ \ \ \ cursor.setCharFormat(params.\mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_a4971911fe09c6c0a8f3e17285d94026d}{level\_color}});}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00213}00213\ \ \ \ \ \ \ \ \ cursor.insertText(params.\mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_a4edbe1074eb37b38ee826093d24e8703}{payload}}.mid(params.\mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_acde0fee1784cfea991689a69abfa7a6e}{color\_range\_start}},}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00214}00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ params.\mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_a131247ae2c15aec36709f00b10b9e3a2}{color\_range\_end}}\ -\/\ params.\mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_acde0fee1784cfea991689a69abfa7a6e}{color\_range\_start}}));}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00215}00215\ }
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00216}00216\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ insert\ the\ text\ after\ the\ color\ range\ with\ default\ format}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00217}00217\ \ \ \ \ \ \ \ \ cursor.setCharFormat(params.\mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_ac80981bbe896af18d85c7a0b0c07313f}{default\_color}});}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00218}00218\ \ \ \ \ \ \ \ \ cursor.insertText(params.\mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_a4edbe1074eb37b38ee826093d24e8703}{payload}}.mid(params.\mbox{\hyperlink{structspdlog_1_1sinks_1_1qt__color__sink_1_1invoke__params_a131247ae2c15aec36709f00b10b9e3a2}{color\_range\_end}}));}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00219}00219\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00220}00220\ }
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00221}\mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink_a672bebaa2b170fbe403d9b7b4b974d17}{00221}}\ \ \ \ \ QTextEdit\ *\mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink_a672bebaa2b170fbe403d9b7b4b974d17}{qt\_text\_edit\_}};}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00222}\mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink_a7cf4fc91d896e53c437495b361d4492b}{00222}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink_a7cf4fc91d896e53c437495b361d4492b}{max\_lines\_}};}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00223}\mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink_a145a3655ea9175b6c5a1fb8f40c7116b}{00223}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink_a145a3655ea9175b6c5a1fb8f40c7116b}{is\_utf8\_}};}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00224}\mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink_af676dfb8600c39535eda72de9db6cca9}{00224}}\ \ \ \ \ QTextCharFormat\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink_af676dfb8600c39535eda72de9db6cca9}{default\_color\_}};}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00225}\mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink_adc74f4090aafec411feae70e0de2da8c}{00225}}\ \ \ \ \ std::array<QTextCharFormat,\ level::n\_levels>\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink_adc74f4090aafec411feae70e0de2da8c}{colors\_}};}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00226}00226\ \};}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00227}00227\ }
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00228}00228\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{null__mutex_8h}{spdlog/details/null\_mutex.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00229}00229\ \textcolor{preprocessor}{\#include\ <mutex>}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00230}00230\ }
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00231}\mbox{\hyperlink{namespacespdlog_1_1sinks_a24f60d7b0bc3a7ba4b4469738c9acaa4}{00231}}\ \textcolor{keyword}{using\ }\mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__sink}{qt\_sink\_mt}}\ =\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__sink}{qt\_sink<std::mutex>}};}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00232}\mbox{\hyperlink{namespacespdlog_1_1sinks_a0658f7263780ea393838a2fab5f65319}{00232}}\ \textcolor{keyword}{using\ }\mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__sink}{qt\_sink\_st}}\ =\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__sink}{qt\_sink<details::null\_mutex>}};}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00233}\mbox{\hyperlink{namespacespdlog_1_1sinks_a27d97a0a4698d2449c0d5589968d42aa}{00233}}\ \textcolor{keyword}{using\ }\mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink}{qt\_color\_sink\_mt}}\ =\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink}{qt\_color\_sink<std::mutex>}};}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00234}\mbox{\hyperlink{namespacespdlog_1_1sinks_a9cbd5519aef8ee3864dfbba412431edf}{00234}}\ \textcolor{keyword}{using\ }\mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink}{qt\_color\_sink\_st}}\ =\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1qt__color__sink}{qt\_color\_sink<details::null\_mutex>}};}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00235}00235\ \}\ \ \textcolor{comment}{//\ namespace\ sinks}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00236}00236\ }
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00237}00237\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00238}00238\ \textcolor{comment}{//\ Factory\ functions}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00239}00239\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00240}00240\ }
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00241}00241\ \textcolor{comment}{//\ log\ to\ QTextEdit}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00242}00242\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Factory\ =\ spdlog::synchronous\_factory>}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00243}\mbox{\hyperlink{namespacespdlog_a1ecb573fa1f6b519fc09587863e0430e}{00243}}\ \textcolor{keyword}{inline}\ std::shared\_ptr<logger>\ \mbox{\hyperlink{namespacespdlog_a1ecb573fa1f6b519fc09587863e0430e}{qt\_logger\_mt}}(\textcolor{keyword}{const}\ std::string\ \&logger\_name,}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00244}00244\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ QTextEdit\ *qt\_object,}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00245}00245\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&meta\_method\ =\ \textcolor{stringliteral}{"{}append"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00246}00246\ \ \ \ \ \textcolor{keywordflow}{return}\ Factory::template\ create<sinks::qt\_sink\_mt>(logger\_name,\ qt\_object,\ meta\_method);}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00247}00247\ \}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00248}00248\ }
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00249}00249\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Factory\ =\ spdlog::synchronous\_factory>}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00250}\mbox{\hyperlink{namespacespdlog_ac0f90f341e47140bde0434a13970eb52}{00250}}\ \textcolor{keyword}{inline}\ std::shared\_ptr<logger>\ \mbox{\hyperlink{namespacespdlog_ac0f90f341e47140bde0434a13970eb52}{qt\_logger\_st}}(\textcolor{keyword}{const}\ std::string\ \&logger\_name,}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00251}00251\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ QTextEdit\ *qt\_object,}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00252}00252\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&meta\_method\ =\ \textcolor{stringliteral}{"{}append"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00253}00253\ \ \ \ \ \textcolor{keywordflow}{return}\ Factory::template\ create<sinks::qt\_sink\_st>(logger\_name,\ qt\_object,\ meta\_method);}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00254}00254\ \}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00255}00255\ }
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00256}00256\ \textcolor{comment}{//\ log\ to\ QPlainTextEdit}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00257}00257\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Factory\ =\ spdlog::synchronous\_factory>}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00258}\mbox{\hyperlink{namespacespdlog_a5a7d7bf2ce714305a2dfffb54f2f0c33}{00258}}\ \textcolor{keyword}{inline}\ std::shared\_ptr<logger>\ \mbox{\hyperlink{namespacespdlog_a1ecb573fa1f6b519fc09587863e0430e}{qt\_logger\_mt}}(\textcolor{keyword}{const}\ std::string\ \&logger\_name,}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00259}00259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ QPlainTextEdit\ *qt\_object,}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00260}00260\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&meta\_method\ =\ \textcolor{stringliteral}{"{}appendPlainText"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00261}00261\ \ \ \ \ \textcolor{keywordflow}{return}\ Factory::template\ create<sinks::qt\_sink\_mt>(logger\_name,\ qt\_object,\ meta\_method);}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00262}00262\ \}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00263}00263\ }
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00264}00264\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Factory\ =\ spdlog::synchronous\_factory>}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00265}\mbox{\hyperlink{namespacespdlog_ae2fe3b4728ce6ad2d03b4f4cef3c860c}{00265}}\ \textcolor{keyword}{inline}\ std::shared\_ptr<logger>\ \mbox{\hyperlink{namespacespdlog_ac0f90f341e47140bde0434a13970eb52}{qt\_logger\_st}}(\textcolor{keyword}{const}\ std::string\ \&logger\_name,}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00266}00266\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ QPlainTextEdit\ *qt\_object,}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00267}00267\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&meta\_method\ =\ \textcolor{stringliteral}{"{}appendPlainText"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00268}00268\ \ \ \ \ \textcolor{keywordflow}{return}\ Factory::template\ create<sinks::qt\_sink\_st>(logger\_name,\ qt\_object,\ meta\_method);}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00269}00269\ \}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00270}00270\ \textcolor{comment}{//\ log\ to\ QObject}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00271}00271\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Factory\ =\ spdlog::synchronous\_factory>}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00272}\mbox{\hyperlink{namespacespdlog_a17cd68c7141e6d1e9929a978d1e35e3d}{00272}}\ \textcolor{keyword}{inline}\ std::shared\_ptr<logger>\ \mbox{\hyperlink{namespacespdlog_a1ecb573fa1f6b519fc09587863e0430e}{qt\_logger\_mt}}(\textcolor{keyword}{const}\ std::string\ \&logger\_name,}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00273}00273\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ QObject\ *qt\_object,}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00274}00274\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&meta\_method)\ \{}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00275}00275\ \ \ \ \ \textcolor{keywordflow}{return}\ Factory::template\ create<sinks::qt\_sink\_mt>(logger\_name,\ qt\_object,\ meta\_method);}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00276}00276\ \}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00277}00277\ }
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00278}00278\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Factory\ =\ spdlog::synchronous\_factory>}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00279}\mbox{\hyperlink{namespacespdlog_abce42d3adc858ac2c275a4be787a294f}{00279}}\ \textcolor{keyword}{inline}\ std::shared\_ptr<logger>\ \mbox{\hyperlink{namespacespdlog_ac0f90f341e47140bde0434a13970eb52}{qt\_logger\_st}}(\textcolor{keyword}{const}\ std::string\ \&logger\_name,}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00280}00280\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ QObject\ *qt\_object,}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00281}00281\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&meta\_method)\ \{}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00282}00282\ \ \ \ \ \textcolor{keywordflow}{return}\ Factory::template\ create<sinks::qt\_sink\_st>(logger\_name,\ qt\_object,\ meta\_method);}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00283}00283\ \}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00284}00284\ }
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00285}00285\ \textcolor{comment}{//\ log\ to\ QTextEdit\ with\ colorize\ output}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00286}00286\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Factory\ =\ spdlog::synchronous\_factory>}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00287}\mbox{\hyperlink{namespacespdlog_a6a9df2c0fe353039c9ebf24866aa4f71}{00287}}\ \textcolor{keyword}{inline}\ std::shared\_ptr<logger>\ \mbox{\hyperlink{namespacespdlog_a6a9df2c0fe353039c9ebf24866aa4f71}{qt\_color\_logger\_mt}}(\textcolor{keyword}{const}\ std::string\ \&logger\_name,}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00288}00288\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ QTextEdit\ *qt\_text\_edit,}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00289}00289\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ max\_lines,}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00290}00290\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_aa775e2eb7e88a4d76cd37d63126aef11}{is\_utf8}}\ =\ \textcolor{keyword}{false})\ \{}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00291}00291\ \ \ \ \ \textcolor{keywordflow}{return}\ Factory::template\ create<sinks::qt\_color\_sink\_mt>(logger\_name,\ qt\_text\_edit,\ max\_lines,}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00292}00292\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{false},\ \mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_aa775e2eb7e88a4d76cd37d63126aef11}{is\_utf8}});}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00293}00293\ \}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00294}00294\ }
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00295}00295\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Factory\ =\ spdlog::synchronous\_factory>}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00296}\mbox{\hyperlink{namespacespdlog_a45e2c3c7a3948758514b5c4035fd6191}{00296}}\ \textcolor{keyword}{inline}\ std::shared\_ptr<logger>\ \mbox{\hyperlink{namespacespdlog_a45e2c3c7a3948758514b5c4035fd6191}{qt\_color\_logger\_st}}(\textcolor{keyword}{const}\ std::string\ \&logger\_name,}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00297}00297\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ QTextEdit\ *qt\_text\_edit,}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00298}00298\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ max\_lines,}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00299}00299\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_aa775e2eb7e88a4d76cd37d63126aef11}{is\_utf8}}\ =\ \textcolor{keyword}{false})\ \{}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00300}00300\ \ \ \ \ \textcolor{keywordflow}{return}\ Factory::template\ create<sinks::qt\_color\_sink\_st>(logger\_name,\ qt\_text\_edit,\ max\_lines,}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00301}00301\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{false},\ \mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_aa775e2eb7e88a4d76cd37d63126aef11}{is\_utf8}});}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00302}00302\ \}}
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00303}00303\ }
+\DoxyCodeLine{\Hypertarget{qt__sinks_8h_source_l00304}00304\ \}\ \ \textcolor{comment}{//\ namespace\ spdlog}}
+
+\end{DoxyCode}

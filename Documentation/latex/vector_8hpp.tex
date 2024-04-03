@@ -1,0 +1,75 @@
+\doxysection{C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Math/vector.hpp File Reference}
+\hypertarget{vector_8hpp}{}\label{vector_8hpp}\index{C:/Dev/DungeonGenerator/DungeonGenerator/Math/vector.hpp@{C:/Dev/DungeonGenerator/DungeonGenerator/Math/vector.hpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cstdarg$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$concepts$>$}\newline
+{\ttfamily \#include "{}math.\+hpp"{}}\newline
+{\ttfamily \#include "{}angle.\+hpp"{}}\newline
+{\ttfamily \#include "{}is\+All\+Same.\+hpp"{}}\newline
+Include dependency graph for vector.\+hpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{vector_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{vector_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_math_1_1_vec}{Math\+::\+Vec$<$ D, Type $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_math}{Math}}
+\item 
+namespace \mbox{\hyperlink{namespace_math_1_1_constant}{Math\+::\+Constant}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespace_math_a38403b98e9aeb47ec7fd300a7a8e896a}{Math\+::\+Vec3i}} = \mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$3, int$>$
+\item 
+using \mbox{\hyperlink{namespace_math_a753baf5938292fd107023b09e4287523}{Math\+::\+Vec3f}} = \mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$3, float$>$
+\item 
+using \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} = \mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$2, float$>$
+\item 
+using \mbox{\hyperlink{namespace_math_a21d67a411a488c738db3604e6783f6b8}{Math\+::\+Vec2i}} = \mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$2, int$>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$int D, class Type $>$ }\\std\+::ostream \& \mbox{\hyperlink{namespace_math_af3506750043ed7528dd970cc061be75c}{Math\+::operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ D, Type $>$ \&vec)
+\item 
+{\footnotesize template$<$int D, class Type $>$ }\\std\+::istream \& \mbox{\hyperlink{namespace_math_a84070993850ce1b6459cd7ba73616bd1}{Math\+::operator$>$$>$}} (std\+::istream \&is, \mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ D, Type $>$ \&vec)
+\item 
+{\footnotesize template$<$int D1, class Type1 $>$ }\\\mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ D1, Type1 $>$ \mbox{\hyperlink{namespace_math_ad126e64a23d83e208fca1fc6934b1169}{Math\+::operator\texorpdfstring{$\ast$}{*}}} (const \mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ D1, Type1 $>$ \&vec, float skalar)
+\item 
+{\footnotesize template$<$int D1, class Type1 $>$ }\\\mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ D1, Type1 $>$ \mbox{\hyperlink{namespace_math_a8221350dc6e7edce7bdb1cf441815185}{Math\+::operator\texorpdfstring{$\ast$}{*}}} (float skalar, const \mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ D1, Type1 $>$ \&vec)
+\item 
+{\footnotesize template$<$int D1, class Type1 $>$ }\\\mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ D1, Type1 $>$ \mbox{\hyperlink{namespace_math_a41b72cd072e1246000ffbcef107d6d94}{Math\+::operator/}} (const \mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ D1, Type1 $>$ \&vec, float skalar)
+\item 
+{\footnotesize template$<$int D1, class Type1 $>$ }\\float \mbox{\hyperlink{namespace_math_a4d802a1ddda1935eea6b99782aa2effa}{Math\+::distance}} (const \mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ D1, Type1 $>$ \&v1, const \mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ D1, Type1 $>$ \&v2)
+\item 
+{\footnotesize template$<$int D1, class Type1 $>$ }\\bool \mbox{\hyperlink{namespace_math_afe7eb6918da89ee598397ad25d291c08}{Math\+::equals}} (const \mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ D1, Type1 $>$ \&v1, const \mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ D1, Type1 $>$ \&v2, float epsilon)
+\item 
+\mbox{\hyperlink{class_math_1_1_angle}{Angle}} \mbox{\hyperlink{namespace_math_acb53f49cacbc0754cf4b882a41837468}{Math\+::get\+Angle}} (\mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Vec2f}} P1, \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Vec2f}} P2, \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Vec2f}} P3)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{namespace_math_a753baf5938292fd107023b09e4287523}{Vec3f}} \mbox{\hyperlink{namespace_math_1_1_constant_ac99dbfbdfd0c9f6006acda74b4dfe294}{Math\+::\+Constant\+::x}} (1.\+0f, 0.\+0f, 0.\+0f)
+\item 
+const \mbox{\hyperlink{namespace_math_a753baf5938292fd107023b09e4287523}{Vec3f}} \mbox{\hyperlink{namespace_math_1_1_constant_af608b96d5b319e6ce8e1c0a9bd9cf0d6}{Math\+::\+Constant\+::y}} (0.\+0f, 1.\+0f, 0.\+0f)
+\item 
+const \mbox{\hyperlink{namespace_math_a753baf5938292fd107023b09e4287523}{Vec3f}} \mbox{\hyperlink{namespace_math_1_1_constant_a6dbe94e0d36ab2be2b64ad95a8e4f8e2}{Math\+::\+Constant\+::z}} (0.\+0f, 0.\+0f, 1.\+0f)
+\end{DoxyCompactItemize}

@@ -1,0 +1,5 @@
+<map id="HoleGeneratorSettings" name="HoleGeneratorSettings">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,160,168,251"/>
+<area shape="rect" id="Node000002" href="$class_random_1_1_seed.html" title=" " alt="" coords="19,5,155,96"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,96,89,143,84,143,84,96"/>
+</map>

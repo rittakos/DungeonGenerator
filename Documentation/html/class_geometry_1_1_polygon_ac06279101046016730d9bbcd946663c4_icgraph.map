@@ -1,0 +1,11 @@
+<map id="Geometry::Polygon::exists" name="Geometry::Polygon::exists">
+<area shape="rect" id="Node000001" title=" " alt="" coords="822,39,964,81"/>
+<area shape="rect" id="Node000002" href="$class_generator_1_1_voronoi_based_generator_algorithm.html#a4040a24ae08351d4a80c7390ff4d4121" title=" " alt="" coords="550,5,774,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="807,50,774,46,775,40,807,45"/>
+<area shape="rect" id="Node000005" href="$class_generator_1_1_voronoi_based_generator_algorithm.html#a1e76a75c17fe3d9cf2019371df2815d5" title=" " alt="" coords="550,72,774,115"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="807,75,775,80,774,74,807,70"/>
+<area shape="rect" id="Node000003" href="$class_generator_1_1_voronoi_based_generator_algorithm.html#a3762866b91d53ab6afffce1da2d894a6" title=" " alt="" coords="278,5,502,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="535,29,503,29,503,24,535,24"/>
+<area shape="rect" id="Node000004" href="$class_generator_1_1_voronoi_based_generator_algorithm.html#aa1cf5412e39ca7c7fae0853f971e055f" title=" " alt="" coords="5,5,230,48"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="262,29,230,29,230,24,262,24"/>
+</map>

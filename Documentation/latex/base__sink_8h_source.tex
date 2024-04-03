@@ -1,0 +1,57 @@
+\doxysection{base\+\_\+sink.\+h}
+\hypertarget{base__sink_8h_source}{}\label{base__sink_8h_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/spdlog/sinks/base\_sink.h@{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/spdlog/sinks/base\_sink.h}}
+\mbox{\hyperlink{base__sink_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{base__sink_8h_source_l00001}00001\ \textcolor{comment}{//\ Copyright(c)\ 2015-\/present,\ Gabi\ Melman\ \&\ spdlog\ contributors.}}
+\DoxyCodeLine{\Hypertarget{base__sink_8h_source_l00002}00002\ \textcolor{comment}{//\ Distributed\ under\ the\ MIT\ License\ (http://opensource.org/licenses/MIT)}}
+\DoxyCodeLine{\Hypertarget{base__sink_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{base__sink_8h_source_l00004}00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{base__sink_8h_source_l00005}00005\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{base__sink_8h_source_l00006}00006\ \textcolor{comment}{//\ base\ sink\ templated\ over\ a\ mutex\ (either\ dummy\ or\ real)}}
+\DoxyCodeLine{\Hypertarget{base__sink_8h_source_l00007}00007\ \textcolor{comment}{//\ concrete\ implementation\ should\ override\ the\ sink\_it\_()\ and\ flush\_()\ \ methods.}}
+\DoxyCodeLine{\Hypertarget{base__sink_8h_source_l00008}00008\ \textcolor{comment}{//\ locking\ is\ taken\ care\ of\ in\ this\ class\ -\/\ no\ locking\ needed\ by\ the}}
+\DoxyCodeLine{\Hypertarget{base__sink_8h_source_l00009}00009\ \textcolor{comment}{//\ implementers..}}
+\DoxyCodeLine{\Hypertarget{base__sink_8h_source_l00010}00010\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{base__sink_8h_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{base__sink_8h_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{common_8h}{spdlog/common.h}}>}}
+\DoxyCodeLine{\Hypertarget{base__sink_8h_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{log__msg_8h}{spdlog/details/log\_msg.h}}>}}
+\DoxyCodeLine{\Hypertarget{base__sink_8h_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{sink_8h}{spdlog/sinks/sink.h}}>}}
+\DoxyCodeLine{\Hypertarget{base__sink_8h_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{base__sink_8h_source_l00016}00016\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacespdlog}{spdlog}}\ \{}
+\DoxyCodeLine{\Hypertarget{base__sink_8h_source_l00017}00017\ \textcolor{keyword}{namespace\ }sinks\ \{}
+\DoxyCodeLine{\Hypertarget{base__sink_8h_source_l00018}00018\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Mutex>}
+\DoxyCodeLine{\Hypertarget{base__sink_8h_source_l00019}\mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink}{00019}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{common_8h_a52ddbd25f1bb074a1b09e10a3e5b177d}{SPDLOG\_API}}\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink}{base\_sink}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1sink}{sink}}\ \{}
+\DoxyCodeLine{\Hypertarget{base__sink_8h_source_l00020}00020\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{base__sink_8h_source_l00021}00021\ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink}{base\_sink}}();}
+\DoxyCodeLine{\Hypertarget{base__sink_8h_source_l00022}00022\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink}{base\_sink}}(std::unique\_ptr<spdlog::formatter>\ \mbox{\hyperlink{classspdlog_1_1formatter}{formatter}});}
+\DoxyCodeLine{\Hypertarget{base__sink_8h_source_l00023}\mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_abfcf0803a5b328b965bd43fb8b77b208}{00023}}\ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_abfcf0803a5b328b965bd43fb8b77b208}{\string~base\_sink}}()\ \textcolor{keyword}{override}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{base__sink_8h_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{base__sink_8h_source_l00025}\mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_a9639062f2ce3598203c0d958576491d1}{00025}}\ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_a9639062f2ce3598203c0d958576491d1}{base\_sink}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink}{base\_sink}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{base__sink_8h_source_l00026}\mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_ab75aabe29ad3dc165b4e9ce5b6f6a271}{00026}}\ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_ab75aabe29ad3dc165b4e9ce5b6f6a271}{base\_sink}}(\mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink}{base\_sink}}\ \&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{base__sink_8h_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{base__sink_8h_source_l00028}\mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_a210609e44154b2138708a234fb0d46fb}{00028}}\ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink}{base\_sink}}\ \&\mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_a210609e44154b2138708a234fb0d46fb}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink}{base\_sink}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{base__sink_8h_source_l00029}\mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_a8a590ffe81bec5677d21d114f6f2e33d}{00029}}\ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink}{base\_sink}}\ \&\mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_a8a590ffe81bec5677d21d114f6f2e33d}{operator=}}(\mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink}{base\_sink}}\ \&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{base__sink_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{base__sink_8h_source_l00031}00031\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacespdlog_af49a2d8edb18994d66be6ab2b96d0970}{log}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&msg)\ \textcolor{keyword}{final};}
+\DoxyCodeLine{\Hypertarget{base__sink_8h_source_l00032}00032\ \ \ \ \ \textcolor{keywordtype}{void}\ flush()\ final;}
+\DoxyCodeLine{\Hypertarget{base__sink_8h_source_l00033}00033\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_pattern(const\ \mbox{\hyperlink{namespacestd}{std}}::\textcolor{keywordtype}{string}\ \&pattern)\ final;}
+\DoxyCodeLine{\Hypertarget{base__sink_8h_source_l00034}00034\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_formatter(\mbox{\hyperlink{namespacestd}{std}}::unique\_ptr<\mbox{\hyperlink{namespacespdlog}{spdlog}}::\mbox{\hyperlink{classspdlog_1_1formatter}{formatter}}>\ sink\_formatter)\ final;}
+\DoxyCodeLine{\Hypertarget{base__sink_8h_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{base__sink_8h_source_l00036}00036\ protected:}
+\DoxyCodeLine{\Hypertarget{base__sink_8h_source_l00037}00037\ \ \ \ \ \textcolor{comment}{//\ sink\ formatter}}
+\DoxyCodeLine{\Hypertarget{base__sink_8h_source_l00038}\mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_a2db2479b1d1aed70f55c08a9392b5a42}{00038}}\ \ \ \ \ \mbox{\hyperlink{namespacestd}{std}}::unique\_ptr<\mbox{\hyperlink{namespacespdlog}{spdlog}}::\mbox{\hyperlink{classspdlog_1_1formatter}{formatter}}>\ formatter\_;}
+\DoxyCodeLine{\Hypertarget{base__sink_8h_source_l00039}\mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_a929422554ce18d8bffd9b4d75cc7acf3}{00039}}\ \ \ \ \ Mutex\ mutex\_;}
+\DoxyCodeLine{\Hypertarget{base__sink_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{base__sink_8h_source_l00041}\mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_ad698d300cb7f5e58b2aa1b9907cdbd87}{00041}}\ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ sink\_it\_(const\ details::log\_msg\ \&msg)\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{base__sink_8h_source_l00042}\mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink_a5ac2b237c60f68a18122a1ca09b812b4}{00042}}\ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ flush\_()\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{base__sink_8h_source_l00043}00043\ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ set\_pattern\_(const\ \mbox{\hyperlink{namespacestd}{std}}::\textcolor{keywordtype}{string}\ \&pattern);}
+\DoxyCodeLine{\Hypertarget{base__sink_8h_source_l00044}00044\ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ set\_formatter\_(\mbox{\hyperlink{namespacestd}{std}}::unique\_ptr<\mbox{\hyperlink{namespacespdlog}{spdlog}}::\mbox{\hyperlink{classspdlog_1_1formatter}{formatter}}>\ sink\_formatter);}
+\DoxyCodeLine{\Hypertarget{base__sink_8h_source_l00045}00045\ \};}
+\DoxyCodeLine{\Hypertarget{base__sink_8h_source_l00046}00046\ \}\ \ \textcolor{comment}{//\ namespace\ sinks}}
+\DoxyCodeLine{\Hypertarget{base__sink_8h_source_l00047}00047\ \}\ \ \textcolor{comment}{//\ namespace\ spdlog}}
+\DoxyCodeLine{\Hypertarget{base__sink_8h_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{base__sink_8h_source_l00049}00049\ \textcolor{preprocessor}{\#ifdef\ SPDLOG\_HEADER\_ONLY}}
+\DoxyCodeLine{\Hypertarget{base__sink_8h_source_l00050}00050\ \textcolor{preprocessor}{\ \ \ \ \#include\ "{}\mbox{\hyperlink{base__sink-inl_8h}{base\_sink-\/inl.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{base__sink_8h_source_l00051}00051\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

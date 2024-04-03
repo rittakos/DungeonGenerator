@@ -1,0 +1,9 @@
+<map id="C:/Dev/DungeonGenerator/DungeonGenerator/Math/math.hpp" name="C:/Dev/DungeonGenerator/DungeonGenerator/Math/math.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="42,5,214,64"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,112,67,139"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,66,62,103,58,99,97,62"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="91,112,165,139"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="131,64,131,96,125,96,125,64"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="189,112,267,139"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="162,62,204,100,201,104,158,66"/>
+</map>

@@ -1,0 +1,146 @@
+\doxysection{assert.\+h}
+\hypertarget{assert_8h_source}{}\label{assert_8h_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/lemon/assert.h@{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/lemon/assert.h}}
+\mbox{\hyperlink{assert_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00001}00001\ \textcolor{comment}{/*\ -\/*-\/\ mode:\ C++;\ indent-\/tabs-\/mode:\ nil;\ -\/*-\/}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00002}00002\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00003}00003\ \textcolor{comment}{\ *\ This\ file\ is\ a\ part\ of\ LEMON,\ a\ generic\ C++\ optimization\ library.}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00004}00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00005}00005\ \textcolor{comment}{\ *\ Copyright\ (C)\ 2003-\/2013}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00006}00006\ \textcolor{comment}{\ *\ Egervary\ Jeno\ Kombinatorikus\ Optimalizalasi\ Kutatocsoport}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00007}00007\ \textcolor{comment}{\ *\ (Egervary\ Research\ Group\ on\ Combinatorial\ Optimization,\ EGRES).}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00008}00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00009}00009\ \textcolor{comment}{\ *\ Permission\ to\ use,\ modify\ and\ distribute\ this\ software\ is\ granted}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00010}00010\ \textcolor{comment}{\ *\ provided\ that\ this\ copyright\ notice\ appears\ in\ all\ copies.\ For}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00011}00011\ \textcolor{comment}{\ *\ precise\ terms\ see\ the\ accompanying\ LICENSE\ file.}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00012}00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00013}00013\ \textcolor{comment}{\ *\ This\ software\ is\ provided\ "{}AS\ IS"{}\ with\ no\ warranty\ of\ any\ kind,}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00014}00014\ \textcolor{comment}{\ *\ express\ or\ implied,\ and\ with\ no\ claim\ as\ to\ its\ suitability\ for\ any}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00015}00015\ \textcolor{comment}{\ *\ purpose.}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00016}00016\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00017}00017\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00019}00019\ \textcolor{preprocessor}{\#ifndef\ LEMON\_ASSERT\_H}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00020}00020\ \textcolor{preprocessor}{\#define\ LEMON\_ASSERT\_H}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00026}00026\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{additional__includes_2lemon_2error_8h}{lemon/error.h}}>}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00028}00028\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacelemon}{lemon}}\ \{}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00030}\mbox{\hyperlink{namespacelemon_a10ef1946909e065cff2966130af9da33}{00030}}\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacelemon_a10ef1946909e065cff2966130af9da33}{assert\_fail\_abort}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *file,\ \textcolor{keywordtype}{int}\ line,}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *function,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ message,}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{assertion}})}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00033}00033\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00034}00034\ \ \ \ \ std::cerr\ <<\ file\ <<\ \textcolor{stringliteral}{"{}:"{}}\ <<\ line\ <<\ \textcolor{stringliteral}{"{}:\ "{}};}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00035}00035\ \ \ \ \ \textcolor{keywordflow}{if}\ (function)}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00036}00036\ \ \ \ \ \ \ std::cerr\ <<\ function\ <<\ \textcolor{stringliteral}{"{}:\ "{}};}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00037}00037\ \ \ \ \ std::cerr\ <<\ message;}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00038}00038\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{assertion}})}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00039}00039\ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}\ (assertion\ '"{}}\ <<\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{assertion}}\ <<\ \textcolor{stringliteral}{"{}'\ failed)"{}};}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00040}00040\ \ \ \ \ std::cerr\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00041}00041\ \ \ \ \ std::abort();}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00042}00042\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00044}\mbox{\hyperlink{namespacelemon_1_1__assert__bits}{00044}}\ \ \ \textcolor{keyword}{namespace\ }\_assert\_bits\ \{}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00047}\mbox{\hyperlink{namespacelemon_1_1__assert__bits_a32ec37dbe347990ba01737f28c605ecc}{00047}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{namespacelemon_1_1__assert__bits_a32ec37dbe347990ba01737f28c605ecc}{cstringify}}(\textcolor{keyword}{const}\ std::string\&\ str)\ \{}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00048}00048\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ str.c\_str();}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00049}00049\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00051}\mbox{\hyperlink{namespacelemon_1_1__assert__bits_aefcf55482c6ddd0fe75b20f8a2d423dc}{00051}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{namespacelemon_1_1__assert__bits_a32ec37dbe347990ba01737f28c605ecc}{cstringify}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ str)\ \{}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00052}00052\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ str;}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00053}00053\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00054}00054\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00055}00055\ \}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00057}00057\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ LEMON\_ASSERT\_H}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00059}00059\ \textcolor{preprocessor}{\#undef\ LEMON\_ASSERT}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00060}00060\ \textcolor{preprocessor}{\#undef\ LEMON\_DEBUG}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00062}00062\ \textcolor{preprocessor}{\#if\ (defined(LEMON\_ASSERT\_ABORT)\ ?\ 1\ :\ 0)\ +\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00063}00063\ \textcolor{preprocessor}{\ \ (defined(LEMON\_ASSERT\_CUSTOM)\ ?\ 1\ :\ 0)\ >\ 1}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00064}00064\ \textcolor{preprocessor}{\#error\ "{}LEMON\ assertion\ system\ is\ not\ set\ properly"{}}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00065}00065\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00067}00067\ \textcolor{preprocessor}{\#if\ ((defined(LEMON\_ASSERT\_ABORT)\ ?\ 1\ :\ 0)\ +\ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00068}00068\ \textcolor{preprocessor}{\ \ \ \ \ (defined(LEMON\_ASSERT\_CUSTOM)\ ?\ 1\ :\ 0)\ ==\ 1\ ||\ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00069}00069\ \textcolor{preprocessor}{\ \ \ \ \ defined(LEMON\_ENABLE\_ASSERTS))\ \&\&\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00070}00070\ \textcolor{preprocessor}{\ \ (defined(LEMON\_DISABLE\_ASSERTS)\ ||\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00071}00071\ \textcolor{preprocessor}{\ \ \ defined(NDEBUG))}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00072}00072\ \textcolor{preprocessor}{\#error\ "{}LEMON\ assertion\ system\ is\ not\ set\ properly"{}}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00073}00073\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00076}00076\ \textcolor{preprocessor}{\#if\ defined\ LEMON\_ASSERT\_ABORT}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00077}00077\ \textcolor{preprocessor}{\#\ \ undef\ LEMON\_ASSERT\_HANDLER}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00078}00078\ \textcolor{preprocessor}{\#\ \ define\ LEMON\_ASSERT\_HANDLER\ ::lemon::assert\_fail\_abort}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00079}00079\ \textcolor{preprocessor}{\#elif\ defined\ LEMON\_ASSERT\_CUSTOM}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00080}00080\ \textcolor{preprocessor}{\#\ \ undef\ LEMON\_ASSERT\_HANDLER}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00081}00081\ \textcolor{preprocessor}{\#\ \ ifndef\ LEMON\_CUSTOM\_ASSERT\_HANDLER}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00082}00082\ \textcolor{preprocessor}{\#\ \ \ \ error\ "{}LEMON\_CUSTOM\_ASSERT\_HANDLER\ is\ not\ set"{}}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00083}00083\ \textcolor{preprocessor}{\#\ \ endif}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00084}00084\ \textcolor{preprocessor}{\#\ \ define\ LEMON\_ASSERT\_HANDLER\ LEMON\_CUSTOM\_ASSERT\_HANDLER}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00085}00085\ \textcolor{preprocessor}{\#elif\ defined\ LEMON\_DISABLE\_ASSERTS}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00086}00086\ \textcolor{preprocessor}{\#\ \ undef\ LEMON\_ASSERT\_HANDLER}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00087}00087\ \textcolor{preprocessor}{\#elif\ defined\ NDEBUG}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00088}00088\ \textcolor{preprocessor}{\#\ \ undef\ LEMON\_ASSERT\_HANDLER}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00089}00089\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00090}\mbox{\hyperlink{assert_8h_a996e2d19532583452e0e3b61e8101488}{00090}}\ \textcolor{preprocessor}{\#\ \ define\ LEMON\_ASSERT\_HANDLER\ ::lemon::assert\_fail\_abort}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00091}00091\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00093}00093\ \textcolor{preprocessor}{\#ifndef\ LEMON\_FUNCTION\_NAME}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00094}00094\ \textcolor{preprocessor}{\#\ \ if\ defined\ \_\_GNUC\_\_}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00095}00095\ \textcolor{preprocessor}{\#\ \ \ \ define\ LEMON\_FUNCTION\_NAME\ (\_\_PRETTY\_FUNCTION\_\_)}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00096}00096\ \textcolor{preprocessor}{\#\ \ elif\ defined\ \_MSC\_VER}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00097}00097\ \textcolor{preprocessor}{\#\ \ \ \ define\ LEMON\_FUNCTION\_NAME\ (\_\_FUNCSIG\_\_)}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00098}00098\ \textcolor{preprocessor}{\#\ \ elif\ \_\_STDC\_VERSION\_\_\ >=\ 199901L}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00099}00099\ \textcolor{preprocessor}{\#\ \ \ \ define\ LEMON\_FUNCTION\_NAME\ (\_\_func\_\_)}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00100}00100\ \textcolor{preprocessor}{\#\ \ else}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00101}\mbox{\hyperlink{assert_8h_a402c8e109607e7d754ef0ecb9f356834}{00101}}\ \textcolor{preprocessor}{\#\ \ \ \ define\ LEMON\_FUNCTION\_NAME\ ("{}<unknown>"{})}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00102}00102\ \textcolor{preprocessor}{\#\ \ endif}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00103}00103\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00105}00105\ \textcolor{preprocessor}{\#ifdef\ DOXYGEN}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00155}00155\ \textcolor{preprocessor}{\#\ \ define\ LEMON\_ASSERT(exp,\ msg)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00156}00156\ \textcolor{preprocessor}{\ \ (static\_cast<void>\ (!!(exp)\ ?\ 0\ :\ (\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00157}00157\ \textcolor{preprocessor}{\ \ \ \ LEMON\_ASSERT\_HANDLER(\_\_FILE\_\_,\ \_\_LINE\_\_,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00158}00158\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LEMON\_FUNCTION\_NAME,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00159}00159\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ::lemon::\_assert\_bits::cstringify(msg),\ \#exp),\ 0)))}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00160}00160\ }
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00184}00184\ \textcolor{preprocessor}{\#\ \ define\ LEMON\_DEBUG(exp,\ msg)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00185}00185\ \textcolor{preprocessor}{\ \ (static\_cast<void>\ (!!(exp)\ ?\ 0\ :\ (\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00186}00186\ \textcolor{preprocessor}{\ \ \ \ LEMON\_ASSERT\_HANDLER(\_\_FILE\_\_,\ \_\_LINE\_\_,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00187}00187\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LEMON\_FUNCTION\_NAME,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00188}00188\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ::lemon::\_assert\_bits::cstringify(msg),\ \#exp),\ 0)))}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00189}00189\ }
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00190}00190\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00191}00191\ }
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00192}00192\ \textcolor{preprocessor}{\#\ \ ifndef\ LEMON\_ASSERT\_HANDLER}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00193}00193\ \textcolor{preprocessor}{\#\ \ \ \ define\ LEMON\_ASSERT(exp,\ msg)\ \ (static\_cast<void>(0))}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00194}00194\ \textcolor{preprocessor}{\#\ \ \ \ define\ LEMON\_DEBUG(exp,\ msg)\ (static\_cast<void>(0))}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00195}00195\ \textcolor{preprocessor}{\#\ \ else}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00196}\mbox{\hyperlink{assert_8h_af78cf5572d91896ceecdd970f55601bc}{00196}}\ \textcolor{preprocessor}{\#\ \ \ \ define\ LEMON\_ASSERT(exp,\ msg)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00197}00197\ \textcolor{preprocessor}{\ \ \ \ \ \ \ (static\_cast<void>\ (!!(exp)\ ?\ 0\ :\ (\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00198}00198\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ LEMON\_ASSERT\_HANDLER(\_\_FILE\_\_,\ \_\_LINE\_\_,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00199}00199\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LEMON\_FUNCTION\_NAME,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00200}00200\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ::lemon::\_assert\_bits::cstringify(msg),\ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00201}00201\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#exp),\ 0)))}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00202}00202\ \textcolor{preprocessor}{\#\ \ \ \ if\ defined\ LEMON\_ENABLE\_DEBUG}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00203}00203\ \textcolor{preprocessor}{\#\ \ \ \ \ \ define\ LEMON\_DEBUG(exp,\ msg)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00204}00204\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ (static\_cast<void>\ (!!(exp)\ ?\ 0\ :\ (\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00205}00205\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ LEMON\_ASSERT\_HANDLER(\_\_FILE\_\_,\ \_\_LINE\_\_,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00206}00206\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LEMON\_FUNCTION\_NAME,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00207}00207\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ::lemon::\_assert\_bits::cstringify(msg),\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00208}00208\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#exp),\ 0)))}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00209}00209\ \textcolor{preprocessor}{\#\ \ \ \ else}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00210}\mbox{\hyperlink{assert_8h_acbefc04b0335938603649e96af183843}{00210}}\ \textcolor{preprocessor}{\#\ \ \ \ \ \ define\ LEMON\_DEBUG(exp,\ msg)\ (static\_cast<void>(0))}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00211}00211\ \textcolor{preprocessor}{\#\ \ \ \ endif}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00212}00212\ \textcolor{preprocessor}{\#\ \ endif}}
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00213}00213\ }
+\DoxyCodeLine{\Hypertarget{assert_8h_source_l00214}00214\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

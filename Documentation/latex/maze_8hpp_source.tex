@@ -1,0 +1,46 @@
+\doxysection{maze.\+hpp}
+\hypertarget{maze_8hpp_source}{}\label{maze_8hpp_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/Data/maze.hpp@{C:/Dev/DungeonGenerator/DungeonGenerator/Data/maze.hpp}}
+\mbox{\hyperlink{maze_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{maze_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ MAZE\_HPP}}
+\DoxyCodeLine{\Hypertarget{maze_8hpp_source_l00002}00002\ \textcolor{preprocessor}{\#define\ MAZE\_HPP}}
+\DoxyCodeLine{\Hypertarget{maze_8hpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{maze_8hpp_source_l00004}00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{maze_8hpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{maze_8hpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <set>}}
+\DoxyCodeLine{\Hypertarget{maze_8hpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{maze_8hpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{graph_8hpp}{graph.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{maze_8hpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{edge_8hpp}{edge.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{maze_8hpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{maze_8hpp_source_l00011}00011\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_data}{Data}}}
+\DoxyCodeLine{\Hypertarget{maze_8hpp_source_l00012}00012\ \{}
+\DoxyCodeLine{\Hypertarget{maze_8hpp_source_l00013}\mbox{\hyperlink{class_data_1_1_maze_data}{00013}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_data_1_1_maze_data}{MazeData}}}
+\DoxyCodeLine{\Hypertarget{maze_8hpp_source_l00014}00014\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{maze_8hpp_source_l00015}00015\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{maze_8hpp_source_l00016}\mbox{\hyperlink{class_data_1_1_maze_data_a3b02fa0667425b9c3964ee647eb77747}{00016}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_graph}{Math::Graph<int,\ Geometry::Edge>}}\ \mbox{\hyperlink{class_data_1_1_maze_data_a3b02fa0667425b9c3964ee647eb77747}{maze}};}
+\DoxyCodeLine{\Hypertarget{maze_8hpp_source_l00017}\mbox{\hyperlink{class_data_1_1_maze_data_a5254947118951610762dfc20bf2fc0df}{00017}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_graph}{Math::Graph<int,\ Geometry::Edge>}}\ \mbox{\hyperlink{class_data_1_1_maze_data_a5254947118951610762dfc20bf2fc0df}{graph}};}
+\DoxyCodeLine{\Hypertarget{maze_8hpp_source_l00018}00018\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{maze_8hpp_source_l00019}\mbox{\hyperlink{class_data_1_1_maze_data_a7eed7e151fd9cbf6d7ed6b5203d57a9f}{00019}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_data_1_1_maze_data_a7eed7e151fd9cbf6d7ed6b5203d57a9f}{MazeData}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{maze_8hpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{maze_8hpp_source_l00021}\mbox{\hyperlink{class_data_1_1_maze_data_ad88d719c05f32186e3687936500295f8}{00021}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_data_1_1_maze_data_ad88d719c05f32186e3687936500295f8}{setGraph}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_math_1_1_graph}{Math::Graph<int,\ Geometry::Edge>}}\&\ \mbox{\hyperlink{class_data_1_1_maze_data_a5254947118951610762dfc20bf2fc0df}{graph}})}
+\DoxyCodeLine{\Hypertarget{maze_8hpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{maze_8hpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>graph\ =\ \mbox{\hyperlink{class_data_1_1_maze_data_a5254947118951610762dfc20bf2fc0df}{graph}};}
+\DoxyCodeLine{\Hypertarget{maze_8hpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{maze_8hpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{maze_8hpp_source_l00026}\mbox{\hyperlink{class_data_1_1_maze_data_a61cf6604c278d59a2ebc0aebe8949af1}{00026}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_data_1_1_maze_data_a61cf6604c278d59a2ebc0aebe8949af1}{setMaze}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_math_1_1_graph}{Math::Graph<int,\ Geometry::Edge>}}\&\ \mbox{\hyperlink{class_data_1_1_maze_data_a5254947118951610762dfc20bf2fc0df}{graph}})}
+\DoxyCodeLine{\Hypertarget{maze_8hpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{maze_8hpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>maze\ =\ \mbox{\hyperlink{class_data_1_1_maze_data_a5254947118951610762dfc20bf2fc0df}{graph}};}
+\DoxyCodeLine{\Hypertarget{maze_8hpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{maze_8hpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{maze_8hpp_source_l00031}\mbox{\hyperlink{class_data_1_1_maze_data_a9ac251537c8e2cb5a4c8ca5a2d9da96f}{00031}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_graph}{Math::Graph<int,\ Geometry::Edge>}}\ \mbox{\hyperlink{class_data_1_1_maze_data_a9ac251537c8e2cb5a4c8ca5a2d9da96f}{getMaze}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_data_1_1_maze_data_a3b02fa0667425b9c3964ee647eb77747}{maze}};\ \}}
+\DoxyCodeLine{\Hypertarget{maze_8hpp_source_l00032}\mbox{\hyperlink{class_data_1_1_maze_data_ad919b6076779ed23b15d10635fd2b8b4}{00032}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_graph}{Math::Graph<int,\ Geometry::Edge>}}\ \mbox{\hyperlink{class_data_1_1_maze_data_ad919b6076779ed23b15d10635fd2b8b4}{getGraph}}()\textcolor{keyword}{\ const\ }}
+\DoxyCodeLine{\Hypertarget{maze_8hpp_source_l00033}00033\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{\ }
+\DoxyCodeLine{\Hypertarget{maze_8hpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_data_1_1_maze_data_a5254947118951610762dfc20bf2fc0df}{graph}};\ }
+\DoxyCodeLine{\Hypertarget{maze_8hpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{maze_8hpp_source_l00036}00036\ \ \ \ \ \ \ \ \ std::vector<Geometry::Edge>\ \mbox{\hyperlink{class_data_1_1_maze_data_a3b9f1eaa1af5c8ee0775228b637f8486}{getNotWallEdges}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{maze_8hpp_source_l00037}00037\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{maze_8hpp_source_l00038}00038\ \}}
+\DoxyCodeLine{\Hypertarget{maze_8hpp_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{maze_8hpp_source_l00040}00040\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

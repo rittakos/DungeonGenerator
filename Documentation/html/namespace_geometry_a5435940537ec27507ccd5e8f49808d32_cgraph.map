@@ -1,0 +1,15 @@
+<map id="Geometry::getBisector" name="Geometry::getBisector">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,81,158,108"/>
+<area shape="rect" id="Node000002" href="$namespace_geometry.html#a2a037051bb9263fa553810b06691426c" title=" " alt="" coords="206,81,325,108"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="158,92,190,92,190,97,158,97"/>
+<area shape="rect" id="Node000003" href="$class_math_1_1_quaternion.html#a18d3a934c8bc11845841ce8824b209b8" title=" " alt="" coords="373,5,568,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="291,78,372,42,394,34,396,39,374,46,293,83"/>
+<area shape="rect" id="Node000005" href="$class_math_1_1_quaternion.html#ac6884d3900d18dc11ee565400f89ca73" title=" " alt="" coords="405,56,537,83"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="325,85,389,77,389,82,326,90"/>
+<area shape="rect" id="Node000006" href="$class_math_1_1_quaternion.html#a97853ababc2cba1bc0484fd02b33914d" title=" " alt="" coords="405,107,537,133"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="326,99,389,107,389,113,325,105"/>
+<area shape="rect" id="Node000007" href="$class_math_1_1_quaternion.html#a8b112e36c39b3ffa40a0110c73a1b236" title=" " alt="" coords="403,157,539,184"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="293,106,374,143,396,150,394,155,372,148,291,111"/>
+<area shape="rect" id="Node000004" href="$class_math_1_1_quaternion.html#a0af09a51ab263e76041a90a035af8e30" title=" " alt="" coords="616,5,809,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="569,16,601,16,601,21,569,21"/>
+</map>

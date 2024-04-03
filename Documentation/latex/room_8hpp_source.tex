@@ -1,0 +1,45 @@
+\doxysection{room.\+hpp}
+\hypertarget{room_8hpp_source}{}\label{room_8hpp_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/Data/room.hpp@{C:/Dev/DungeonGenerator/DungeonGenerator/Data/room.hpp}}
+\mbox{\hyperlink{room_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{room_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ ROOM\_H}}
+\DoxyCodeLine{\Hypertarget{room_8hpp_source_l00002}00002\ \textcolor{preprocessor}{\#define\ ROOM\_H}}
+\DoxyCodeLine{\Hypertarget{room_8hpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{room_8hpp_source_l00004}00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{room_8hpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{room_8hpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{room_8hpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{room_8hpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{layout_data_8hpp}{layoutData.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{room_8hpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{wall_data_8hpp}{wallData.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{room_8hpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{room_8hpp_source_l00011}00011\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_data}{Data}}}
+\DoxyCodeLine{\Hypertarget{room_8hpp_source_l00012}00012\ \{}
+\DoxyCodeLine{\Hypertarget{room_8hpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{room_8hpp_source_l00014}\mbox{\hyperlink{class_data_1_1_room_data}{00014}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_data_1_1_room_data}{RoomData}}}
+\DoxyCodeLine{\Hypertarget{room_8hpp_source_l00015}00015\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{room_8hpp_source_l00016}00016\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{room_8hpp_source_l00017}\mbox{\hyperlink{class_data_1_1_room_data_a8a686ebd6b3a3f1d1f454e7f2c98adb6}{00017}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_data_1_1_room_data_a8a686ebd6b3a3f1d1f454e7f2c98adb6}{nextId}};}
+\DoxyCodeLine{\Hypertarget{room_8hpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{room_8hpp_source_l00019}\mbox{\hyperlink{class_data_1_1_room_data_a50d8927d36a8af723e258245d3e5585a}{00019}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_data_1_1_room_data_a50d8927d36a8af723e258245d3e5585a}{id}};\ \textcolor{comment}{//0,\ 1...\ unique}}
+\DoxyCodeLine{\Hypertarget{room_8hpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{room_8hpp_source_l00021}\mbox{\hyperlink{class_data_1_1_room_data_a642788b2dfb6d8d06efe4bf6d94b60ba}{00021}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_data_1_1_layout_data}{LayoutData}}\ \mbox{\hyperlink{class_data_1_1_room_data_a642788b2dfb6d8d06efe4bf6d94b60ba}{floor}};}
+\DoxyCodeLine{\Hypertarget{room_8hpp_source_l00022}\mbox{\hyperlink{class_data_1_1_room_data_a2d6654849439a0388b63d106af4955ca}{00022}}\ \ \ \ \ \ \ \ \ std::vector<WallData>\ \mbox{\hyperlink{class_data_1_1_room_data_a2d6654849439a0388b63d106af4955ca}{walls}};}
+\DoxyCodeLine{\Hypertarget{room_8hpp_source_l00023}00023\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{room_8hpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_data_1_1_room_data_aa355e4db2cb5f3e291ab867f533d4820}{RoomData}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_geometry_1_1_polygon}{Geometry::Polygon}}\&\ polygon);}
+\DoxyCodeLine{\Hypertarget{room_8hpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{room_8hpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_data_1_1_room_data}{RoomData}}\&\ \mbox{\hyperlink{class_data_1_1_room_data_aa1977a5084afe5da179f5c72ebebd02e}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_data_1_1_room_data}{RoomData}}\&\ other);}
+\DoxyCodeLine{\Hypertarget{room_8hpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \textcolor{comment}{//RoomData(const\ RoomData\&\ other);}}
+\DoxyCodeLine{\Hypertarget{room_8hpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{room_8hpp_source_l00029}\mbox{\hyperlink{class_data_1_1_room_data_a4947a350140bd6b9c64c3c84b4157b37}{00029}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_data_1_1_layout_data}{LayoutData}}\&\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_data_1_1_room_data_a4947a350140bd6b9c64c3c84b4157b37}{getFloor}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_data_1_1_room_data_a642788b2dfb6d8d06efe4bf6d94b60ba}{floor}};\ \}}
+\DoxyCodeLine{\Hypertarget{room_8hpp_source_l00030}\mbox{\hyperlink{class_data_1_1_room_data_a7a7821606e884765005bf10a47dcfb1a}{00030}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_data_1_1_layout_data}{LayoutData}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_data_1_1_room_data_a7a7821606e884765005bf10a47dcfb1a}{getFloorConst}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_data_1_1_room_data_a642788b2dfb6d8d06efe4bf6d94b60ba}{floor}};\ \}}
+\DoxyCodeLine{\Hypertarget{room_8hpp_source_l00031}\mbox{\hyperlink{class_data_1_1_room_data_a22de30e496be700ade2cff19291bad62}{00031}}\ \ \ \ \ \ \ \ \ std::vector<WallData>\ \ \ \mbox{\hyperlink{class_data_1_1_room_data_a22de30e496be700ade2cff19291bad62}{getWalls}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_data_1_1_room_data_a2d6654849439a0388b63d106af4955ca}{walls}};\ \}}
+\DoxyCodeLine{\Hypertarget{room_8hpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{room_8hpp_source_l00033}\mbox{\hyperlink{class_data_1_1_room_data_a788bf47403cecd19b0590a947990f6a0}{00033}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_data_1_1_room_data_a788bf47403cecd19b0590a947990f6a0}{getId}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_data_1_1_room_data_a50d8927d36a8af723e258245d3e5585a}{id}};\ \}}
+\DoxyCodeLine{\Hypertarget{room_8hpp_source_l00034}00034\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{room_8hpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{room_8hpp_source_l00036}00036\ \}}
+\DoxyCodeLine{\Hypertarget{room_8hpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{room_8hpp_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{room_8hpp_source_l00039}00039\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

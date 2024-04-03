@@ -1,0 +1,5 @@
+<map id="Generator::MazeGeneratorAlgorithm" name="Generator::MazeGeneratorAlgorithm">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,189,112"/>
+<area shape="rect" id="Node000002" href="$class_generator_1_1_kruskal_generator.html" title=" " alt="" coords="8,160,187,229"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,127,100,160,95,160,95,127"/>
+</map>

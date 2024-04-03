@@ -1,0 +1,78 @@
+\doxysection{concept\+\_\+check.\+h}
+\hypertarget{concept__check_8h_source}{}\label{concept__check_8h_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/lemon/concept\_check.h@{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/lemon/concept\_check.h}}
+\mbox{\hyperlink{concept__check_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00001}00001\ \textcolor{comment}{/*\ -\/*-\/\ mode:\ C++;\ indent-\/tabs-\/mode:\ nil;\ -\/*-\/}}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00002}00002\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00003}00003\ \textcolor{comment}{\ *\ This\ file\ is\ a\ part\ of\ LEMON,\ a\ generic\ C++\ optimization\ library.}}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00004}00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00005}00005\ \textcolor{comment}{\ *\ Copyright\ (C)\ 2003-\/2013}}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00006}00006\ \textcolor{comment}{\ *\ Egervary\ Jeno\ Kombinatorikus\ Optimalizalasi\ Kutatocsoport}}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00007}00007\ \textcolor{comment}{\ *\ (Egervary\ Research\ Group\ on\ Combinatorial\ Optimization,\ EGRES).}}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00008}00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00009}00009\ \textcolor{comment}{\ *\ Permission\ to\ use,\ modify\ and\ distribute\ this\ software\ is\ granted}}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00010}00010\ \textcolor{comment}{\ *\ provided\ that\ this\ copyright\ notice\ appears\ in\ all\ copies.\ For}}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00011}00011\ \textcolor{comment}{\ *\ precise\ terms\ see\ the\ accompanying\ LICENSE\ file.}}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00012}00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00013}00013\ \textcolor{comment}{\ *\ This\ software\ is\ provided\ "{}AS\ IS"{}\ with\ no\ warranty\ of\ any\ kind,}}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00014}00014\ \textcolor{comment}{\ *\ express\ or\ implied,\ and\ with\ no\ claim\ as\ to\ its\ suitability\ for\ any}}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00015}00015\ \textcolor{comment}{\ *\ purpose.}}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00016}00016\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00017}00017\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00019}00019\ \textcolor{comment}{//\ The\ contents\ of\ this\ file\ was\ inspired\ by\ the\ concept\ checking}}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00020}00020\ \textcolor{comment}{//\ utility\ of\ the\ BOOST\ library\ (http://www.boost.org).}}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00026}00026\ \textcolor{preprocessor}{\#ifndef\ LEMON\_CONCEPT\_CHECK\_H}}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00027}00027\ \textcolor{preprocessor}{\#define\ LEMON\_CONCEPT\_CHECK\_H}}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00029}00029\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacelemon}{lemon}}\ \{}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00031}00031\ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00032}00032\ \textcolor{comment}{\ \ \ \ "{}inline"{}\ is\ used\ for\ ignore\_unused\_variable\_warning()}}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00033}00033\ \textcolor{comment}{\ \ \ \ and\ function\_requires()\ to\ make\ sure\ there\ is\ no}}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00034}00034\ \textcolor{comment}{\ \ \ \ overtarget\ with\ g++.}}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00035}00035\ \textcolor{comment}{\ \ */}}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00037}\mbox{\hyperlink{namespacelemon_a0362774395838bda46cb4400a1189f21}{00037}}\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacelemon_a0362774395838bda46cb4400a1189f21}{ignore\_unused\_variable\_warning}}(\textcolor{keyword}{const}\ T\&)\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00038}00038\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T1,\ \textcolor{keyword}{class}\ T2>}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00039}\mbox{\hyperlink{namespacelemon_a292fa494da42adaa387291536a443d7a}{00039}}\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacelemon_a0362774395838bda46cb4400a1189f21}{ignore\_unused\_variable\_warning}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{T1}}\&,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{T2}}\&)\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00040}00040\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T1,\ \textcolor{keyword}{class}\ T2,\ \textcolor{keyword}{class}\ T3>}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00041}\mbox{\hyperlink{namespacelemon_a434d7e64480a960e218aebd2067cd941}{00041}}\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacelemon_a0362774395838bda46cb4400a1189f21}{ignore\_unused\_variable\_warning}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{T1}}\&,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{T2}}\&,}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{T3}}\&)\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00043}00043\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T1,\ \textcolor{keyword}{class}\ T2,\ \textcolor{keyword}{class}\ T3,\ \textcolor{keyword}{class}\ T4>}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00044}\mbox{\hyperlink{namespacelemon_a52570e4d1f115744b6fa468e23fec315}{00044}}\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacelemon_a0362774395838bda46cb4400a1189f21}{ignore\_unused\_variable\_warning}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{T1}}\&,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{T2}}\&,}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{T3}}\&,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{T4}}\&)\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00046}00046\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T1,\ \textcolor{keyword}{class}\ T2,\ \textcolor{keyword}{class}\ T3,\ \textcolor{keyword}{class}\ T4,\ \textcolor{keyword}{class}\ T5>}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00047}\mbox{\hyperlink{namespacelemon_a84922e2e05145abbcb4b210f9971d927}{00047}}\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacelemon_a0362774395838bda46cb4400a1189f21}{ignore\_unused\_variable\_warning}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{T1}}\&,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{T2}}\&,}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{T3}}\&,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{T4}}\&,}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{T5}}\&)\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00050}00050\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T1,\ \textcolor{keyword}{class}\ T2,\ \textcolor{keyword}{class}\ T3,\ \textcolor{keyword}{class}\ T4,\ \textcolor{keyword}{class}\ T5,\ \textcolor{keyword}{class}\ T6>}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00051}\mbox{\hyperlink{namespacelemon_a8fbb708d83994225df864bc7f4ef452a}{00051}}\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacelemon_a0362774395838bda46cb4400a1189f21}{ignore\_unused\_variable\_warning}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{T1}}\&,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{T2}}\&,}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{T3}}\&,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{T4}}\&,}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{T5}}\&,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{T6}}\&)\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00056}00056\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Concept>}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00057}\mbox{\hyperlink{namespacelemon_a3b4bbb2e8a649d05287b65fdf29b6930}{00057}}\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacelemon_a3b4bbb2e8a649d05287b65fdf29b6930}{function\_requires}}()}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00058}00058\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00059}00059\ \textcolor{preprocessor}{\#if\ !defined(NDEBUG)}}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00060}00060\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{void}}\ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Concept}}::*x)()\ =\ \&\ Concept::constraints;}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00061}00061\ \ \ \ \ \mbox{\hyperlink{namespacelemon_a0362774395838bda46cb4400a1189f21}{::lemon::ignore\_unused\_variable\_warning}}(x);}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00062}00062\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00063}00063\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00066}00066\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Concept,\ \textcolor{keyword}{typename}\ Type>}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00067}\mbox{\hyperlink{namespacelemon_ac202d55258d62489acf256b88b87e470}{00067}}\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacelemon_ac202d55258d62489acf256b88b87e470}{checkConcept}}()\ \{}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00068}00068\ \textcolor{preprocessor}{\#if\ !defined(NDEBUG)}}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00069}00069\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Concept::template\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Constraints<Type>}}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ConceptCheck}};}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00070}00070\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{void}}\ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ConceptCheck}}::*x)()\ =\ \&\ ConceptCheck::constraints;}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00071}00071\ \ \ \ \ \mbox{\hyperlink{namespacelemon_a0362774395838bda46cb4400a1189f21}{::lemon::ignore\_unused\_variable\_warning}}(x);}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00072}00072\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00073}00073\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00075}00075\ \}\ \textcolor{comment}{//\ namespace\ lemon}}
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{concept__check_8h_source_l00077}00077\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ LEMON\_CONCEPT\_CHECK\_H}}
+
+\end{DoxyCode}

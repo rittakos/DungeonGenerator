@@ -1,0 +1,59 @@
+\doxysection{geometry.\+cpp}
+\hypertarget{geometry_8cpp_source}{}\label{geometry_8cpp_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/Geometry/geometry.cpp@{C:/Dev/DungeonGenerator/DungeonGenerator/Geometry/geometry.cpp}}
+\mbox{\hyperlink{geometry_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{geometry_8hpp}{geometry.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{equation_system_8hpp}{equationSystem.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00004}00004\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_geometry}{Geometry}}}
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00005}00005\ \{}
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00007}\mbox{\hyperlink{namespace_geometry_aea68bd24e7a4d0f97ea9372f24e7e6a8}{00007}}\ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ \mbox{\hyperlink{namespace_geometry_aea68bd24e7a4d0f97ea9372f24e7e6a8}{calcTriangleOutterCircleCenter}}(std::array<Math::Vec2f,\ 3>\ points)}
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00008}00008\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00009}00009\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ A\ =\ points[0];}
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00010}00010\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ B\ =\ points[1];}
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00011}00011\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ C\ =\ points[2];}
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00013}00013\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ AB\ =\ B\ -\/\ A;}
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00014}00014\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ AC\ =\ C\ -\/\ A;}
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00016}00016\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ Hab\ =\ (A\ +\ B)\ /\ 2.0f;}
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00017}00017\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ Hac\ =\ (A\ +\ C)\ /\ 2.0f;}
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_linear_equation_system}{Math::LinearEquationSystem<2>}}\ les;}
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_linear_equation}{Math::LinearEquation<2>}}\ e1(AB[0]\ *\ Hab[0]\ +\ AB[1]\ *\ Hab[1],\ \{\ AB[0],\ AB[1]\ \});}
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_linear_equation}{Math::LinearEquation<2>}}\ e2(AC[0]\ *\ Hac[0]\ +\ AC[1]\ *\ Hac[1],\ \{\ AC[0],\ AC[1]\ \});}
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ les.\mbox{\hyperlink{class_math_1_1_linear_equation_system_a4138a6281c18416a0caadb099c1ee871}{addLinearEquation}}(e1);}
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ les.\mbox{\hyperlink{class_math_1_1_linear_equation_system_a4138a6281c18416a0caadb099c1ee871}{addLinearEquation}}(e2);}
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!les.\mbox{\hyperlink{class_math_1_1_linear_equation_system_a7d05a98d5ae17265e2d6506cf016a62d}{solve}}())}
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}(std::exception(\textcolor{stringliteral}{"{}Not\ Solvable\ Linear\ Equation\ System"{}}));}
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ std::optional<std::vector<float>>\ solution\ =\ les.\mbox{\hyperlink{class_math_1_1_linear_equation_system_a0d51ac02475c11da6ade1e647801cf4c}{getSolution}}();}
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ O(solution.value()[0],\ solution.value()[1]);}
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ O;}
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00036}00036\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00038}\mbox{\hyperlink{namespace_geometry_a47382c3242a7cfd6a05bf7c0a27d1bf6}{00038}}\ \ \ \ \ std::optional<Edge>\ \mbox{\hyperlink{namespace_geometry_a47382c3242a7cfd6a05bf7c0a27d1bf6}{getCommonEdge}}(\mbox{\hyperlink{class_geometry_1_1_polygon}{Polygon}}\ polygon1,\ \mbox{\hyperlink{class_geometry_1_1_polygon}{Polygon}}\ polygon2)}
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00039}00039\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ MUST\ ha\ nem\ pontosan\ egyeznek\ az\ elek\ csak\ reszben\ fedik\ egymast}}
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{class_geometry_1_1_edge}{Edge}}\&\ edge\ :\ polygon1.\mbox{\hyperlink{class_geometry_1_1_polygon_a33f18211b32f57137acbb136c2606c60}{getEdges}}())}
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{class_geometry_1_1_edge}{Edge}}\&\ otherEdge\ :\ polygon2.\mbox{\hyperlink{class_geometry_1_1_polygon_a33f18211b32f57137acbb136c2606c60}{getEdges}}())}
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (edge\ ==\ otherEdge)}
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ edge;}
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{\};}
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00051}00051\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{geometry_8cpp_source_l00053}00053\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,9 @@
+<map id="Geometry::Edge::containsPoint" name="Geometry::Edge::containsPoint">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,35,179,77"/>
+<area shape="rect" id="Node000002" href="$class_geometry_1_1_line.html#a1835ee77bc90574fcace951c5b104933" title=" " alt="" coords="229,5,396,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="178,42,213,37,214,42,179,47"/>
+<area shape="rect" id="Node000004" href="$class_geometry_1_1_edge.html#ad127bb37443f0ee46560e1cfaafad6a0" title=" " alt="" coords="227,72,398,99"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="179,65,211,69,211,75,178,70"/>
+<area shape="rect" id="Node000003" href="$class_math_1_1_linear_equation.html#a6b95197e56584c34502f3a465d7cb207" title=" " alt="" coords="446,5,590,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="396,24,430,24,430,29,396,29"/>
+</map>

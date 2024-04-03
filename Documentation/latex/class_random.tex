@@ -1,0 +1,288 @@
+\doxysection{Random Class Reference}
+\hypertarget{class_random}{}\label{class_random}\index{Random@{Random}}
+
+
+{\ttfamily \#include $<$random.\+h$>$}
+
+
+
+Collaboration diagram for Random\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=206pt]{class_random__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_random_1_1_seed}{Seed}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_random_aaf270d08fecf46d504ceee4696942eee}{Random}} ()=delete
+\item 
+\mbox{\hyperlink{class_random_a9bfadeaa4adc5ac44142d000b1c99441}{Random}} (const \mbox{\hyperlink{class_random}{Random}} \&)=delete
+\item 
+void \mbox{\hyperlink{class_random_a9b02aa846156b5ab239c3cac0012d4e3}{operator=}} (const \mbox{\hyperlink{class_random}{Random}} \&)=delete
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_random_af0a19f72c2e5bb10e5b0c93e2fe7a6c6}{Set\+Seed}} (const \mbox{\hyperlink{class_random_1_1_seed}{Seed}} \mbox{\hyperlink{class_random_ae58bc46824b7193c45b7cffbe1284f43}{seed}})
+\item 
+static \mbox{\hyperlink{class_random_1_1_seed}{Seed}} \mbox{\hyperlink{class_random_aede4242f7756acb68fad3af0c807548d}{Get\+Seed}} ()
+\item 
+static long int \mbox{\hyperlink{class_random_a9ac07f9db20c07db3e6d99f14d7bdc72}{Get\+Integer}} (long int min, long int max)
+\item 
+static float \mbox{\hyperlink{class_random_a2ed52650d126b0d4479584ad7f6a5b76}{Get\+Float}} (float min, float max)
+\item 
+static std\+::vector$<$ float $>$ \mbox{\hyperlink{class_random_a90cbd4e8366e8097648f33250ceb45f8}{Get\+Float\+With\+Fixed\+Sum}} (const int count, const float sum, const float spread=0.\+0f)
+\item 
+static bool \mbox{\hyperlink{class_random_a5b12d7ab75fa617ee1d2c654e953c8c3}{Get\+Bool}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_random_1_1_seed}{Seed}} \mbox{\hyperlink{class_random_ae58bc46824b7193c45b7cffbe1284f43}{seed}} = \mbox{\hyperlink{class_random_1_1_seed}{Random\+::\+Seed}}(std\+::random\+\_\+device()())
+\item 
+static std\+::mt19937 \mbox{\hyperlink{class_random_a30c3ccf9b57b559356a0109f90d89bc2}{rng}} = std\+::mt19937(seed.\+get\+Unsigned\+Value ())
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{random_8h_source_l00006}{6}} of file \mbox{\hyperlink{random_8h_source}{random.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_random_aaf270d08fecf46d504ceee4696942eee}\label{class_random_aaf270d08fecf46d504ceee4696942eee} 
+\index{Random@{Random}!Random@{Random}}
+\index{Random@{Random}!Random@{Random}}
+\doxysubsubsection{\texorpdfstring{Random()}{Random()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Random\+::\+Random (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{class_random_a9bfadeaa4adc5ac44142d000b1c99441}\label{class_random_a9bfadeaa4adc5ac44142d000b1c99441} 
+\index{Random@{Random}!Random@{Random}}
+\index{Random@{Random}!Random@{Random}}
+\doxysubsubsection{\texorpdfstring{Random()}{Random()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Random\+::\+Random (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_random}{Random}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_random_a5b12d7ab75fa617ee1d2c654e953c8c3}\label{class_random_a5b12d7ab75fa617ee1d2c654e953c8c3} 
+\index{Random@{Random}!GetBool@{GetBool}}
+\index{GetBool@{GetBool}!Random@{Random}}
+\doxysubsubsection{\texorpdfstring{GetBool()}{GetBool()}}
+{\footnotesize\ttfamily static bool Random\+::\+Get\+Bool (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{random_8h_source_l00067}{67}} of file \mbox{\hyperlink{random_8h_source}{random.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00068\ \ \ \ \ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_random_a9ac07f9db20c07db3e6d99f14d7bdc72}{GetInteger}}(0,\ 1)\ ==\ 0;}
+\DoxyCodeLine{00070\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=312pt]{class_random_a5b12d7ab75fa617ee1d2c654e953c8c3_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_random_a2ed52650d126b0d4479584ad7f6a5b76}\label{class_random_a2ed52650d126b0d4479584ad7f6a5b76} 
+\index{Random@{Random}!GetFloat@{GetFloat}}
+\index{GetFloat@{GetFloat}!Random@{Random}}
+\doxysubsubsection{\texorpdfstring{GetFloat()}{GetFloat()}}
+{\footnotesize\ttfamily static float Random\+::\+Get\+Float (\begin{DoxyParamCaption}\item[{float}]{min,  }\item[{float}]{max }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{random_8h_source_l00038}{38}} of file \mbox{\hyperlink{random_8h_source}{random.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00039\ \ \ \ \ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::uniform\_real\_distribution<float>(min,\ max)(\mbox{\hyperlink{class_random_a30c3ccf9b57b559356a0109f90d89bc2}{rng}});}
+\DoxyCodeLine{00041\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_random_a2ed52650d126b0d4479584ad7f6a5b76_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_random_a90cbd4e8366e8097648f33250ceb45f8}\label{class_random_a90cbd4e8366e8097648f33250ceb45f8} 
+\index{Random@{Random}!GetFloatWithFixedSum@{GetFloatWithFixedSum}}
+\index{GetFloatWithFixedSum@{GetFloatWithFixedSum}!Random@{Random}}
+\doxysubsubsection{\texorpdfstring{GetFloatWithFixedSum()}{GetFloatWithFixedSum()}}
+{\footnotesize\ttfamily static std\+::vector$<$ float $>$ Random\+::\+Get\+Float\+With\+Fixed\+Sum (\begin{DoxyParamCaption}\item[{const int}]{count,  }\item[{const float}]{sum,  }\item[{const float}]{spread = {\ttfamily 0.0f} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{random_8h_source_l00043}{43}} of file \mbox{\hyperlink{random_8h_source}{random.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00044\ \ \ \ \ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ std::vector<float>\ result;}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ 0;\ idx\ <\ count;\ ++idx)}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ result.push\_back(sum\ /\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(count));}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ 0;\ idx\ <\ count;\ ++idx)}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ diff\ =\ \mbox{\hyperlink{class_random_a2ed52650d126b0d4479584ad7f6a5b76}{GetFloat}}(-\/spread,\ spread);}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ result[idx]\ +=\ diff;}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ count;\ ++i)}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ idx)}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result[i]\ -\/=\ diff\ /\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(count\ -\/\ 1);}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00065\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_random_a90cbd4e8366e8097648f33250ceb45f8_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_random_a90cbd4e8366e8097648f33250ceb45f8_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_random_a9ac07f9db20c07db3e6d99f14d7bdc72}\label{class_random_a9ac07f9db20c07db3e6d99f14d7bdc72} 
+\index{Random@{Random}!GetInteger@{GetInteger}}
+\index{GetInteger@{GetInteger}!Random@{Random}}
+\doxysubsubsection{\texorpdfstring{GetInteger()}{GetInteger()}}
+{\footnotesize\ttfamily static long int Random\+::\+Get\+Integer (\begin{DoxyParamCaption}\item[{long int}]{min,  }\item[{long int}]{max }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{random_8h_source_l00033}{33}} of file \mbox{\hyperlink{random_8h_source}{random.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00034\ \ \ \ \ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::uniform\_int\_distribution<int>(min,\ max)(\mbox{\hyperlink{class_random_a30c3ccf9b57b559356a0109f90d89bc2}{rng}});}
+\DoxyCodeLine{00036\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=312pt]{class_random_a9ac07f9db20c07db3e6d99f14d7bdc72_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_random_aede4242f7756acb68fad3af0c807548d}\label{class_random_aede4242f7756acb68fad3af0c807548d} 
+\index{Random@{Random}!GetSeed@{GetSeed}}
+\index{GetSeed@{GetSeed}!Random@{Random}}
+\doxysubsubsection{\texorpdfstring{GetSeed()}{GetSeed()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_random_1_1_seed}{Seed}} Random\+::\+Get\+Seed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{random_8h_source_l00031}{31}} of file \mbox{\hyperlink{random_8h_source}{random.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00031\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_random_ae58bc46824b7193c45b7cffbe1284f43}{seed}};\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_random_a9b02aa846156b5ab239c3cac0012d4e3}\label{class_random_a9b02aa846156b5ab239c3cac0012d4e3} 
+\index{Random@{Random}!operator=@{operator=}}
+\index{operator=@{operator=}!Random@{Random}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily void Random\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_random}{Random}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{class_random_af0a19f72c2e5bb10e5b0c93e2fe7a6c6}\label{class_random_af0a19f72c2e5bb10e5b0c93e2fe7a6c6} 
+\index{Random@{Random}!SetSeed@{SetSeed}}
+\index{SetSeed@{SetSeed}!Random@{Random}}
+\doxysubsubsection{\texorpdfstring{SetSeed()}{SetSeed()}}
+{\footnotesize\ttfamily static void Random\+::\+Set\+Seed (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_random_1_1_seed}{Seed}}}]{seed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{random_8h_source_l00025}{25}} of file \mbox{\hyperlink{random_8h_source}{random.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00026\ \ \ \ \ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_random_ae58bc46824b7193c45b7cffbe1284f43}{Random::seed}}\ =\ \mbox{\hyperlink{class_random_ae58bc46824b7193c45b7cffbe1284f43}{seed}};}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_random_a30c3ccf9b57b559356a0109f90d89bc2}{rng}}\ =\ std::mt19937(\mbox{\hyperlink{class_random_ae58bc46824b7193c45b7cffbe1284f43}{seed}}.\mbox{\hyperlink{class_random_1_1_seed_ad7e70ff8e291cdb7a1c03f2fe901427f}{getUnsignedValue}}());}
+\DoxyCodeLine{00029\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_random_af0a19f72c2e5bb10e5b0c93e2fe7a6c6_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=249pt]{class_random_af0a19f72c2e5bb10e5b0c93e2fe7a6c6_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_random_a30c3ccf9b57b559356a0109f90d89bc2}\label{class_random_a30c3ccf9b57b559356a0109f90d89bc2} 
+\index{Random@{Random}!rng@{rng}}
+\index{rng@{rng}!Random@{Random}}
+\doxysubsubsection{\texorpdfstring{rng}{rng}}
+{\footnotesize\ttfamily std\+::mt19937 Random\+::rng = std\+::mt19937(seed.\+get\+Unsigned\+Value ())\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{random_8h_source_l00021}{21}} of file \mbox{\hyperlink{random_8h_source}{random.\+h}}.
+
+\Hypertarget{class_random_ae58bc46824b7193c45b7cffbe1284f43}\label{class_random_ae58bc46824b7193c45b7cffbe1284f43} 
+\index{Random@{Random}!seed@{seed}}
+\index{seed@{seed}!Random@{Random}}
+\doxysubsubsection{\texorpdfstring{seed}{seed}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_random_1_1_seed}{Random\+::\+Seed}} Random\+::seed = \mbox{\hyperlink{class_random_1_1_seed}{Random\+::\+Seed}}(std\+::random\+\_\+device()())\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{random_8h_source_l00020}{20}} of file \mbox{\hyperlink{random_8h_source}{random.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Base/\mbox{\hyperlink{random_8h}{random.\+h}}\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Base/\mbox{\hyperlink{random_8cpp}{random.\+cpp}}\end{DoxyCompactItemize}

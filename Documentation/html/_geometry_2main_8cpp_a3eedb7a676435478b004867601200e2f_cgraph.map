@@ -1,0 +1,17 @@
+<map id="polygonTest" name="polygonTest">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,139,97,165"/>
+<area shape="rect" id="Node000002" href="$class_geometry_1_1_polygon.html#a12c9321822bdf861cf7c304fa0c888e7" title=" " alt="" coords="177,72,318,115"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="96,136,161,116,163,121,98,141"/>
+<area shape="rect" id="Node000007" href="$namespace_geometry.html#aefbbcab5ceafe8317239d651d6b5137b" title=" " alt="" coords="145,139,350,165"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="97,149,129,149,129,155,97,155"/>
+<area shape="rect" id="Node000008" href="$namespace_geometry.html#a8dddd11d4083106d030f51b1ca825cfc" title=" " alt="" coords="162,189,333,232"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="98,163,160,182,158,187,96,168"/>
+<area shape="rect" id="Node000003" href="$class_geometry_1_1_polygon.html#abe0fa2f30629ae38dd88b28a85509a9e" title=" " alt="" coords="398,5,539,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="318,70,382,50,384,55,319,75"/>
+<area shape="rect" id="Node000004" href="$class_geometry_1_1_polygon.html#a55ccb3a6bfa3c5176ceb1ed12efc91fd" title=" " alt="" coords="398,72,539,115"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="318,91,382,91,382,96,318,96"/>
+<area shape="rect" id="Node000006" href="$class_geometry_1_1_polygon.html#ade26117ec3b1f56362190e27e6056535" title=" " alt="" coords="398,139,539,181"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="319,112,384,132,382,137,318,117"/>
+<area shape="rect" id="Node000005" href="$namespace_math.html#acb53f49cacbc0754cf4b882a41837468" title=" " alt="" coords="587,80,697,107"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="540,91,572,91,572,96,540,96"/>
+</map>

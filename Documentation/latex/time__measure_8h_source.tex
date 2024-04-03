@@ -1,0 +1,389 @@
+\doxysection{time\+\_\+measure.\+h}
+\hypertarget{time__measure_8h_source}{}\label{time__measure_8h_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/lemon/time\_measure.h@{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/lemon/time\_measure.h}}
+\mbox{\hyperlink{time__measure_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00001}00001\ \textcolor{comment}{/*\ -\/*-\/\ mode:\ C++;\ indent-\/tabs-\/mode:\ nil;\ -\/*-\/}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00002}00002\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00003}00003\ \textcolor{comment}{\ *\ This\ file\ is\ a\ part\ of\ LEMON,\ a\ generic\ C++\ optimization\ library.}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00004}00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00005}00005\ \textcolor{comment}{\ *\ Copyright\ (C)\ 2003-\/2013}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00006}00006\ \textcolor{comment}{\ *\ Egervary\ Jeno\ Kombinatorikus\ Optimalizalasi\ Kutatocsoport}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00007}00007\ \textcolor{comment}{\ *\ (Egervary\ Research\ Group\ on\ Combinatorial\ Optimization,\ EGRES).}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00008}00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00009}00009\ \textcolor{comment}{\ *\ Permission\ to\ use,\ modify\ and\ distribute\ this\ software\ is\ granted}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00010}00010\ \textcolor{comment}{\ *\ provided\ that\ this\ copyright\ notice\ appears\ in\ all\ copies.\ For}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00011}00011\ \textcolor{comment}{\ *\ precise\ terms\ see\ the\ accompanying\ LICENSE\ file.}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00012}00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00013}00013\ \textcolor{comment}{\ *\ This\ software\ is\ provided\ "{}AS\ IS"{}\ with\ no\ warranty\ of\ any\ kind,}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00014}00014\ \textcolor{comment}{\ *\ express\ or\ implied,\ and\ with\ no\ claim\ as\ to\ its\ suitability\ for\ any}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00015}00015\ \textcolor{comment}{\ *\ purpose.}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00016}00016\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00017}00017\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00019}00019\ \textcolor{preprocessor}{\#ifndef\ LEMON\_TIME\_MEASURE\_H}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00020}00020\ \textcolor{preprocessor}{\#define\ LEMON\_TIME\_MEASURE\_H}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00026}00026\ \textcolor{preprocessor}{\#ifdef\ WIN32}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00027}00027\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{windows_8h}{lemon/bits/windows.h}}>}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00028}00028\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00029}00029\ \textcolor{preprocessor}{\#include\ <unistd.h>}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00030}00030\ \textcolor{preprocessor}{\#include\ <sys/times.h>}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00031}00031\ \textcolor{preprocessor}{\#include\ <sys/time.h>}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00032}00032\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00034}00034\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00035}00035\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00036}00036\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00037}00037\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{math_8h}{lemon/math.h}}>}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00039}00039\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacelemon}{lemon}}\ \{}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00059}\mbox{\hyperlink{classlemon_1_1_time_stamp}{00059}}\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_time_stamp}{TimeStamp}}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00060}00060\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00061}\mbox{\hyperlink{classlemon_1_1_time_stamp_ab6fde498ccaa85fca6c7e38ce1a6f96f}{00061}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classlemon_1_1_time_stamp_ab6fde498ccaa85fca6c7e38ce1a6f96f}{utime}};}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00062}\mbox{\hyperlink{classlemon_1_1_time_stamp_ad8894bd47f8631d66d484528a9363c72}{00062}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classlemon_1_1_time_stamp_ad8894bd47f8631d66d484528a9363c72}{stime}};}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00063}\mbox{\hyperlink{classlemon_1_1_time_stamp_a2f6b604b9b8fb3ebc9cfafa5dab86180}{00063}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classlemon_1_1_time_stamp_a2f6b604b9b8fb3ebc9cfafa5dab86180}{cutime}};}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00064}\mbox{\hyperlink{classlemon_1_1_time_stamp_aa24ba701b39b7b7952c4f0c9eb489493}{00064}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classlemon_1_1_time_stamp_aa24ba701b39b7b7952c4f0c9eb489493}{cstime}};}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00065}\mbox{\hyperlink{classlemon_1_1_time_stamp_a1156361773463f041164adcf3946a992}{00065}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classlemon_1_1_time_stamp_a1156361773463f041164adcf3946a992}{rtime}};}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00067}00067\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00072}\mbox{\hyperlink{classlemon_1_1_time_stamp_ab7388e5c8968aa5bec48ea5ac9ee1ed5}{00072}}\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{classlemon_1_1_time_stamp_ab7388e5c8968aa5bec48ea5ac9ee1ed5}{Format}}\ \{}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00074}\mbox{\hyperlink{classlemon_1_1_time_stamp_ab7388e5c8968aa5bec48ea5ac9ee1ed5ad5e300d141016ff14bfe7ec01620c9e6}{00074}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp_ab7388e5c8968aa5bec48ea5ac9ee1ed5ad5e300d141016ff14bfe7ec01620c9e6}{NORMAL}}\ =\ 0,}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00076}00076\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp_ab7388e5c8968aa5bec48ea5ac9ee1ed5ae881eca95bde9af98378b4d5ff6b0676}{SHORT}}\ =\ 1}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00077}\mbox{\hyperlink{classlemon_1_1_time_stamp_ab7388e5c8968aa5bec48ea5ac9ee1ed5ae881eca95bde9af98378b4d5ff6b0676}{00077}}\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00079}00079\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00080}\mbox{\hyperlink{classlemon_1_1_time_stamp_a793eb43114a7c3c91766754c645786e4}{00080}}\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classlemon_1_1_time_stamp_ab7388e5c8968aa5bec48ea5ac9ee1ed5}{Format}}\ \mbox{\hyperlink{classlemon_1_1_time_stamp_a793eb43114a7c3c91766754c645786e4}{\_format}};}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00082}\mbox{\hyperlink{classlemon_1_1_time_stamp_a667b9414a2be4f1403ffc11be1a1ad25}{00082}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_time_stamp_a667b9414a2be4f1403ffc11be1a1ad25}{\_reset}}()\ \{}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00083}00083\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp_ab6fde498ccaa85fca6c7e38ce1a6f96f}{utime}}\ =\ \mbox{\hyperlink{classlemon_1_1_time_stamp_ad8894bd47f8631d66d484528a9363c72}{stime}}\ =\ \mbox{\hyperlink{classlemon_1_1_time_stamp_a2f6b604b9b8fb3ebc9cfafa5dab86180}{cutime}}\ =\ \mbox{\hyperlink{classlemon_1_1_time_stamp_aa24ba701b39b7b7952c4f0c9eb489493}{cstime}}\ =\ \mbox{\hyperlink{classlemon_1_1_time_stamp_a1156361773463f041164adcf3946a992}{rtime}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00084}00084\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00086}00086\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00093}\mbox{\hyperlink{classlemon_1_1_time_stamp_a8125b964481b18581b9de7ae2e9713a7}{00093}}\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_time_stamp_a8125b964481b18581b9de7ae2e9713a7}{format}}(\mbox{\hyperlink{classlemon_1_1_time_stamp_ab7388e5c8968aa5bec48ea5ac9ee1ed5}{Format}}\ f)\ \{\ \mbox{\hyperlink{classlemon_1_1_time_stamp_a793eb43114a7c3c91766754c645786e4}{\_format}}\ =\ f;\ \}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00099}\mbox{\hyperlink{classlemon_1_1_time_stamp_a119afcad3013dfe0ad6610d25df0b503}{00099}}\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classlemon_1_1_time_stamp_ab7388e5c8968aa5bec48ea5ac9ee1ed5}{Format}}\ \mbox{\hyperlink{classlemon_1_1_time_stamp_a119afcad3013dfe0ad6610d25df0b503}{format}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_time_stamp_a793eb43114a7c3c91766754c645786e4}{\_format}};\ \}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00103}\mbox{\hyperlink{classlemon_1_1_time_stamp_a639a162e68beec0e5ac6fec5122d92dc}{00103}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_time_stamp_a639a162e68beec0e5ac6fec5122d92dc}{stamp}}()}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00104}00104\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00105}00105\ \textcolor{preprocessor}{\#ifndef\ WIN32}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00106}00106\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{timeval}}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tv}};}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00107}00107\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{gettimeofday}}(\&\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tv}},\ 0);}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00108}00108\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp_a1156361773463f041164adcf3946a992}{rtime}}=\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tv}}.tv\_sec+\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{double}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tv}}.tv\_usec)/1\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{e6}};}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00110}00110\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tms}}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ts}};}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00111}00111\ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tck}}=\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{sysconf}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_SC\_CLK\_TCK}});}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00112}00112\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{times}}(\&\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ts}});}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00113}00113\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp_ab6fde498ccaa85fca6c7e38ce1a6f96f}{utime}}=\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ts}}.tms\_utime/\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tck}};}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00114}00114\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp_ad8894bd47f8631d66d484528a9363c72}{stime}}=\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ts}}.tms\_stime/\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tck}};}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00115}00115\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp_a2f6b604b9b8fb3ebc9cfafa5dab86180}{cutime}}=\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ts}}.tms\_cutime/\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tck}};}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00116}00116\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp_aa24ba701b39b7b7952c4f0c9eb489493}{cstime}}=\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ts}}.tms\_cstime/\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tck}};}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00117}00117\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00118}00118\ \ \ \ \ \ \ \mbox{\hyperlink{namespacelemon_1_1bits_aceb35ba8abf807c38776c093ee05dd4e}{bits::getWinProcTimes}}(\mbox{\hyperlink{classlemon_1_1_time_stamp_a1156361773463f041164adcf3946a992}{rtime}},\ \mbox{\hyperlink{classlemon_1_1_time_stamp_ab6fde498ccaa85fca6c7e38ce1a6f96f}{utime}},\ \mbox{\hyperlink{classlemon_1_1_time_stamp_ad8894bd47f8631d66d484528a9363c72}{stime}},\ \mbox{\hyperlink{classlemon_1_1_time_stamp_a2f6b604b9b8fb3ebc9cfafa5dab86180}{cutime}},\ \mbox{\hyperlink{classlemon_1_1_time_stamp_aa24ba701b39b7b7952c4f0c9eb489493}{cstime}});}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00119}00119\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00120}00120\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00123}\mbox{\hyperlink{classlemon_1_1_time_stamp_a4a616f6d4cfac5281ba9c29cd757e194}{00123}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp_a4a616f6d4cfac5281ba9c29cd757e194}{TimeStamp}}()}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00124}00124\ \ \ \ \ \{\ \mbox{\hyperlink{classlemon_1_1_time_stamp_a667b9414a2be4f1403ffc11be1a1ad25}{\_reset}}();\ \}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00126}\mbox{\hyperlink{classlemon_1_1_time_stamp_a0fb6d800110535a35b12813de2c7f7e6}{00126}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp_a0fb6d800110535a35b12813de2c7f7e6}{TimeStamp}}(\textcolor{keywordtype}{void}\ *)\ \{\ \mbox{\hyperlink{classlemon_1_1_time_stamp_a639a162e68beec0e5ac6fec5122d92dc}{stamp}}();\}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00129}\mbox{\hyperlink{classlemon_1_1_time_stamp_a1b5c29079e908da18f5ca70916a4e75e}{00129}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp}{TimeStamp}}\ \&\mbox{\hyperlink{classlemon_1_1_time_stamp_a1b5c29079e908da18f5ca70916a4e75e}{reset}}()\ \{\mbox{\hyperlink{classlemon_1_1_time_stamp_a667b9414a2be4f1403ffc11be1a1ad25}{\_reset}}();\textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00130}00130\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00132}\mbox{\hyperlink{classlemon_1_1_time_stamp_a4fce60424d62116e449113bafb5384a1}{00132}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp}{TimeStamp}}\ \&\mbox{\hyperlink{classlemon_1_1_time_stamp_a4fce60424d62116e449113bafb5384a1}{operator+=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_time_stamp}{TimeStamp}}\ \&b)}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00133}00133\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00134}00134\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp_ab6fde498ccaa85fca6c7e38ce1a6f96f}{utime}}+=b.\mbox{\hyperlink{classlemon_1_1_time_stamp_ab6fde498ccaa85fca6c7e38ce1a6f96f}{utime}};}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00135}00135\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp_ad8894bd47f8631d66d484528a9363c72}{stime}}+=b.\mbox{\hyperlink{classlemon_1_1_time_stamp_ad8894bd47f8631d66d484528a9363c72}{stime}};}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00136}00136\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp_a2f6b604b9b8fb3ebc9cfafa5dab86180}{cutime}}+=b.\mbox{\hyperlink{classlemon_1_1_time_stamp_a2f6b604b9b8fb3ebc9cfafa5dab86180}{cutime}};}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00137}00137\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp_aa24ba701b39b7b7952c4f0c9eb489493}{cstime}}+=b.\mbox{\hyperlink{classlemon_1_1_time_stamp_aa24ba701b39b7b7952c4f0c9eb489493}{cstime}};}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00138}00138\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp_a1156361773463f041164adcf3946a992}{rtime}}+=b.\mbox{\hyperlink{classlemon_1_1_time_stamp_a1156361773463f041164adcf3946a992}{rtime}};}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00139}00139\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00140}00140\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00142}\mbox{\hyperlink{classlemon_1_1_time_stamp_a99bc54e33c50949bdc5947dc5339975c}{00142}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp}{TimeStamp}}\ \mbox{\hyperlink{classlemon_1_1_time_stamp_a99bc54e33c50949bdc5947dc5339975c}{operator+}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_time_stamp}{TimeStamp}}\ \&b)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00143}00143\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00144}00144\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp}{TimeStamp}}\ t(*\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00145}00145\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ t+=b;}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00146}00146\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00148}\mbox{\hyperlink{classlemon_1_1_time_stamp_aa31935657c5e728be0f19d0ad681a46a}{00148}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp}{TimeStamp}}\ \&\mbox{\hyperlink{classlemon_1_1_time_stamp_aa31935657c5e728be0f19d0ad681a46a}{operator-\/=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_time_stamp}{TimeStamp}}\ \&b)}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00149}00149\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00150}00150\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp_ab6fde498ccaa85fca6c7e38ce1a6f96f}{utime}}-\/=b.\mbox{\hyperlink{classlemon_1_1_time_stamp_ab6fde498ccaa85fca6c7e38ce1a6f96f}{utime}};}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00151}00151\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp_ad8894bd47f8631d66d484528a9363c72}{stime}}-\/=b.\mbox{\hyperlink{classlemon_1_1_time_stamp_ad8894bd47f8631d66d484528a9363c72}{stime}};}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00152}00152\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp_a2f6b604b9b8fb3ebc9cfafa5dab86180}{cutime}}-\/=b.\mbox{\hyperlink{classlemon_1_1_time_stamp_a2f6b604b9b8fb3ebc9cfafa5dab86180}{cutime}};}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00153}00153\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp_aa24ba701b39b7b7952c4f0c9eb489493}{cstime}}-\/=b.\mbox{\hyperlink{classlemon_1_1_time_stamp_aa24ba701b39b7b7952c4f0c9eb489493}{cstime}};}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00154}00154\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp_a1156361773463f041164adcf3946a992}{rtime}}-\/=b.\mbox{\hyperlink{classlemon_1_1_time_stamp_a1156361773463f041164adcf3946a992}{rtime}};}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00155}00155\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00156}00156\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00158}\mbox{\hyperlink{classlemon_1_1_time_stamp_a5a311a08ef3595910f87526cd109077a}{00158}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp}{TimeStamp}}\ \mbox{\hyperlink{classlemon_1_1_time_stamp_a5a311a08ef3595910f87526cd109077a}{operator-\/}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_time_stamp}{TimeStamp}}\ \&b)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00159}00159\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00160}00160\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp}{TimeStamp}}\ t(*\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00161}00161\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ t-\/=b;}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00162}00162\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00164}\mbox{\hyperlink{classlemon_1_1_time_stamp_a141e39d7a49f70457c37d9e1dd2c9781}{00164}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp}{TimeStamp}}\ \&\mbox{\hyperlink{classlemon_1_1_time_stamp_a141e39d7a49f70457c37d9e1dd2c9781}{operator*=}}(\textcolor{keywordtype}{double}\ b)}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00165}00165\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00166}00166\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp_ab6fde498ccaa85fca6c7e38ce1a6f96f}{utime}}*=b;}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00167}00167\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp_ad8894bd47f8631d66d484528a9363c72}{stime}}*=b;}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00168}00168\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp_a2f6b604b9b8fb3ebc9cfafa5dab86180}{cutime}}*=b;}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00169}00169\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp_aa24ba701b39b7b7952c4f0c9eb489493}{cstime}}*=b;}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00170}00170\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp_a1156361773463f041164adcf3946a992}{rtime}}*=b;}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00171}00171\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00172}00172\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00174}\mbox{\hyperlink{classlemon_1_1_time_stamp_a9dfa91b1d22eed2b63be4e378a4a51e9}{00174}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp}{TimeStamp}}\ \mbox{\hyperlink{classlemon_1_1_time_stamp_a9dfa91b1d22eed2b63be4e378a4a51e9}{operator*}}(\textcolor{keywordtype}{double}\ b)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00175}00175\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00176}00176\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp}{TimeStamp}}\ t(*\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00177}00177\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ t*=b;}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00178}00178\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00179}00179\ \ \ \ \ \textcolor{keyword}{friend}\ \mbox{\hyperlink{classlemon_1_1_time_stamp}{TimeStamp}}\ \mbox{\hyperlink{classlemon_1_1_time_stamp_a23c7d589fcbfc34418657956bc2a59de}{operator*}}(\textcolor{keywordtype}{double}\ b,\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_time_stamp}{TimeStamp}}\ \&t);}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00181}\mbox{\hyperlink{classlemon_1_1_time_stamp_aeee82bdb7678b0ca56ba5f18c2ee36a4}{00181}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp}{TimeStamp}}\ \&\mbox{\hyperlink{classlemon_1_1_time_stamp_aeee82bdb7678b0ca56ba5f18c2ee36a4}{operator/=}}(\textcolor{keywordtype}{double}\ b)}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00182}00182\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00183}00183\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp_ab6fde498ccaa85fca6c7e38ce1a6f96f}{utime}}/=b;}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00184}00184\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp_ad8894bd47f8631d66d484528a9363c72}{stime}}/=b;}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00185}00185\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp_a2f6b604b9b8fb3ebc9cfafa5dab86180}{cutime}}/=b;}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00186}00186\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp_aa24ba701b39b7b7952c4f0c9eb489493}{cstime}}/=b;}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00187}00187\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp_a1156361773463f041164adcf3946a992}{rtime}}/=b;}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00188}00188\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00189}00189\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00191}\mbox{\hyperlink{classlemon_1_1_time_stamp_aba35d4445f813f517b1325ab8231ffeb}{00191}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp}{TimeStamp}}\ \mbox{\hyperlink{classlemon_1_1_time_stamp_aba35d4445f813f517b1325ab8231ffeb}{operator/}}(\textcolor{keywordtype}{double}\ b)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00192}00192\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00193}00193\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp}{TimeStamp}}\ t(*\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00194}00194\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ t/=b;}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00195}00195\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00197}\mbox{\hyperlink{classlemon_1_1_time_stamp_a5394ddd77c712aa2ecb5ad16b831c16b}{00197}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp}{TimeStamp}}\ \mbox{\hyperlink{classlemon_1_1_time_stamp_a5394ddd77c712aa2ecb5ad16b831c16b}{ellapsed}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00198}00198\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00199}00199\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp}{TimeStamp}}\ t(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{NULL}});}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00200}00200\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ t-\/*\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00201}00201\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00202}00202\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00203}\mbox{\hyperlink{classlemon_1_1_time_stamp_a7a8fc6a89c07865a42b13d6a2bbcbbcb}{00203}}\ \ \ \ \ \textcolor{keyword}{friend}\ std::ostream\&\ \mbox{\hyperlink{classlemon_1_1_time_stamp_a7a8fc6a89c07865a42b13d6a2bbcbbcb}{operator<<}}(std::ostream\&\ os,\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_time_stamp}{TimeStamp}}\ \&t);}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00204}00204\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00206}\mbox{\hyperlink{classlemon_1_1_time_stamp_a681205521ec6a7612c4edb4fae0315e5}{00206}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classlemon_1_1_time_stamp_a681205521ec6a7612c4edb4fae0315e5}{userTime}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00207}00207\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00208}00208\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_time_stamp_ab6fde498ccaa85fca6c7e38ce1a6f96f}{utime}};}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00209}00209\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00211}\mbox{\hyperlink{classlemon_1_1_time_stamp_a7fcdb5f1143fd2d63a47179e08c8f1e7}{00211}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classlemon_1_1_time_stamp_a7fcdb5f1143fd2d63a47179e08c8f1e7}{systemTime}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00212}00212\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00213}00213\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_time_stamp_ad8894bd47f8631d66d484528a9363c72}{stime}};}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00214}00214\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00216}00216\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00219}\mbox{\hyperlink{classlemon_1_1_time_stamp_a6f8a1fc56bdfdede86298d6583ceec2c}{00219}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classlemon_1_1_time_stamp_a6f8a1fc56bdfdede86298d6583ceec2c}{cUserTime}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00220}00220\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00221}00221\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_time_stamp_a2f6b604b9b8fb3ebc9cfafa5dab86180}{cutime}};}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00222}00222\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00224}00224\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00227}\mbox{\hyperlink{classlemon_1_1_time_stamp_ace3c13724fb981616c947386055a37fa}{00227}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classlemon_1_1_time_stamp_ace3c13724fb981616c947386055a37fa}{cSystemTime}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00228}00228\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00229}00229\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_time_stamp_aa24ba701b39b7b7952c4f0c9eb489493}{cstime}};}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00230}00230\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00232}\mbox{\hyperlink{classlemon_1_1_time_stamp_add747de3fb3bb44945da27905f3e68cd}{00232}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classlemon_1_1_time_stamp_add747de3fb3bb44945da27905f3e68cd}{realTime}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_time_stamp_a1156361773463f041164adcf3946a992}{rtime}};\}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00233}00233\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00234}00234\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00235}\mbox{\hyperlink{classlemon_1_1_time_stamp_a23c7d589fcbfc34418657956bc2a59de}{00235}}\ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classlemon_1_1_time_stamp}{TimeStamp}}\ \mbox{\hyperlink{group__timecount_ga1119f39a1921df51e1ebcd5946902386}{operator*}}(\textcolor{keywordtype}{double}\ b,\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_time_stamp}{TimeStamp}}\ \&t)}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00236}00236\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00237}00237\ \ \ \ \ \textcolor{keywordflow}{return}\ t*b;}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00238}00238\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00239}00239\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00241}00241\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00255}\mbox{\hyperlink{group__timecount_ga7a8fc6a89c07865a42b13d6a2bbcbbcb}{00255}}\ \ \ \textcolor{keyword}{inline}\ std::ostream\&\ \mbox{\hyperlink{group__timecount_ga7a8fc6a89c07865a42b13d6a2bbcbbcb}{operator<<}}(std::ostream\&\ os,\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_time_stamp}{TimeStamp}}\ \&t)}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00256}00256\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00257}00257\ \ \ \ \ \textcolor{keywordflow}{switch}(t.\mbox{\hyperlink{classlemon_1_1_time_stamp_a793eb43114a7c3c91766754c645786e4}{\_format}})}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00258}00258\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00259}00259\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classlemon_1_1_time_stamp_ab7388e5c8968aa5bec48ea5ac9ee1ed5ad5e300d141016ff14bfe7ec01620c9e6}{TimeStamp::NORMAL}}:}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00260}00260\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}u:\ "{}}\ <<\ t.\mbox{\hyperlink{classlemon_1_1_time_stamp_a681205521ec6a7612c4edb4fae0315e5}{userTime}}()\ <<}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00261}00261\ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}s,\ s:\ "{}}\ <<\ t.\mbox{\hyperlink{classlemon_1_1_time_stamp_a7fcdb5f1143fd2d63a47179e08c8f1e7}{systemTime}}()\ <<}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00262}00262\ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}s,\ cu:\ "{}}\ <<\ t.\mbox{\hyperlink{classlemon_1_1_time_stamp_a6f8a1fc56bdfdede86298d6583ceec2c}{cUserTime}}()\ <<}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00263}00263\ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}s,\ cs:\ "{}}\ <<\ t.\mbox{\hyperlink{classlemon_1_1_time_stamp_ace3c13724fb981616c947386055a37fa}{cSystemTime}}()\ <<}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00264}00264\ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}s,\ real:\ "{}}\ <<\ t.\mbox{\hyperlink{classlemon_1_1_time_stamp_add747de3fb3bb44945da27905f3e68cd}{realTime}}()\ <<\ \textcolor{stringliteral}{"{}s"{}};}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00265}00265\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00266}00266\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classlemon_1_1_time_stamp_ab7388e5c8968aa5bec48ea5ac9ee1ed5ae881eca95bde9af98378b4d5ff6b0676}{TimeStamp::SHORT}}:}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00267}00267\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{total}}\ =\ t.\mbox{\hyperlink{classlemon_1_1_time_stamp_a681205521ec6a7612c4edb4fae0315e5}{userTime}}()+t.\mbox{\hyperlink{classlemon_1_1_time_stamp_a7fcdb5f1143fd2d63a47179e08c8f1e7}{systemTime}}()+}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00268}00268\ \ \ \ \ \ \ \ \ \ \ t.\mbox{\hyperlink{classlemon_1_1_time_stamp_a6f8a1fc56bdfdede86298d6583ceec2c}{cUserTime}}()+t.\mbox{\hyperlink{classlemon_1_1_time_stamp_ace3c13724fb981616c947386055a37fa}{cSystemTime}}();}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00269}00269\ \ \ \ \ \ \ \ \ os\ <<\ t.\mbox{\hyperlink{classlemon_1_1_time_stamp_add747de3fb3bb44945da27905f3e68cd}{realTime}}()}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00270}00270\ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}s\ (err:\ "{}}\ <<\ \mbox{\hyperlink{group__misc_gaac8681108dfd2b0deee2dca59dff26bb}{round}}((t.\mbox{\hyperlink{classlemon_1_1_time_stamp_add747de3fb3bb44945da27905f3e68cd}{realTime}}()-\/\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{total}})/}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00271}00271\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ t.\mbox{\hyperlink{classlemon_1_1_time_stamp_add747de3fb3bb44945da27905f3e68cd}{realTime}}()*10000)/100}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00272}00272\ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\%)"{}};}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00273}00273\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00274}00274\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00275}00275\ \ \ \ \ \textcolor{keywordflow}{return}\ os;}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00276}00276\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00277}00277\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00279}00279\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00318}\mbox{\hyperlink{classlemon_1_1_timer}{00318}}\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_timer}{Timer}}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00319}00319\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00320}\mbox{\hyperlink{classlemon_1_1_timer_a68e40345bf05c0c57cc32c604b01c946}{00320}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_timer_a68e40345bf05c0c57cc32c604b01c946}{\_running}};\ \textcolor{comment}{//Timer\ is\ running\ iff\ \_running>0;\ (\_running>=0\ always\ holds)}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00321}\mbox{\hyperlink{classlemon_1_1_timer_a241980fde14572ccd30616abbe11def1}{00321}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp}{TimeStamp}}\ \mbox{\hyperlink{classlemon_1_1_timer_a241980fde14572ccd30616abbe11def1}{start\_time}};\ \textcolor{comment}{//This\ is\ the\ relativ\ start-\/time\ if\ the\ timer}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00322}00322\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//is\ \_running,\ the\ collected\ \_running\ time\ otherwise.}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00323}00323\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00324}\mbox{\hyperlink{classlemon_1_1_timer_a4b6d4021bf9bc0944a7c38afcaca8d06}{00324}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_timer_a4b6d4021bf9bc0944a7c38afcaca8d06}{\_reset}}()\ \{\textcolor{keywordflow}{if}(\mbox{\hyperlink{classlemon_1_1_timer_a68e40345bf05c0c57cc32c604b01c946}{\_running}})\ \mbox{\hyperlink{classlemon_1_1_timer_a241980fde14572ccd30616abbe11def1}{start\_time}}.\mbox{\hyperlink{classlemon_1_1_time_stamp_a639a162e68beec0e5ac6fec5122d92dc}{stamp}}();\ \textcolor{keywordflow}{else}\ \mbox{\hyperlink{classlemon_1_1_timer_a241980fde14572ccd30616abbe11def1}{start\_time}}.\mbox{\hyperlink{classlemon_1_1_time_stamp_a1b5c29079e908da18f5ca70916a4e75e}{reset}}();\}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00325}00325\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00326}00326\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00328}00328\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00331}\mbox{\hyperlink{classlemon_1_1_timer_aac030f26539a9d0e19b3bf89a2c5819a}{00331}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_timer_aac030f26539a9d0e19b3bf89a2c5819a}{Timer}}(\textcolor{keywordtype}{bool}\ run=\textcolor{keyword}{true})\ :\mbox{\hyperlink{classlemon_1_1_timer_a68e40345bf05c0c57cc32c604b01c946}{\_running}}(run)\ \{\mbox{\hyperlink{classlemon_1_1_timer_a4b6d4021bf9bc0944a7c38afcaca8d06}{\_reset}}();\}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00332}00332\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00341}00341\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00343}00343\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00345}00345\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00348}\mbox{\hyperlink{classlemon_1_1_timer_a7a1070f453a53a5fbc87f71e2d4ae7e5}{00348}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_timer_a7a1070f453a53a5fbc87f71e2d4ae7e5}{reset}}()}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00349}00349\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00350}00350\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_timer_a68e40345bf05c0c57cc32c604b01c946}{\_running}}=0;}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00351}00351\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_timer_a4b6d4021bf9bc0944a7c38afcaca8d06}{\_reset}}();}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00352}00352\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00353}00353\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00355}00355\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00361}\mbox{\hyperlink{classlemon_1_1_timer_a959d4f38a9b694f4e48d25e00dab61ee}{00361}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_timer_a959d4f38a9b694f4e48d25e00dab61ee}{start}}()}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00362}00362\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00363}00363\ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classlemon_1_1_timer_a68e40345bf05c0c57cc32c604b01c946}{\_running}})\ \mbox{\hyperlink{classlemon_1_1_timer_a68e40345bf05c0c57cc32c604b01c946}{\_running}}++;}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00364}00364\ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00365}00365\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_timer_a68e40345bf05c0c57cc32c604b01c946}{\_running}}=1;}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00366}00366\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp}{TimeStamp}}\ t;}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00367}00367\ \ \ \ \ \ \ \ \ t.\mbox{\hyperlink{classlemon_1_1_time_stamp_a639a162e68beec0e5ac6fec5122d92dc}{stamp}}();}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00368}00368\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_timer_a241980fde14572ccd30616abbe11def1}{start\_time}}=t-\/\mbox{\hyperlink{classlemon_1_1_timer_a241980fde14572ccd30616abbe11def1}{start\_time}};}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00369}00369\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00370}00370\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00371}00371\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00372}00372\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00374}00374\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00383}00383\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00384}\mbox{\hyperlink{classlemon_1_1_timer_a7fd1a26de3bcd06180532c8c6ac8f985}{00384}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_timer_a7fd1a26de3bcd06180532c8c6ac8f985}{stop}}()}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00385}00385\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00386}00386\ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classlemon_1_1_timer_a68e40345bf05c0c57cc32c604b01c946}{\_running}}\ \&\&\ !-\/-\/\mbox{\hyperlink{classlemon_1_1_timer_a68e40345bf05c0c57cc32c604b01c946}{\_running}})\ \{}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00387}00387\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp}{TimeStamp}}\ t;}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00388}00388\ \ \ \ \ \ \ \ \ t.\mbox{\hyperlink{classlemon_1_1_time_stamp_a639a162e68beec0e5ac6fec5122d92dc}{stamp}}();}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00389}00389\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_timer_a241980fde14572ccd30616abbe11def1}{start\_time}}=t-\/\mbox{\hyperlink{classlemon_1_1_timer_a241980fde14572ccd30616abbe11def1}{start\_time}};}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00390}00390\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00391}00391\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00392}00392\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00394}00394\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00406}00406\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00407}\mbox{\hyperlink{classlemon_1_1_timer_a318a4b6ba18229ed90ce56f9b6ad96de}{00407}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_timer_a318a4b6ba18229ed90ce56f9b6ad96de}{halt}}()}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00408}00408\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00409}00409\ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classlemon_1_1_timer_a68e40345bf05c0c57cc32c604b01c946}{\_running}})\ \{}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00410}00410\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_timer_a68e40345bf05c0c57cc32c604b01c946}{\_running}}=0;}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00411}00411\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp}{TimeStamp}}\ t;}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00412}00412\ \ \ \ \ \ \ \ \ t.\mbox{\hyperlink{classlemon_1_1_time_stamp_a639a162e68beec0e5ac6fec5122d92dc}{stamp}}();}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00413}00413\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_timer_a241980fde14572ccd30616abbe11def1}{start\_time}}=t-\/\mbox{\hyperlink{classlemon_1_1_timer_a241980fde14572ccd30616abbe11def1}{start\_time}};}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00414}00414\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00415}00415\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00416}00416\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00418}00418\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00425}\mbox{\hyperlink{classlemon_1_1_timer_acc94ea4fa29f76b6194a11f0d8a7673f}{00425}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_timer_acc94ea4fa29f76b6194a11f0d8a7673f}{running}}()\ \ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_timer_a68e40345bf05c0c57cc32c604b01c946}{\_running}};\ \}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00426}00426\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00427}00427\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00429}00429\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00433}\mbox{\hyperlink{classlemon_1_1_timer_afce1e92d694853d122d5da128306d1cd}{00433}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_timer_afce1e92d694853d122d5da128306d1cd}{restart}}()}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00434}00434\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00435}00435\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_timer_a7a1070f453a53a5fbc87f71e2d4ae7e5}{reset}}();}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00436}00436\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_timer_a959d4f38a9b694f4e48d25e00dab61ee}{start}}();}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00437}00437\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00438}00438\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00440}00440\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00442}00442\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00444}00444\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00446}\mbox{\hyperlink{classlemon_1_1_timer_a0427cf223a5acc85b2835e8aca3545d4}{00446}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classlemon_1_1_timer_a0427cf223a5acc85b2835e8aca3545d4}{userTime}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00447}00447\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00448}00448\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{operator}\ \mbox{\hyperlink{classlemon_1_1_time_stamp}{TimeStamp}}().\mbox{\hyperlink{classlemon_1_1_time_stamp_a681205521ec6a7612c4edb4fae0315e5}{userTime}}();}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00449}00449\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00451}\mbox{\hyperlink{classlemon_1_1_timer_a52deb07bd9383db151005c3d11c6af14}{00451}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classlemon_1_1_timer_a52deb07bd9383db151005c3d11c6af14}{systemTime}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00452}00452\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00453}00453\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{operator}\ \mbox{\hyperlink{classlemon_1_1_time_stamp}{TimeStamp}}().\mbox{\hyperlink{classlemon_1_1_time_stamp_a7fcdb5f1143fd2d63a47179e08c8f1e7}{systemTime}}();}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00454}00454\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00456}00456\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00459}\mbox{\hyperlink{classlemon_1_1_timer_a1ec5ee0b04d207e3611150170d69875b}{00459}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classlemon_1_1_timer_a1ec5ee0b04d207e3611150170d69875b}{cUserTime}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00460}00460\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00461}00461\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{operator}\ \mbox{\hyperlink{classlemon_1_1_time_stamp}{TimeStamp}}().\mbox{\hyperlink{classlemon_1_1_time_stamp_a6f8a1fc56bdfdede86298d6583ceec2c}{cUserTime}}();}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00462}00462\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00464}00464\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00467}\mbox{\hyperlink{classlemon_1_1_timer_a2a416de2247e8ae045231fea817b9d5a}{00467}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classlemon_1_1_timer_a2a416de2247e8ae045231fea817b9d5a}{cSystemTime}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00468}00468\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00469}00469\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{operator}\ \mbox{\hyperlink{classlemon_1_1_time_stamp}{TimeStamp}}().\mbox{\hyperlink{classlemon_1_1_time_stamp_ace3c13724fb981616c947386055a37fa}{cSystemTime}}();}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00470}00470\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00472}\mbox{\hyperlink{classlemon_1_1_timer_a1d59b678686bacba73629f7ca5492628}{00472}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classlemon_1_1_timer_a1d59b678686bacba73629f7ca5492628}{realTime}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00473}00473\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00474}00474\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{operator}\ \mbox{\hyperlink{classlemon_1_1_time_stamp}{TimeStamp}}().\mbox{\hyperlink{classlemon_1_1_time_stamp_add747de3fb3bb44945da27905f3e68cd}{realTime}}();}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00475}00475\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00477}00477\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00485}\mbox{\hyperlink{classlemon_1_1_timer_a9051be57691fcf372a239446752421b0}{00485}}\ \ \ \ \ \textcolor{keyword}{operator}\ \mbox{\hyperlink{classlemon_1_1_time_stamp}{TimeStamp}}\ ()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00486}00486\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00487}00487\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp}{TimeStamp}}\ t;}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00488}00488\ \ \ \ \ \ \ t.\mbox{\hyperlink{classlemon_1_1_time_stamp_a639a162e68beec0e5ac6fec5122d92dc}{stamp}}();}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00489}00489\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_timer_a68e40345bf05c0c57cc32c604b01c946}{\_running}}?t-\/\mbox{\hyperlink{classlemon_1_1_timer_a241980fde14572ccd30616abbe11def1}{start\_time}}:\mbox{\hyperlink{classlemon_1_1_timer_a241980fde14572ccd30616abbe11def1}{start\_time}};}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00490}00490\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00491}00491\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00492}00492\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00494}00494\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00495}00495\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00497}00497\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00510}\mbox{\hyperlink{classlemon_1_1_time_report}{00510}}\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_time_report}{TimeReport}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1_timer}{Timer}}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00511}00511\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00512}\mbox{\hyperlink{classlemon_1_1_time_report_a8595a42bb3fc2ec0242e712b17092f32}{00512}}\ \ \ \ \ std::string\ \mbox{\hyperlink{classlemon_1_1_time_report_a8595a42bb3fc2ec0242e712b17092f32}{\_title}};}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00513}\mbox{\hyperlink{classlemon_1_1_time_report_a62442ef3b0cf72e1568fe1a99f8ad8ad}{00513}}\ \ \ \ \ std::ostream\ \&\mbox{\hyperlink{classlemon_1_1_time_report_a62442ef3b0cf72e1568fe1a99f8ad8ad}{\_os}};}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00514}\mbox{\hyperlink{classlemon_1_1_time_report_a4897dff901418e5400f0094c7045b076}{00514}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_time_report_a4897dff901418e5400f0094c7045b076}{\_active}};}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00515}00515\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00517}00517\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00524}\mbox{\hyperlink{classlemon_1_1_time_report_a5fe9f2ef5ab4ef88de7aafb3524a7489}{00524}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_report_a5fe9f2ef5ab4ef88de7aafb3524a7489}{TimeReport}}(std::string\ title,std::ostream\ \&os=std::cerr,\textcolor{keywordtype}{bool}\ run=\textcolor{keyword}{true},}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00525}00525\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_time_report_a24c8eed12f381beaed67f1edef7c50e5}{active}}=\textcolor{keyword}{true})}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00526}00526\ \ \ \ \ \ \ :\ \mbox{\hyperlink{classlemon_1_1_timer}{Timer}}(run),\ \mbox{\hyperlink{classlemon_1_1_time_report_a8595a42bb3fc2ec0242e712b17092f32}{\_title}}(title),\ \mbox{\hyperlink{classlemon_1_1_time_report_a62442ef3b0cf72e1568fe1a99f8ad8ad}{\_os}}(os),\ \mbox{\hyperlink{classlemon_1_1_time_report_a4897dff901418e5400f0094c7045b076}{\_active}}(\mbox{\hyperlink{classlemon_1_1_time_report_a24c8eed12f381beaed67f1edef7c50e5}{active}})\ \{\}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00528}\mbox{\hyperlink{classlemon_1_1_time_report_a9486cd4ef44860f22e00a39490ac5147}{00528}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_report_a9486cd4ef44860f22e00a39490ac5147}{\string~TimeReport}}()}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00529}00529\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00530}00530\ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classlemon_1_1_time_report_a4897dff901418e5400f0094c7045b076}{\_active}})\ \mbox{\hyperlink{classlemon_1_1_time_report_a62442ef3b0cf72e1568fe1a99f8ad8ad}{\_os}}\ <<\ \mbox{\hyperlink{classlemon_1_1_time_report_a8595a42bb3fc2ec0242e712b17092f32}{\_title}}\ <<\ *\textcolor{keyword}{this}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00531}00531\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00532}00532\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00534}00534\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00537}\mbox{\hyperlink{classlemon_1_1_time_report_a24c8eed12f381beaed67f1edef7c50e5}{00537}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_time_report_a24c8eed12f381beaed67f1edef7c50e5}{active}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_time_report_a4897dff901418e5400f0094c7045b076}{\_active}};\ \}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00539}00539\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00542}\mbox{\hyperlink{classlemon_1_1_time_report_ac52bd8a945812ff89605b9a5c9d0d131}{00542}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_time_report_ac52bd8a945812ff89605b9a5c9d0d131}{active}}(\textcolor{keywordtype}{bool}\ a)\ \{\ \mbox{\hyperlink{classlemon_1_1_time_report_a4897dff901418e5400f0094c7045b076}{\_active}}=a;\ \}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00543}00543\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00544}00544\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00546}00546\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00549}\mbox{\hyperlink{classlemon_1_1_no_time_report}{00549}}\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_no_time_report}{NoTimeReport}}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00550}00550\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00551}00551\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00553}\mbox{\hyperlink{classlemon_1_1_no_time_report_adc457fa40e24a599388b4f3ac2f3c1b5}{00553}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_no_time_report_adc457fa40e24a599388b4f3ac2f3c1b5}{NoTimeReport}}(std::string,std::ostream\ \&,\textcolor{keywordtype}{bool})\ \{\}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00555}\mbox{\hyperlink{classlemon_1_1_no_time_report_aa8672ca1f61892d35a1960c791c91e2b}{00555}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_no_time_report_aa8672ca1f61892d35a1960c791c91e2b}{NoTimeReport}}(std::string,std::ostream\ \&)\ \{\}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00557}\mbox{\hyperlink{classlemon_1_1_no_time_report_ac7cd4996da6236144a127d94e1d6e7af}{00557}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_no_time_report_ac7cd4996da6236144a127d94e1d6e7af}{NoTimeReport}}(std::string)\ \{\}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00559}\mbox{\hyperlink{classlemon_1_1_no_time_report_a556d311ae038a038081fb25711a15d22}{00559}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_no_time_report_a556d311ae038a038081fb25711a15d22}{\string~NoTimeReport}}()\ \{\}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00560}00560\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00561}\mbox{\hyperlink{classlemon_1_1_no_time_report_a4aa01ceb7349eeec765f91f4baf8d6ea}{00561}}\ \ \ \ \ \textcolor{keyword}{operator}\ \mbox{\hyperlink{classlemon_1_1_time_stamp}{TimeStamp}}\ ()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_time_stamp}{TimeStamp}}();\ \}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00562}\mbox{\hyperlink{classlemon_1_1_no_time_report_aa30986c4ef8a6f44392344742fe2faff}{00562}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_no_time_report_aa30986c4ef8a6f44392344742fe2faff}{reset}}()\ \{\}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00563}\mbox{\hyperlink{classlemon_1_1_no_time_report_ace884519b1794257f080cb94c8d12833}{00563}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_no_time_report_ace884519b1794257f080cb94c8d12833}{start}}()\ \{\}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00564}\mbox{\hyperlink{classlemon_1_1_no_time_report_a52c67935313e7299909c2fabe36ce65c}{00564}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_no_time_report_a52c67935313e7299909c2fabe36ce65c}{stop}}()\ \{\}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00565}\mbox{\hyperlink{classlemon_1_1_no_time_report_ae2712034cca9223e9e43a3abb7dd5765}{00565}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_no_time_report_ae2712034cca9223e9e43a3abb7dd5765}{halt}}()\ \{\}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00566}\mbox{\hyperlink{classlemon_1_1_no_time_report_a2873a8abe0fabdfa1f0ac9d14dab4a28}{00566}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_no_time_report_a2873a8abe0fabdfa1f0ac9d14dab4a28}{running}}()\ \{\ \textcolor{keywordflow}{return}\ 0;\ \}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00567}\mbox{\hyperlink{classlemon_1_1_no_time_report_ad97b2aa2ebcc08af389c354dfac48545}{00567}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_no_time_report_ad97b2aa2ebcc08af389c354dfac48545}{restart}}()\ \{\}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00568}\mbox{\hyperlink{classlemon_1_1_no_time_report_aa710ac256c7249f4a2b4866d81cbe1e9}{00568}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classlemon_1_1_no_time_report_aa710ac256c7249f4a2b4866d81cbe1e9}{userTime}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ 0;\ \}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00569}\mbox{\hyperlink{classlemon_1_1_no_time_report_a4abc22d3656a2ca2e4ee21c2ac6b6b9a}{00569}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classlemon_1_1_no_time_report_a4abc22d3656a2ca2e4ee21c2ac6b6b9a}{systemTime}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ 0;\ \}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00570}\mbox{\hyperlink{classlemon_1_1_no_time_report_a3df1b409a74f1bed06e5999f24da7212}{00570}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classlemon_1_1_no_time_report_a3df1b409a74f1bed06e5999f24da7212}{cUserTime}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ 0;\ \}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00571}\mbox{\hyperlink{classlemon_1_1_no_time_report_acae181135917fa5ca73ee235d4da75bf}{00571}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classlemon_1_1_no_time_report_acae181135917fa5ca73ee235d4da75bf}{cSystemTime}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ 0;\ \}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00572}\mbox{\hyperlink{classlemon_1_1_no_time_report_a0e2e42bc8284c30ce3f7b34753fc0e5d}{00572}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classlemon_1_1_no_time_report_a0e2e42bc8284c30ce3f7b34753fc0e5d}{realTime}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ 0;\ \}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00573}00573\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00574}00574\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00576}00576\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00588}00588\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00589}00589\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ F>}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00590}\mbox{\hyperlink{group__timecount_ga5a016a4d710b59abefedf870d8b71bb8}{00590}}\ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp}{TimeStamp}}\ \mbox{\hyperlink{group__timecount_ga5a016a4d710b59abefedf870d8b71bb8}{runningTimeTest}}(F\ f,\textcolor{keywordtype}{double}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{min\_time}}=10,\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ *num\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{NULL}},}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00591}00591\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp}{TimeStamp}}\ *\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{full\_time}}=\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{NULL}})}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00592}00592\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00593}00593\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_time_stamp}{TimeStamp}}\ full;}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00594}00594\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{total}}=0;}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00595}00595\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_timer}{Timer}}\ t;}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00596}00596\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tn}}=1;\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tn}}\ <=\ 1U<<31\ \&\&\ full.\mbox{\hyperlink{classlemon_1_1_time_stamp_add747de3fb3bb44945da27905f3e68cd}{realTime}}()<=\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{min\_time}};\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tn}}*=2)\ \{}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00597}00597\ \ \ \ \ \ \ \textcolor{keywordflow}{for}(;\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{total}}<\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tn}};\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{total}}++)\ f();}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00598}00598\ \ \ \ \ \ \ full=t;}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00599}00599\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00600}00600\ \ \ \ \ \textcolor{keywordflow}{if}(num)\ *num=\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{total}};}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00601}00601\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{full\_time}})\ *\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{full\_time}}=full;}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00602}00602\ \ \ \ \ \textcolor{keywordflow}{return}\ full/\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{total}};}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00603}00603\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00604}00604\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00606}00606\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00607}00607\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00608}00608\ \}\ \textcolor{comment}{//namespace\ lemon}}
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00609}00609\ }
+\DoxyCodeLine{\Hypertarget{time__measure_8h_source_l00610}00610\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//LEMON\_TIME\_MEASURE\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,256 @@
+\doxysection{Log\+::Win\+Logger Class Reference}
+\hypertarget{class_log_1_1_win_logger}{}\label{class_log_1_1_win_logger}\index{Log::WinLogger@{Log::WinLogger}}
+
+
+{\ttfamily \#include $<$log.\+h$>$}
+
+
+
+Inheritance diagram for Log\+::Win\+Logger\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=158pt]{class_log_1_1_win_logger__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Log\+::Win\+Logger\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=158pt]{class_log_1_1_win_logger__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_log_1_1_win_logger_ae75e2f84023e8195bef9f20940a98ea4}{Win\+Logger}} ()
+\item 
+virtual void \mbox{\hyperlink{class_log_1_1_win_logger_aac07e3a6753ed3b884e5f4854c88e142}{info}} (std\+::string message) override
+\item 
+virtual void \mbox{\hyperlink{class_log_1_1_win_logger_a67e5763041f82c3c0f2d216cc92f6298}{error}} (std\+::string message) override
+\item 
+virtual void \mbox{\hyperlink{class_log_1_1_win_logger_af391616117ae15f18ecc635bd36a6231}{warn}} (std\+::string message) override
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_log_1_1_win_logger_a7eeb1fe9b4125bbf6bbabeb22af65980}{h\+Console}}
+\item 
+const int \mbox{\hyperlink{class_log_1_1_win_logger_a4e2c43ca3753b05ac44bb270d9302945}{white}} = 15
+\item 
+const int \mbox{\hyperlink{class_log_1_1_win_logger_a3f1b74ebc8e1a33af692e513b0e26e59}{green}} = 10
+\item 
+const int \mbox{\hyperlink{class_log_1_1_win_logger_aed98a68bd248c96e87cbbcbad83cabc3}{red}} = 12
+\item 
+const int \mbox{\hyperlink{class_log_1_1_win_logger_a3fd40b6f795354c0893d3cb1c519657a}{yellow}} = 14
+\item 
+const int \mbox{\hyperlink{class_log_1_1_win_logger_ab6a8a10a8cb69289d1aa9130ed444180}{default\+Color}} = \mbox{\hyperlink{class_log_1_1_win_logger_a4e2c43ca3753b05ac44bb270d9302945}{white}}
+\item 
+const int \mbox{\hyperlink{class_log_1_1_win_logger_a53b1ff8b4e9434f2a1ca65edcf794c8e}{info\+Color}} = \mbox{\hyperlink{class_log_1_1_win_logger_a3f1b74ebc8e1a33af692e513b0e26e59}{green}}
+\item 
+const int \mbox{\hyperlink{class_log_1_1_win_logger_a7dd1284473d5db121c932f7dec6ceab7}{error\+Color}} = \mbox{\hyperlink{class_log_1_1_win_logger_aed98a68bd248c96e87cbbcbad83cabc3}{red}}
+\item 
+const int \mbox{\hyperlink{class_log_1_1_win_logger_a01adda08febb14f87d3a1b5caf9bdb06}{warning\+Color}} = \mbox{\hyperlink{class_log_1_1_win_logger_a3fd40b6f795354c0893d3cb1c519657a}{yellow}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{log_8h_source_l00045}{45}} of file \mbox{\hyperlink{log_8h_source}{log.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_log_1_1_win_logger_ae75e2f84023e8195bef9f20940a98ea4}\label{class_log_1_1_win_logger_ae75e2f84023e8195bef9f20940a98ea4} 
+\index{Log::WinLogger@{Log::WinLogger}!WinLogger@{WinLogger}}
+\index{WinLogger@{WinLogger}!Log::WinLogger@{Log::WinLogger}}
+\doxysubsubsection{\texorpdfstring{WinLogger()}{WinLogger()}}
+{\footnotesize\ttfamily Log\+::\+Win\+Logger\+::\+Win\+Logger (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{log_8cpp_source_l00050}{50}} of file \mbox{\hyperlink{log_8cpp_source}{log.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00051\ \ \ \ \ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_log_1_1_win_logger_a7eeb1fe9b4125bbf6bbabeb22af65980}{hConsole}}\ =\ GetStdHandle(STD\_OUTPUT\_HANDLE);}
+\DoxyCodeLine{00053\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_log_1_1_win_logger_a67e5763041f82c3c0f2d216cc92f6298}\label{class_log_1_1_win_logger_a67e5763041f82c3c0f2d216cc92f6298} 
+\index{Log::WinLogger@{Log::WinLogger}!error@{error}}
+\index{error@{error}!Log::WinLogger@{Log::WinLogger}}
+\doxysubsubsection{\texorpdfstring{error()}{error()}}
+{\footnotesize\ttfamily void Log\+::\+Win\+Logger\+::error (\begin{DoxyParamCaption}\item[{std\+::string}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_log_1_1_logger_a89cf5f479d83785333eccdf2ae983512}{Log\+::\+Logger}}.
+
+
+
+Definition at line \mbox{\hyperlink{log_8cpp_source_l00062}{62}} of file \mbox{\hyperlink{log_8cpp_source}{log.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00063\ \ \ \ \ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ SetConsoleTextAttribute(\mbox{\hyperlink{class_log_1_1_win_logger_a7eeb1fe9b4125bbf6bbabeb22af65980}{hConsole}},\ \mbox{\hyperlink{class_log_1_1_win_logger_a7dd1284473d5db121c932f7dec6ceab7}{errorColor}});}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}!!!\ Error:\ "{}}\ <<\ message\ <<\ std::endl;}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ SetConsoleTextAttribute(\mbox{\hyperlink{class_log_1_1_win_logger_a7eeb1fe9b4125bbf6bbabeb22af65980}{hConsole}},\ \mbox{\hyperlink{class_log_1_1_win_logger_ab6a8a10a8cb69289d1aa9130ed444180}{defaultColor}});}
+\DoxyCodeLine{00067\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_log_1_1_win_logger_aac07e3a6753ed3b884e5f4854c88e142}\label{class_log_1_1_win_logger_aac07e3a6753ed3b884e5f4854c88e142} 
+\index{Log::WinLogger@{Log::WinLogger}!info@{info}}
+\index{info@{info}!Log::WinLogger@{Log::WinLogger}}
+\doxysubsubsection{\texorpdfstring{info()}{info()}}
+{\footnotesize\ttfamily void Log\+::\+Win\+Logger\+::info (\begin{DoxyParamCaption}\item[{std\+::string}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_log_1_1_logger_a45aece334a9680706aabc171f1c1fc64}{Log\+::\+Logger}}.
+
+
+
+Definition at line \mbox{\hyperlink{log_8cpp_source_l00055}{55}} of file \mbox{\hyperlink{log_8cpp_source}{log.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00056\ \ \ \ \ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ SetConsoleTextAttribute(\mbox{\hyperlink{class_log_1_1_win_logger_a7eeb1fe9b4125bbf6bbabeb22af65980}{hConsole}},\ \mbox{\hyperlink{class_log_1_1_win_logger_a53b1ff8b4e9434f2a1ca65edcf794c8e}{infoColor}});}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}-\/-\/-\/\ Info:\ "{}}\ <<\ message\ <<\ std::endl;}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ SetConsoleTextAttribute(\mbox{\hyperlink{class_log_1_1_win_logger_a7eeb1fe9b4125bbf6bbabeb22af65980}{hConsole}},\ \mbox{\hyperlink{class_log_1_1_win_logger_ab6a8a10a8cb69289d1aa9130ed444180}{defaultColor}});}
+\DoxyCodeLine{00060\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_log_1_1_win_logger_af391616117ae15f18ecc635bd36a6231}\label{class_log_1_1_win_logger_af391616117ae15f18ecc635bd36a6231} 
+\index{Log::WinLogger@{Log::WinLogger}!warn@{warn}}
+\index{warn@{warn}!Log::WinLogger@{Log::WinLogger}}
+\doxysubsubsection{\texorpdfstring{warn()}{warn()}}
+{\footnotesize\ttfamily void Log\+::\+Win\+Logger\+::warn (\begin{DoxyParamCaption}\item[{std\+::string}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_log_1_1_logger_a3769eec17552ac56f0562b4b10a2c677}{Log\+::\+Logger}}.
+
+
+
+Definition at line \mbox{\hyperlink{log_8cpp_source_l00069}{69}} of file \mbox{\hyperlink{log_8cpp_source}{log.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00070\ \ \ \ \ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ SetConsoleTextAttribute(\mbox{\hyperlink{class_log_1_1_win_logger_a7eeb1fe9b4125bbf6bbabeb22af65980}{hConsole}},\ \mbox{\hyperlink{class_log_1_1_win_logger_a01adda08febb14f87d3a1b5caf9bdb06}{warningColor}});}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}+++\ Warning:\ "{}}\ <<\ message\ <<\ std::endl;}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ SetConsoleTextAttribute(\mbox{\hyperlink{class_log_1_1_win_logger_a7eeb1fe9b4125bbf6bbabeb22af65980}{hConsole}},\ \mbox{\hyperlink{class_log_1_1_win_logger_ab6a8a10a8cb69289d1aa9130ed444180}{defaultColor}});}
+\DoxyCodeLine{00074\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_log_1_1_win_logger_ab6a8a10a8cb69289d1aa9130ed444180}\label{class_log_1_1_win_logger_ab6a8a10a8cb69289d1aa9130ed444180} 
+\index{Log::WinLogger@{Log::WinLogger}!defaultColor@{defaultColor}}
+\index{defaultColor@{defaultColor}!Log::WinLogger@{Log::WinLogger}}
+\doxysubsubsection{\texorpdfstring{defaultColor}{defaultColor}}
+{\footnotesize\ttfamily const int Log\+::\+Win\+Logger\+::default\+Color = \mbox{\hyperlink{class_log_1_1_win_logger_a4e2c43ca3753b05ac44bb270d9302945}{white}}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{log_8h_source_l00055}{55}} of file \mbox{\hyperlink{log_8h_source}{log.\+h}}.
+
+\Hypertarget{class_log_1_1_win_logger_a7dd1284473d5db121c932f7dec6ceab7}\label{class_log_1_1_win_logger_a7dd1284473d5db121c932f7dec6ceab7} 
+\index{Log::WinLogger@{Log::WinLogger}!errorColor@{errorColor}}
+\index{errorColor@{errorColor}!Log::WinLogger@{Log::WinLogger}}
+\doxysubsubsection{\texorpdfstring{errorColor}{errorColor}}
+{\footnotesize\ttfamily const int Log\+::\+Win\+Logger\+::error\+Color = \mbox{\hyperlink{class_log_1_1_win_logger_aed98a68bd248c96e87cbbcbad83cabc3}{red}}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{log_8h_source_l00057}{57}} of file \mbox{\hyperlink{log_8h_source}{log.\+h}}.
+
+\Hypertarget{class_log_1_1_win_logger_a3f1b74ebc8e1a33af692e513b0e26e59}\label{class_log_1_1_win_logger_a3f1b74ebc8e1a33af692e513b0e26e59} 
+\index{Log::WinLogger@{Log::WinLogger}!green@{green}}
+\index{green@{green}!Log::WinLogger@{Log::WinLogger}}
+\doxysubsubsection{\texorpdfstring{green}{green}}
+{\footnotesize\ttfamily const int Log\+::\+Win\+Logger\+::green = 10\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{log_8h_source_l00051}{51}} of file \mbox{\hyperlink{log_8h_source}{log.\+h}}.
+
+\Hypertarget{class_log_1_1_win_logger_a7eeb1fe9b4125bbf6bbabeb22af65980}\label{class_log_1_1_win_logger_a7eeb1fe9b4125bbf6bbabeb22af65980} 
+\index{Log::WinLogger@{Log::WinLogger}!hConsole@{hConsole}}
+\index{hConsole@{hConsole}!Log::WinLogger@{Log::WinLogger}}
+\doxysubsubsection{\texorpdfstring{hConsole}{hConsole}}
+{\footnotesize\ttfamily void\texorpdfstring{$\ast$}{*} Log\+::\+Win\+Logger\+::h\+Console\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{log_8h_source_l00048}{48}} of file \mbox{\hyperlink{log_8h_source}{log.\+h}}.
+
+\Hypertarget{class_log_1_1_win_logger_a53b1ff8b4e9434f2a1ca65edcf794c8e}\label{class_log_1_1_win_logger_a53b1ff8b4e9434f2a1ca65edcf794c8e} 
+\index{Log::WinLogger@{Log::WinLogger}!infoColor@{infoColor}}
+\index{infoColor@{infoColor}!Log::WinLogger@{Log::WinLogger}}
+\doxysubsubsection{\texorpdfstring{infoColor}{infoColor}}
+{\footnotesize\ttfamily const int Log\+::\+Win\+Logger\+::info\+Color = \mbox{\hyperlink{class_log_1_1_win_logger_a3f1b74ebc8e1a33af692e513b0e26e59}{green}}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{log_8h_source_l00056}{56}} of file \mbox{\hyperlink{log_8h_source}{log.\+h}}.
+
+\Hypertarget{class_log_1_1_win_logger_aed98a68bd248c96e87cbbcbad83cabc3}\label{class_log_1_1_win_logger_aed98a68bd248c96e87cbbcbad83cabc3} 
+\index{Log::WinLogger@{Log::WinLogger}!red@{red}}
+\index{red@{red}!Log::WinLogger@{Log::WinLogger}}
+\doxysubsubsection{\texorpdfstring{red}{red}}
+{\footnotesize\ttfamily const int Log\+::\+Win\+Logger\+::red = 12\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{log_8h_source_l00052}{52}} of file \mbox{\hyperlink{log_8h_source}{log.\+h}}.
+
+\Hypertarget{class_log_1_1_win_logger_a01adda08febb14f87d3a1b5caf9bdb06}\label{class_log_1_1_win_logger_a01adda08febb14f87d3a1b5caf9bdb06} 
+\index{Log::WinLogger@{Log::WinLogger}!warningColor@{warningColor}}
+\index{warningColor@{warningColor}!Log::WinLogger@{Log::WinLogger}}
+\doxysubsubsection{\texorpdfstring{warningColor}{warningColor}}
+{\footnotesize\ttfamily const int Log\+::\+Win\+Logger\+::warning\+Color = \mbox{\hyperlink{class_log_1_1_win_logger_a3fd40b6f795354c0893d3cb1c519657a}{yellow}}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{log_8h_source_l00058}{58}} of file \mbox{\hyperlink{log_8h_source}{log.\+h}}.
+
+\Hypertarget{class_log_1_1_win_logger_a4e2c43ca3753b05ac44bb270d9302945}\label{class_log_1_1_win_logger_a4e2c43ca3753b05ac44bb270d9302945} 
+\index{Log::WinLogger@{Log::WinLogger}!white@{white}}
+\index{white@{white}!Log::WinLogger@{Log::WinLogger}}
+\doxysubsubsection{\texorpdfstring{white}{white}}
+{\footnotesize\ttfamily const int Log\+::\+Win\+Logger\+::white = 15\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{log_8h_source_l00050}{50}} of file \mbox{\hyperlink{log_8h_source}{log.\+h}}.
+
+\Hypertarget{class_log_1_1_win_logger_a3fd40b6f795354c0893d3cb1c519657a}\label{class_log_1_1_win_logger_a3fd40b6f795354c0893d3cb1c519657a} 
+\index{Log::WinLogger@{Log::WinLogger}!yellow@{yellow}}
+\index{yellow@{yellow}!Log::WinLogger@{Log::WinLogger}}
+\doxysubsubsection{\texorpdfstring{yellow}{yellow}}
+{\footnotesize\ttfamily const int Log\+::\+Win\+Logger\+::yellow = 14\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{log_8h_source_l00053}{53}} of file \mbox{\hyperlink{log_8h_source}{log.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Base/\mbox{\hyperlink{log_8h}{log.\+h}}\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Base/\mbox{\hyperlink{log_8cpp}{log.\+cpp}}\end{DoxyCompactItemize}

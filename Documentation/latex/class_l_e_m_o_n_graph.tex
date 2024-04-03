@@ -1,0 +1,206 @@
+\doxysection{LEMONGraph\texorpdfstring{$<$}{<} Type \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_l_e_m_o_n_graph}{}\label{class_l_e_m_o_n_graph}\index{LEMONGraph$<$ Type $>$@{LEMONGraph$<$ Type $>$}}
+
+
+{\ttfamily \#include $<$LEMONGraph.\+hpp$>$}
+
+
+
+Collaboration diagram for LEMONGraph\texorpdfstring{$<$}{<} Type \texorpdfstring{$>$}{>}\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=189pt]{class_l_e_m_o_n_graph__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_l_e_m_o_n_graph_a2958520bf680929cd5ee75dc480ea63d}{LEMONGraph}} ()
+\item 
+\mbox{\hyperlink{class_l_e_m_o_n_graph_ada33743208ce167fddc37b8b9176687f}{\texorpdfstring{$\sim$}{\string~}\+LEMONGraph}} ()
+\item 
+void \mbox{\hyperlink{class_l_e_m_o_n_graph_a2d9c3e5f3530793e34a2f8bce77b8987}{add\+Node}} (const Type \&value) override
+\item 
+void \mbox{\hyperlink{class_l_e_m_o_n_graph_aa80ce0b85e7868c6a12bb0a29f6fb3df}{add\+Edge}} (const Type \&value1, const Type \&value2) override
+\item 
+void \mbox{\hyperlink{class_l_e_m_o_n_graph_a94c732497e7512a4ed1e8d9664100c4e}{list\+Nodes}} () override
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+lemon\+::\+List\+Graph\+::\+Node\+Map$<$ Type $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_l_e_m_o_n_graph_afdd91698fe4cefcf7cb810035be8553a}{node\+Map}}
+\item 
+lemon\+::\+List\+Graph \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_l_e_m_o_n_graph_a51e53056cb35b64b28a3701cd1be9615}{graph}}
+\item 
+std\+::vector$<$ lemon\+::\+List\+Digraph\+::\+Arc $>$ \mbox{\hyperlink{class_l_e_m_o_n_graph_a451f72824dafc9db35de4638207c7087}{edges}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class Type$>$\newline
+class LEMONGraph$<$ Type $>$}
+
+
+Definition at line \mbox{\hyperlink{_l_e_m_o_n_graph_8hpp_source_l00011}{11}} of file \mbox{\hyperlink{_l_e_m_o_n_graph_8hpp_source}{LEMONGraph.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_l_e_m_o_n_graph_a2958520bf680929cd5ee75dc480ea63d}\label{class_l_e_m_o_n_graph_a2958520bf680929cd5ee75dc480ea63d} 
+\index{LEMONGraph$<$ Type $>$@{LEMONGraph$<$ Type $>$}!LEMONGraph@{LEMONGraph}}
+\index{LEMONGraph@{LEMONGraph}!LEMONGraph$<$ Type $>$@{LEMONGraph$<$ Type $>$}}
+\doxysubsubsection{\texorpdfstring{LEMONGraph()}{LEMONGraph()}}
+{\footnotesize\ttfamily template$<$class Type $>$ \\
+\mbox{\hyperlink{class_l_e_m_o_n_graph}{LEMONGraph}}$<$ Type $>$\mbox{\hyperlink{class_l_e_m_o_n_graph}{\+::\+LEMONGraph}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_e_m_o_n_graph_8hpp_source_l00019}{19}} of file \mbox{\hyperlink{_l_e_m_o_n_graph_8hpp_source}{LEMONGraph.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00020\ \ \ \ \ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_l_e_m_o_n_graph_a51e53056cb35b64b28a3701cd1be9615}{graph}}\ =\ \textcolor{keyword}{new}\ lemon::ListGraph();}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_l_e_m_o_n_graph_afdd91698fe4cefcf7cb810035be8553a}{nodeMap}}\ =\ \textcolor{keyword}{new}\ lemon::ListGraph::NodeMap<Type>(*\mbox{\hyperlink{class_l_e_m_o_n_graph_a51e53056cb35b64b28a3701cd1be9615}{graph}});}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Log::info("{}Graph\ (LEMON)\ Created!"{});}}
+\DoxyCodeLine{00024\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_l_e_m_o_n_graph_ada33743208ce167fddc37b8b9176687f}\label{class_l_e_m_o_n_graph_ada33743208ce167fddc37b8b9176687f} 
+\index{LEMONGraph$<$ Type $>$@{LEMONGraph$<$ Type $>$}!````~LEMONGraph@{\texorpdfstring{$\sim$}{\string~}LEMONGraph}}
+\index{````~LEMONGraph@{\texorpdfstring{$\sim$}{\string~}LEMONGraph}!LEMONGraph$<$ Type $>$@{LEMONGraph$<$ Type $>$}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}LEMONGraph()}{\string~LEMONGraph()}}
+{\footnotesize\ttfamily template$<$class Type $>$ \\
+\mbox{\hyperlink{class_l_e_m_o_n_graph}{LEMONGraph}}$<$ Type $>$\+::\texorpdfstring{$\sim$}{\string~}\mbox{\hyperlink{class_l_e_m_o_n_graph}{LEMONGraph}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_e_m_o_n_graph_8hpp_source_l00026}{26}} of file \mbox{\hyperlink{_l_e_m_o_n_graph_8hpp_source}{LEMONGraph.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00027\ \ \ \ \ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ \mbox{\hyperlink{class_l_e_m_o_n_graph_a51e53056cb35b64b28a3701cd1be9615}{graph}};}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ \mbox{\hyperlink{class_l_e_m_o_n_graph_afdd91698fe4cefcf7cb810035be8553a}{nodeMap}};}
+\DoxyCodeLine{00030\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_l_e_m_o_n_graph_aa80ce0b85e7868c6a12bb0a29f6fb3df}\label{class_l_e_m_o_n_graph_aa80ce0b85e7868c6a12bb0a29f6fb3df} 
+\index{LEMONGraph$<$ Type $>$@{LEMONGraph$<$ Type $>$}!addEdge@{addEdge}}
+\index{addEdge@{addEdge}!LEMONGraph$<$ Type $>$@{LEMONGraph$<$ Type $>$}}
+\doxysubsubsection{\texorpdfstring{addEdge()}{addEdge()}}
+{\footnotesize\ttfamily template$<$class Type $>$ \\
+void \mbox{\hyperlink{class_l_e_m_o_n_graph}{LEMONGraph}}$<$ Type $>$\+::add\+Edge (\begin{DoxyParamCaption}\item[{const Type \&}]{value1,  }\item[{const Type \&}]{value2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_e_m_o_n_graph_8hpp_source_l00048}{48}} of file \mbox{\hyperlink{_l_e_m_o_n_graph_8hpp_source}{LEMONGraph.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00049\ \ \ \ \ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ lemon::ListGraph::Node\ N1;}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ lemon::ListGraph::Node\ N2;}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*for\ (lemon::ListGraph::NodeIt\ u(*graph);\ u\ !=\ lemon::INVALID;\ ++u) }}
+\DoxyCodeLine{00055\ \textcolor{comment}{\ \ \ \ \ \ \ \ \{ }}
+\DoxyCodeLine{00056\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ lemon::ListGraph::Node\ N\ =\ u; }}
+\DoxyCodeLine{00057\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ if\ ((*nodeMap)[N]\ ==\ value1) }}
+\DoxyCodeLine{00058\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ N1\ =\ u; }}
+\DoxyCodeLine{00059\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ if\ ((*nodeMap)[N]\ ==\ value2) }}
+\DoxyCodeLine{00060\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ N2\ =\ u; }}
+\DoxyCodeLine{00061\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}*/}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_l_e_m_o_n_graph_a51e53056cb35b64b28a3701cd1be9615}{graph}}-\/>addEdge(N1,\ N2);}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{comment}{//graph.addEdge();}}
+\DoxyCodeLine{00066\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_l_e_m_o_n_graph_a2d9c3e5f3530793e34a2f8bce77b8987}\label{class_l_e_m_o_n_graph_a2d9c3e5f3530793e34a2f8bce77b8987} 
+\index{LEMONGraph$<$ Type $>$@{LEMONGraph$<$ Type $>$}!addNode@{addNode}}
+\index{addNode@{addNode}!LEMONGraph$<$ Type $>$@{LEMONGraph$<$ Type $>$}}
+\doxysubsubsection{\texorpdfstring{addNode()}{addNode()}}
+{\footnotesize\ttfamily template$<$class Type $>$ \\
+void \mbox{\hyperlink{class_l_e_m_o_n_graph}{LEMONGraph}}$<$ Type $>$\+::add\+Node (\begin{DoxyParamCaption}\item[{const Type \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_e_m_o_n_graph_8hpp_source_l00039}{39}} of file \mbox{\hyperlink{_l_e_m_o_n_graph_8hpp_source}{LEMONGraph.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00040\ \ \ \ \ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ lemon::ListGraph::Node\ newNode\ =\ \mbox{\hyperlink{class_l_e_m_o_n_graph_a51e53056cb35b64b28a3701cd1be9615}{graph}}-\/>addNode();}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ (*nodeMap)[newNode]\ =\ value;}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*lemon::ListGraph::Node\ newNode\ =\ graph-\/>addNode(); }}
+\DoxyCodeLine{00045\ \textcolor{comment}{\ \ \ \ \ \ \ \ (*nodeIds)[newNode]\ =\ lemon::countNodes<lemon::ListGraph>(*graph);*/}}
+\DoxyCodeLine{00046\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_l_e_m_o_n_graph_a94c732497e7512a4ed1e8d9664100c4e}\label{class_l_e_m_o_n_graph_a94c732497e7512a4ed1e8d9664100c4e} 
+\index{LEMONGraph$<$ Type $>$@{LEMONGraph$<$ Type $>$}!listNodes@{listNodes}}
+\index{listNodes@{listNodes}!LEMONGraph$<$ Type $>$@{LEMONGraph$<$ Type $>$}}
+\doxysubsubsection{\texorpdfstring{listNodes()}{listNodes()}}
+{\footnotesize\ttfamily template$<$class Type $>$ \\
+void \mbox{\hyperlink{class_l_e_m_o_n_graph}{LEMONGraph}}$<$ Type $>$\+::list\+Nodes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_e_m_o_n_graph_8hpp_source_l00068}{68}} of file \mbox{\hyperlink{_l_e_m_o_n_graph_8hpp_source}{LEMONGraph.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00069\ \ \ \ \ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*for\ (lemon::ListGraph::NodeIt\ n(graph);\ n\ !=\ lemon::INVALID;\ ++n) }}
+\DoxyCodeLine{00071\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ nodeMap[n]\ <<\ std::endl;*/}}
+\DoxyCodeLine{00072\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_l_e_m_o_n_graph_a451f72824dafc9db35de4638207c7087}\label{class_l_e_m_o_n_graph_a451f72824dafc9db35de4638207c7087} 
+\index{LEMONGraph$<$ Type $>$@{LEMONGraph$<$ Type $>$}!edges@{edges}}
+\index{edges@{edges}!LEMONGraph$<$ Type $>$@{LEMONGraph$<$ Type $>$}}
+\doxysubsubsection{\texorpdfstring{edges}{edges}}
+{\footnotesize\ttfamily template$<$class Type $>$ \\
+std\+::vector$<$lemon\+::\+List\+Digraph\+::\+Arc$>$ \mbox{\hyperlink{class_l_e_m_o_n_graph}{LEMONGraph}}$<$ Type $>$\+::edges\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_e_m_o_n_graph_8hpp_source_l00016}{16}} of file \mbox{\hyperlink{_l_e_m_o_n_graph_8hpp_source}{LEMONGraph.\+hpp}}.
+
+\Hypertarget{class_l_e_m_o_n_graph_a51e53056cb35b64b28a3701cd1be9615}\label{class_l_e_m_o_n_graph_a51e53056cb35b64b28a3701cd1be9615} 
+\index{LEMONGraph$<$ Type $>$@{LEMONGraph$<$ Type $>$}!graph@{graph}}
+\index{graph@{graph}!LEMONGraph$<$ Type $>$@{LEMONGraph$<$ Type $>$}}
+\doxysubsubsection{\texorpdfstring{graph}{graph}}
+{\footnotesize\ttfamily template$<$class Type $>$ \\
+lemon\+::\+List\+Graph\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_l_e_m_o_n_graph}{LEMONGraph}}$<$ Type $>$\+::graph\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_e_m_o_n_graph_8hpp_source_l00015}{15}} of file \mbox{\hyperlink{_l_e_m_o_n_graph_8hpp_source}{LEMONGraph.\+hpp}}.
+
+\Hypertarget{class_l_e_m_o_n_graph_afdd91698fe4cefcf7cb810035be8553a}\label{class_l_e_m_o_n_graph_afdd91698fe4cefcf7cb810035be8553a} 
+\index{LEMONGraph$<$ Type $>$@{LEMONGraph$<$ Type $>$}!nodeMap@{nodeMap}}
+\index{nodeMap@{nodeMap}!LEMONGraph$<$ Type $>$@{LEMONGraph$<$ Type $>$}}
+\doxysubsubsection{\texorpdfstring{nodeMap}{nodeMap}}
+{\footnotesize\ttfamily template$<$class Type $>$ \\
+lemon\+::\+List\+Graph\+::\+Node\+Map$<$Type$>$\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_l_e_m_o_n_graph}{LEMONGraph}}$<$ Type $>$\+::node\+Map\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_e_m_o_n_graph_8hpp_source_l00014}{14}} of file \mbox{\hyperlink{_l_e_m_o_n_graph_8hpp_source}{LEMONGraph.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Math/\mbox{\hyperlink{_l_e_m_o_n_graph_8hpp}{LEMONGraph.\+hpp}}\end{DoxyCompactItemize}

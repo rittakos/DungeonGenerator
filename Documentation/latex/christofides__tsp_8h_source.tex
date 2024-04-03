@@ -1,0 +1,177 @@
+\doxysection{christofides\+\_\+tsp.\+h}
+\hypertarget{christofides__tsp_8h_source}{}\label{christofides__tsp_8h_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/lemon/christofides\_tsp.h@{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/lemon/christofides\_tsp.h}}
+\mbox{\hyperlink{christofides__tsp_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00001}00001\ \textcolor{comment}{/*\ -\/*-\/\ mode:\ C++;\ indent-\/tabs-\/mode:\ nil;\ -\/*-\/}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00002}00002\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00003}00003\ \textcolor{comment}{\ *\ This\ file\ is\ a\ part\ of\ LEMON,\ a\ generic\ C++\ optimization\ library.}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00004}00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00005}00005\ \textcolor{comment}{\ *\ Copyright\ (C)\ 2003-\/2013}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00006}00006\ \textcolor{comment}{\ *\ Egervary\ Jeno\ Kombinatorikus\ Optimalizalasi\ Kutatocsoport}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00007}00007\ \textcolor{comment}{\ *\ (Egervary\ Research\ Group\ on\ Combinatorial\ Optimization,\ EGRES).}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00008}00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00009}00009\ \textcolor{comment}{\ *\ Permission\ to\ use,\ modify\ and\ distribute\ this\ software\ is\ granted}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00010}00010\ \textcolor{comment}{\ *\ provided\ that\ this\ copyright\ notice\ appears\ in\ all\ copies.\ For}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00011}00011\ \textcolor{comment}{\ *\ precise\ terms\ see\ the\ accompanying\ LICENSE\ file.}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00012}00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00013}00013\ \textcolor{comment}{\ *\ This\ software\ is\ provided\ "{}AS\ IS"{}\ with\ no\ warranty\ of\ any\ kind,}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00014}00014\ \textcolor{comment}{\ *\ express\ or\ implied,\ and\ with\ no\ claim\ as\ to\ its\ suitability\ for\ any}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00015}00015\ \textcolor{comment}{\ *\ purpose.}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00016}00016\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00017}00017\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00019}00019\ \textcolor{preprocessor}{\#ifndef\ LEMON\_CHRISTOFIDES\_TSP\_H}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00020}00020\ \textcolor{preprocessor}{\#define\ LEMON\_CHRISTOFIDES\_TSP\_H}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00026}00026\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{full__graph_8h}{lemon/full\_graph.h}}>}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00027}00027\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{smart__graph_8h}{lemon/smart\_graph.h}}>}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00028}00028\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{kruskal_8h}{lemon/kruskal.h}}>}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00029}00029\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{matching_8h}{lemon/matching.h}}>}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00030}00030\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{euler_8h}{lemon/euler.h}}>}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00032}00032\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacelemon}{lemon}}\ \{}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00061}00061\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ CM>}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00062}\mbox{\hyperlink{classlemon_1_1_christofides_tsp}{00062}}\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_christofides_tsp}{ChristofidesTsp}}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00063}00063\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00064}00064\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00067}\mbox{\hyperlink{classlemon_1_1_christofides_tsp_a6f5333dbd706f802825165d764ccce52}{00067}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CM}}\ \mbox{\hyperlink{classlemon_1_1_christofides_tsp_a6f5333dbd706f802825165d764ccce52}{CostMap}};}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00069}\mbox{\hyperlink{classlemon_1_1_christofides_tsp_a41074a579436e304c606fdf0e7670ea9}{00069}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ CM::Value\ \mbox{\hyperlink{classlemon_1_1_christofides_tsp_a41074a579436e304c606fdf0e7670ea9}{Cost}};}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00071}00071\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00073}\mbox{\hyperlink{classlemon_1_1_christofides_tsp_a5d29839b0888454e0efd88539ea5c13a}{00073}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_christofides_tsp_a5d29839b0888454e0efd88539ea5c13a}{GRAPH\_TYPEDEFS}}(\mbox{\hyperlink{classlemon_1_1_full_graph}{FullGraph}});}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00075}\mbox{\hyperlink{classlemon_1_1_christofides_tsp_a7fb014a13c07771f684cc14a7c653085}{00075}}\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_full_graph}{FullGraph}}\ \&\mbox{\hyperlink{classlemon_1_1_christofides_tsp_a7fb014a13c07771f684cc14a7c653085}{\_gr}};}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00076}\mbox{\hyperlink{classlemon_1_1_christofides_tsp_a0f6c2f248fc8070c05603e85cbd98d89}{00076}}\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CostMap}}\ \&\mbox{\hyperlink{classlemon_1_1_christofides_tsp_a0f6c2f248fc8070c05603e85cbd98d89}{\_cost}};}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00077}\mbox{\hyperlink{classlemon_1_1_christofides_tsp_a8d8d6c598468e89bf4de93da5dbbd686}{00077}}\ \ \ \ \ \ \ std::vector<Node>\ \mbox{\hyperlink{classlemon_1_1_christofides_tsp_a8d8d6c598468e89bf4de93da5dbbd686}{\_path}};}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00078}\mbox{\hyperlink{classlemon_1_1_christofides_tsp_a76221ef1cb09706dd15bed4b2a108f99}{00078}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_christofides_tsp_a41074a579436e304c606fdf0e7670ea9}{Cost}}\ \mbox{\hyperlink{classlemon_1_1_christofides_tsp_a76221ef1cb09706dd15bed4b2a108f99}{\_sum}};}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00080}00080\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00087}\mbox{\hyperlink{classlemon_1_1_christofides_tsp_a29d33b179eefe630d6a42f2b313a0778}{00087}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_christofides_tsp_a29d33b179eefe630d6a42f2b313a0778}{ChristofidesTsp}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_full_graph}{FullGraph}}\ \&\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{gr}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CostMap}}\ \&\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cost}})}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00088}00088\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classlemon_1_1_christofides_tsp_a7fb014a13c07771f684cc14a7c653085}{\_gr}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{gr}}),\ \mbox{\hyperlink{classlemon_1_1_christofides_tsp_a0f6c2f248fc8070c05603e85cbd98d89}{\_cost}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cost}})\ \{\}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00098}\mbox{\hyperlink{classlemon_1_1_christofides_tsp_ac3b73830c3e79d64d6ee0ea621130a93}{00098}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_christofides_tsp_a41074a579436e304c606fdf0e7670ea9}{Cost}}\ \mbox{\hyperlink{classlemon_1_1_christofides_tsp_ac3b73830c3e79d64d6ee0ea621130a93}{run}}()\ \{}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00099}00099\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_christofides_tsp_a8d8d6c598468e89bf4de93da5dbbd686}{\_path}}.clear();}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00101}00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_christofides_tsp_a7fb014a13c07771f684cc14a7c653085}{\_gr}}.\mbox{\hyperlink{classlemon_1_1_full_graph_a773a38833c4382c6d017fa4af02ce581}{nodeNum}}()\ ==\ 0)\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_christofides_tsp_a76221ef1cb09706dd15bed4b2a108f99}{\_sum}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00102}00102\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_christofides_tsp_a7fb014a13c07771f684cc14a7c653085}{\_gr}}.\mbox{\hyperlink{classlemon_1_1_full_graph_a773a38833c4382c6d017fa4af02ce581}{nodeNum}}()\ ==\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_christofides_tsp_a8d8d6c598468e89bf4de93da5dbbd686}{\_path}}.push\_back(\mbox{\hyperlink{classlemon_1_1_christofides_tsp_a7fb014a13c07771f684cc14a7c653085}{\_gr}}(0));}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_christofides_tsp_a76221ef1cb09706dd15bed4b2a108f99}{\_sum}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00105}00105\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00106}00106\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_christofides_tsp_a7fb014a13c07771f684cc14a7c653085}{\_gr}}.\mbox{\hyperlink{classlemon_1_1_full_graph_a773a38833c4382c6d017fa4af02ce581}{nodeNum}}()\ ==\ 2)\ \{}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_christofides_tsp_a8d8d6c598468e89bf4de93da5dbbd686}{\_path}}.push\_back(\mbox{\hyperlink{classlemon_1_1_christofides_tsp_a7fb014a13c07771f684cc14a7c653085}{\_gr}}(0));}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_christofides_tsp_a8d8d6c598468e89bf4de93da5dbbd686}{\_path}}.push\_back(\mbox{\hyperlink{classlemon_1_1_christofides_tsp_a7fb014a13c07771f684cc14a7c653085}{\_gr}}(1));}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_christofides_tsp_a76221ef1cb09706dd15bed4b2a108f99}{\_sum}}\ =\ 2\ *\ \mbox{\hyperlink{classlemon_1_1_christofides_tsp_a0f6c2f248fc8070c05603e85cbd98d89}{\_cost}}[\mbox{\hyperlink{classlemon_1_1_christofides_tsp_a7fb014a13c07771f684cc14a7c653085}{\_gr}}.\mbox{\hyperlink{classlemon_1_1_full_graph_a34765b3146252a03e645aa64a6a8775e}{edge}}(\mbox{\hyperlink{classlemon_1_1_christofides_tsp_a7fb014a13c07771f684cc14a7c653085}{\_gr}}(0),\ \mbox{\hyperlink{classlemon_1_1_christofides_tsp_a7fb014a13c07771f684cc14a7c653085}{\_gr}}(1))];}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00110}00110\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00112}00112\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Compute\ min.\ cost\ spanning\ tree}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00113}00113\ \ \ \ \ \ \ \ \ std::vector<Edge>\ \mbox{\hyperlink{namespacelemon_ad1e4de234e926958647905478415bd54}{tree}};}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00114}00114\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelemon_accf7027c752be09bc3aaf77a4851c9eb}{kruskal}}(\mbox{\hyperlink{classlemon_1_1_christofides_tsp_a7fb014a13c07771f684cc14a7c653085}{\_gr}},\ \mbox{\hyperlink{classlemon_1_1_christofides_tsp_a0f6c2f248fc8070c05603e85cbd98d89}{\_cost}},\ std::back\_inserter(\mbox{\hyperlink{namespacelemon_ad1e4de234e926958647905478415bd54}{tree}}));}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00116}00116\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_graph_extender_1_1_node_map}{FullGraph::NodeMap<int>}}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{deg}}(\mbox{\hyperlink{classlemon_1_1_christofides_tsp_a7fb014a13c07771f684cc14a7c653085}{\_gr}},\ 0);}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00117}00117\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ !=\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{int}}(\mbox{\hyperlink{namespacelemon_ad1e4de234e926958647905478415bd54}{tree}}.size());\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ Edge\ e\ =\ \mbox{\hyperlink{namespacelemon_ad1e4de234e926958647905478415bd54}{tree}}[i];}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ ++\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{deg}}[\mbox{\hyperlink{classlemon_1_1_christofides_tsp_a7fb014a13c07771f684cc14a7c653085}{\_gr}}.u(e)];}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ ++\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{deg}}[\mbox{\hyperlink{classlemon_1_1_christofides_tsp_a7fb014a13c07771f684cc14a7c653085}{\_gr}}.v(e)];}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00121}00121\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00122}00122\ }
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00123}00123\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Copy\ the\ induced\ subgraph\ of\ odd\ nodes}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00124}00124\ \ \ \ \ \ \ \ \ std::vector<Node>\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{odd\_nodes}};}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00125}00125\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (NodeIt\ u(\mbox{\hyperlink{classlemon_1_1_christofides_tsp_a7fb014a13c07771f684cc14a7c653085}{\_gr}});\ u\ !=\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ ++u)\ \{}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{deg}}[u]\ \%\ 2\ ==\ 1)\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{odd\_nodes}}.push\_back(u);}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00127}00127\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00129}00129\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_smart_graph}{SmartGraph}}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{sgr}};}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00130}00130\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_graph_extender_1_1_edge_map}{SmartGraph::EdgeMap<Cost>}}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{scost}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{sgr}});}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00131}00131\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ !=\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{int}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{odd\_nodes}}.size());\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{sgr}}.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a2d19d28c393af4ca9337ce8265528912}{addNode}}();}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00133}00133\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00134}00134\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ !=\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{int}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{odd\_nodes}}.size());\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ !=\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{int}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{odd\_nodes}}.size());\ ++j)\ \{}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (j\ ==\ i)\ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_graph_extender_ae4040aa36a634f5ab480552659dfa182}{SmartGraph::Edge}}\ e\ =}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{sgr}}.addEdge(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{sgr}}.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a8903de9692f5b8439cadea652647c348}{nodeFromId}}(i),\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{sgr}}.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a8903de9692f5b8439cadea652647c348}{nodeFromId}}(j));}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{scost}}[e]\ =\ -\/\mbox{\hyperlink{classlemon_1_1_christofides_tsp_a0f6c2f248fc8070c05603e85cbd98d89}{\_cost}}[\mbox{\hyperlink{classlemon_1_1_christofides_tsp_a7fb014a13c07771f684cc14a7c653085}{\_gr}}.\mbox{\hyperlink{classlemon_1_1_full_graph_a34765b3146252a03e645aa64a6a8775e}{edge}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{odd\_nodes}}[i],\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{odd\_nodes}}[j])];}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00141}00141\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00142}00142\ }
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00143}00143\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Compute\ min.\ cost\ perfect\ matching}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00144}00144\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{MaxWeightedPerfectMatching<SmartGraph,\ SmartGraph::EdgeMap<Cost>}}\ >}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{mwpm}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{sgr}},\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{scost}});}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00146}00146\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{mwpm}}.run();}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00147}00147\ }
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00148}00148\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{classlemon_1_1_graph_extender_1_1_edge_it}{SmartGraph::EdgeIt}}\ e(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{sgr}});\ e\ !=\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ ++e)\ \{}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{mwpm}}.matching(e))\ \{}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelemon_ad1e4de234e926958647905478415bd54}{tree}}.push\_back(\ \mbox{\hyperlink{classlemon_1_1_christofides_tsp_a7fb014a13c07771f684cc14a7c653085}{\_gr}}.\mbox{\hyperlink{classlemon_1_1_full_graph_a34765b3146252a03e645aa64a6a8775e}{edge}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{odd\_nodes}}[\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{sgr}}.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_afa1b705fa74e19045a04063063665ee9}{id}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{sgr}}.u(e))],}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{odd\_nodes}}[\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{sgr}}.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_afa1b705fa74e19045a04063063665ee9}{id}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{sgr}}.v(e))])\ );}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00153}00153\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00154}00154\ }
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00155}00155\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Join\ the\ spanning\ tree\ and\ the\ matching}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00156}00156\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{sgr}}.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_af2726dacd301d1fdc114b18b6eeb5f51}{clear}}();}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00157}00157\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ !=\ \mbox{\hyperlink{classlemon_1_1_christofides_tsp_a7fb014a13c07771f684cc14a7c653085}{\_gr}}.\mbox{\hyperlink{classlemon_1_1_full_graph_a773a38833c4382c6d017fa4af02ce581}{nodeNum}}();\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{sgr}}.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a2d19d28c393af4ca9337ce8265528912}{addNode}}();}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00159}00159\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00160}00160\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ !=\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{int}}(\mbox{\hyperlink{namespacelemon_ad1e4de234e926958647905478415bd54}{tree}}.size());\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ui}}\ =\ \mbox{\hyperlink{classlemon_1_1_christofides_tsp_a7fb014a13c07771f684cc14a7c653085}{\_gr}}.id(\mbox{\hyperlink{classlemon_1_1_christofides_tsp_a7fb014a13c07771f684cc14a7c653085}{\_gr}}.u(\mbox{\hyperlink{namespacelemon_ad1e4de234e926958647905478415bd54}{tree}}[i])),}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{vi}}\ =\ \mbox{\hyperlink{classlemon_1_1_christofides_tsp_a7fb014a13c07771f684cc14a7c653085}{\_gr}}.id(\mbox{\hyperlink{classlemon_1_1_christofides_tsp_a7fb014a13c07771f684cc14a7c653085}{\_gr}}.v(\mbox{\hyperlink{namespacelemon_ad1e4de234e926958647905478415bd54}{tree}}[i]));}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{sgr}}.addEdge(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{sgr}}.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a8903de9692f5b8439cadea652647c348}{nodeFromId}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ui}}),\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{sgr}}.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a8903de9692f5b8439cadea652647c348}{nodeFromId}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{vi}}));}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00164}00164\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00165}00165\ }
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00166}00166\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Compute\ the\ tour\ from\ the\ Euler\ traversal}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00167}00167\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_graph_extender_1_1_node_map}{SmartGraph::NodeMap<bool>}}\ visited(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{sgr}},\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00168}00168\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{EulerIt<SmartGraph>}}\ e(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{sgr}});\ e\ !=\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ ++e)\ \{}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_graph_extender_a66e163071e3358545b79bcb4bb6d7015}{SmartGraph::Node}}\ n\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{sgr}}.\mbox{\hyperlink{classlemon_1_1_reverse_digraph_base_ac58ab1c4df36df3a2b77cf4ede280fce}{target}}(e);}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!visited[n])\ \{}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_christofides_tsp_a8d8d6c598468e89bf4de93da5dbbd686}{\_path}}.push\_back(\mbox{\hyperlink{classlemon_1_1_christofides_tsp_a7fb014a13c07771f684cc14a7c653085}{\_gr}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{sgr}}.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_afa1b705fa74e19045a04063063665ee9}{id}}(n)));}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ visited[n]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00174}00174\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00175}00175\ }
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00176}00176\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_christofides_tsp_a76221ef1cb09706dd15bed4b2a108f99}{\_sum}}\ =\ \mbox{\hyperlink{classlemon_1_1_christofides_tsp_a0f6c2f248fc8070c05603e85cbd98d89}{\_cost}}[\mbox{\hyperlink{classlemon_1_1_christofides_tsp_a7fb014a13c07771f684cc14a7c653085}{\_gr}}.\mbox{\hyperlink{classlemon_1_1_full_graph_a34765b3146252a03e645aa64a6a8775e}{edge}}(\mbox{\hyperlink{classlemon_1_1_christofides_tsp_a8d8d6c598468e89bf4de93da5dbbd686}{\_path}}.back(),\ \mbox{\hyperlink{classlemon_1_1_christofides_tsp_a8d8d6c598468e89bf4de93da5dbbd686}{\_path}}.front())];}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00177}00177\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{int}}(\mbox{\hyperlink{classlemon_1_1_christofides_tsp_a8d8d6c598468e89bf4de93da5dbbd686}{\_path}}.size())-\/1;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00178}00178\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_christofides_tsp_a76221ef1cb09706dd15bed4b2a108f99}{\_sum}}\ +=\ \mbox{\hyperlink{classlemon_1_1_christofides_tsp_a0f6c2f248fc8070c05603e85cbd98d89}{\_cost}}[\mbox{\hyperlink{classlemon_1_1_christofides_tsp_a7fb014a13c07771f684cc14a7c653085}{\_gr}}.\mbox{\hyperlink{classlemon_1_1_full_graph_a34765b3146252a03e645aa64a6a8775e}{edge}}(\mbox{\hyperlink{classlemon_1_1_christofides_tsp_a8d8d6c598468e89bf4de93da5dbbd686}{\_path}}[i],\ \mbox{\hyperlink{classlemon_1_1_christofides_tsp_a8d8d6c598468e89bf4de93da5dbbd686}{\_path}}[i+1])];}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00179}00179\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00180}00180\ }
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00181}00181\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_christofides_tsp_a76221ef1cb09706dd15bed4b2a108f99}{\_sum}};}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00182}00182\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00183}00183\ }
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00185}00185\ }
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00188}00188\ }
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00194}\mbox{\hyperlink{classlemon_1_1_christofides_tsp_aa89c14158b6f6c390d4661c307decfff}{00194}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_christofides_tsp_a41074a579436e304c606fdf0e7670ea9}{Cost}}\ \mbox{\hyperlink{classlemon_1_1_christofides_tsp_aa89c14158b6f6c390d4661c307decfff}{tourCost}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00195}00195\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_christofides_tsp_a76221ef1cb09706dd15bed4b2a108f99}{\_sum}};}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00196}00196\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00197}00197\ }
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00205}\mbox{\hyperlink{classlemon_1_1_christofides_tsp_a6a300ac91a9d9848b828ba6130a9a0cd}{00205}}\ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<Node>\&\ \mbox{\hyperlink{classlemon_1_1_christofides_tsp_a6a300ac91a9d9848b828ba6130a9a0cd}{tourNodes}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00206}00206\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_christofides_tsp_a8d8d6c598468e89bf4de93da5dbbd686}{\_path}};}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00207}00207\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00208}00208\ }
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00226}00226\ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Iterator>}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00227}\mbox{\hyperlink{classlemon_1_1_christofides_tsp_ad84b166934a993d5a94156a80bfaa5c8}{00227}}\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_christofides_tsp_ad84b166934a993d5a94156a80bfaa5c8}{tourNodes}}(Iterator\ out)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00228}00228\ \ \ \ \ \ \ \ \ std::copy(\mbox{\hyperlink{classlemon_1_1_christofides_tsp_a8d8d6c598468e89bf4de93da5dbbd686}{\_path}}.begin(),\ \mbox{\hyperlink{classlemon_1_1_christofides_tsp_a8d8d6c598468e89bf4de93da5dbbd686}{\_path}}.end(),\ out);}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00229}00229\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00230}00230\ }
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00237}00237\ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Path>}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00238}\mbox{\hyperlink{classlemon_1_1_christofides_tsp_a0251640e7a4d566a0dd17fe496e22761}{00238}}\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_christofides_tsp_a0251640e7a4d566a0dd17fe496e22761}{tour}}(\mbox{\hyperlink{classlemon_1_1_path}{Path}}\ \&path)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00239}00239\ \ \ \ \ \ \ \ \ path.\mbox{\hyperlink{classlemon_1_1_path_ab931fba957386b19cb1512a63784459e}{clear}}();}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00240}00240\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{int}}(\mbox{\hyperlink{classlemon_1_1_christofides_tsp_a8d8d6c598468e89bf4de93da5dbbd686}{\_path}}.size())\ -\/\ 1;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00241}00241\ \ \ \ \ \ \ \ \ \ \ path.\mbox{\hyperlink{classlemon_1_1_path_a83376dd53f4e6c72782e5e73cb150d8a}{addBack}}(\mbox{\hyperlink{classlemon_1_1_christofides_tsp_a7fb014a13c07771f684cc14a7c653085}{\_gr}}.\mbox{\hyperlink{classlemon_1_1_full_graph_a517d7643cfd6b856c95572159b10f4d8}{arc}}(\mbox{\hyperlink{classlemon_1_1_christofides_tsp_a8d8d6c598468e89bf4de93da5dbbd686}{\_path}}[i],\ \mbox{\hyperlink{classlemon_1_1_christofides_tsp_a8d8d6c598468e89bf4de93da5dbbd686}{\_path}}[i+1]));}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00242}00242\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00243}00243\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keywordtype}{int}(\mbox{\hyperlink{classlemon_1_1_christofides_tsp_a8d8d6c598468e89bf4de93da5dbbd686}{\_path}}.size())\ >=\ 2)\ \{}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00244}00244\ \ \ \ \ \ \ \ \ \ \ path.\mbox{\hyperlink{classlemon_1_1_path_a83376dd53f4e6c72782e5e73cb150d8a}{addBack}}(\mbox{\hyperlink{classlemon_1_1_christofides_tsp_a7fb014a13c07771f684cc14a7c653085}{\_gr}}.\mbox{\hyperlink{classlemon_1_1_full_graph_a517d7643cfd6b856c95572159b10f4d8}{arc}}(\mbox{\hyperlink{classlemon_1_1_christofides_tsp_a8d8d6c598468e89bf4de93da5dbbd686}{\_path}}.back(),\ \mbox{\hyperlink{classlemon_1_1_christofides_tsp_a8d8d6c598468e89bf4de93da5dbbd686}{\_path}}.front()));}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00245}00245\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00246}00246\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00247}00247\ }
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00249}00249\ }
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00250}00250\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00251}00251\ }
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00252}00252\ \};\ \textcolor{comment}{//\ namespace\ lemon}}
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00253}00253\ }
+\DoxyCodeLine{\Hypertarget{christofides__tsp_8h_source_l00254}00254\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

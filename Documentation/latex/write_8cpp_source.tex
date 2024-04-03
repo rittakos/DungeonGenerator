@@ -1,0 +1,63 @@
+\doxysection{write.\+cpp}
+\hypertarget{write_8cpp_source}{}\label{write_8cpp_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/DungeonGenerator/write.cpp@{C:/Dev/DungeonGenerator/DungeonGenerator/DungeonGenerator/write.cpp}}
+\mbox{\hyperlink{write_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{write_8hpp}{write.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00003}00003\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_i_o}{IO}}}
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00004}00004\ \{}
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00005}\mbox{\hyperlink{namespace_i_o_ab979242afe8bf9f39df609bf7cd8e1fe}{00005}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespace_i_o_ab979242afe8bf9f39df609bf7cd8e1fe}{write}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_data_1_1_room_data}{Data::RoomData}}\&\ roomData,\ std::ofstream\&\ os)}
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00006}00006\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00007}00007\ \ \ \ \ \ \ \ \ \textcolor{comment}{//os\ <<\ "{}Room"{}\ <<\ endOfLine;}}
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00008}00008\ \ \ \ \ \ \ \ \ \textcolor{comment}{//os\ <<\ roomData.getId()\ <<\ endOfLine;}}
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00010}00010\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_i_o_ab979242afe8bf9f39df609bf7cd8e1fe}{write}}(roomData.\mbox{\hyperlink{class_data_1_1_room_data_a7a7821606e884765005bf10a47dcfb1a}{getFloorConst}}(),\ os);}
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00012}00012\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{class_data_1_1_wall_data}{Data::WallData}}\&\ wall\ :\ roomData.\mbox{\hyperlink{class_data_1_1_room_data_a22de30e496be700ade2cff19291bad62}{getWalls}}())}
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00013}00013\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00014}00014\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_i_o_ab979242afe8bf9f39df609bf7cd8e1fe}{write}}(wall,\ os);}
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00015}00015\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00016}00016\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00018}\mbox{\hyperlink{namespace_i_o_aa8da4e301f58739977028749a7898d12}{00018}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespace_i_o_ab979242afe8bf9f39df609bf7cd8e1fe}{write}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_data_1_1_layout_data}{Data::LayoutData}}\&\ layout,\ std::ofstream\&\ os)}
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00019}00019\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}Floor"{}}\ <<\ \mbox{\hyperlink{namespace_i_o_a9943de923a977491a8be5298467bd19b}{endOfLine}};}
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ os\ <<\ layout.\mbox{\hyperlink{class_data_1_1_layout_data_ad0327c57353bc5f5407a436d980b073d}{getPoints}}().size()\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ layout.\mbox{\hyperlink{class_data_1_1_layout_data_a2407f920a97acbeec2e4928a62627816}{getTrianglesClockWise}}().size()\ +\ layout.\mbox{\hyperlink{class_data_1_1_layout_data_af2ae57fc3a964ee0220f340d32817ae1}{getTrianglesCounterClockwise}}().size()\ <<\ \mbox{\hyperlink{namespace_i_o_a9943de923a977491a8be5298467bd19b}{endOfLine}};}
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{class_math_1_1_vec}{Math::Vec3f}}\ point\ :\ layout.\mbox{\hyperlink{class_data_1_1_layout_data_ad0327c57353bc5f5407a436d980b073d}{getPoints}}())}
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ point[0]\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ point[1]\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ point[2]\ <<\ \mbox{\hyperlink{namespace_i_o_a9943de923a977491a8be5298467bd19b}{endOfLine}};}
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{class_math_1_1_vec}{Math::Vec3i}}\ triangle\ :\ layout.\mbox{\hyperlink{class_data_1_1_layout_data_a2407f920a97acbeec2e4928a62627816}{getTrianglesClockWise}}())}
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ triangle[0]\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ triangle[1]\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ triangle[2]\ <<\ \mbox{\hyperlink{namespace_i_o_a9943de923a977491a8be5298467bd19b}{endOfLine}};}
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{class_math_1_1_vec}{Math::Vec3i}}\ triangle\ :\ layout.\mbox{\hyperlink{class_data_1_1_layout_data_af2ae57fc3a964ee0220f340d32817ae1}{getTrianglesCounterClockwise}}())}
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ triangle[0]\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ triangle[1]\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ triangle[2]\ <<\ \mbox{\hyperlink{namespace_i_o_a9943de923a977491a8be5298467bd19b}{endOfLine}};}
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00036}00036\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00038}\mbox{\hyperlink{namespace_i_o_abdf0a680b30d8298ad2aa6d813accc30}{00038}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespace_i_o_ab979242afe8bf9f39df609bf7cd8e1fe}{write}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_data_1_1_wall_data}{Data::WallData}}\&\ wall,\ std::ofstream\&\ os)}
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00039}00039\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}Wall"{}}\ <<\ \mbox{\hyperlink{namespace_i_o_a9943de923a977491a8be5298467bd19b}{endOfLine}};}
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ os\ <<\ wall.\mbox{\hyperlink{class_data_1_1_wall_data_ad7f335867aac54c148f682453a012855}{getPoints}}().size()\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ wall.\mbox{\hyperlink{class_data_1_1_wall_data_a6ba6ad900ddd81dd4986a1492601cf72}{getTrianglesClockWise}}().size()\ +\ wall.\mbox{\hyperlink{class_data_1_1_wall_data_a9a5641bdc6ff1bf22068e5a17ba139bb}{getTrianglesCounterClockwise}}().size()\ <<\ \mbox{\hyperlink{namespace_i_o_a9943de923a977491a8be5298467bd19b}{endOfLine}};}
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{class_math_1_1_vec}{Math::Vec3f}}\ point\ :\ wall.\mbox{\hyperlink{class_data_1_1_wall_data_ad7f335867aac54c148f682453a012855}{getPoints}}())}
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ point[0]\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ point[1]\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ point[2]\ <<\ \mbox{\hyperlink{namespace_i_o_a9943de923a977491a8be5298467bd19b}{endOfLine}};}
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{class_math_1_1_vec}{Math::Vec3i}}\ triangle\ :\ wall.\mbox{\hyperlink{class_data_1_1_wall_data_a6ba6ad900ddd81dd4986a1492601cf72}{getTrianglesClockWise}}())}
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ triangle[0]\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ triangle[1]\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ triangle[2]\ <<\ \mbox{\hyperlink{namespace_i_o_a9943de923a977491a8be5298467bd19b}{endOfLine}};}
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{class_math_1_1_vec}{Math::Vec3i}}\ triangle\ :\ wall.\mbox{\hyperlink{class_data_1_1_wall_data_a9a5641bdc6ff1bf22068e5a17ba139bb}{getTrianglesCounterClockwise}}())}
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ triangle[0]\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ triangle[1]\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ triangle[2]\ <<\ \mbox{\hyperlink{namespace_i_o_a9943de923a977491a8be5298467bd19b}{endOfLine}};}
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00056}00056\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{write_8cpp_source_l00057}00057\ \}}
+
+\end{DoxyCode}

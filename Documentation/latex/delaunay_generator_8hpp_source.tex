@@ -1,0 +1,39 @@
+\doxysection{delaunay\+Generator.\+hpp}
+\hypertarget{delaunay_generator_8hpp_source}{}\label{delaunay_generator_8hpp_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/Generator/delaunayGenerator.hpp@{C:/Dev/DungeonGenerator/DungeonGenerator/Generator/delaunayGenerator.hpp}}
+\mbox{\hyperlink{delaunay_generator_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{delaunay_generator_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{delaunay_generator_8hpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{delaunay_generator_8hpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{generator_algorithm_8hpp}{generatorAlgorithm.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{delaunay_generator_8hpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{dungeon_genereator_settings_8hpp}{dungeonGenereatorSettings.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{delaunay_generator_8hpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{delaunay_base_8hpp}{delaunayBase.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{delaunay_generator_8hpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{delaunay_generator_8hpp_source_l00007}00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_generator}{Generator}}}
+\DoxyCodeLine{\Hypertarget{delaunay_generator_8hpp_source_l00008}00008\ \{}
+\DoxyCodeLine{\Hypertarget{delaunay_generator_8hpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{delaunay_generator_8hpp_source_l00010}00010\ \ \ \ \ \textcolor{comment}{//\ https://en.wikipedia.org/wiki/Delaunay\_triangulation}}
+\DoxyCodeLine{\Hypertarget{delaunay_generator_8hpp_source_l00011}\mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm}{00011}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm}{DelaunayBasedGeneratorAlgorithm}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_generator_1_1_generator_algorithm}{GeneratorAlgorithm}}}
+\DoxyCodeLine{\Hypertarget{delaunay_generator_8hpp_source_l00012}00012\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{delaunay_generator_8hpp_source_l00013}00013\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{delaunay_generator_8hpp_source_l00014}\mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_a232f58cf570bb090d95a3c4ed0274293}{00014}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_a232f58cf570bb090d95a3c4ed0274293}{pointCount}};}
+\DoxyCodeLine{\Hypertarget{delaunay_generator_8hpp_source_l00015}\mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_a0ac2119bc6436e23b2c1639e5c3f1be4}{00015}}\ \ \ \ \ \ \ \ \ std::vector<Math::Vec2f>\ \mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_a0ac2119bc6436e23b2c1639e5c3f1be4}{points}};}
+\DoxyCodeLine{\Hypertarget{delaunay_generator_8hpp_source_l00016}\mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_afc6f8e9eb421f18cc5239aedc91b69c9}{00016}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_geometry_1_1_delaunay_1_1_delaunay_triangulation}{Geometry::Delaunay::DelaunayTriangulation}}\ \mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_afc6f8e9eb421f18cc5239aedc91b69c9}{triangulation}};}
+\DoxyCodeLine{\Hypertarget{delaunay_generator_8hpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{delaunay_generator_8hpp_source_l00018}00018\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_aa682af311f406cf2188c58b481760cb9}{generatePoints}}();}
+\DoxyCodeLine{\Hypertarget{delaunay_generator_8hpp_source_l00019}00019\ \ \ \ \ \ \ \ \ std::vector<Geometry::Polygon>\ \mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_a7e7d5e463916c3bb8cfa2cae64e6f04f}{createPolygons}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_geometry_1_1_delaunay_1_1_delaunay_triangulation}{Geometry::Delaunay::DelaunayTriangulation}}\&\ \mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_afc6f8e9eb421f18cc5239aedc91b69c9}{triangulation}})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{delaunay_generator_8hpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{delaunay_generator_8hpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ \mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_a1f37c1ca06ea91b542c697c5d2e5e227}{calcOutterCircleCenter}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle}{Geometry::Delaunay::Triangle}}\&\ triangle)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{delaunay_generator_8hpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_angle}{Math::Angle}}\ \mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_a5423902394361ccedfeb43e8ae2e0f35}{getSumAngleAroundPoint}}(\textcolor{keywordtype}{int}\ pointIdx,\ \textcolor{keyword}{const}\ std::vector<Geometry::Delaunay::Triangle>\&\ trainglesAround)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{delaunay_generator_8hpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_angle}{Math::Angle}}\ \mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_a7b5edce424e33273d3c86d2259044de6}{getAngleOfTriangle}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle}{Geometry::Delaunay::Triangle}}\&\ triangle,\ \textcolor{keywordtype}{int}\ pointIdx)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{delaunay_generator_8hpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{delaunay_generator_8hpp_source_l00025}00025\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{delaunay_generator_8hpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_a554a43e67c4285d3d5f461cc1652554a}{DelaunayBasedGeneratorAlgorithm}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_dungeon_generator_settings}{DungeonGeneratorSettings}}\&\ settings);}
+\DoxyCodeLine{\Hypertarget{delaunay_generator_8hpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{delaunay_generator_8hpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_ad3c444ceb88e6094c3895ce8e80d5fdd}{Generate}}(\mbox{\hyperlink{class_data_1_1_dungeon_data}{Data::DungeonData}}\&\ dungeonData)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{delaunay_generator_8hpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{delaunay_generator_8hpp_source_l00030}\mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_a47bc78a01f58b7139886fb0eb047d7ee}{00030}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_a47bc78a01f58b7139886fb0eb047d7ee}{\string~DelaunayBasedGeneratorAlgorithm}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{delaunay_generator_8hpp_source_l00031}00031\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{delaunay_generator_8hpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{delaunay_generator_8hpp_source_l00033}00033\ \}}
+
+\end{DoxyCode}

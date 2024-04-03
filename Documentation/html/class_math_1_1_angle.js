@@ -1,0 +1,25 @@
+var class_math_1_1_angle =
+[
+    [ "Angle", "class_math_1_1_angle.html#a0ce8c8975c695bd301c5e2a7c1571d59", null ],
+    [ "Angle", "class_math_1_1_angle.html#a0ac0db601128b10ea90866360cc63b40", null ],
+    [ "getDeg", "class_math_1_1_angle.html#acb7bd9b3391bf27f359fa682aeb632bd", null ],
+    [ "getRad", "class_math_1_1_angle.html#a1591c9fa9a53bf8b3c27749cdf73e3d5", null ],
+    [ "normalise", "class_math_1_1_angle.html#af8af059c4f68d62ccc9c4c4f4058a69a", null ],
+    [ "operator+=", "class_math_1_1_angle.html#a9aa78d7953937b701b1e596ec4775d82", null ],
+    [ "operator-", "class_math_1_1_angle.html#adcee2e2c22cc0f0eee7e930346eef5b9", null ],
+    [ "operator-=", "class_math_1_1_angle.html#a2c0477a7d885f0861fd27fb1648693a1", null ],
+    [ "operator<", "class_math_1_1_angle.html#a902f22b46f0ac923737d7126878fad98", null ],
+    [ "operator==", "class_math_1_1_angle.html#a8ba65aa9910edf26ae78f32ecb1ba6d6", null ],
+    [ "operator>", "class_math_1_1_angle.html#ac9a997879afee194b32ead719124c589", null ],
+    [ "cos", "class_math_1_1_angle.html#a0427f9148349dd18ff90e79deb354467", null ],
+    [ "operator*", "class_math_1_1_angle.html#abe27acf8a0b3e3df2e128efc0746ec6a", null ],
+    [ "operator*", "class_math_1_1_angle.html#aa34d483d68dcd57bfe0997c584848421", null ],
+    [ "operator*", "class_math_1_1_angle.html#a708f710a18f28e61133b79cd0f739db1", null ],
+    [ "operator+", "class_math_1_1_angle.html#ad2b9e96a6e7fee2cbd7894091ceaca42", null ],
+    [ "operator-", "class_math_1_1_angle.html#abb96ebb9ea0103b84366c38ae882087b", null ],
+    [ "operator/", "class_math_1_1_angle.html#a06371643c74f7d9dd2c9c0a2e8c24c04", null ],
+    [ "operator/", "class_math_1_1_angle.html#a244cf8a8efe05d40fb038be4fe65f57b", null ],
+    [ "sin", "class_math_1_1_angle.html#abcf0bac31a49a07619fe1fd2dd7ab423", null ],
+    [ "tan", "class_math_1_1_angle.html#a4b4e6a45d4b289470ed863cbc075d1f0", null ],
+    [ "angleInRad", "class_math_1_1_angle.html#a6f35e3d0d452af58223b6e8a246b49f0", null ]
+];

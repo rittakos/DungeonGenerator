@@ -1,0 +1,9 @@
+<map id="Data::DungeonData::getMaze" name="Data::DungeonData::getMaze">
+<area shape="rect" id="Node000001" title=" " alt="" coords="345,35,487,77"/>
+<area shape="rect" id="Node000002" href="$class_generator_1_1_delaunay_based_generator_algorithm.html#ad3c444ceb88e6094c3895ce8e80d5fdd" title=" " alt="" coords="103,5,297,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="329,47,297,43,298,37,330,42"/>
+<area shape="rect" id="Node000003" href="$class_dungeon.html#afdabe22843a173ffe0737ac100cdc5b5" title=" " alt="" coords="119,72,281,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="330,70,282,77,281,72,329,65"/>
+<area shape="rect" id="Node000004" href="$_dungeon_generator_2main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,72,55,99"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="103,88,55,88,55,83,103,83"/>
+</map>

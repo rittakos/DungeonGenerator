@@ -1,0 +1,480 @@
+\doxysection{hartmann\+\_\+orlin\+\_\+mmc.\+h}
+\hypertarget{hartmann__orlin__mmc_8h_source}{}\label{hartmann__orlin__mmc_8h_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/lemon/hartmann\_orlin\_mmc.h@{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/lemon/hartmann\_orlin\_mmc.h}}
+\mbox{\hyperlink{hartmann__orlin__mmc_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00001}00001\ \textcolor{comment}{/*\ -\/*-\/\ mode:\ C++;\ indent-\/tabs-\/mode:\ nil;\ -\/*-\/}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00002}00002\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00003}00003\ \textcolor{comment}{\ *\ This\ file\ is\ a\ part\ of\ LEMON,\ a\ generic\ C++\ optimization\ library.}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00004}00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00005}00005\ \textcolor{comment}{\ *\ Copyright\ (C)\ 2003-\/2013}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00006}00006\ \textcolor{comment}{\ *\ Egervary\ Jeno\ Kombinatorikus\ Optimalizalasi\ Kutatocsoport}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00007}00007\ \textcolor{comment}{\ *\ (Egervary\ Research\ Group\ on\ Combinatorial\ Optimization,\ EGRES).}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00008}00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00009}00009\ \textcolor{comment}{\ *\ Permission\ to\ use,\ modify\ and\ distribute\ this\ software\ is\ granted}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00010}00010\ \textcolor{comment}{\ *\ provided\ that\ this\ copyright\ notice\ appears\ in\ all\ copies.\ For}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00011}00011\ \textcolor{comment}{\ *\ precise\ terms\ see\ the\ accompanying\ LICENSE\ file.}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00012}00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00013}00013\ \textcolor{comment}{\ *\ This\ software\ is\ provided\ "{}AS\ IS"{}\ with\ no\ warranty\ of\ any\ kind,}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00014}00014\ \textcolor{comment}{\ *\ express\ or\ implied,\ and\ with\ no\ claim\ as\ to\ its\ suitability\ for\ any}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00015}00015\ \textcolor{comment}{\ *\ purpose.}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00016}00016\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00017}00017\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00019}00019\ \textcolor{preprocessor}{\#ifndef\ LEMON\_HARTMANN\_ORLIN\_MMC\_H}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00020}00020\ \textcolor{preprocessor}{\#define\ LEMON\_HARTMANN\_ORLIN\_MMC\_H}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00027}00027\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00028}00028\ \textcolor{preprocessor}{\#include\ <limits>}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00029}00029\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{lemon_2core_8h}{lemon/core.h}}>}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00030}00030\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{path_8h}{lemon/path.h}}>}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00031}00031\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{tolerance_8h}{lemon/tolerance.h}}>}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00032}00032\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{connectivity_8h}{lemon/connectivity.h}}>}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00034}00034\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacelemon}{lemon}}\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00042}00042\ \textcolor{preprocessor}{\#ifdef\ DOXYGEN}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00043}00043\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ GR,\ \textcolor{keyword}{typename}\ CM>}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00044}00044\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00045}00045\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ GR,\ \textcolor{keyword}{typename}\ CM,}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00046}00046\ \ \ \ \ \textcolor{keywordtype}{bool}\ integer\ =\ std::numeric\_limits<typename\ CM::Value>::is\_integer>}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00047}00047\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00048}\mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_default_traits}{00048}}\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_default_traits}{HartmannOrlinMmcDefaultTraits}}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00049}00049\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00051}\mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_default_traits_a5077811edf8ceac523f76c2b11c5c8ec}{00051}}\ \ \ \ \ \textcolor{keyword}{typedef}\ GR\ \mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_default_traits_a5077811edf8ceac523f76c2b11c5c8ec}{Digraph}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00053}\mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_default_traits_af8d6b5dfba2e08cf3518c021242243e9}{00053}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CM}}\ \mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_default_traits_af8d6b5dfba2e08cf3518c021242243e9}{CostMap}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00055}\mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_default_traits_ac7054bfe77d8b9e12a148f713588d532}{00055}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ CostMap::Value\ \mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_default_traits_ac7054bfe77d8b9e12a148f713588d532}{Cost}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00063}\mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_default_traits_a6062a617b4fa14f8b6fac319ab18356d}{00063}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_default_traits_a6062a617b4fa14f8b6fac319ab18356d}{LargeCost}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00066}\mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_default_traits_aca332686716ccaf80dac8ccd96ac861a}{00066}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{lemon::Tolerance<LargeCost>}}\ \mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_default_traits_aca332686716ccaf80dac8ccd96ac861a}{Tolerance}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00073}\mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_default_traits_a4d6e3910cacb889e51014e2c2775884e}{00073}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{lemon::Path<Digraph>}}\ \mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_default_traits_a4d6e3910cacb889e51014e2c2775884e}{Path}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00074}00074\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00076}00076\ \ \ \textcolor{comment}{//\ Default\ traits\ class\ for\ integer\ cost\ types}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00077}00077\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ GR,\ \textcolor{keyword}{typename}\ CM>}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00078}\mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_default_traits_3_01_g_r_00_01_c_m_00_01true_01_4}{00078}}\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_default_traits}{HartmannOrlinMmcDefaultTraits}}<GR,\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CM}},\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{true}}>}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00079}00079\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00080}\mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_default_traits_3_01_g_r_00_01_c_m_00_01true_01_4_ac1c091f413aa11b62d9fcefff15a62f9}{00080}}\ \ \ \ \ \textcolor{keyword}{typedef}\ GR\ \mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_default_traits_3_01_g_r_00_01_c_m_00_01true_01_4_ac1c091f413aa11b62d9fcefff15a62f9}{Digraph}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00081}\mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_default_traits_3_01_g_r_00_01_c_m_00_01true_01_4_ac687472957a58f8401965397ddb9e158}{00081}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CM}}\ \mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_default_traits_3_01_g_r_00_01_c_m_00_01true_01_4_ac687472957a58f8401965397ddb9e158}{CostMap}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00082}\mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_default_traits_3_01_g_r_00_01_c_m_00_01true_01_4_a001cba071b97c5dcd775d1338341a2e4}{00082}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ CostMap::Value\ \mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_default_traits_3_01_g_r_00_01_c_m_00_01true_01_4_a001cba071b97c5dcd775d1338341a2e4}{Cost}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00083}00083\ \textcolor{preprocessor}{\#ifdef\ LEMON\_HAVE\_LONG\_LONG}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00084}00084\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_default_traits_a6062a617b4fa14f8b6fac319ab18356d}{LargeCost}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00085}00085\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00086}\mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_default_traits_3_01_g_r_00_01_c_m_00_01true_01_4_a4ade339e1a6acfd6fd4ef12c7cb22c91}{00086}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_default_traits_3_01_g_r_00_01_c_m_00_01true_01_4_a4ade339e1a6acfd6fd4ef12c7cb22c91}{LargeCost}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00087}00087\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00088}\mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_default_traits_3_01_g_r_00_01_c_m_00_01true_01_4_a642e170dbc1608e16d5042e074458a24}{00088}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{lemon::Tolerance<LargeCost>}}\ \mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_default_traits_3_01_g_r_00_01_c_m_00_01true_01_4_a642e170dbc1608e16d5042e074458a24}{Tolerance}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00089}\mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_default_traits_3_01_g_r_00_01_c_m_00_01true_01_4_ae8e3a99a710b016d021ebc022b33a847}{00089}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{lemon::Path<Digraph>}}\ \mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_default_traits_3_01_g_r_00_01_c_m_00_01true_01_4_ae8e3a99a710b016d021ebc022b33a847}{Path}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00090}00090\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00115}00115\ \textcolor{preprocessor}{\#ifdef\ DOXYGEN}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00116}00116\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ GR,\ \textcolor{keyword}{typename}\ CM,\ \textcolor{keyword}{typename}\ TR>}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00117}00117\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00118}00118\ \ \ \textcolor{keyword}{template}\ <\ \textcolor{keyword}{typename}\ GR,}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CM}}\ =\ \textcolor{keyword}{typename}\ GR::template\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ArcMap<int>}},}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ TR\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{HartmannOrlinMmcDefaultTraits<GR,\ CM>}}\ >}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00121}00121\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00122}\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc}{00122}}\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc}{HartmannOrlinMmc}}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00123}00123\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00124}00124\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00127}\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a315135d8ba3bc3f2e200f0195c75659a}{00127}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ TR::Digraph\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a315135d8ba3bc3f2e200f0195c75659a}{Digraph}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00129}\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a3232ca45294be3fbe47f4fd43ad20789}{00129}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ TR::CostMap\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a3232ca45294be3fbe47f4fd43ad20789}{CostMap}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00131}\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a02e43b7cf4cdbd75bd8e612abf75a19a}{00131}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ TR::Cost\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a02e43b7cf4cdbd75bd8e612abf75a19a}{Cost}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00138}\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a56a74ab9117b03a71de59ed2dd466a64}{00138}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ TR::LargeCost\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a56a74ab9117b03a71de59ed2dd466a64}{LargeCost}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00139}00139\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00141}\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_af2c34f63517287fe1f698831acaf0541}{00141}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ TR::Tolerance\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_af2c34f63517287fe1f698831acaf0541}{Tolerance}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00142}00142\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00149}\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a08c6f73ff01c3576e290216eb90c181a}{00149}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ TR::Path\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a08c6f73ff01c3576e290216eb90c181a}{Path}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00150}00150\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00154}\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a55997cb2d4c2a91a730c1d9de8b22573}{00154}}\ \ \ \ \ \textcolor{keyword}{typedef}\ TR\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a55997cb2d4c2a91a730c1d9de8b22573}{Traits}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00155}00155\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00156}00156\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00157}00157\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00158}\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_aa69f741133642593b2ad7c8a499882fd}{00158}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_aa69f741133642593b2ad7c8a499882fd}{TEMPLATE\_DIGRAPH\_TYPEDEFS}}(\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a315135d8ba3bc3f2e200f0195c75659a}{Digraph}});}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00159}00159\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00160}00160\ \ \ \ \ \textcolor{comment}{//\ Data\ sturcture\ for\ path\ data}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00161}\mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_1_1_path_data}{00161}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_1_1_path_data}{PathData}}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00162}00162\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00163}\mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_1_1_path_data_ab41db78f702057c7463ce61e51a7b795}{00163}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a56a74ab9117b03a71de59ed2dd466a64}{LargeCost}}\ \mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_1_1_path_data_ab41db78f702057c7463ce61e51a7b795}{dist}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00164}\mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_1_1_path_data_a1611154f38255f99a97c845f951adbf5}{00164}}\ \ \ \ \ \ \ Arc\ \mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_1_1_path_data_a1611154f38255f99a97c845f951adbf5}{pred}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00165}\mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_1_1_path_data_a4c30f42edec764ac23b9d2207265fd4c}{00165}}\ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_1_1_path_data_a4c30f42edec764ac23b9d2207265fd4c}{PathData}}(\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a56a74ab9117b03a71de59ed2dd466a64}{LargeCost}}\ d,\ Arc\ p\ =\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}})\ :}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00166}00166\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_1_1_path_data_ab41db78f702057c7463ce61e51a7b795}{dist}}(d),\ \mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_1_1_path_data_a1611154f38255f99a97c845f951adbf5}{pred}}(p)\ \{\}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00167}00167\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00168}00168\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00169}00169\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Digraph::template\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{NodeMap<std::vector<PathData>}}\ >}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00170}\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_adf7c1426af699636efe5c9a59c198b52}{00170}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_adf7c1426af699636efe5c9a59c198b52}{PathDataNodeMap}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00171}00171\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00172}00172\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00173}00173\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00174}00174\ \ \ \ \ \textcolor{comment}{//\ The\ digraph\ the\ algorithm\ runs\ on}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00175}\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_ab77a3acf094b07fcea6b3383625fefb0}{00175}}\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a315135d8ba3bc3f2e200f0195c75659a}{Digraph}}\ \&\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_ab77a3acf094b07fcea6b3383625fefb0}{\_gr}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00176}00176\ \ \ \ \ \textcolor{comment}{//\ The\ cost\ of\ the\ arcs}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00177}\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a3eac13c84531920cda22ce50aa1daa74}{00177}}\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a3232ca45294be3fbe47f4fd43ad20789}{CostMap}}\ \&\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a3eac13c84531920cda22ce50aa1daa74}{\_cost}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00178}00178\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00179}00179\ \ \ \ \ \textcolor{comment}{//\ Data\ for\ storing\ the\ strongly\ connected\ components}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00180}\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a1fe0ea21ba1313774014c9bdf3ab0459}{00180}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a1fe0ea21ba1313774014c9bdf3ab0459}{\_comp\_num}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00181}\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a07bb4f87622fcacdc5fb3937e64e71bb}{00181}}\ \ \ \ \ \textcolor{keyword}{typename}\ Digraph::template\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{NodeMap<int>}}\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a07bb4f87622fcacdc5fb3937e64e71bb}{\_comp}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00182}\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a5159e9d2cca4b3d987ea9af8c888f478}{00182}}\ \ \ \ \ std::vector<std::vector<Node>\ >\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a5159e9d2cca4b3d987ea9af8c888f478}{\_comp\_nodes}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00183}\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a9730824c676b8ff370b97ec5babcadb8}{00183}}\ \ \ \ \ std::vector<Node>*\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a9730824c676b8ff370b97ec5babcadb8}{\_nodes}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00184}\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a521983b428634629050345f1b997e66e}{00184}}\ \ \ \ \ \textcolor{keyword}{typename}\ Digraph::template\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{NodeMap<std::vector<Arc>}}\ >\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a521983b428634629050345f1b997e66e}{\_out\_arcs}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00185}00185\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00186}00186\ \ \ \ \ \textcolor{comment}{//\ Data\ for\ the\ found\ cycles}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00187}\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_aed5326c4b87d241f156431f1319cdb1b}{00187}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_af03736032f028dedc6f1173f600b7049}{\_curr\_found}},\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_aed5326c4b87d241f156431f1319cdb1b}{\_best\_found}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00188}\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_aec1d04018d6c931a37190c63dffcd027}{00188}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a56a74ab9117b03a71de59ed2dd466a64}{LargeCost}}\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a9728e51d8bcf819ea6b7a8120466e7f6}{\_curr\_cost}},\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_aec1d04018d6c931a37190c63dffcd027}{\_best\_cost}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00189}\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_ae62efd04fbaec792bad09d3b22cabe1c}{00189}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a34e0f583f999cb5415e2d32aa6b916ff}{\_curr\_size}},\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_ae62efd04fbaec792bad09d3b22cabe1c}{\_best\_size}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00190}\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a933a82a4489c3b25fe5cf0648524d55b}{00190}}\ \ \ \ \ Node\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_ab2da03b12b861661dba9566af7fe059d}{\_curr\_node}},\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a933a82a4489c3b25fe5cf0648524d55b}{\_best\_node}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00191}\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a153f7b487a2c80c0c6d4ec63ed3966b4}{00191}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_aea522f961596e096be2411498bb4e83a}{\_curr\_level}},\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a153f7b487a2c80c0c6d4ec63ed3966b4}{\_best\_level}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00192}00192\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00193}\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_adcecec0c8b7cab2ef5259ae90b7d497c}{00193}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a08c6f73ff01c3576e290216eb90c181a}{Path}}\ *\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_adcecec0c8b7cab2ef5259ae90b7d497c}{\_cycle\_path}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00194}\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_adbddb9371f826eeb99113af0f5a76953}{00194}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_adbddb9371f826eeb99113af0f5a76953}{\_local\_path}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00195}00195\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00196}00196\ \ \ \ \ \textcolor{comment}{//\ Node\ map\ for\ storing\ path\ data}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00197}\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_aea2a1ea3eb7e4db3d5c53ca36f219afe}{00197}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_adf7c1426af699636efe5c9a59c198b52}{PathDataNodeMap}}\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_aea2a1ea3eb7e4db3d5c53ca36f219afe}{\_data}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00198}00198\ \ \ \ \ \textcolor{comment}{//\ The\ processed\ nodes\ in\ the\ last\ round}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00199}\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a3ececbd8a1a8657d029d1231b1161f01}{00199}}\ \ \ \ \ std::vector<Node>\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a3ececbd8a1a8657d029d1231b1161f01}{\_process}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00200}00200\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00201}\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a679c9d7dd7c6ab2fcb61a7f2fdde4901}{00201}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_af2c34f63517287fe1f698831acaf0541}{Tolerance}}\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a679c9d7dd7c6ab2fcb61a7f2fdde4901}{\_tolerance}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00202}00202\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00203}00203\ \ \ \ \ \textcolor{comment}{//\ Infinite\ constant}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00204}\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a52039b8d875c4097efa2ee1e27109088}{00204}}\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a56a74ab9117b03a71de59ed2dd466a64}{LargeCost}}\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a52039b8d875c4097efa2ee1e27109088}{INF}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00205}00205\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00206}00206\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00207}00207\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00210}00210\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00211}00211\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00212}\mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_1_1_set_large_cost_traits}{00212}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_1_1_set_large_cost_traits}{SetLargeCostTraits}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a55997cb2d4c2a91a730c1d9de8b22573}{Traits}}\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00213}\mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_1_1_set_large_cost_traits_a961c4d5c6e6fdc5788bf82ee6fdee6cb}{00213}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ T\ \mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_1_1_set_large_cost_traits_a961c4d5c6e6fdc5788bf82ee6fdee6cb}{LargeCost}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00214}\mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_1_1_set_large_cost_traits_a813cbd2cb3c727ab66fd4e792741a439}{00214}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{lemon::Tolerance<T>}}\ \mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_1_1_set_large_cost_traits_a813cbd2cb3c727ab66fd4e792741a439}{Tolerance}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00215}00215\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00216}00216\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00222}00222\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00223}\mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_1_1_set_large_cost}{00223}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_1_1_set_large_cost}{SetLargeCost}}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00224}00224\ \ \ \ \ \ \ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc}{HartmannOrlinMmc}}<GR,\ CM,\ SetLargeCostTraits<T>\ >\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00225}\mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_1_1_set_large_cost_af01d05f3da0fe587a9d46f03044e300d}{00225}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{HartmannOrlinMmc<GR,\ CM,\ SetLargeCostTraits<T>}}\ >\ \mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_1_1_set_large_cost_af01d05f3da0fe587a9d46f03044e300d}{Create}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00226}00226\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00227}00227\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00228}00228\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00229}\mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_1_1_set_path_traits}{00229}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_1_1_set_path_traits}{SetPathTraits}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a55997cb2d4c2a91a730c1d9de8b22573}{Traits}}\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00230}\mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_1_1_set_path_traits_a8592062d00ab886f7d2483a79ba2b393}{00230}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ T\ \mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_1_1_set_path_traits_a8592062d00ab886f7d2483a79ba2b393}{Path}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00231}00231\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00232}00232\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00240}00240\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00241}\mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_1_1_set_path}{00241}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_1_1_set_path}{SetPath}}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00242}00242\ \ \ \ \ \ \ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc}{HartmannOrlinMmc}}<GR,\ CM,\ SetPathTraits<T>\ >\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00243}\mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_1_1_set_path_aa139acaa38e5e30d369260a69e0ce27c}{00243}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{HartmannOrlinMmc<GR,\ CM,\ SetPathTraits<T>}}\ >\ \mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_1_1_set_path_aa139acaa38e5e30d369260a69e0ce27c}{Create}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00244}00244\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00245}00245\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00247}00247\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00248}00248\ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00249}00249\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00250}\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a2c2b724e4665f6bbfd9df89c4fd665de}{00250}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a2c2b724e4665f6bbfd9df89c4fd665de}{HartmannOrlinMmc}}()\ \{\}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00251}00251\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00252}00252\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00253}00253\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00260}\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a9c87790271b6d72688a15b67c5ef9600}{00260}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a9c87790271b6d72688a15b67c5ef9600}{HartmannOrlinMmc}}(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a315135d8ba3bc3f2e200f0195c75659a}{Digraph}}\ \&digraph,}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00261}00261\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a3232ca45294be3fbe47f4fd43ad20789}{CostMap}}\ \&\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cost}}\ )\ :}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00262}00262\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_ab77a3acf094b07fcea6b3383625fefb0}{\_gr}}(digraph),\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a3eac13c84531920cda22ce50aa1daa74}{\_cost}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cost}}),\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a07bb4f87622fcacdc5fb3937e64e71bb}{\_comp}}(digraph),\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a521983b428634629050345f1b997e66e}{\_out\_arcs}}(digraph),}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00263}00263\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_aed5326c4b87d241f156431f1319cdb1b}{\_best\_found}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{false}}),\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_aec1d04018d6c931a37190c63dffcd027}{\_best\_cost}}(0),\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_ae62efd04fbaec792bad09d3b22cabe1c}{\_best\_size}}(1),}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00264}00264\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_adcecec0c8b7cab2ef5259ae90b7d497c}{\_cycle\_path}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{NULL}}),\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_adbddb9371f826eeb99113af0f5a76953}{\_local\_path}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{false}}),\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_aea2a1ea3eb7e4db3d5c53ca36f219afe}{\_data}}(digraph),}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00265}00265\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a52039b8d875c4097efa2ee1e27109088}{INF}}(\mbox{\hyperlink{namespacestd}{std}}::\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{numeric\_limits}}<\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a56a74ab9117b03a71de59ed2dd466a64}{LargeCost}}>::\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{has\_infinity}}\ ?}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00266}00266\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacestd}{std}}::\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{numeric\_limits}}<\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a56a74ab9117b03a71de59ed2dd466a64}{LargeCost}}>::infinity()\ :}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00267}00267\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacestd}{std}}::\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{numeric\_limits}}<\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a56a74ab9117b03a71de59ed2dd466a64}{LargeCost}}>::max())}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00268}00268\ \ \ \ \ \{\}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00269}00269\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00271}\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_ae0586802a74a7b82b0b7db8c463c8b12}{00271}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_ae0586802a74a7b82b0b7db8c463c8b12}{\string~HartmannOrlinMmc}}()\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00272}00272\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_adbddb9371f826eeb99113af0f5a76953}{\_local\_path}})\ \textcolor{keyword}{delete}\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_adcecec0c8b7cab2ef5259ae90b7d497c}{\_cycle\_path}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00273}00273\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00274}00274\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00289}\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a322efb7b531a5aaae81649ae7e07ba5c}{00289}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc}{HartmannOrlinMmc}}\&\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a322efb7b531a5aaae81649ae7e07ba5c}{cycle}}(\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a08c6f73ff01c3576e290216eb90c181a}{Path}}\ \&path)\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00290}00290\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_adbddb9371f826eeb99113af0f5a76953}{\_local\_path}})\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00291}00291\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_adcecec0c8b7cab2ef5259ae90b7d497c}{\_cycle\_path}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00292}00292\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_adbddb9371f826eeb99113af0f5a76953}{\_local\_path}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00293}00293\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00294}00294\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_adcecec0c8b7cab2ef5259ae90b7d497c}{\_cycle\_path}}\ =\ \&path;}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00295}00295\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00296}00296\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00297}00297\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00303}\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a9ebc758fc4177ff1d84c02a73a3f7225}{00303}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc}{HartmannOrlinMmc}}\&\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a9ebc758fc4177ff1d84c02a73a3f7225}{tolerance}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_af2c34f63517287fe1f698831acaf0541}{Tolerance}}\&\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_ac991302fea2a1612599297db2653f055}{tolerance}})\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00304}00304\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a679c9d7dd7c6ab2fcb61a7f2fdde4901}{\_tolerance}}\ =\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_ac991302fea2a1612599297db2653f055}{tolerance}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00305}00305\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00306}00306\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00307}00307\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00312}\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_ac991302fea2a1612599297db2653f055}{00312}}\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_af2c34f63517287fe1f698831acaf0541}{Tolerance}}\&\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_ac991302fea2a1612599297db2653f055}{tolerance}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00313}00313\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a679c9d7dd7c6ab2fcb61a7f2fdde4901}{\_tolerance}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00314}00314\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00315}00315\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00321}00321\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00323}00323\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00336}\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a8089cc488bcf7eb35b1b90f80a471189}{00336}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a8089cc488bcf7eb35b1b90f80a471189}{run}}()\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00337}00337\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_aa60cc5df36dcdd720a78afb86345ff16}{findCycleMean}}()\ \&\&\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_aba04b31b871038fc0fc540adbab8a2f4}{findCycle}}();}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00338}00338\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00339}00339\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00346}\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_aa60cc5df36dcdd720a78afb86345ff16}{00346}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_aa60cc5df36dcdd720a78afb86345ff16}{findCycleMean}}()\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00347}00347\ \ \ \ \ \ \ \textcolor{comment}{//\ Initialization\ and\ find\ strongly\ connected\ components}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00348}00348\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_af07529fde9a0b1180004d78a5369b98f}{init}}();}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00349}00349\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a20162da82a2c6eb932c44706d963a9d4}{findComponents}}();}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00350}00350\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00351}00351\ \ \ \ \ \ \ \textcolor{comment}{//\ Find\ the\ minimum\ cycle\ mean\ in\ the\ components}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00352}00352\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ comp\ =\ 0;\ comp\ <\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a1fe0ea21ba1313774014c9bdf3ab0459}{\_comp\_num}};\ ++comp)\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00353}00353\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_ae133f5f32d44a737ce697600f9d50f43}{initComponent}}(comp))\ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00354}00354\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a2ef1593c0859efdecd76c2ed8e33f33f}{processRounds}}();}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00355}00355\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00356}00356\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Update\ the\ best\ cycle\ (global\ minimum\ mean\ cycle)}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00357}00357\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_af03736032f028dedc6f1173f600b7049}{\_curr\_found}}\ \&\&\ (!\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_aed5326c4b87d241f156431f1319cdb1b}{\_best\_found}}\ ||}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00358}00358\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a9728e51d8bcf819ea6b7a8120466e7f6}{\_curr\_cost}}\ *\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_ae62efd04fbaec792bad09d3b22cabe1c}{\_best\_size}}\ <\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_aec1d04018d6c931a37190c63dffcd027}{\_best\_cost}}\ *\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a34e0f583f999cb5415e2d32aa6b916ff}{\_curr\_size}})\ )\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00359}00359\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_aed5326c4b87d241f156431f1319cdb1b}{\_best\_found}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00360}00360\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_aec1d04018d6c931a37190c63dffcd027}{\_best\_cost}}\ =\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a9728e51d8bcf819ea6b7a8120466e7f6}{\_curr\_cost}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00361}00361\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_ae62efd04fbaec792bad09d3b22cabe1c}{\_best\_size}}\ =\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a34e0f583f999cb5415e2d32aa6b916ff}{\_curr\_size}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00362}00362\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a933a82a4489c3b25fe5cf0648524d55b}{\_best\_node}}\ =\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_ab2da03b12b861661dba9566af7fe059d}{\_curr\_node}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00363}00363\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a153f7b487a2c80c0c6d4ec63ed3966b4}{\_best\_level}}\ =\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_aea522f961596e096be2411498bb4e83a}{\_curr\_level}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00364}00364\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00365}00365\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00366}00366\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_aed5326c4b87d241f156431f1319cdb1b}{\_best\_found}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00367}00367\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00368}00368\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00377}\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_aba04b31b871038fc0fc540adbab8a2f4}{00377}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_aba04b31b871038fc0fc540adbab8a2f4}{findCycle}}()\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00378}00378\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_aed5326c4b87d241f156431f1319cdb1b}{\_best\_found}})\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00379}00379\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{IntNodeMap}}\ reached(\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_ab77a3acf094b07fcea6b3383625fefb0}{\_gr}},\ -\/1);}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00380}00380\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ r\ =\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a153f7b487a2c80c0c6d4ec63ed3966b4}{\_best\_level}}\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00381}00381\ \ \ \ \ \ \ Node\ u\ =\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a933a82a4489c3b25fe5cf0648524d55b}{\_best\_node}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00382}00382\ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (reached[u]\ <\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00383}00383\ \ \ \ \ \ \ \ \ reached[u]\ =\ -\/-\/r;}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00384}00384\ \ \ \ \ \ \ \ \ u\ =\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_ab77a3acf094b07fcea6b3383625fefb0}{\_gr}}.source(\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_aea2a1ea3eb7e4db3d5c53ca36f219afe}{\_data}}[u][r].pred);}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00385}00385\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00386}00386\ \ \ \ \ \ \ r\ =\ reached[u];}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00387}00387\ \ \ \ \ \ \ Arc\ e\ =\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_aea2a1ea3eb7e4db3d5c53ca36f219afe}{\_data}}[u][r].pred;}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00388}00388\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_adcecec0c8b7cab2ef5259ae90b7d497c}{\_cycle\_path}}-\/>addFront(e);}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00389}00389\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_aec1d04018d6c931a37190c63dffcd027}{\_best\_cost}}\ =\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a3eac13c84531920cda22ce50aa1daa74}{\_cost}}[e];}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00390}00390\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_ae62efd04fbaec792bad09d3b22cabe1c}{\_best\_size}}\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00391}00391\ \ \ \ \ \ \ Node\ v;}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00392}00392\ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ ((v\ =\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_ab77a3acf094b07fcea6b3383625fefb0}{\_gr}}.source(e))\ !=\ u)\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00393}00393\ \ \ \ \ \ \ \ \ e\ =\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_aea2a1ea3eb7e4db3d5c53ca36f219afe}{\_data}}[v][-\/-\/r].pred;}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00394}00394\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_adcecec0c8b7cab2ef5259ae90b7d497c}{\_cycle\_path}}-\/>addFront(e);}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00395}00395\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_aec1d04018d6c931a37190c63dffcd027}{\_best\_cost}}\ +=\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a3eac13c84531920cda22ce50aa1daa74}{\_cost}}[e];}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00396}00396\ \ \ \ \ \ \ \ \ ++\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_ae62efd04fbaec792bad09d3b22cabe1c}{\_best\_size}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00397}00397\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00398}00398\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00399}00399\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00400}00400\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00402}00402\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00407}00407\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00409}00409\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00416}\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a3652cab652bf9ab3138c750e1f6baf7c}{00416}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a02e43b7cf4cdbd75bd8e612abf75a19a}{Cost}}\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a3652cab652bf9ab3138c750e1f6baf7c}{cycleCost}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00417}00417\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a02e43b7cf4cdbd75bd8e612abf75a19a}{Cost}}\textcolor{keyword}{>}(\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_aec1d04018d6c931a37190c63dffcd027}{\_best\_cost}});}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00418}00418\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00419}00419\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00426}\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_ac7747c1efdc6b39041248078a78b7522}{00426}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_ac7747c1efdc6b39041248078a78b7522}{cycleSize}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00427}00427\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_ae62efd04fbaec792bad09d3b22cabe1c}{\_best\_size}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00428}00428\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00429}00429\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00442}\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a2c39c866a247e60d818471cbcb4243c8}{00442}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a2c39c866a247e60d818471cbcb4243c8}{cycleMean}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00443}00443\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_aec1d04018d6c931a37190c63dffcd027}{\_best\_cost}})\ /\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_ae62efd04fbaec792bad09d3b22cabe1c}{\_best\_size}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00444}00444\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00445}00445\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00453}\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_ae221ac94883ef5b16df3d29f18fa96dc}{00453}}\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a08c6f73ff01c3576e290216eb90c181a}{Path}}\&\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_ae221ac94883ef5b16df3d29f18fa96dc}{cycle}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00454}00454\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_adcecec0c8b7cab2ef5259ae90b7d497c}{\_cycle\_path}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00455}00455\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00456}00456\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00458}00458\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00459}00459\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00460}00460\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00461}00461\ \ \ \ \ \textcolor{comment}{//\ Initialization}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00462}\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_af07529fde9a0b1180004d78a5369b98f}{00462}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_af07529fde9a0b1180004d78a5369b98f}{init}}()\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00463}00463\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_adcecec0c8b7cab2ef5259ae90b7d497c}{\_cycle\_path}})\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00464}00464\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_adbddb9371f826eeb99113af0f5a76953}{\_local\_path}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00465}00465\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_adcecec0c8b7cab2ef5259ae90b7d497c}{\_cycle\_path}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a08c6f73ff01c3576e290216eb90c181a}{Path}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00466}00466\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00467}00467\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_adcecec0c8b7cab2ef5259ae90b7d497c}{\_cycle\_path}}-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_af2726dacd301d1fdc114b18b6eeb5f51}{clear}}();}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00468}00468\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_aed5326c4b87d241f156431f1319cdb1b}{\_best\_found}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00469}00469\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_aec1d04018d6c931a37190c63dffcd027}{\_best\_cost}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00470}00470\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_ae62efd04fbaec792bad09d3b22cabe1c}{\_best\_size}}\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00471}00471\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_adcecec0c8b7cab2ef5259ae90b7d497c}{\_cycle\_path}}-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_af2726dacd301d1fdc114b18b6eeb5f51}{clear}}();}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00472}00472\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (NodeIt\ u(\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_ab77a3acf094b07fcea6b3383625fefb0}{\_gr}});\ u\ !=\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ ++u)}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00473}00473\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_aea2a1ea3eb7e4db3d5c53ca36f219afe}{\_data}}[u].clear();}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00474}00474\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00475}00475\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00476}00476\ \ \ \ \ \textcolor{comment}{//\ Find\ strongly\ connected\ components\ and\ initialize\ \_comp\_nodes}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00477}00477\ \ \ \ \ \textcolor{comment}{//\ and\ \_out\_arcs}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00478}\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a20162da82a2c6eb932c44706d963a9d4}{00478}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a20162da82a2c6eb932c44706d963a9d4}{findComponents}}()\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00479}00479\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a1fe0ea21ba1313774014c9bdf3ab0459}{\_comp\_num}}\ =\ \mbox{\hyperlink{namespacelemon_a46f8c22f3e2989c4689faa4c46ec9436}{stronglyConnectedComponents}}(\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_ab77a3acf094b07fcea6b3383625fefb0}{\_gr}},\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a07bb4f87622fcacdc5fb3937e64e71bb}{\_comp}});}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00480}00480\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a5159e9d2cca4b3d987ea9af8c888f478}{\_comp\_nodes}}.resize(\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a1fe0ea21ba1313774014c9bdf3ab0459}{\_comp\_num}});}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00481}00481\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a1fe0ea21ba1313774014c9bdf3ab0459}{\_comp\_num}}\ ==\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00482}00482\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a5159e9d2cca4b3d987ea9af8c888f478}{\_comp\_nodes}}[0].clear();}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00483}00483\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (NodeIt\ n(\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_ab77a3acf094b07fcea6b3383625fefb0}{\_gr}});\ n\ !=\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ ++n)\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00484}00484\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a5159e9d2cca4b3d987ea9af8c888f478}{\_comp\_nodes}}[0].push\_back(n);}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00485}00485\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a521983b428634629050345f1b997e66e}{\_out\_arcs}}[n].\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_af2726dacd301d1fdc114b18b6eeb5f51}{clear}}();}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00486}00486\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (OutArcIt\ a(\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_ab77a3acf094b07fcea6b3383625fefb0}{\_gr}},\ n);\ a\ !=\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ ++a)\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00487}00487\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a521983b428634629050345f1b997e66e}{\_out\_arcs}}[n].push\_back(a);}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00488}00488\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00489}00489\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00490}00490\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00491}00491\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a1fe0ea21ba1313774014c9bdf3ab0459}{\_comp\_num}};\ ++i)}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00492}00492\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a5159e9d2cca4b3d987ea9af8c888f478}{\_comp\_nodes}}[i].clear();}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00493}00493\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (NodeIt\ n(\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_ab77a3acf094b07fcea6b3383625fefb0}{\_gr}});\ n\ !=\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ ++n)\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00494}00494\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ k\ =\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a07bb4f87622fcacdc5fb3937e64e71bb}{\_comp}}[n];}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00495}00495\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a5159e9d2cca4b3d987ea9af8c888f478}{\_comp\_nodes}}[k].push\_back(n);}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00496}00496\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a521983b428634629050345f1b997e66e}{\_out\_arcs}}[n].\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_af2726dacd301d1fdc114b18b6eeb5f51}{clear}}();}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00497}00497\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (OutArcIt\ a(\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_ab77a3acf094b07fcea6b3383625fefb0}{\_gr}},\ n);\ a\ !=\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ ++a)\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00498}00498\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a07bb4f87622fcacdc5fb3937e64e71bb}{\_comp}}[\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_ab77a3acf094b07fcea6b3383625fefb0}{\_gr}}.target(a)]\ ==\ k)\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a521983b428634629050345f1b997e66e}{\_out\_arcs}}[n].push\_back(a);}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00499}00499\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00500}00500\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00501}00501\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00502}00502\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00503}00503\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00504}00504\ \ \ \ \ \textcolor{comment}{//\ Initialize\ path\ data\ for\ the\ current\ component}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00505}\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_ae133f5f32d44a737ce697600f9d50f43}{00505}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_ae133f5f32d44a737ce697600f9d50f43}{initComponent}}(\textcolor{keywordtype}{int}\ comp)\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00506}00506\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a9730824c676b8ff370b97ec5babcadb8}{\_nodes}}\ =\ \&(\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a5159e9d2cca4b3d987ea9af8c888f478}{\_comp\_nodes}}[comp]);}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00507}00507\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ n\ =\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a9730824c676b8ff370b97ec5babcadb8}{\_nodes}}-\/>size();}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00508}00508\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ <\ 1\ ||\ (n\ ==\ 1\ \&\&\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a521983b428634629050345f1b997e66e}{\_out\_arcs}}[(*\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a9730824c676b8ff370b97ec5babcadb8}{\_nodes}})[0]].size()\ ==\ 0))\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00509}00509\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00510}00510\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00511}00511\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ n;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00512}00512\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_aea2a1ea3eb7e4db3d5c53ca36f219afe}{\_data}}[(*\_nodes)[i]].resize(n\ +\ 1,\ \mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_1_1_path_data}{PathData}}(\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a52039b8d875c4097efa2ee1e27109088}{INF}}));}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00513}00513\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00514}00514\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00515}00515\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00516}00516\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00517}00517\ \ \ \ \ \textcolor{comment}{//\ Process\ all\ rounds\ of\ computing\ path\ data\ for\ the\ current\ component.}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00518}00518\ \ \ \ \ \textcolor{comment}{//\ \_data[v][k]\ is\ the\ cost\ of\ a\ shortest\ directed\ walk\ from\ the\ root}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00519}00519\ \ \ \ \ \textcolor{comment}{//\ node\ to\ node\ v\ containing\ exactly\ k\ arcs.}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00520}\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a2ef1593c0859efdecd76c2ed8e33f33f}{00520}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a2ef1593c0859efdecd76c2ed8e33f33f}{processRounds}}()\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00521}00521\ \ \ \ \ \ \ Node\ start\ =\ (*\_nodes)[0];}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00522}00522\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_aea2a1ea3eb7e4db3d5c53ca36f219afe}{\_data}}[start][0]\ =\ \mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_1_1_path_data}{PathData}}(0);}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00523}00523\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a3ececbd8a1a8657d029d1231b1161f01}{\_process}}.clear();}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00524}00524\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a3ececbd8a1a8657d029d1231b1161f01}{\_process}}.push\_back(start);}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00525}00525\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00526}00526\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ k,\ n\ =\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a9730824c676b8ff370b97ec5babcadb8}{\_nodes}}-\/>size();}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00527}00527\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{next\_check}}\ =\ 4;}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00528}00528\ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ terminate\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00529}00529\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (k\ =\ 1;\ k\ <=\ n\ \&\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{int}}(\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a3ececbd8a1a8657d029d1231b1161f01}{\_process}}.size())\ <\ n\ \&\&\ !terminate;\ ++k)\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00530}00530\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a8d8e522faceda93f2e1bc7fa5db54e4c}{processNextBuildRound}}(k);}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00531}00531\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (k\ ==\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{next\_check}}\ ||\ k\ ==\ n)\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00532}00532\ \ \ \ \ \ \ \ \ \ \ terminate\ =\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a37b516f9218c38e58bc4f436871dca91}{checkTermination}}(k);}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00533}00533\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{next\_check}}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{next\_check}}\ *\ 3\ /\ 2;}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00534}00534\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00535}00535\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00536}00536\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\ ;\ k\ <=\ n\ \&\&\ !terminate;\ ++k)\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00537}00537\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a2879df729672136313047fc8612f454c}{processNextFullRound}}(k);}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00538}00538\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (k\ ==\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{next\_check}}\ ||\ k\ ==\ n)\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00539}00539\ \ \ \ \ \ \ \ \ \ \ terminate\ =\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a37b516f9218c38e58bc4f436871dca91}{checkTermination}}(k);}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00540}00540\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{next\_check}}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{next\_check}}\ *\ 3\ /\ 2;}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00541}00541\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00542}00542\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00543}00543\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00544}00544\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00545}00545\ \ \ \ \ \textcolor{comment}{//\ Process\ one\ round\ and\ rebuild\ \_process}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00546}\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a8d8e522faceda93f2e1bc7fa5db54e4c}{00546}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a8d8e522faceda93f2e1bc7fa5db54e4c}{processNextBuildRound}}(\textcolor{keywordtype}{int}\ k)\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00547}00547\ \ \ \ \ \ \ std::vector<Node>\ next;}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00548}00548\ \ \ \ \ \ \ Node\ u,\ v;}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00549}00549\ \ \ \ \ \ \ Arc\ e;}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00550}00550\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a56a74ab9117b03a71de59ed2dd466a64}{LargeCost}}\ d;}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00551}00551\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{int}}(\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a3ececbd8a1a8657d029d1231b1161f01}{\_process}}.size());\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00552}00552\ \ \ \ \ \ \ \ \ u\ =\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a3ececbd8a1a8657d029d1231b1161f01}{\_process}}[i];}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00553}00553\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{int}}(\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a521983b428634629050345f1b997e66e}{\_out\_arcs}}[u].size());\ ++j)\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00554}00554\ \ \ \ \ \ \ \ \ \ \ e\ =\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a521983b428634629050345f1b997e66e}{\_out\_arcs}}[u][j];}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00555}00555\ \ \ \ \ \ \ \ \ \ \ v\ =\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_ab77a3acf094b07fcea6b3383625fefb0}{\_gr}}.target(e);}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00556}00556\ \ \ \ \ \ \ \ \ \ \ d\ =\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_aea2a1ea3eb7e4db3d5c53ca36f219afe}{\_data}}[u][k-\/1].dist\ +\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a3eac13c84531920cda22ce50aa1daa74}{\_cost}}[e];}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00557}00557\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a679c9d7dd7c6ab2fcb61a7f2fdde4901}{\_tolerance}}.less(d,\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_aea2a1ea3eb7e4db3d5c53ca36f219afe}{\_data}}[v][k].dist))\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00558}00558\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_aea2a1ea3eb7e4db3d5c53ca36f219afe}{\_data}}[v][k].dist\ ==\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a52039b8d875c4097efa2ee1e27109088}{INF}})\ next.push\_back(v);}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00559}00559\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_aea2a1ea3eb7e4db3d5c53ca36f219afe}{\_data}}[v][k]\ =\ \mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_1_1_path_data}{PathData}}(d,\ e);}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00560}00560\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00561}00561\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00562}00562\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00563}00563\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a3ececbd8a1a8657d029d1231b1161f01}{\_process}}.swap(next);}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00564}00564\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00565}00565\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00566}00566\ \ \ \ \ \textcolor{comment}{//\ Process\ one\ round\ using\ \_nodes\ instead\ of\ \_process}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00567}\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a2879df729672136313047fc8612f454c}{00567}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a2879df729672136313047fc8612f454c}{processNextFullRound}}(\textcolor{keywordtype}{int}\ k)\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00568}00568\ \ \ \ \ \ \ Node\ u,\ v;}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00569}00569\ \ \ \ \ \ \ Arc\ e;}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00570}00570\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a56a74ab9117b03a71de59ed2dd466a64}{LargeCost}}\ d;}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00571}00571\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{int}}(\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a9730824c676b8ff370b97ec5babcadb8}{\_nodes}}-\/>size());\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00572}00572\ \ \ \ \ \ \ \ \ u\ =\ (*\_nodes)[i];}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00573}00573\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{int}}(\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a521983b428634629050345f1b997e66e}{\_out\_arcs}}[u].size());\ ++j)\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00574}00574\ \ \ \ \ \ \ \ \ \ \ e\ =\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a521983b428634629050345f1b997e66e}{\_out\_arcs}}[u][j];}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00575}00575\ \ \ \ \ \ \ \ \ \ \ v\ =\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_ab77a3acf094b07fcea6b3383625fefb0}{\_gr}}.target(e);}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00576}00576\ \ \ \ \ \ \ \ \ \ \ d\ =\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_aea2a1ea3eb7e4db3d5c53ca36f219afe}{\_data}}[u][k-\/1].dist\ +\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a3eac13c84531920cda22ce50aa1daa74}{\_cost}}[e];}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00577}00577\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a679c9d7dd7c6ab2fcb61a7f2fdde4901}{\_tolerance}}.less(d,\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_aea2a1ea3eb7e4db3d5c53ca36f219afe}{\_data}}[v][k].dist))\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00578}00578\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_aea2a1ea3eb7e4db3d5c53ca36f219afe}{\_data}}[v][k]\ =\ \mbox{\hyperlink{structlemon_1_1_hartmann_orlin_mmc_1_1_path_data}{PathData}}(d,\ e);}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00579}00579\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00580}00580\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00581}00581\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00582}00582\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00583}00583\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00584}00584\ \ \ \ \ \textcolor{comment}{//\ Check\ early\ termination}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00585}\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a37b516f9218c38e58bc4f436871dca91}{00585}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a37b516f9218c38e58bc4f436871dca91}{checkTermination}}(\textcolor{keywordtype}{int}\ k)\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00586}00586\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ std::pair<int,\ int>\ Pair;}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00587}00587\ \ \ \ \ \ \ \textcolor{keyword}{typename}\ GR::template\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{NodeMap<Pair>}}\ level(\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_ab77a3acf094b07fcea6b3383625fefb0}{\_gr}},\ Pair(-\/1,\ 0));}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00588}00588\ \ \ \ \ \ \ \textcolor{keyword}{typename}\ GR::template\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{NodeMap<LargeCost>}}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{pi}}(\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_ab77a3acf094b07fcea6b3383625fefb0}{\_gr}});}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00589}00589\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ n\ =\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a9730824c676b8ff370b97ec5babcadb8}{\_nodes}}-\/>size();}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00590}00590\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a56a74ab9117b03a71de59ed2dd466a64}{LargeCost}}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cost}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00591}00591\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ size;}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00592}00592\ \ \ \ \ \ \ Node\ u;}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00593}00593\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00594}00594\ \ \ \ \ \ \ \textcolor{comment}{//\ Search\ for\ cycles\ that\ are\ already\ found}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00595}00595\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_af03736032f028dedc6f1173f600b7049}{\_curr\_found}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00596}00596\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ n;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00597}00597\ \ \ \ \ \ \ \ \ u\ =\ (*\_nodes)[i];}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00598}00598\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_aea2a1ea3eb7e4db3d5c53ca36f219afe}{\_data}}[u][k].dist\ ==\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a52039b8d875c4097efa2ee1e27109088}{INF}})\ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00599}00599\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ k;\ j\ >=\ 0;\ -\/-\/j)\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00600}00600\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (level[u].first\ ==\ i\ \&\&\ level[u].second\ >\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00601}00601\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ A\ cycle\ is\ found}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00602}00602\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cost}}\ =\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_aea2a1ea3eb7e4db3d5c53ca36f219afe}{\_data}}[u][level[u].second].dist\ -\/\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_aea2a1ea3eb7e4db3d5c53ca36f219afe}{\_data}}[u][j].dist;}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00603}00603\ \ \ \ \ \ \ \ \ \ \ \ \ size\ =\ level[u].second\ -\/\ j;}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00604}00604\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_af03736032f028dedc6f1173f600b7049}{\_curr\_found}}\ ||\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cost}}\ *\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a34e0f583f999cb5415e2d32aa6b916ff}{\_curr\_size}}\ <\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a9728e51d8bcf819ea6b7a8120466e7f6}{\_curr\_cost}}\ *\ size)\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00605}00605\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a9728e51d8bcf819ea6b7a8120466e7f6}{\_curr\_cost}}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cost}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00606}00606\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a34e0f583f999cb5415e2d32aa6b916ff}{\_curr\_size}}\ =\ size;}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00607}00607\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_ab2da03b12b861661dba9566af7fe059d}{\_curr\_node}}\ =\ u;}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00608}00608\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_aea522f961596e096be2411498bb4e83a}{\_curr\_level}}\ =\ level[u].second;}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00609}00609\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_af03736032f028dedc6f1173f600b7049}{\_curr\_found}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00610}00610\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00611}00611\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00612}00612\ \ \ \ \ \ \ \ \ \ \ level[u]\ =\ Pair(i,\ j);}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00613}00613\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (j\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00614}00614\ \ \ \ \ \ \ \ \ \ \ \ \ u\ =\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_ab77a3acf094b07fcea6b3383625fefb0}{\_gr}}.source(\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_aea2a1ea3eb7e4db3d5c53ca36f219afe}{\_data}}[u][j].pred);}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00615}00615\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00616}00616\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00617}00617\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00618}00618\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00619}00619\ \ \ \ \ \ \ \textcolor{comment}{//\ If\ at\ least\ one\ cycle\ is\ found,\ check\ the\ optimality\ condition}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00620}00620\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a56a74ab9117b03a71de59ed2dd466a64}{LargeCost}}\ d;}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00621}00621\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_af03736032f028dedc6f1173f600b7049}{\_curr\_found}}\ \&\&\ k\ <\ n)\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00622}00622\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Find\ node\ potentials}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00623}00623\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ n;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00624}00624\ \ \ \ \ \ \ \ \ \ \ u\ =\ (*\_nodes)[i];}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00625}00625\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{pi}}[u]\ =\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a52039b8d875c4097efa2ee1e27109088}{INF}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00626}00626\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <=\ k;\ ++j)\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00627}00627\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_aea2a1ea3eb7e4db3d5c53ca36f219afe}{\_data}}[u][j].dist\ <\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a52039b8d875c4097efa2ee1e27109088}{INF}})\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00628}00628\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ d\ =\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_aea2a1ea3eb7e4db3d5c53ca36f219afe}{\_data}}[u][j].dist\ *\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a34e0f583f999cb5415e2d32aa6b916ff}{\_curr\_size}}\ -\/\ j\ *\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a9728e51d8bcf819ea6b7a8120466e7f6}{\_curr\_cost}};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00629}00629\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a679c9d7dd7c6ab2fcb61a7f2fdde4901}{\_tolerance}}.less(d,\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{pi}}[u]))\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{pi}}[u]\ =\ d;}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00630}00630\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00631}00631\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00632}00632\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00633}00633\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00634}00634\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Check\ the\ optimality\ condition\ for\ all\ arcs}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00635}00635\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ done\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00636}00636\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (ArcIt\ a(\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_ab77a3acf094b07fcea6b3383625fefb0}{\_gr}});\ a\ !=\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ ++a)\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00637}00637\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a679c9d7dd7c6ab2fcb61a7f2fdde4901}{\_tolerance}}.less(\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a3eac13c84531920cda22ce50aa1daa74}{\_cost}}[a]\ *\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a34e0f583f999cb5415e2d32aa6b916ff}{\_curr\_size}}\ -\/\ \mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_a9728e51d8bcf819ea6b7a8120466e7f6}{\_curr\_cost}},}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00638}00638\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{pi}}[\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_ab77a3acf094b07fcea6b3383625fefb0}{\_gr}}.target(a)]\ -\/\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{pi}}[\mbox{\hyperlink{classlemon_1_1_hartmann_orlin_mmc_ab77a3acf094b07fcea6b3383625fefb0}{\_gr}}.source(a)])\ )\ \{}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00639}00639\ \ \ \ \ \ \ \ \ \ \ \ \ done\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00640}00640\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00641}00641\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00642}00642\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00643}00643\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ done;}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00644}00644\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00645}00645\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (k\ ==\ n);}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00646}00646\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00647}00647\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00648}00648\ \ \ \};\ \textcolor{comment}{//class\ HartmannOrlinMmc}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00649}00649\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00651}00651\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00652}00652\ \}\ \textcolor{comment}{//namespace\ lemon}}
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00653}00653\ }
+\DoxyCodeLine{\Hypertarget{hartmann__orlin__mmc_8h_source_l00654}00654\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//LEMON\_HARTMANN\_ORLIN\_MMC\_H}}
+
+\end{DoxyCode}

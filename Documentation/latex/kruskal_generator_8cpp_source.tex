@@ -1,0 +1,42 @@
+\doxysection{kruskal\+Generator.\+cpp}
+\hypertarget{kruskal_generator_8cpp_source}{}\label{kruskal_generator_8cpp_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/Generator/kruskalGenerator.cpp@{C:/Dev/DungeonGenerator/DungeonGenerator/Generator/kruskalGenerator.cpp}}
+\mbox{\hyperlink{kruskal_generator_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{kruskal_generator_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{kruskal_generator_8hpp}{kruskalGenerator.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{kruskal_generator_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{kruskal_generator_8cpp_source_l00003}00003\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_generator}{Generator}}}
+\DoxyCodeLine{\Hypertarget{kruskal_generator_8cpp_source_l00004}00004\ \{}
+\DoxyCodeLine{\Hypertarget{kruskal_generator_8cpp_source_l00005}\mbox{\hyperlink{class_generator_1_1_kruskal_generator_a9475e6ca5be1fa59cf42551d2022f91b}{00005}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_generator_1_1_kruskal_generator_a9475e6ca5be1fa59cf42551d2022f91b}{KruskalGenerator::Generate}}(\mbox{\hyperlink{class_data_1_1_maze_data}{Data::MazeData}}\&\ mazeData)}
+\DoxyCodeLine{\Hypertarget{kruskal_generator_8cpp_source_l00006}00006\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{kruskal_generator_8cpp_source_l00007}00007\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_graph}{Math::Graph<int,\ Geometry::Edge>}}\ graph\ =\ mazeData.\mbox{\hyperlink{class_data_1_1_maze_data_ad919b6076779ed23b15d10635fd2b8b4}{getGraph}}();}
+\DoxyCodeLine{\Hypertarget{kruskal_generator_8cpp_source_l00008}00008\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_graph}{Math::Graph<int,\ Geometry::Edge>}}\ newGraph;}
+\DoxyCodeLine{\Hypertarget{kruskal_generator_8cpp_source_l00009}00009\ \ \ \ \ \ \ \ \ std::map<int,\ int>\ groups;}
+\DoxyCodeLine{\Hypertarget{kruskal_generator_8cpp_source_l00010}00010\ \ \ \ \ \ \ \ \ std::unordered\_map<Math::Edge,\ std::optional<Geometry::Edge>>\ edgeValues\ =\ mazeData.\mbox{\hyperlink{class_data_1_1_maze_data_ad919b6076779ed23b15d10635fd2b8b4}{getGraph}}().\mbox{\hyperlink{class_math_1_1_graph_aa02b9364daaa2729a02aaf3bb5d412e5}{getEdgesWithValues}}();}
+\DoxyCodeLine{\Hypertarget{kruskal_generator_8cpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{kruskal_generator_8cpp_source_l00012}00012\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ groupId\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{kruskal_generator_8cpp_source_l00013}00013\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ [node,\ value]\ :\ mazeData.\mbox{\hyperlink{class_data_1_1_maze_data_ad919b6076779ed23b15d10635fd2b8b4}{getGraph}}().\mbox{\hyperlink{class_math_1_1_graph_aece949eacd514b0ead90afe682998f92}{getNodes}}())}
+\DoxyCodeLine{\Hypertarget{kruskal_generator_8cpp_source_l00014}00014\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{kruskal_generator_8cpp_source_l00015}00015\ \ \ \ \ \ \ \ \ \ \ \ \ newGraph.\mbox{\hyperlink{class_math_1_1_graph_ad2db359eaa34de03842bcd384e248316}{addNode}}(value);}
+\DoxyCodeLine{\Hypertarget{kruskal_generator_8cpp_source_l00016}00016\ \ \ \ \ \ \ \ \ \ \ \ \ groups[value]\ =\ groupId;}
+\DoxyCodeLine{\Hypertarget{kruskal_generator_8cpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{kruskal_generator_8cpp_source_l00018}00018\ \ \ \ \ \ \ \ \ \ \ \ \ ++groupId;}
+\DoxyCodeLine{\Hypertarget{kruskal_generator_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{kruskal_generator_8cpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{kruskal_generator_8cpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{kruskal_generator_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ [from,\ toVector]\ :\ mazeData.\mbox{\hyperlink{class_data_1_1_maze_data_ad919b6076779ed23b15d10635fd2b8b4}{getGraph}}().\mbox{\hyperlink{class_math_1_1_graph_a8bc2dc616881b34cb85e25ded83407a3}{getEdges}}())}
+\DoxyCodeLine{\Hypertarget{kruskal_generator_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{kruskal_generator_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{class_math_1_1_node}{Math::Node}}\&\ to\ :\ toVector)}
+\DoxyCodeLine{\Hypertarget{kruskal_generator_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{kruskal_generator_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (groups[from.id]\ !=\ groups[to.id])}
+\DoxyCodeLine{\Hypertarget{kruskal_generator_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{kruskal_generator_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ newGraph.\mbox{\hyperlink{class_math_1_1_graph_a89eeb992ce1291bde48f820473d3a689}{addEdge}}(from.id,\ to.id,\ edgeValues[\mbox{\hyperlink{class_math_1_1_edge}{Math::Edge}}\{\ from,\ to\ \}]);}
+\DoxyCodeLine{\Hypertarget{kruskal_generator_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ groups[to.id]\ =\ groups[from.id];}
+\DoxyCodeLine{\Hypertarget{kruskal_generator_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{kruskal_generator_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{kruskal_generator_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{kruskal_generator_8cpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{kruskal_generator_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ mazeData.setMaze(newGraph);}
+\DoxyCodeLine{\Hypertarget{kruskal_generator_8cpp_source_l00035}00035\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{kruskal_generator_8cpp_source_l00036}00036\ \}}
+
+\end{DoxyCode}

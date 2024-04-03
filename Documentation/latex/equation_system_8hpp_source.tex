@@ -1,0 +1,122 @@
+\doxysection{equation\+System.\+hpp}
+\hypertarget{equation_system_8hpp_source}{}\label{equation_system_8hpp_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/Math/equationSystem.hpp@{C:/Dev/DungeonGenerator/DungeonGenerator/Math/equationSystem.hpp}}
+\mbox{\hyperlink{equation_system_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <assert.h>}}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00007}00007\ \textcolor{preprocessor}{\#include"{}\mbox{\hyperlink{matrix_8hpp}{matrix.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <optional>}}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00010}00010\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_math}{Math}}}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00011}00011\ \{}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00013}00013\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keywordtype}{int}\ VariableCount>}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00014}\mbox{\hyperlink{class_math_1_1_linear_equation}{00014}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_math_1_1_linear_equation}{LinearEquation}}}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00015}00015\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00016}00016\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00017}\mbox{\hyperlink{class_math_1_1_linear_equation_a1158fb73e6093c2a98f926710f4ffada}{00017}}\ \ \ \ \ \ \ \ \ std::array<float,\ VariableCount>\ \mbox{\hyperlink{class_math_1_1_linear_equation_a1158fb73e6093c2a98f926710f4ffada}{values}};}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00018}\mbox{\hyperlink{class_math_1_1_linear_equation_a85df3369f55325f2efb693f8468d4c64}{00018}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_math_1_1_linear_equation_a85df3369f55325f2efb693f8468d4c64}{rightValue}};}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00020}00020\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00021}\mbox{\hyperlink{class_math_1_1_linear_equation_aea749b1f5420319d2d6676a4e7029911}{00021}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_linear_equation_aea749b1f5420319d2d6676a4e7029911}{LinearEquation}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00023}\mbox{\hyperlink{class_math_1_1_linear_equation_a38d40ad8e94c951a1351decbf3db912c}{00023}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_linear_equation_a38d40ad8e94c951a1351decbf3db912c}{LinearEquation}}(\textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_math_1_1_linear_equation_a85df3369f55325f2efb693f8468d4c64}{rightValue}},\ std::array<float,\ VariableCount>\ variableValues)\ }
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{class_math_1_1_linear_equation_a85df3369f55325f2efb693f8468d4c64}{rightValue}}\{\mbox{\hyperlink{class_math_1_1_linear_equation_a85df3369f55325f2efb693f8468d4c64}{rightValue}}\},\ \mbox{\hyperlink{class_math_1_1_linear_equation_a1158fb73e6093c2a98f926710f4ffada}{values}}\{variableValues\}\ \{\}}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00026}\mbox{\hyperlink{class_math_1_1_linear_equation_a6ea7d3b711ffde761e840f3eaa9b2949}{00026}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_math_1_1_linear_equation_a6ea7d3b711ffde761e840f3eaa9b2949}{getRightValue}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_math_1_1_linear_equation_a85df3369f55325f2efb693f8468d4c64}{rightValue}};\ \}}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00027}\mbox{\hyperlink{class_math_1_1_linear_equation_a7539e7495b4a87af90e93df928735279}{00027}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_math_1_1_linear_equation_a7539e7495b4a87af90e93df928735279}{getVariable}}(\textcolor{keywordtype}{int}\ idx)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_math_1_1_linear_equation_a1158fb73e6093c2a98f926710f4ffada}{values}}[idx];\ \}}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00029}\mbox{\hyperlink{class_math_1_1_linear_equation_a6b95197e56584c34502f3a465d7cb207}{00029}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_math_1_1_linear_equation_a6b95197e56584c34502f3a465d7cb207}{isSolution}}(std::initializer\_list<float>\ solution)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00030}00030\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ assert(solution.size()\ ==\ \mbox{\hyperlink{class_math_1_1_linear_equation_a1158fb73e6093c2a98f926710f4ffada}{values}}.size());}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (solution.size()\ !=\ \mbox{\hyperlink{class_math_1_1_linear_equation_a1158fb73e6093c2a98f926710f4ffada}{values}}.size())}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ leftValue\ =\ 0.0f;}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ idx\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{float}\ s\ :\ solution)}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ leftValue\ +=\ s\ *\ \mbox{\hyperlink{class_math_1_1_linear_equation_a1158fb73e6093c2a98f926710f4ffada}{values}}[idx++];}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ fabs(leftValue\ -\/\ \mbox{\hyperlink{class_math_1_1_linear_equation_a85df3369f55325f2efb693f8468d4c64}{rightValue}})\ <\ \mbox{\hyperlink{namespace_math_1_1_constant_adb2a456ef71c62332f477d01b4c46fb9}{Math::Constant::epsilon}};\ \textcolor{comment}{//\ 0.01\ epsilon}}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00042}00042\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00044}00044\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keywordtype}{int}\ VariableCount,\ \textcolor{keywordtype}{int}\ EquationCount\ =\ VariableCount>}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00045}\mbox{\hyperlink{class_math_1_1_linear_equation_system}{00045}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_math_1_1_linear_equation_system}{LinearEquationSystem}}}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00046}00046\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00047}00047\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00048}\mbox{\hyperlink{class_math_1_1_linear_equation_system_aae81ff7aa4869337a9ebb57495b8faac}{00048}}\ \ \ \ \ \ \ \ \ std::array<float,\ VariableCount>\ \mbox{\hyperlink{class_math_1_1_linear_equation_system_aae81ff7aa4869337a9ebb57495b8faac}{solution}};}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00049}\mbox{\hyperlink{class_math_1_1_linear_equation_system_a7b26bc7f0b8070a4c7fc6a47d216247e}{00049}}\ \ \ \ \ \ \ \ \ std::vector<LinearEquation<VariableCount>>\ \mbox{\hyperlink{class_math_1_1_linear_equation_system_a7b26bc7f0b8070a4c7fc6a47d216247e}{equations}};}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00050}\mbox{\hyperlink{class_math_1_1_linear_equation_system_a5c2cc9183fae1a9b05f48b7452101fab}{00050}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_math_1_1_linear_equation_system_a5c2cc9183fae1a9b05f48b7452101fab}{solved}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00051}00051\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_mat}{Math::Mat<EquationCount,\ VariableCount\ +\ 1>}}\ \mbox{\hyperlink{class_math_1_1_linear_equation_system_afc1240e29575cbd10f76d376fa5cc3b3}{createMatrix}}();}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00054}00054\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_math_1_1_linear_equation_system_a4138a6281c18416a0caadb099c1ee871}{addLinearEquation}}(\mbox{\hyperlink{class_math_1_1_linear_equation}{LinearEquation<VariableCount>}}\ newEquation);}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_math_1_1_linear_equation_system_a7d05a98d5ae17265e2d6506cf016a62d}{solve}}();}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00060}00060\ \ \ \ \ \ \ \ \ std::optional<std::vector<float>>\ \mbox{\hyperlink{class_math_1_1_linear_equation_system_a0d51ac02475c11da6ade1e647801cf4c}{getSolution}}();}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00062}00062\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00064}00064\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keywordtype}{int}\ VariableCount,\ \textcolor{keywordtype}{int}\ EquationCount>}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00065}\mbox{\hyperlink{class_math_1_1_linear_equation_system_afc1240e29575cbd10f76d376fa5cc3b3}{00065}}\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_math_1_1_mat}{Math::Mat<EquationCount,\ VariableCount\ +\ 1>}}\ \mbox{\hyperlink{class_math_1_1_linear_equation_system_afc1240e29575cbd10f76d376fa5cc3b3}{LinearEquationSystem<VariableCount,\ EquationCount>::createMatrix}}()}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00066}00066\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_mat}{Math::Mat<EquationCount,\ VariableCount\ +\ 1>}}\ matrix;}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ line\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{class_math_1_1_linear_equation}{LinearEquation}}\ le\ :\ equations)}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ 0;\ idx\ <\ VariableCount;\ ++idx)}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ matrix(line,\ idx)\ =\ le.getVariable(idx);}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ matrix(line,\ VariableCount)\ =\ le.getRightValue();}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ ++line;}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ matrix;}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00078}00078\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00080}00080\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keywordtype}{int}\ VariableCount,\ \textcolor{keywordtype}{int}\ EquationCount>}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00081}\mbox{\hyperlink{class_math_1_1_linear_equation_system_a4138a6281c18416a0caadb099c1ee871}{00081}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_math_1_1_linear_equation_system_a4138a6281c18416a0caadb099c1ee871}{LinearEquationSystem<VariableCount,\ EquationCount>::addLinearEquation}}(\mbox{\hyperlink{class_math_1_1_linear_equation}{LinearEquation<VariableCount>}}\ newEquation)}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00082}00082\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00083}00083\ \ \ \ \ \ \ \ \ equations.push\_back(newEquation);}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00084}00084\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00086}00086\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keywordtype}{int}\ VariableCount,\ \textcolor{keywordtype}{int}\ EquationCount>}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00087}\mbox{\hyperlink{class_math_1_1_linear_equation_system_a7d05a98d5ae17265e2d6506cf016a62d}{00087}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_math_1_1_linear_equation_system_a7d05a98d5ae17265e2d6506cf016a62d}{LinearEquationSystem<VariableCount,\ EquationCount>::solve}}()}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00088}00088\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00089}00089\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (VariableCount\ >\ EquationCount)}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ signal;}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_mat}{Math::Mat<EquationCount,\ VariableCount\ +\ 1>}}\ matrix\ =\ createMatrix().\mbox{\hyperlink{class_math_1_1_mat_a8240f85e3ea39ab44e0a793429bbaaa9}{gaussianEliminate}}(signal);}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00095}00095\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00096}00096\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ VariableCount\ -\/\ 1;\ idx\ >=\ 0;\ -\/-\/idx)}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00097}00097\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ x\ =\ matrix(idx,\ VariableCount);}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ col\ =\ idx\ +\ 1;\ col\ <\ VariableCount;\ ++col)}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ x\ -\/=\ (matrix(idx,\ col)\ *\ solution[col]);}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ solution[idx]\ =\ (x)\ /\ (matrix(idx,\ idx));}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00105}00105\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00107}00107\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keywordtype}{int}\ VariableCount,\ \textcolor{keywordtype}{int}\ EquationCount>}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00108}\mbox{\hyperlink{class_math_1_1_linear_equation_system_a0d51ac02475c11da6ade1e647801cf4c}{00108}}\ \ \ \ \ \textcolor{keyword}{inline}\ std::optional<std::vector<float>>\ \mbox{\hyperlink{class_math_1_1_linear_equation_system_a0d51ac02475c11da6ade1e647801cf4c}{LinearEquationSystem<VariableCount,\ EquationCount>::getSolution}}()}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00109}00109\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00110}00110\ \ \ \ \ \ \ \ \ std::vector<float>\ solutionVector(solution.begin(),\ solution.end());}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00111}00111\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (solutionVector.size()\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{\};}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00113}00113\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ solutionVector;}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00114}00114\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{equation_system_8hpp_source_l00116}00116\ \}}
+
+\end{DoxyCode}

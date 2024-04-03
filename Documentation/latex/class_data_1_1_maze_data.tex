@@ -1,0 +1,201 @@
+\doxysection{Data\+::Maze\+Data Class Reference}
+\hypertarget{class_data_1_1_maze_data}{}\label{class_data_1_1_maze_data}\index{Data::MazeData@{Data::MazeData}}
+
+
+{\ttfamily \#include $<$maze.\+hpp$>$}
+
+
+
+Collaboration diagram for Data\+::Maze\+Data\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_data_1_1_maze_data__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_data_1_1_maze_data_a7eed7e151fd9cbf6d7ed6b5203d57a9f}{Maze\+Data}} ()=default
+\item 
+void \mbox{\hyperlink{class_data_1_1_maze_data_ad88d719c05f32186e3687936500295f8}{set\+Graph}} (const \mbox{\hyperlink{class_math_1_1_graph}{Math\+::\+Graph}}$<$ int, \mbox{\hyperlink{class_geometry_1_1_edge}{Geometry\+::\+Edge}} $>$ \&\mbox{\hyperlink{class_data_1_1_maze_data_a5254947118951610762dfc20bf2fc0df}{graph}})
+\item 
+void \mbox{\hyperlink{class_data_1_1_maze_data_a61cf6604c278d59a2ebc0aebe8949af1}{set\+Maze}} (const \mbox{\hyperlink{class_math_1_1_graph}{Math\+::\+Graph}}$<$ int, \mbox{\hyperlink{class_geometry_1_1_edge}{Geometry\+::\+Edge}} $>$ \&\mbox{\hyperlink{class_data_1_1_maze_data_a5254947118951610762dfc20bf2fc0df}{graph}})
+\item 
+\mbox{\hyperlink{class_math_1_1_graph}{Math\+::\+Graph}}$<$ int, \mbox{\hyperlink{class_geometry_1_1_edge}{Geometry\+::\+Edge}} $>$ \mbox{\hyperlink{class_data_1_1_maze_data_a9ac251537c8e2cb5a4c8ca5a2d9da96f}{get\+Maze}} () const
+\item 
+\mbox{\hyperlink{class_math_1_1_graph}{Math\+::\+Graph}}$<$ int, \mbox{\hyperlink{class_geometry_1_1_edge}{Geometry\+::\+Edge}} $>$ \mbox{\hyperlink{class_data_1_1_maze_data_ad919b6076779ed23b15d10635fd2b8b4}{get\+Graph}} () const
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_geometry_1_1_edge}{Geometry\+::\+Edge}} $>$ \mbox{\hyperlink{class_data_1_1_maze_data_a3b9f1eaa1af5c8ee0775228b637f8486}{get\+Not\+Wall\+Edges}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_math_1_1_graph}{Math\+::\+Graph}}$<$ int, \mbox{\hyperlink{class_geometry_1_1_edge}{Geometry\+::\+Edge}} $>$ \mbox{\hyperlink{class_data_1_1_maze_data_a3b02fa0667425b9c3964ee647eb77747}{maze}}
+\item 
+\mbox{\hyperlink{class_math_1_1_graph}{Math\+::\+Graph}}$<$ int, \mbox{\hyperlink{class_geometry_1_1_edge}{Geometry\+::\+Edge}} $>$ \mbox{\hyperlink{class_data_1_1_maze_data_a5254947118951610762dfc20bf2fc0df}{graph}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{maze_8hpp_source_l00013}{13}} of file \mbox{\hyperlink{maze_8hpp_source}{maze.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_data_1_1_maze_data_a7eed7e151fd9cbf6d7ed6b5203d57a9f}\label{class_data_1_1_maze_data_a7eed7e151fd9cbf6d7ed6b5203d57a9f} 
+\index{Data::MazeData@{Data::MazeData}!MazeData@{MazeData}}
+\index{MazeData@{MazeData}!Data::MazeData@{Data::MazeData}}
+\doxysubsubsection{\texorpdfstring{MazeData()}{MazeData()}}
+{\footnotesize\ttfamily Data\+::\+Maze\+Data\+::\+Maze\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_data_1_1_maze_data_ad919b6076779ed23b15d10635fd2b8b4}\label{class_data_1_1_maze_data_ad919b6076779ed23b15d10635fd2b8b4} 
+\index{Data::MazeData@{Data::MazeData}!getGraph@{getGraph}}
+\index{getGraph@{getGraph}!Data::MazeData@{Data::MazeData}}
+\doxysubsubsection{\texorpdfstring{getGraph()}{getGraph()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_math_1_1_graph}{Math\+::\+Graph}}$<$ int, \mbox{\hyperlink{class_geometry_1_1_edge}{Geometry\+::\+Edge}} $>$ Data\+::\+Maze\+Data\+::get\+Graph (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{maze_8hpp_source_l00032}{32}} of file \mbox{\hyperlink{maze_8hpp_source}{maze.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \{\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_data_1_1_maze_data_a5254947118951610762dfc20bf2fc0df}{graph}};\ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_data_1_1_maze_data_ad919b6076779ed23b15d10635fd2b8b4_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_data_1_1_maze_data_a9ac251537c8e2cb5a4c8ca5a2d9da96f}\label{class_data_1_1_maze_data_a9ac251537c8e2cb5a4c8ca5a2d9da96f} 
+\index{Data::MazeData@{Data::MazeData}!getMaze@{getMaze}}
+\index{getMaze@{getMaze}!Data::MazeData@{Data::MazeData}}
+\doxysubsubsection{\texorpdfstring{getMaze()}{getMaze()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_math_1_1_graph}{Math\+::\+Graph}}$<$ int, \mbox{\hyperlink{class_geometry_1_1_edge}{Geometry\+::\+Edge}} $>$ Data\+::\+Maze\+Data\+::get\+Maze (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{maze_8hpp_source_l00031}{31}} of file \mbox{\hyperlink{maze_8hpp_source}{maze.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00031\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_data_1_1_maze_data_a3b02fa0667425b9c3964ee647eb77747}{maze}};\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_data_1_1_maze_data_a3b9f1eaa1af5c8ee0775228b637f8486}\label{class_data_1_1_maze_data_a3b9f1eaa1af5c8ee0775228b637f8486} 
+\index{Data::MazeData@{Data::MazeData}!getNotWallEdges@{getNotWallEdges}}
+\index{getNotWallEdges@{getNotWallEdges}!Data::MazeData@{Data::MazeData}}
+\doxysubsubsection{\texorpdfstring{getNotWallEdges()}{getNotWallEdges()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_geometry_1_1_edge}{Geometry\+::\+Edge}} $>$ Data\+::\+Maze\+Data\+::get\+Not\+Wall\+Edges (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{maze_8cpp_source_l00005}{5}} of file \mbox{\hyperlink{maze_8cpp_source}{maze.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00006\ \ \ \ \ \{}
+\DoxyCodeLine{00007\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_data_1_1_maze_data_a3b02fa0667425b9c3964ee647eb77747}{maze}}.\mbox{\hyperlink{class_math_1_1_graph_ab4241d1809a7c631192d5e9c4dc02596}{getEdgeValues}}();}
+\DoxyCodeLine{00008\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_data_1_1_maze_data_a3b9f1eaa1af5c8ee0775228b637f8486_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_data_1_1_maze_data_a3b9f1eaa1af5c8ee0775228b637f8486_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_data_1_1_maze_data_ad88d719c05f32186e3687936500295f8}\label{class_data_1_1_maze_data_ad88d719c05f32186e3687936500295f8} 
+\index{Data::MazeData@{Data::MazeData}!setGraph@{setGraph}}
+\index{setGraph@{setGraph}!Data::MazeData@{Data::MazeData}}
+\doxysubsubsection{\texorpdfstring{setGraph()}{setGraph()}}
+{\footnotesize\ttfamily void Data\+::\+Maze\+Data\+::set\+Graph (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_math_1_1_graph}{Math\+::\+Graph}}$<$ int, \mbox{\hyperlink{class_geometry_1_1_edge}{Geometry\+::\+Edge}} $>$ \&}]{graph }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{maze_8hpp_source_l00021}{21}} of file \mbox{\hyperlink{maze_8hpp_source}{maze.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>graph\ =\ \mbox{\hyperlink{class_data_1_1_maze_data_a5254947118951610762dfc20bf2fc0df}{graph}};}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_data_1_1_maze_data_ad88d719c05f32186e3687936500295f8_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_data_1_1_maze_data_a61cf6604c278d59a2ebc0aebe8949af1}\label{class_data_1_1_maze_data_a61cf6604c278d59a2ebc0aebe8949af1} 
+\index{Data::MazeData@{Data::MazeData}!setMaze@{setMaze}}
+\index{setMaze@{setMaze}!Data::MazeData@{Data::MazeData}}
+\doxysubsubsection{\texorpdfstring{setMaze()}{setMaze()}}
+{\footnotesize\ttfamily void Data\+::\+Maze\+Data\+::set\+Maze (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_math_1_1_graph}{Math\+::\+Graph}}$<$ int, \mbox{\hyperlink{class_geometry_1_1_edge}{Geometry\+::\+Edge}} $>$ \&}]{graph }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{maze_8hpp_source_l00026}{26}} of file \mbox{\hyperlink{maze_8hpp_source}{maze.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{class_data_1_1_maze_data_a3b02fa0667425b9c3964ee647eb77747}{maze}}\ =\ \mbox{\hyperlink{class_data_1_1_maze_data_a5254947118951610762dfc20bf2fc0df}{graph}};}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_data_1_1_maze_data_a5254947118951610762dfc20bf2fc0df}\label{class_data_1_1_maze_data_a5254947118951610762dfc20bf2fc0df} 
+\index{Data::MazeData@{Data::MazeData}!graph@{graph}}
+\index{graph@{graph}!Data::MazeData@{Data::MazeData}}
+\doxysubsubsection{\texorpdfstring{graph}{graph}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_math_1_1_graph}{Math\+::\+Graph}}$<$int, \mbox{\hyperlink{class_geometry_1_1_edge}{Geometry\+::\+Edge}}$>$ Data\+::\+Maze\+Data\+::graph\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{maze_8hpp_source_l00017}{17}} of file \mbox{\hyperlink{maze_8hpp_source}{maze.\+hpp}}.
+
+\Hypertarget{class_data_1_1_maze_data_a3b02fa0667425b9c3964ee647eb77747}\label{class_data_1_1_maze_data_a3b02fa0667425b9c3964ee647eb77747} 
+\index{Data::MazeData@{Data::MazeData}!maze@{maze}}
+\index{maze@{maze}!Data::MazeData@{Data::MazeData}}
+\doxysubsubsection{\texorpdfstring{maze}{maze}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_math_1_1_graph}{Math\+::\+Graph}}$<$int, \mbox{\hyperlink{class_geometry_1_1_edge}{Geometry\+::\+Edge}}$>$ Data\+::\+Maze\+Data\+::maze\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{maze_8hpp_source_l00016}{16}} of file \mbox{\hyperlink{maze_8hpp_source}{maze.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Data/\mbox{\hyperlink{maze_8hpp}{maze.\+hpp}}\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Data/\mbox{\hyperlink{maze_8cpp}{maze.\+cpp}}\end{DoxyCompactItemize}

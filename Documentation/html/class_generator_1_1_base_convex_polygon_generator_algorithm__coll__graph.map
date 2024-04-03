@@ -1,0 +1,11 @@
+<map id="Generator::BaseConvexPolygonGeneratorAlgorithm" name="Generator::BaseConvexPolygonGeneratorAlgorithm">
+<area shape="rect" id="Node000001" title=" " alt="" coords="22,677,230,880"/>
+<area shape="rect" id="Node000002" href="$class_generator_1_1_polygon_generator_algorithm.html" title=" " alt="" coords="5,504,204,611"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="114,625,119,677,114,678,109,626"/>
+<area shape="rect" id="Node000003" href="$struct_generator_1_1_generation_parameters.html" title=" " alt="" coords="229,501,437,613"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="283,615,234,667,230,663,279,611"/>
+<area shape="rect" id="Node000004" href="$class_math_1_1_vec.html" title=" " alt="" coords="262,139,403,421"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="335,421,335,484,330,484,330,421"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="312,5,353,75"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="335,74,335,122,330,122,330,74"/>
+</map>

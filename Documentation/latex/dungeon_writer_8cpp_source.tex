@@ -1,0 +1,68 @@
+\doxysection{dungeon\+Writer.\+cpp}
+\hypertarget{dungeon_writer_8cpp_source}{}\label{dungeon_writer_8cpp_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/DungeonGenerator/dungeonWriter.cpp@{C:/Dev/DungeonGenerator/DungeonGenerator/DungeonGenerator/dungeonWriter.cpp}}
+\mbox{\hyperlink{dungeon_writer_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{dungeon_writer_8hpp}{dungeonWriter.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}fstream"{}}}
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}cassert"{}}}
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{log_8h}{log.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{write_8hpp}{write.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00008}\mbox{\hyperlink{namespace_i_o}{00008}}\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_i_o}{IO}}}
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00009}00009\ \{}
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00011}\mbox{\hyperlink{class_i_o_1_1_dungeon_writer_abcfb281b6e7718152c788387872b04d6}{00011}}\ \ \ \ \ \mbox{\hyperlink{class_i_o_1_1_dungeon_writer_abcfb281b6e7718152c788387872b04d6}{DungeonWriter::DungeonWriter}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_data_1_1_dungeon_data}{Data::DungeonData}}\&\ dungeonData,\ std::string\ path)\ :\ file(path,\ \mbox{\hyperlink{namespacestd}{std}}::ofstream::out),\ data(dungeonData)}
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00012}00012\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00013}00013\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_i_o_1_1_dungeon_writer_ab35d1e38461504c45b98ade4386b4087}{filePath}}\ =\ path;}
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00014}00014\ \ \ \ \ \ \ \ \ assert(\mbox{\hyperlink{class_i_o_1_1_dungeon_writer_ad2b3e9f732e232009fc3145a41738eb2}{file}}.is\_open());}
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00015}00015\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_i_o_1_1_dungeon_writer_ad2b3e9f732e232009fc3145a41738eb2}{file}}.is\_open())}
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00016}00016\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_log_a2625a4aa82f846d5b9a51af99905b7e5}{Log::error}}(\textcolor{stringliteral}{"{}Can\ not\ open\ file!"{}});}
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00017}00017\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00019}\mbox{\hyperlink{class_i_o_1_1_dungeon_writer_a73357d9afcf08e09d5dbc7c3685b0cc6}{00019}}\ \ \ \ \ \mbox{\hyperlink{class_i_o_1_1_dungeon_writer_a73357d9afcf08e09d5dbc7c3685b0cc6}{DungeonWriter::\string~DungeonWriter}}()}
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00020}00020\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_i_o_1_1_dungeon_writer_ad2b3e9f732e232009fc3145a41738eb2}{file}}.is\_open())}
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_i_o_1_1_dungeon_writer_ad2b3e9f732e232009fc3145a41738eb2}{file}}.close();}
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00023}00023\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00025}\mbox{\hyperlink{class_i_o_1_1_dungeon_writer_a6b35e5995e08e53716d960988ddec32c}{00025}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_o_1_1_dungeon_writer_a6b35e5995e08e53716d960988ddec32c}{DungeonWriter::write}}()}
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00026}00026\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_i_o_1_1_dungeon_writer_ad2b3e9f732e232009fc3145a41738eb2}{file}}.is\_open())}
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_i_o_1_1_dungeon_writer_ad2b3e9f732e232009fc3145a41738eb2}{file}}\ <<\ \mbox{\hyperlink{class_i_o_1_1_dungeon_writer_a7f81038091786bbc6e701115ed32cb3d}{data}}.\mbox{\hyperlink{class_data_1_1_dungeon_data_a63f3a29a0427ac44a40a4b59238b0fe0}{getVersion}}\ ()\ <<\ \mbox{\hyperlink{namespace_i_o_a9943de923a977491a8be5298467bd19b}{endOfLine}};}
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_i_o_1_1_dungeon_writer_ad2b3e9f732e232009fc3145a41738eb2}{file}}\ <<\ \mbox{\hyperlink{class_i_o_1_1_dungeon_writer_a7f81038091786bbc6e701115ed32cb3d}{data}}.\mbox{\hyperlink{class_data_1_1_dungeon_data_aba1d1943e0c048a08ca7e11ca68b943b}{getSeed}}\ ()\ <<\ \mbox{\hyperlink{namespace_i_o_a9943de923a977491a8be5298467bd19b}{endOfLine}};}
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_i_o_1_1_dungeon_writer_a2f9da349500db48b769d0af11cd1b09e}{writeFloors}}();}
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_i_o_1_1_dungeon_writer_aace52b8071b34ef3f65e89efde518ef5}{writeWalls}}();}
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \textcolor{comment}{//for\ (const\ Data::RoomData\&\ room\ :\ data.getRooms())}}
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ IO::write(room,\ file);}}
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_i_o_1_1_dungeon_writer_ad2b3e9f732e232009fc3145a41738eb2}{file}}\ <<\ \textcolor{stringliteral}{"{}End"{}}\ <<\ \mbox{\hyperlink{namespace_i_o_a9943de923a977491a8be5298467bd19b}{endOfLine}};}
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_i_o_1_1_dungeon_writer_ad2b3e9f732e232009fc3145a41738eb2}{file}}.close();}
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_log_acc334094de2c17174209b77597e7742d}{Log::info}}(\textcolor{stringliteral}{"{}File\ saved!\ ("{}}\ +\ \mbox{\hyperlink{class_i_o_1_1_dungeon_writer_ab35d1e38461504c45b98ade4386b4087}{filePath}}\ +\ \textcolor{stringliteral}{"{})"{}});}
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00044}00044\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00046}\mbox{\hyperlink{class_i_o_1_1_dungeon_writer_a2f9da349500db48b769d0af11cd1b09e}{00046}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_o_1_1_dungeon_writer_a2f9da349500db48b769d0af11cd1b09e}{DungeonWriter::writeFloors}}()}
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00047}00047\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{class_data_1_1_layout_data}{Data::LayoutData}}\&\ layout\ :\ \mbox{\hyperlink{class_i_o_1_1_dungeon_writer_a7f81038091786bbc6e701115ed32cb3d}{data}}.\mbox{\hyperlink{class_data_1_1_dungeon_data_abee7b94b6c5f44f7e29ccae94d35fcd9}{getFloors}}())}
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_i_o_ab979242afe8bf9f39df609bf7cd8e1fe}{IO::write}}(layout,\ \mbox{\hyperlink{class_i_o_1_1_dungeon_writer_ad2b3e9f732e232009fc3145a41738eb2}{file}});}
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00052}00052\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00054}\mbox{\hyperlink{class_i_o_1_1_dungeon_writer_aace52b8071b34ef3f65e89efde518ef5}{00054}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_o_1_1_dungeon_writer_aace52b8071b34ef3f65e89efde518ef5}{DungeonWriter::writeWalls}}()}
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00055}00055\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{class_data_1_1_wall_data}{Data::WallData}}\&\ wall\ :\ \mbox{\hyperlink{class_i_o_1_1_dungeon_writer_a7f81038091786bbc6e701115ed32cb3d}{data}}.\mbox{\hyperlink{class_data_1_1_dungeon_data_adb3b22d9c48abd281869a986aa95f782}{getWalls}}())}
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_i_o_ab979242afe8bf9f39df609bf7cd8e1fe}{IO::write}}(wall,\ \mbox{\hyperlink{class_i_o_1_1_dungeon_writer_ad2b3e9f732e232009fc3145a41738eb2}{file}});}
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00060}00060\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{dungeon_writer_8cpp_source_l00062}00062\ \}}
+
+\end{DoxyCode}

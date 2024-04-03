@@ -1,0 +1,250 @@
+\doxysection{vector\+\_\+map.\+h}
+\hypertarget{vector__map_8h_source}{}\label{vector__map_8h_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/lemon/bits/vector\_map.h@{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/lemon/bits/vector\_map.h}}
+\mbox{\hyperlink{vector__map_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00001}00001\ \textcolor{comment}{/*\ -\/*-\/\ mode:\ C++;\ indent-\/tabs-\/mode:\ nil;\ -\/*-\/}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00002}00002\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00003}00003\ \textcolor{comment}{\ *\ This\ file\ is\ a\ part\ of\ LEMON,\ a\ generic\ C++\ optimization\ library.}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00004}00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00005}00005\ \textcolor{comment}{\ *\ Copyright\ (C)\ 2003-\/2009}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00006}00006\ \textcolor{comment}{\ *\ Egervary\ Jeno\ Kombinatorikus\ Optimalizalasi\ Kutatocsoport}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00007}00007\ \textcolor{comment}{\ *\ (Egervary\ Research\ Group\ on\ Combinatorial\ Optimization,\ EGRES).}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00008}00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00009}00009\ \textcolor{comment}{\ *\ Permission\ to\ use,\ modify\ and\ distribute\ this\ software\ is\ granted}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00010}00010\ \textcolor{comment}{\ *\ provided\ that\ this\ copyright\ notice\ appears\ in\ all\ copies.\ For}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00011}00011\ \textcolor{comment}{\ *\ precise\ terms\ see\ the\ accompanying\ LICENSE\ file.}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00012}00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00013}00013\ \textcolor{comment}{\ *\ This\ software\ is\ provided\ "{}AS\ IS"{}\ with\ no\ warranty\ of\ any\ kind,}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00014}00014\ \textcolor{comment}{\ *\ express\ or\ implied,\ and\ with\ no\ claim\ as\ to\ its\ suitability\ for\ any}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00015}00015\ \textcolor{comment}{\ *\ purpose.}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00016}00016\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00017}00017\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00019}00019\ \textcolor{preprocessor}{\#ifndef\ LEMON\_BITS\_VECTOR\_MAP\_H}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00020}00020\ \textcolor{preprocessor}{\#define\ LEMON\_BITS\_VECTOR\_MAP\_H}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00023}00023\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00025}00025\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{lemon_2core_8h}{lemon/core.h}}>}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00026}00026\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{alteration__notifier_8h}{lemon/bits/alteration\_notifier.h}}>}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00028}00028\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{concept__check_8h}{lemon/concept\_check.h}}>}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00029}00029\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{concepts_2maps_8h}{lemon/concepts/maps.h}}>}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00031}00031\ \textcolor{comment}{//\(\backslash\)ingroup\ graphbits}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00032}00032\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00033}00033\ \textcolor{comment}{//\(\backslash\)file}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00034}00034\ \textcolor{comment}{//\(\backslash\)brief\ Vector\ based\ graph\ maps.}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00035}00035\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacelemon}{lemon}}\ \{}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00037}00037\ \ \ \textcolor{comment}{//\ \(\backslash\)ingroup\ graphbits}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00038}00038\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00039}00039\ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Graph\ map\ based\ on\ the\ std::vector\ storage.}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00040}00040\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00041}00041\ \ \ \textcolor{comment}{//\ The\ VectorMap\ template\ class\ is\ graph\ map\ structure\ that\ automatically}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00042}00042\ \ \ \textcolor{comment}{//\ updates\ the\ map\ when\ a\ key\ is\ added\ to\ or\ erased\ from\ the\ graph.}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00043}00043\ \ \ \textcolor{comment}{//\ This\ map\ type\ uses\ std::vector\ to\ store\ the\ values.}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00044}00044\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00045}00045\ \ \ \textcolor{comment}{//\ \(\backslash\)tparam\ \_Graph\ The\ graph\ this\ map\ is\ attached\ to.}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00046}00046\ \ \ \textcolor{comment}{//\ \(\backslash\)tparam\ \_Item\ The\ item\ type\ of\ the\ graph\ items.}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00047}00047\ \ \ \textcolor{comment}{//\ \(\backslash\)tparam\ \_Value\ The\ value\ type\ of\ the\ map.}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00048}00048\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ \_Graph,\ \textcolor{keyword}{typename}\ \_Item,\ \textcolor{keyword}{typename}\ \_Value>}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00049}\mbox{\hyperlink{classlemon_1_1_vector_map}{00049}}\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_vector_map}{VectorMap}}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00050}00050\ \ \ \ \ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1_item_set_traits}{ItemSetTraits}}<\_Graph,\ \_Item>::ItemNotifier::ObserverBase\ \{}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00051}00051\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00053}00053\ \ \ \ \ \textcolor{comment}{//\ The\ container\ type\ of\ the\ map.}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00054}\mbox{\hyperlink{classlemon_1_1_vector_map_a1cb96a8b42af940401b68a7bb04aefdd}{00054}}\ \ \ \ \ \textcolor{keyword}{typedef}\ std::vector<\_Value>\ \mbox{\hyperlink{classlemon_1_1_vector_map_a1cb96a8b42af940401b68a7bb04aefdd}{Container}};}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00056}00056\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00058}00058\ \ \ \ \ \textcolor{comment}{//\ The\ graph\ type\ of\ the\ map.}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00059}\mbox{\hyperlink{classlemon_1_1_vector_map_a9b6079fa1c74c24586fc64f1434120e9}{00059}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \_Graph\ \mbox{\hyperlink{classlemon_1_1_vector_map_a9b6079fa1c74c24586fc64f1434120e9}{GraphType}};}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00060}00060\ \ \ \ \ \textcolor{comment}{//\ The\ item\ type\ of\ the\ map.}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00061}\mbox{\hyperlink{classlemon_1_1_vector_map_a2c3237c2a48b3df9f5b735e0204d125c}{00061}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_Item}}\ \mbox{\hyperlink{classlemon_1_1_vector_map_a2c3237c2a48b3df9f5b735e0204d125c}{Item}};}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00062}00062\ \ \ \ \ \textcolor{comment}{//\ The\ reference\ map\ tag.}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00063}\mbox{\hyperlink{classlemon_1_1_vector_map_a86185ba32b72959e1369682e44b37cd0}{00063}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{structlemon_1_1_true}{True}}\ \mbox{\hyperlink{classlemon_1_1_vector_map_a86185ba32b72959e1369682e44b37cd0}{ReferenceMapTag}};}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00065}00065\ \ \ \ \ \textcolor{comment}{//\ The\ key\ type\ of\ the\ map.}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00066}\mbox{\hyperlink{classlemon_1_1_vector_map_a396e65338f6c4a69d995059646f17ccd}{00066}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_Item}}\ \mbox{\hyperlink{classlemon_1_1_vector_map_a396e65338f6c4a69d995059646f17ccd}{Key}};}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00067}00067\ \ \ \ \ \textcolor{comment}{//\ The\ value\ type\ of\ the\ map.}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00068}\mbox{\hyperlink{classlemon_1_1_vector_map_a7ce3a7ab96cec7cf51e277046a435871}{00068}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_Value}}\ \mbox{\hyperlink{classlemon_1_1_vector_map_a7ce3a7ab96cec7cf51e277046a435871}{Value}};}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00070}00070\ \ \ \ \ \textcolor{comment}{//\ The\ notifier\ type.}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00071}\mbox{\hyperlink{classlemon_1_1_vector_map_ac97660162b6fb706f1dc9cc019f080c0}{00071}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classlemon_1_1_item_set_traits}{ItemSetTraits<\_Graph,\ \_Item>::ItemNotifier}}\ \mbox{\hyperlink{classlemon_1_1_vector_map_ac97660162b6fb706f1dc9cc019f080c0}{Notifier}};}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00073}00073\ \ \ \ \ \textcolor{comment}{//\ The\ map\ type.}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00074}\mbox{\hyperlink{classlemon_1_1_vector_map_a18ddc35b18323c5ce459307ad1d7672b}{00074}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_vector_map}{VectorMap}}\ \mbox{\hyperlink{classlemon_1_1_vector_map_a18ddc35b18323c5ce459307ad1d7672b}{Map}};}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00076}00076\ \ \ \ \ \textcolor{comment}{//\ The\ reference\ type\ of\ the\ map;}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00077}\mbox{\hyperlink{classlemon_1_1_vector_map_a58a93678ff6c940aa6dd44433e8d5115}{00077}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Container::reference\ \mbox{\hyperlink{classlemon_1_1_vector_map_a58a93678ff6c940aa6dd44433e8d5115}{Reference}};}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00078}00078\ \ \ \ \ \textcolor{comment}{//\ The\ const\ reference\ type\ of\ the\ map;}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00079}\mbox{\hyperlink{classlemon_1_1_vector_map_a955ba17333775c914eef7e6b9d7d385f}{00079}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Container::const\_reference\ \mbox{\hyperlink{classlemon_1_1_vector_map_a955ba17333775c914eef7e6b9d7d385f}{ConstReference}};}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00081}00081\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00083}00083\ \ \ \ \ \textcolor{comment}{//\ The\ base\ class\ of\ the\ map.}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00084}\mbox{\hyperlink{classlemon_1_1_vector_map_a7ce421cea7fbcadd8b6e4fb57af5aea1}{00084}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Notifier::ObserverBase\ \mbox{\hyperlink{classlemon_1_1_vector_map_a7ce421cea7fbcadd8b6e4fb57af5aea1}{Parent}};}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00086}00086\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00088}00088\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Constructor\ to\ attach\ the\ new\ map\ into\ the\ notifier.}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00089}00089\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00090}00090\ \ \ \ \ \textcolor{comment}{//\ It\ constructs\ a\ map\ and\ attachs\ it\ into\ the\ notifier.}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00091}00091\ \ \ \ \ \textcolor{comment}{//\ It\ adds\ all\ the\ items\ of\ the\ graph\ to\ the\ map.}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00092}\mbox{\hyperlink{classlemon_1_1_vector_map_a4096146cc9f83b2299f7d3a2765acf51}{00092}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_vector_map_a4096146cc9f83b2299f7d3a2765acf51}{VectorMap}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_vector_map_a9b6079fa1c74c24586fc64f1434120e9}{GraphType}}\&\ graph)\ \{}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00093}00093\ \ \ \ \ \ \ Parent::attach(graph.notifier(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Item}}()));}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00094}00094\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_vector_map_a2c076f8b91445578dc8302c0e810c583}{container}}.resize(Parent::notifier()-\/>maxId()\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00095}00095\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00097}00097\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Constructor\ uses\ given\ value\ to\ initialize\ the\ map.}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00098}00098\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00099}00099\ \ \ \ \ \textcolor{comment}{//\ It\ constructs\ a\ map\ uses\ a\ given\ value\ to\ initialize\ the\ map.}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00100}00100\ \ \ \ \ \textcolor{comment}{//\ It\ adds\ all\ the\ items\ of\ the\ graph\ to\ the\ map.}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00101}\mbox{\hyperlink{classlemon_1_1_vector_map_ad4e77468f7ad9485e968d223327922fe}{00101}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_vector_map_ad4e77468f7ad9485e968d223327922fe}{VectorMap}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_vector_map_a9b6079fa1c74c24586fc64f1434120e9}{GraphType}}\&\ graph,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Value}}\&\ \mbox{\hyperlink{classvalue}{value}})\ \{}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00102}00102\ \ \ \ \ \ \ Parent::attach(graph.notifier(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Item}}()));}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00103}00103\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_vector_map_a2c076f8b91445578dc8302c0e810c583}{container}}.resize(Parent::notifier()-\/>maxId()\ +\ 1,\ \mbox{\hyperlink{classvalue}{value}});}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00104}00104\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00106}00106\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00107}00107\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Copy\ constructor}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00108}00108\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00109}00109\ \ \ \ \ \textcolor{comment}{//\ Copy\ constructor.}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00110}\mbox{\hyperlink{classlemon_1_1_vector_map_a776c3430e1317aeb893ec43acd1a6b31}{00110}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_vector_map_a776c3430e1317aeb893ec43acd1a6b31}{VectorMap}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_vector_map}{VectorMap}}\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_copy}})\ :\ \mbox{\hyperlink{classlemon_1_1_vector_map_a7ce421cea7fbcadd8b6e4fb57af5aea1}{Parent}}()\ \{}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00111}00111\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_copy}}.attached())\ \{}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00112}00112\ \ \ \ \ \ \ \ \ Parent::attach(*\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_copy}}.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a4596dc897f10711f63921c4a43d20c17}{notifier}}());}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00113}00113\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_vector_map_a2c076f8b91445578dc8302c0e810c583}{container}}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_copy}}.container;}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00114}00114\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00115}00115\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00117}00117\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Assign\ operator.}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00118}00118\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00119}00119\ \ \ \ \ \textcolor{comment}{//\ This\ operator\ assigns\ for\ each\ item\ in\ the\ map\ the}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00120}00120\ \ \ \ \ \textcolor{comment}{//\ value\ mapped\ to\ the\ same\ item\ in\ the\ copied\ map.}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00121}00121\ \ \ \ \ \textcolor{comment}{//\ The\ parameter\ map\ should\ be\ indiced\ with\ the\ same}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00122}00122\ \ \ \ \ \textcolor{comment}{//\ itemset\ because\ this\ assign\ operator\ does\ not\ change}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00123}00123\ \ \ \ \ \textcolor{comment}{//\ the\ container\ of\ the\ map.}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00124}\mbox{\hyperlink{classlemon_1_1_vector_map_aad4a1f95aaaa233ac26530654e3d2027}{00124}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_vector_map}{VectorMap}}\&\ \mbox{\hyperlink{classlemon_1_1_vector_map_aad4a1f95aaaa233ac26530654e3d2027}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_vector_map}{VectorMap}}\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cmap}})\ \{}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00125}00125\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{operator}=<\mbox{\hyperlink{classlemon_1_1_vector_map}{VectorMap}}>(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cmap}});}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00126}00126\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00129}00129\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Template\ assign\ operator.}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00130}00130\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00131}00131\ \ \ \ \ \textcolor{comment}{//\ The\ given\ parameter\ should\ conform\ to\ the\ ReadMap}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00132}00132\ \ \ \ \ \textcolor{comment}{//\ concecpt\ and\ could\ be\ indiced\ by\ the\ current\ item\ set\ of}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00133}00133\ \ \ \ \ \textcolor{comment}{//\ the\ NodeMap.\ In\ this\ case\ the\ value\ for\ each\ item}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00134}00134\ \ \ \ \ \textcolor{comment}{//\ is\ assigned\ by\ the\ value\ of\ the\ given\ ReadMap.}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00135}00135\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ CMap>}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00136}\mbox{\hyperlink{classlemon_1_1_vector_map_a4ca608e4024bebd742f7b0d493673c24}{00136}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_vector_map}{VectorMap}}\&\ \mbox{\hyperlink{classlemon_1_1_vector_map_a4ca608e4024bebd742f7b0d493673c24}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CMap}}\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cmap}})\ \{}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00137}00137\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{checkConcept<concepts::ReadMap<Key,\ \_Value>}},\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CMap}}>();}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00138}00138\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{typename}\ Parent::Notifier*\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{nf}}\ =\ Parent::notifier();}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00139}00139\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Item}}\ it;}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00140}00140\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{nf}}-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a23ed3a4a39b3d5724f67e27ad8bafc77}{first}}(it);\ it\ !=\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{nf}}-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a0cfd891938ddddea6beb693c92ac6510}{next}}(it))\ \{}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00141}00141\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{bundled_2ranges_8h_a080be1238e6ee3bd4b9f193b4181cf4dacdaeeeba9b4a4c5ebf042c0215a7bb0e}{set}}(it,\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cmap}}[it]);}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00142}00142\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00143}00143\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00144}00144\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00145}00145\ }
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00146}00146\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00147}00147\ }
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00148}00148\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ The\ subcript\ operator.}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00149}00149\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00150}00150\ \ \ \ \ \textcolor{comment}{//\ The\ subscript\ operator.\ The\ map\ can\ be\ subscripted\ by\ the}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00151}00151\ \ \ \ \ \textcolor{comment}{//\ actual\ items\ of\ the\ graph.}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00152}\mbox{\hyperlink{classlemon_1_1_vector_map_ad27eab645927c100d7e4a0ffe585e57e}{00152}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_vector_map_a58a93678ff6c940aa6dd44433e8d5115}{Reference}}\ \mbox{\hyperlink{classlemon_1_1_vector_map_ad27eab645927c100d7e4a0ffe585e57e}{operator[]}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Key}}\&\ key)\ \{}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00153}00153\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_vector_map_a2c076f8b91445578dc8302c0e810c583}{container}}[Parent::notifier()-\/>id(key)];}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00154}00154\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00155}00155\ }
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00156}00156\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ The\ const\ subcript\ operator.}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00157}00157\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00158}00158\ \ \ \ \ \textcolor{comment}{//\ The\ const\ subscript\ operator.\ The\ map\ can\ be\ subscripted\ by\ the}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00159}00159\ \ \ \ \ \textcolor{comment}{//\ actual\ items\ of\ the\ graph.}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00160}\mbox{\hyperlink{classlemon_1_1_vector_map_a01d87b07179e13862da66fda9dc4e9fa}{00160}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_vector_map_a955ba17333775c914eef7e6b9d7d385f}{ConstReference}}\ \mbox{\hyperlink{classlemon_1_1_vector_map_a01d87b07179e13862da66fda9dc4e9fa}{operator[]}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Key}}\&\ key)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00161}00161\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_vector_map_a2c076f8b91445578dc8302c0e810c583}{container}}[Parent::notifier()-\/>id(key)];}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00162}00162\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00163}00163\ }
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00164}00164\ }
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00165}00165\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ The\ setter\ function\ of\ the\ map.}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00166}00166\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00167}00167\ \ \ \ \ \textcolor{comment}{//\ It\ the\ same\ as\ operator[](key)\ =\ value\ expression.}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00168}\mbox{\hyperlink{classlemon_1_1_vector_map_a82234cafece59b62a713c8bc9ef1b690}{00168}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_vector_map_a82234cafece59b62a713c8bc9ef1b690}{set}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Key}}\&\ key,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Value}}\&\ \mbox{\hyperlink{classvalue}{value}})\ \{}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00169}00169\ \ \ \ \ \ \ (*this)[key]\ =\ \mbox{\hyperlink{classvalue}{value}};}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00170}00170\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00171}00171\ }
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00172}00172\ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00173}00173\ }
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00174}00174\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Adds\ a\ new\ key\ to\ the\ map.}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00175}00175\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00176}00176\ \ \ \ \ \textcolor{comment}{//\ It\ adds\ a\ new\ key\ to\ the\ map.\ It\ is\ called\ by\ the\ observer\ notifier}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00177}00177\ \ \ \ \ \textcolor{comment}{//\ and\ it\ overrides\ the\ add()\ member\ function\ of\ the\ observer\ base.}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00178}\mbox{\hyperlink{classlemon_1_1_vector_map_a9ca552bd40fe3fd8fb11a364d1e63454}{00178}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_vector_map_a9ca552bd40fe3fd8fb11a364d1e63454}{add}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Key}}\&\ key)\ \{}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00179}00179\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id}\ =\ Parent::notifier()-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_afa1b705fa74e19045a04063063665ee9}{id}}(key);}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00180}00180\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keywordtype}{id}\ >=\ \textcolor{keywordtype}{int}(\mbox{\hyperlink{classlemon_1_1_vector_map_a2c076f8b91445578dc8302c0e810c583}{container}}.size()))\ \{}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00181}00181\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_vector_map_a2c076f8b91445578dc8302c0e810c583}{container}}.resize(\textcolor{keywordtype}{id}\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00182}00182\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00183}00183\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00184}00184\ }
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00185}00185\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Adds\ more\ new\ keys\ to\ the\ map.}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00186}00186\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00187}00187\ \ \ \ \ \textcolor{comment}{//\ It\ adds\ more\ new\ keys\ to\ the\ map.\ It\ is\ called\ by\ the\ observer\ notifier}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00188}00188\ \ \ \ \ \textcolor{comment}{//\ and\ it\ overrides\ the\ add()\ member\ function\ of\ the\ observer\ base.}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00189}\mbox{\hyperlink{classlemon_1_1_vector_map_a7f81d95531329c4b2a70cfa20338932b}{00189}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_vector_map_a7f81d95531329c4b2a70cfa20338932b}{add}}(\textcolor{keyword}{const}\ std::vector<Key>\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{keys}})\ \{}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00190}00190\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ max\ =\ \mbox{\hyperlink{classlemon_1_1_vector_map_a2c076f8b91445578dc8302c0e810c583}{container}}.size()\ -\/\ 1;}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00191}00191\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{int}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{keys}}.size());\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00192}00192\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id}\ =\ Parent::notifier()-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_afa1b705fa74e19045a04063063665ee9}{id}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{keys}}[i]);}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00193}00193\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keywordtype}{id}\ >=\ max)\ \{}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00194}00194\ \ \ \ \ \ \ \ \ \ \ max\ =\ id;}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00195}00195\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00196}00196\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00197}00197\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_vector_map_a2c076f8b91445578dc8302c0e810c583}{container}}.resize(max\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00198}00198\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00199}00199\ }
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00200}00200\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Erase\ a\ key\ from\ the\ map.}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00201}00201\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00202}00202\ \ \ \ \ \textcolor{comment}{//\ Erase\ a\ key\ from\ the\ map.\ It\ is\ called\ by\ the\ observer\ notifier}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00203}00203\ \ \ \ \ \textcolor{comment}{//\ and\ it\ overrides\ the\ erase()\ member\ function\ of\ the\ observer\ base.}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00204}\mbox{\hyperlink{classlemon_1_1_vector_map_afc7587c1193f28f9c64888ddffd4d877}{00204}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_vector_map_afc7587c1193f28f9c64888ddffd4d877}{erase}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Key}}\&\ key)\ \{}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00205}00205\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_vector_map_a2c076f8b91445578dc8302c0e810c583}{container}}[Parent::notifier()-\/>id(key)]\ =\ \mbox{\hyperlink{classlemon_1_1_vector_map_a7ce3a7ab96cec7cf51e277046a435871}{Value}}();}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00206}00206\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00207}00207\ }
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00208}00208\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Erase\ more\ keys\ from\ the\ map.}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00209}00209\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00210}00210\ \ \ \ \ \textcolor{comment}{//\ It\ erases\ more\ keys\ from\ the\ map.\ It\ is\ called\ by\ the\ observer\ notifier}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00211}00211\ \ \ \ \ \textcolor{comment}{//\ and\ it\ overrides\ the\ erase()\ member\ function\ of\ the\ observer\ base.}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00212}\mbox{\hyperlink{classlemon_1_1_vector_map_a97655a65493f4aa12db2542585149cf6}{00212}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_vector_map_a97655a65493f4aa12db2542585149cf6}{erase}}(\textcolor{keyword}{const}\ std::vector<Key>\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{keys}})\ \{}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00213}00213\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{int}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{keys}}.size());\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00214}00214\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_vector_map_a2c076f8b91445578dc8302c0e810c583}{container}}[Parent::notifier()-\/>id(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{keys}}[i])]\ =\ \mbox{\hyperlink{classlemon_1_1_vector_map_a7ce3a7ab96cec7cf51e277046a435871}{Value}}();}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00215}00215\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00216}00216\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00217}00217\ }
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00218}00218\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Build\ the\ map.}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00219}00219\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00220}00220\ \ \ \ \ \textcolor{comment}{//\ It\ builds\ the\ map.\ It\ is\ called\ by\ the\ observer\ notifier}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00221}00221\ \ \ \ \ \textcolor{comment}{//\ and\ it\ overrides\ the\ build()\ member\ function\ of\ the\ observer\ base.}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00222}\mbox{\hyperlink{classlemon_1_1_vector_map_a3084a6ec66ec55503c46bec22d258e28}{00222}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_vector_map_a3084a6ec66ec55503c46bec22d258e28}{build}}()\ \{}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00223}00223\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ size\ =\ Parent::notifier()-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_extender_a9d363ecde5150221914f7c3d8f184c8e}{maxId}}()\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00224}00224\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_vector_map_a2c076f8b91445578dc8302c0e810c583}{container}}.reserve(size);}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00225}00225\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_vector_map_a2c076f8b91445578dc8302c0e810c583}{container}}.resize(size);}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00226}00226\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00227}00227\ }
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00228}00228\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Clear\ the\ map.}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00229}00229\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00230}00230\ \ \ \ \ \textcolor{comment}{//\ It\ erases\ all\ items\ from\ the\ map.\ It\ is\ called\ by\ the\ observer\ notifier}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00231}00231\ \ \ \ \ \textcolor{comment}{//\ and\ it\ overrides\ the\ clear()\ member\ function\ of\ the\ observer\ base.}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00232}\mbox{\hyperlink{classlemon_1_1_vector_map_a3ab65ee17bd9be6bfbe0ddf84e7b8423}{00232}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_vector_map_a3ab65ee17bd9be6bfbe0ddf84e7b8423}{clear}}()\ \{}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00233}00233\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_vector_map_a2c076f8b91445578dc8302c0e810c583}{container}}.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_af2726dacd301d1fdc114b18b6eeb5f51}{clear}}();}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00234}00234\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00235}00235\ }
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00236}00236\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00237}00237\ }
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00238}\mbox{\hyperlink{classlemon_1_1_vector_map_a2c076f8b91445578dc8302c0e810c583}{00238}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_vector_map_a1cb96a8b42af940401b68a7bb04aefdd}{Container}}\ \mbox{\hyperlink{classlemon_1_1_vector_map_a2c076f8b91445578dc8302c0e810c583}{container}};}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00239}00239\ }
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00240}00240\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00241}00241\ }
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00242}00242\ \}}
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00243}00243\ }
+\DoxyCodeLine{\Hypertarget{vector__map_8h_source_l00244}00244\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

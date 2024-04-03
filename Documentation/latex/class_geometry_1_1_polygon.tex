@@ -1,0 +1,951 @@
+\doxysection{Geometry\+::Polygon Class Reference}
+\hypertarget{class_geometry_1_1_polygon}{}\label{class_geometry_1_1_polygon}\index{Geometry::Polygon@{Geometry::Polygon}}
+
+
+{\ttfamily \#include $<$polygon.\+hpp$>$}
+
+
+
+Collaboration diagram for Geometry\+::Polygon\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=185pt]{class_geometry_1_1_polygon__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_geometry_1_1_polygon_aa2d7e0b85807b5c8a6677df42c703708}{Polygon}} ()
+\item 
+\mbox{\hyperlink{class_geometry_1_1_polygon_aa0257e192cec53d3640401f2dfc94958}{Polygon}} (std\+::vector$<$ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} $>$ \mbox{\hyperlink{class_geometry_1_1_polygon_ab2bd342c25ffeb2506e1af8eee528890}{points}})
+\item 
+\mbox{\hyperlink{class_geometry_1_1_polygon_a2260c0fd8572f3b780036e0482ba6878}{Polygon}} (std\+::initializer\+\_\+list$<$ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} $>$ \mbox{\hyperlink{class_geometry_1_1_polygon_ab2bd342c25ffeb2506e1af8eee528890}{points}})
+\item 
+std\+::vector$<$ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} $>$ \mbox{\hyperlink{class_geometry_1_1_polygon_a94dc0f266b827e9596f29888c796ca17}{get\+Points}} () const
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_geometry_1_1_edge}{Edge}} $>$ \mbox{\hyperlink{class_geometry_1_1_polygon_a33f18211b32f57137acbb136c2606c60}{get\+Edges}} () const
+\item 
+float \mbox{\hyperlink{class_geometry_1_1_polygon_a31952555db3c1184c9a1fb46f1087441}{Area}} () const
+\item 
+void \mbox{\hyperlink{class_geometry_1_1_polygon_a12c9321822bdf861cf7c304fa0c888e7}{add\+Point}} (\mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} p)
+\item 
+bool \mbox{\hyperlink{class_geometry_1_1_polygon_ade2489b324459e8eb35c6050fa7263b1}{add\+Hole}} (const \mbox{\hyperlink{class_geometry_1_1_polygon}{Polygon}} \&hole)
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_geometry_1_1_polygon}{Polygon}} $>$ \mbox{\hyperlink{class_geometry_1_1_polygon_a5d44f07791e41458ee4368f9570148cb}{get\+Holes}} () const
+\item 
+bool \mbox{\hyperlink{class_geometry_1_1_polygon_a4466acaad96810bfea459ba890c1bd64}{is\+Point\+Inside}} (const \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} \&point) const
+\item 
+bool \mbox{\hyperlink{class_geometry_1_1_polygon_ad2999da7bce9957d9974cc294aaa9efb}{is\+Convex}} () const
+\item 
+bool \mbox{\hyperlink{class_geometry_1_1_polygon_ac06279101046016730d9bbcd946663c4}{exists}} () const
+\item 
+bool \mbox{\hyperlink{class_geometry_1_1_polygon_ade26117ec3b1f56362190e27e6056535}{contains\+Point}} (const \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} \&P) const
+\item 
+\mbox{\hyperlink{class_math_1_1_angle}{Math\+::\+Angle}} \mbox{\hyperlink{class_geometry_1_1_polygon_a5bc5243e1c5a1e9c80d2e7e59d8688c2}{calc\+Inner\+Angle}} () const
+\item 
+float \mbox{\hyperlink{class_geometry_1_1_polygon_abf422eeec92fd9ef793d696bb4e9bdeb}{beauty}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_geometry_1_1_polygon_a55ccb3a6bfa3c5176ceb1ed12efc91fd}{calculate\+Convexity}} ()
+\item 
+void \mbox{\hyperlink{class_geometry_1_1_polygon_abe0fa2f30629ae38dd88b28a85509a9e}{add\+Edges}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} $>$ \mbox{\hyperlink{class_geometry_1_1_polygon_ab2bd342c25ffeb2506e1af8eee528890}{points}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_geometry_1_1_edge}{Edge}} $>$ \mbox{\hyperlink{class_geometry_1_1_polygon_a2be241c4ea5fd02b28c37b8fdc5013d9}{edges}}
+\item 
+int \mbox{\hyperlink{class_geometry_1_1_polygon_aebe9e124c3d45f5e5042b16191f24479}{n}}
+\item 
+bool \mbox{\hyperlink{class_geometry_1_1_polygon_a883f56b408b214f435dd3ec2990cfc56}{convex}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_geometry_1_1_polygon}{Polygon}} $>$ \mbox{\hyperlink{class_geometry_1_1_polygon_af23bea08e5899e2f8ee3e2c518fdc219}{holes}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} $>$ \mbox{\hyperlink{class_geometry_1_1_polygon_a635393ee23fa4c5b59662b87ad946085}{get\+Intersection\+Points}} (const \mbox{\hyperlink{class_geometry_1_1_line}{Line}} \&line, const \mbox{\hyperlink{class_geometry_1_1_polygon}{Polygon}} \&polygon)
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_geometry_1_1_polygon}{Polygon}} $>$ \mbox{\hyperlink{class_geometry_1_1_polygon_a6390683295b7297728a6f38c5989e3b7}{divide\+Polygon\+By\+Line}} (const \mbox{\hyperlink{class_geometry_1_1_line}{Line}} \&line, const \mbox{\hyperlink{class_geometry_1_1_polygon}{Polygon}} \&polygon)
+\item 
+\mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} \mbox{\hyperlink{class_geometry_1_1_polygon_afcc62dc30ef28e64fa365c2060054445}{cut\+Part\+From\+Polygon}} (\mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} P, float targer\+Area, \mbox{\hyperlink{class_geometry_1_1_polygon}{Polygon}} polygon)
+\item 
+std\+::ostream \& \mbox{\hyperlink{class_geometry_1_1_polygon_aa2f8e48fabb85794c40576932474ec9c}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{class_geometry_1_1_polygon}{Polygon}} \&polygon)
+\item 
+bool \mbox{\hyperlink{class_geometry_1_1_polygon_a0e5cd04e16764d282e974ddb0aef0215}{operator==}} (const \mbox{\hyperlink{class_geometry_1_1_polygon}{Polygon}} \&polygon1, const \mbox{\hyperlink{class_geometry_1_1_polygon}{Polygon}} \&polygon2)
+\item 
+bool \mbox{\hyperlink{class_geometry_1_1_polygon_ad49823170a4a52c3103b43370e77d3ee}{operator!=}} (const \mbox{\hyperlink{class_geometry_1_1_polygon}{Polygon}} \&polygon1, const \mbox{\hyperlink{class_geometry_1_1_polygon}{Polygon}} \&polygon2)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{polygon_8hpp_source_l00009}{9}} of file \mbox{\hyperlink{polygon_8hpp_source}{polygon.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_geometry_1_1_polygon_aa2d7e0b85807b5c8a6677df42c703708}\label{class_geometry_1_1_polygon_aa2d7e0b85807b5c8a6677df42c703708} 
+\index{Geometry::Polygon@{Geometry::Polygon}!Polygon@{Polygon}}
+\index{Polygon@{Polygon}!Geometry::Polygon@{Geometry::Polygon}}
+\doxysubsubsection{\texorpdfstring{Polygon()}{Polygon()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Geometry\+::\+Polygon\+::\+Polygon (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{polygon_8hpp_source_l00023}{23}} of file \mbox{\hyperlink{polygon_8hpp_source}{polygon.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00023\ :\ \mbox{\hyperlink{class_geometry_1_1_polygon_aebe9e124c3d45f5e5042b16191f24479}{n}}(0)\ \{\ \mbox{\hyperlink{class_geometry_1_1_polygon_a55ccb3a6bfa3c5176ceb1ed12efc91fd}{calculateConvexity}}();\ \};}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_geometry_1_1_polygon_aa2d7e0b85807b5c8a6677df42c703708_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_geometry_1_1_polygon_aa0257e192cec53d3640401f2dfc94958}\label{class_geometry_1_1_polygon_aa0257e192cec53d3640401f2dfc94958} 
+\index{Geometry::Polygon@{Geometry::Polygon}!Polygon@{Polygon}}
+\index{Polygon@{Polygon}!Geometry::Polygon@{Geometry::Polygon}}
+\doxysubsubsection{\texorpdfstring{Polygon()}{Polygon()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Geometry\+::\+Polygon\+::\+Polygon (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} $>$}]{points }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{polygon_8cpp_source_l00044}{44}} of file \mbox{\hyperlink{polygon_8cpp_source}{polygon.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00045\ \ \ \ \ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{class_geometry_1_1_polygon_ab2bd342c25ffeb2506e1af8eee528890}{points}}\ =\ \mbox{\hyperlink{class_geometry_1_1_polygon_ab2bd342c25ffeb2506e1af8eee528890}{points}};}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{class_geometry_1_1_polygon_aebe9e124c3d45f5e5042b16191f24479}{n}}\ =\ \mbox{\hyperlink{class_geometry_1_1_polygon_ab2bd342c25ffeb2506e1af8eee528890}{points}}.size();}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_polygon_abe0fa2f30629ae38dd88b28a85509a9e}{addEdges}}();}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_polygon_a55ccb3a6bfa3c5176ceb1ed12efc91fd}{calculateConvexity}}();}
+\DoxyCodeLine{00050\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_geometry_1_1_polygon_aa0257e192cec53d3640401f2dfc94958_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_geometry_1_1_polygon_a2260c0fd8572f3b780036e0482ba6878}\label{class_geometry_1_1_polygon_a2260c0fd8572f3b780036e0482ba6878} 
+\index{Geometry::Polygon@{Geometry::Polygon}!Polygon@{Polygon}}
+\index{Polygon@{Polygon}!Geometry::Polygon@{Geometry::Polygon}}
+\doxysubsubsection{\texorpdfstring{Polygon()}{Polygon()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Geometry\+::\+Polygon\+::\+Polygon (\begin{DoxyParamCaption}\item[{std\+::initializer\+\_\+list$<$ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} $>$}]{points }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{polygon_8cpp_source_l00052}{52}} of file \mbox{\hyperlink{polygon_8cpp_source}{polygon.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00053\ \ \ \ \ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ v\ :\ \mbox{\hyperlink{class_geometry_1_1_polygon_ab2bd342c25ffeb2506e1af8eee528890}{points}})}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{class_geometry_1_1_polygon_ab2bd342c25ffeb2506e1af8eee528890}{points}}.push\_back(v);}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{class_geometry_1_1_polygon_aebe9e124c3d45f5e5042b16191f24479}{n}}\ =\ this-\/>\mbox{\hyperlink{class_geometry_1_1_polygon_ab2bd342c25ffeb2506e1af8eee528890}{points}}.size();}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_polygon_abe0fa2f30629ae38dd88b28a85509a9e}{addEdges}}();}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_polygon_a55ccb3a6bfa3c5176ceb1ed12efc91fd}{calculateConvexity}}();}
+\DoxyCodeLine{00059\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_geometry_1_1_polygon_a2260c0fd8572f3b780036e0482ba6878_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_geometry_1_1_polygon_abe0fa2f30629ae38dd88b28a85509a9e}\label{class_geometry_1_1_polygon_abe0fa2f30629ae38dd88b28a85509a9e} 
+\index{Geometry::Polygon@{Geometry::Polygon}!addEdges@{addEdges}}
+\index{addEdges@{addEdges}!Geometry::Polygon@{Geometry::Polygon}}
+\doxysubsubsection{\texorpdfstring{addEdges()}{addEdges()}}
+{\footnotesize\ttfamily void Geometry\+::\+Polygon\+::add\+Edges (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{polygon_8cpp_source_l00031}{31}} of file \mbox{\hyperlink{polygon_8cpp_source}{polygon.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00032\ \ \ \ \ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_polygon_a2be241c4ea5fd02b28c37b8fdc5013d9}{edges}}.clear();}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_geometry_1_1_polygon_aebe9e124c3d45f5e5042b16191f24479}{n}}\ <\ 2)}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ 0;\ idx\ <\ \mbox{\hyperlink{class_geometry_1_1_polygon_aebe9e124c3d45f5e5042b16191f24479}{n}}\ -\/\ 1;\ ++idx)}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_polygon_a2be241c4ea5fd02b28c37b8fdc5013d9}{edges}}.push\_back(Edge(\mbox{\hyperlink{class_geometry_1_1_polygon_ab2bd342c25ffeb2506e1af8eee528890}{points}}[idx],\ \mbox{\hyperlink{class_geometry_1_1_polygon_ab2bd342c25ffeb2506e1af8eee528890}{points}}[idx\ +\ 1]));}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_polygon_a2be241c4ea5fd02b28c37b8fdc5013d9}{edges}}.push\_back(Edge(\mbox{\hyperlink{class_geometry_1_1_polygon_ab2bd342c25ffeb2506e1af8eee528890}{points}}[\mbox{\hyperlink{class_geometry_1_1_polygon_aebe9e124c3d45f5e5042b16191f24479}{n}}\ -\/\ 1],\ \mbox{\hyperlink{class_geometry_1_1_polygon_ab2bd342c25ffeb2506e1af8eee528890}{points}}[0]));}
+\DoxyCodeLine{00042\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_geometry_1_1_polygon_abe0fa2f30629ae38dd88b28a85509a9e_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_geometry_1_1_polygon_ade2489b324459e8eb35c6050fa7263b1}\label{class_geometry_1_1_polygon_ade2489b324459e8eb35c6050fa7263b1} 
+\index{Geometry::Polygon@{Geometry::Polygon}!addHole@{addHole}}
+\index{addHole@{addHole}!Geometry::Polygon@{Geometry::Polygon}}
+\doxysubsubsection{\texorpdfstring{addHole()}{addHole()}}
+{\footnotesize\ttfamily bool Geometry\+::\+Polygon\+::add\+Hole (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_geometry_1_1_polygon}{Polygon}} \&}]{hole }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{polygon_8cpp_source_l00089}{89}} of file \mbox{\hyperlink{polygon_8cpp_source}{polygon.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00090\ \ \ \ \ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\&\ p\ :\ hole.\mbox{\hyperlink{class_geometry_1_1_polygon_a94dc0f266b827e9596f29888c796ca17}{getPoints}}())}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//assert(isPointInside(p));}}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_geometry_1_1_polygon_a4466acaad96810bfea459ba890c1bd64}{isPointInside}}(p))}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_polygon_af23bea08e5899e2f8ee3e2c518fdc219}{holes}}.push\_back(hole);}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00101\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_geometry_1_1_polygon_ade2489b324459e8eb35c6050fa7263b1_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_geometry_1_1_polygon_ade2489b324459e8eb35c6050fa7263b1_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_geometry_1_1_polygon_a12c9321822bdf861cf7c304fa0c888e7}\label{class_geometry_1_1_polygon_a12c9321822bdf861cf7c304fa0c888e7} 
+\index{Geometry::Polygon@{Geometry::Polygon}!addPoint@{addPoint}}
+\index{addPoint@{addPoint}!Geometry::Polygon@{Geometry::Polygon}}
+\doxysubsubsection{\texorpdfstring{addPoint()}{addPoint()}}
+{\footnotesize\ttfamily void Geometry\+::\+Polygon\+::add\+Point (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}}}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{polygon_8cpp_source_l00077}{77}} of file \mbox{\hyperlink{polygon_8cpp_source}{polygon.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00078\ \ \ \ \ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_geometry_1_1_polygon_ade26117ec3b1f56362190e27e6056535}{containsPoint}}(p))}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_polygon_ab2bd342c25ffeb2506e1af8eee528890}{points}}.push\_back(p);}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ ++\mbox{\hyperlink{class_geometry_1_1_polygon_aebe9e124c3d45f5e5042b16191f24479}{n}};}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_polygon_abe0fa2f30629ae38dd88b28a85509a9e}{addEdges}}();}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_polygon_a55ccb3a6bfa3c5176ceb1ed12efc91fd}{calculateConvexity}}();}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{comment}{//assertm(exists(),\ "{}Polygon\ with\ the\ added\ point\ does\ not\ exists!"{});}}
+\DoxyCodeLine{00087\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_geometry_1_1_polygon_a12c9321822bdf861cf7c304fa0c888e7_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_geometry_1_1_polygon_a12c9321822bdf861cf7c304fa0c888e7_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_geometry_1_1_polygon_a31952555db3c1184c9a1fb46f1087441}\label{class_geometry_1_1_polygon_a31952555db3c1184c9a1fb46f1087441} 
+\index{Geometry::Polygon@{Geometry::Polygon}!Area@{Area}}
+\index{Area@{Area}!Geometry::Polygon@{Geometry::Polygon}}
+\doxysubsubsection{\texorpdfstring{Area()}{Area()}}
+{\footnotesize\ttfamily float Geometry\+::\+Polygon\+::\+Area (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{polygon_8cpp_source_l00061}{61}} of file \mbox{\hyperlink{polygon_8cpp_source}{polygon.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00062\ \ \ \ \ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ area\ =\ 0.0f;}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ size\ =\ \mbox{\hyperlink{class_geometry_1_1_polygon_ab2bd342c25ffeb2506e1af8eee528890}{points}}.size();}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ j\ =\ size\ -\/\ 1;}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ size;\ i++)}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ area\ +=\ (\mbox{\hyperlink{class_geometry_1_1_polygon_ab2bd342c25ffeb2506e1af8eee528890}{points}}[j][0]\ +\ \mbox{\hyperlink{class_geometry_1_1_polygon_ab2bd342c25ffeb2506e1af8eee528890}{points}}[i][0])\ *\ (\mbox{\hyperlink{class_geometry_1_1_polygon_ab2bd342c25ffeb2506e1af8eee528890}{points}}[j][1]\ -\/\ \mbox{\hyperlink{class_geometry_1_1_polygon_ab2bd342c25ffeb2506e1af8eee528890}{points}}[i][1]);}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ j\ =\ i;\ }
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ abs(area\ /\ 2.0);}
+\DoxyCodeLine{00075\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_geometry_1_1_polygon_abf422eeec92fd9ef793d696bb4e9bdeb}\label{class_geometry_1_1_polygon_abf422eeec92fd9ef793d696bb4e9bdeb} 
+\index{Geometry::Polygon@{Geometry::Polygon}!beauty@{beauty}}
+\index{beauty@{beauty}!Geometry::Polygon@{Geometry::Polygon}}
+\doxysubsubsection{\texorpdfstring{beauty()}{beauty()}}
+{\footnotesize\ttfamily float Geometry\+::\+Polygon\+::beauty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{polygon_8hpp_source_l00043}{43}} of file \mbox{\hyperlink{polygon_8hpp_source}{polygon.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00043\ \{\ \textcolor{keywordflow}{return}\ 0.0f;\ \textcolor{comment}{/*TODO\ beuty\ szamitas,\ nem\ biztos,\ hogy\ szukseges\ mar*/}\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_geometry_1_1_polygon_a5bc5243e1c5a1e9c80d2e7e59d8688c2}\label{class_geometry_1_1_polygon_a5bc5243e1c5a1e9c80d2e7e59d8688c2} 
+\index{Geometry::Polygon@{Geometry::Polygon}!calcInnerAngle@{calcInnerAngle}}
+\index{calcInnerAngle@{calcInnerAngle}!Geometry::Polygon@{Geometry::Polygon}}
+\doxysubsubsection{\texorpdfstring{calcInnerAngle()}{calcInnerAngle()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_math_1_1_angle}{Math\+::\+Angle}} Geometry\+::\+Polygon\+::calc\+Inner\+Angle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{polygon_8hpp_source_l00041}{41}} of file \mbox{\hyperlink{polygon_8hpp_source}{polygon.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00041\ \{\ \textcolor{keywordflow}{return}\ ((\textcolor{keywordtype}{float})(\mbox{\hyperlink{class_geometry_1_1_polygon_aebe9e124c3d45f5e5042b16191f24479}{n}}\ -\/\ 2))\ *\ 180.0\_deg;\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_geometry_1_1_polygon_a5bc5243e1c5a1e9c80d2e7e59d8688c2_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_geometry_1_1_polygon_a55ccb3a6bfa3c5176ceb1ed12efc91fd}\label{class_geometry_1_1_polygon_a55ccb3a6bfa3c5176ceb1ed12efc91fd} 
+\index{Geometry::Polygon@{Geometry::Polygon}!calculateConvexity@{calculateConvexity}}
+\index{calculateConvexity@{calculateConvexity}!Geometry::Polygon@{Geometry::Polygon}}
+\doxysubsubsection{\texorpdfstring{calculateConvexity()}{calculateConvexity()}}
+{\footnotesize\ttfamily void Geometry\+::\+Polygon\+::calculate\+Convexity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{polygon_8cpp_source_l00007}{7}} of file \mbox{\hyperlink{polygon_8cpp_source}{polygon.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00008\ \ \ \ \ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_geometry_1_1_polygon_aebe9e124c3d45f5e5042b16191f24479}{n}}\ <\ 3)}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_polygon_a883f56b408b214f435dd3ec2990cfc56}{convex}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_polygon_a883f56b408b214f435dd3ec2990cfc56}{convex}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespace_math_acb53f49cacbc0754cf4b882a41837468}{Math::getAngle}}(\mbox{\hyperlink{class_geometry_1_1_polygon_ab2bd342c25ffeb2506e1af8eee528890}{points}}[\mbox{\hyperlink{class_geometry_1_1_polygon_aebe9e124c3d45f5e5042b16191f24479}{n}}\ -\/\ 1],\ \mbox{\hyperlink{class_geometry_1_1_polygon_ab2bd342c25ffeb2506e1af8eee528890}{points}}[0],\ \mbox{\hyperlink{class_geometry_1_1_polygon_ab2bd342c25ffeb2506e1af8eee528890}{points}}[1])\ >\ 180.0\_deg)}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ 1;\ idx\ <\ \mbox{\hyperlink{class_geometry_1_1_polygon_aebe9e124c3d45f5e5042b16191f24479}{n}}\ -\/\ 1;\ ++idx)}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespace_math_acb53f49cacbc0754cf4b882a41837468}{Math::getAngle}}(\mbox{\hyperlink{class_geometry_1_1_polygon_ab2bd342c25ffeb2506e1af8eee528890}{points}}[idx\ -\/\ 1],\ \mbox{\hyperlink{class_geometry_1_1_polygon_ab2bd342c25ffeb2506e1af8eee528890}{points}}[idx],\ \mbox{\hyperlink{class_geometry_1_1_polygon_ab2bd342c25ffeb2506e1af8eee528890}{points}}[idx\ +\ 1])\ >\ 180.0\_deg)}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespace_math_acb53f49cacbc0754cf4b882a41837468}{Math::getAngle}}(\mbox{\hyperlink{class_geometry_1_1_polygon_ab2bd342c25ffeb2506e1af8eee528890}{points}}[\mbox{\hyperlink{class_geometry_1_1_polygon_aebe9e124c3d45f5e5042b16191f24479}{n}}\ -\/\ 2],\ \mbox{\hyperlink{class_geometry_1_1_polygon_ab2bd342c25ffeb2506e1af8eee528890}{points}}[\mbox{\hyperlink{class_geometry_1_1_polygon_aebe9e124c3d45f5e5042b16191f24479}{n}}\ -\/\ 1],\ \mbox{\hyperlink{class_geometry_1_1_polygon_ab2bd342c25ffeb2506e1af8eee528890}{points}}[0])\ >\ 180.0\_deg)}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_polygon_a883f56b408b214f435dd3ec2990cfc56}{convex}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00029\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=304pt]{class_geometry_1_1_polygon_a55ccb3a6bfa3c5176ceb1ed12efc91fd_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_geometry_1_1_polygon_a55ccb3a6bfa3c5176ceb1ed12efc91fd_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_geometry_1_1_polygon_ade26117ec3b1f56362190e27e6056535}\label{class_geometry_1_1_polygon_ade26117ec3b1f56362190e27e6056535} 
+\index{Geometry::Polygon@{Geometry::Polygon}!containsPoint@{containsPoint}}
+\index{containsPoint@{containsPoint}!Geometry::Polygon@{Geometry::Polygon}}
+\doxysubsubsection{\texorpdfstring{containsPoint()}{containsPoint()}}
+{\footnotesize\ttfamily bool Geometry\+::\+Polygon\+::contains\+Point (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} \&}]{P }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{polygon_8cpp_source_l00172}{172}} of file \mbox{\hyperlink{polygon_8cpp_source}{polygon.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00173\ \ \ \ \ \{}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_geometry_1_1_polygon_ab2bd342c25ffeb2506e1af8eee528890}{points}}.empty())}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ p\ :\ \mbox{\hyperlink{class_geometry_1_1_polygon_ab2bd342c25ffeb2506e1af8eee528890}{points}})}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ if\ (p\ ==\ P)}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ return\ true;}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00182\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_geometry_1_1_polygon_ade26117ec3b1f56362190e27e6056535_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_geometry_1_1_polygon_ac06279101046016730d9bbcd946663c4}\label{class_geometry_1_1_polygon_ac06279101046016730d9bbcd946663c4} 
+\index{Geometry::Polygon@{Geometry::Polygon}!exists@{exists}}
+\index{exists@{exists}!Geometry::Polygon@{Geometry::Polygon}}
+\doxysubsubsection{\texorpdfstring{exists()}{exists()}}
+{\footnotesize\ttfamily bool Geometry\+::\+Polygon\+::exists (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{polygon_8cpp_source_l00127}{127}} of file \mbox{\hyperlink{polygon_8cpp_source}{polygon.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00128\ \ \ \ \ \{}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_geometry_1_1_polygon_aebe9e124c3d45f5e5042b16191f24479}{n}}\ <\ 3)}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_angle}{Math::Angle}}\ innerAngle\ =\ 0.0\_deg;}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ Edge\&\ e1\ :\ \mbox{\hyperlink{class_geometry_1_1_polygon_a2be241c4ea5fd02b28c37b8fdc5013d9}{edges}})}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ Edge\&\ e2\ :\ \mbox{\hyperlink{class_geometry_1_1_polygon_a2be241c4ea5fd02b28c37b8fdc5013d9}{edges}})}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (e1\ ==\ e2)}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::optional<Math::Vec2f>\ i\ =\ \mbox{\hyperlink{namespace_geometry_ae680321c371d9f6bd6def5844e915b6f}{getIntersectionPoint}}(e1,\ e2);}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!i.has\_value())}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ I\ =\ i.value();}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ P1e1\ =\ e1.getPoints()[0];}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ P2e1\ =\ e1.getPoints()[1];}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ P1e2\ =\ e2.getPoints()[0];}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ P2e2\ =\ e2.getPoints()[1];}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{namespace_math_1_1_constant_adb2a456ef71c62332f477d01b4c46fb9}{epsilon}}\ =\ 0.001f;}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespace_math_afe7eb6918da89ee598397ad25d291c08}{Math::equals}}(I,\ P1e1,\ epsilon)\ ||\ \mbox{\hyperlink{namespace_math_afe7eb6918da89ee598397ad25d291c08}{Math::equals}}(I,\ P2e1,\ epsilon))}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespace_math_afe7eb6918da89ee598397ad25d291c08}{Math::equals}}(I,\ P1e2,\ epsilon)\ ||\ \mbox{\hyperlink{namespace_math_afe7eb6918da89ee598397ad25d291c08}{Math::equals}}(I,\ P2e2,\ epsilon))}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ innerAngle\ +=\ \mbox{\hyperlink{namespace_math_acb53f49cacbc0754cf4b882a41837468}{Math::getAngle}}(\mbox{\hyperlink{class_geometry_1_1_polygon_ab2bd342c25ffeb2506e1af8eee528890}{points}}[\mbox{\hyperlink{class_geometry_1_1_polygon_aebe9e124c3d45f5e5042b16191f24479}{n}}\ -\/\ 1],\ \mbox{\hyperlink{class_geometry_1_1_polygon_ab2bd342c25ffeb2506e1af8eee528890}{points}}[0],\ \mbox{\hyperlink{class_geometry_1_1_polygon_ab2bd342c25ffeb2506e1af8eee528890}{points}}[1]);}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ 1;\ idx\ <\ \mbox{\hyperlink{class_geometry_1_1_polygon_aebe9e124c3d45f5e5042b16191f24479}{n}}\ -\/\ 1;\ ++idx)}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ innerAngle\ +=\ \mbox{\hyperlink{namespace_math_acb53f49cacbc0754cf4b882a41837468}{Math::getAngle}}(\mbox{\hyperlink{class_geometry_1_1_polygon_ab2bd342c25ffeb2506e1af8eee528890}{points}}[idx\ -\/\ 1],\ \mbox{\hyperlink{class_geometry_1_1_polygon_ab2bd342c25ffeb2506e1af8eee528890}{points}}[idx],\ \mbox{\hyperlink{class_geometry_1_1_polygon_ab2bd342c25ffeb2506e1af8eee528890}{points}}[idx\ +\ 1]);}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ innerAngle\ +=\ \mbox{\hyperlink{namespace_math_acb53f49cacbc0754cf4b882a41837468}{Math::getAngle}}(\mbox{\hyperlink{class_geometry_1_1_polygon_ab2bd342c25ffeb2506e1af8eee528890}{points}}[\mbox{\hyperlink{class_geometry_1_1_polygon_aebe9e124c3d45f5e5042b16191f24479}{n}}\ -\/\ 2],\ \mbox{\hyperlink{class_geometry_1_1_polygon_ab2bd342c25ffeb2506e1af8eee528890}{points}}[\mbox{\hyperlink{class_geometry_1_1_polygon_aebe9e124c3d45f5e5042b16191f24479}{n}}\ -\/\ 1],\ \mbox{\hyperlink{class_geometry_1_1_polygon_ab2bd342c25ffeb2506e1af8eee528890}{points}}[0]);}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ innerAngle\ ==\ \mbox{\hyperlink{class_geometry_1_1_polygon_a5bc5243e1c5a1e9c80d2e7e59d8688c2}{calcInnerAngle}}();}
+\DoxyCodeLine{00170\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_geometry_1_1_polygon_ac06279101046016730d9bbcd946663c4_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_geometry_1_1_polygon_ac06279101046016730d9bbcd946663c4_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_geometry_1_1_polygon_a33f18211b32f57137acbb136c2606c60}\label{class_geometry_1_1_polygon_a33f18211b32f57137acbb136c2606c60} 
+\index{Geometry::Polygon@{Geometry::Polygon}!getEdges@{getEdges}}
+\index{getEdges@{getEdges}!Geometry::Polygon@{Geometry::Polygon}}
+\doxysubsubsection{\texorpdfstring{getEdges()}{getEdges()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_geometry_1_1_edge}{Edge}} $>$ Geometry\+::\+Polygon\+::get\+Edges (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{polygon_8hpp_source_l00028}{28}} of file \mbox{\hyperlink{polygon_8hpp_source}{polygon.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00028\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_geometry_1_1_polygon_a2be241c4ea5fd02b28c37b8fdc5013d9}{edges}};\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_geometry_1_1_polygon_a33f18211b32f57137acbb136c2606c60_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_geometry_1_1_polygon_a5d44f07791e41458ee4368f9570148cb}\label{class_geometry_1_1_polygon_a5d44f07791e41458ee4368f9570148cb} 
+\index{Geometry::Polygon@{Geometry::Polygon}!getHoles@{getHoles}}
+\index{getHoles@{getHoles}!Geometry::Polygon@{Geometry::Polygon}}
+\doxysubsubsection{\texorpdfstring{getHoles()}{getHoles()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_geometry_1_1_polygon}{Polygon}} $>$ Geometry\+::\+Polygon\+::get\+Holes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{polygon_8hpp_source_l00034}{34}} of file \mbox{\hyperlink{polygon_8hpp_source}{polygon.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00034\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_geometry_1_1_polygon_af23bea08e5899e2f8ee3e2c518fdc219}{holes}};\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_geometry_1_1_polygon_a5d44f07791e41458ee4368f9570148cb_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_geometry_1_1_polygon_a94dc0f266b827e9596f29888c796ca17}\label{class_geometry_1_1_polygon_a94dc0f266b827e9596f29888c796ca17} 
+\index{Geometry::Polygon@{Geometry::Polygon}!getPoints@{getPoints}}
+\index{getPoints@{getPoints}!Geometry::Polygon@{Geometry::Polygon}}
+\doxysubsubsection{\texorpdfstring{getPoints()}{getPoints()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} $>$ Geometry\+::\+Polygon\+::get\+Points (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{polygon_8hpp_source_l00027}{27}} of file \mbox{\hyperlink{polygon_8hpp_source}{polygon.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00027\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_geometry_1_1_polygon_ab2bd342c25ffeb2506e1af8eee528890}{points}};\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_geometry_1_1_polygon_a94dc0f266b827e9596f29888c796ca17_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_geometry_1_1_polygon_ad2999da7bce9957d9974cc294aaa9efb}\label{class_geometry_1_1_polygon_ad2999da7bce9957d9974cc294aaa9efb} 
+\index{Geometry::Polygon@{Geometry::Polygon}!isConvex@{isConvex}}
+\index{isConvex@{isConvex}!Geometry::Polygon@{Geometry::Polygon}}
+\doxysubsubsection{\texorpdfstring{isConvex()}{isConvex()}}
+{\footnotesize\ttfamily bool Geometry\+::\+Polygon\+::is\+Convex (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{polygon_8hpp_source_l00037}{37}} of file \mbox{\hyperlink{polygon_8hpp_source}{polygon.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00037\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_geometry_1_1_polygon_a883f56b408b214f435dd3ec2990cfc56}{convex}};\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_geometry_1_1_polygon_ad2999da7bce9957d9974cc294aaa9efb_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_geometry_1_1_polygon_a4466acaad96810bfea459ba890c1bd64}\label{class_geometry_1_1_polygon_a4466acaad96810bfea459ba890c1bd64} 
+\index{Geometry::Polygon@{Geometry::Polygon}!isPointInside@{isPointInside}}
+\index{isPointInside@{isPointInside}!Geometry::Polygon@{Geometry::Polygon}}
+\doxysubsubsection{\texorpdfstring{isPointInside()}{isPointInside()}}
+{\footnotesize\ttfamily bool Geometry\+::\+Polygon\+::is\+Point\+Inside (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} \&}]{point }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{polygon_8cpp_source_l00103}{103}} of file \mbox{\hyperlink{polygon_8cpp_source}{polygon.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00104\ \ \ \ \ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ v(1.0f,\ 0.0f);}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ Line\ line(point,\ point\ +\ v);}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ intersectionCount\ =\ 0;}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ Edge\&\ edge\ :\ \mbox{\hyperlink{class_geometry_1_1_polygon_a2be241c4ea5fd02b28c37b8fdc5013d9}{edges}})}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ std::optional<Math::Vec2f>\ i\ =\ \mbox{\hyperlink{namespace_geometry_ae680321c371d9f6bd6def5844e915b6f}{getIntersectionPoint}}(edge,\ line);}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!i.has\_value())}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{namespace_math_1_1_constant_ac99dbfbdfd0c9f6006acda74b4dfe294}{x}}\ =\ i.value()[0];}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (x\ >\ point[0])}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ++intersectionCount;}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (intersectionCount\ \%\ 2\ ==\ 1)}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00125\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_geometry_1_1_polygon_a4466acaad96810bfea459ba890c1bd64_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_geometry_1_1_polygon_a4466acaad96810bfea459ba890c1bd64_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{class_geometry_1_1_polygon_afcc62dc30ef28e64fa365c2060054445}\label{class_geometry_1_1_polygon_afcc62dc30ef28e64fa365c2060054445} 
+\index{Geometry::Polygon@{Geometry::Polygon}!cutPartFromPolygon@{cutPartFromPolygon}}
+\index{cutPartFromPolygon@{cutPartFromPolygon}!Geometry::Polygon@{Geometry::Polygon}}
+\doxysubsubsection{\texorpdfstring{cutPartFromPolygon}{cutPartFromPolygon}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} cut\+Part\+From\+Polygon (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}}}]{P,  }\item[{float}]{targer\+Area,  }\item[{\mbox{\hyperlink{class_geometry_1_1_polygon}{Polygon}}}]{polygon }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line \mbox{\hyperlink{polygon_8cpp_source_l00248}{248}} of file \mbox{\hyperlink{polygon_8cpp_source}{polygon.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00249\ \ \ \ \ \{}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_geometry_1_1_polygon_aebe9e124c3d45f5e5042b16191f24479}{n}}\ =\ polygon.points.size();}
+\DoxyCodeLine{00251\ }
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ Edge\ currentEdge;}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ nextPointIdx\ =\ -\/1;}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ 0;\ idx\ <\ \mbox{\hyperlink{class_geometry_1_1_polygon_aebe9e124c3d45f5e5042b16191f24479}{n}};\ ++idx)}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ nextPointIdx\ =\ idx\ +\ 1;;}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (idx\ ==\ \mbox{\hyperlink{class_geometry_1_1_polygon_aebe9e124c3d45f5e5042b16191f24479}{n}}\ -\/\ 1)}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nextPointIdx\ =\ 0;}
+\DoxyCodeLine{00260\ }
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ \ \ \ currentEdge\ =\ Edge(polygon.points[idx],\ polygon.points[nextPointIdx]);}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (currentEdge.containsPoint(P))}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nextPointIdx\ =\ -\/1;}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00267\ }
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (nextPointIdx\ ==\ -\/1)}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::exception();}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ nextPoint\ =\ polygon.points[nextPointIdx];}
+\DoxyCodeLine{00272\ }
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_polygon_aa2d7e0b85807b5c8a6677df42c703708}{Polygon}}\ cutDown;}
+\DoxyCodeLine{00274\ }
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ lastPointIdx\ =\ -\/1;}
+\DoxyCodeLine{00276\ }
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ cutDown.addPoint(P);}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ cutDown.addPoint(nextPoint);}
+\DoxyCodeLine{00279\ }
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ 1;\ idx\ <\ \mbox{\hyperlink{class_geometry_1_1_polygon_aebe9e124c3d45f5e5042b16191f24479}{n}};\ ++idx)}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ newPoint\ =\ polygon.points[nextPointIdx\ +\ idx];}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \ \ \ \ cutDown.addPoint(newPoint);}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cutDown.Area()\ <\ targerArea)}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00286\ }
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \ \ \ \ lastPointIdx\ =\ nextPointIdx\ +\ idx;}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00290\ }
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \textcolor{comment}{//float\ A\ =\ cutDown.Area()\ -\/\ targerArea;}}
+\DoxyCodeLine{00292\ }
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ t\ =\ 1.0f;}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ v;}
+\DoxyCodeLine{00295\ }
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lastPointIdx\ ==\ -\/1)}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math::Vec2f}}();}
+\DoxyCodeLine{00298\ }
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ polygon.points[lastPointIdx]\ +\ (v\ *\ t);}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ lehet\ ez\ lenne\ a\ jo:\ return\ polygon.points[nextPointIdx]\ +\ (v\ *\ t);}}
+\DoxyCodeLine{00301\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_geometry_1_1_polygon_a6390683295b7297728a6f38c5989e3b7}\label{class_geometry_1_1_polygon_a6390683295b7297728a6f38c5989e3b7} 
+\index{Geometry::Polygon@{Geometry::Polygon}!dividePolygonByLine@{dividePolygonByLine}}
+\index{dividePolygonByLine@{dividePolygonByLine}!Geometry::Polygon@{Geometry::Polygon}}
+\doxysubsubsection{\texorpdfstring{dividePolygonByLine}{dividePolygonByLine}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_geometry_1_1_polygon}{Polygon}} $>$ divide\+Polygon\+By\+Line (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_geometry_1_1_line}{Line}} \&}]{line,  }\item[{const \mbox{\hyperlink{class_geometry_1_1_polygon}{Polygon}} \&}]{polygon }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line \mbox{\hyperlink{polygon_8cpp_source_l00205}{205}} of file \mbox{\hyperlink{polygon_8cpp_source}{polygon.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00206\ \ \ \ \ \{}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \textcolor{comment}{//epitek\ egy\ grafot\ es\ abban\ korkereses}}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!polygon.isConvex())}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ std::exception();}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ std::vector<Polygon>\ resultPolygons;}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ std::vector<Math::Vec2f>\ intersectionPoints\ =\ \mbox{\hyperlink{class_geometry_1_1_polygon_a635393ee23fa4c5b59662b87ad946085}{getIntersectionPoints}}(line,\ polygon);}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (intersectionPoints.size()\ ==\ 0\ ||\ intersectionPoints.size()\ ==\ 1)}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{\ polygon\ \};}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ resultPolygons.push\_back(\mbox{\hyperlink{class_geometry_1_1_polygon_aa2d7e0b85807b5c8a6677df42c703708}{Polygon}}());}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ resultPolygons.push\_back(\mbox{\hyperlink{class_geometry_1_1_polygon_aa2d7e0b85807b5c8a6677df42c703708}{Polygon}}());}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (Edge\ e\ :\ polygon.\mbox{\hyperlink{class_geometry_1_1_polygon_a2be241c4ea5fd02b28c37b8fdc5013d9}{edges}})}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (e.containsPoint(intersectionPoints[0]))}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ resultPolygons[0].addPoint(e.getPoints()[0]);}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ resultPolygons[0].addPoint(intersectionPoints[0]);}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ resultPolygons[1].addPoint(intersectionPoints[0]);}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ resultPolygons[1].addPoint(e.getPoints()[1]);}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (e.containsPoint(intersectionPoints[1]))}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ resultPolygons[0].addPoint(intersectionPoints[1]);}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ resultPolygons[0].addPoint(e.getPoints()[1]);}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ resultPolygons[1].addPoint(e.getPoints()[0]);}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ resultPolygons[1].addPoint(intersectionPoints[1]);}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \ \ \ \ resultPolygons[0].addPoint(e.getPoints()[0]);}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ resultPolygons[0].addPoint(e.getPoints()[1]);}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ resultPolygons;}
+\DoxyCodeLine{00246\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_geometry_1_1_polygon_a635393ee23fa4c5b59662b87ad946085}\label{class_geometry_1_1_polygon_a635393ee23fa4c5b59662b87ad946085} 
+\index{Geometry::Polygon@{Geometry::Polygon}!getIntersectionPoints@{getIntersectionPoints}}
+\index{getIntersectionPoints@{getIntersectionPoints}!Geometry::Polygon@{Geometry::Polygon}}
+\doxysubsubsection{\texorpdfstring{getIntersectionPoints}{getIntersectionPoints}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} $>$ get\+Intersection\+Points (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_geometry_1_1_line}{Line}} \&}]{line,  }\item[{const \mbox{\hyperlink{class_geometry_1_1_polygon}{Polygon}} \&}]{polygon }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line \mbox{\hyperlink{polygon_8cpp_source_l00185}{185}} of file \mbox{\hyperlink{polygon_8cpp_source}{polygon.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00186\ \ \ \ \ \{}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ std::vector<Math::Vec2f>\ intersectionPoints;}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (Edge\ edge\ :\ polygon.\mbox{\hyperlink{class_geometry_1_1_polygon_a2be241c4ea5fd02b28c37b8fdc5013d9}{edges}})}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ std::optional<Math::Vec2f>\ intersection\ =\ \mbox{\hyperlink{namespace_geometry_ae680321c371d9f6bd6def5844e915b6f}{getIntersectionPoint}}(edge,\ line);}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (intersection.has\_value()\ \&\&}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::find(intersectionPoints.begin(),\ intersectionPoints.end(),\ intersection.value())\ ==\ intersectionPoints.end())}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//std::cout\ <<\ intersection.value()\ <<\ std::endl;}}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ intersectionPoints.push\_back(intersection.value());}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//std::cout\ <<\ intersectionPoints.size()\ <<\ std::endl;}}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ intersectionPoints;}
+\DoxyCodeLine{00203\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_geometry_1_1_polygon_ad49823170a4a52c3103b43370e77d3ee}\label{class_geometry_1_1_polygon_ad49823170a4a52c3103b43370e77d3ee} 
+\index{Geometry::Polygon@{Geometry::Polygon}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Geometry::Polygon@{Geometry::Polygon}}
+\doxysubsubsection{\texorpdfstring{operator"!=}{operator!=}}
+{\footnotesize\ttfamily bool operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_geometry_1_1_polygon}{Polygon}} \&}]{polygon1,  }\item[{const \mbox{\hyperlink{class_geometry_1_1_polygon}{Polygon}} \&}]{polygon2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line \mbox{\hyperlink{polygon_8cpp_source_l00349}{349}} of file \mbox{\hyperlink{polygon_8cpp_source}{polygon.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00350\ \ \ \ \ \{}
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ !(polygon1\ ==\ polygon2);}
+\DoxyCodeLine{00352\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_geometry_1_1_polygon_aa2f8e48fabb85794c40576932474ec9c}\label{class_geometry_1_1_polygon_aa2f8e48fabb85794c40576932474ec9c} 
+\index{Geometry::Polygon@{Geometry::Polygon}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Geometry::Polygon@{Geometry::Polygon}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{class_geometry_1_1_polygon}{Polygon}} \&}]{polygon }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line \mbox{\hyperlink{polygon_8cpp_source_l00312}{312}} of file \mbox{\hyperlink{polygon_8cpp_source}{polygon.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00313\ \ \ \ \ \{}
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}polygon:"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ p\ :\ polygon.\mbox{\hyperlink{class_geometry_1_1_polygon_ab2bd342c25ffeb2506e1af8eee528890}{points}})}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ p\ <<\ \mbox{\hyperlink{namespacestd}{std}}::endl;}
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ os\ <<\ std::endl;}
+\DoxyCodeLine{00318\ }
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ os;}
+\DoxyCodeLine{00320\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_geometry_1_1_polygon_a0e5cd04e16764d282e974ddb0aef0215}\label{class_geometry_1_1_polygon_a0e5cd04e16764d282e974ddb0aef0215} 
+\index{Geometry::Polygon@{Geometry::Polygon}!operator==@{operator==}}
+\index{operator==@{operator==}!Geometry::Polygon@{Geometry::Polygon}}
+\doxysubsubsection{\texorpdfstring{operator==}{operator==}}
+{\footnotesize\ttfamily bool operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_geometry_1_1_polygon}{Polygon}} \&}]{polygon1,  }\item[{const \mbox{\hyperlink{class_geometry_1_1_polygon}{Polygon}} \&}]{polygon2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line \mbox{\hyperlink{polygon_8cpp_source_l00323}{323}} of file \mbox{\hyperlink{polygon_8cpp_source}{polygon.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00324\ \ \ \ \ \{}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (polygon1.n\ !=\ polygon2.n)}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00327\ }
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ foundEqual\ =\ \textcolor{keyword}{false};;}
+\DoxyCodeLine{00329\ }
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ 0;\ idx\ <\ polygon2.n;\ ++idx)}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (polygon2.getPoints()[idx]\ ==\ polygon1.getPoints()[0])}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ foundEqual\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <\ polygon2.n;\ ++i)}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (polygon1.getPoints()[i]\ !=\ polygon2.getPoints()[(idx\ +\ i)\ \%\ polygon2.n])}
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ foundEqual\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ foundEqual;}
+\DoxyCodeLine{00346\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_geometry_1_1_polygon_a883f56b408b214f435dd3ec2990cfc56}\label{class_geometry_1_1_polygon_a883f56b408b214f435dd3ec2990cfc56} 
+\index{Geometry::Polygon@{Geometry::Polygon}!convex@{convex}}
+\index{convex@{convex}!Geometry::Polygon@{Geometry::Polygon}}
+\doxysubsubsection{\texorpdfstring{convex}{convex}}
+{\footnotesize\ttfamily bool Geometry\+::\+Polygon\+::convex\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{polygon_8hpp_source_l00015}{15}} of file \mbox{\hyperlink{polygon_8hpp_source}{polygon.\+hpp}}.
+
+\Hypertarget{class_geometry_1_1_polygon_a2be241c4ea5fd02b28c37b8fdc5013d9}\label{class_geometry_1_1_polygon_a2be241c4ea5fd02b28c37b8fdc5013d9} 
+\index{Geometry::Polygon@{Geometry::Polygon}!edges@{edges}}
+\index{edges@{edges}!Geometry::Polygon@{Geometry::Polygon}}
+\doxysubsubsection{\texorpdfstring{edges}{edges}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_geometry_1_1_edge}{Edge}}$>$ Geometry\+::\+Polygon\+::edges\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{polygon_8hpp_source_l00013}{13}} of file \mbox{\hyperlink{polygon_8hpp_source}{polygon.\+hpp}}.
+
+\Hypertarget{class_geometry_1_1_polygon_af23bea08e5899e2f8ee3e2c518fdc219}\label{class_geometry_1_1_polygon_af23bea08e5899e2f8ee3e2c518fdc219} 
+\index{Geometry::Polygon@{Geometry::Polygon}!holes@{holes}}
+\index{holes@{holes}!Geometry::Polygon@{Geometry::Polygon}}
+\doxysubsubsection{\texorpdfstring{holes}{holes}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_geometry_1_1_polygon}{Polygon}}$>$ Geometry\+::\+Polygon\+::holes\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{polygon_8hpp_source_l00017}{17}} of file \mbox{\hyperlink{polygon_8hpp_source}{polygon.\+hpp}}.
+
+\Hypertarget{class_geometry_1_1_polygon_aebe9e124c3d45f5e5042b16191f24479}\label{class_geometry_1_1_polygon_aebe9e124c3d45f5e5042b16191f24479} 
+\index{Geometry::Polygon@{Geometry::Polygon}!n@{n}}
+\index{n@{n}!Geometry::Polygon@{Geometry::Polygon}}
+\doxysubsubsection{\texorpdfstring{n}{n}}
+{\footnotesize\ttfamily int Geometry\+::\+Polygon\+::n\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{polygon_8hpp_source_l00014}{14}} of file \mbox{\hyperlink{polygon_8hpp_source}{polygon.\+hpp}}.
+
+\Hypertarget{class_geometry_1_1_polygon_ab2bd342c25ffeb2506e1af8eee528890}\label{class_geometry_1_1_polygon_ab2bd342c25ffeb2506e1af8eee528890} 
+\index{Geometry::Polygon@{Geometry::Polygon}!points@{points}}
+\index{points@{points}!Geometry::Polygon@{Geometry::Polygon}}
+\doxysubsubsection{\texorpdfstring{points}{points}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}}$>$ Geometry\+::\+Polygon\+::points\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{polygon_8hpp_source_l00012}{12}} of file \mbox{\hyperlink{polygon_8hpp_source}{polygon.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Geometry/\mbox{\hyperlink{polygon_8hpp}{polygon.\+hpp}}\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Geometry/\mbox{\hyperlink{polygon_8cpp}{polygon.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,25 @@
+<map id="Generator::BaseConvexPolygonGeneratorAlgorithm::generate" name="Generator::BaseConvexPolygonGeneratorAlgorithm::generate">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,93,211,136"/>
+<area shape="rect" id="Node000002" href="$class_generator_1_1_base_convex_polygon_generator_algorithm.html#a739e5b700f046a346eb1e2afb5cecb89" title=" " alt="" coords="259,5,464,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="171,90,283,51,284,56,173,95"/>
+<area shape="rect" id="Node000004" href="$class_random.html#a2ed52650d126b0d4479584ad7f6a5b76" title=" " alt="" coords="806,72,933,99"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="211,108,790,86,790,91,211,113"/>
+<area shape="rect" id="Node000005" href="$class_generator_1_1_base_convex_polygon_generator_algorithm.html#a0777ea305d0851a39a77f051d34843ae" title=" " alt="" coords="259,123,464,165"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="212,124,243,128,243,133,211,129"/>
+<area shape="rect" id="Node000006" href="$namespace_geometry.html#a2a037051bb9263fa553810b06691426c" title=" " alt="" coords="302,224,421,251"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="155,134,319,214,317,219,153,139"/>
+<area shape="rect" id="Node000003" href="$class_random.html#a90cbd4e8366e8097648f33250ceb45f8" title=" " alt="" coords="512,17,725,44"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="464,26,497,26,496,31,464,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="684,42,791,66,790,71,683,47"/>
+<area shape="poly" id="edge6_Node000005_Node000004" title=" " alt="" coords="464,131,725,101,790,93,791,98,726,107,465,136"/>
+<area shape="rect" id="Node000007" href="$class_math_1_1_quaternion.html#a18d3a934c8bc11845841ce8824b209b8" title=" " alt="" coords="521,173,716,200"/>
+<area shape="poly" id="edge8_Node000006_Node000007" title=" " alt="" coords="421,223,532,201,533,206,422,228"/>
+<area shape="rect" id="Node000009" href="$class_math_1_1_quaternion.html#ac6884d3900d18dc11ee565400f89ca73" title=" " alt="" coords="553,224,685,251"/>
+<area shape="poly" id="edge10_Node000006_Node000009" title=" " alt="" coords="421,235,537,235,537,240,421,240"/>
+<area shape="rect" id="Node000010" href="$class_math_1_1_quaternion.html#a97853ababc2cba1bc0484fd02b33914d" title=" " alt="" coords="553,275,685,301"/>
+<area shape="poly" id="edge11_Node000006_Node000010" title=" " alt="" coords="422,246,538,269,537,275,421,252"/>
+<area shape="rect" id="Node000011" href="$class_math_1_1_quaternion.html#a8b112e36c39b3ffa40a0110c73a1b236" title=" " alt="" coords="551,325,687,352"/>
+<area shape="poly" id="edge12_Node000006_Node000011" title=" " alt="" coords="387,249,443,280,513,311,537,319,535,324,511,316,441,284,384,254"/>
+<area shape="rect" id="Node000008" href="$class_math_1_1_quaternion.html#a0af09a51ab263e76041a90a035af8e30" title=" " alt="" coords="773,173,966,200"/>
+<area shape="poly" id="edge9_Node000007_Node000008" title=" " alt="" coords="717,184,758,184,758,189,717,189"/>
+</map>

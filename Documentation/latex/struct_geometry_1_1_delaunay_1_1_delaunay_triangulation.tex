@@ -1,0 +1,95 @@
+\doxysection{Geometry\+::Delaunay\+::Delaunay\+Triangulation Struct Reference}
+\hypertarget{struct_geometry_1_1_delaunay_1_1_delaunay_triangulation}{}\label{struct_geometry_1_1_delaunay_1_1_delaunay_triangulation}\index{Geometry::Delaunay::DelaunayTriangulation@{Geometry::Delaunay::DelaunayTriangulation}}
+
+
+{\ttfamily \#include $<$delaunay\+Base.\+hpp$>$}
+
+
+
+Collaboration diagram for Geometry\+::Delaunay\+::Delaunay\+Triangulation\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{struct_geometry_1_1_delaunay_1_1_delaunay_triangulation__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{struct_geometry_1_1_delaunay_1_1_delaunay_triangulation_aaaefdaa0bb6e48a65797fa838c3c1c74}{operator==}} (const \mbox{\hyperlink{struct_geometry_1_1_delaunay_1_1_delaunay_triangulation}{Delaunay\+Triangulation}} \&other) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} $>$ \mbox{\hyperlink{struct_geometry_1_1_delaunay_1_1_delaunay_triangulation_a8276e067aa96cc68fb35249965e3705e}{Vertices}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle}{Triangle}} $>$ \mbox{\hyperlink{struct_geometry_1_1_delaunay_1_1_delaunay_triangulation_a750debeecb5f91a86fa743402289dbba}{Triangles}}
+\item 
+\mbox{\hyperlink{class_math_1_1_graph}{Math\+::\+Graph}}$<$ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle}{Triangle}} $>$ \mbox{\hyperlink{struct_geometry_1_1_delaunay_1_1_delaunay_triangulation_a3ea5df731feaa3ea1cd1db2dd0448a2c}{Neighbours}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{delaunay_base_8hpp_source_l00060}{60}} of file \mbox{\hyperlink{delaunay_base_8hpp_source}{delaunay\+Base.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{struct_geometry_1_1_delaunay_1_1_delaunay_triangulation_aaaefdaa0bb6e48a65797fa838c3c1c74}\label{struct_geometry_1_1_delaunay_1_1_delaunay_triangulation_aaaefdaa0bb6e48a65797fa838c3c1c74} 
+\index{Geometry::Delaunay::DelaunayTriangulation@{Geometry::Delaunay::DelaunayTriangulation}!operator==@{operator==}}
+\index{operator==@{operator==}!Geometry::Delaunay::DelaunayTriangulation@{Geometry::Delaunay::DelaunayTriangulation}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Geometry\+::\+Delaunay\+::\+Delaunay\+Triangulation\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_geometry_1_1_delaunay_1_1_delaunay_triangulation}{Delaunay\+Triangulation}} \&}]{other }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{delaunay_base_8hpp_source_l00066}{66}} of file \mbox{\hyperlink{delaunay_base_8hpp_source}{delaunay\+Base.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{struct_geometry_1_1_delaunay_1_1_delaunay_triangulation_a8276e067aa96cc68fb35249965e3705e}{Vertices}}\ ==\ other.Vertices\ \&\&\ \mbox{\hyperlink{struct_geometry_1_1_delaunay_1_1_delaunay_triangulation_a750debeecb5f91a86fa743402289dbba}{Triangles}}\ ==\ other.Triangles\ \&\&\ \mbox{\hyperlink{struct_geometry_1_1_delaunay_1_1_delaunay_triangulation_a3ea5df731feaa3ea1cd1db2dd0448a2c}{Neighbours}}\ ==\ other.Neighbours;}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{struct_geometry_1_1_delaunay_1_1_delaunay_triangulation_a3ea5df731feaa3ea1cd1db2dd0448a2c}\label{struct_geometry_1_1_delaunay_1_1_delaunay_triangulation_a3ea5df731feaa3ea1cd1db2dd0448a2c} 
+\index{Geometry::Delaunay::DelaunayTriangulation@{Geometry::Delaunay::DelaunayTriangulation}!Neighbours@{Neighbours}}
+\index{Neighbours@{Neighbours}!Geometry::Delaunay::DelaunayTriangulation@{Geometry::Delaunay::DelaunayTriangulation}}
+\doxysubsubsection{\texorpdfstring{Neighbours}{Neighbours}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_math_1_1_graph}{Math\+::\+Graph}}$<$\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle}{Triangle}}$>$ Geometry\+::\+Delaunay\+::\+Delaunay\+Triangulation\+::\+Neighbours}
+
+
+
+Definition at line \mbox{\hyperlink{delaunay_base_8hpp_source_l00064}{64}} of file \mbox{\hyperlink{delaunay_base_8hpp_source}{delaunay\+Base.\+hpp}}.
+
+\Hypertarget{struct_geometry_1_1_delaunay_1_1_delaunay_triangulation_a750debeecb5f91a86fa743402289dbba}\label{struct_geometry_1_1_delaunay_1_1_delaunay_triangulation_a750debeecb5f91a86fa743402289dbba} 
+\index{Geometry::Delaunay::DelaunayTriangulation@{Geometry::Delaunay::DelaunayTriangulation}!Triangles@{Triangles}}
+\index{Triangles@{Triangles}!Geometry::Delaunay::DelaunayTriangulation@{Geometry::Delaunay::DelaunayTriangulation}}
+\doxysubsubsection{\texorpdfstring{Triangles}{Triangles}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle}{Triangle}}$>$ Geometry\+::\+Delaunay\+::\+Delaunay\+Triangulation\+::\+Triangles}
+
+
+
+Definition at line \mbox{\hyperlink{delaunay_base_8hpp_source_l00063}{63}} of file \mbox{\hyperlink{delaunay_base_8hpp_source}{delaunay\+Base.\+hpp}}.
+
+\Hypertarget{struct_geometry_1_1_delaunay_1_1_delaunay_triangulation_a8276e067aa96cc68fb35249965e3705e}\label{struct_geometry_1_1_delaunay_1_1_delaunay_triangulation_a8276e067aa96cc68fb35249965e3705e} 
+\index{Geometry::Delaunay::DelaunayTriangulation@{Geometry::Delaunay::DelaunayTriangulation}!Vertices@{Vertices}}
+\index{Vertices@{Vertices}!Geometry::Delaunay::DelaunayTriangulation@{Geometry::Delaunay::DelaunayTriangulation}}
+\doxysubsubsection{\texorpdfstring{Vertices}{Vertices}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}}$>$ Geometry\+::\+Delaunay\+::\+Delaunay\+Triangulation\+::\+Vertices}
+
+
+
+Definition at line \mbox{\hyperlink{delaunay_base_8hpp_source_l00062}{62}} of file \mbox{\hyperlink{delaunay_base_8hpp_source}{delaunay\+Base.\+hpp}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Geometry/\mbox{\hyperlink{delaunay_base_8hpp}{delaunay\+Base.\+hpp}}\end{DoxyCompactItemize}

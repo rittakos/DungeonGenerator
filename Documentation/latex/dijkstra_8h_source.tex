@@ -1,0 +1,781 @@
+\doxysection{dijkstra.\+h}
+\hypertarget{dijkstra_8h_source}{}\label{dijkstra_8h_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/lemon/dijkstra.h@{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/lemon/dijkstra.h}}
+\mbox{\hyperlink{dijkstra_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00001}00001\ \textcolor{comment}{/*\ -\/*-\/\ mode:\ C++;\ indent-\/tabs-\/mode:\ nil;\ -\/*-\/}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00002}00002\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00003}00003\ \textcolor{comment}{\ *\ This\ file\ is\ a\ part\ of\ LEMON,\ a\ generic\ C++\ optimization\ library.}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00004}00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00005}00005\ \textcolor{comment}{\ *\ Copyright\ (C)\ 2003-\/2013}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00006}00006\ \textcolor{comment}{\ *\ Egervary\ Jeno\ Kombinatorikus\ Optimalizalasi\ Kutatocsoport}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00007}00007\ \textcolor{comment}{\ *\ (Egervary\ Research\ Group\ on\ Combinatorial\ Optimization,\ EGRES).}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00008}00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00009}00009\ \textcolor{comment}{\ *\ Permission\ to\ use,\ modify\ and\ distribute\ this\ software\ is\ granted}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00010}00010\ \textcolor{comment}{\ *\ provided\ that\ this\ copyright\ notice\ appears\ in\ all\ copies.\ For}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00011}00011\ \textcolor{comment}{\ *\ precise\ terms\ see\ the\ accompanying\ LICENSE\ file.}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00012}00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00013}00013\ \textcolor{comment}{\ *\ This\ software\ is\ provided\ "{}AS\ IS"{}\ with\ no\ warranty\ of\ any\ kind,}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00014}00014\ \textcolor{comment}{\ *\ express\ or\ implied,\ and\ with\ no\ claim\ as\ to\ its\ suitability\ for\ any}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00015}00015\ \textcolor{comment}{\ *\ purpose.}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00016}00016\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00017}00017\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00019}00019\ \textcolor{preprocessor}{\#ifndef\ LEMON\_DIJKSTRA\_H}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00020}00020\ \textcolor{preprocessor}{\#define\ LEMON\_DIJKSTRA\_H}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00026}00026\ \textcolor{preprocessor}{\#include\ <limits>}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00027}00027\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{list__graph_8h}{lemon/list\_graph.h}}>}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00028}00028\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{bin__heap_8h}{lemon/bin\_heap.h}}>}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00029}00029\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{path__dump_8h}{lemon/bits/path\_dump.h}}>}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00030}00030\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{lemon_2core_8h}{lemon/core.h}}>}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00031}00031\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{additional__includes_2lemon_2error_8h}{lemon/error.h}}>}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00032}00032\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{maps_8h}{lemon/maps.h}}>}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00033}00033\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{path_8h}{lemon/path.h}}>}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00035}00035\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacelemon}{lemon}}\ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00041}00041\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ V>}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00042}\mbox{\hyperlink{structlemon_1_1_dijkstra_default_operation_traits}{00042}}\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_dijkstra_default_operation_traits}{DijkstraDefaultOperationTraits}}\ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00044}\mbox{\hyperlink{structlemon_1_1_dijkstra_default_operation_traits_a58c4a31fc597deb18ec7238cf2ea3eb4}{00044}}\ \ \ \ \ \textcolor{keyword}{typedef}\ V\ \mbox{\hyperlink{structlemon_1_1_dijkstra_default_operation_traits_a58c4a31fc597deb18ec7238cf2ea3eb4}{Value}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00046}\mbox{\hyperlink{structlemon_1_1_dijkstra_default_operation_traits_a9a3832b0f730d14cea3964ce1a3acb42}{00046}}\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_default_operation_traits_a58c4a31fc597deb18ec7238cf2ea3eb4}{Value}}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_default_operation_traits_a9a3832b0f730d14cea3964ce1a3acb42}{zero}}()\ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00047}00047\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{structlemon_1_1_dijkstra_default_operation_traits_a58c4a31fc597deb18ec7238cf2ea3eb4}{Value}}\textcolor{keyword}{>}(0);}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00048}00048\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00050}\mbox{\hyperlink{structlemon_1_1_dijkstra_default_operation_traits_a21979f440a014550556514d33a19f964}{00050}}\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_default_operation_traits_a58c4a31fc597deb18ec7238cf2ea3eb4}{Value}}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_default_operation_traits_a21979f440a014550556514d33a19f964}{plus}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_default_operation_traits_a58c4a31fc597deb18ec7238cf2ea3eb4}{Value}}\&\ left,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_default_operation_traits_a58c4a31fc597deb18ec7238cf2ea3eb4}{Value}}\&\ right)\ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00051}00051\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ left\ +\ right;}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00052}00052\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00054}\mbox{\hyperlink{structlemon_1_1_dijkstra_default_operation_traits_a54e52ad4eff2a133842c7b2ead2e8e98}{00054}}\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_default_operation_traits_a54e52ad4eff2a133842c7b2ead2e8e98}{less}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_default_operation_traits_a58c4a31fc597deb18ec7238cf2ea3eb4}{Value}}\&\ left,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_default_operation_traits_a58c4a31fc597deb18ec7238cf2ea3eb4}{Value}}\&\ right)\ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00055}00055\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ left\ <\ right;}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00056}00056\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00057}00057\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00064}00064\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ GR,\ \textcolor{keyword}{typename}\ LEN>}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00065}\mbox{\hyperlink{structlemon_1_1_dijkstra_default_traits}{00065}}\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_dijkstra_default_traits}{DijkstraDefaultTraits}}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00066}00066\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00068}\mbox{\hyperlink{structlemon_1_1_dijkstra_default_traits_ae1d5dab955245e4846bd1da8b9e93509}{00068}}\ \ \ \ \ \textcolor{keyword}{typedef}\ GR\ \mbox{\hyperlink{structlemon_1_1_dijkstra_default_traits_ae1d5dab955245e4846bd1da8b9e93509}{Digraph}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00074}\mbox{\hyperlink{structlemon_1_1_dijkstra_default_traits_ad687199cb65932aa1e995a528ec70d00}{00074}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{LEN}}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_default_traits_ad687199cb65932aa1e995a528ec70d00}{LengthMap}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00076}\mbox{\hyperlink{structlemon_1_1_dijkstra_default_traits_a43c774e88b941255bf95aa606cffcf12}{00076}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ LEN::Value\ \mbox{\hyperlink{structlemon_1_1_dijkstra_default_traits_a43c774e88b941255bf95aa606cffcf12}{Value}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00082}\mbox{\hyperlink{structlemon_1_1_dijkstra_default_traits_abc485f28a69e0e0b6225429be399e5c7}{00082}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{DijkstraDefaultOperationTraits<Value>}}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_default_traits_abc485f28a69e0e0b6225429be399e5c7}{OperationTraits}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00088}\mbox{\hyperlink{structlemon_1_1_dijkstra_default_traits_a0fa5e70266acee998d1cc4f404d7a4f5}{00088}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Digraph::template\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{NodeMap<int>}}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_default_traits_a0fa5e70266acee998d1cc4f404d7a4f5}{HeapCrossRef}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00094}\mbox{\hyperlink{structlemon_1_1_dijkstra_default_traits_afa9a8c6009a24e85695f384cfe8fe07b}{00094}}\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_default_traits_a0fa5e70266acee998d1cc4f404d7a4f5}{HeapCrossRef}}\ *\mbox{\hyperlink{structlemon_1_1_dijkstra_default_traits_afa9a8c6009a24e85695f384cfe8fe07b}{createHeapCrossRef}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_default_traits_ae1d5dab955245e4846bd1da8b9e93509}{Digraph}}\ \&g)}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00095}00095\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00096}00096\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_default_traits_a0fa5e70266acee998d1cc4f404d7a4f5}{HeapCrossRef}}(g);}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00097}00097\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00105}\mbox{\hyperlink{structlemon_1_1_dijkstra_default_traits_a37540b6ff79f3350ef40026a7ea132e8}{00105}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{BinHeap<typename\ LEN::Value,\ HeapCrossRef,\ std::less<Value>}}\ >\ \mbox{\hyperlink{structlemon_1_1_dijkstra_default_traits_a37540b6ff79f3350ef40026a7ea132e8}{Heap}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00109}\mbox{\hyperlink{structlemon_1_1_dijkstra_default_traits_ab71ec092eff45b927bb3434d558a668d}{00109}}\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Heap}}\ *\mbox{\hyperlink{structlemon_1_1_dijkstra_default_traits_ab71ec092eff45b927bb3434d558a668d}{createHeap}}(\mbox{\hyperlink{structlemon_1_1_dijkstra_default_traits_a0fa5e70266acee998d1cc4f404d7a4f5}{HeapCrossRef}}\&\ r)}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00110}00110\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00111}00111\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_default_traits_a37540b6ff79f3350ef40026a7ea132e8}{Heap}}(r);}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00112}00112\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00120}\mbox{\hyperlink{structlemon_1_1_dijkstra_default_traits_a658c99b63fe5f55cdf127e913ba62257}{00120}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Digraph::template\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{NodeMap<typename\ Digraph::Arc>}}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_default_traits_a658c99b63fe5f55cdf127e913ba62257}{PredMap}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00122}00122\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00126}\mbox{\hyperlink{structlemon_1_1_dijkstra_default_traits_ae6184d2a365fd0b81adf8f581aa1b73d}{00126}}\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_default_traits_a658c99b63fe5f55cdf127e913ba62257}{PredMap}}\ *\mbox{\hyperlink{structlemon_1_1_dijkstra_default_traits_ae6184d2a365fd0b81adf8f581aa1b73d}{createPredMap}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_default_traits_ae1d5dab955245e4846bd1da8b9e93509}{Digraph}}\ \&g)}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00127}00127\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00128}00128\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_default_traits_a658c99b63fe5f55cdf127e913ba62257}{PredMap}}(g);}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00129}00129\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00130}00130\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00136}\mbox{\hyperlink{structlemon_1_1_dijkstra_default_traits_a584a75f26c794b659f02a741d0e306c0}{00136}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{NullMap<typename\ Digraph::Node,bool>}}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_default_traits_a584a75f26c794b659f02a741d0e306c0}{ProcessedMap}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00138}00138\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00142}00142\ \textcolor{preprocessor}{\#ifdef\ DOXYGEN}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00143}00143\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ProcessedMap}}\ *\mbox{\hyperlink{structlemon_1_1_dijkstra_default_traits_ad802c1f3f690fa9f2c08993e74d6265a}{createProcessedMap}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_default_traits_ae1d5dab955245e4846bd1da8b9e93509}{Digraph}}\ \&g)}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00144}00144\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00145}\mbox{\hyperlink{structlemon_1_1_dijkstra_default_traits_ad802c1f3f690fa9f2c08993e74d6265a}{00145}}\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ProcessedMap}}\ *\mbox{\hyperlink{structlemon_1_1_dijkstra_default_traits_ad802c1f3f690fa9f2c08993e74d6265a}{createProcessedMap}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_default_traits_ae1d5dab955245e4846bd1da8b9e93509}{Digraph}}\ \&)}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00146}00146\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00147}00147\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00148}00148\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_default_traits_a584a75f26c794b659f02a741d0e306c0}{ProcessedMap}}();}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00149}00149\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00150}00150\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00152}00152\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00155}\mbox{\hyperlink{structlemon_1_1_dijkstra_default_traits_a8bb45ee7b76b2c37f2f618941b5f4f0c}{00155}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Digraph::template\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{NodeMap<typename\ LEN::Value>}}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_default_traits_a8bb45ee7b76b2c37f2f618941b5f4f0c}{DistMap}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00157}00157\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00161}\mbox{\hyperlink{structlemon_1_1_dijkstra_default_traits_a87a563bda1110fb609c4cf518fe716a4}{00161}}\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_default_traits_a8bb45ee7b76b2c37f2f618941b5f4f0c}{DistMap}}\ *\mbox{\hyperlink{structlemon_1_1_dijkstra_default_traits_a87a563bda1110fb609c4cf518fe716a4}{createDistMap}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_default_traits_ae1d5dab955245e4846bd1da8b9e93509}{Digraph}}\ \&g)}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00162}00162\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00163}00163\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_default_traits_a8bb45ee7b76b2c37f2f618941b5f4f0c}{DistMap}}(g);}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00164}00164\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00165}00165\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00166}00166\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00168}00168\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00200}00200\ \textcolor{preprocessor}{\#ifdef\ DOXYGEN}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00201}00201\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ GR,\ \textcolor{keyword}{typename}\ LEN,\ \textcolor{keyword}{typename}\ TR>}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00202}00202\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00203}00203\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ GR=ListDigraph,}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00204}00204\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ LEN=\textcolor{keyword}{typename}\ GR::template\ ArcMap<int>,}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00205}00205\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ TR=DijkstraDefaultTraits<GR,LEN>\ >}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00206}00206\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00207}\mbox{\hyperlink{classlemon_1_1_dijkstra}{00207}}\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_dijkstra}{Dijkstra}}\ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00208}00208\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00209}00209\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00211}\mbox{\hyperlink{classlemon_1_1_dijkstra_a40ca4cffd272c1f4cd7b79063b348891}{00211}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ TR::Digraph\ \mbox{\hyperlink{classlemon_1_1_dijkstra_a40ca4cffd272c1f4cd7b79063b348891}{Digraph}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00212}00212\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00214}\mbox{\hyperlink{classlemon_1_1_dijkstra_a367d315dd2dbe5e8dc403bc6b0dcd32e}{00214}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ TR::Value\ \mbox{\hyperlink{classlemon_1_1_dijkstra_a367d315dd2dbe5e8dc403bc6b0dcd32e}{Value}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00216}\mbox{\hyperlink{classlemon_1_1_dijkstra_a63f8758ba26958516444e9fdefdb69b7}{00216}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ TR::LengthMap\ \mbox{\hyperlink{classlemon_1_1_dijkstra_a63f8758ba26958516444e9fdefdb69b7}{LengthMap}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00219}\mbox{\hyperlink{classlemon_1_1_dijkstra_ab3409c2da2e7c46ca9f8a2dde8d848d4}{00219}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ TR::PredMap\ \mbox{\hyperlink{classlemon_1_1_dijkstra_ab3409c2da2e7c46ca9f8a2dde8d848d4}{PredMap}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00221}\mbox{\hyperlink{classlemon_1_1_dijkstra_ae00093422cdc6dcf60b7e5e9c39f1c00}{00221}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ TR::DistMap\ \mbox{\hyperlink{classlemon_1_1_dijkstra_ae00093422cdc6dcf60b7e5e9c39f1c00}{DistMap}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00223}\mbox{\hyperlink{classlemon_1_1_dijkstra_a1b8f3880e5521cc12cc17c808db7f78b}{00223}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ TR::ProcessedMap\ \mbox{\hyperlink{classlemon_1_1_dijkstra_a1b8f3880e5521cc12cc17c808db7f78b}{ProcessedMap}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00225}\mbox{\hyperlink{classlemon_1_1_dijkstra_a2ab28517cc0f89063e8d32c7afec1938}{00225}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{PredMapPath<Digraph,\ PredMap>}}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_a2ab28517cc0f89063e8d32c7afec1938}{Path}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00227}\mbox{\hyperlink{classlemon_1_1_dijkstra_a0ec0cfaae3f7e3ddedebf526836570f1}{00227}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ TR::HeapCrossRef\ \mbox{\hyperlink{classlemon_1_1_dijkstra_a0ec0cfaae3f7e3ddedebf526836570f1}{HeapCrossRef}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00229}\mbox{\hyperlink{classlemon_1_1_dijkstra_abd74dd6f62a0261f0f879583005cc0ad}{00229}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ TR::Heap\ \mbox{\hyperlink{classlemon_1_1_dijkstra_abd74dd6f62a0261f0f879583005cc0ad}{Heap}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00232}\mbox{\hyperlink{classlemon_1_1_dijkstra_a8ff2fdfdad06d2f6544e2a1e3f124888}{00232}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ TR::OperationTraits\ \mbox{\hyperlink{classlemon_1_1_dijkstra_a8ff2fdfdad06d2f6544e2a1e3f124888}{OperationTraits}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00233}00233\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00235}\mbox{\hyperlink{classlemon_1_1_dijkstra_aa0687c44a689e881c4d93a723051c04d}{00235}}\ \ \ \ \ \textcolor{keyword}{typedef}\ TR\ \mbox{\hyperlink{classlemon_1_1_dijkstra_aa0687c44a689e881c4d93a723051c04d}{Traits}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00236}00236\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00237}00237\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00238}00238\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00239}\mbox{\hyperlink{classlemon_1_1_dijkstra_a841fb5d74b520f2e1052b38f11877603}{00239}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Digraph::Node\ \mbox{\hyperlink{classlemon_1_1_dijkstra_a841fb5d74b520f2e1052b38f11877603}{Node}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00240}\mbox{\hyperlink{classlemon_1_1_dijkstra_a239d147ee8714227b8e747bb2fb95866}{00240}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Digraph::NodeIt\ \mbox{\hyperlink{classlemon_1_1_dijkstra_a239d147ee8714227b8e747bb2fb95866}{NodeIt}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00241}\mbox{\hyperlink{classlemon_1_1_dijkstra_ac65e2f19e4c9df7326e4a725f7b7e04e}{00241}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Digraph::Arc\ \mbox{\hyperlink{classlemon_1_1_dijkstra_ac65e2f19e4c9df7326e4a725f7b7e04e}{Arc}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00242}\mbox{\hyperlink{classlemon_1_1_dijkstra_acacd743bf21619ce449be5b991ff6269}{00242}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Digraph::OutArcIt\ \mbox{\hyperlink{classlemon_1_1_dijkstra_acacd743bf21619ce449be5b991ff6269}{OutArcIt}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00243}00243\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00244}00244\ \ \ \ \ \textcolor{comment}{//Pointer\ to\ the\ underlying\ digraph.}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00245}\mbox{\hyperlink{classlemon_1_1_dijkstra_a7df98fb949de994c42c188d6be4d2b3f}{00245}}\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_a40ca4cffd272c1f4cd7b79063b348891}{Digraph}}\ *\mbox{\hyperlink{classlemon_1_1_dijkstra_a7df98fb949de994c42c188d6be4d2b3f}{G}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00246}00246\ \ \ \ \ \textcolor{comment}{//Pointer\ to\ the\ length\ map.}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00247}\mbox{\hyperlink{classlemon_1_1_dijkstra_a3cedd5e4efd588c55aab1b8a889d3590}{00247}}\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_a63f8758ba26958516444e9fdefdb69b7}{LengthMap}}\ *\mbox{\hyperlink{classlemon_1_1_dijkstra_a3cedd5e4efd588c55aab1b8a889d3590}{\_length}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00248}00248\ \ \ \ \ \textcolor{comment}{//Pointer\ to\ the\ map\ of\ predecessors\ arcs.}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00249}\mbox{\hyperlink{classlemon_1_1_dijkstra_aad5263daedd8642bc155c0616f42351a}{00249}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_ab3409c2da2e7c46ca9f8a2dde8d848d4}{PredMap}}\ *\mbox{\hyperlink{classlemon_1_1_dijkstra_aad5263daedd8642bc155c0616f42351a}{\_pred}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00250}00250\ \ \ \ \ \textcolor{comment}{//Indicates\ if\ \_pred\ is\ locally\ allocated\ (true)\ or\ not.}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00251}\mbox{\hyperlink{classlemon_1_1_dijkstra_ad94645856256dbcc287f6f0c9778d475}{00251}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_ad94645856256dbcc287f6f0c9778d475}{local\_pred}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00252}00252\ \ \ \ \ \textcolor{comment}{//Pointer\ to\ the\ map\ of\ distances.}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00253}\mbox{\hyperlink{classlemon_1_1_dijkstra_ad66c2345a1be1cca20551e1814ec6976}{00253}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_ae00093422cdc6dcf60b7e5e9c39f1c00}{DistMap}}\ *\mbox{\hyperlink{classlemon_1_1_dijkstra_ad66c2345a1be1cca20551e1814ec6976}{\_dist}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00254}00254\ \ \ \ \ \textcolor{comment}{//Indicates\ if\ \_dist\ is\ locally\ allocated\ (true)\ or\ not.}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00255}\mbox{\hyperlink{classlemon_1_1_dijkstra_a525681b628f9c889d9ee4f2f1f839f5e}{00255}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_a525681b628f9c889d9ee4f2f1f839f5e}{local\_dist}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00256}00256\ \ \ \ \ \textcolor{comment}{//Pointer\ to\ the\ map\ of\ processed\ status\ of\ the\ nodes.}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00257}\mbox{\hyperlink{classlemon_1_1_dijkstra_a78f0f33b1f6e6c0d18fa29773241751e}{00257}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_a1b8f3880e5521cc12cc17c808db7f78b}{ProcessedMap}}\ *\mbox{\hyperlink{classlemon_1_1_dijkstra_a78f0f33b1f6e6c0d18fa29773241751e}{\_processed}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00258}00258\ \ \ \ \ \textcolor{comment}{//Indicates\ if\ \_processed\ is\ locally\ allocated\ (true)\ or\ not.}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00259}\mbox{\hyperlink{classlemon_1_1_dijkstra_a461125538117f45d7e7e97ef4878f114}{00259}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_a461125538117f45d7e7e97ef4878f114}{local\_processed}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00260}00260\ \ \ \ \ \textcolor{comment}{//Pointer\ to\ the\ heap\ cross\ references.}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00261}\mbox{\hyperlink{classlemon_1_1_dijkstra_a23c52f3b295f81b8c31d930a72717340}{00261}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_a0ec0cfaae3f7e3ddedebf526836570f1}{HeapCrossRef}}\ *\mbox{\hyperlink{classlemon_1_1_dijkstra_a23c52f3b295f81b8c31d930a72717340}{\_heap\_cross\_ref}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00262}00262\ \ \ \ \ \textcolor{comment}{//Indicates\ if\ \_heap\_cross\_ref\ is\ locally\ allocated\ (true)\ or\ not.}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00263}\mbox{\hyperlink{classlemon_1_1_dijkstra_acacaec4cd9799ee83f0b975342693ea9}{00263}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_acacaec4cd9799ee83f0b975342693ea9}{local\_heap\_cross\_ref}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00264}00264\ \ \ \ \ \textcolor{comment}{//Pointer\ to\ the\ heap.}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00265}\mbox{\hyperlink{classlemon_1_1_dijkstra_ac1ec458f04f01ab4de17c103568905c1}{00265}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_abd74dd6f62a0261f0f879583005cc0ad}{Heap}}\ *\mbox{\hyperlink{classlemon_1_1_dijkstra_ac1ec458f04f01ab4de17c103568905c1}{\_heap}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00266}00266\ \ \ \ \ \textcolor{comment}{//Indicates\ if\ \_heap\ is\ locally\ allocated\ (true)\ or\ not.}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00267}\mbox{\hyperlink{classlemon_1_1_dijkstra_aa1e490ea9874576ffa8deb78319052ea}{00267}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_aa1e490ea9874576ffa8deb78319052ea}{local\_heap}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00268}00268\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00269}00269\ \ \ \ \ \textcolor{comment}{//Creates\ the\ maps\ if\ necessary.}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00270}\mbox{\hyperlink{classlemon_1_1_dijkstra_a53ea9ce68b5740c232d6fb1ee38af443}{00270}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_a53ea9ce68b5740c232d6fb1ee38af443}{create\_maps}}()}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00271}00271\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00272}00272\ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!\mbox{\hyperlink{classlemon_1_1_dijkstra_aad5263daedd8642bc155c0616f42351a}{\_pred}})\ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00273}00273\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_ad94645856256dbcc287f6f0c9778d475}{local\_pred}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00274}00274\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_aad5263daedd8642bc155c0616f42351a}{\_pred}}\ =\ Traits::createPredMap(*\mbox{\hyperlink{classlemon_1_1_dijkstra_a7df98fb949de994c42c188d6be4d2b3f}{G}});}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00275}00275\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00276}00276\ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!\mbox{\hyperlink{classlemon_1_1_dijkstra_ad66c2345a1be1cca20551e1814ec6976}{\_dist}})\ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00277}00277\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_a525681b628f9c889d9ee4f2f1f839f5e}{local\_dist}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00278}00278\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_ad66c2345a1be1cca20551e1814ec6976}{\_dist}}\ =\ Traits::createDistMap(*\mbox{\hyperlink{classlemon_1_1_dijkstra_a7df98fb949de994c42c188d6be4d2b3f}{G}});}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00279}00279\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00280}00280\ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!\mbox{\hyperlink{classlemon_1_1_dijkstra_a78f0f33b1f6e6c0d18fa29773241751e}{\_processed}})\ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00281}00281\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_a461125538117f45d7e7e97ef4878f114}{local\_processed}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00282}00282\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_a78f0f33b1f6e6c0d18fa29773241751e}{\_processed}}\ =\ Traits::createProcessedMap(*\mbox{\hyperlink{classlemon_1_1_dijkstra_a7df98fb949de994c42c188d6be4d2b3f}{G}});}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00283}00283\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00284}00284\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classlemon_1_1_dijkstra_a23c52f3b295f81b8c31d930a72717340}{\_heap\_cross\_ref}})\ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00285}00285\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_acacaec4cd9799ee83f0b975342693ea9}{local\_heap\_cross\_ref}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00286}00286\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_a23c52f3b295f81b8c31d930a72717340}{\_heap\_cross\_ref}}\ =\ Traits::createHeapCrossRef(*\mbox{\hyperlink{classlemon_1_1_dijkstra_a7df98fb949de994c42c188d6be4d2b3f}{G}});}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00287}00287\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00288}00288\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classlemon_1_1_dijkstra_ac1ec458f04f01ab4de17c103568905c1}{\_heap}})\ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00289}00289\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_aa1e490ea9874576ffa8deb78319052ea}{local\_heap}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00290}00290\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_ac1ec458f04f01ab4de17c103568905c1}{\_heap}}\ =\ Traits::createHeap(*\mbox{\hyperlink{classlemon_1_1_dijkstra_a23c52f3b295f81b8c31d930a72717340}{\_heap\_cross\_ref}});}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00291}00291\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00292}00292\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00293}00293\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00294}00294\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00295}00295\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00296}\mbox{\hyperlink{classlemon_1_1_dijkstra_a48003163f09ea21012bd101234bafb8e}{00296}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_dijkstra}{Dijkstra}}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_a48003163f09ea21012bd101234bafb8e}{Create}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00297}00297\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00299}00299\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00301}00301\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00302}00302\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00303}\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_pred_map_traits}{00303}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_pred_map_traits}{SetPredMapTraits}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_aa0687c44a689e881c4d93a723051c04d}{Traits}}\ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00304}\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_pred_map_traits_ab5919d2cbd3140ba80a6ec5ee59d8bbd}{00304}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ T\ \mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_pred_map_traits_ab5919d2cbd3140ba80a6ec5ee59d8bbd}{PredMap}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00305}\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_pred_map_traits_a3f36871395e1cca16ec4e7f0c7db47f8}{00305}}\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_pred_map_traits_ab5919d2cbd3140ba80a6ec5ee59d8bbd}{PredMap}}\ *\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_pred_map_traits_a3f36871395e1cca16ec4e7f0c7db47f8}{createPredMap}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_a40ca4cffd272c1f4cd7b79063b348891}{Digraph}}\ \&)}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00306}00306\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00307}00307\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{assert_8h_af78cf5572d91896ceecdd970f55601bc}{LEMON\_ASSERT}}(\textcolor{keyword}{false},\ \textcolor{stringliteral}{"{}PredMap\ is\ not\ initialized"{}});}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00308}00308\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;\ \textcolor{comment}{//\ ignore\ warnings}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00309}00309\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00310}00310\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00317}00317\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00318}\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_pred_map}{00318}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_pred_map}{SetPredMap}}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00319}00319\ \ \ \ \ \ \ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1_dijkstra}{Dijkstra}}<\ Digraph,\ LengthMap,\ SetPredMapTraits<T>\ >\ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00320}\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_pred_map_a41a07375e918251c01861b17a662b0ac}{00320}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Dijkstra<\ Digraph,\ LengthMap,\ SetPredMapTraits<T>}}\ >\ \mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_pred_map_a41a07375e918251c01861b17a662b0ac}{Create}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00321}00321\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00322}00322\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00323}00323\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00324}\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_dist_map_traits}{00324}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_dist_map_traits}{SetDistMapTraits}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_aa0687c44a689e881c4d93a723051c04d}{Traits}}\ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00325}\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_dist_map_traits_adfc353459543f381193a412f6fed5661}{00325}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ T\ \mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_dist_map_traits_adfc353459543f381193a412f6fed5661}{DistMap}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00326}\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_dist_map_traits_ae33947be189188ad8de99013666c81cf}{00326}}\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_dist_map_traits_adfc353459543f381193a412f6fed5661}{DistMap}}\ *\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_dist_map_traits_ae33947be189188ad8de99013666c81cf}{createDistMap}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_a40ca4cffd272c1f4cd7b79063b348891}{Digraph}}\ \&)}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00327}00327\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00328}00328\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{assert_8h_af78cf5572d91896ceecdd970f55601bc}{LEMON\_ASSERT}}(\textcolor{keyword}{false},\ \textcolor{stringliteral}{"{}DistMap\ is\ not\ initialized"{}});}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00329}00329\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;\ \textcolor{comment}{//\ ignore\ warnings}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00330}00330\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00331}00331\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00338}00338\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00339}\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_dist_map}{00339}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_dist_map}{SetDistMap}}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00340}00340\ \ \ \ \ \ \ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1_dijkstra}{Dijkstra}}<\ Digraph,\ LengthMap,\ SetDistMapTraits<T>\ >\ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00341}\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_dist_map_a00a7895bfda0d47212dbc31c648e50e1}{00341}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Dijkstra<\ Digraph,\ LengthMap,\ SetDistMapTraits<T>}}\ >\ \mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_dist_map_a00a7895bfda0d47212dbc31c648e50e1}{Create}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00342}00342\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00343}00343\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00344}00344\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00345}\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_processed_map_traits}{00345}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_processed_map_traits}{SetProcessedMapTraits}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_aa0687c44a689e881c4d93a723051c04d}{Traits}}\ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00346}\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_processed_map_traits_a7abb18832ade263ea0ae30a2554e3e65}{00346}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ T\ \mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_processed_map_traits_a7abb18832ade263ea0ae30a2554e3e65}{ProcessedMap}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00347}\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_processed_map_traits_a75e46425655df4977ea1d8df22b3bfc4}{00347}}\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_processed_map_traits_a7abb18832ade263ea0ae30a2554e3e65}{ProcessedMap}}\ *\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_processed_map_traits_a75e46425655df4977ea1d8df22b3bfc4}{createProcessedMap}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_a40ca4cffd272c1f4cd7b79063b348891}{Digraph}}\ \&)}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00348}00348\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00349}00349\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{assert_8h_af78cf5572d91896ceecdd970f55601bc}{LEMON\_ASSERT}}(\textcolor{keyword}{false},\ \textcolor{stringliteral}{"{}ProcessedMap\ is\ not\ initialized"{}});}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00350}00350\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;\ \textcolor{comment}{//\ ignore\ warnings}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00351}00351\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00352}00352\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00359}00359\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00360}\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_processed_map}{00360}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_processed_map}{SetProcessedMap}}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00361}00361\ \ \ \ \ \ \ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1_dijkstra}{Dijkstra}}<\ Digraph,\ LengthMap,\ SetProcessedMapTraits<T>\ >\ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00362}\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_processed_map_a10ce5c415a4895b65d5dfa78a67c0020}{00362}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Dijkstra<\ Digraph,\ LengthMap,\ SetProcessedMapTraits<T>}}\ >\ \mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_processed_map_a10ce5c415a4895b65d5dfa78a67c0020}{Create}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00363}00363\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00364}00364\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00365}\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_standard_processed_map_traits}{00365}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_standard_processed_map_traits}{SetStandardProcessedMapTraits}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_aa0687c44a689e881c4d93a723051c04d}{Traits}}\ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00366}\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_standard_processed_map_traits_aaf6d6a422cb46d61b6d5c270cd3ebe20}{00366}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Digraph::template\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{NodeMap<bool>}}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_standard_processed_map_traits_aaf6d6a422cb46d61b6d5c270cd3ebe20}{ProcessedMap}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00367}\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_standard_processed_map_traits_adff7edfa2626436171f1c509ca854690}{00367}}\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_standard_processed_map_traits_aaf6d6a422cb46d61b6d5c270cd3ebe20}{ProcessedMap}}\ *\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_standard_processed_map_traits_adff7edfa2626436171f1c509ca854690}{createProcessedMap}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_a40ca4cffd272c1f4cd7b79063b348891}{Digraph}}\ \&g)}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00368}00368\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00369}00369\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_standard_processed_map_traits_aaf6d6a422cb46d61b6d5c270cd3ebe20}{ProcessedMap}}(g);}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00370}00370\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00371}00371\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00378}\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_standard_processed_map}{00378}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_standard_processed_map}{SetStandardProcessedMap}}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00379}00379\ \ \ \ \ \ \ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1_dijkstra}{Dijkstra}}<\ Digraph,\ LengthMap,\ SetStandardProcessedMapTraits\ >\ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00380}00380\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_dijkstra}{Dijkstra<\ Digraph,\ LengthMap,\ SetStandardProcessedMapTraits\ >}}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00381}\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_standard_processed_map_ae1ec57202922b293e2ca00926a480888}{00381}}\ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_standard_processed_map_ae1ec57202922b293e2ca00926a480888}{Create}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00382}00382\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00383}00383\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00384}00384\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ H,\ \textcolor{keyword}{class}\ CR>}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00385}\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_heap_traits}{00385}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_heap_traits}{SetHeapTraits}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_aa0687c44a689e881c4d93a723051c04d}{Traits}}\ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00386}\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_heap_traits_ad53747c7391213709132fe6ab703badd}{00386}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CR}}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_heap_traits_ad53747c7391213709132fe6ab703badd}{HeapCrossRef}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00387}\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_heap_traits_a577c060c2c00c989c0efd4b572fe97ca}{00387}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ H\ \mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_heap_traits_a577c060c2c00c989c0efd4b572fe97ca}{Heap}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00388}\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_heap_traits_a2e2b604b97bc75f7d073048b53381553}{00388}}\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{HeapCrossRef}}\ *\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_heap_traits_a2e2b604b97bc75f7d073048b53381553}{createHeapCrossRef}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_a40ca4cffd272c1f4cd7b79063b348891}{Digraph}}\ \&)\ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00389}00389\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{assert_8h_af78cf5572d91896ceecdd970f55601bc}{LEMON\_ASSERT}}(\textcolor{keyword}{false},\ \textcolor{stringliteral}{"{}HeapCrossRef\ is\ not\ initialized"{}});}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00390}00390\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;\ \textcolor{comment}{//\ ignore\ warnings}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00391}00391\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00392}\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_heap_traits_a70030d2d7fbb9469a8c3b183d36605a2}{00392}}\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_heap_traits_a577c060c2c00c989c0efd4b572fe97ca}{Heap}}\ *\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_heap_traits_a70030d2d7fbb9469a8c3b183d36605a2}{createHeap}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{HeapCrossRef}}\ \&)}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00393}00393\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00394}00394\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{assert_8h_af78cf5572d91896ceecdd970f55601bc}{LEMON\_ASSERT}}(\textcolor{keyword}{false},\ \textcolor{stringliteral}{"{}Heap\ is\ not\ initialized"{}});}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00395}00395\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;\ \textcolor{comment}{//\ ignore\ warnings}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00396}00396\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00397}00397\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00407}00407\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ H,\ \textcolor{keyword}{class}\ CR\ =\ \textcolor{keyword}{typename}\ Digraph::\textcolor{keyword}{template}\ NodeMap<\textcolor{keywordtype}{int}>\ >}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00408}\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_heap}{00408}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_heap}{SetHeap}}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00409}00409\ \ \ \ \ \ \ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1_dijkstra}{Dijkstra}}<\ Digraph,\ LengthMap,\ SetHeapTraits<H,\ CR>\ >\ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00410}\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_heap_aa32ba6b64355d04448fd4e2f8ff6d197}{00410}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Dijkstra<\ Digraph,\ LengthMap,\ SetHeapTraits<H,\ CR>}}\ >\ \mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_heap_aa32ba6b64355d04448fd4e2f8ff6d197}{Create}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00411}00411\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00412}00412\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00413}00413\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ H,\ \textcolor{keyword}{class}\ CR>}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00414}\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_standard_heap_traits}{00414}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_standard_heap_traits}{SetStandardHeapTraits}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_aa0687c44a689e881c4d93a723051c04d}{Traits}}\ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00415}\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_standard_heap_traits_a73bcc70654d99d2ac36b7bfa53ac68fa}{00415}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CR}}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_standard_heap_traits_a73bcc70654d99d2ac36b7bfa53ac68fa}{HeapCrossRef}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00416}\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_standard_heap_traits_a77b3fbc6a823bca4af8b3ac3a8f01e16}{00416}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ H\ \mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_standard_heap_traits_a77b3fbc6a823bca4af8b3ac3a8f01e16}{Heap}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00417}\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_standard_heap_traits_aa08e54a0bf445c83b3a7d28a5ce461bb}{00417}}\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{HeapCrossRef}}\ *\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_standard_heap_traits_aa08e54a0bf445c83b3a7d28a5ce461bb}{createHeapCrossRef}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_a40ca4cffd272c1f4cd7b79063b348891}{Digraph}}\ \&\mbox{\hyperlink{classlemon_1_1_dijkstra_a7df98fb949de994c42c188d6be4d2b3f}{G}})\ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00418}00418\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_standard_heap_traits_a73bcc70654d99d2ac36b7bfa53ac68fa}{HeapCrossRef}}(\mbox{\hyperlink{classlemon_1_1_dijkstra_a7df98fb949de994c42c188d6be4d2b3f}{G}});}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00419}00419\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00420}\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_standard_heap_traits_a523a77020b1380ff1599ed6415e4f5bb}{00420}}\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_standard_heap_traits_a77b3fbc6a823bca4af8b3ac3a8f01e16}{Heap}}\ *\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_standard_heap_traits_a523a77020b1380ff1599ed6415e4f5bb}{createHeap}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{HeapCrossRef}}\ \&R)}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00421}00421\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00422}00422\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_standard_heap_traits_a77b3fbc6a823bca4af8b3ac3a8f01e16}{Heap}}(R);}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00423}00423\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00424}00424\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00438}00438\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ H,\ \textcolor{keyword}{class}\ CR\ =\ \textcolor{keyword}{typename}\ Digraph::\textcolor{keyword}{template}\ NodeMap<\textcolor{keywordtype}{int}>\ >}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00439}\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_standard_heap}{00439}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_standard_heap}{SetStandardHeap}}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00440}00440\ \ \ \ \ \ \ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1_dijkstra}{Dijkstra}}<\ Digraph,\ LengthMap,\ SetStandardHeapTraits<H,\ CR>\ >\ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00441}00441\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Dijkstra<\ Digraph,\ LengthMap,\ SetStandardHeapTraits<H,\ CR>}}\ >}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00442}\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_standard_heap_a27caae744df27a7b35e0a2ce55c7bd17}{00442}}\ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_standard_heap_a27caae744df27a7b35e0a2ce55c7bd17}{Create}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00443}00443\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00444}00444\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00445}00445\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00446}\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_operation_traits_traits}{00446}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_operation_traits_traits}{SetOperationTraitsTraits}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_aa0687c44a689e881c4d93a723051c04d}{Traits}}\ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00447}\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_operation_traits_traits_aed4261f1bd1b14a0fffd17fce3f0f46f}{00447}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ T\ \mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_operation_traits_traits_aed4261f1bd1b14a0fffd17fce3f0f46f}{OperationTraits}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00448}00448\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00449}00449\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00456}00456\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00457}\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_operation_traits}{00457}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_operation_traits}{SetOperationTraits}}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00458}00458\ \ \ \ \ \ \ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1_dijkstra}{Dijkstra}}<Digraph,\ LengthMap,\ SetOperationTraitsTraits<T>\ >\ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00459}00459\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Dijkstra<Digraph,\ LengthMap,\ SetOperationTraitsTraits<T>}}\ >}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00460}\mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_operation_traits_a8fc2453777dfc007a9ccc42fe6187f8a}{00460}}\ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_dijkstra_1_1_set_operation_traits_a8fc2453777dfc007a9ccc42fe6187f8a}{Create}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00461}00461\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00462}00462\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00464}00464\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00465}00465\ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00466}00466\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00467}\mbox{\hyperlink{classlemon_1_1_dijkstra_a39042ef1b5a0894530fbb4f2fbf1f355}{00467}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_a39042ef1b5a0894530fbb4f2fbf1f355}{Dijkstra}}()\ \{\}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00468}00468\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00469}00469\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00470}00470\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00472}00472\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00476}\mbox{\hyperlink{classlemon_1_1_dijkstra_a48b53add0d24b537e2f9b24ccc7a2805}{00476}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_a48b53add0d24b537e2f9b24ccc7a2805}{Dijkstra}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_a40ca4cffd272c1f4cd7b79063b348891}{Digraph}}\&\ g,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_a63f8758ba26958516444e9fdefdb69b7}{LengthMap}}\&\ length)\ :}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00477}00477\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_a7df98fb949de994c42c188d6be4d2b3f}{G}}(\&g),\ \mbox{\hyperlink{classlemon_1_1_dijkstra_a3cedd5e4efd588c55aab1b8a889d3590}{\_length}}(\&length),}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00478}00478\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_aad5263daedd8642bc155c0616f42351a}{\_pred}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{NULL}}),\ \mbox{\hyperlink{classlemon_1_1_dijkstra_ad94645856256dbcc287f6f0c9778d475}{local\_pred}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{false}}),}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00479}00479\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_ad66c2345a1be1cca20551e1814ec6976}{\_dist}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{NULL}}),\ \mbox{\hyperlink{classlemon_1_1_dijkstra_a525681b628f9c889d9ee4f2f1f839f5e}{local\_dist}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{false}}),}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00480}00480\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_a78f0f33b1f6e6c0d18fa29773241751e}{\_processed}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{NULL}}),\ \mbox{\hyperlink{classlemon_1_1_dijkstra_a461125538117f45d7e7e97ef4878f114}{local\_processed}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{false}}),}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00481}00481\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_a23c52f3b295f81b8c31d930a72717340}{\_heap\_cross\_ref}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{NULL}}),\ \mbox{\hyperlink{classlemon_1_1_dijkstra_acacaec4cd9799ee83f0b975342693ea9}{local\_heap\_cross\_ref}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{false}}),}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00482}00482\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_ac1ec458f04f01ab4de17c103568905c1}{\_heap}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{NULL}}),\ \mbox{\hyperlink{classlemon_1_1_dijkstra_aa1e490ea9874576ffa8deb78319052ea}{local\_heap}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{false}})}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00483}00483\ \ \ \ \ \{\ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00484}00484\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00486}\mbox{\hyperlink{classlemon_1_1_dijkstra_af4e31c096ff6331cb80498f71cc7634e}{00486}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_af4e31c096ff6331cb80498f71cc7634e}{\string~Dijkstra}}()}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00487}00487\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00488}00488\ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classlemon_1_1_dijkstra_ad94645856256dbcc287f6f0c9778d475}{local\_pred}})\ \textcolor{keyword}{delete}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_aad5263daedd8642bc155c0616f42351a}{\_pred}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00489}00489\ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classlemon_1_1_dijkstra_a525681b628f9c889d9ee4f2f1f839f5e}{local\_dist}})\ \textcolor{keyword}{delete}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_ad66c2345a1be1cca20551e1814ec6976}{\_dist}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00490}00490\ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classlemon_1_1_dijkstra_a461125538117f45d7e7e97ef4878f114}{local\_processed}})\ \textcolor{keyword}{delete}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_a78f0f33b1f6e6c0d18fa29773241751e}{\_processed}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00491}00491\ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classlemon_1_1_dijkstra_acacaec4cd9799ee83f0b975342693ea9}{local\_heap\_cross\_ref}})\ \textcolor{keyword}{delete}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_a23c52f3b295f81b8c31d930a72717340}{\_heap\_cross\_ref}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00492}00492\ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classlemon_1_1_dijkstra_aa1e490ea9874576ffa8deb78319052ea}{local\_heap}})\ \textcolor{keyword}{delete}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_ac1ec458f04f01ab4de17c103568905c1}{\_heap}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00493}00493\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00494}00494\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00496}00496\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00499}\mbox{\hyperlink{classlemon_1_1_dijkstra_a3a9f51dbbee00e7520ea13c7536fc2a7}{00499}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra}{Dijkstra}}\ \&\mbox{\hyperlink{classlemon_1_1_dijkstra_a3a9f51dbbee00e7520ea13c7536fc2a7}{lengthMap}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_a63f8758ba26958516444e9fdefdb69b7}{LengthMap}}\ \&m)}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00500}00500\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00501}00501\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_a3cedd5e4efd588c55aab1b8a889d3590}{\_length}}\ =\ \&m;}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00502}00502\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00503}00503\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00504}00504\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00506}00506\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00513}\mbox{\hyperlink{classlemon_1_1_dijkstra_a21f57a6fa17de969016e9697b3f7d35f}{00513}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra}{Dijkstra}}\ \&\mbox{\hyperlink{classlemon_1_1_dijkstra_a21f57a6fa17de969016e9697b3f7d35f}{predMap}}(\mbox{\hyperlink{classlemon_1_1_dijkstra_ab3409c2da2e7c46ca9f8a2dde8d848d4}{PredMap}}\ \&m)}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00514}00514\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00515}00515\ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classlemon_1_1_dijkstra_ad94645856256dbcc287f6f0c9778d475}{local\_pred}})\ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00516}00516\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_aad5263daedd8642bc155c0616f42351a}{\_pred}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00517}00517\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_ad94645856256dbcc287f6f0c9778d475}{local\_pred}}=\textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00518}00518\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00519}00519\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_aad5263daedd8642bc155c0616f42351a}{\_pred}}\ =\ \&m;}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00520}00520\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00521}00521\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00522}00522\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00524}00524\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00531}\mbox{\hyperlink{classlemon_1_1_dijkstra_a78a44efab01c9658d0ef3b36c1d2da97}{00531}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra}{Dijkstra}}\ \&\mbox{\hyperlink{classlemon_1_1_dijkstra_a78a44efab01c9658d0ef3b36c1d2da97}{processedMap}}(\mbox{\hyperlink{classlemon_1_1_dijkstra_a1b8f3880e5521cc12cc17c808db7f78b}{ProcessedMap}}\ \&m)}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00532}00532\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00533}00533\ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classlemon_1_1_dijkstra_a461125538117f45d7e7e97ef4878f114}{local\_processed}})\ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00534}00534\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_a78f0f33b1f6e6c0d18fa29773241751e}{\_processed}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00535}00535\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_a461125538117f45d7e7e97ef4878f114}{local\_processed}}=\textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00536}00536\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00537}00537\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_a78f0f33b1f6e6c0d18fa29773241751e}{\_processed}}\ =\ \&m;}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00538}00538\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00539}00539\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00540}00540\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00542}00542\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00550}\mbox{\hyperlink{classlemon_1_1_dijkstra_acbb477f284cd6f9702281cfa00eaa1bf}{00550}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra}{Dijkstra}}\ \&\mbox{\hyperlink{classlemon_1_1_dijkstra_acbb477f284cd6f9702281cfa00eaa1bf}{distMap}}(\mbox{\hyperlink{classlemon_1_1_dijkstra_ae00093422cdc6dcf60b7e5e9c39f1c00}{DistMap}}\ \&m)}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00551}00551\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00552}00552\ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classlemon_1_1_dijkstra_a525681b628f9c889d9ee4f2f1f839f5e}{local\_dist}})\ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00553}00553\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_ad66c2345a1be1cca20551e1814ec6976}{\_dist}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00554}00554\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_a525681b628f9c889d9ee4f2f1f839f5e}{local\_dist}}=\textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00555}00555\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00556}00556\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_ad66c2345a1be1cca20551e1814ec6976}{\_dist}}\ =\ \&m;}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00557}00557\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00558}00558\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00559}00559\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00561}00561\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00569}\mbox{\hyperlink{classlemon_1_1_dijkstra_af74b3097f6a53c010be3f0deccaebeb0}{00569}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra}{Dijkstra}}\ \&\mbox{\hyperlink{classlemon_1_1_dijkstra_af74b3097f6a53c010be3f0deccaebeb0}{heap}}(\mbox{\hyperlink{classlemon_1_1_dijkstra_abd74dd6f62a0261f0f879583005cc0ad}{Heap}}\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{hp}},\ \mbox{\hyperlink{classlemon_1_1_dijkstra_a0ec0cfaae3f7e3ddedebf526836570f1}{HeapCrossRef}}\ \&\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cr}})}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00570}00570\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00571}00571\ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classlemon_1_1_dijkstra_acacaec4cd9799ee83f0b975342693ea9}{local\_heap\_cross\_ref}})\ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00572}00572\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_a23c52f3b295f81b8c31d930a72717340}{\_heap\_cross\_ref}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00573}00573\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_acacaec4cd9799ee83f0b975342693ea9}{local\_heap\_cross\_ref}}=\textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00574}00574\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00575}00575\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_a23c52f3b295f81b8c31d930a72717340}{\_heap\_cross\_ref}}\ =\ \&\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cr}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00576}00576\ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classlemon_1_1_dijkstra_aa1e490ea9874576ffa8deb78319052ea}{local\_heap}})\ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00577}00577\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_ac1ec458f04f01ab4de17c103568905c1}{\_heap}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00578}00578\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_aa1e490ea9874576ffa8deb78319052ea}{local\_heap}}=\textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00579}00579\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00580}00580\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_ac1ec458f04f01ab4de17c103568905c1}{\_heap}}\ =\ \&\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{hp}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00581}00581\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00582}00582\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00583}00583\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00584}00584\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00585}00585\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00586}\mbox{\hyperlink{classlemon_1_1_dijkstra_ae6e1a1734f62b091a700f142fcb4db86}{00586}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_ae6e1a1734f62b091a700f142fcb4db86}{finalizeNodeData}}(\mbox{\hyperlink{classlemon_1_1_dijkstra_a841fb5d74b520f2e1052b38f11877603}{Node}}\ v,\mbox{\hyperlink{classlemon_1_1_dijkstra_a367d315dd2dbe5e8dc403bc6b0dcd32e}{Value}}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{dst}})}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00587}00587\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00588}00588\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_a78f0f33b1f6e6c0d18fa29773241751e}{\_processed}}-\/>set(v,\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00589}00589\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_ad66c2345a1be1cca20551e1814ec6976}{\_dist}}-\/>set(v,\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{dst}});}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00590}00590\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00591}00591\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00592}00592\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00593}00593\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00601}00601\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00603}00603\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00607}\mbox{\hyperlink{classlemon_1_1_dijkstra_ae69290fe3a1c080e56745b4b11d72fa1}{00607}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_ae69290fe3a1c080e56745b4b11d72fa1}{init}}()}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00608}00608\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00609}00609\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_a53ea9ce68b5740c232d6fb1ee38af443}{create\_maps}}();}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00610}00610\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_ac1ec458f04f01ab4de17c103568905c1}{\_heap}}-\/>clear();}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00611}00611\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\ \mbox{\hyperlink{classlemon_1_1_dijkstra_a239d147ee8714227b8e747bb2fb95866}{NodeIt}}\ u(*\mbox{\hyperlink{classlemon_1_1_dijkstra_a7df98fb949de994c42c188d6be4d2b3f}{G}})\ ;\ u!=\mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}}\ ;\ ++u\ )\ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00612}00612\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_aad5263daedd8642bc155c0616f42351a}{\_pred}}-\/>set(u,\mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}});}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00613}00613\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_a78f0f33b1f6e6c0d18fa29773241751e}{\_processed}}-\/>set(u,\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00614}00614\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_a23c52f3b295f81b8c31d930a72717340}{\_heap\_cross\_ref}}-\/>set(u,Heap::PRE\_HEAP);}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00615}00615\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00616}00616\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00617}00617\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00619}00619\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00626}\mbox{\hyperlink{classlemon_1_1_dijkstra_ac931006a32eaf68cb90ca10cf366fe9b}{00626}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_ac931006a32eaf68cb90ca10cf366fe9b}{addSource}}(\mbox{\hyperlink{classlemon_1_1_dijkstra_a841fb5d74b520f2e1052b38f11877603}{Node}}\ s,\mbox{\hyperlink{classlemon_1_1_dijkstra_a367d315dd2dbe5e8dc403bc6b0dcd32e}{Value}}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{dst}}=OperationTraits::zero())}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00627}00627\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00628}00628\ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classlemon_1_1_dijkstra_ac1ec458f04f01ab4de17c103568905c1}{\_heap}}-\/>state(s)\ !=\ Heap::IN\_HEAP)\ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00629}00629\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_ac1ec458f04f01ab4de17c103568905c1}{\_heap}}-\/>push(s,\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{dst}});}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00630}00630\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(OperationTraits::less((*\mbox{\hyperlink{classlemon_1_1_dijkstra_ac1ec458f04f01ab4de17c103568905c1}{\_heap}})[s],\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{dst}}))\ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00631}00631\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_ac1ec458f04f01ab4de17c103568905c1}{\_heap}}-\/>set(s,\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{dst}});}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00632}00632\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_aad5263daedd8642bc155c0616f42351a}{\_pred}}-\/>set(s,\mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}});}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00633}00633\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00634}00634\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00635}00635\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00637}00637\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00643}\mbox{\hyperlink{classlemon_1_1_dijkstra_ad48edd800070ac97393833afcab5af20}{00643}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_a841fb5d74b520f2e1052b38f11877603}{Node}}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_ad48edd800070ac97393833afcab5af20}{processNextNode}}()}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00644}00644\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00645}00645\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_a841fb5d74b520f2e1052b38f11877603}{Node}}\ v=\mbox{\hyperlink{classlemon_1_1_dijkstra_ac1ec458f04f01ab4de17c103568905c1}{\_heap}}-\/>top();}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00646}00646\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_a367d315dd2dbe5e8dc403bc6b0dcd32e}{Value}}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{oldvalue}}=\mbox{\hyperlink{classlemon_1_1_dijkstra_ac1ec458f04f01ab4de17c103568905c1}{\_heap}}-\/>prio();}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00647}00647\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_ac1ec458f04f01ab4de17c103568905c1}{\_heap}}-\/>pop();}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00648}00648\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_ae6e1a1734f62b091a700f142fcb4db86}{finalizeNodeData}}(v,\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{oldvalue}});}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00649}00649\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00650}00650\ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\mbox{\hyperlink{classlemon_1_1_dijkstra_acacd743bf21619ce449be5b991ff6269}{OutArcIt}}\ e(*\mbox{\hyperlink{classlemon_1_1_dijkstra_a7df98fb949de994c42c188d6be4d2b3f}{G}},v);\ e!=\mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ ++e)\ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00651}00651\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_a841fb5d74b520f2e1052b38f11877603}{Node}}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{w}}=\mbox{\hyperlink{classlemon_1_1_dijkstra_a7df98fb949de994c42c188d6be4d2b3f}{G}}-\/>\mbox{\hyperlink{classlemon_1_1_reverse_digraph_base_ac58ab1c4df36df3a2b77cf4ede280fce}{target}}(e);}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00652}00652\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(\mbox{\hyperlink{classlemon_1_1_dijkstra_ac1ec458f04f01ab4de17c103568905c1}{\_heap}}-\/>state(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{w}}))\ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00653}00653\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Heap::PRE\_HEAP:}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00654}00654\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_ac1ec458f04f01ab4de17c103568905c1}{\_heap}}-\/>push(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{w}},OperationTraits::plus(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{oldvalue}},\ (*\mbox{\hyperlink{classlemon_1_1_dijkstra_a3cedd5e4efd588c55aab1b8a889d3590}{\_length}})[e]));}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00655}00655\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_aad5263daedd8642bc155c0616f42351a}{\_pred}}-\/>set(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{w}},e);}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00656}00656\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00657}00657\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Heap::IN\_HEAP:}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00658}00658\ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00659}00659\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_a367d315dd2dbe5e8dc403bc6b0dcd32e}{Value}}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{newvalue}}\ =\ OperationTraits::plus(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{oldvalue}},\ (*\mbox{\hyperlink{classlemon_1_1_dijkstra_a3cedd5e4efd588c55aab1b8a889d3590}{\_length}})[e]);}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00660}00660\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ OperationTraits::less(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{newvalue}},\ (*\mbox{\hyperlink{classlemon_1_1_dijkstra_ac1ec458f04f01ab4de17c103568905c1}{\_heap}})[\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{w}}])\ )\ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00661}00661\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_ac1ec458f04f01ab4de17c103568905c1}{\_heap}}-\/>decrease(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{w}},\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{newvalue}});}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00662}00662\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_aad5263daedd8642bc155c0616f42351a}{\_pred}}-\/>set(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{w}},e);}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00663}00663\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00664}00664\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00665}00665\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00666}00666\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Heap::POST\_HEAP:}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00667}00667\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00668}00668\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00669}00669\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00670}00670\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ v;}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00671}00671\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00672}00672\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00674}00674\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00677}\mbox{\hyperlink{classlemon_1_1_dijkstra_ac77d1bb76ac7ae8439d6c1c200506386}{00677}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_a841fb5d74b520f2e1052b38f11877603}{Node}}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_ac77d1bb76ac7ae8439d6c1c200506386}{nextNode}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00678}00678\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00679}00679\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ !\mbox{\hyperlink{classlemon_1_1_dijkstra_ac1ec458f04f01ab4de17c103568905c1}{\_heap}}-\/>empty()?\mbox{\hyperlink{classlemon_1_1_dijkstra_ac1ec458f04f01ab4de17c103568905c1}{\_heap}}-\/>top():\mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00680}00680\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00681}00681\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00683}00683\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00686}\mbox{\hyperlink{classlemon_1_1_dijkstra_a28ce43cf7916ee23e155245f8ccca6fc}{00686}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_a28ce43cf7916ee23e155245f8ccca6fc}{emptyQueue}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_ac1ec458f04f01ab4de17c103568905c1}{\_heap}}-\/>empty();\ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00687}00687\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00689}00689\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00692}\mbox{\hyperlink{classlemon_1_1_dijkstra_a61d45d297d22b31da54b2c75b9dc4d64}{00692}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_a61d45d297d22b31da54b2c75b9dc4d64}{queueSize}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_ac1ec458f04f01ab4de17c103568905c1}{\_heap}}-\/>size();\ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00693}00693\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00695}00695\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00714}\mbox{\hyperlink{classlemon_1_1_dijkstra_a09082ae717df56f55f6dcc320da3be1b}{00714}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_a09082ae717df56f55f6dcc320da3be1b}{start}}()}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00715}00715\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00716}00716\ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\ !\mbox{\hyperlink{classlemon_1_1_dijkstra_a28ce43cf7916ee23e155245f8ccca6fc}{emptyQueue}}()\ )\ \mbox{\hyperlink{classlemon_1_1_dijkstra_ad48edd800070ac97393833afcab5af20}{processNextNode}}();}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00717}00717\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00718}00718\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00720}00720\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00732}\mbox{\hyperlink{classlemon_1_1_dijkstra_ab11710cf69b16e55674da2ae955553ae}{00732}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_ab11710cf69b16e55674da2ae955553ae}{start}}(\mbox{\hyperlink{classlemon_1_1_dijkstra_a841fb5d74b520f2e1052b38f11877603}{Node}}\ t)}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00733}00733\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00734}00734\ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\ !\mbox{\hyperlink{classlemon_1_1_dijkstra_ac1ec458f04f01ab4de17c103568905c1}{\_heap}}-\/>empty()\ \&\&\ \mbox{\hyperlink{classlemon_1_1_dijkstra_ac1ec458f04f01ab4de17c103568905c1}{\_heap}}-\/>top()!=t\ )\ \mbox{\hyperlink{classlemon_1_1_dijkstra_ad48edd800070ac97393833afcab5af20}{processNextNode}}();}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00735}00735\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ !\mbox{\hyperlink{classlemon_1_1_dijkstra_ac1ec458f04f01ab4de17c103568905c1}{\_heap}}-\/>empty()\ )\ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00736}00736\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_ae6e1a1734f62b091a700f142fcb4db86}{finalizeNodeData}}(\mbox{\hyperlink{classlemon_1_1_dijkstra_ac1ec458f04f01ab4de17c103568905c1}{\_heap}}-\/>top(),\mbox{\hyperlink{classlemon_1_1_dijkstra_ac1ec458f04f01ab4de17c103568905c1}{\_heap}}-\/>prio());}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00737}00737\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_ac1ec458f04f01ab4de17c103568905c1}{\_heap}}-\/>pop();}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00738}00738\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00739}00739\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00740}00740\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00742}00742\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00757}00757\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ NodeBoolMap>}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00758}\mbox{\hyperlink{classlemon_1_1_dijkstra_a05ccca93ae89ce53d3f22a877c7fb1ad}{00758}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_a841fb5d74b520f2e1052b38f11877603}{Node}}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_a05ccca93ae89ce53d3f22a877c7fb1ad}{start}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{NodeBoolMap}}\ \&\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{nm}})}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00759}00759\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00760}00760\ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\ !\mbox{\hyperlink{classlemon_1_1_dijkstra_ac1ec458f04f01ab4de17c103568905c1}{\_heap}}-\/>empty()\ \&\&\ !\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{nm}}[\mbox{\hyperlink{classlemon_1_1_dijkstra_ac1ec458f04f01ab4de17c103568905c1}{\_heap}}-\/>top()]\ )\ \mbox{\hyperlink{classlemon_1_1_dijkstra_ad48edd800070ac97393833afcab5af20}{processNextNode}}();}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00761}00761\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ \mbox{\hyperlink{classlemon_1_1_dijkstra_ac1ec458f04f01ab4de17c103568905c1}{\_heap}}-\/>empty()\ )\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00762}00762\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_ae6e1a1734f62b091a700f142fcb4db86}{finalizeNodeData}}(\mbox{\hyperlink{classlemon_1_1_dijkstra_ac1ec458f04f01ab4de17c103568905c1}{\_heap}}-\/>top(),\mbox{\hyperlink{classlemon_1_1_dijkstra_ac1ec458f04f01ab4de17c103568905c1}{\_heap}}-\/>prio());}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00763}00763\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_ac1ec458f04f01ab4de17c103568905c1}{\_heap}}-\/>top();}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00764}00764\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00765}00765\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00767}00767\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00781}\mbox{\hyperlink{classlemon_1_1_dijkstra_a6e7911f6644362834ac433f4c2b2d440}{00781}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_a6e7911f6644362834ac433f4c2b2d440}{run}}(\mbox{\hyperlink{classlemon_1_1_dijkstra_a841fb5d74b520f2e1052b38f11877603}{Node}}\ s)\ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00782}00782\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_ae69290fe3a1c080e56745b4b11d72fa1}{init}}();}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00783}00783\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_ac931006a32eaf68cb90ca10cf366fe9b}{addSource}}(s);}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00784}00784\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_a09082ae717df56f55f6dcc320da3be1b}{start}}();}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00785}00785\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00786}00786\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00788}00788\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00802}\mbox{\hyperlink{classlemon_1_1_dijkstra_a77fe5a1db0692c93703750e2a4392314}{00802}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_a77fe5a1db0692c93703750e2a4392314}{run}}(\mbox{\hyperlink{classlemon_1_1_dijkstra_a841fb5d74b520f2e1052b38f11877603}{Node}}\ s,\mbox{\hyperlink{classlemon_1_1_dijkstra_a841fb5d74b520f2e1052b38f11877603}{Node}}\ t)\ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00803}00803\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_ae69290fe3a1c080e56745b4b11d72fa1}{init}}();}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00804}00804\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_ac931006a32eaf68cb90ca10cf366fe9b}{addSource}}(s);}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00805}00805\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_a09082ae717df56f55f6dcc320da3be1b}{start}}(t);}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00806}00806\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (*\mbox{\hyperlink{classlemon_1_1_dijkstra_a23c52f3b295f81b8c31d930a72717340}{\_heap\_cross\_ref}})[t]\ ==\ Heap::POST\_HEAP;}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00807}00807\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00808}00808\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00810}00810\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00816}00816\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00818}00818\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00820}00820\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00827}\mbox{\hyperlink{classlemon_1_1_dijkstra_aa1da4580ff73d08457ba628b240958f1}{00827}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Path}}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_aa1da4580ff73d08457ba628b240958f1}{path}}(\mbox{\hyperlink{classlemon_1_1_dijkstra_a841fb5d74b520f2e1052b38f11877603}{Node}}\ t)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_a2ab28517cc0f89063e8d32c7afec1938}{Path}}(*\mbox{\hyperlink{classlemon_1_1_dijkstra_a7df98fb949de994c42c188d6be4d2b3f}{G}},\ *\mbox{\hyperlink{classlemon_1_1_dijkstra_aad5263daedd8642bc155c0616f42351a}{\_pred}},\ t);\ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00828}00828\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00830}00830\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00838}\mbox{\hyperlink{classlemon_1_1_dijkstra_abaeee03a4f87281921b4fec3c6beba4a}{00838}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_a367d315dd2dbe5e8dc403bc6b0dcd32e}{Value}}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_abaeee03a4f87281921b4fec3c6beba4a}{dist}}(\mbox{\hyperlink{classlemon_1_1_dijkstra_a841fb5d74b520f2e1052b38f11877603}{Node}}\ v)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ (*\mbox{\hyperlink{classlemon_1_1_dijkstra_ad66c2345a1be1cca20551e1814ec6976}{\_dist}})[v];\ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00839}00839\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00853}\mbox{\hyperlink{classlemon_1_1_dijkstra_a183e9e6bf56d482057ce23ac65daab9e}{00853}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_ac65e2f19e4c9df7326e4a725f7b7e04e}{Arc}}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_a183e9e6bf56d482057ce23ac65daab9e}{predArc}}(\mbox{\hyperlink{classlemon_1_1_dijkstra_a841fb5d74b520f2e1052b38f11877603}{Node}}\ v)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ (*\mbox{\hyperlink{classlemon_1_1_dijkstra_aad5263daedd8642bc155c0616f42351a}{\_pred}})[v];\ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00854}00854\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00868}\mbox{\hyperlink{classlemon_1_1_dijkstra_a324817645673bc443a891ba37d0987d2}{00868}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_a841fb5d74b520f2e1052b38f11877603}{Node}}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_a324817645673bc443a891ba37d0987d2}{predNode}}(\mbox{\hyperlink{classlemon_1_1_dijkstra_a841fb5d74b520f2e1052b38f11877603}{Node}}\ v)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ (*\mbox{\hyperlink{classlemon_1_1_dijkstra_aad5263daedd8642bc155c0616f42351a}{\_pred}})[v]==\mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}}\ ?\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}}:}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00869}00869\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_a7df98fb949de994c42c188d6be4d2b3f}{G}}-\/>source((*\mbox{\hyperlink{classlemon_1_1_dijkstra_aad5263daedd8642bc155c0616f42351a}{\_pred}})[v]);\ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00870}00870\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00879}\mbox{\hyperlink{classlemon_1_1_dijkstra_a9932e1315bb7fb8fc34831752687630f}{00879}}\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_ae00093422cdc6dcf60b7e5e9c39f1c00}{DistMap}}\ \&\mbox{\hyperlink{classlemon_1_1_dijkstra_a9932e1315bb7fb8fc34831752687630f}{distMap}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ *\mbox{\hyperlink{classlemon_1_1_dijkstra_ad66c2345a1be1cca20551e1814ec6976}{\_dist}};\}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00880}00880\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00889}\mbox{\hyperlink{classlemon_1_1_dijkstra_a2b4b691624511248eda8606ac1b0c8d8}{00889}}\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_ab3409c2da2e7c46ca9f8a2dde8d848d4}{PredMap}}\ \&\mbox{\hyperlink{classlemon_1_1_dijkstra_a2b4b691624511248eda8606ac1b0c8d8}{predMap}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ *\mbox{\hyperlink{classlemon_1_1_dijkstra_aad5263daedd8642bc155c0616f42351a}{\_pred}};\}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00890}00890\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00892}00892\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00897}\mbox{\hyperlink{classlemon_1_1_dijkstra_a9f4413d076f7ed51df69ce97d96ad97c}{00897}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_a9f4413d076f7ed51df69ce97d96ad97c}{reached}}(\mbox{\hyperlink{classlemon_1_1_dijkstra_a841fb5d74b520f2e1052b38f11877603}{Node}}\ v)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ (*\mbox{\hyperlink{classlemon_1_1_dijkstra_a23c52f3b295f81b8c31d930a72717340}{\_heap\_cross\_ref}})[v]\ !=}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00898}00898\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Heap::PRE\_HEAP;\ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00899}00899\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00901}00901\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00907}\mbox{\hyperlink{classlemon_1_1_dijkstra_af331401b8d71fca20a79b9b45a9829ae}{00907}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_af331401b8d71fca20a79b9b45a9829ae}{processed}}(\mbox{\hyperlink{classlemon_1_1_dijkstra_a841fb5d74b520f2e1052b38f11877603}{Node}}\ v)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ (*\mbox{\hyperlink{classlemon_1_1_dijkstra_a23c52f3b295f81b8c31d930a72717340}{\_heap\_cross\_ref}})[v]\ ==}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00908}00908\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Heap::POST\_HEAP;\ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00909}00909\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00911}00911\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00918}\mbox{\hyperlink{classlemon_1_1_dijkstra_a948fe8ce42a4593aea3ffcebbf444417}{00918}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_a367d315dd2dbe5e8dc403bc6b0dcd32e}{Value}}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_a948fe8ce42a4593aea3ffcebbf444417}{currentDist}}(\mbox{\hyperlink{classlemon_1_1_dijkstra_a841fb5d74b520f2e1052b38f11877603}{Node}}\ v)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00919}00919\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_af331401b8d71fca20a79b9b45a9829ae}{processed}}(v)\ ?\ (*\_dist)[v]\ :\ (*\_heap)[v];}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00920}00920\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00921}00921\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00923}00923\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00924}00924\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00925}00925\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00927}00927\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00931}00931\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ GR,\ \textcolor{keyword}{class}\ LEN>}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00932}\mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_default_traits}{00932}}\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_default_traits}{DijkstraWizardDefaultTraits}}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00933}00933\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00935}\mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_default_traits_ac5e75b721324ddd528e33af60e2ac0fb}{00935}}\ \ \ \ \ \textcolor{keyword}{typedef}\ GR\ \mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_default_traits_ac5e75b721324ddd528e33af60e2ac0fb}{Digraph}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00937}00937\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00940}\mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_default_traits_a5e37f10c6075146f8aa20b5f2df188cd}{00940}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{LEN}}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_default_traits_a5e37f10c6075146f8aa20b5f2df188cd}{LengthMap}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00942}\mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_default_traits_aa3aa46d9604cdb0ce55df30e7c6e4098}{00942}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ LEN::Value\ \mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_default_traits_aa3aa46d9604cdb0ce55df30e7c6e4098}{Value}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00943}00943\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00945}00945\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00948}\mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_default_traits_a8179c30937109874c1534cb0465680a3}{00948}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{DijkstraDefaultOperationTraits<Value>}}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_default_traits_a8179c30937109874c1534cb0465680a3}{OperationTraits}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00949}00949\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00951}00951\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00954}\mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_default_traits_a5d41c7ce518fed28f03caedcd3c9a9c8}{00954}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Digraph::template\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{NodeMap<int>}}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_default_traits_a5d41c7ce518fed28f03caedcd3c9a9c8}{HeapCrossRef}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00956}00956\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00960}\mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_default_traits_a67da63e35370e8344c4e3f69f91dc5b1}{00960}}\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_default_traits_a5d41c7ce518fed28f03caedcd3c9a9c8}{HeapCrossRef}}\ *\mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_default_traits_a67da63e35370e8344c4e3f69f91dc5b1}{createHeapCrossRef}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_default_traits_ac5e75b721324ddd528e33af60e2ac0fb}{Digraph}}\ \&g)}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00961}00961\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00962}00962\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_default_traits_a5d41c7ce518fed28f03caedcd3c9a9c8}{HeapCrossRef}}(g);}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00963}00963\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00964}00964\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00966}00966\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00971}00971\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{BinHeap<Value,\ typename\ Digraph::template\ NodeMap<int>}},}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00972}\mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_default_traits_a6db3a4a3216f131788cb8a7c006d4123}{00972}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::less<Value>\ >\ \mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_default_traits_a6db3a4a3216f131788cb8a7c006d4123}{Heap}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00973}00973\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00975}00975\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00978}\mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_default_traits_a437ba5f6eb179d455c3be87c584fb645}{00978}}\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Heap}}\ *\mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_default_traits_a437ba5f6eb179d455c3be87c584fb645}{createHeap}}(\mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_default_traits_a5d41c7ce518fed28f03caedcd3c9a9c8}{HeapCrossRef}}\&\ r)}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00979}00979\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00980}00980\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_default_traits_a6db3a4a3216f131788cb8a7c006d4123}{Heap}}(r);}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00981}00981\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00982}00982\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00989}\mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_default_traits_a09cf511a3b871159483d698063e19725}{00989}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Digraph::template\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{NodeMap<typename\ Digraph::Arc>}}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_default_traits_a09cf511a3b871159483d698063e19725}{PredMap}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00991}00991\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00995}\mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_default_traits_a00ca08307b837fc255247fe63cb80820}{00995}}\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_default_traits_a09cf511a3b871159483d698063e19725}{PredMap}}\ *\mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_default_traits_a00ca08307b837fc255247fe63cb80820}{createPredMap}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_default_traits_ac5e75b721324ddd528e33af60e2ac0fb}{Digraph}}\ \&g)}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00996}00996\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00997}00997\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_default_traits_a09cf511a3b871159483d698063e19725}{PredMap}}(g);}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00998}00998\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l00999}00999\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01001}01001\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01005}\mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_default_traits_abd25dbb38fd8cf0448f0e1a87f4d6fca}{01005}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{NullMap<typename\ Digraph::Node,bool>}}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_default_traits_abd25dbb38fd8cf0448f0e1a87f4d6fca}{ProcessedMap}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01007}01007\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01011}01011\ \textcolor{preprocessor}{\#ifdef\ DOXYGEN}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01012}01012\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ProcessedMap}}\ *\mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_default_traits_af5fd7202089b36b43fdf543ab4b5f010}{createProcessedMap}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_default_traits_ac5e75b721324ddd528e33af60e2ac0fb}{Digraph}}\ \&g)}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01013}01013\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01014}\mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_default_traits_af5fd7202089b36b43fdf543ab4b5f010}{01014}}\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ProcessedMap}}\ *\mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_default_traits_af5fd7202089b36b43fdf543ab4b5f010}{createProcessedMap}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_default_traits_ac5e75b721324ddd528e33af60e2ac0fb}{Digraph}}\ \&)}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01015}01015\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01016}01016\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01017}01017\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_default_traits_abd25dbb38fd8cf0448f0e1a87f4d6fca}{ProcessedMap}}();}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01018}01018\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01019}01019\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01021}01021\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01024}\mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_default_traits_a86c4b1ef97136e0f6461ce4c84844bf0}{01024}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Digraph::template\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{NodeMap<typename\ LEN::Value>}}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_default_traits_a86c4b1ef97136e0f6461ce4c84844bf0}{DistMap}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01026}01026\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01030}\mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_default_traits_ad08abc5142ec38dcc8d711e5b8d3e0a3}{01030}}\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_default_traits_a86c4b1ef97136e0f6461ce4c84844bf0}{DistMap}}\ *\mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_default_traits_ad08abc5142ec38dcc8d711e5b8d3e0a3}{createDistMap}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_default_traits_ac5e75b721324ddd528e33af60e2ac0fb}{Digraph}}\ \&g)}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01031}01031\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01032}01032\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_default_traits_a86c4b1ef97136e0f6461ce4c84844bf0}{DistMap}}(g);}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01033}01033\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01034}01034\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01036}01036\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01039}\mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_default_traits_abeb52e6f06df4469cf4eb9e223e1fb32}{01039}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{lemon::Path<Digraph>}}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_default_traits_abeb52e6f06df4469cf4eb9e223e1fb32}{Path}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01040}01040\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01041}01041\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01043}01043\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01047}01047\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ GR,\ \textcolor{keyword}{typename}\ LEN>}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01048}\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_base}{01048}}\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_base}{DijkstraWizardBase}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_default_traits}{DijkstraWizardDefaultTraits}}<GR,LEN>}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01049}01049\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01050}\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_base_af35aa10526daf05246d83f79a673ffe1}{01050}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{DijkstraWizardDefaultTraits<GR,LEN>}}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_base_af35aa10526daf05246d83f79a673ffe1}{Base}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01051}01051\ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01052}01052\ \ \ \ \ \textcolor{comment}{//The\ type\ of\ the\ nodes\ in\ the\ digraph.}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01053}\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_base_a8e420d360aca960c68374ed0f38d290f}{01053}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_ad1925d6eb5b018b37628c380873753ad}{Base::Digraph::Node}}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_base_a8e420d360aca960c68374ed0f38d290f}{Node}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01054}01054\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01055}01055\ \ \ \ \ \textcolor{comment}{//Pointer\ to\ the\ digraph\ the\ algorithm\ runs\ on.}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01056}\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_base_a5635e2becbcee413c5e96fe9f06cd127}{01056}}\ \ \ \ \ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_base_a5635e2becbcee413c5e96fe9f06cd127}{\_g}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01057}01057\ \ \ \ \ \textcolor{comment}{//Pointer\ to\ the\ length\ map.}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01058}\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_base_adc9ba45a9275a6b0caf4e398e4b8792c}{01058}}\ \ \ \ \ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_base_adc9ba45a9275a6b0caf4e398e4b8792c}{\_length}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01059}01059\ \ \ \ \ \textcolor{comment}{//Pointer\ to\ the\ map\ of\ processed\ nodes.}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01060}\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_base_ab038688ec3b77254515ba9bdbdb4ef33}{01060}}\ \ \ \ \ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_base_ab038688ec3b77254515ba9bdbdb4ef33}{\_processed}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01061}01061\ \ \ \ \ \textcolor{comment}{//Pointer\ to\ the\ map\ of\ predecessors\ arcs.}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01062}\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_base_a082efd848ef52519d30070c81258b597}{01062}}\ \ \ \ \ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_base_a082efd848ef52519d30070c81258b597}{\_pred}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01063}01063\ \ \ \ \ \textcolor{comment}{//Pointer\ to\ the\ map\ of\ distances.}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01064}\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_base_a9aea6dd75e2a47e1f644b692548b013e}{01064}}\ \ \ \ \ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_base_a9aea6dd75e2a47e1f644b692548b013e}{\_dist}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01065}01065\ \ \ \ \ \textcolor{comment}{//Pointer\ to\ the\ shortest\ path\ to\ the\ target\ node.}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01066}\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_base_aa34fe04b9c9ea262cbf2e457ef04ac32}{01066}}\ \ \ \ \ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_base_aa34fe04b9c9ea262cbf2e457ef04ac32}{\_path}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01067}01067\ \ \ \ \ \textcolor{comment}{//Pointer\ to\ the\ distance\ of\ the\ target\ node.}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01068}\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_base_a307d0bfdd502cdd4ca3214ab7666aee7}{01068}}\ \ \ \ \ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_base_a307d0bfdd502cdd4ca3214ab7666aee7}{\_di}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01069}01069\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01070}01070\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01072}01072\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01075}\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_base_a4dc60f411e414cedae56f5cdaabb4687}{01075}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_base_a4dc60f411e414cedae56f5cdaabb4687}{DijkstraWizardBase}}()\ :\ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_base_a5635e2becbcee413c5e96fe9f06cd127}{\_g}}(0),\ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_base_adc9ba45a9275a6b0caf4e398e4b8792c}{\_length}}(0),\ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_base_ab038688ec3b77254515ba9bdbdb4ef33}{\_processed}}(0),\ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_base_a082efd848ef52519d30070c81258b597}{\_pred}}(0),}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01076}01076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_base_a9aea6dd75e2a47e1f644b692548b013e}{\_dist}}(0),\ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_base_aa34fe04b9c9ea262cbf2e457ef04ac32}{\_path}}(0),\ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_base_a307d0bfdd502cdd4ca3214ab7666aee7}{\_di}}(0)\ \{\}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01077}01077\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01079}01079\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01084}\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_base_a3e06dd9c53dd6d324814760ba2bbbaa6}{01084}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_base_a3e06dd9c53dd6d324814760ba2bbbaa6}{DijkstraWizardBase}}(\textcolor{keyword}{const}\ GR\ \&g,\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{LEN}}\ \&\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{l}})\ :}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01085}01085\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_base_a5635e2becbcee413c5e96fe9f06cd127}{\_g}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{reinterpret\_cast}}<\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{void}}*>(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{const\_cast}}<GR*>(\&g))),}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01086}01086\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_base_adc9ba45a9275a6b0caf4e398e4b8792c}{\_length}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{reinterpret\_cast}}<\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{void}}*>(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{const\_cast}}<\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{LEN}}*>(\&\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{l}}))),}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01087}01087\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_base_ab038688ec3b77254515ba9bdbdb4ef33}{\_processed}}(0),\ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_base_a082efd848ef52519d30070c81258b597}{\_pred}}(0),\ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_base_a9aea6dd75e2a47e1f644b692548b013e}{\_dist}}(0),\ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_base_aa34fe04b9c9ea262cbf2e457ef04ac32}{\_path}}(0),\ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_base_a307d0bfdd502cdd4ca3214ab7666aee7}{\_di}}(0)\ \{\}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01088}01088\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01089}01089\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01090}01090\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01092}01092\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01103}01103\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ TR>}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01104}\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard}{01104}}\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard}{DijkstraWizard}}\ :\ \textcolor{keyword}{public}\ TR}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01105}01105\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01106}\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a6151eab27de2569d6f42e449960b31de}{01106}}\ \ \ \ \ \textcolor{keyword}{typedef}\ TR\ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a6151eab27de2569d6f42e449960b31de}{Base}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01107}01107\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01108}\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a5d4abd0b2a6e1d840d72143513f04080}{01108}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ TR::Digraph\ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a5d4abd0b2a6e1d840d72143513f04080}{Digraph}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01109}01109\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01110}\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_adde3634747635415ccff8f1c02836597}{01110}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Digraph::Node\ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_adde3634747635415ccff8f1c02836597}{Node}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01111}\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a4c63c53856862d752b2244e0a8cda812}{01111}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Digraph::NodeIt\ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a4c63c53856862d752b2244e0a8cda812}{NodeIt}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01112}\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_aaa6dbb1bd31b1a69b80aca2e950648af}{01112}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Digraph::Arc\ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_aaa6dbb1bd31b1a69b80aca2e950648af}{Arc}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01113}\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a5673622ee0b6ea0a1b8cf6621f3a356a}{01113}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Digraph::OutArcIt\ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a5673622ee0b6ea0a1b8cf6621f3a356a}{OutArcIt}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01114}01114\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01115}\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_aebbf07e64490edb446df8a7bbb545e22}{01115}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ TR::LengthMap\ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_aebbf07e64490edb446df8a7bbb545e22}{LengthMap}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01116}\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a3eb48e16d9ee35792d7af9a3999b38bd}{01116}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ LengthMap::Value\ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a3eb48e16d9ee35792d7af9a3999b38bd}{Value}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01117}\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a0b7069431d7302f08c5574f17d10a2de}{01117}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ TR::PredMap\ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a0b7069431d7302f08c5574f17d10a2de}{PredMap}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01118}\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a3e23c5194a55a262cc10a85d46e45735}{01118}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ TR::DistMap\ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a3e23c5194a55a262cc10a85d46e45735}{DistMap}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01119}\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a83f11d29f51061cf2f2911c4710c056f}{01119}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ TR::ProcessedMap\ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a83f11d29f51061cf2f2911c4710c056f}{ProcessedMap}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01120}\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a8cfdddff772badd057788dcea47014b0}{01120}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ TR::Path\ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a8cfdddff772badd057788dcea47014b0}{Path}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01121}\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a500bb4ce7ad21b13f98a62814b844f12}{01121}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ TR::Heap\ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a500bb4ce7ad21b13f98a62814b844f12}{Heap}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01122}01122\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01123}01123\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01124}01124\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01126}\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_af68ec02182faed6acc46e44d7b52b45a}{01126}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_af68ec02182faed6acc46e44d7b52b45a}{DijkstraWizard}}()\ :\ TR()\ \{\}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01127}01127\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01129}01129\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01134}\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a22d8be8666866ec1cc77ae2a48ef474c}{01134}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a22d8be8666866ec1cc77ae2a48ef474c}{DijkstraWizard}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a5d4abd0b2a6e1d840d72143513f04080}{Digraph}}\ \&g,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_aebbf07e64490edb446df8a7bbb545e22}{LengthMap}}\ \&\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{l}})\ :}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01135}01135\ \ \ \ \ \ \ TR(g,\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{l}})\ \{\}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01136}01136\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01138}\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_ac10be2d38337e93ac9346942ae00bca7}{01138}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_ac10be2d38337e93ac9346942ae00bca7}{DijkstraWizard}}(\textcolor{keyword}{const}\ TR\ \&b)\ :\ TR(b)\ \{\}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01139}01139\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01140}\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a713321922659814478e9cb227f1f0c45}{01140}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a713321922659814478e9cb227f1f0c45}{\string~DijkstraWizard}}()\ \{\}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01141}01141\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01143}01143\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01146}\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a14d945f808820c1459a3057633af5f02}{01146}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a14d945f808820c1459a3057633af5f02}{run}}(\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_adde3634747635415ccff8f1c02836597}{Node}}\ s)}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01147}01147\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01148}01148\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Dijkstra<Digraph,LengthMap,TR>}}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01149}01149\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{dijk}}(*\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const\ }\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a5d4abd0b2a6e1d840d72143513f04080}{Digraph}}*\textcolor{keyword}{>}(Base::\_g),}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01150}01150\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const\ }\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_aebbf07e64490edb446df8a7bbb545e22}{LengthMap}}*\textcolor{keyword}{>}(Base::\_length));}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01151}01151\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Base::\_pred)}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01152}01152\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{dijk}}.predMap(*\textcolor{keyword}{reinterpret\_cast<}\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a0b7069431d7302f08c5574f17d10a2de}{PredMap}}*\textcolor{keyword}{>}(Base::\_pred));}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01153}01153\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Base::\_dist)}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01154}01154\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{dijk}}.distMap(*\textcolor{keyword}{reinterpret\_cast<}\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a3e23c5194a55a262cc10a85d46e45735}{DistMap}}*\textcolor{keyword}{>}(Base::\_dist));}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01155}01155\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Base::\_processed)}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01156}01156\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{dijk}}.processedMap(*\textcolor{keyword}{reinterpret\_cast<}\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a83f11d29f51061cf2f2911c4710c056f}{ProcessedMap}}*\textcolor{keyword}{>}(Base::\_processed));}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01157}01157\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{dijk}}.run(s);}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01158}01158\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01159}01159\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01161}01161\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01167}\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_adac073a727ce078f62a21d7a229843a3}{01167}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_adac073a727ce078f62a21d7a229843a3}{run}}(\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_adde3634747635415ccff8f1c02836597}{Node}}\ s,\ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_adde3634747635415ccff8f1c02836597}{Node}}\ t)}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01168}01168\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01169}01169\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Dijkstra<Digraph,LengthMap,TR>}}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01170}01170\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{dijk}}(*\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const\ }\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a5d4abd0b2a6e1d840d72143513f04080}{Digraph}}*\textcolor{keyword}{>}(Base::\_g),}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01171}01171\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const\ }\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_aebbf07e64490edb446df8a7bbb545e22}{LengthMap}}*\textcolor{keyword}{>}(Base::\_length));}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01172}01172\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Base::\_pred)}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01173}01173\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{dijk}}.predMap(*\textcolor{keyword}{reinterpret\_cast<}\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a0b7069431d7302f08c5574f17d10a2de}{PredMap}}*\textcolor{keyword}{>}(Base::\_pred));}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01174}01174\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Base::\_dist)}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01175}01175\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{dijk}}.distMap(*\textcolor{keyword}{reinterpret\_cast<}\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a3e23c5194a55a262cc10a85d46e45735}{DistMap}}*\textcolor{keyword}{>}(Base::\_dist));}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01176}01176\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Base::\_processed)}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01177}01177\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{dijk}}.processedMap(*\textcolor{keyword}{reinterpret\_cast<}\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a83f11d29f51061cf2f2911c4710c056f}{ProcessedMap}}*\textcolor{keyword}{>}(Base::\_processed));}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01178}01178\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{dijk}}.run(s,t);}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01179}01179\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Base::\_path)}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01180}01180\ \ \ \ \ \ \ \ \ *\textcolor{keyword}{reinterpret\_cast<}\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a8cfdddff772badd057788dcea47014b0}{Path}}*\textcolor{keyword}{>}(Base::\_path)\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{dijk}}.path(t);}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01181}01181\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Base::\_di)}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01182}01182\ \ \ \ \ \ \ \ \ *\textcolor{keyword}{reinterpret\_cast<}\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a3eb48e16d9ee35792d7af9a3999b38bd}{Value}}*\textcolor{keyword}{>}(Base::\_di)\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{dijk}}.dist(t);}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01183}01183\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{dijk}}.reached(t);}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01184}01184\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01185}01185\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01186}01186\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01187}\mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_1_1_set_pred_map_base}{01187}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_1_1_set_pred_map_base}{SetPredMapBase}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a6151eab27de2569d6f42e449960b31de}{Base}}\ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01188}\mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_1_1_set_pred_map_base_a6e632cb40a5dee2b486138aa66479101}{01188}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ T\ \mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_1_1_set_pred_map_base_a6e632cb40a5dee2b486138aa66479101}{PredMap}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01189}\mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_1_1_set_pred_map_base_aefdb2837dce9c59ebdb8c87ba8e56a04}{01189}}\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_1_1_set_pred_map_base_a6e632cb40a5dee2b486138aa66479101}{PredMap}}\ *\mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_1_1_set_pred_map_base_aefdb2837dce9c59ebdb8c87ba8e56a04}{createPredMap}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a5d4abd0b2a6e1d840d72143513f04080}{Digraph}}\ \&)\ \{\ \textcolor{keywordflow}{return}\ 0;\ \};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01190}\mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_1_1_set_pred_map_base_a45e00dea923098632c525a33a2fb5e22}{01190}}\ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_1_1_set_pred_map_base_a45e00dea923098632c525a33a2fb5e22}{SetPredMapBase}}(\textcolor{keyword}{const}\ TR\ \&b)\ :\ TR(b)\ \{\}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01191}01191\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01192}01192\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01198}01198\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01199}\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a6dded60a20a3fc6fa47376bbfc3892e7}{01199}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{DijkstraWizard<SetPredMapBase<T>}}\ >\ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a6dded60a20a3fc6fa47376bbfc3892e7}{predMap}}(\textcolor{keyword}{const}\ T\ \&t)}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01200}01200\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01201}01201\ \ \ \ \ \ \ Base::\_pred=\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{void}*\textcolor{keyword}{>}(\textcolor{keyword}{const\_cast<}T*\textcolor{keyword}{>}(\&t));}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01202}01202\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{DijkstraWizard<SetPredMapBase<T>}}\ >(*this);}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01203}01203\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01204}01204\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01205}01205\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01206}\mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_1_1_set_dist_map_base}{01206}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_1_1_set_dist_map_base}{SetDistMapBase}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a6151eab27de2569d6f42e449960b31de}{Base}}\ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01207}\mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_1_1_set_dist_map_base_a910c48a7f9f31c4f438b2e7d3521cd6e}{01207}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ T\ \mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_1_1_set_dist_map_base_a910c48a7f9f31c4f438b2e7d3521cd6e}{DistMap}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01208}\mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_1_1_set_dist_map_base_ab96c921e411cca0753241b466a2d37d8}{01208}}\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_1_1_set_dist_map_base_a910c48a7f9f31c4f438b2e7d3521cd6e}{DistMap}}\ *\mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_1_1_set_dist_map_base_ab96c921e411cca0753241b466a2d37d8}{createDistMap}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a5d4abd0b2a6e1d840d72143513f04080}{Digraph}}\ \&)\ \{\ \textcolor{keywordflow}{return}\ 0;\ \};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01209}\mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_1_1_set_dist_map_base_a40cdfb69a7f42ca8fc49f31a8af12a11}{01209}}\ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_1_1_set_dist_map_base_a40cdfb69a7f42ca8fc49f31a8af12a11}{SetDistMapBase}}(\textcolor{keyword}{const}\ TR\ \&b)\ :\ TR(b)\ \{\}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01210}01210\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01211}01211\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01218}01218\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01219}\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a1035f0d9287aae565223a02e0922c352}{01219}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{DijkstraWizard<SetDistMapBase<T>}}\ >\ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a1035f0d9287aae565223a02e0922c352}{distMap}}(\textcolor{keyword}{const}\ T\ \&t)}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01220}01220\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01221}01221\ \ \ \ \ \ \ Base::\_dist=\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{void}*\textcolor{keyword}{>}(\textcolor{keyword}{const\_cast<}T*\textcolor{keyword}{>}(\&t));}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01222}01222\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{DijkstraWizard<SetDistMapBase<T>}}\ >(*this);}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01223}01223\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01224}01224\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01225}01225\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01226}\mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_1_1_set_processed_map_base}{01226}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_1_1_set_processed_map_base}{SetProcessedMapBase}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a6151eab27de2569d6f42e449960b31de}{Base}}\ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01227}\mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_1_1_set_processed_map_base_a28634a03817d606cefcddd772138967d}{01227}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ T\ \mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_1_1_set_processed_map_base_a28634a03817d606cefcddd772138967d}{ProcessedMap}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01228}\mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_1_1_set_processed_map_base_a8000d353fe0db95dfed9fe2e4b05c2ff}{01228}}\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_1_1_set_processed_map_base_a28634a03817d606cefcddd772138967d}{ProcessedMap}}\ *\mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_1_1_set_processed_map_base_a8000d353fe0db95dfed9fe2e4b05c2ff}{createProcessedMap}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a5d4abd0b2a6e1d840d72143513f04080}{Digraph}}\ \&)\ \{\ \textcolor{keywordflow}{return}\ 0;\ \};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01229}\mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_1_1_set_processed_map_base_a16d33f2c6bb6cd4dd531f4cb962913a8}{01229}}\ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_1_1_set_processed_map_base_a16d33f2c6bb6cd4dd531f4cb962913a8}{SetProcessedMapBase}}(\textcolor{keyword}{const}\ TR\ \&b)\ :\ TR(b)\ \{\}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01230}01230\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01231}01231\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01237}01237\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01238}\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a826ba52c2424d400cdd5f92e8ac7c744}{01238}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{DijkstraWizard<SetProcessedMapBase<T>}}\ >\ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a826ba52c2424d400cdd5f92e8ac7c744}{processedMap}}(\textcolor{keyword}{const}\ T\ \&t)}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01239}01239\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01240}01240\ \ \ \ \ \ \ Base::\_processed=\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{void}*\textcolor{keyword}{>}(\textcolor{keyword}{const\_cast<}T*\textcolor{keyword}{>}(\&t));}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01241}01241\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{DijkstraWizard<SetProcessedMapBase<T>}}\ >(*this);}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01242}01242\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01243}01243\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01244}01244\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01245}\mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_1_1_set_path_base}{01245}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_1_1_set_path_base}{SetPathBase}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a6151eab27de2569d6f42e449960b31de}{Base}}\ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01246}\mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_1_1_set_path_base_a0d90dc474569b408449c6140999d2cbc}{01246}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ T\ \mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_1_1_set_path_base_a0d90dc474569b408449c6140999d2cbc}{Path}};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01247}\mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_1_1_set_path_base_aab7c47181f07800c4c07479d34728e43}{01247}}\ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_dijkstra_wizard_1_1_set_path_base_aab7c47181f07800c4c07479d34728e43}{SetPathBase}}(\textcolor{keyword}{const}\ TR\ \&b)\ :\ TR(b)\ \{\}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01248}01248\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01249}01249\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01255}01255\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01256}\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a7571de4bad8b070952a92850c15c449d}{01256}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{DijkstraWizard<SetPathBase<T>}}\ >\ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a7571de4bad8b070952a92850c15c449d}{path}}(\textcolor{keyword}{const}\ T\ \&t)}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01257}01257\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01258}01258\ \ \ \ \ \ \ Base::\_path=\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{void}*\textcolor{keyword}{>}(\textcolor{keyword}{const\_cast<}T*\textcolor{keyword}{>}(\&t));}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01259}01259\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{DijkstraWizard<SetPathBase<T>}}\ >(*this);}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01260}01260\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01261}01261\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01267}\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_aaef80738776661958cbec83c1dd888e6}{01267}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard}{DijkstraWizard}}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_aaef80738776661958cbec83c1dd888e6}{dist}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a3eb48e16d9ee35792d7af9a3999b38bd}{Value}}\ \&d)}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01268}01268\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01269}01269\ \ \ \ \ \ \ Base::\_di=\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{void}*\textcolor{keyword}{>}(\textcolor{keyword}{const\_cast<}\mbox{\hyperlink{classlemon_1_1_dijkstra_wizard_a3eb48e16d9ee35792d7af9a3999b38bd}{Value}}*\textcolor{keyword}{>}(\&d));}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01270}01270\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01271}01271\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01272}01272\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01273}01273\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01274}01274\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01276}01276\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01294}01294\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ GR,\ \textcolor{keyword}{typename}\ LEN>}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01295}01295\ \ \ DijkstraWizard<DijkstraWizardBase<GR,LEN>\ >}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01296}\mbox{\hyperlink{group__shortest__path_gafd83f1f1908612151806e4b15ae1ae25}{01296}}\ \ \ \mbox{\hyperlink{group__shortest__path_gafd83f1f1908612151806e4b15ae1ae25}{dijkstra}}(\textcolor{keyword}{const}\ GR\ \&digraph,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{LEN}}\ \&length)}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01297}01297\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01298}01298\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{DijkstraWizard<DijkstraWizardBase<GR,LEN>}}\ >(digraph,length);}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01299}01299\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01300}01300\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01301}01301\ \}\ \textcolor{comment}{//END\ OF\ NAMESPACE\ LEMON}}
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01302}01302\ }
+\DoxyCodeLine{\Hypertarget{dijkstra_8h_source_l01303}01303\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

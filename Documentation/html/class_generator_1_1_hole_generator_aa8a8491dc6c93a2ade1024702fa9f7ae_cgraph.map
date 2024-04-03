@@ -1,0 +1,9 @@
+<map id="Generator::HoleGenerator::HoleGenerator" name="Generator::HoleGenerator::HoleGenerator">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,35,175,77"/>
+<area shape="rect" id="Node000002" href="$class_hole_generator_settings.html#a67709732d8f3be08c4192220d3663408" title=" " alt="" coords="223,5,375,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="175,41,207,37,208,42,176,47"/>
+<area shape="rect" id="Node000003" href="$namespace_log.html#acc334094de2c17174209b77597e7742d" title=" " alt="" coords="264,72,334,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="176,65,248,76,248,81,175,71"/>
+<area shape="rect" id="Node000004" href="$class_log_1_1_logger.html#a45aece334a9680706aabc171f1c1fc64" title=" " alt="" coords="423,72,540,99"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="334,83,407,83,407,88,334,88"/>
+</map>

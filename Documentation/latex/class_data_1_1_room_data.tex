@@ -1,0 +1,249 @@
+\doxysection{Data\+::Room\+Data Class Reference}
+\hypertarget{class_data_1_1_room_data}{}\label{class_data_1_1_room_data}\index{Data::RoomData@{Data::RoomData}}
+
+
+{\ttfamily \#include $<$room.\+hpp$>$}
+
+
+
+Collaboration diagram for Data\+::Room\+Data\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_data_1_1_room_data__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_data_1_1_room_data_aa355e4db2cb5f3e291ab867f533d4820}{Room\+Data}} (const \mbox{\hyperlink{class_geometry_1_1_polygon}{Geometry\+::\+Polygon}} \&polygon)
+\item 
+\mbox{\hyperlink{class_data_1_1_room_data}{Room\+Data}} \& \mbox{\hyperlink{class_data_1_1_room_data_aa1977a5084afe5da179f5c72ebebd02e}{operator=}} (const \mbox{\hyperlink{class_data_1_1_room_data}{Room\+Data}} \&other)
+\item 
+\mbox{\hyperlink{class_data_1_1_layout_data}{Layout\+Data}} \& \mbox{\hyperlink{class_data_1_1_room_data_a4947a350140bd6b9c64c3c84b4157b37}{get\+Floor}} ()
+\item 
+\mbox{\hyperlink{class_data_1_1_layout_data}{Layout\+Data}} \mbox{\hyperlink{class_data_1_1_room_data_a7a7821606e884765005bf10a47dcfb1a}{get\+Floor\+Const}} () const
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_data_1_1_wall_data}{Wall\+Data}} $>$ \mbox{\hyperlink{class_data_1_1_room_data_a22de30e496be700ade2cff19291bad62}{get\+Walls}} () const
+\item 
+int \mbox{\hyperlink{class_data_1_1_room_data_a788bf47403cecd19b0590a947990f6a0}{get\+Id}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const int \mbox{\hyperlink{class_data_1_1_room_data_a50d8927d36a8af723e258245d3e5585a}{id}}
+\item 
+\mbox{\hyperlink{class_data_1_1_layout_data}{Layout\+Data}} \mbox{\hyperlink{class_data_1_1_room_data_a642788b2dfb6d8d06efe4bf6d94b60ba}{floor}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_data_1_1_wall_data}{Wall\+Data}} $>$ \mbox{\hyperlink{class_data_1_1_room_data_a2d6654849439a0388b63d106af4955ca}{walls}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{class_data_1_1_room_data_a8a686ebd6b3a3f1d1f454e7f2c98adb6}{next\+Id}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{room_8hpp_source_l00014}{14}} of file \mbox{\hyperlink{room_8hpp_source}{room.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_data_1_1_room_data_aa355e4db2cb5f3e291ab867f533d4820}\label{class_data_1_1_room_data_aa355e4db2cb5f3e291ab867f533d4820} 
+\index{Data::RoomData@{Data::RoomData}!RoomData@{RoomData}}
+\index{RoomData@{RoomData}!Data::RoomData@{Data::RoomData}}
+\doxysubsubsection{\texorpdfstring{RoomData()}{RoomData()}}
+{\footnotesize\ttfamily Data\+::\+Room\+Data\+::\+Room\+Data (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_geometry_1_1_polygon}{Geometry\+::\+Polygon}} \&}]{polygon }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{room_8cpp_source_l00007}{7}} of file \mbox{\hyperlink{room_8cpp_source}{room.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00007\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{class_data_1_1_room_data_a50d8927d36a8af723e258245d3e5585a}{id}}(\mbox{\hyperlink{class_data_1_1_room_data_a8a686ebd6b3a3f1d1f454e7f2c98adb6}{nextId}}),\ \mbox{\hyperlink{class_data_1_1_room_data_a642788b2dfb6d8d06efe4bf6d94b60ba}{floor}}(polygon) }
+\DoxyCodeLine{00008\ \ \ \ \ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ ++\mbox{\hyperlink{class_data_1_1_room_data_a8a686ebd6b3a3f1d1f454e7f2c98adb6}{RoomData::nextId}};}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ std::vector<Math::Vec3f>\ points\ =\ \mbox{\hyperlink{class_data_1_1_room_data_a642788b2dfb6d8d06efe4bf6d94b60ba}{floor}}.\mbox{\hyperlink{class_data_1_1_layout_data_ad0327c57353bc5f5407a436d980b073d}{getPoints}}();}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ 0;\ idx\ <\ points.size()\ -\/\ 1;\ ++idx)}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_data_1_1_room_data_a2d6654849439a0388b63d106af4955ca}{walls}}.push\_back(\mbox{\hyperlink{class_data_1_1_wall_data}{Data::WallData}}(points[idx],\ points[idx\ +\ 1]));}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_data_1_1_room_data_a2d6654849439a0388b63d106af4955ca}{walls}}.push\_back(\mbox{\hyperlink{class_data_1_1_wall_data}{Data::WallData}}(points[points.size()\ -\/\ 1],\ points[0]));}
+\DoxyCodeLine{00017\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_data_1_1_room_data_aa355e4db2cb5f3e291ab867f533d4820_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_data_1_1_room_data_a4947a350140bd6b9c64c3c84b4157b37}\label{class_data_1_1_room_data_a4947a350140bd6b9c64c3c84b4157b37} 
+\index{Data::RoomData@{Data::RoomData}!getFloor@{getFloor}}
+\index{getFloor@{getFloor}!Data::RoomData@{Data::RoomData}}
+\doxysubsubsection{\texorpdfstring{getFloor()}{getFloor()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_data_1_1_layout_data}{Layout\+Data}} \& Data\+::\+Room\+Data\+::get\+Floor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{room_8hpp_source_l00029}{29}} of file \mbox{\hyperlink{room_8hpp_source}{room.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_data_1_1_room_data_a642788b2dfb6d8d06efe4bf6d94b60ba}{floor}};\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_data_1_1_room_data_a4947a350140bd6b9c64c3c84b4157b37_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_data_1_1_room_data_a7a7821606e884765005bf10a47dcfb1a}\label{class_data_1_1_room_data_a7a7821606e884765005bf10a47dcfb1a} 
+\index{Data::RoomData@{Data::RoomData}!getFloorConst@{getFloorConst}}
+\index{getFloorConst@{getFloorConst}!Data::RoomData@{Data::RoomData}}
+\doxysubsubsection{\texorpdfstring{getFloorConst()}{getFloorConst()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_data_1_1_layout_data}{Layout\+Data}} Data\+::\+Room\+Data\+::get\+Floor\+Const (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{room_8hpp_source_l00030}{30}} of file \mbox{\hyperlink{room_8hpp_source}{room.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00030\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_data_1_1_room_data_a642788b2dfb6d8d06efe4bf6d94b60ba}{floor}};\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_data_1_1_room_data_a7a7821606e884765005bf10a47dcfb1a_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_data_1_1_room_data_a788bf47403cecd19b0590a947990f6a0}\label{class_data_1_1_room_data_a788bf47403cecd19b0590a947990f6a0} 
+\index{Data::RoomData@{Data::RoomData}!getId@{getId}}
+\index{getId@{getId}!Data::RoomData@{Data::RoomData}}
+\doxysubsubsection{\texorpdfstring{getId()}{getId()}}
+{\footnotesize\ttfamily int Data\+::\+Room\+Data\+::get\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{room_8hpp_source_l00033}{33}} of file \mbox{\hyperlink{room_8hpp_source}{room.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00033\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_data_1_1_room_data_a50d8927d36a8af723e258245d3e5585a}{id}};\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_data_1_1_room_data_a788bf47403cecd19b0590a947990f6a0_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_data_1_1_room_data_a22de30e496be700ade2cff19291bad62}\label{class_data_1_1_room_data_a22de30e496be700ade2cff19291bad62} 
+\index{Data::RoomData@{Data::RoomData}!getWalls@{getWalls}}
+\index{getWalls@{getWalls}!Data::RoomData@{Data::RoomData}}
+\doxysubsubsection{\texorpdfstring{getWalls()}{getWalls()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_data_1_1_wall_data}{Wall\+Data}} $>$ Data\+::\+Room\+Data\+::get\+Walls (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{room_8hpp_source_l00031}{31}} of file \mbox{\hyperlink{room_8hpp_source}{room.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00031\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_data_1_1_room_data_a2d6654849439a0388b63d106af4955ca}{walls}};\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_data_1_1_room_data_a22de30e496be700ade2cff19291bad62_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_data_1_1_room_data_aa1977a5084afe5da179f5c72ebebd02e}\label{class_data_1_1_room_data_aa1977a5084afe5da179f5c72ebebd02e} 
+\index{Data::RoomData@{Data::RoomData}!operator=@{operator=}}
+\index{operator=@{operator=}!Data::RoomData@{Data::RoomData}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_data_1_1_room_data}{Room\+Data}} \& Data\+::\+Room\+Data\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_data_1_1_room_data}{Room\+Data}} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{room_8cpp_source_l00019}{19}} of file \mbox{\hyperlink{room_8cpp_source}{room.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00020\ \ \ \ \ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00022\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_data_1_1_room_data_a642788b2dfb6d8d06efe4bf6d94b60ba}\label{class_data_1_1_room_data_a642788b2dfb6d8d06efe4bf6d94b60ba} 
+\index{Data::RoomData@{Data::RoomData}!floor@{floor}}
+\index{floor@{floor}!Data::RoomData@{Data::RoomData}}
+\doxysubsubsection{\texorpdfstring{floor}{floor}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_data_1_1_layout_data}{Layout\+Data}} Data\+::\+Room\+Data\+::floor\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{room_8hpp_source_l00021}{21}} of file \mbox{\hyperlink{room_8hpp_source}{room.\+hpp}}.
+
+\Hypertarget{class_data_1_1_room_data_a50d8927d36a8af723e258245d3e5585a}\label{class_data_1_1_room_data_a50d8927d36a8af723e258245d3e5585a} 
+\index{Data::RoomData@{Data::RoomData}!id@{id}}
+\index{id@{id}!Data::RoomData@{Data::RoomData}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily const int Data\+::\+Room\+Data\+::id\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{room_8hpp_source_l00019}{19}} of file \mbox{\hyperlink{room_8hpp_source}{room.\+hpp}}.
+
+\Hypertarget{class_data_1_1_room_data_a8a686ebd6b3a3f1d1f454e7f2c98adb6}\label{class_data_1_1_room_data_a8a686ebd6b3a3f1d1f454e7f2c98adb6} 
+\index{Data::RoomData@{Data::RoomData}!nextId@{nextId}}
+\index{nextId@{nextId}!Data::RoomData@{Data::RoomData}}
+\doxysubsubsection{\texorpdfstring{nextId}{nextId}}
+{\footnotesize\ttfamily int Data\+::\+Room\+Data\+::next\+Id = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{room_8hpp_source_l00017}{17}} of file \mbox{\hyperlink{room_8hpp_source}{room.\+hpp}}.
+
+\Hypertarget{class_data_1_1_room_data_a2d6654849439a0388b63d106af4955ca}\label{class_data_1_1_room_data_a2d6654849439a0388b63d106af4955ca} 
+\index{Data::RoomData@{Data::RoomData}!walls@{walls}}
+\index{walls@{walls}!Data::RoomData@{Data::RoomData}}
+\doxysubsubsection{\texorpdfstring{walls}{walls}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_data_1_1_wall_data}{Wall\+Data}}$>$ Data\+::\+Room\+Data\+::walls\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{room_8hpp_source_l00022}{22}} of file \mbox{\hyperlink{room_8hpp_source}{room.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Data/\mbox{\hyperlink{room_8hpp}{room.\+hpp}}\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Data/\mbox{\hyperlink{room_8cpp}{room.\+cpp}}\end{DoxyCompactItemize}

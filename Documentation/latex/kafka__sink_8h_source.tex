@@ -1,0 +1,125 @@
+\doxysection{kafka\+\_\+sink.\+h}
+\hypertarget{kafka__sink_8h_source}{}\label{kafka__sink_8h_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/spdlog/sinks/kafka\_sink.h@{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/spdlog/sinks/kafka\_sink.h}}
+\mbox{\hyperlink{kafka__sink_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00001}00001\ \textcolor{comment}{//\ Copyright(c)\ 2015-\/present,\ Gabi\ Melman\ \&\ spdlog\ contributors.}}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00002}00002\ \textcolor{comment}{//\ Distributed\ under\ the\ MIT\ License\ (http://opensource.org/licenses/MIT)}}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00004}00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00006}00006\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00007}00007\ \textcolor{comment}{//\ Custom\ sink\ for\ kafka}}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00008}00008\ \textcolor{comment}{//\ Building\ and\ using\ requires\ librdkafka\ library.}}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00009}00009\ \textcolor{comment}{//\ For\ building\ librdkafka\ library\ check\ the\ url\ below}}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00010}00010\ \textcolor{comment}{//\ https://github.com/confluentinc/librdkafka}}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00011}00011\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{async_8h}{spdlog/async.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{log__msg_8h}{spdlog/details/log\_msg.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00015}00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{null__mutex_8h}{spdlog/details/null\_mutex.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00016}00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{synchronous__factory_8h}{spdlog/details/synchronous\_factory.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00017}00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{base__sink_8h}{spdlog/sinks/base\_sink.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00018}00018\ \textcolor{preprocessor}{\#include\ <mutex>}}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{common_8h}{spdlog/common.h}}>}}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00021}00021\ \textcolor{comment}{//\ kafka\ header}}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <librdkafka/rdkafkacpp.h>}}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00024}00024\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacespdlog}{spdlog}}\ \{}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00025}00025\ \textcolor{keyword}{namespace\ }sinks\ \{}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00027}\mbox{\hyperlink{structspdlog_1_1sinks_1_1kafka__sink__config}{00027}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structspdlog_1_1sinks_1_1kafka__sink__config}{kafka\_sink\_config}}\ \{}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00028}\mbox{\hyperlink{structspdlog_1_1sinks_1_1kafka__sink__config_a0e077f188f98682e8da032e4bb16fc85}{00028}}\ \ \ \ \ std::string\ \mbox{\hyperlink{structspdlog_1_1sinks_1_1kafka__sink__config_a0e077f188f98682e8da032e4bb16fc85}{server\_addr}};}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00029}\mbox{\hyperlink{structspdlog_1_1sinks_1_1kafka__sink__config_a29b72502f06a462df78346a4913dfb74}{00029}}\ \ \ \ \ std::string\ \mbox{\hyperlink{structspdlog_1_1sinks_1_1kafka__sink__config_a29b72502f06a462df78346a4913dfb74}{produce\_topic}};}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00030}\mbox{\hyperlink{structspdlog_1_1sinks_1_1kafka__sink__config_a542785bbd17d423f27e855d2eab8f9ab}{00030}}\ \ \ \ \ int32\_t\ \mbox{\hyperlink{structspdlog_1_1sinks_1_1kafka__sink__config_a542785bbd17d423f27e855d2eab8f9ab}{flush\_timeout\_ms}}\ =\ 1000;}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00032}\mbox{\hyperlink{structspdlog_1_1sinks_1_1kafka__sink__config_a2f9778ec0f89da8ea556f3f553d82b9a}{00032}}\ \ \ \ \ \mbox{\hyperlink{structspdlog_1_1sinks_1_1kafka__sink__config_a2f9778ec0f89da8ea556f3f553d82b9a}{kafka\_sink\_config}}(std::string\ addr,\ std::string\ topic,\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structspdlog_1_1sinks_1_1kafka__sink__config_a542785bbd17d423f27e855d2eab8f9ab}{flush\_timeout\_ms}}\ =\ 1000)}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00033}00033\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{structspdlog_1_1sinks_1_1kafka__sink__config_a0e077f188f98682e8da032e4bb16fc85}{server\_addr}}\{\mbox{\hyperlink{namespacestd}{std}}::move(addr)\},}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structspdlog_1_1sinks_1_1kafka__sink__config_a29b72502f06a462df78346a4913dfb74}{produce\_topic}}\{\mbox{\hyperlink{namespacestd}{std}}::move(topic)\},}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structspdlog_1_1sinks_1_1kafka__sink__config_a542785bbd17d423f27e855d2eab8f9ab}{flush\_timeout\_ms}}(\mbox{\hyperlink{structspdlog_1_1sinks_1_1kafka__sink__config_a542785bbd17d423f27e855d2eab8f9ab}{flush\_timeout\_ms}})\ \{\}}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00036}00036\ \};}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00038}00038\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Mutex>}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00039}\mbox{\hyperlink{classspdlog_1_1sinks_1_1kafka__sink}{00039}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classspdlog_1_1sinks_1_1kafka__sink}{kafka\_sink}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1base__sink}{base\_sink}}<Mutex>\ \{}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00040}00040\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00041}\mbox{\hyperlink{classspdlog_1_1sinks_1_1kafka__sink_a80a2ab94df37d12307cc952c4c479f13}{00041}}\ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1sinks_1_1kafka__sink_a80a2ab94df37d12307cc952c4c479f13}{kafka\_sink}}(\mbox{\hyperlink{structspdlog_1_1sinks_1_1kafka__sink__config}{kafka\_sink\_config}}\ config)}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00042}00042\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1kafka__sink_af721577d1c811ba3945abfa4fdc98fd5}{config\_}}\{\mbox{\hyperlink{namespacestd}{std}}::move(config)\}\ \{}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00043}00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ errstr;}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1sinks_1_1kafka__sink_ad8967ecc4c3a950e29d23277e5b21c49}{conf\_}}.reset(RdKafka::Conf::create(RdKafka::Conf::CONF\_GLOBAL));}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ RdKafka::Conf::ConfResult\ confRes\ =}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1sinks_1_1kafka__sink_ad8967ecc4c3a950e29d23277e5b21c49}{conf\_}}-\/>set(\textcolor{stringliteral}{"{}bootstrap.servers"{}},\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1kafka__sink_af721577d1c811ba3945abfa4fdc98fd5}{config\_}}.\mbox{\hyperlink{structspdlog_1_1sinks_1_1kafka__sink__config_a0e077f188f98682e8da032e4bb16fc85}{server\_addr}},\ errstr);}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (confRes\ !=\ RdKafka::Conf::CONF\_OK)\ \{}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_ac3d8b7e83aad48720518fbac80836c3c}{throw\_spdlog\_ex}}(}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fmt\_lib::format(\textcolor{stringliteral}{"{}conf\ set\ bootstrap.servers\ failed\ err:\{\}"{}},\ errstr));}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1sinks_1_1kafka__sink_ab3163ccfee5185ce79f183d0bdb1414f}{tconf\_}}.reset(RdKafka::Conf::create(RdKafka::Conf::CONF\_TOPIC));}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classspdlog_1_1sinks_1_1kafka__sink_ab3163ccfee5185ce79f183d0bdb1414f}{tconf\_}}\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_ac3d8b7e83aad48720518fbac80836c3c}{throw\_spdlog\_ex}}(fmt\_lib::format(\textcolor{stringliteral}{"{}create\ topic\ config\ failed"{}}));}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1sinks_1_1kafka__sink_a63c640320edd45bb74df28476c84fee0}{producer\_}}.reset(RdKafka::Producer::create(\mbox{\hyperlink{classspdlog_1_1sinks_1_1kafka__sink_ad8967ecc4c3a950e29d23277e5b21c49}{conf\_}}.get(),\ errstr));}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classspdlog_1_1sinks_1_1kafka__sink_a63c640320edd45bb74df28476c84fee0}{producer\_}}\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_ac3d8b7e83aad48720518fbac80836c3c}{throw\_spdlog\_ex}}(fmt\_lib::format(\textcolor{stringliteral}{"{}create\ producer\ failed\ err:\{\}"{}},\ errstr));}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1sinks_1_1kafka__sink_a0fceb760e4ea72eddbc1e5b323aff7cb}{topic\_}}.reset(RdKafka::Topic::create(\mbox{\hyperlink{classspdlog_1_1sinks_1_1kafka__sink_a63c640320edd45bb74df28476c84fee0}{producer\_}}.get(),\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1kafka__sink_af721577d1c811ba3945abfa4fdc98fd5}{config\_}}.\mbox{\hyperlink{structspdlog_1_1sinks_1_1kafka__sink__config_a29b72502f06a462df78346a4913dfb74}{produce\_topic}},}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1sinks_1_1kafka__sink_ab3163ccfee5185ce79f183d0bdb1414f}{tconf\_}}.get(),\ errstr));}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classspdlog_1_1sinks_1_1kafka__sink_a0fceb760e4ea72eddbc1e5b323aff7cb}{topic\_}}\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_ac3d8b7e83aad48720518fbac80836c3c}{throw\_spdlog\_ex}}(fmt\_lib::format(\textcolor{stringliteral}{"{}create\ topic\ failed\ err:\{\}"{}},\ errstr));}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00067}00067\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ std::exception\ \&e)\ \{}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_ac3d8b7e83aad48720518fbac80836c3c}{throw\_spdlog\_ex}}(fmt\_lib::format(\textcolor{stringliteral}{"{}error\ create\ kafka\ instance:\ \{\}"{}},\ e.what()));}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00069}00069\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00070}00070\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00072}\mbox{\hyperlink{classspdlog_1_1sinks_1_1kafka__sink_a3f438cd46c0d6f2b44da17c042a74e70}{00072}}\ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1sinks_1_1kafka__sink_a3f438cd46c0d6f2b44da17c042a74e70}{\string~kafka\_sink}}()\ \{\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1kafka__sink_a63c640320edd45bb74df28476c84fee0}{producer\_}}-\/>flush(\mbox{\hyperlink{classspdlog_1_1sinks_1_1kafka__sink_af721577d1c811ba3945abfa4fdc98fd5}{config\_}}.\mbox{\hyperlink{structspdlog_1_1sinks_1_1kafka__sink__config_a542785bbd17d423f27e855d2eab8f9ab}{flush\_timeout\_ms}});\ \}}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00074}00074\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00075}\mbox{\hyperlink{classspdlog_1_1sinks_1_1kafka__sink_af19ff9d654fb00779cd697efc71ea7df}{00075}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1kafka__sink_af19ff9d654fb00779cd697efc71ea7df}{sink\_it\_}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&msg)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00076}00076\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1sinks_1_1kafka__sink_a63c640320edd45bb74df28476c84fee0}{producer\_}}-\/>produce(\mbox{\hyperlink{classspdlog_1_1sinks_1_1kafka__sink_a0fceb760e4ea72eddbc1e5b323aff7cb}{topic\_}}.get(),\ 0,\ RdKafka::Producer::RK\_MSG\_COPY,}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{void}\ *)msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a3f3bc29f5bf45e8a3dc976d544b8faed}{payload}}.data(),\ msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a3f3bc29f5bf45e8a3dc976d544b8faed}{payload}}.size(),\ NULL,\ NULL);}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00078}00078\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00080}\mbox{\hyperlink{classspdlog_1_1sinks_1_1kafka__sink_a8030aae0a527bc914e0cdbd75bf2e2f4}{00080}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1kafka__sink_a8030aae0a527bc914e0cdbd75bf2e2f4}{flush\_}}()\textcolor{keyword}{\ override\ }\{\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1kafka__sink_a63c640320edd45bb74df28476c84fee0}{producer\_}}-\/>flush(\mbox{\hyperlink{classspdlog_1_1sinks_1_1kafka__sink_af721577d1c811ba3945abfa4fdc98fd5}{config\_}}.\mbox{\hyperlink{structspdlog_1_1sinks_1_1kafka__sink__config_a542785bbd17d423f27e855d2eab8f9ab}{flush\_timeout\_ms}});\ \}}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00082}00082\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00083}\mbox{\hyperlink{classspdlog_1_1sinks_1_1kafka__sink_af721577d1c811ba3945abfa4fdc98fd5}{00083}}\ \ \ \ \ \mbox{\hyperlink{structspdlog_1_1sinks_1_1kafka__sink__config}{kafka\_sink\_config}}\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1kafka__sink_af721577d1c811ba3945abfa4fdc98fd5}{config\_}};}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00084}\mbox{\hyperlink{classspdlog_1_1sinks_1_1kafka__sink_a63c640320edd45bb74df28476c84fee0}{00084}}\ \ \ \ \ std::unique\_ptr<RdKafka::Producer>\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1kafka__sink_a63c640320edd45bb74df28476c84fee0}{producer\_}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00085}\mbox{\hyperlink{classspdlog_1_1sinks_1_1kafka__sink_ad8967ecc4c3a950e29d23277e5b21c49}{00085}}\ \ \ \ \ std::unique\_ptr<RdKafka::Conf>\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1kafka__sink_ad8967ecc4c3a950e29d23277e5b21c49}{conf\_}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00086}\mbox{\hyperlink{classspdlog_1_1sinks_1_1kafka__sink_ab3163ccfee5185ce79f183d0bdb1414f}{00086}}\ \ \ \ \ std::unique\_ptr<RdKafka::Conf>\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1kafka__sink_ab3163ccfee5185ce79f183d0bdb1414f}{tconf\_}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00087}\mbox{\hyperlink{classspdlog_1_1sinks_1_1kafka__sink_a0fceb760e4ea72eddbc1e5b323aff7cb}{00087}}\ \ \ \ \ std::unique\_ptr<RdKafka::Topic>\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1kafka__sink_a0fceb760e4ea72eddbc1e5b323aff7cb}{topic\_}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00088}00088\ \};}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00090}\mbox{\hyperlink{namespacespdlog_1_1sinks_a7c007b29364c2dcb4250da9e0a019859}{00090}}\ \textcolor{keyword}{using\ }\mbox{\hyperlink{classspdlog_1_1sinks_1_1kafka__sink}{kafka\_sink\_mt}}\ =\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1kafka__sink}{kafka\_sink<std::mutex>}};}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00091}\mbox{\hyperlink{namespacespdlog_1_1sinks_aa1c1cfbe8333dc0eb0976588d4e5d800}{00091}}\ \textcolor{keyword}{using\ }\mbox{\hyperlink{classspdlog_1_1sinks_1_1kafka__sink}{kafka\_sink\_st}}\ =\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1kafka__sink}{kafka\_sink<spdlog::details::null\_mutex>}};}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00093}00093\ \}\ \ \textcolor{comment}{//\ namespace\ sinks}}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00095}00095\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Factory\ =\ spdlog::synchronous\_factory>}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00096}\mbox{\hyperlink{namespacespdlog_a9fc5b0947b3108fd064e83ed85409b64}{00096}}\ \textcolor{keyword}{inline}\ std::shared\_ptr<logger>\ \mbox{\hyperlink{namespacespdlog_a9fc5b0947b3108fd064e83ed85409b64}{kafka\_logger\_mt}}(\textcolor{keyword}{const}\ std::string\ \&logger\_name,}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structspdlog_1_1sinks_1_1kafka__sink__config}{spdlog::sinks::kafka\_sink\_config}}\ config)\ \{}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00098}00098\ \ \ \ \ \textcolor{keywordflow}{return}\ Factory::template\ create<sinks::kafka\_sink\_mt>(logger\_name,\ config);}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00099}00099\ \}}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00101}00101\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Factory\ =\ spdlog::synchronous\_factory>}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00102}\mbox{\hyperlink{namespacespdlog_af58d88cc4e968cd97f9a76bf7cd4ba2a}{00102}}\ \textcolor{keyword}{inline}\ std::shared\_ptr<logger>\ \mbox{\hyperlink{namespacespdlog_af58d88cc4e968cd97f9a76bf7cd4ba2a}{kafka\_logger\_st}}(\textcolor{keyword}{const}\ std::string\ \&logger\_name,}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structspdlog_1_1sinks_1_1kafka__sink__config}{spdlog::sinks::kafka\_sink\_config}}\ config)\ \{}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00104}00104\ \ \ \ \ \textcolor{keywordflow}{return}\ Factory::template\ create<sinks::kafka\_sink\_st>(logger\_name,\ config);}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00105}00105\ \}}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00107}00107\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Factory\ =\ spdlog::async\_factory>}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00108}\mbox{\hyperlink{namespacespdlog_ad22ce892ff09f2d8b4475f61b502b02c}{00108}}\ \textcolor{keyword}{inline}\ std::shared\_ptr<spdlog::logger>\ \mbox{\hyperlink{namespacespdlog_ad22ce892ff09f2d8b4475f61b502b02c}{kafka\_logger\_async\_mt}}(}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00109}00109\ \ \ \ \ std::string\ logger\_name,\ \mbox{\hyperlink{structspdlog_1_1sinks_1_1kafka__sink__config}{spdlog::sinks::kafka\_sink\_config}}\ config)\ \{}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00110}00110\ \ \ \ \ \textcolor{keywordflow}{return}\ Factory::template\ create<sinks::kafka\_sink\_mt>(logger\_name,\ config);}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00111}00111\ \}}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00113}00113\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Factory\ =\ spdlog::async\_factory>}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00114}\mbox{\hyperlink{namespacespdlog_a91768e5b04631154ad1bc25ecb9f841e}{00114}}\ \textcolor{keyword}{inline}\ std::shared\_ptr<spdlog::logger>\ \mbox{\hyperlink{namespacespdlog_a91768e5b04631154ad1bc25ecb9f841e}{kafka\_logger\_async\_st}}(}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00115}00115\ \ \ \ \ std::string\ logger\_name,\ \mbox{\hyperlink{structspdlog_1_1sinks_1_1kafka__sink__config}{spdlog::sinks::kafka\_sink\_config}}\ config)\ \{}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00116}00116\ \ \ \ \ \textcolor{keywordflow}{return}\ Factory::template\ create<sinks::kafka\_sink\_st>(logger\_name,\ config);}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00117}00117\ \}}
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{kafka__sink_8h_source_l00119}00119\ \}\ \ \textcolor{comment}{//\ namespace\ spdlog}}
+
+\end{DoxyCode}

@@ -1,0 +1,45 @@
+\doxysection{C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Geometry/transformation.hpp File Reference}
+\hypertarget{transformation_8hpp}{}\label{transformation_8hpp}\index{C:/Dev/DungeonGenerator/DungeonGenerator/Geometry/transformation.hpp@{C:/Dev/DungeonGenerator/DungeonGenerator/Geometry/transformation.hpp}}
+{\ttfamily \#include "{}vector.\+hpp"{}}\newline
+{\ttfamily \#include "{}matrix.\+hpp"{}}\newline
+{\ttfamily \#include "{}quaternion.\+hpp"{}}\newline
+Include dependency graph for transformation.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{transformation_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{transformation_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_geometry}{Geometry}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespace_geometry_a3787be2499f49b261d95199bb5276f90}{Geometry\+::\+Rotation\+Axis}} \{ \mbox{\hyperlink{namespace_geometry_a3787be2499f49b261d95199bb5276f90ad32750a1473815422d1a443fac5653f6}{Geometry\+::X}}
+, \mbox{\hyperlink{namespace_geometry_a3787be2499f49b261d95199bb5276f90a87d18d73f6e69ae10fc38d074e7c7211}{Geometry\+::Y}}
+, \mbox{\hyperlink{namespace_geometry_a3787be2499f49b261d95199bb5276f90af68b96a35a4864bb952d1bf7f6e4e3a0}{Geometry\+::Z}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ 3, 3, float $>$ \mbox{\hyperlink{namespace_geometry_aea173472a6cfa416baea254c4954aa19}{Geometry\+::get\+Rotation\+Matrix}} (\mbox{\hyperlink{class_math_1_1_angle}{Angle}} angle, \mbox{\hyperlink{namespace_geometry_a3787be2499f49b261d95199bb5276f90}{Rotation\+Axis}} axis=\mbox{\hyperlink{namespace_geometry_a3787be2499f49b261d95199bb5276f90af68b96a35a4864bb952d1bf7f6e4e3a0}{Rotation\+Axis\+::Z}})
+\item 
+\mbox{\hyperlink{namespace_math_a753baf5938292fd107023b09e4287523}{Vec3f}} \mbox{\hyperlink{namespace_geometry_a2a037051bb9263fa553810b06691426c}{Geometry\+::rotate}} (const \mbox{\hyperlink{namespace_math_a753baf5938292fd107023b09e4287523}{Vec3f}} \&v, \mbox{\hyperlink{class_math_1_1_angle}{Angle}} angle, const \mbox{\hyperlink{namespace_math_a753baf5938292fd107023b09e4287523}{Vec3f}} \&axis)
+\item 
+\mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Vec2f}} \mbox{\hyperlink{namespace_geometry_a03be98bf05901765a8e7a47856dbe9e7}{Geometry\+::rotate}} (const \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Vec2f}} \&v, \mbox{\hyperlink{class_math_1_1_angle}{Angle}} angle)
+\item 
+{\footnotesize template$<$int D, class Type $>$ }\\\mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ D, Type $>$ \mbox{\hyperlink{namespace_geometry_a6bea03fc0f97dfd680a2a74c1dbcab2d}{Geometry\+::shift}} (\mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ D, Type $>$ base, \mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ D, Type $>$ shift\+Vektor)
+\end{DoxyCompactItemize}

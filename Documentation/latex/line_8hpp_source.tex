@@ -1,0 +1,47 @@
+\doxysection{line.\+hpp}
+\hypertarget{line_8hpp_source}{}\label{line_8hpp_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/Geometry/line.hpp@{C:/Dev/DungeonGenerator/DungeonGenerator/Geometry/line.hpp}}
+\mbox{\hyperlink{line_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{line_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{line_8hpp_source_l00002}00002\ \textcolor{comment}{//\#include\ "{}vector.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{line_8hpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{line_8hpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{vector_8hpp}{vector.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{line_8hpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <optional>}}
+\DoxyCodeLine{\Hypertarget{line_8hpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{line_8hpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{equation_system_8hpp}{equationSystem.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{line_8hpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{line_8hpp_source_l00009}00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_geometry}{Geometry}}}
+\DoxyCodeLine{\Hypertarget{line_8hpp_source_l00010}00010\ \{}
+\DoxyCodeLine{\Hypertarget{line_8hpp_source_l00011}\mbox{\hyperlink{class_geometry_1_1_line}{00011}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_geometry_1_1_line}{Line}}\ final}
+\DoxyCodeLine{\Hypertarget{line_8hpp_source_l00012}00012\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{line_8hpp_source_l00013}00013\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{line_8hpp_source_l00014}\mbox{\hyperlink{class_geometry_1_1_line_aebae7b101f68516476d052b7b12f44db}{00014}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ \mbox{\hyperlink{class_geometry_1_1_line_aebae7b101f68516476d052b7b12f44db}{P1}};}
+\DoxyCodeLine{\Hypertarget{line_8hpp_source_l00015}\mbox{\hyperlink{class_geometry_1_1_line_ab8e8f21d2e39a16460ccfa9c107fed4b}{00015}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ \mbox{\hyperlink{class_geometry_1_1_line_ab8e8f21d2e39a16460ccfa9c107fed4b}{P2}};}
+\DoxyCodeLine{\Hypertarget{line_8hpp_source_l00016}\mbox{\hyperlink{class_geometry_1_1_line_a8feb0acd070f15492053ba03788f83c6}{00016}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ \mbox{\hyperlink{class_geometry_1_1_line_a8feb0acd070f15492053ba03788f83c6}{normal}};}
+\DoxyCodeLine{\Hypertarget{line_8hpp_source_l00017}\mbox{\hyperlink{class_geometry_1_1_line_a60e9e910ffb710ca6d22d57723a1af1a}{00017}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ \mbox{\hyperlink{class_geometry_1_1_line_a60e9e910ffb710ca6d22d57723a1af1a}{v}};}
+\DoxyCodeLine{\Hypertarget{line_8hpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{line_8hpp_source_l00019}\mbox{\hyperlink{class_geometry_1_1_line_aa02d6928e78084935e0823e75df355d6}{00019}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_linear_equation}{Math::LinearEquation<2>}}\ \mbox{\hyperlink{class_geometry_1_1_line_aa02d6928e78084935e0823e75df355d6}{lineEquation}};}
+\DoxyCodeLine{\Hypertarget{line_8hpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{line_8hpp_source_l00021}00021\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{line_8hpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_line_afc3d847e7f2bcd92324ed33703ef72d0}{Line}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\&\ \mbox{\hyperlink{class_geometry_1_1_line_aebae7b101f68516476d052b7b12f44db}{P1}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\&\ \mbox{\hyperlink{class_geometry_1_1_line_ab8e8f21d2e39a16460ccfa9c107fed4b}{P2}});}
+\DoxyCodeLine{\Hypertarget{line_8hpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{line_8hpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_geometry_1_1_line_a1835ee77bc90574fcace951c5b104933}{containsPoint}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\&\ P)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{line_8hpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{line_8hpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ \mbox{\hyperlink{class_geometry_1_1_line_a231666515f09328d45fd7249b638edad}{getNormal}}(\textcolor{comment}{/*const\ Math::Vec3f\&\ at*/})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{line_8hpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ \mbox{\hyperlink{class_geometry_1_1_line_acd5340700a5825eeff4c38914bb2a3f6}{getPointAtX}}(\textcolor{keywordtype}{float}\ x)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{line_8hpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ \mbox{\hyperlink{class_geometry_1_1_line_a818a71fc1f6c4d2e6511bd241b964d83}{getPointAtY}}(\textcolor{keywordtype}{float}\ y)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{line_8hpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{line_8hpp_source_l00030}\mbox{\hyperlink{class_geometry_1_1_line_a3d0d28bcae14a913d8b65676fb998b5c}{00030}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_linear_equation}{Math::LinearEquation<2>}}\ \mbox{\hyperlink{class_geometry_1_1_line_a3d0d28bcae14a913d8b65676fb998b5c}{getEquation}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_geometry_1_1_line_aa02d6928e78084935e0823e75df355d6}{lineEquation}};\ \}}
+\DoxyCodeLine{\Hypertarget{line_8hpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{line_8hpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ std::optional<Math::Vec2f>\ \mbox{\hyperlink{class_geometry_1_1_line_a27c83b1fd36f17a5891f66c0b6323967}{getIntersectionPoint}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_geometry_1_1_line}{Line}}\&\ l1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_geometry_1_1_line}{Line}}\&\ l2);}
+\DoxyCodeLine{\Hypertarget{line_8hpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_geometry_1_1_line_ae4f4b789b1c9d339c0762909776038ab}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_geometry_1_1_line}{Line}}\&\ l1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_geometry_1_1_line}{Line}}\&\ l2);}
+\DoxyCodeLine{\Hypertarget{line_8hpp_source_l00034}00034\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{line_8hpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{line_8hpp_source_l00036}00036\ \ \ \ \ std::optional<Math::Vec2f>\ \mbox{\hyperlink{namespace_geometry_ae680321c371d9f6bd6def5844e915b6f}{getIntersectionPoint}}(\textcolor{keyword}{const}\ Line\&\ l1,\ \textcolor{keyword}{const}\ Line\&\ l2);}
+\DoxyCodeLine{\Hypertarget{line_8hpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{line_8hpp_source_l00038}00038\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespace_geometry_a86785195fbc7afcfb5a0d1ed7cddb26b}{operator==}}(\textcolor{keyword}{const}\ Line\&\ l1,\ \textcolor{keyword}{const}\ Line\&\ l2);}
+\DoxyCodeLine{\Hypertarget{line_8hpp_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{line_8hpp_source_l00040}00040\ \ \ \ \ Line\ \mbox{\hyperlink{namespace_geometry_a5435940537ec27507ccd5e8f49808d32}{getBisector}}(\mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ P1,\ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ P2);}
+\DoxyCodeLine{\Hypertarget{line_8hpp_source_l00041}00041\ \}}
+
+\end{DoxyCode}

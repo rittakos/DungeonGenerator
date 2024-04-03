@@ -1,0 +1,9 @@
+<map id="Geometry::getBisector" name="Geometry::getBisector">
+<area shape="rect" id="Node000001" title=" " alt="" coords="822,13,975,40"/>
+<area shape="rect" id="Node000002" href="$class_generator_1_1_voronoi_based_generator_algorithm.html#acf9fb9b0a79f891ab6d44cb0ff747a8c" title=" " alt="" coords="550,5,774,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="807,29,775,29,775,24,807,24"/>
+<area shape="rect" id="Node000003" href="$class_generator_1_1_voronoi_based_generator_algorithm.html#a3762866b91d53ab6afffce1da2d894a6" title=" " alt="" coords="278,5,502,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="535,29,503,29,503,24,535,24"/>
+<area shape="rect" id="Node000004" href="$class_generator_1_1_voronoi_based_generator_algorithm.html#aa1cf5412e39ca7c7fae0853f971e055f" title=" " alt="" coords="5,5,230,48"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="262,29,230,29,230,24,262,24"/>
+</map>

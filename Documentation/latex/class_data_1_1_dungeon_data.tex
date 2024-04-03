@@ -1,0 +1,419 @@
+\doxysection{Data\+::Dungeon\+Data Class Reference}
+\hypertarget{class_data_1_1_dungeon_data}{}\label{class_data_1_1_dungeon_data}\index{Data::DungeonData@{Data::DungeonData}}
+
+
+{\ttfamily \#include $<$dungeon\+Data.\+hpp$>$}
+
+
+
+Collaboration diagram for Data\+::Dungeon\+Data\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_data_1_1_dungeon_data__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_data_1_1_dungeon_data_a704d25441224134cbeac264bdd0df10a}{Dungeon\+Data}} ()
+\item 
+\mbox{\hyperlink{class_data_1_1_dungeon_data_a5387c13b76156bc28ad13afebe0c82fb}{Dungeon\+Data}} (const \mbox{\hyperlink{class_data_1_1_dungeon_data}{Dungeon\+Data}} \&other)
+\item 
+\mbox{\hyperlink{class_data_1_1_dungeon_data}{Dungeon\+Data}} \& \mbox{\hyperlink{class_data_1_1_dungeon_data_a13989f0f11763061beeb3de2e6fc63ed}{operator=}} (const \mbox{\hyperlink{class_data_1_1_dungeon_data}{Dungeon\+Data}} \&other)
+\item 
+std\+::string \mbox{\hyperlink{class_data_1_1_dungeon_data_ad475306136ddd4a08839628b94350ff4}{to\+String}} () const
+\item 
+void \mbox{\hyperlink{class_data_1_1_dungeon_data_ae2edb77eade409c7d8cfe4dc0d519a31}{add\+Room}} (const \mbox{\hyperlink{class_data_1_1_room_data}{Room\+Data}} \&room)
+\item 
+\mbox{\hyperlink{class_data_1_1_maze_data}{Maze\+Data}} \& \mbox{\hyperlink{class_data_1_1_dungeon_data_ac75b4bd327be99d4a890c34dcd4504dc}{get\+Maze}} ()
+\item 
+int \mbox{\hyperlink{class_data_1_1_dungeon_data_a63f3a29a0427ac44a40a4b59238b0fe0}{get\+Version}} () const
+\item 
+unsigned int \mbox{\hyperlink{class_data_1_1_dungeon_data_aba1d1943e0c048a08ca7e11ca68b943b}{get\+Seed}} () const
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_data_1_1_room_data}{Room\+Data}} $>$ \& \mbox{\hyperlink{class_data_1_1_dungeon_data_ac1254b047a02d00344fccd75205ec2b2}{get\+Rooms}} ()
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_data_1_1_layout_data}{Layout\+Data}} $>$ \mbox{\hyperlink{class_data_1_1_dungeon_data_abee7b94b6c5f44f7e29ccae94d35fcd9}{get\+Floors}} () const
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_data_1_1_wall_data}{Wall\+Data}} $>$ \mbox{\hyperlink{class_data_1_1_dungeon_data_adb3b22d9c48abd281869a986aa95f782}{get\+Walls}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_data_1_1_dungeon_data_a2c1de37c0af7925bb5823fe2939379ac}{version}} = 0
+\item 
+\mbox{\hyperlink{class_random_1_1_seed}{Random\+::\+Seed}} \mbox{\hyperlink{class_data_1_1_dungeon_data_ab2bcafe0b121809b22b8cb1afb3f145d}{seed}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_data_1_1_room_data}{Room\+Data}} $>$ \mbox{\hyperlink{class_data_1_1_dungeon_data_a448f75440f2c9bd930fd7941beade8ca}{rooms}}
+\item 
+\mbox{\hyperlink{class_data_1_1_maze_data}{Maze\+Data}} \mbox{\hyperlink{class_data_1_1_dungeon_data_af7d20f6fbeba68afffe79a231450f80d}{maze}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_data_1_1_layout_data}{Layout\+Data}} $>$ \mbox{\hyperlink{class_data_1_1_dungeon_data_abd4f9c19c2613136ae1fea2cdebaf0e1}{floors}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_data_1_1_wall_data}{Wall\+Data}} $>$ \mbox{\hyperlink{class_data_1_1_dungeon_data_ad26fca746cfb9d475978e61b17e95b61}{walls}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{dungeon_data_8hpp_source_l00015}{15}} of file \mbox{\hyperlink{dungeon_data_8hpp_source}{dungeon\+Data.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_data_1_1_dungeon_data_a704d25441224134cbeac264bdd0df10a}\label{class_data_1_1_dungeon_data_a704d25441224134cbeac264bdd0df10a} 
+\index{Data::DungeonData@{Data::DungeonData}!DungeonData@{DungeonData}}
+\index{DungeonData@{DungeonData}!Data::DungeonData@{Data::DungeonData}}
+\doxysubsubsection{\texorpdfstring{DungeonData()}{DungeonData()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Data\+::\+Dungeon\+Data\+::\+Dungeon\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{dungeon_data_8hpp_source_l00030}{30}} of file \mbox{\hyperlink{dungeon_data_8hpp_source}{dungeon\+Data.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00030\ :\ \mbox{\hyperlink{class_data_1_1_dungeon_data_ab2bcafe0b121809b22b8cb1afb3f145d}{seed}}(\mbox{\hyperlink{class_random_aede4242f7756acb68fad3af0c807548d}{Random::GetSeed}}())\ \{\}}
+
+\end{DoxyCode}
+\Hypertarget{class_data_1_1_dungeon_data_a5387c13b76156bc28ad13afebe0c82fb}\label{class_data_1_1_dungeon_data_a5387c13b76156bc28ad13afebe0c82fb} 
+\index{Data::DungeonData@{Data::DungeonData}!DungeonData@{DungeonData}}
+\index{DungeonData@{DungeonData}!Data::DungeonData@{Data::DungeonData}}
+\doxysubsubsection{\texorpdfstring{DungeonData()}{DungeonData()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Data\+::\+Dungeon\+Data\+::\+Dungeon\+Data (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_data_1_1_dungeon_data}{Dungeon\+Data}} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{dungeon_data_8cpp_source_l00005}{5}} of file \mbox{\hyperlink{dungeon_data_8cpp_source}{dungeon\+Data.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00005\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{class_data_1_1_dungeon_data_a704d25441224134cbeac264bdd0df10a}{DungeonData}}() }
+\DoxyCodeLine{00006\ \ \ \ \ \{}
+\DoxyCodeLine{00007\ \ \ \ \ \ \ \ \ *\textcolor{keyword}{this}\ =\ other;}
+\DoxyCodeLine{00008\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_data_1_1_dungeon_data_ae2edb77eade409c7d8cfe4dc0d519a31}\label{class_data_1_1_dungeon_data_ae2edb77eade409c7d8cfe4dc0d519a31} 
+\index{Data::DungeonData@{Data::DungeonData}!addRoom@{addRoom}}
+\index{addRoom@{addRoom}!Data::DungeonData@{Data::DungeonData}}
+\doxysubsubsection{\texorpdfstring{addRoom()}{addRoom()}}
+{\footnotesize\ttfamily void Data\+::\+Dungeon\+Data\+::add\+Room (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_data_1_1_room_data}{Room\+Data}} \&}]{room }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{dungeon_data_8cpp_source_l00024}{24}} of file \mbox{\hyperlink{dungeon_data_8cpp_source}{dungeon\+Data.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00025\ \ \ \ \ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_data_1_1_dungeon_data_a448f75440f2c9bd930fd7941beade8ca}{rooms}}.push\_back(room);}
+\DoxyCodeLine{00027\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_data_1_1_dungeon_data_ae2edb77eade409c7d8cfe4dc0d519a31_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_data_1_1_dungeon_data_abee7b94b6c5f44f7e29ccae94d35fcd9}\label{class_data_1_1_dungeon_data_abee7b94b6c5f44f7e29ccae94d35fcd9} 
+\index{Data::DungeonData@{Data::DungeonData}!getFloors@{getFloors}}
+\index{getFloors@{getFloors}!Data::DungeonData@{Data::DungeonData}}
+\doxysubsubsection{\texorpdfstring{getFloors()}{getFloors()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_data_1_1_layout_data}{Layout\+Data}} $>$ Data\+::\+Dungeon\+Data\+::get\+Floors (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{dungeon_data_8cpp_source_l00029}{29}} of file \mbox{\hyperlink{dungeon_data_8cpp_source}{dungeon\+Data.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00030\ \ \ \ \ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ std::vector<LayoutData>\ \mbox{\hyperlink{class_data_1_1_dungeon_data_abd4f9c19c2613136ae1fea2cdebaf0e1}{floors}};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ RoomData\&\ room\ :\ \mbox{\hyperlink{class_data_1_1_dungeon_data_a448f75440f2c9bd930fd7941beade8ca}{rooms}})}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_data_1_1_dungeon_data_abd4f9c19c2613136ae1fea2cdebaf0e1}{floors}}.push\_back(room.getFloorConst());}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_data_1_1_dungeon_data_abd4f9c19c2613136ae1fea2cdebaf0e1}{floors}};}
+\DoxyCodeLine{00037\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_data_1_1_dungeon_data_abee7b94b6c5f44f7e29ccae94d35fcd9_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_data_1_1_dungeon_data_ac75b4bd327be99d4a890c34dcd4504dc}\label{class_data_1_1_dungeon_data_ac75b4bd327be99d4a890c34dcd4504dc} 
+\index{Data::DungeonData@{Data::DungeonData}!getMaze@{getMaze}}
+\index{getMaze@{getMaze}!Data::DungeonData@{Data::DungeonData}}
+\doxysubsubsection{\texorpdfstring{getMaze()}{getMaze()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_data_1_1_maze_data}{Maze\+Data}} \& Data\+::\+Dungeon\+Data\+::get\+Maze (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{dungeon_data_8hpp_source_l00045}{45}} of file \mbox{\hyperlink{dungeon_data_8hpp_source}{dungeon\+Data.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00045\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_data_1_1_dungeon_data_af7d20f6fbeba68afffe79a231450f80d}{maze}};\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_data_1_1_dungeon_data_ac75b4bd327be99d4a890c34dcd4504dc_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_data_1_1_dungeon_data_ac1254b047a02d00344fccd75205ec2b2}\label{class_data_1_1_dungeon_data_ac1254b047a02d00344fccd75205ec2b2} 
+\index{Data::DungeonData@{Data::DungeonData}!getRooms@{getRooms}}
+\index{getRooms@{getRooms}!Data::DungeonData@{Data::DungeonData}}
+\doxysubsubsection{\texorpdfstring{getRooms()}{getRooms()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_data_1_1_room_data}{Room\+Data}} $>$ \& Data\+::\+Dungeon\+Data\+::get\+Rooms (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{dungeon_data_8hpp_source_l00050}{50}} of file \mbox{\hyperlink{dungeon_data_8hpp_source}{dungeon\+Data.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00050\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_data_1_1_dungeon_data_a448f75440f2c9bd930fd7941beade8ca}{rooms}};\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_data_1_1_dungeon_data_ac1254b047a02d00344fccd75205ec2b2_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_data_1_1_dungeon_data_aba1d1943e0c048a08ca7e11ca68b943b}\label{class_data_1_1_dungeon_data_aba1d1943e0c048a08ca7e11ca68b943b} 
+\index{Data::DungeonData@{Data::DungeonData}!getSeed@{getSeed}}
+\index{getSeed@{getSeed}!Data::DungeonData@{Data::DungeonData}}
+\doxysubsubsection{\texorpdfstring{getSeed()}{getSeed()}}
+{\footnotesize\ttfamily unsigned int Data\+::\+Dungeon\+Data\+::get\+Seed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{dungeon_data_8hpp_source_l00048}{48}} of file \mbox{\hyperlink{dungeon_data_8hpp_source}{dungeon\+Data.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00048\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_data_1_1_dungeon_data_ab2bcafe0b121809b22b8cb1afb3f145d}{seed}}.\mbox{\hyperlink{class_random_1_1_seed_ad7e70ff8e291cdb7a1c03f2fe901427f}{getUnsignedValue}}();\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_data_1_1_dungeon_data_aba1d1943e0c048a08ca7e11ca68b943b_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_data_1_1_dungeon_data_aba1d1943e0c048a08ca7e11ca68b943b_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_data_1_1_dungeon_data_a63f3a29a0427ac44a40a4b59238b0fe0}\label{class_data_1_1_dungeon_data_a63f3a29a0427ac44a40a4b59238b0fe0} 
+\index{Data::DungeonData@{Data::DungeonData}!getVersion@{getVersion}}
+\index{getVersion@{getVersion}!Data::DungeonData@{Data::DungeonData}}
+\doxysubsubsection{\texorpdfstring{getVersion()}{getVersion()}}
+{\footnotesize\ttfamily int Data\+::\+Dungeon\+Data\+::get\+Version (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{dungeon_data_8hpp_source_l00047}{47}} of file \mbox{\hyperlink{dungeon_data_8hpp_source}{dungeon\+Data.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00047\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_data_1_1_dungeon_data_a2c1de37c0af7925bb5823fe2939379ac}{version}};\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_data_1_1_dungeon_data_a63f3a29a0427ac44a40a4b59238b0fe0_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_data_1_1_dungeon_data_adb3b22d9c48abd281869a986aa95f782}\label{class_data_1_1_dungeon_data_adb3b22d9c48abd281869a986aa95f782} 
+\index{Data::DungeonData@{Data::DungeonData}!getWalls@{getWalls}}
+\index{getWalls@{getWalls}!Data::DungeonData@{Data::DungeonData}}
+\doxysubsubsection{\texorpdfstring{getWalls()}{getWalls()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_data_1_1_wall_data}{Wall\+Data}} $>$ Data\+::\+Dungeon\+Data\+::get\+Walls (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{dungeon_data_8cpp_source_l00039}{39}} of file \mbox{\hyperlink{dungeon_data_8cpp_source}{dungeon\+Data.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00040\ \ \ \ \ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ std::vector<WallData>\ \mbox{\hyperlink{class_data_1_1_dungeon_data_ad26fca746cfb9d475978e61b17e95b61}{walls}};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ RoomData\&\ room\ :\ \mbox{\hyperlink{class_data_1_1_dungeon_data_a448f75440f2c9bd930fd7941beade8ca}{rooms}})}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ WallData\&\ wall\ :\ room.\mbox{\hyperlink{class_data_1_1_dungeon_data_adb3b22d9c48abd281869a986aa95f782}{getWalls}}())}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//container.find(element)\ !=\ container.end()}}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//if(maze.getNotWallEdges().find(wall.getWallBase())\ ==\ maze.getNotWallEdges().end())}}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Geometry::Edge>\ wallsNotToInclude\ =\ \mbox{\hyperlink{class_data_1_1_dungeon_data_af7d20f6fbeba68afffe79a231450f80d}{maze}}.\mbox{\hyperlink{class_data_1_1_maze_data_a3b9f1eaa1af5c8ee0775228b637f8486}{getNotWallEdges}}();}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (std::find(wallsNotToInclude.begin(),\ wallsNotToInclude.end(),\ wall.getWallBase())\ ==\ std::end(wallsNotToInclude))}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_data_1_1_dungeon_data_ad26fca746cfb9d475978e61b17e95b61}{walls}}.push\_back(wall);}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_data_1_1_dungeon_data_ad26fca746cfb9d475978e61b17e95b61}{walls}};}
+\DoxyCodeLine{00056\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_data_1_1_dungeon_data_adb3b22d9c48abd281869a986aa95f782_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_data_1_1_dungeon_data_adb3b22d9c48abd281869a986aa95f782_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_data_1_1_dungeon_data_a13989f0f11763061beeb3de2e6fc63ed}\label{class_data_1_1_dungeon_data_a13989f0f11763061beeb3de2e6fc63ed} 
+\index{Data::DungeonData@{Data::DungeonData}!operator=@{operator=}}
+\index{operator=@{operator=}!Data::DungeonData@{Data::DungeonData}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_data_1_1_dungeon_data}{Dungeon\+Data}} \& Data\+::\+Dungeon\+Data\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_data_1_1_dungeon_data}{Dungeon\+Data}} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{dungeon_data_8cpp_source_l00010}{10}} of file \mbox{\hyperlink{dungeon_data_8cpp_source}{dungeon\+Data.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00011\ \ \ \ \ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{class_data_1_1_dungeon_data_a2c1de37c0af7925bb5823fe2939379ac}{version}}\ =\ other.version;}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{class_data_1_1_dungeon_data_ab2bcafe0b121809b22b8cb1afb3f145d}{seed}}\ =\ other.\mbox{\hyperlink{class_random_1_1_seed_a6f7bf0af92325e5a0d5483433041e422}{seed}};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{class_data_1_1_dungeon_data_af7d20f6fbeba68afffe79a231450f80d}{maze}}\ =\ other.\mbox{\hyperlink{class_data_1_1_maze_data_a3b02fa0667425b9c3964ee647eb77747}{maze}};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{class_data_1_1_dungeon_data_a448f75440f2c9bd930fd7941beade8ca}{rooms}}\ =\ other.rooms;}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{class_data_1_1_dungeon_data_ad26fca746cfb9d475978e61b17e95b61}{walls}}\ =\ other.walls;}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{class_data_1_1_dungeon_data_abd4f9c19c2613136ae1fea2cdebaf0e1}{floors}}\ =\ other.floors;}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00022\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_data_1_1_dungeon_data_ad475306136ddd4a08839628b94350ff4}\label{class_data_1_1_dungeon_data_ad475306136ddd4a08839628b94350ff4} 
+\index{Data::DungeonData@{Data::DungeonData}!toString@{toString}}
+\index{toString@{toString}!Data::DungeonData@{Data::DungeonData}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily std\+::string Data\+::\+Dungeon\+Data\+::to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{dungeon_data_8hpp_source_l00035}{35}} of file \mbox{\hyperlink{dungeon_data_8hpp_source}{dungeon\+Data.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ result\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ result\ +=\ std::to\_string(\mbox{\hyperlink{class_data_1_1_dungeon_data_a2c1de37c0af7925bb5823fe2939379ac}{version}})\ +\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ result\ +=\ \textcolor{stringliteral}{"{}DG\(\backslash\)n"{}};}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_data_1_1_dungeon_data_abd4f9c19c2613136ae1fea2cdebaf0e1}\label{class_data_1_1_dungeon_data_abd4f9c19c2613136ae1fea2cdebaf0e1} 
+\index{Data::DungeonData@{Data::DungeonData}!floors@{floors}}
+\index{floors@{floors}!Data::DungeonData@{Data::DungeonData}}
+\doxysubsubsection{\texorpdfstring{floors}{floors}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_data_1_1_layout_data}{Layout\+Data}}$>$ Data\+::\+Dungeon\+Data\+::floors\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{dungeon_data_8hpp_source_l00026}{26}} of file \mbox{\hyperlink{dungeon_data_8hpp_source}{dungeon\+Data.\+hpp}}.
+
+\Hypertarget{class_data_1_1_dungeon_data_af7d20f6fbeba68afffe79a231450f80d}\label{class_data_1_1_dungeon_data_af7d20f6fbeba68afffe79a231450f80d} 
+\index{Data::DungeonData@{Data::DungeonData}!maze@{maze}}
+\index{maze@{maze}!Data::DungeonData@{Data::DungeonData}}
+\doxysubsubsection{\texorpdfstring{maze}{maze}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_data_1_1_maze_data}{Maze\+Data}} Data\+::\+Dungeon\+Data\+::maze\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{dungeon_data_8hpp_source_l00024}{24}} of file \mbox{\hyperlink{dungeon_data_8hpp_source}{dungeon\+Data.\+hpp}}.
+
+\Hypertarget{class_data_1_1_dungeon_data_a448f75440f2c9bd930fd7941beade8ca}\label{class_data_1_1_dungeon_data_a448f75440f2c9bd930fd7941beade8ca} 
+\index{Data::DungeonData@{Data::DungeonData}!rooms@{rooms}}
+\index{rooms@{rooms}!Data::DungeonData@{Data::DungeonData}}
+\doxysubsubsection{\texorpdfstring{rooms}{rooms}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_data_1_1_room_data}{Room\+Data}}$>$ Data\+::\+Dungeon\+Data\+::rooms\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{dungeon_data_8hpp_source_l00023}{23}} of file \mbox{\hyperlink{dungeon_data_8hpp_source}{dungeon\+Data.\+hpp}}.
+
+\Hypertarget{class_data_1_1_dungeon_data_ab2bcafe0b121809b22b8cb1afb3f145d}\label{class_data_1_1_dungeon_data_ab2bcafe0b121809b22b8cb1afb3f145d} 
+\index{Data::DungeonData@{Data::DungeonData}!seed@{seed}}
+\index{seed@{seed}!Data::DungeonData@{Data::DungeonData}}
+\doxysubsubsection{\texorpdfstring{seed}{seed}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_random_1_1_seed}{Random\+::\+Seed}} Data\+::\+Dungeon\+Data\+::seed\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{dungeon_data_8hpp_source_l00019}{19}} of file \mbox{\hyperlink{dungeon_data_8hpp_source}{dungeon\+Data.\+hpp}}.
+
+\Hypertarget{class_data_1_1_dungeon_data_a2c1de37c0af7925bb5823fe2939379ac}\label{class_data_1_1_dungeon_data_a2c1de37c0af7925bb5823fe2939379ac} 
+\index{Data::DungeonData@{Data::DungeonData}!version@{version}}
+\index{version@{version}!Data::DungeonData@{Data::DungeonData}}
+\doxysubsubsection{\texorpdfstring{version}{version}}
+{\footnotesize\ttfamily int Data\+::\+Dungeon\+Data\+::version = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{dungeon_data_8hpp_source_l00018}{18}} of file \mbox{\hyperlink{dungeon_data_8hpp_source}{dungeon\+Data.\+hpp}}.
+
+\Hypertarget{class_data_1_1_dungeon_data_ad26fca746cfb9d475978e61b17e95b61}\label{class_data_1_1_dungeon_data_ad26fca746cfb9d475978e61b17e95b61} 
+\index{Data::DungeonData@{Data::DungeonData}!walls@{walls}}
+\index{walls@{walls}!Data::DungeonData@{Data::DungeonData}}
+\doxysubsubsection{\texorpdfstring{walls}{walls}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_data_1_1_wall_data}{Wall\+Data}}$>$ Data\+::\+Dungeon\+Data\+::walls\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{dungeon_data_8hpp_source_l00027}{27}} of file \mbox{\hyperlink{dungeon_data_8hpp_source}{dungeon\+Data.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Data/\mbox{\hyperlink{dungeon_data_8hpp}{dungeon\+Data.\+hpp}}\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Data/\mbox{\hyperlink{dungeon_data_8cpp}{dungeon\+Data.\+cpp}}\end{DoxyCompactItemize}

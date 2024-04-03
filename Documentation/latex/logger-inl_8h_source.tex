@@ -1,0 +1,204 @@
+\doxysection{logger-\/inl.h}
+\hypertarget{logger-inl_8h_source}{}\label{logger-inl_8h_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/spdlog/logger-\/inl.h@{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/spdlog/logger-\/inl.h}}
+\mbox{\hyperlink{logger-inl_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00001}00001\ \textcolor{comment}{//\ Copyright(c)\ 2015-\/present,\ Gabi\ Melman\ \&\ spdlog\ contributors.}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00002}00002\ \textcolor{comment}{//\ Distributed\ under\ the\ MIT\ License\ (http://opensource.org/licenses/MIT)}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00004}00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00006}00006\ \textcolor{preprocessor}{\#ifndef\ SPDLOG\_HEADER\_ONLY}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00007}00007\ \textcolor{preprocessor}{\ \ \ \ \#include\ <\mbox{\hyperlink{logger_8h}{spdlog/logger.h}}>}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00008}00008\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{backtracer_8h}{spdlog/details/backtracer.h}}>}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{pattern__formatter_8h}{spdlog/pattern\_formatter.h}}>}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{sink_8h}{spdlog/sinks/sink.h}}>}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <cstdio>}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00016}00016\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacespdlog}{spdlog}}\ \{}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00018}00018\ \textcolor{comment}{//\ public\ methods}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00019}\mbox{\hyperlink{classspdlog_1_1logger_a67d32122668fb28ae79ef8bbc37d4762}{00019}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \mbox{\hyperlink{classspdlog_1_1logger_a441b6358c8df8fdc2367c9977b3c6fc2}{logger::logger}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classspdlog_1_1logger}{logger}}\ \&other)}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00020}00020\ \ \ \ \ :\ name\_(other.name\_),}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00021}00021\ \ \ \ \ \ \ sinks\_(other.sinks\_),}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00022}00022\ \ \ \ \ \ \ level\_(other.level\_.load(\mbox{\hyperlink{namespacestd}{std}}::memory\_order\_relaxed)),}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00023}00023\ \ \ \ \ \ \ flush\_level\_(other.flush\_level\_.load(\mbox{\hyperlink{namespacestd}{std}}::memory\_order\_relaxed)),}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00024}00024\ \ \ \ \ \ \ custom\_err\_handler\_(other.custom\_err\_handler\_),}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00025}00025\ \ \ \ \ \ \ tracer\_(other.tracer\_)\ \{\}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00027}\mbox{\hyperlink{classspdlog_1_1logger_a6570c456c96f3898fb890336853c110b}{00027}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \mbox{\hyperlink{classspdlog_1_1logger_a441b6358c8df8fdc2367c9977b3c6fc2}{logger::logger}}(\mbox{\hyperlink{classspdlog_1_1logger}{logger}}\ \&\&other)\ \mbox{\hyperlink{common_8h_a15d2dc432e6bb83beb5130be9a4ca8d6}{SPDLOG\_NOEXCEPT}}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00028}00028\ \ \ \ \ :\ name\_(std::move(other.name\_)),}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00029}00029\ \ \ \ \ \ \ sinks\_(std::move(other.sinks\_)),}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00030}00030\ \ \ \ \ \ \ level\_(other.level\_.load(std::memory\_order\_relaxed)),}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00031}00031\ \ \ \ \ \ \ flush\_level\_(other.flush\_level\_.load(std::memory\_order\_relaxed)),}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00032}00032\ \ \ \ \ \ \ custom\_err\_handler\_(std::move(other.custom\_err\_handler\_)),}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00033}00033\ \ \ \ \ \ \ tracer\_(std::move(other.tracer\_))}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00035}00035\ \{\}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00037}\mbox{\hyperlink{classspdlog_1_1logger_ac600636cb690d41f6652ad1c9cc957cf}{00037}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \mbox{\hyperlink{classspdlog_1_1logger}{logger}}\ \&\mbox{\hyperlink{classspdlog_1_1logger_ac600636cb690d41f6652ad1c9cc957cf}{logger::operator=}}(\mbox{\hyperlink{classspdlog_1_1logger}{logger}}\ other)\ \mbox{\hyperlink{common_8h_a15d2dc432e6bb83beb5130be9a4ca8d6}{SPDLOG\_NOEXCEPT}}\ \{}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00038}00038\ \ \ \ \ this-\/>\mbox{\hyperlink{namespacespdlog_a722a6537a51b47603039c380f22472e5}{swap}}(other);}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00039}00039\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00040}00040\ \}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00042}\mbox{\hyperlink{classspdlog_1_1logger_ae051dea63dc86dd5bb30106ee3b32404}{00042}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1logger_ae051dea63dc86dd5bb30106ee3b32404}{logger::swap}}(\mbox{\hyperlink{classspdlog_1_1logger}{spdlog::logger}}\ \&other)\ \mbox{\hyperlink{common_8h_a15d2dc432e6bb83beb5130be9a4ca8d6}{SPDLOG\_NOEXCEPT}}\ \{}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00043}00043\ \ \ \ \ name\_.swap(other.name\_);}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00044}00044\ \ \ \ \ sinks\_.swap(other.sinks\_);}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00046}00046\ \ \ \ \ \textcolor{comment}{//\ swap\ level\_}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00047}00047\ \ \ \ \ \textcolor{keyword}{auto}\ other\_level\ =\ other.level\_.load();}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00048}00048\ \ \ \ \ \textcolor{keyword}{auto}\ my\_level\ =\ level\_.exchange(other\_level);}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00049}00049\ \ \ \ \ other.level\_.store(my\_level);}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00051}00051\ \ \ \ \ \textcolor{comment}{//\ swap\ flush\ level\_}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00052}00052\ \ \ \ \ other\_level\ =\ other.flush\_level\_.load();}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00053}00053\ \ \ \ \ my\_level\ =\ flush\_level\_.exchange(other\_level);}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00054}00054\ \ \ \ \ other.flush\_level\_.store(my\_level);}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00056}00056\ \ \ \ \ custom\_err\_handler\_.swap(other.custom\_err\_handler\_);}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00057}00057\ \ \ \ \ std::swap(tracer\_,\ other.tracer\_);}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00058}00058\ \}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00060}\mbox{\hyperlink{namespacespdlog_a722a6537a51b47603039c380f22472e5}{00060}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacespdlog_a722a6537a51b47603039c380f22472e5}{swap}}(\mbox{\hyperlink{classspdlog_1_1logger}{logger}}\ \&a,\ \mbox{\hyperlink{classspdlog_1_1logger}{logger}}\ \&b)\ \{\ a.\mbox{\hyperlink{classspdlog_1_1logger_ae051dea63dc86dd5bb30106ee3b32404}{swap}}(b);\ \}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00062}\mbox{\hyperlink{classspdlog_1_1logger_aeaf7078135688ea4df96ea8c8e11e0e7}{00062}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1logger_aeaf7078135688ea4df96ea8c8e11e0e7}{logger::set\_level}}(\mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861}{level::level\_enum}}\ log\_level)\ \{\ \mbox{\hyperlink{classspdlog_1_1logger_af167b5b45a369b3cef019b40a87ed71d}{level\_}}.store(log\_level);\ \}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00064}\mbox{\hyperlink{classspdlog_1_1logger_a07de3c012b7f11d19ff1007e8aff6a31}{00064}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861}{level::level\_enum}}\ \mbox{\hyperlink{classspdlog_1_1logger_a07de3c012b7f11d19ff1007e8aff6a31}{logger::level}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00065}00065\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861}{level::level\_enum}}\textcolor{keyword}{>}(\mbox{\hyperlink{classspdlog_1_1logger_af167b5b45a369b3cef019b40a87ed71d}{level\_}}.load(std::memory\_order\_relaxed));}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00066}00066\ \}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00068}\mbox{\hyperlink{classspdlog_1_1logger_ab1f5f63fcc8517b1105b4f640c1143ad}{00068}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \textcolor{keyword}{const}\ std::string\ \&\mbox{\hyperlink{classspdlog_1_1logger_ab1f5f63fcc8517b1105b4f640c1143ad}{logger::name}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classspdlog_1_1logger_a75c1f8d46f532e221eb0ace35fdd0513}{name\_}};\ \}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00070}00070\ \textcolor{comment}{//\ set\ formatting\ for\ the\ sinks\ in\ this\ logger.}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00071}00071\ \textcolor{comment}{//\ each\ sink\ will\ get\ a\ separate\ instance\ of\ the\ formatter\ object.}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00072}\mbox{\hyperlink{classspdlog_1_1logger_a109da2030da643440092613cb100b5f0}{00072}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1logger_a109da2030da643440092613cb100b5f0}{logger::set\_formatter}}(std::unique\_ptr<formatter>\ f)\ \{}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00073}00073\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ it\ =\ \mbox{\hyperlink{classspdlog_1_1logger_a24a3b3250f3fe52fa7c3053e77076f07}{sinks\_}}.begin();\ it\ !=\ \mbox{\hyperlink{classspdlog_1_1logger_a24a3b3250f3fe52fa7c3053e77076f07}{sinks\_}}.end();\ ++it)\ \{}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00074}00074\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (std::next(it)\ ==\ \mbox{\hyperlink{classspdlog_1_1logger_a24a3b3250f3fe52fa7c3053e77076f07}{sinks\_}}.end())\ \{}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ last\ element\ -\/\ we\ can\ be\ move\ it.}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ (*it)-\/>set\_formatter(std::move(f));}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ \ \textcolor{comment}{//\ to\ prevent\ clang-\/tidy\ warning}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00078}00078\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ (*it)-\/>set\_formatter(f-\/>clone());}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00080}00080\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00081}00081\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00082}00082\ \}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00084}\mbox{\hyperlink{classspdlog_1_1logger_a12cd69af480fb8b4059821000a9afd20}{00084}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1logger_a12cd69af480fb8b4059821000a9afd20}{logger::set\_pattern}}(std::string\ pattern,\ \mbox{\hyperlink{namespacespdlog_ad598fbd8338772e66ae09e8723a07ced}{pattern\_time\_type}}\ time\_type)\ \{}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00085}00085\ \ \ \ \ \textcolor{keyword}{auto}\ new\_formatter\ =\ details::make\_unique<pattern\_formatter>(std::move(pattern),\ time\_type);}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00086}00086\ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1logger_a109da2030da643440092613cb100b5f0}{set\_formatter}}(std::move(new\_formatter));}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00087}00087\ \}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00089}00089\ \textcolor{comment}{//\ create\ new\ backtrace\ sink\ and\ move\ to\ it\ all\ our\ child\ sinks}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00090}\mbox{\hyperlink{classspdlog_1_1logger_a815292ea2223b77b86c39bb2e0a98462}{00090}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1logger_a815292ea2223b77b86c39bb2e0a98462}{logger::enable\_backtrace}}(\textcolor{keywordtype}{size\_t}\ n\_messages)\ \{\ \mbox{\hyperlink{classspdlog_1_1logger_aa1e98497db9dadb18f7f1b5ac22570d1}{tracer\_}}.\mbox{\hyperlink{classspdlog_1_1details_1_1backtracer_a7cb69ae682f696ea13ea771b90fbc579}{enable}}(n\_messages);\ \}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00092}00092\ \textcolor{comment}{//\ restore\ orig\ sinks\ and\ level\ and\ delete\ the\ backtrace\ sink}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00093}\mbox{\hyperlink{classspdlog_1_1logger_af3803316079e8e814a2f8460aee0dc63}{00093}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1logger_af3803316079e8e814a2f8460aee0dc63}{logger::disable\_backtrace}}()\ \{\ \mbox{\hyperlink{classspdlog_1_1logger_aa1e98497db9dadb18f7f1b5ac22570d1}{tracer\_}}.\mbox{\hyperlink{classspdlog_1_1details_1_1backtracer_a0e3655183f41ef75b568a6571cc67eb6}{disable}}();\ \}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00095}\mbox{\hyperlink{classspdlog_1_1logger_adc83cee10165291cd75b100c51e20f3f}{00095}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1logger_adc83cee10165291cd75b100c51e20f3f}{logger::dump\_backtrace}}()\ \{\ \mbox{\hyperlink{classspdlog_1_1logger_aec0da766a100f05af1926404d1ce975f}{dump\_backtrace\_}}();\ \}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00097}00097\ \textcolor{comment}{//\ flush\ functions}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00098}\mbox{\hyperlink{classspdlog_1_1logger_ae7dacca7ca1d6383d910d2a1c483b6da}{00098}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1logger_ae7dacca7ca1d6383d910d2a1c483b6da}{logger::flush}}()\ \{\ \mbox{\hyperlink{classspdlog_1_1logger_a4410446ddde8880655f00729521e9718}{flush\_}}();\ \}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00100}\mbox{\hyperlink{classspdlog_1_1logger_a57179a06ab8a21e4f16e7497302c47db}{00100}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1logger_a57179a06ab8a21e4f16e7497302c47db}{logger::flush\_on}}(\mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861}{level::level\_enum}}\ log\_level)\ \{\ \mbox{\hyperlink{classspdlog_1_1logger_a69f7cbb7e1b2d5204a409906a62c1e94}{flush\_level\_}}.store(log\_level);\ \}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00102}\mbox{\hyperlink{classspdlog_1_1logger_a531a5fdd8cc96405858bf64a272614d3}{00102}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861}{level::level\_enum}}\ \mbox{\hyperlink{classspdlog_1_1logger_a531a5fdd8cc96405858bf64a272614d3}{logger::flush\_level}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00103}00103\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861}{level::level\_enum}}\textcolor{keyword}{>}(\mbox{\hyperlink{classspdlog_1_1logger_a69f7cbb7e1b2d5204a409906a62c1e94}{flush\_level\_}}.load(std::memory\_order\_relaxed));}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00104}00104\ \}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00106}00106\ \textcolor{comment}{//\ sinks}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00107}\mbox{\hyperlink{classspdlog_1_1logger_a6d64051f87d3c1c9d01693e1f4d4982b}{00107}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \textcolor{keyword}{const}\ std::vector<sink\_ptr>\ \&\mbox{\hyperlink{classspdlog_1_1logger_a6d64051f87d3c1c9d01693e1f4d4982b}{logger::sinks}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classspdlog_1_1logger_a24a3b3250f3fe52fa7c3053e77076f07}{sinks\_}};\ \}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00109}\mbox{\hyperlink{classspdlog_1_1logger_af119a1643b29610f0db52fb11ba713ba}{00109}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ std::vector<sink\_ptr>\ \&\mbox{\hyperlink{classspdlog_1_1logger_a6d64051f87d3c1c9d01693e1f4d4982b}{logger::sinks}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classspdlog_1_1logger_a24a3b3250f3fe52fa7c3053e77076f07}{sinks\_}};\ \}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00111}00111\ \textcolor{comment}{//\ error\ handler}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00112}\mbox{\hyperlink{classspdlog_1_1logger_ab855ed44bf4807a0441a5e053b5c1ac1}{00112}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1logger_ab855ed44bf4807a0441a5e053b5c1ac1}{logger::set\_error\_handler}}(\mbox{\hyperlink{namespacespdlog_a03dd18287597b4e682f1f901ad7c1ee1}{err\_handler}}\ handler)\ \{}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00113}00113\ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1logger_a30967665909689412dfdfc856fd6a291}{custom\_err\_handler\_}}\ =\ std::move(handler);}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00114}00114\ \}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00116}00116\ \textcolor{comment}{//\ create\ new\ logger\ with\ same\ sinks\ and\ configuration.}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00117}\mbox{\hyperlink{classspdlog_1_1logger_a953200cbe04c2e694d53781c2066a834}{00117}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ std::shared\_ptr<logger>\ \mbox{\hyperlink{classspdlog_1_1logger_a953200cbe04c2e694d53781c2066a834}{logger::clone}}(std::string\ logger\_name)\ \{}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00118}00118\ \ \ \ \ \textcolor{keyword}{auto}\ cloned\ =\ std::make\_shared<logger>(*\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00119}00119\ \ \ \ \ cloned-\/>name\_\ =\ std::move(logger\_name);}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00120}00120\ \ \ \ \ \textcolor{keywordflow}{return}\ cloned;}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00121}00121\ \}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00122}00122\ }
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00123}00123\ \textcolor{comment}{//\ protected\ methods}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00124}\mbox{\hyperlink{classspdlog_1_1logger_af4f4e7fef776a4443e8e691dca560aec}{00124}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1logger_af4f4e7fef776a4443e8e691dca560aec}{logger::log\_it\_}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{spdlog::details::log\_msg}}\ \&log\_msg,}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ log\_enabled,}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ traceback\_enabled)\ \{}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00127}00127\ \ \ \ \ \textcolor{keywordflow}{if}\ (log\_enabled)\ \{}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00128}00128\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1logger_a903938d3018e32dedcbd090e624ab5ee}{sink\_it\_}}(log\_msg);}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00129}00129\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00130}00130\ \ \ \ \ \textcolor{keywordflow}{if}\ (traceback\_enabled)\ \{}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00131}00131\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1logger_aa1e98497db9dadb18f7f1b5ac22570d1}{tracer\_}}.\mbox{\hyperlink{classspdlog_1_1details_1_1backtracer_a1f3b157c3fcd6b013d6d16302b8e1a10}{push\_back}}(log\_msg);}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00132}00132\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00133}00133\ \}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00135}\mbox{\hyperlink{classspdlog_1_1logger_a903938d3018e32dedcbd090e624ab5ee}{00135}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1logger_a903938d3018e32dedcbd090e624ab5ee}{logger::sink\_it\_}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&msg)\ \{}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00136}00136\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&sink\ :\ \mbox{\hyperlink{classspdlog_1_1logger_a24a3b3250f3fe52fa7c3053e77076f07}{sinks\_}})\ \{}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00137}00137\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (sink-\/>should\_log(msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a4142f4d66140a1ea24053311ebea5706}{level}}))\ \{}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{common_8h_a4e499b4744b7b9df9452dd67d7380e90}{SPDLOG\_TRY}}\ \{\ sink-\/>log(msg);\ \}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{logger_8h_a5c51810e21b98f4506f2d2940afc86a1}{SPDLOG\_LOGGER\_CATCH}}(msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a607e0014c79c1d39e28b515662ca2ca1}{source}})}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00140}00140\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00141}00141\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00142}00142\ }
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00143}00143\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classspdlog_1_1logger_ad39bf7f0608d13e335dd19dfce484b36}{should\_flush\_}}(msg))\ \{}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00144}00144\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1logger_a4410446ddde8880655f00729521e9718}{flush\_}}();}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00145}00145\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00146}00146\ \}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00147}00147\ }
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00148}\mbox{\hyperlink{classspdlog_1_1logger_a4410446ddde8880655f00729521e9718}{00148}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1logger_a4410446ddde8880655f00729521e9718}{logger::flush\_}}()\ \{}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00149}00149\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&sink\ :\ \mbox{\hyperlink{classspdlog_1_1logger_a24a3b3250f3fe52fa7c3053e77076f07}{sinks\_}})\ \{}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00150}00150\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{common_8h_a4e499b4744b7b9df9452dd67d7380e90}{SPDLOG\_TRY}}\ \{\ sink-\/>flush();\ \}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00151}00151\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{logger_8h_a5c51810e21b98f4506f2d2940afc86a1}{SPDLOG\_LOGGER\_CATCH}}(\mbox{\hyperlink{structspdlog_1_1source__loc}{source\_loc}}())}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00152}00152\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00153}00153\ \}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00154}00154\ }
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00155}\mbox{\hyperlink{classspdlog_1_1logger_aec0da766a100f05af1926404d1ce975f}{00155}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1logger_aec0da766a100f05af1926404d1ce975f}{logger::dump\_backtrace\_}}()\ \{}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00156}00156\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}};}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00157}00157\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classspdlog_1_1logger_aa1e98497db9dadb18f7f1b5ac22570d1}{tracer\_}}.\mbox{\hyperlink{classspdlog_1_1details_1_1backtracer_a78c514131543b5682d0143e93a7365ba}{enabled}}()\ \&\&\ !\mbox{\hyperlink{classspdlog_1_1logger_aa1e98497db9dadb18f7f1b5ac22570d1}{tracer\_}}.\mbox{\hyperlink{classspdlog_1_1details_1_1backtracer_a9a182593791d6458233ad59715cbf443}{empty}}())\ \{}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00158}00158\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1logger_a903938d3018e32dedcbd090e624ab5ee}{sink\_it\_}}(}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00159}00159\ \ \ \ \ \ \ \ \ \ \ \ \ log\_msg\{\mbox{\hyperlink{classspdlog_1_1logger_ab1f5f63fcc8517b1105b4f640c1143ad}{name}}(),\ \mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861a7f09db55ad64d87e4124f10582cb016f}{level::info}},\ \textcolor{stringliteral}{"{}******************\ Backtrace\ Start\ ******************"{}}\});}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00160}00160\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1logger_aa1e98497db9dadb18f7f1b5ac22570d1}{tracer\_}}.\mbox{\hyperlink{classspdlog_1_1details_1_1backtracer_aa18d7036db805e0af39a967c7cf2f7c8}{foreach\_pop}}([\textcolor{keyword}{this}](\textcolor{keyword}{const}\ log\_msg\ \&msg)\ \{\ this-\/>\mbox{\hyperlink{classspdlog_1_1logger_a903938d3018e32dedcbd090e624ab5ee}{sink\_it\_}}(msg);\ \});}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00161}00161\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1logger_a903938d3018e32dedcbd090e624ab5ee}{sink\_it\_}}(}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ log\_msg\{\mbox{\hyperlink{classspdlog_1_1logger_ab1f5f63fcc8517b1105b4f640c1143ad}{name}}(),\ \mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861a7f09db55ad64d87e4124f10582cb016f}{level::info}},\ \textcolor{stringliteral}{"{}******************\ Backtrace\ End\ ********************"{}}\});}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00163}00163\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00164}00164\ \}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00165}00165\ }
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00166}\mbox{\hyperlink{classspdlog_1_1logger_ad39bf7f0608d13e335dd19dfce484b36}{00166}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classspdlog_1_1logger_ad39bf7f0608d13e335dd19dfce484b36}{logger::should\_flush\_}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&msg)\ \{}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00167}00167\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classspdlog_1_1logger_a531a5fdd8cc96405858bf64a272614d3}{flush\_level}}\ =\ \mbox{\hyperlink{classspdlog_1_1logger_a69f7cbb7e1b2d5204a409906a62c1e94}{flush\_level\_}}.load(std::memory\_order\_relaxed);}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00168}00168\ \ \ \ \ \textcolor{keywordflow}{return}\ (msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a4142f4d66140a1ea24053311ebea5706}{level}}\ >=\ \mbox{\hyperlink{classspdlog_1_1logger_a531a5fdd8cc96405858bf64a272614d3}{flush\_level}})\ \&\&\ (msg.\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a4142f4d66140a1ea24053311ebea5706}{level}}\ !=\ \mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861a917591d8c0e89f6e6247c95c67809a1a}{level::off}});}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00169}00169\ \}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00170}00170\ }
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00171}\mbox{\hyperlink{classspdlog_1_1logger_a6bd679195d6f128bc60750113608f65c}{00171}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1logger_a6bd679195d6f128bc60750113608f65c}{logger::err\_handler\_}}(\textcolor{keyword}{const}\ std::string\ \&msg)\ \{}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00172}00172\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classspdlog_1_1logger_a30967665909689412dfdfc856fd6a291}{custom\_err\_handler\_}})\ \{}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00173}00173\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1logger_a30967665909689412dfdfc856fd6a291}{custom\_err\_handler\_}}(msg);}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00174}00174\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00175}00175\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }std::chrono::system\_clock;}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00176}00176\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::mutex\ mutex;}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00177}00177\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::chrono::system\_clock::time\_point\ last\_report\_time;}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00178}00178\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{size\_t}\ err\_counter\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00179}00179\ \ \ \ \ \ \ \ \ std::lock\_guard<std::mutex>\ lk\{mutex\};}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00180}00180\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ now\ =\ system\_clock::now();}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00181}00181\ \ \ \ \ \ \ \ \ err\_counter++;}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00182}00182\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (now\ -\/\ last\_report\_time\ <\ std::chrono::seconds(1))\ \{}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00183}00183\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00184}00184\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00185}00185\ \ \ \ \ \ \ \ \ last\_report\_time\ =\ now;}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00186}00186\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ tm\_time\ =\ \mbox{\hyperlink{namespacespdlog_1_1details_1_1os_ab090524da42b398917c5f90b3919599a}{details::os::localtime}}(system\_clock::to\_time\_t(now));}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00187}00187\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ date\_buf[64];}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00188}00188\ \ \ \ \ \ \ \ \ std::strftime(date\_buf,\ \textcolor{keyword}{sizeof}(date\_buf),\ \textcolor{stringliteral}{"{}\%Y-\/\%m-\/\%d\ \%H:\%M:\%S"{}},\ \&tm\_time);}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00189}00189\ \textcolor{preprocessor}{\#if\ defined(USING\_R)\ \&\&\ defined(R\_R\_H)\ \ }\textcolor{comment}{//\ if\ in\ R\ environment}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00190}00190\ \ \ \ \ \ \ \ \ REprintf(\textcolor{stringliteral}{"{}[***\ LOG\ ERROR\ \#\%04zu\ ***]\ [\%s]\ [\%s]\ \%s\(\backslash\)n"{}},\ err\_counter,\ date\_buf,\ \mbox{\hyperlink{classspdlog_1_1logger_ab1f5f63fcc8517b1105b4f640c1143ad}{name}}().c\_str(),}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00191}00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ msg.c\_str());}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00192}00192\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00193}00193\ \ \ \ \ \ \ \ \ std::fprintf(stderr,\ \textcolor{stringliteral}{"{}[***\ LOG\ ERROR\ \#\%04zu\ ***]\ [\%s]\ [\%s]\ \%s\(\backslash\)n"{}},\ err\_counter,\ date\_buf,}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00194}00194\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1logger_ab1f5f63fcc8517b1105b4f640c1143ad}{name}}().c\_str(),\ msg.c\_str());}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00195}00195\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00196}00196\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00197}00197\ \}}
+\DoxyCodeLine{\Hypertarget{logger-inl_8h_source_l00198}00198\ \}\ \ \textcolor{comment}{//\ namespace\ spdlog}}
+
+\end{DoxyCode}

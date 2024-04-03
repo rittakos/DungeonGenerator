@@ -1,0 +1,274 @@
+\doxysection{kruskal.\+h}
+\hypertarget{kruskal_8h_source}{}\label{kruskal_8h_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/lemon/kruskal.h@{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/lemon/kruskal.h}}
+\mbox{\hyperlink{kruskal_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00001}00001\ \textcolor{comment}{/*\ -\/*-\/\ mode:\ C++;\ indent-\/tabs-\/mode:\ nil;\ -\/*-\/}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00002}00002\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00003}00003\ \textcolor{comment}{\ *\ This\ file\ is\ a\ part\ of\ LEMON,\ a\ generic\ C++\ optimization\ library.}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00004}00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00005}00005\ \textcolor{comment}{\ *\ Copyright\ (C)\ 2003-\/2013}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00006}00006\ \textcolor{comment}{\ *\ Egervary\ Jeno\ Kombinatorikus\ Optimalizalasi\ Kutatocsoport}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00007}00007\ \textcolor{comment}{\ *\ (Egervary\ Research\ Group\ on\ Combinatorial\ Optimization,\ EGRES).}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00008}00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00009}00009\ \textcolor{comment}{\ *\ Permission\ to\ use,\ modify\ and\ distribute\ this\ software\ is\ granted}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00010}00010\ \textcolor{comment}{\ *\ provided\ that\ this\ copyright\ notice\ appears\ in\ all\ copies.\ For}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00011}00011\ \textcolor{comment}{\ *\ precise\ terms\ see\ the\ accompanying\ LICENSE\ file.}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00012}00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00013}00013\ \textcolor{comment}{\ *\ This\ software\ is\ provided\ "{}AS\ IS"{}\ with\ no\ warranty\ of\ any\ kind,}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00014}00014\ \textcolor{comment}{\ *\ express\ or\ implied,\ and\ with\ no\ claim\ as\ to\ its\ suitability\ for\ any}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00015}00015\ \textcolor{comment}{\ *\ purpose.}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00016}00016\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00017}00017\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00019}00019\ \textcolor{preprocessor}{\#ifndef\ LEMON\_KRUSKAL\_H}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00020}00020\ \textcolor{preprocessor}{\#define\ LEMON\_KRUSKAL\_H}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00023}00023\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00024}00024\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{unionfind_8h}{lemon/unionfind.h}}>}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00025}00025\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{maps_8h}{lemon/maps.h}}>}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00027}00027\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{lemon_2core_8h}{lemon/core.h}}>}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00028}00028\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{traits_8h}{lemon/bits/traits.h}}>}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00034}00034\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacelemon}{lemon}}\ \{}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00036}\mbox{\hyperlink{namespacelemon_1_1__kruskal__bits}{00036}}\ \ \ \textcolor{keyword}{namespace\ }\_kruskal\_bits\ \{}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00038}00038\ \ \ \ \ \textcolor{comment}{//\ Kruskal\ for\ directed\ graphs.}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00040}00040\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Digraph,\ \textcolor{keyword}{typename}\ In,\ \textcolor{keyword}{typename}\ Out>}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00041}00041\ \ \ \ \ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{disable\_if<lemon::UndirectedTagIndicator<Digraph>}},}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ In::value\_type::second\_type\ >\mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a7aead736a07eaf25623ad7bfa1f0ee2d}{::type}}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00043}\mbox{\hyperlink{namespacelemon_1_1__kruskal__bits_a2819c68c15e970349a87cffeddc7a529}{00043}}\ \ \ \ \ \mbox{\hyperlink{namespacelemon_1_1__kruskal__bits_a2819c68c15e970349a87cffeddc7a529}{kruskal}}(\textcolor{keyword}{const}\ Digraph\&\ digraph,\ \textcolor{keyword}{const}\ In\&\ in,\ Out\&\ out,\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{dummy<0>}}\ =\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00044}00044\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ In::value\_type::second\_type\ Value;}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00045}00045\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Digraph::template\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{NodeMap<int>}}\ IndexMap;}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00046}00046\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Digraph::Node\ Node;}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00048}00048\ \ \ \ \ \ \ IndexMap\ \mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a7fc0249f0f8ba720115d2430f5b86cbaa6a992d5529f459a44fee58c733255e86}{index}}(digraph);}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00049}00049\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{UnionFind<IndexMap>}}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{uf}}(\mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a7fc0249f0f8ba720115d2430f5b86cbaa6a992d5529f459a44fee58c733255e86}{index}});}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00050}00050\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{typename}\ Digraph::NodeIt\ it(digraph);\ it\ !=\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ ++it)\ \{}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00051}00051\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{uf}}.insert(it);}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00052}00052\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00054}00054\ \ \ \ \ \ \ Value\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tree\_value}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00055}00055\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{typename}\ In::const\_iterator\ it\ =\ in.begin();\ it\ !=\ in.end();\ ++it)\ \{}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00056}00056\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{uf}}.join(digraph.target(it-\/>first),digraph.source(it-\/>first)))\ \{}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ out.set(it-\/>first,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tree\_value}}\ +=\ it-\/>second;}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00059}00059\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00060}00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ out.set(it-\/>first,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00062}00062\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00063}00063\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00064}00064\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tree\_value}};}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00065}00065\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00067}00067\ \ \ \ \ \textcolor{comment}{//\ Kruskal\ for\ undirected\ graphs.}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00069}00069\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Graph,\ \textcolor{keyword}{typename}\ In,\ \textcolor{keyword}{typename}\ Out>}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00070}00070\ \ \ \ \ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{enable\_if<lemon::UndirectedTagIndicator<Graph>}},}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ In::value\_type::second\_type\ >\mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a7aead736a07eaf25623ad7bfa1f0ee2d}{::type}}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00072}\mbox{\hyperlink{namespacelemon_1_1__kruskal__bits_a3e2c8906125b0a20b97ff0b9423b2b8a}{00072}}\ \ \ \ \ \mbox{\hyperlink{namespacelemon_1_1__kruskal__bits_a2819c68c15e970349a87cffeddc7a529}{kruskal}}(\textcolor{keyword}{const}\ Graph\&\ graph,\ \textcolor{keyword}{const}\ In\&\ in,\ Out\&\ out,\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{dummy<1>}}\ =\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00073}00073\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ In::value\_type::second\_type\ Value;}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00074}00074\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Graph::template\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{NodeMap<int>}}\ IndexMap;}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00075}00075\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Graph::Node\ Node;}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00077}00077\ \ \ \ \ \ \ IndexMap\ \mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a7fc0249f0f8ba720115d2430f5b86cbaa6a992d5529f459a44fee58c733255e86}{index}}(graph);}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00078}00078\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{UnionFind<IndexMap>}}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{uf}}(\mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a7fc0249f0f8ba720115d2430f5b86cbaa6a992d5529f459a44fee58c733255e86}{index}});}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00079}00079\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{typename}\ Graph::NodeIt\ it(graph);\ it\ !=\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ ++it)\ \{}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00080}00080\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{uf}}.insert(it);}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00081}00081\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00083}00083\ \ \ \ \ \ \ Value\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tree\_value}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00084}00084\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{typename}\ In::const\_iterator\ it\ =\ in.begin();\ it\ !=\ in.end();\ ++it)\ \{}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00085}00085\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{uf}}.join(graph.u(it-\/>first),graph.v(it-\/>first)))\ \{}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ out.set(it-\/>first,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tree\_value}}\ +=\ it-\/>second;}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00088}00088\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00089}00089\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ out.set(it-\/>first,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00091}00091\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00092}00092\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00093}00093\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tree\_value}};}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00094}00094\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00097}00097\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Sequence>}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00098}\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_pair_comp}{00098}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_pair_comp}{PairComp}}\ \{}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00099}\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_pair_comp_a44be55acc5aebbe910059baa8f70706d}{00099}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Sequence::value\_type\ \mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_pair_comp_a44be55acc5aebbe910059baa8f70706d}{Value}};}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00100}\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_pair_comp_a0f84fb2c088eec39babb820b7faf825a}{00100}}\ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_pair_comp_a0f84fb2c088eec39babb820b7faf825a}{operator()}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_pair_comp_a44be55acc5aebbe910059baa8f70706d}{Value}}\&\ left,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_pair_comp_a44be55acc5aebbe910059baa8f70706d}{Value}}\&\ right)\ \{}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00101}00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ left.second\ <\ right.second;}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00102}00102\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00103}00103\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00105}00105\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ In,\ \textcolor{keyword}{typename}\ Enable\ =\ \textcolor{keywordtype}{void}>}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00106}\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_sequence_input_indicator}{00106}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_sequence_input_indicator}{SequenceInputIndicator}}\ \{}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00107}\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_sequence_input_indicator_a2f48e19580ddc642925ea02b64799b31}{00107}}\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classvalue}{value}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00108}00108\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00110}00110\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ In>}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00111}\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_sequence_input_indicator_3_01_in_00_01typename_01exists_3_01ta21bbdafd11cb586d763dadd84596d33}{00111}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_sequence_input_indicator}{SequenceInputIndicator}}<In,}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00112}00112\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{typename}}\ \mbox{\hyperlink{structlemon_1_1exists}{exists}}<\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{typename}}\ In::value\_type::first\_type>\mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a7aead736a07eaf25623ad7bfa1f0ee2d}{::type}}>\ \{}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00113}\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_sequence_input_indicator_3_01_in_00_01typename_01exists_3_01ta21bbdafd11cb586d763dadd84596d33_a91882a8d2ab703e52a531a85dc0bd49f}{00113}}\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classvalue}{value}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00114}00114\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00116}00116\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ In,\ \textcolor{keyword}{typename}\ Enable\ =\ \textcolor{keywordtype}{void}>}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00117}\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_map_input_indicator}{00117}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_map_input_indicator}{MapInputIndicator}}\ \{}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00118}\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_map_input_indicator_ae808eb520596e567a045c7ad1718c406}{00118}}\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classvalue}{value}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00119}00119\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00121}00121\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ In>}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00122}\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_map_input_indicator_3_01_in_00_01typename_01exists_3_01typena0e498a53c4e544e3165fe667a79cd2a6}{00122}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_map_input_indicator}{MapInputIndicator}}<In,}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00123}00123\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{typename}}\ \mbox{\hyperlink{structlemon_1_1exists}{exists}}<\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{typename}}\ In::Value>\mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a7aead736a07eaf25623ad7bfa1f0ee2d}{::type}}>\ \{}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00124}\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_map_input_indicator_3_01_in_00_01typename_01exists_3_01typena0e498a53c4e544e3165fe667a79cd2a6_a6a3ae3de5aa2a63c4652babcf116e7db}{00124}}\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classvalue}{value}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00125}00125\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00126}00126\ }
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00127}00127\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ In,\ \textcolor{keyword}{typename}\ Enable\ =\ \textcolor{keywordtype}{void}>}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00128}\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_sequence_output_indicator}{00128}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_sequence_output_indicator}{SequenceOutputIndicator}}\ \{}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00129}\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_sequence_output_indicator_a6dab9a646eee2a3967c3a2f078cf36b8}{00129}}\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classvalue}{value}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00130}00130\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00132}00132\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Out>}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00133}\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_sequence_output_indicator_3_01_out_00_01typename_01exists_3_066b3c7389795b90025670cec85c162f8}{00133}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_sequence_output_indicator}{SequenceOutputIndicator}}<Out,}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00134}00134\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{typename}}\ \mbox{\hyperlink{structlemon_1_1exists}{exists}}<\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{typename}}\ Out::value\_type>\mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a7aead736a07eaf25623ad7bfa1f0ee2d}{::type}}>\ \{}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00135}\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_sequence_output_indicator_3_01_out_00_01typename_01exists_3_066b3c7389795b90025670cec85c162f8_ad4c5bb5de00748962e900f362a4b9214}{00135}}\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classvalue}{value}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00136}00136\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00137}00137\ }
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00138}00138\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Out,\ \textcolor{keyword}{typename}\ Enable\ =\ \textcolor{keywordtype}{void}>}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00139}\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_map_output_indicator}{00139}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_map_output_indicator}{MapOutputIndicator}}\ \{}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00140}\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_map_output_indicator_a1131390663c662146a4c99a53ebb1523}{00140}}\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classvalue}{value}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00141}00141\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00142}00142\ }
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00143}00143\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Out>}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00144}\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_map_output_indicator_3_01_out_00_01typename_01exists_3_01typeb716785a96521e61dc98089ab5a5690e}{00144}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_map_output_indicator}{MapOutputIndicator}}<Out,}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00145}00145\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{typename}}\ \mbox{\hyperlink{structlemon_1_1exists}{exists}}<\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{typename}}\ Out::Value>\mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a7aead736a07eaf25623ad7bfa1f0ee2d}{::type}}>\ \{}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00146}\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_map_output_indicator_3_01_out_00_01typename_01exists_3_01typeb716785a96521e61dc98089ab5a5690e_a0272676100e41acd432505c687c0c625}{00146}}\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classvalue}{value}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00147}00147\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00148}00148\ }
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00149}00149\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ In,\ \textcolor{keyword}{typename}\ InEnable\ =\ \textcolor{keywordtype}{void}>}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00150}\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_kruskal_value_selector}{00150}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_kruskal_value_selector}{KruskalValueSelector}}\ \{\};}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00151}00151\ }
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00152}00152\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ In>}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00153}\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_kruskal_value_selector_3_01_in_00_01typename_01enable__if_3_066e3a363a9e3b7493a3d7a3ce988f2e3}{00153}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_kruskal_value_selector}{KruskalValueSelector}}<In,}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00154}00154\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{typename}}\ \mbox{\hyperlink{structlemon_1_1enable__if}{enable\_if}}<\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_sequence_input_indicator}{SequenceInputIndicator}}<In>,\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{void}}>::\mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a7aead736a07eaf25623ad7bfa1f0ee2d}{type}}>}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00155}00155\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00156}\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_kruskal_value_selector_3_01_in_00_01typename_01enable__if_3_066e3a363a9e3b7493a3d7a3ce988f2e3_a47c46d8032ecd0913232de8c341cff85}{00156}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ In::value\_type::second\_type\ \mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_kruskal_value_selector_3_01_in_00_01typename_01enable__if_3_066e3a363a9e3b7493a3d7a3ce988f2e3_a47c46d8032ecd0913232de8c341cff85}{Value}};}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00157}00157\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00158}00158\ }
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00159}00159\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ In>}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00160}\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_kruskal_value_selector_3_01_in_00_01typename_01enable__if_3_00c0d717c35ccdbfd59186763d991760a}{00160}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_kruskal_value_selector}{KruskalValueSelector}}<In,}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00161}00161\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{typename}}\ \mbox{\hyperlink{structlemon_1_1enable__if}{enable\_if}}<\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_map_input_indicator}{MapInputIndicator}}<In>,\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{void}}>::\mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a7aead736a07eaf25623ad7bfa1f0ee2d}{type}}>}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00162}00162\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00163}\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_kruskal_value_selector_3_01_in_00_01typename_01enable__if_3_00c0d717c35ccdbfd59186763d991760a_ab00f36e9ca3750d7f219da94bc9e24ed}{00163}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ In::Value\ \mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_kruskal_value_selector_3_01_in_00_01typename_01enable__if_3_00c0d717c35ccdbfd59186763d991760a_ab00f36e9ca3750d7f219da94bc9e24ed}{Value}};}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00164}00164\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00165}00165\ }
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00166}00166\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Graph,\ \textcolor{keyword}{typename}\ In,\ \textcolor{keyword}{typename}\ Out,}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00167}00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{InEnable}}\ =\ \textcolor{keywordtype}{void}>}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00168}\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_kruskal_input_selector}{00168}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_kruskal_input_selector}{KruskalInputSelector}}\ \{\};}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00169}00169\ }
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00170}00170\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Graph,\ \textcolor{keyword}{typename}\ In,\ \textcolor{keyword}{typename}\ Out,}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{InEnable}}\ =\ \textcolor{keywordtype}{void}>}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00172}\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_kruskal_output_selector}{00172}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_kruskal_output_selector}{KruskalOutputSelector}}\ \{\};}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00173}00173\ }
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00174}00174\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Graph,\ \textcolor{keyword}{typename}\ In,\ \textcolor{keyword}{typename}\ Out>}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00175}\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_kruskal_input_selector_3_01_graph_00_01_in_00_01_out_00_01typd849615625aaa5f5267489ae3cb0646e}{00175}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_kruskal_input_selector}{KruskalInputSelector}}<Graph,\ In,\ Out,}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00176}00176\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{typename}}\ \mbox{\hyperlink{structlemon_1_1enable__if}{enable\_if}}<\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_sequence_input_indicator}{SequenceInputIndicator}}<In>,\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{void}}>::\mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a7aead736a07eaf25623ad7bfa1f0ee2d}{type}}\ >}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00177}00177\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00178}\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_kruskal_input_selector_3_01_graph_00_01_in_00_01_out_00_01typd849615625aaa5f5267489ae3cb0646e_add66b47646ea3af00273f5c44e591d5d}{00178}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ In::value\_type::second\_type\ \mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_kruskal_input_selector_3_01_graph_00_01_in_00_01_out_00_01typd849615625aaa5f5267489ae3cb0646e_add66b47646ea3af00273f5c44e591d5d}{Value}};}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00179}00179\ }
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00180}\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_kruskal_input_selector_3_01_graph_00_01_in_00_01_out_00_01typd849615625aaa5f5267489ae3cb0646e_a56d05ad80593acbc9d674155617b83c9}{00180}}\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_kruskal_input_selector_3_01_graph_00_01_in_00_01_out_00_01typd849615625aaa5f5267489ae3cb0646e_add66b47646ea3af00273f5c44e591d5d}{Value}}\ \mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_kruskal_input_selector_3_01_graph_00_01_in_00_01_out_00_01typd849615625aaa5f5267489ae3cb0646e_a56d05ad80593acbc9d674155617b83c9}{kruskal}}(\textcolor{keyword}{const}\ Graph\&\ graph,\ \textcolor{keyword}{const}\ In\&\ in,\ Out\&\ out)\ \{}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00181}00181\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_kruskal_output_selector}{KruskalOutputSelector<Graph,\ In,\ Out>::}}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00182}00182\ \mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_kruskal_output_selector}{\ \ \ \ \ \ \ \ \ \ kruskal}}(graph,\ in,\ out);}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00183}00183\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00184}00184\ }
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00185}00185\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00186}00186\ }
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00187}00187\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Graph,\ \textcolor{keyword}{typename}\ In,\ \textcolor{keyword}{typename}\ Out>}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00188}\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_kruskal_input_selector_3_01_graph_00_01_in_00_01_out_00_01typ8a1a18fb715a726ace7da809c6447bc5}{00188}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_kruskal_input_selector}{KruskalInputSelector}}<Graph,\ In,\ Out,}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00189}00189\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{typename}}\ \mbox{\hyperlink{structlemon_1_1enable__if}{enable\_if}}<\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_map_input_indicator}{MapInputIndicator}}<In>,\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{void}}>::\mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a7aead736a07eaf25623ad7bfa1f0ee2d}{type}}\ >}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00190}00190\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00191}\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_kruskal_input_selector_3_01_graph_00_01_in_00_01_out_00_01typ8a1a18fb715a726ace7da809c6447bc5_a33b272d42bde3258f95d6b2d419a2799}{00191}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ In::Value\ \mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_kruskal_input_selector_3_01_graph_00_01_in_00_01_out_00_01typ8a1a18fb715a726ace7da809c6447bc5_a33b272d42bde3258f95d6b2d419a2799}{Value}};}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00192}\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_kruskal_input_selector_3_01_graph_00_01_in_00_01_out_00_01typ8a1a18fb715a726ace7da809c6447bc5_a49cd2c6a7b4e98dde446f0352293a408}{00192}}\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_kruskal_input_selector_3_01_graph_00_01_in_00_01_out_00_01typ8a1a18fb715a726ace7da809c6447bc5_a33b272d42bde3258f95d6b2d419a2799}{Value}}\ \mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_kruskal_input_selector_3_01_graph_00_01_in_00_01_out_00_01typ8a1a18fb715a726ace7da809c6447bc5_a49cd2c6a7b4e98dde446f0352293a408}{kruskal}}(\textcolor{keyword}{const}\ Graph\&\ graph,\ \textcolor{keyword}{const}\ In\&\ in,\ Out\&\ out)\ \{}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00193}00193\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ In::Key\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{MapArc}};}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00194}00194\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ In::Value\ \mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_kruskal_input_selector_3_01_graph_00_01_in_00_01_out_00_01typ8a1a18fb715a726ace7da809c6447bc5_a33b272d42bde3258f95d6b2d419a2799}{Value}};}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00195}00195\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classlemon_1_1_item_set_traits}{ItemSetTraits<Graph,\ MapArc>::ItemIt}}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{MapArcIt}};}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00196}00196\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ std::vector<std::pair<MapArc,\ Value>\ >\ Sequence;}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00197}00197\ \ \ \ \ \ \ \ \ Sequence\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{seq}};}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00198}00198\ }
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00199}00199\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{MapArcIt}}\ it(graph);\ it\ !=\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ ++it)\ \{}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00200}00200\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{seq}}.push\_back(std::make\_pair(it,\ in[it]));}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00201}00201\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00202}00202\ }
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00203}00203\ \ \ \ \ \ \ \ \ std::sort(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{seq}}.begin(),\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{seq}}.end(),\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{PairComp<Sequence>}}());}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00204}00204\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_kruskal_output_selector}{KruskalOutputSelector<Graph,\ Sequence,\ Out>::}}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00205}00205\ \mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_kruskal_output_selector}{\ \ \ \ \ \ \ \ \ \ kruskal}}(graph,\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{seq}},\ out);}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00206}00206\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00207}00207\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00208}00208\ }
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00209}00209\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00210}\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_remove_const}{00210}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_remove_const}{RemoveConst}}\ \{}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00211}\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_remove_const_a96332b2127676853af29539852362024}{00211}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ T\ \mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_remove_const_a96332b2127676853af29539852362024}{type}};}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00212}00212\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00213}00213\ }
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00214}00214\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00215}\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_remove_const_3_01const_01_t_01_4}{00215}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_remove_const}{RemoveConst}}<const\ T>\ \{}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00216}\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_remove_const_3_01const_01_t_01_4_afc6ee18120714ad7c6af144ecf4a4c95}{00216}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ T\ \mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_remove_const_3_01const_01_t_01_4_afc6ee18120714ad7c6af144ecf4a4c95}{type}};}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00217}00217\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00218}00218\ }
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00219}00219\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Graph,\ \textcolor{keyword}{typename}\ In,\ \textcolor{keyword}{typename}\ Out>}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00220}\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_kruskal_output_selector_3_01_graph_00_01_in_00_01_out_00_01ty3390c056aac7a346e99db42a67b213e4}{00220}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_kruskal_output_selector}{KruskalOutputSelector}}<Graph,\ In,\ Out,}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00221}00221\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{typename}}\ \mbox{\hyperlink{structlemon_1_1enable__if}{enable\_if}}<\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_sequence_output_indicator}{SequenceOutputIndicator}}<Out>,\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{void}}>::\mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a7aead736a07eaf25623ad7bfa1f0ee2d}{type}}\ >}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00222}00222\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00223}\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_kruskal_output_selector_3_01_graph_00_01_in_00_01_out_00_01ty3390c056aac7a346e99db42a67b213e4_aac42f6b26309f49cff1b0059422c44ac}{00223}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ In::value\_type::second\_type\ \mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_kruskal_output_selector_3_01_graph_00_01_in_00_01_out_00_01ty3390c056aac7a346e99db42a67b213e4_aac42f6b26309f49cff1b0059422c44ac}{Value}};}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00224}00224\ }
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00225}\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_kruskal_output_selector_3_01_graph_00_01_in_00_01_out_00_01ty3390c056aac7a346e99db42a67b213e4_a93434c92938a8bf8a6ed8f6761496d1a}{00225}}\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_kruskal_output_selector_3_01_graph_00_01_in_00_01_out_00_01ty3390c056aac7a346e99db42a67b213e4_aac42f6b26309f49cff1b0059422c44ac}{Value}}\ \mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_kruskal_output_selector_3_01_graph_00_01_in_00_01_out_00_01ty3390c056aac7a346e99db42a67b213e4_a93434c92938a8bf8a6ed8f6761496d1a}{kruskal}}(\textcolor{keyword}{const}\ Graph\&\ graph,\ \textcolor{keyword}{const}\ In\&\ in,\ Out\&\ out)\ \{}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00226}00226\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{LoggerBoolMap<typename\ RemoveConst<Out>::type}}>\ \mbox{\hyperlink{class_map}{Map}};}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00227}00227\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_map}{Map}}\ \mbox{\hyperlink{bundled_2ranges_8h_a080be1238e6ee3bd4b9f193b4181cf4da1d78dc8ed51214e518b5114fe24490ae}{map}}(out);}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00228}00228\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacelemon_1_1__kruskal__bits_a2819c68c15e970349a87cffeddc7a529}{\_kruskal\_bits::kruskal}}(graph,\ in,\ \mbox{\hyperlink{bundled_2ranges_8h_a080be1238e6ee3bd4b9f193b4181cf4da1d78dc8ed51214e518b5114fe24490ae}{map}});}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00229}00229\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00230}00230\ }
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00231}00231\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00232}00232\ }
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00233}00233\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Graph,\ \textcolor{keyword}{typename}\ In,\ \textcolor{keyword}{typename}\ Out>}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00234}\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_kruskal_output_selector_3_01_graph_00_01_in_00_01_out_00_01ty99addc839936cb4823b74e800240083e}{00234}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_kruskal_output_selector}{KruskalOutputSelector}}<Graph,\ In,\ Out,}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00235}00235\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{typename}}\ \mbox{\hyperlink{structlemon_1_1enable__if}{enable\_if}}<\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_map_output_indicator}{MapOutputIndicator}}<Out>,\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{void}}>::\mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a7aead736a07eaf25623ad7bfa1f0ee2d}{type}}\ >}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00236}00236\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00237}\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_kruskal_output_selector_3_01_graph_00_01_in_00_01_out_00_01ty99addc839936cb4823b74e800240083e_ab03d33ccb170433c2241fbd51f870253}{00237}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ In::value\_type::second\_type\ \mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_kruskal_output_selector_3_01_graph_00_01_in_00_01_out_00_01ty99addc839936cb4823b74e800240083e_ab03d33ccb170433c2241fbd51f870253}{Value}};}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00238}00238\ }
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00239}\mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_kruskal_output_selector_3_01_graph_00_01_in_00_01_out_00_01ty99addc839936cb4823b74e800240083e_a4145d9ef3a7f7a1951a533769d348c9f}{00239}}\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_kruskal_output_selector_3_01_graph_00_01_in_00_01_out_00_01ty99addc839936cb4823b74e800240083e_ab03d33ccb170433c2241fbd51f870253}{Value}}\ \mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_kruskal_output_selector_3_01_graph_00_01_in_00_01_out_00_01ty99addc839936cb4823b74e800240083e_a4145d9ef3a7f7a1951a533769d348c9f}{kruskal}}(\textcolor{keyword}{const}\ Graph\&\ graph,\ \textcolor{keyword}{const}\ In\&\ in,\ Out\&\ out)\ \{}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00240}00240\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacelemon_1_1__kruskal__bits_a2819c68c15e970349a87cffeddc7a529}{\_kruskal\_bits::kruskal}}(graph,\ in,\ out);}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00241}00241\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00242}00242\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00243}00243\ }
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00244}00244\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00245}00245\ }
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00299}00299\ }
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00300}00300\ \textcolor{preprocessor}{\#ifdef\ DOXYGEN}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00301}00301\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Graph,\ \textcolor{keyword}{typename}\ In,\ \textcolor{keyword}{typename}\ Out>}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00302}00302\ \ \ Value\ \mbox{\hyperlink{namespacelemon_accf7027c752be09bc3aaf77a4851c9eb}{kruskal}}(\textcolor{keyword}{const}\ Graph\&\ g,\ \textcolor{keyword}{const}\ In\&\ in,\ Out\&\ out)}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00303}00303\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00304}00304\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Graph,\ \textcolor{keyword}{class}\ In,\ \textcolor{keyword}{class}\ Out>}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00305}00305\ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{typename}\ \_kruskal\_bits::KruskalValueSelector<In>::Value}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00306}\mbox{\hyperlink{namespacelemon_accf7027c752be09bc3aaf77a4851c9eb}{00306}}\ \ \ \mbox{\hyperlink{namespacelemon_accf7027c752be09bc3aaf77a4851c9eb}{kruskal}}(\textcolor{keyword}{const}\ Graph\&\ graph,\ \textcolor{keyword}{const}\ In\&\ in,\ Out\&\ out)}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00307}00307\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00308}00308\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00309}00309\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_kruskal_input_selector}{\_kruskal\_bits::KruskalInputSelector<Graph,\ In,\ Out>::}}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00310}00310\ \mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_kruskal_input_selector}{\ \ \ \ \ \ kruskal}}(graph,\ in,\ out);}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00311}00311\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00312}00312\ }
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00313}00313\ }
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00314}00314\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Graph,\ \textcolor{keyword}{class}\ In,\ \textcolor{keyword}{class}\ Out>}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00315}00315\ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{typename}\ \_kruskal\_bits::KruskalValueSelector<In>::Value}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00316}\mbox{\hyperlink{namespacelemon_ae6270984d706115b3b7295d56b6107a6}{00316}}\ \ \ \mbox{\hyperlink{namespacelemon_accf7027c752be09bc3aaf77a4851c9eb}{kruskal}}(\textcolor{keyword}{const}\ Graph\&\ graph,\ \textcolor{keyword}{const}\ In\&\ in,\ \textcolor{keyword}{const}\ Out\&\ out)}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00317}00317\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00318}00318\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_kruskal_input_selector}{\_kruskal\_bits::KruskalInputSelector<Graph,\ In,\ const\ Out>::}}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00319}00319\ \mbox{\hyperlink{structlemon_1_1__kruskal__bits_1_1_kruskal_input_selector}{\ \ \ \ \ \ kruskal}}(graph,\ in,\ out);}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00320}00320\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00321}00321\ }
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00322}00322\ \}\ \textcolor{comment}{//namespace\ lemon}}
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00323}00323\ }
+\DoxyCodeLine{\Hypertarget{kruskal_8h_source_l00324}00324\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//LEMON\_KRUSKAL\_H}}
+
+\end{DoxyCode}

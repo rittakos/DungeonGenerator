@@ -1,0 +1,15 @@
+<map id="Geometry::Line::Line" name="Geometry::Line::Line">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,81,148,108"/>
+<area shape="rect" id="Node000002" href="$namespace_geometry.html#a2a037051bb9263fa553810b06691426c" title=" " alt="" coords="196,81,315,108"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="148,92,180,92,180,97,148,97"/>
+<area shape="rect" id="Node000003" href="$class_math_1_1_quaternion.html#a18d3a934c8bc11845841ce8824b209b8" title=" " alt="" coords="363,5,558,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="281,78,362,42,384,34,386,39,364,46,283,83"/>
+<area shape="rect" id="Node000005" href="$class_math_1_1_quaternion.html#ac6884d3900d18dc11ee565400f89ca73" title=" " alt="" coords="395,56,527,83"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="315,85,379,77,379,82,316,90"/>
+<area shape="rect" id="Node000006" href="$class_math_1_1_quaternion.html#a97853ababc2cba1bc0484fd02b33914d" title=" " alt="" coords="395,107,527,133"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="316,99,379,107,379,113,315,105"/>
+<area shape="rect" id="Node000007" href="$class_math_1_1_quaternion.html#a8b112e36c39b3ffa40a0110c73a1b236" title=" " alt="" coords="393,157,529,184"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="283,106,364,143,386,150,384,155,362,148,281,111"/>
+<area shape="rect" id="Node000004" href="$class_math_1_1_quaternion.html#a0af09a51ab263e76041a90a035af8e30" title=" " alt="" coords="606,5,799,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="559,16,591,16,591,21,559,21"/>
+</map>

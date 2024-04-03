@@ -1,0 +1,963 @@
+\doxysection{graph\+\_\+to\+\_\+eps.\+h}
+\hypertarget{graph__to__eps_8h_source}{}\label{graph__to__eps_8h_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/lemon/graph\_to\_eps.h@{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/lemon/graph\_to\_eps.h}}
+\mbox{\hyperlink{graph__to__eps_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00001}00001\ \textcolor{comment}{/*\ -\/*-\/\ mode:\ C++;\ indent-\/tabs-\/mode:\ nil;\ -\/*-\/}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00002}00002\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00003}00003\ \textcolor{comment}{\ *\ This\ file\ is\ a\ part\ of\ LEMON,\ a\ generic\ C++\ optimization\ library.}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00004}00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00005}00005\ \textcolor{comment}{\ *\ Copyright\ (C)\ 2003-\/2013}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00006}00006\ \textcolor{comment}{\ *\ Egervary\ Jeno\ Kombinatorikus\ Optimalizalasi\ Kutatocsoport}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00007}00007\ \textcolor{comment}{\ *\ (Egervary\ Research\ Group\ on\ Combinatorial\ Optimization,\ EGRES).}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00008}00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00009}00009\ \textcolor{comment}{\ *\ Permission\ to\ use,\ modify\ and\ distribute\ this\ software\ is\ granted}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00010}00010\ \textcolor{comment}{\ *\ provided\ that\ this\ copyright\ notice\ appears\ in\ all\ copies.\ For}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00011}00011\ \textcolor{comment}{\ *\ precise\ terms\ see\ the\ accompanying\ LICENSE\ file.}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00012}00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00013}00013\ \textcolor{comment}{\ *\ This\ software\ is\ provided\ "{}AS\ IS"{}\ with\ no\ warranty\ of\ any\ kind,}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00014}00014\ \textcolor{comment}{\ *\ express\ or\ implied,\ and\ with\ no\ claim\ as\ to\ its\ suitability\ for\ any}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00015}00015\ \textcolor{comment}{\ *\ purpose.}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00016}00016\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00017}00017\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00019}00019\ \textcolor{preprocessor}{\#ifndef\ LEMON\_GRAPH\_TO\_EPS\_H}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00020}00020\ \textcolor{preprocessor}{\#define\ LEMON\_GRAPH\_TO\_EPS\_H}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00022}00022\ \textcolor{preprocessor}{\#include<iostream>}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00023}00023\ \textcolor{preprocessor}{\#include<fstream>}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00024}00024\ \textcolor{preprocessor}{\#include<sstream>}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00025}00025\ \textcolor{preprocessor}{\#include<algorithm>}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00026}00026\ \textcolor{preprocessor}{\#include<vector>}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00028}00028\ \textcolor{preprocessor}{\#ifndef\ WIN32}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00029}00029\ \textcolor{preprocessor}{\#include<sys/time.h>}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00030}00030\ \textcolor{preprocessor}{\#include<ctime>}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00031}00031\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00032}00032\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{windows_8h}{lemon/bits/windows.h}}>}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00033}00033\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00035}00035\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{math_8h}{lemon/math.h}}>}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00036}00036\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{lemon_2core_8h}{lemon/core.h}}>}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00037}00037\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{dim2_8h}{lemon/dim2.h}}>}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00038}00038\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{maps_8h}{lemon/maps.h}}>}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00039}00039\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{lemon_2color_8h}{lemon/color.h}}>}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00040}00040\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{bezier_8h}{lemon/bits/bezier.h}}>}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00041}00041\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{additional__includes_2lemon_2error_8h}{lemon/error.h}}>}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00048}00048\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacelemon}{lemon}}\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00050}\mbox{\hyperlink{namespacelemon_1_1__graph__to__eps__bits}{00050}}\ \ \ \textcolor{keyword}{namespace\ }\_graph\_to\_eps\_bits\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00051}00051\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ MT>}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00052}\mbox{\hyperlink{classlemon_1_1__graph__to__eps__bits_1_1___neg_y}{00052}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1__graph__to__eps__bits_1_1___neg_y}{\_NegY}}\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00053}00053\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00054}\mbox{\hyperlink{classlemon_1_1__graph__to__eps__bits_1_1___neg_y_a0c14058d7a4fd55e4ccd4b312abd168e}{00054}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ MT::Key\ \mbox{\hyperlink{classlemon_1_1__graph__to__eps__bits_1_1___neg_y_a0c14058d7a4fd55e4ccd4b312abd168e}{Key}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00055}\mbox{\hyperlink{classlemon_1_1__graph__to__eps__bits_1_1___neg_y_a3eb1ec5799e0f1b8555f6d17cb5168a9}{00055}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ MT::Value\ \mbox{\hyperlink{classlemon_1_1__graph__to__eps__bits_1_1___neg_y_a3eb1ec5799e0f1b8555f6d17cb5168a9}{Value}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00056}\mbox{\hyperlink{classlemon_1_1__graph__to__eps__bits_1_1___neg_y_af56bbbebf1c3767a4c0f792a2a2ce3da}{00056}}\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{MT}}\ \&\mbox{\hyperlink{classlemon_1_1__graph__to__eps__bits_1_1___neg_y_af56bbbebf1c3767a4c0f792a2a2ce3da}{map}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00057}\mbox{\hyperlink{classlemon_1_1__graph__to__eps__bits_1_1___neg_y_a8bba72afe322029a53eecce37482eac7}{00057}}\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1__graph__to__eps__bits_1_1___neg_y_a8bba72afe322029a53eecce37482eac7}{yscale}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00058}\mbox{\hyperlink{classlemon_1_1__graph__to__eps__bits_1_1___neg_y_aa5c40394e6e8bdd470dcdd52c7745e22}{00058}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1__graph__to__eps__bits_1_1___neg_y_aa5c40394e6e8bdd470dcdd52c7745e22}{\_NegY}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{MT}}\ \&m,\textcolor{keywordtype}{bool}\ b)\ :\ \mbox{\hyperlink{classlemon_1_1__graph__to__eps__bits_1_1___neg_y_af56bbbebf1c3767a4c0f792a2a2ce3da}{map}}(m),\ \mbox{\hyperlink{classlemon_1_1__graph__to__eps__bits_1_1___neg_y_a8bba72afe322029a53eecce37482eac7}{yscale}}(1-\/b*2)\ \{\}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00059}\mbox{\hyperlink{classlemon_1_1__graph__to__eps__bits_1_1___neg_y_ab54b0ab94e54c86e6f0a6196d1e4a2ae}{00059}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1__graph__to__eps__bits_1_1___neg_y_a3eb1ec5799e0f1b8555f6d17cb5168a9}{Value}}\ \mbox{\hyperlink{classlemon_1_1__graph__to__eps__bits_1_1___neg_y_ab54b0ab94e54c86e6f0a6196d1e4a2ae}{operator[]}}(\mbox{\hyperlink{classlemon_1_1__graph__to__eps__bits_1_1___neg_y_a0c14058d7a4fd55e4ccd4b312abd168e}{Key}}\ n)\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1__graph__to__eps__bits_1_1___neg_y_a3eb1ec5799e0f1b8555f6d17cb5168a9}{Value}}(\mbox{\hyperlink{classlemon_1_1__graph__to__eps__bits_1_1___neg_y_af56bbbebf1c3767a4c0f792a2a2ce3da}{map}}[n].x,\mbox{\hyperlink{classlemon_1_1__graph__to__eps__bits_1_1___neg_y_af56bbbebf1c3767a4c0f792a2a2ce3da}{map}}[n].y*\mbox{\hyperlink{classlemon_1_1__graph__to__eps__bits_1_1___neg_y_a8bba72afe322029a53eecce37482eac7}{yscale}});\}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00060}00060\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00061}00061\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00068}00068\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ GR>}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00069}\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits}{00069}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits}{DefaultGraphToEpsTraits}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00070}00070\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00071}\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_add095dbdcdb98d7a39f8dfbec605a085}{00071}}\ \ \ \textcolor{keyword}{typedef}\ GR\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_add095dbdcdb98d7a39f8dfbec605a085}{Graph}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00072}\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a3ff6a9ba85e86e4cb7da32b101e67e7f}{00072}}\ \ \ \textcolor{keyword}{typedef}\ GR\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a3ff6a9ba85e86e4cb7da32b101e67e7f}{Digraph}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00073}\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_aef1a6863daeba5032e407e4d7273443b}{00073}}\ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Graph::Node\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_aef1a6863daeba5032e407e4d7273443b}{Node}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00074}\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a2fe4734e341b3083ba9c772e6185e108}{00074}}\ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Graph::NodeIt\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a2fe4734e341b3083ba9c772e6185e108}{NodeIt}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00075}\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a9b40487e0d6161ad690e66a7c1be9b7b}{00075}}\ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Graph::Arc\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a9b40487e0d6161ad690e66a7c1be9b7b}{Arc}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00076}\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_ac3fd31ca0eb78ceb8d3189a7e7a67c04}{00076}}\ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Graph::ArcIt\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_ac3fd31ca0eb78ceb8d3189a7e7a67c04}{ArcIt}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00077}\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a184703f0777f45d6fc803eb627ff16fd}{00077}}\ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Graph::InArcIt\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a184703f0777f45d6fc803eb627ff16fd}{InArcIt}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00078}\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a5c8e7c6789d6290a8654b074f0f95bcd}{00078}}\ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Graph::OutArcIt\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a5c8e7c6789d6290a8654b074f0f95bcd}{OutArcIt}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00081}\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_ac765141f7ea4f120035976e775fe04e7}{00081}}\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_add095dbdcdb98d7a39f8dfbec605a085}{Graph}}\ \&\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_ac765141f7ea4f120035976e775fe04e7}{g}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00083}\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a3dea6c9ca90e108f0d1ce082fa7566f0}{00083}}\ \ \ std::ostream\&\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a3dea6c9ca90e108f0d1ce082fa7566f0}{os}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00085}\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_afbe14876f67097c4df39b90d99cbbd1f}{00085}}\ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ConstMap<typename\ Graph::Node,dim2::Point<double>}}\ >\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_afbe14876f67097c4df39b90d99cbbd1f}{CoordsMapType}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00086}\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_af1a9b0edb48251a5064bceb9d78c99f9}{00086}}\ \ \ \mbox{\hyperlink{classlemon_1_1_const_map}{CoordsMapType}}\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_af1a9b0edb48251a5064bceb9d78c99f9}{\_coords}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00087}\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_aa61960e01fa039532b5ced67ea61d30b}{00087}}\ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ConstMap<typename\ Graph::Node,double\ >}}\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_aa61960e01fa039532b5ced67ea61d30b}{\_nodeSizes}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00088}\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a22d3734f9a98205227c5d9d6a1301ba7}{00088}}\ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ConstMap<typename\ Graph::Node,int\ >}}\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a22d3734f9a98205227c5d9d6a1301ba7}{\_nodeShapes}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00090}\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a320cd9cb930822d4daa11b607f30361e}{00090}}\ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ConstMap<typename\ Graph::Node,Color\ >}}\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a320cd9cb930822d4daa11b607f30361e}{\_nodeColors}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00091}\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_aba1b80689d5f43b79a5cff1c4d2182b3}{00091}}\ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ConstMap<typename\ Graph::Arc,Color\ >}}\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_aba1b80689d5f43b79a5cff1c4d2182b3}{\_arcColors}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00093}\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_acd66a43710b7dd2a718db94ee8c0f2fa}{00093}}\ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ConstMap<typename\ Graph::Arc,double\ >}}\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_acd66a43710b7dd2a718db94ee8c0f2fa}{\_arcWidths}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00095}\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a51540bfdcd5fa6430ac54748f8308eb2}{00095}}\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a51540bfdcd5fa6430ac54748f8308eb2}{\_arcWidthScale}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00097}\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a149fa932db2b204a642750a99ec02c5c}{00097}}\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a149fa932db2b204a642750a99ec02c5c}{\_nodeScale}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00098}\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_aa025ea8633102450a109559e6817e51c}{00098}}\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_aa025ea8633102450a109559e6817e51c}{\_xBorder}},\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a93eac7402e76a842e47f11b85d9bea1f}{\_yBorder}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00099}\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a927f9ea0aa930802eafebf3f5ff19fbd}{00099}}\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a927f9ea0aa930802eafebf3f5ff19fbd}{\_scale}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00100}\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a4e4550a16ea6667760f6b4c4833c47e7}{00100}}\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a4e4550a16ea6667760f6b4c4833c47e7}{\_nodeBorderQuotient}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00102}\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a4c9940b3591c9a366a36f2283f11bb79}{00102}}\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a4c9940b3591c9a366a36f2283f11bb79}{\_drawArrows}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00103}\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a1e5e758c54024b1591e18c45e30674be}{00103}}\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a1e5e758c54024b1591e18c45e30674be}{\_arrowLength}},\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a34ff3b985cfb157f5ff467cf65f738a5}{\_arrowWidth}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00105}\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a008fcc9692fe7d5ca017369e21f369a3}{00105}}\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_afbf061d32690682369c0081b275c03c1}{\_showNodes}},\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a008fcc9692fe7d5ca017369e21f369a3}{\_showArcs}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00107}\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a534c5b62d47cc656294fe645cbbc7cdb}{00107}}\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a534c5b62d47cc656294fe645cbbc7cdb}{\_enableParallel}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00108}\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_aea98ffd0ad5a07a565bfef43390afe89}{00108}}\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_aea98ffd0ad5a07a565bfef43390afe89}{\_parArcDist}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00110}\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_aa6a9349a700a39ddf7f4a25b5550beb6}{00110}}\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_aa6a9349a700a39ddf7f4a25b5550beb6}{\_showNodeText}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00111}\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a786aa8fbbb33bb5cffddcc4006b0e141}{00111}}\ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ConstMap<typename\ Graph::Node,bool\ >}}\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a786aa8fbbb33bb5cffddcc4006b0e141}{\_nodeTexts}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00112}\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a0d7e1d16ceb2647f1210c75b34cad407}{00112}}\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a0d7e1d16ceb2647f1210c75b34cad407}{\_nodeTextSize}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00114}\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a3cda5203721e8cc9e4f9e331a1b40ea9}{00114}}\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a3cda5203721e8cc9e4f9e331a1b40ea9}{\_showNodePsText}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00115}\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_abbbe78f90dfbb1a3b401dc1b24959698}{00115}}\ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ConstMap<typename\ Graph::Node,bool\ >}}\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_abbbe78f90dfbb1a3b401dc1b24959698}{\_nodePsTexts}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00116}\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a6923bba28955f6cbc44cfd851f5ac186}{00116}}\ \ \ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a6923bba28955f6cbc44cfd851f5ac186}{\_nodePsTextsPreamble}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00117}00117\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00118}\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_aa142be73436934dabdb03b22895a2dab}{00118}}\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_aa142be73436934dabdb03b22895a2dab}{\_undirected}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00120}\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a2b9b14c87e5a0f45708106e3266db452}{00120}}\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a2b9b14c87e5a0f45708106e3266db452}{\_pleaseRemoveOsStream}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00122}\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_ae21dedb5e5edf9838bd7d0061f0ab72a}{00122}}\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_ae21dedb5e5edf9838bd7d0061f0ab72a}{\_scaleToA4}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00124}\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_ab2a0455d07c6e24c26d1ef4151bedcfc}{00124}}\ \ \ std::string\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_ab2a0455d07c6e24c26d1ef4151bedcfc}{\_title}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00125}\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_ac10d01b0f2670d32af157ec4d6530514}{00125}}\ \ \ std::string\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_ac10d01b0f2670d32af157ec4d6530514}{\_copyright}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00126}00126\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00127}\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_ad8207a1fd7e376c6761028c9050555ef}{00127}}\ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_ad8207a1fd7e376c6761028c9050555ef}{NodeTextColorType}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00128}\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_ad13dba1e4f1b6c5667ea24f2110b3a95}{00128}}\ \ \ \ \ \{\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_ad8207a1fd7e376c6761028c9050555efa4279d2aa5d5b2023b69f74013d95d96f}{DIST\_COL}}=0,\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_ad8207a1fd7e376c6761028c9050555efa4b405f2d7441fbb634b78335a1b55229}{DIST\_BW}}=1,\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_ad8207a1fd7e376c6761028c9050555efac3d565b79e15ac352dfb91de24cd31f9}{CUST\_COL}}=2,\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_ad8207a1fd7e376c6761028c9050555efabe95c594ae4e7987291aac0624cb2737}{SAME\_COL}}=3\ \}\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_ad13dba1e4f1b6c5667ea24f2110b3a95}{\_nodeTextColorType}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00129}\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a341d292c6f4d441a3540b70d0b8f4595}{00129}}\ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ConstMap<typename\ Graph::Node,Color\ >}}\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a341d292c6f4d441a3540b70d0b8f4595}{\_nodeTextColors}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00130}00130\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00131}\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a533b7220f86a72637bc794907ab7f48c}{00131}}\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a533b7220f86a72637bc794907ab7f48c}{\_autoNodeScale}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00132}\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a24af971eebd6449d972d3fe18665b57b}{00132}}\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a24af971eebd6449d972d3fe18665b57b}{\_autoArcWidthScale}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00134}\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a819ac7728603f4ef8005099d893ed625}{00134}}\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a819ac7728603f4ef8005099d893ed625}{\_absoluteNodeSizes}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00135}\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a628b00c0e74652a407617eaf21e0e819}{00135}}\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a628b00c0e74652a407617eaf21e0e819}{\_absoluteArcWidths}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00136}00136\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00137}\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a1b579fcdce752a1bc2db4a1784623b8b}{00137}}\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a1b579fcdce752a1bc2db4a1784623b8b}{\_negY}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00138}00138\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00139}\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a1e024b0eb50054b94bc53820d873a7e9}{00139}}\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a1e024b0eb50054b94bc53820d873a7e9}{\_preScale}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00141}00141\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00148}\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_aa107676ce0b694f075d66027ce5765d4}{00148}}\ \ \ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_aa107676ce0b694f075d66027ce5765d4}{DefaultGraphToEpsTraits}}(\textcolor{keyword}{const}\ GR\ \&\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{gr}},\ std::ostream\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ost}}\ =\ std::cout,}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{pros}}\ =\ \textcolor{keyword}{false})\ :}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00150}00150\ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_ac765141f7ea4f120035976e775fe04e7}{g}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{gr}}),\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a3dea6c9ca90e108f0d1ce082fa7566f0}{os}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ost}}),}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00151}00151\ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_af1a9b0edb48251a5064bceb9d78c99f9}{\_coords}}(dim2::Point<\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{double}}>(1,1)),\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_aa61960e01fa039532b5ced67ea61d30b}{\_nodeSizes}}(1),\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a22d3734f9a98205227c5d9d6a1301ba7}{\_nodeShapes}}(0),}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00152}00152\ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a320cd9cb930822d4daa11b607f30361e}{\_nodeColors}}(\mbox{\hyperlink{group__misc_ga8712f3b04b3919f4ac6037ce1f13b43e}{WHITE}}),\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_aba1b80689d5f43b79a5cff1c4d2182b3}{\_arcColors}}(\mbox{\hyperlink{group__misc_gaeaeb5b1d96ceedc8db964e2137487cb8}{BLACK}}),}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00153}00153\ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_acd66a43710b7dd2a718db94ee8c0f2fa}{\_arcWidths}}(1.0),\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a51540bfdcd5fa6430ac54748f8308eb2}{\_arcWidthScale}}(0.003),}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00154}00154\ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a149fa932db2b204a642750a99ec02c5c}{\_nodeScale}}(.01),\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_aa025ea8633102450a109559e6817e51c}{\_xBorder}}(10),\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a93eac7402e76a842e47f11b85d9bea1f}{\_yBorder}}(10),\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a927f9ea0aa930802eafebf3f5ff19fbd}{\_scale}}(1.0),}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00155}00155\ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a4e4550a16ea6667760f6b4c4833c47e7}{\_nodeBorderQuotient}}(.1),}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00156}00156\ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a4c9940b3591c9a366a36f2283f11bb79}{\_drawArrows}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{false}}),\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a1e5e758c54024b1591e18c45e30674be}{\_arrowLength}}(1),\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a34ff3b985cfb157f5ff467cf65f738a5}{\_arrowWidth}}(0.3),}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00157}00157\ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_afbf061d32690682369c0081b275c03c1}{\_showNodes}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{true}}),\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a008fcc9692fe7d5ca017369e21f369a3}{\_showArcs}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{true}}),}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00158}00158\ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a534c5b62d47cc656294fe645cbbc7cdb}{\_enableParallel}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{false}}),\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_aea98ffd0ad5a07a565bfef43390afe89}{\_parArcDist}}(1),}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00159}00159\ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_aa6a9349a700a39ddf7f4a25b5550beb6}{\_showNodeText}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{false}}),\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a786aa8fbbb33bb5cffddcc4006b0e141}{\_nodeTexts}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{false}}),\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a0d7e1d16ceb2647f1210c75b34cad407}{\_nodeTextSize}}(1),}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00160}00160\ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a3cda5203721e8cc9e4f9e331a1b40ea9}{\_showNodePsText}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{false}}),\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_abbbe78f90dfbb1a3b401dc1b24959698}{\_nodePsTexts}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{false}}),\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a6923bba28955f6cbc44cfd851f5ac186}{\_nodePsTextsPreamble}}(0),}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00161}00161\ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_aa142be73436934dabdb03b22895a2dab}{\_undirected}}(\mbox{\hyperlink{namespacelemon}{lemon}}::\mbox{\hyperlink{structlemon_1_1_undirected_tag_indicator}{UndirectedTagIndicator}}<GR>::\mbox{\hyperlink{classvalue}{value}}),}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00162}00162\ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a2b9b14c87e5a0f45708106e3266db452}{\_pleaseRemoveOsStream}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{pros}}),\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_ae21dedb5e5edf9838bd7d0061f0ab72a}{\_scaleToA4}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{false}}),}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00163}00163\ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_ad13dba1e4f1b6c5667ea24f2110b3a95}{\_nodeTextColorType}}(\mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_ad8207a1fd7e376c6761028c9050555efabe95c594ae4e7987291aac0624cb2737}{SAME\_COL}}),\ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a341d292c6f4d441a3540b70d0b8f4595}{\_nodeTextColors}}(\mbox{\hyperlink{group__misc_gaeaeb5b1d96ceedc8db964e2137487cb8}{BLACK}}),}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00164}00164\ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a533b7220f86a72637bc794907ab7f48c}{\_autoNodeScale}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{false}}),}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00165}00165\ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a24af971eebd6449d972d3fe18665b57b}{\_autoArcWidthScale}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{false}}),}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00166}00166\ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a819ac7728603f4ef8005099d893ed625}{\_absoluteNodeSizes}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{false}}),}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00167}00167\ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a628b00c0e74652a407617eaf21e0e819}{\_absoluteArcWidths}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{false}}),}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00168}00168\ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a1b579fcdce752a1bc2db4a1784623b8b}{\_negY}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{false}}),}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00169}00169\ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_default_graph_to_eps_traits_a1e024b0eb50054b94bc53820d873a7e9}{\_preScale}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{true}})}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00170}00170\ \ \ \{\}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00171}00171\ \};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00172}00172\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00174}00174\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00178}\mbox{\hyperlink{classlemon_1_1_graph_to_eps}{00178}}\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_graph_to_eps}{GraphToEps}}\ :\ \textcolor{keyword}{public}\ T}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00179}00179\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00180}00180\ \ \ \textcolor{comment}{//\ Can't\ believe\ it\ is\ required\ by\ the\ C++\ standard}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00181}00181\ \ \ \textcolor{keyword}{using\ }T::g;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00182}00182\ \ \ \textcolor{keyword}{using\ }T::os;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00183}00183\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00184}00184\ \ \ \textcolor{keyword}{using\ }T::\_coords;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00185}00185\ \ \ \textcolor{keyword}{using\ }T::\_nodeSizes;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00186}00186\ \ \ \textcolor{keyword}{using\ }T::\_nodeShapes;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00187}00187\ \ \ \textcolor{keyword}{using\ }T::\_nodeColors;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00188}00188\ \ \ \textcolor{keyword}{using\ }T::\_arcColors;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00189}00189\ \ \ \textcolor{keyword}{using\ }T::\_arcWidths;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00190}00190\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00191}00191\ \ \ \textcolor{keyword}{using\ }T::\_arcWidthScale;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00192}00192\ \ \ \textcolor{keyword}{using\ }T::\_nodeScale;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00193}00193\ \ \ \textcolor{keyword}{using\ }T::\_xBorder;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00194}00194\ \ \ \textcolor{keyword}{using\ }T::\_yBorder;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00195}00195\ \ \ \textcolor{keyword}{using\ }T::\_scale;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00196}00196\ \ \ \textcolor{keyword}{using\ }T::\_nodeBorderQuotient;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00197}00197\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00198}00198\ \ \ \textcolor{keyword}{using\ }T::\_drawArrows;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00199}00199\ \ \ \textcolor{keyword}{using\ }T::\_arrowLength;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00200}00200\ \ \ \textcolor{keyword}{using\ }T::\_arrowWidth;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00201}00201\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00202}00202\ \ \ \textcolor{keyword}{using\ }T::\_showNodes;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00203}00203\ \ \ \textcolor{keyword}{using\ }T::\_showArcs;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00204}00204\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00205}00205\ \ \ \textcolor{keyword}{using\ }T::\_enableParallel;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00206}00206\ \ \ \textcolor{keyword}{using\ }T::\_parArcDist;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00207}00207\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00208}00208\ \ \ \textcolor{keyword}{using\ }T::\_showNodeText;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00209}00209\ \ \ \textcolor{keyword}{using\ }T::\_nodeTexts;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00210}00210\ \ \ \textcolor{keyword}{using\ }T::\_nodeTextSize;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00211}00211\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00212}00212\ \ \ \textcolor{keyword}{using\ }T::\_showNodePsText;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00213}00213\ \ \ \textcolor{keyword}{using\ }T::\_nodePsTexts;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00214}00214\ \ \ \textcolor{keyword}{using\ }T::\_nodePsTextsPreamble;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00215}00215\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00216}00216\ \ \ \textcolor{keyword}{using\ }T::\_undirected;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00217}00217\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00218}00218\ \ \ \textcolor{keyword}{using\ }T::\_pleaseRemoveOsStream;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00219}00219\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00220}00220\ \ \ \textcolor{keyword}{using\ }T::\_scaleToA4;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00221}00221\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00222}00222\ \ \ \textcolor{keyword}{using\ }T::\_title;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00223}00223\ \ \ \textcolor{keyword}{using\ }T::\_copyright;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00224}00224\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00225}00225\ \ \ \textcolor{keyword}{using\ }T::CUST\_COL;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00226}00226\ \ \ \textcolor{keyword}{using\ }T::DIST\_COL;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00227}00227\ \ \ \textcolor{keyword}{using\ }T::DIST\_BW;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00228}00228\ \ \ \textcolor{keyword}{using\ }T::\_nodeTextColorType;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00229}00229\ \ \ \textcolor{keyword}{using\ }T::\_nodeTextColors;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00230}00230\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00231}00231\ \ \ \textcolor{keyword}{using\ }T::\_autoNodeScale;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00232}00232\ \ \ \textcolor{keyword}{using\ }T::\_autoArcWidthScale;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00233}00233\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00234}00234\ \ \ \textcolor{keyword}{using\ }T::\_absoluteNodeSizes;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00235}00235\ \ \ \textcolor{keyword}{using\ }T::\_absoluteArcWidths;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00236}00236\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00237}00237\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00238}00238\ \ \ \textcolor{keyword}{using\ }T::\_negY;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00239}00239\ \ \ \textcolor{keyword}{using\ }T::\_preScale;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00240}00240\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00241}00241\ \ \ \textcolor{comment}{//\ dradnats\ ++C\ eht\ yb\ deriuqer\ si\ ti\ eveileb\ t'naC}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00242}00242\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00243}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a6e963f4fb9ca1fa74c841a19bbeef88d}{00243}}\ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ T::Graph\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a6e963f4fb9ca1fa74c841a19bbeef88d}{Graph}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00244}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a09c6ea8e6130cc063ea53ff341cdea27}{00244}}\ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ T::Digraph\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a09c6ea8e6130cc063ea53ff341cdea27}{Digraph}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00245}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a88088b516259b27dd0d3b123449677bb}{00245}}\ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Graph::Node\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a88088b516259b27dd0d3b123449677bb}{Node}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00246}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_adcd5d9ecff4d4c066f302ae635efa1b4}{00246}}\ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Graph::NodeIt\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_adcd5d9ecff4d4c066f302ae635efa1b4}{NodeIt}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00247}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_ae25bc544fcb73b8eb746c3a2ded9ea97}{00247}}\ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Graph::Arc\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_ae25bc544fcb73b8eb746c3a2ded9ea97}{Arc}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00248}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_aac213cfe5618c9d0df5b20391044849a}{00248}}\ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Graph::ArcIt\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_aac213cfe5618c9d0df5b20391044849a}{ArcIt}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00249}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a465870ca052b64f908b705a15b061082}{00249}}\ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Graph::InArcIt\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a465870ca052b64f908b705a15b061082}{InArcIt}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00250}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a7de565be657e977fc3c6b94749b717ff}{00250}}\ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Graph::OutArcIt\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a7de565be657e977fc3c6b94749b717ff}{OutArcIt}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00251}00251\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00252}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_ad99c97a3f00ee561dc343eebbdd13c24}{00252}}\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_ad99c97a3f00ee561dc343eebbdd13c24}{INTERPOL\_PREC}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00253}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a1e7608d9f1c8758d9053d1b34966e323}{00253}}\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a1e7608d9f1c8758d9053d1b34966e323}{A4HEIGHT}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00254}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_ac9a5e814befd5614a55be3a6a34f846b}{00254}}\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_ac9a5e814befd5614a55be3a6a34f846b}{A4WIDTH}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00255}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a7e83dd09ac67fee74238f92c6ffb26db}{00255}}\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a7e83dd09ac67fee74238f92c6ffb26db}{A4BORDER}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00256}00256\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00257}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_ace0ab9d7cc6590306e3e82906396e9d4}{00257}}\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_ace0ab9d7cc6590306e3e82906396e9d4}{dontPrint}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00258}00258\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00259}00259\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00261}00261\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00264}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a5c1333cc3db216dbcd2e8876998332e5}{00264}}\ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a5c1333cc3db216dbcd2e8876998332e5}{NodeShapes}}\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00268}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a5c1333cc3db216dbcd2e8876998332e5a1f95025cf5871e830174821e9666b0a3}{00268}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a5c1333cc3db216dbcd2e8876998332e5a1f95025cf5871e830174821e9666b0a3}{CIRCLE}}=0,}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00272}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a5c1333cc3db216dbcd2e8876998332e5a87da73ea73b036de34b95da063bde4f9}{00272}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a5c1333cc3db216dbcd2e8876998332e5a87da73ea73b036de34b95da063bde4f9}{SQUARE}}=1,}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00276}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a5c1333cc3db216dbcd2e8876998332e5af030b0d34902c84fe44f3d2e0f712a86}{00276}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a5c1333cc3db216dbcd2e8876998332e5af030b0d34902c84fe44f3d2e0f712a86}{DIAMOND}}=2,}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00280}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a5c1333cc3db216dbcd2e8876998332e5aaf8515451d374df61b1828d5f790ffbc}{00280}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a5c1333cc3db216dbcd2e8876998332e5aaf8515451d374df61b1828d5f790ffbc}{MALE}}=3,}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00284}00284\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a5c1333cc3db216dbcd2e8876998332e5a068b7c5cc81d4c1b0685741179d1c769}{FEMALE}}=4}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00285}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a5c1333cc3db216dbcd2e8876998332e5a068b7c5cc81d4c1b0685741179d1c769}{00285}}\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00286}00286\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00287}00287\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00288}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_1_1arc_less}{00288}}\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_graph_to_eps_1_1arc_less}{arcLess}}\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00289}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_1_1arc_less_a86896bcaf23b49e36f2331c1c0b87dae}{00289}}\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a6e963f4fb9ca1fa74c841a19bbeef88d}{Graph}}\ \&\mbox{\hyperlink{classlemon_1_1_graph_to_eps_1_1arc_less_a86896bcaf23b49e36f2331c1c0b87dae}{g}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00290}00290\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00291}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_1_1arc_less_a2ba613654e014ca60fbe021a60bc3ba6}{00291}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_1_1arc_less_a2ba613654e014ca60fbe021a60bc3ba6}{arcLess}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a6e963f4fb9ca1fa74c841a19bbeef88d}{Graph}}\ \&\_g)\ :\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_1_1arc_less_a86896bcaf23b49e36f2331c1c0b87dae}{g}}(\_g)\ \{\}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00292}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_1_1arc_less_ac36b39073236964c94cd65b9014dd27c}{00292}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_1_1arc_less_ac36b39073236964c94cd65b9014dd27c}{operator()}}(\mbox{\hyperlink{classlemon_1_1_graph_to_eps_ae25bc544fcb73b8eb746c3a2ded9ea97}{Arc}}\ a,\mbox{\hyperlink{classlemon_1_1_graph_to_eps_ae25bc544fcb73b8eb746c3a2ded9ea97}{Arc}}\ b)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00293}00293\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00294}00294\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a88088b516259b27dd0d3b123449677bb}{Node}}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ai}}=std::min(\mbox{\hyperlink{classlemon_1_1_graph_to_eps_1_1arc_less_a86896bcaf23b49e36f2331c1c0b87dae}{g}}.source(a),\mbox{\hyperlink{classlemon_1_1_graph_to_eps_1_1arc_less_a86896bcaf23b49e36f2331c1c0b87dae}{g}}.target(a));}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00295}00295\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a88088b516259b27dd0d3b123449677bb}{Node}}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{aa}}=std::max(\mbox{\hyperlink{classlemon_1_1_graph_to_eps_1_1arc_less_a86896bcaf23b49e36f2331c1c0b87dae}{g}}.source(a),\mbox{\hyperlink{classlemon_1_1_graph_to_eps_1_1arc_less_a86896bcaf23b49e36f2331c1c0b87dae}{g}}.target(a));}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00296}00296\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a88088b516259b27dd0d3b123449677bb}{Node}}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bi}}=std::min(\mbox{\hyperlink{classlemon_1_1_graph_to_eps_1_1arc_less_a86896bcaf23b49e36f2331c1c0b87dae}{g}}.source(b),\mbox{\hyperlink{classlemon_1_1_graph_to_eps_1_1arc_less_a86896bcaf23b49e36f2331c1c0b87dae}{g}}.target(b));}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00297}00297\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a88088b516259b27dd0d3b123449677bb}{Node}}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ba}}=std::max(\mbox{\hyperlink{classlemon_1_1_graph_to_eps_1_1arc_less_a86896bcaf23b49e36f2331c1c0b87dae}{g}}.source(b),\mbox{\hyperlink{classlemon_1_1_graph_to_eps_1_1arc_less_a86896bcaf23b49e36f2331c1c0b87dae}{g}}.target(b));}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00298}00298\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ai}}<\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bi}}\ ||}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00299}00299\ \ \ \ \ \ \ \ \ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ai}}==\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bi}}\ \&\&\ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{aa}}\ <\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ba}}\ ||}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00300}00300\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{aa}}==\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ba}}\ \&\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ai}}==\mbox{\hyperlink{classlemon_1_1_graph_to_eps_1_1arc_less_a86896bcaf23b49e36f2331c1c0b87dae}{g}}.\mbox{\hyperlink{classlemon_1_1_reverse_digraph_base_a8b4463a25c7126d0db7451b016b3d147}{source}}(a)\ \&\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bi}}==\mbox{\hyperlink{classlemon_1_1_graph_to_eps_1_1arc_less_a86896bcaf23b49e36f2331c1c0b87dae}{g}}.\mbox{\hyperlink{classlemon_1_1_reverse_digraph_base_ac58ab1c4df36df3a2b77cf4ede280fce}{target}}(b))));}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00301}00301\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00302}00302\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00303}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a91bcf7c7a1ca8e2c39e0fb8e97485c71}{00303}}\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a91bcf7c7a1ca8e2c39e0fb8e97485c71}{isParallel}}(\mbox{\hyperlink{classlemon_1_1_graph_to_eps_ae25bc544fcb73b8eb746c3a2ded9ea97}{Arc}}\ e,\mbox{\hyperlink{classlemon_1_1_graph_to_eps_ae25bc544fcb73b8eb746c3a2ded9ea97}{Arc}}\ f)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00304}00304\ \textcolor{keyword}{\ \ }\{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00305}00305\ \ \ \ \ \textcolor{keywordflow}{return}\ (g.source(e)==g.source(f)\&\&}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00306}00306\ \ \ \ \ \ \ \ \ \ \ \ \ g.target(e)==g.target(f))\ ||}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00307}00307\ \ \ \ \ \ \ (g.source(e)==g.target(f)\&\&}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00308}00308\ \ \ \ \ \ \ \ g.target(e)==g.source(f));}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00309}00309\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00310}00310\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ TT>}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00311}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_abd51108e5a0d00cceb61fbe32c433578}{00311}}\ \ \ \textcolor{keyword}{static}\ std::string\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_abd51108e5a0d00cceb61fbe32c433578}{psOut}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_point}{dim2::Point<TT>}}\ \&p)}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00312}00312\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00313}00313\ \ \ \ \ \ \ std::ostringstream\ os;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00314}00314\ \ \ \ \ \ \ os\ <<\ p.\mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a2266765760e76540bd56a3f7ab7a722a}{x}}\ <<\ \textcolor{charliteral}{'\ '}\ <<\ p.\mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a5da4fd902a1cebc442073f172774036d}{y}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00315}00315\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ os.str();}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00316}00316\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00317}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a389a618401c714faf27f42a853f9d8cf}{00317}}\ \ \ \textcolor{keyword}{static}\ std::string\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a389a618401c714faf27f42a853f9d8cf}{psOut}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_color}{Color}}\ \&c)}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00318}00318\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00319}00319\ \ \ \ \ \ \ std::ostringstream\ os;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00320}00320\ \ \ \ \ \ \ os\ <<\ c.\mbox{\hyperlink{classlemon_1_1_color_af8c97a2a856b1f5127be473576cce3a6}{red}}()\ <<\ \textcolor{charliteral}{'\ '}\ <<\ c.\mbox{\hyperlink{classlemon_1_1_color_a7433ae7398ff0578f9245fb7e29f5837}{green}}()\ <<\ \textcolor{charliteral}{'\ '}\ <<\ c.\mbox{\hyperlink{classlemon_1_1_color_a502b650dffe87e61a3d0fac8bfa4a052}{blue}}();}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00321}00321\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ os.str();}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00322}00322\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00323}00323\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00324}00324\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00325}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a8562b697200ed121b2ff0eaf9663b478}{00325}}\ \ \ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a8562b697200ed121b2ff0eaf9663b478}{GraphToEps}}(\textcolor{keyword}{const}\ T\ \&t)\ :\ T(t),\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_ace0ab9d7cc6590306e3e82906396e9d4}{dontPrint}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{false}})\ \{\};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00326}00326\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00327}\mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_coords_traits}{00327}}\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ X>\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_coords_traits}{CoordsTraits}}\ :\ \textcolor{keyword}{public}\ T\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00328}\mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_coords_traits_a122433d1cca6c47dbf84c3e765d50839}{00328}}\ \ \ \textcolor{keyword}{typedef}\ X\ \mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_coords_traits_a122433d1cca6c47dbf84c3e765d50839}{CoordsMapType}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00329}\mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_coords_traits_a7ba72b0a50facd971d1da3fea6a427fd}{00329}}\ \ \ \ \ \textcolor{keyword}{const}\ X\ \&\mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_coords_traits_a7ba72b0a50facd971d1da3fea6a427fd}{\_coords}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00330}\mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_coords_traits_a3b1974e0090c094bb4d3bfff08343b75}{00330}}\ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_coords_traits_a3b1974e0090c094bb4d3bfff08343b75}{CoordsTraits}}(\textcolor{keyword}{const}\ T\ \&t,\textcolor{keyword}{const}\ X\ \&x)\ :\ T(t),\ \mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_coords_traits_a7ba72b0a50facd971d1da3fea6a427fd}{\_coords}}(x)\ \{\}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00331}00331\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00333}00333\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00337}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a4738bc508f6d76feebb5d28a8e3e0d3e}{00337}}\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ X>\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<CoordsTraits<X>}}\ >\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a4738bc508f6d76feebb5d28a8e3e0d3e}{coords}}(\textcolor{keyword}{const}\ X\ \&x)\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00338}00338\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_ace0ab9d7cc6590306e3e82906396e9d4}{dontPrint}}=\textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00339}00339\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<CoordsTraits<X>}}\ >(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CoordsTraits<X>}}(*\textcolor{keyword}{this},x));}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00340}00340\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00341}\mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_node_sizes_traits}{00341}}\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ X>\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_node_sizes_traits}{NodeSizesTraits}}\ :\ \textcolor{keyword}{public}\ T\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00342}\mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_node_sizes_traits_a48c839873cfebb3f62c4a6e5fcb9765d}{00342}}\ \ \ \ \ \textcolor{keyword}{const}\ X\ \&\mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_node_sizes_traits_a48c839873cfebb3f62c4a6e5fcb9765d}{\_nodeSizes}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00343}\mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_node_sizes_traits_a0648121437c949d9093929323b703351}{00343}}\ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_node_sizes_traits_a0648121437c949d9093929323b703351}{NodeSizesTraits}}(\textcolor{keyword}{const}\ T\ \&t,\textcolor{keyword}{const}\ X\ \&x)\ :\ T(t),\ \mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_node_sizes_traits_a48c839873cfebb3f62c4a6e5fcb9765d}{\_nodeSizes}}(x)\ \{\}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00344}00344\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00346}00346\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00349}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a5de9bb000122621dba16f8d4519ed966}{00349}}\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ X>\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<NodeSizesTraits<X>}}\ >\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a5de9bb000122621dba16f8d4519ed966}{nodeSizes}}(\textcolor{keyword}{const}\ X\ \&x)}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00350}00350\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00351}00351\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_ace0ab9d7cc6590306e3e82906396e9d4}{dontPrint}}=\textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00352}00352\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<NodeSizesTraits<X>}}\ >(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{NodeSizesTraits<X>}}(*\textcolor{keyword}{this},x));}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00353}00353\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00354}\mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_node_shapes_traits}{00354}}\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ X>\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_node_shapes_traits}{NodeShapesTraits}}\ :\ \textcolor{keyword}{public}\ T\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00355}\mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_node_shapes_traits_af9d1f7ca7f0eab79370e5cb7be0645f8}{00355}}\ \ \ \ \ \textcolor{keyword}{const}\ X\ \&\mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_node_shapes_traits_af9d1f7ca7f0eab79370e5cb7be0645f8}{\_nodeShapes}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00356}\mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_node_shapes_traits_ae8d2dbb37674744db564ad4acd01d82b}{00356}}\ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_node_shapes_traits_ae8d2dbb37674744db564ad4acd01d82b}{NodeShapesTraits}}(\textcolor{keyword}{const}\ T\ \&t,\textcolor{keyword}{const}\ X\ \&x)\ :\ T(t),\ \mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_node_shapes_traits_af9d1f7ca7f0eab79370e5cb7be0645f8}{\_nodeShapes}}(x)\ \{\}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00357}00357\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00359}00359\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00365}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a34b6224ad0b8c2e65b1146aca7eff3f0}{00365}}\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ X>\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<NodeShapesTraits<X>}}\ >\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a34b6224ad0b8c2e65b1146aca7eff3f0}{nodeShapes}}(\textcolor{keyword}{const}\ X\ \&x)}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00366}00366\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00367}00367\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_ace0ab9d7cc6590306e3e82906396e9d4}{dontPrint}}=\textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00368}00368\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<NodeShapesTraits<X>}}\ >(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{NodeShapesTraits<X>}}(*\textcolor{keyword}{this},x));}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00369}00369\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00370}\mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_node_texts_traits}{00370}}\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ X>\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_node_texts_traits}{NodeTextsTraits}}\ :\ \textcolor{keyword}{public}\ T\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00371}\mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_node_texts_traits_a0e2dfc9a667458cb923a5e3e72c3f6f6}{00371}}\ \ \ \ \ \textcolor{keyword}{const}\ X\ \&\mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_node_texts_traits_a0e2dfc9a667458cb923a5e3e72c3f6f6}{\_nodeTexts}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00372}\mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_node_texts_traits_acd6bf7fc66944b1ce790472ca97cb1ae}{00372}}\ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_node_texts_traits_acd6bf7fc66944b1ce790472ca97cb1ae}{NodeTextsTraits}}(\textcolor{keyword}{const}\ T\ \&t,\textcolor{keyword}{const}\ X\ \&x)\ :\ T(t),\ \mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_node_texts_traits_a0e2dfc9a667458cb923a5e3e72c3f6f6}{\_nodeTexts}}(x)\ \{\}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00373}00373\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00375}00375\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00379}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_acc1f2ba763744311bc03a7e08184be15}{00379}}\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ X>\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<NodeTextsTraits<X>}}\ >\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_acc1f2ba763744311bc03a7e08184be15}{nodeTexts}}(\textcolor{keyword}{const}\ X\ \&x)}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00380}00380\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00381}00381\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_ace0ab9d7cc6590306e3e82906396e9d4}{dontPrint}}=\textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00382}00382\ \ \ \ \ \_showNodeText=\textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00383}00383\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<NodeTextsTraits<X>}}\ >(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{NodeTextsTraits<X>}}(*\textcolor{keyword}{this},x));}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00384}00384\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00385}\mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_node_ps_texts_traits}{00385}}\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ X>\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_node_ps_texts_traits}{NodePsTextsTraits}}\ :\ \textcolor{keyword}{public}\ T\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00386}\mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_node_ps_texts_traits_ae26ea9afc39533b4507ff7a1650017ab}{00386}}\ \ \ \ \ \textcolor{keyword}{const}\ X\ \&\mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_node_ps_texts_traits_ae26ea9afc39533b4507ff7a1650017ab}{\_nodePsTexts}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00387}\mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_node_ps_texts_traits_a63a4423cf548a53bce91591d12f541eb}{00387}}\ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_node_ps_texts_traits_a63a4423cf548a53bce91591d12f541eb}{NodePsTextsTraits}}(\textcolor{keyword}{const}\ T\ \&t,\textcolor{keyword}{const}\ X\ \&x)\ :\ T(t),\ \mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_node_ps_texts_traits_ae26ea9afc39533b4507ff7a1650017ab}{\_nodePsTexts}}(x)\ \{\}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00388}00388\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00390}00390\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00403}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a68a418314394bedec3cd0c25fe363992}{00403}}\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ X>\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<NodePsTextsTraits<X>}}\ >\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a68a418314394bedec3cd0c25fe363992}{nodePsTexts}}(\textcolor{keyword}{const}\ X\ \&x)}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00404}00404\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00405}00405\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_ace0ab9d7cc6590306e3e82906396e9d4}{dontPrint}}=\textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00406}00406\ \ \ \ \ \_showNodePsText=\textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00407}00407\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<NodePsTextsTraits<X>}}\ >(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{NodePsTextsTraits<X>}}(*\textcolor{keyword}{this},x));}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00408}00408\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00409}\mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_arc_widths_traits}{00409}}\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ X>\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_arc_widths_traits}{ArcWidthsTraits}}\ :\ \textcolor{keyword}{public}\ T\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00410}\mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_arc_widths_traits_a23c76b847f1c57b7b60b8dacf19b4fcf}{00410}}\ \ \ \ \ \textcolor{keyword}{const}\ X\ \&\mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_arc_widths_traits_a23c76b847f1c57b7b60b8dacf19b4fcf}{\_arcWidths}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00411}\mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_arc_widths_traits_ac587f168d07676d73c5988076bd47211}{00411}}\ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_arc_widths_traits_ac587f168d07676d73c5988076bd47211}{ArcWidthsTraits}}(\textcolor{keyword}{const}\ T\ \&t,\textcolor{keyword}{const}\ X\ \&x)\ :\ T(t),\ \mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_arc_widths_traits_a23c76b847f1c57b7b60b8dacf19b4fcf}{\_arcWidths}}(x)\ \{\}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00412}00412\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00414}00414\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00417}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a7695351d0e9b83c3454c32bc0ce3cbcb}{00417}}\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ X>\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<ArcWidthsTraits<X>}}\ >\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a7695351d0e9b83c3454c32bc0ce3cbcb}{arcWidths}}(\textcolor{keyword}{const}\ X\ \&x)}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00418}00418\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00419}00419\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_ace0ab9d7cc6590306e3e82906396e9d4}{dontPrint}}=\textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00420}00420\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<ArcWidthsTraits<X>}}\ >(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ArcWidthsTraits<X>}}(*\textcolor{keyword}{this},x));}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00421}00421\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00422}00422\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00423}\mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_node_colors_traits}{00423}}\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ X>\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_node_colors_traits}{NodeColorsTraits}}\ :\ \textcolor{keyword}{public}\ T\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00424}\mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_node_colors_traits_a28a648f0f69fdf7678f4018c3e70d9c8}{00424}}\ \ \ \ \ \textcolor{keyword}{const}\ X\ \&\mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_node_colors_traits_a28a648f0f69fdf7678f4018c3e70d9c8}{\_nodeColors}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00425}\mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_node_colors_traits_a5a791be530c9ecc5f5255b2b5af20c68}{00425}}\ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_node_colors_traits_a5a791be530c9ecc5f5255b2b5af20c68}{NodeColorsTraits}}(\textcolor{keyword}{const}\ T\ \&t,\textcolor{keyword}{const}\ X\ \&x)\ :\ T(t),\ \mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_node_colors_traits_a28a648f0f69fdf7678f4018c3e70d9c8}{\_nodeColors}}(x)\ \{\}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00426}00426\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00428}00428\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00433}00433\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ X>\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<NodeColorsTraits<X>}}\ >}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00434}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a1e3953a5c56f3e43d28f1b36eb3bc205}{00434}}\ \ \ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a1e3953a5c56f3e43d28f1b36eb3bc205}{nodeColors}}(\textcolor{keyword}{const}\ X\ \&x)}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00435}00435\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00436}00436\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_ace0ab9d7cc6590306e3e82906396e9d4}{dontPrint}}=\textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00437}00437\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<NodeColorsTraits<X>}}\ >(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{NodeColorsTraits<X>}}(*\textcolor{keyword}{this},x));}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00438}00438\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00439}\mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_node_text_colors_traits}{00439}}\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ X>\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_node_text_colors_traits}{NodeTextColorsTraits}}\ :\ \textcolor{keyword}{public}\ T\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00440}\mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_node_text_colors_traits_a9418a6d2370bd3d62b5f74b5c45ebc46}{00440}}\ \ \ \ \ \textcolor{keyword}{const}\ X\ \&\mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_node_text_colors_traits_a9418a6d2370bd3d62b5f74b5c45ebc46}{\_nodeTextColors}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00441}\mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_node_text_colors_traits_a4ffb79f0e8f811a7ff4c983324bdf92a}{00441}}\ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_node_text_colors_traits_a4ffb79f0e8f811a7ff4c983324bdf92a}{NodeTextColorsTraits}}(\textcolor{keyword}{const}\ T\ \&t,\textcolor{keyword}{const}\ X\ \&x)\ :\ T(t),\ \mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_node_text_colors_traits_a9418a6d2370bd3d62b5f74b5c45ebc46}{\_nodeTextColors}}(x)\ \{\}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00442}00442\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00444}00444\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00449}00449\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ X>\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<NodeTextColorsTraits<X>}}\ >}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00450}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a525afca63149f4cee86d504849c5617e}{00450}}\ \ \ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a525afca63149f4cee86d504849c5617e}{nodeTextColors}}(\textcolor{keyword}{const}\ X\ \&x)}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00451}00451\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00452}00452\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_ace0ab9d7cc6590306e3e82906396e9d4}{dontPrint}}=\textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00453}00453\ \ \ \ \ \_nodeTextColorType=CUST\_COL;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00454}00454\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<NodeTextColorsTraits<X>}}\ >}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00455}00455\ \ \ \ \ \ \ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{NodeTextColorsTraits<X>}}(*\textcolor{keyword}{this},x));}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00456}00456\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00457}\mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_arc_colors_traits}{00457}}\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ X>\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_arc_colors_traits}{ArcColorsTraits}}\ :\ \textcolor{keyword}{public}\ T\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00458}\mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_arc_colors_traits_a77bd04ab561fdb3a6c29ff270d94c7e1}{00458}}\ \ \ \ \ \textcolor{keyword}{const}\ X\ \&\mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_arc_colors_traits_a77bd04ab561fdb3a6c29ff270d94c7e1}{\_arcColors}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00459}\mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_arc_colors_traits_a78eab0b595d4e6a83494b5a644abc23c}{00459}}\ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_arc_colors_traits_a78eab0b595d4e6a83494b5a644abc23c}{ArcColorsTraits}}(\textcolor{keyword}{const}\ T\ \&t,\textcolor{keyword}{const}\ X\ \&x)\ :\ T(t),\ \mbox{\hyperlink{structlemon_1_1_graph_to_eps_1_1_arc_colors_traits_a77bd04ab561fdb3a6c29ff270d94c7e1}{\_arcColors}}(x)\ \{\}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00460}00460\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00462}00462\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00467}00467\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ X>\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<ArcColorsTraits<X>}}\ >}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00468}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a18f20804f29fdc575ec9a731a87afc75}{00468}}\ \ \ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a18f20804f29fdc575ec9a731a87afc75}{arcColors}}(\textcolor{keyword}{const}\ X\ \&x)}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00469}00469\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00470}00470\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_ace0ab9d7cc6590306e3e82906396e9d4}{dontPrint}}=\textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00471}00471\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<ArcColorsTraits<X>}}\ >(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ArcColorsTraits<X>}}(*\textcolor{keyword}{this},x));}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00472}00472\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00474}00474\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00486}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a26645889b0d72c3e2f6e4c7c09be69c1}{00486}}\ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<T>}}\ \&\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a26645889b0d72c3e2f6e4c7c09be69c1}{nodeScale}}(\textcolor{keywordtype}{double}\ d=.01)\ \{\_nodeScale=d;\textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00488}00488\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00493}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a2fa3bcf99faec6401ad08441ea8ccc93}{00493}}\ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<T>}}\ \&\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a2fa3bcf99faec6401ad08441ea8ccc93}{autoNodeScale}}(\textcolor{keywordtype}{bool}\ b=\textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00494}00494\ \ \ \ \ \_autoNodeScale=b;\textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00495}00495\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00496}00496\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00498}00498\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00503}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_acd700ab61c2902f72b804985d2443bab}{00503}}\ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<T>}}\ \&\mbox{\hyperlink{classlemon_1_1_graph_to_eps_acd700ab61c2902f72b804985d2443bab}{absoluteNodeSizes}}(\textcolor{keywordtype}{bool}\ b=\textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00504}00504\ \ \ \ \ \_absoluteNodeSizes=b;\textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00505}00505\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00506}00506\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00508}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a828c16c32d2bd22eaf327957300e01bd}{00508}}\ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<T>}}\ \&\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a828c16c32d2bd22eaf327957300e01bd}{negateY}}(\textcolor{keywordtype}{bool}\ b=\textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00509}00509\ \ \ \ \ \_negY=b;\textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00510}00510\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00511}00511\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00513}00513\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00519}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_aea01ce280827135b3cd9712d80e8ce41}{00519}}\ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<T>}}\ \&\mbox{\hyperlink{classlemon_1_1_graph_to_eps_aea01ce280827135b3cd9712d80e8ce41}{preScale}}(\textcolor{keywordtype}{bool}\ b=\textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00520}00520\ \ \ \ \ \_preScale=b;\textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00521}00521\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00522}00522\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00524}00524\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00534}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a959a23320121d48336c52dc9b2587673}{00534}}\ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<T>}}\ \&\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a959a23320121d48336c52dc9b2587673}{arcWidthScale}}(\textcolor{keywordtype}{double}\ d=.003)\ \{\_arcWidthScale=d;\textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00536}00536\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00541}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_ae702ab97c28944657c8265f836dbe315}{00541}}\ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<T>}}\ \&\mbox{\hyperlink{classlemon_1_1_graph_to_eps_ae702ab97c28944657c8265f836dbe315}{autoArcWidthScale}}(\textcolor{keywordtype}{bool}\ b=\textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00542}00542\ \ \ \ \ \_autoArcWidthScale=b;\textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00543}00543\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00545}00545\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00550}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_ac491fc2751685fe3b53be77583520b45}{00550}}\ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<T>}}\ \&\mbox{\hyperlink{classlemon_1_1_graph_to_eps_ac491fc2751685fe3b53be77583520b45}{absoluteArcWidths}}(\textcolor{keywordtype}{bool}\ b=\textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00551}00551\ \ \ \ \ \_absoluteArcWidths=b;\textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00552}00552\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00554}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a388c99c128b2efd881ed697f37ac0b57}{00554}}\ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<T>}}\ \&\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a388c99c128b2efd881ed697f37ac0b57}{scale}}(\textcolor{keywordtype}{double}\ d)\ \{\_scale=d;\textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00556}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a070d337da16f804d2926698202229d80}{00556}}\ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<T>}}\ \&\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a070d337da16f804d2926698202229d80}{border}}(\textcolor{keywordtype}{double}\ b=10)\ \{\_xBorder=\_yBorder=b;\textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00558}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a8402029f3d32fc5ebd0c56254661bc95}{00558}}\ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<T>}}\ \&\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a8402029f3d32fc5ebd0c56254661bc95}{border}}(\textcolor{keywordtype}{double}\ x,\ \textcolor{keywordtype}{double}\ y)\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00559}00559\ \ \ \ \ \_xBorder=x;\_yBorder=y;\textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00560}00560\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00562}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_afbbd6e6f7901dad869e1385e665d8d34}{00562}}\ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<T>}}\ \&\mbox{\hyperlink{classlemon_1_1_graph_to_eps_afbbd6e6f7901dad869e1385e665d8d34}{drawArrows}}(\textcolor{keywordtype}{bool}\ b=\textcolor{keyword}{true})\ \{\_drawArrows=b;\textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00564}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_aa7500eb72ecceb7f38018366c3c2a6c5}{00564}}\ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<T>}}\ \&\mbox{\hyperlink{classlemon_1_1_graph_to_eps_aa7500eb72ecceb7f38018366c3c2a6c5}{arrowLength}}(\textcolor{keywordtype}{double}\ d=1.0)\ \{\_arrowLength*=d;\textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00566}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_ac6f2de9c80d31dfcc0af3878c053b57a}{00566}}\ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<T>}}\ \&\mbox{\hyperlink{classlemon_1_1_graph_to_eps_ac6f2de9c80d31dfcc0af3878c053b57a}{arrowWidth}}(\textcolor{keywordtype}{double}\ d=.3)\ \{\_arrowWidth*=d;\textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00567}00567\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00569}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_aee1ece5572df72b05e47dfb579c2bf22}{00569}}\ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<T>}}\ \&\mbox{\hyperlink{classlemon_1_1_graph_to_eps_aee1ece5572df72b05e47dfb579c2bf22}{scaleToA4}}()\ \{\_scaleToA4=\textcolor{keyword}{true};\textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00570}00570\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00572}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a158a1b413c72ffe6ffa1591000453318}{00572}}\ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<T>}}\ \&\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a158a1b413c72ffe6ffa1591000453318}{enableParallel}}(\textcolor{keywordtype}{bool}\ b=\textcolor{keyword}{true})\ \{\_enableParallel=b;\textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00573}00573\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00575}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a329c14bfaf0d9fe15f5621017034065a}{00575}}\ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<T>}}\ \&\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a329c14bfaf0d9fe15f5621017034065a}{parArcDist}}(\textcolor{keywordtype}{double}\ d)\ \{\_parArcDist*=d;\textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00576}00576\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00578}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a923f55c5cae5b3d747d04435b931fc01}{00578}}\ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<T>}}\ \&\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a923f55c5cae5b3d747d04435b931fc01}{hideArcs}}(\textcolor{keywordtype}{bool}\ b=\textcolor{keyword}{true})\ \{\_showArcs=!b;\textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00580}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a3be4ca8cf3dbb1feabf0d8251b9f5f1f}{00580}}\ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<T>}}\ \&\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a3be4ca8cf3dbb1feabf0d8251b9f5f1f}{hideNodes}}(\textcolor{keywordtype}{bool}\ b=\textcolor{keyword}{true})\ \{\_showNodes=!b;\textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00581}00581\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00583}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_ad39100abd3198038dc8d9025c29cd205}{00583}}\ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<T>}}\ \&\mbox{\hyperlink{classlemon_1_1_graph_to_eps_ad39100abd3198038dc8d9025c29cd205}{nodeTextSize}}(\textcolor{keywordtype}{double}\ d)\ \{\_nodeTextSize=d;\textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00584}00584\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00586}00586\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00589}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_ad5930750737fcb47000df650a76de4c4}{00589}}\ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<T>}}\ \&\mbox{\hyperlink{classlemon_1_1_graph_to_eps_ad5930750737fcb47000df650a76de4c4}{distantColorNodeTexts}}()}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00590}00590\ \ \ \{\_nodeTextColorType=DIST\_COL;\textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00592}00592\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00595}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_abc37279907a46a1aa11b1ec889fafc2e}{00595}}\ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<T>}}\ \&\mbox{\hyperlink{classlemon_1_1_graph_to_eps_abc37279907a46a1aa11b1ec889fafc2e}{distantBWNodeTexts}}()}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00596}00596\ \ \ \{\_nodeTextColorType=DIST\_BW;\textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00597}00597\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00599}00599\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00603}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a44033cfb04bb7d5e89d753f7876edfb5}{00603}}\ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<T>}}\ \&\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a44033cfb04bb7d5e89d753f7876edfb5}{nodePsTextsPreamble}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *str)\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00604}00604\ \ \ \ \ \_nodePsTextsPreamble=str\ ;\textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00605}00605\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00607}00607\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00613}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a7a2caff99cb8bbef8882dca0484014d3}{00613}}\ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<T>}}\ \&\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a7a2caff99cb8bbef8882dca0484014d3}{undirected}}(\textcolor{keywordtype}{bool}\ b=\textcolor{keyword}{true})\ \{\_undirected=b;\textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00614}00614\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00616}00616\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00623}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a81d484c333ec2b29cff2fe46cddcd348}{00623}}\ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<T>}}\ \&\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a81d484c333ec2b29cff2fe46cddcd348}{directed}}(\textcolor{keywordtype}{bool}\ b=\textcolor{keyword}{true})\ \{\_undirected=!b;\textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00624}00624\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00626}00626\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00630}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a9c75d8a34d41b3a472e17565b785748f}{00630}}\ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<T>}}\ \&\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a9c75d8a34d41b3a472e17565b785748f}{title}}(\textcolor{keyword}{const}\ std::string\ \&t)\ \{\_title=t;\textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00632}00632\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00636}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a8b6b3032f8888c1a52dee45241f81e6c}{00636}}\ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<T>}}\ \&\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a8b6b3032f8888c1a52dee45241f81e6c}{copyright}}(\textcolor{keyword}{const}\ std::string\ \&t)\ \{\_copyright=t;\textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00637}00637\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00638}00638\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00639}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a10f19ca92bce3a789b8944a9d2d5a934}{00639}}\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a10f19ca92bce3a789b8944a9d2d5a934}{isInsideNode}}(\mbox{\hyperlink{classlemon_1_1dim2_1_1_point}{dim2::Point<double>}}\ p,\ \textcolor{keywordtype}{double}\ r,\textcolor{keywordtype}{int}\ t)}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00640}00640\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00641}00641\ \ \ \ \ \textcolor{keywordflow}{switch}(t)\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00642}00642\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a5c1333cc3db216dbcd2e8876998332e5a1f95025cf5871e830174821e9666b0a3}{CIRCLE}}:}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00643}00643\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a5c1333cc3db216dbcd2e8876998332e5aaf8515451d374df61b1828d5f790ffbc}{MALE}}:}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00644}00644\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a5c1333cc3db216dbcd2e8876998332e5a068b7c5cc81d4c1b0685741179d1c769}{FEMALE}}:}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00645}00645\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ p.\mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a07b3bc074d805989cf147acb9e985fd7}{normSquare}}()<=r*r;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00646}00646\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a5c1333cc3db216dbcd2e8876998332e5a87da73ea73b036de34b95da063bde4f9}{SQUARE}}:}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00647}00647\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ p.\mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a2266765760e76540bd56a3f7ab7a722a}{x}}<=r\&\&p.\mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a2266765760e76540bd56a3f7ab7a722a}{x}}>=-\/r\&\&p.\mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a5da4fd902a1cebc442073f172774036d}{y}}<=r\&\&p.\mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a5da4fd902a1cebc442073f172774036d}{y}}>=-\/r;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00648}00648\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a5c1333cc3db216dbcd2e8876998332e5af030b0d34902c84fe44f3d2e0f712a86}{DIAMOND}}:}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00649}00649\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ p.\mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a2266765760e76540bd56a3f7ab7a722a}{x}}+p.\mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a5da4fd902a1cebc442073f172774036d}{y}}<=r\ \&\&\ p.\mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a2266765760e76540bd56a3f7ab7a722a}{x}}-\/p.\mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a5da4fd902a1cebc442073f172774036d}{y}}<=r\ \&\&\ -\/p.\mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a2266765760e76540bd56a3f7ab7a722a}{x}}+p.\mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a5da4fd902a1cebc442073f172774036d}{y}}<=r\ \&\&\ -\/p.\mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a2266765760e76540bd56a3f7ab7a722a}{x}}-\/p.\mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a5da4fd902a1cebc442073f172774036d}{y}}<=r;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00650}00650\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00651}00651\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00652}00652\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00653}00653\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00654}00654\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00655}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_aa6f82eff5c417e36f5f72a5652f8c1f9}{00655}}\ \ \ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_aa6f82eff5c417e36f5f72a5652f8c1f9}{\string~GraphToEps}}()\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00656}00656\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00658}00658\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00663}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_ab9a125bbb2ee7b4917a139544edab2be}{00663}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_ab9a125bbb2ee7b4917a139544edab2be}{run}}()\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00664}00664\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{EPSILON}}=1e-\/9;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00665}00665\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classlemon_1_1_graph_to_eps_ace0ab9d7cc6590306e3e82906396e9d4}{dontPrint}})\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00666}00666\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00667}00667\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1__graph__to__eps__bits_1_1___neg_y}{\_graph\_to\_eps\_bits::\_NegY<typename\ T::CoordsMapType>}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00668}00668\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{mycoords}}(\_coords,\_negY);}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00669}00669\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00670}00670\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\%!PS-\/Adobe-\/2.0\ EPSF-\/2.0\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00671}00671\ \ \ \ \ \textcolor{keywordflow}{if}(\_title.size()>0)\ os\ <<\ \textcolor{stringliteral}{"{}\%\%Title:\ "{}}\ <<\ \_title\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00672}00672\ \ \ \ \ \ \textcolor{keywordflow}{if}(\_copyright.size()>0)\ os\ <<\ \textcolor{stringliteral}{"{}\%\%Copyright:\ "{}}\ <<\ \_copyright\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00673}00673\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\%\%Creator:\ LEMON,\ graphToEps()\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00674}00674\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00675}00675\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00676}00676\ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\%\%CreationDate:\ "{}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00677}00677\ \textcolor{preprocessor}{\#ifndef\ WIN32}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00678}00678\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{timeval}}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tv}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00679}00679\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{gettimeofday}}(\&\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tv}},\ 0);}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00680}00680\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00681}00681\ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cbuf}}[26];}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00682}00682\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ctime\_r}}(\&\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tv}}.tv\_sec,\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cbuf}});}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00683}00683\ \ \ \ \ \ \ os\ <<\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cbuf}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00684}00684\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00685}00685\ \ \ \ \ \ \ os\ <<\ \mbox{\hyperlink{namespacelemon_1_1bits_ab69d73f3e6de592172111859b3880a40}{bits::getWinFormattedDate}}();}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00686}00686\ \ \ \ \ \ \ os\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00687}00687\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00688}00688\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00689}00689\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00690}00690\ \ \ \ \ \textcolor{keywordflow}{if}\ (\_autoArcWidthScale)\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00691}00691\ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{max\_w}}=0;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00692}00692\ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\mbox{\hyperlink{classlemon_1_1_graph_to_eps_aac213cfe5618c9d0df5b20391044849a}{ArcIt}}\ e(g);e!=\mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};++e)}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00693}00693\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{max\_w}}=std::max(\textcolor{keywordtype}{double}(\_arcWidths[e]),\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{max\_w}});}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00694}00694\ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{max\_w}}>\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{EPSILON}})\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00695}00695\ \ \ \ \ \ \ \ \ \_arcWidthScale/=\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{max\_w}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00696}00696\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00697}00697\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00698}00698\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00699}00699\ \ \ \ \ \textcolor{keywordflow}{if}\ (\_autoNodeScale)\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00700}00700\ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{max\_s}}=0;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00701}00701\ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\mbox{\hyperlink{classlemon_1_1_graph_to_eps_adcd5d9ecff4d4c066f302ae635efa1b4}{NodeIt}}\ n(g);n!=\mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};++n)}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00702}00702\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{max\_s}}=std::max(\textcolor{keywordtype}{double}(\_nodeSizes[n]),\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{max\_s}});}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00703}00703\ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{max\_s}}>\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{EPSILON}})\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00704}00704\ \ \ \ \ \ \ \ \ \_nodeScale/=\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{max\_s}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00705}00705\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00706}00706\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00707}00707\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00708}00708\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{diag\_len}}\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00709}00709\ \ \ \ \ \textcolor{keywordflow}{if}(!(\_absoluteNodeSizes\&\&\_absoluteArcWidths))\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00710}00710\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box}{dim2::Box<double>}}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bb}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00711}00711\ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\mbox{\hyperlink{classlemon_1_1_graph_to_eps_adcd5d9ecff4d4c066f302ae635efa1b4}{NodeIt}}\ n(g);n!=\mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};++n)\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bb}}.add(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{mycoords}}[n]);}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00712}00712\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bb}}.empty())\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00713}00713\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bb}}\ =\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box}{dim2::Box<double>}}(\mbox{\hyperlink{classlemon_1_1dim2_1_1_point}{dim2::Point<double>}}(0,0));}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00714}00714\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00715}00715\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{diag\_len}}\ =\ std::sqrt((\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bb}}.bottomLeft()-\/\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bb}}.topRight()).normSquare());}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00716}00716\ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{diag\_len}}<\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{EPSILON}})\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{diag\_len}}\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00717}00717\ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!\_absoluteNodeSizes)\ \_nodeScale*=\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{diag\_len}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00718}00718\ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!\_absoluteArcWidths)\ \_arcWidthScale*=\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{diag\_len}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00719}00719\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00720}00720\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00721}00721\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box}{dim2::Box<double>}}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bb}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00722}00722\ \ \ \ \ \textcolor{keywordflow}{for}(\mbox{\hyperlink{classlemon_1_1_graph_to_eps_adcd5d9ecff4d4c066f302ae635efa1b4}{NodeIt}}\ n(g);n!=\mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};++n)\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00723}00723\ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ns}}=\_nodeSizes[n]*\_nodeScale;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00724}00724\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_point}{dim2::Point<double>}}\ p(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ns}},\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ns}});}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00725}00725\ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(\_nodeShapes[n])\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00726}00726\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a5c1333cc3db216dbcd2e8876998332e5a1f95025cf5871e830174821e9666b0a3}{CIRCLE}}:}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00727}00727\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a5c1333cc3db216dbcd2e8876998332e5a87da73ea73b036de34b95da063bde4f9}{SQUARE}}:}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00728}00728\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a5c1333cc3db216dbcd2e8876998332e5af030b0d34902c84fe44f3d2e0f712a86}{DIAMOND}}:}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00729}00729\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bb}}.add(p+\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{mycoords}}[n]);}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00730}00730\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bb}}.add(-\/p+\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{mycoords}}[n]);}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00731}00731\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00732}00732\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a5c1333cc3db216dbcd2e8876998332e5aaf8515451d374df61b1828d5f790ffbc}{MALE}}:}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00733}00733\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bb}}.add(-\/p+\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{mycoords}}[n]);}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00734}00734\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bb}}.add(\mbox{\hyperlink{classlemon_1_1dim2_1_1_point}{dim2::Point<double>}}(1.5*\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ns}},1.5*std::sqrt(3.0)*\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ns}})+\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{mycoords}}[n]);}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00735}00735\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00736}00736\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a5c1333cc3db216dbcd2e8876998332e5a068b7c5cc81d4c1b0685741179d1c769}{FEMALE}}:}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00737}00737\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bb}}.add(p+\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{mycoords}}[n]);}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00738}00738\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bb}}.add(\mbox{\hyperlink{classlemon_1_1dim2_1_1_point}{dim2::Point<double>}}(-\/\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ns}},-\/3.01*\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ns}})+\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{mycoords}}[n]);}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00739}00739\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00740}00740\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00741}00741\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00742}00742\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bb}}.empty())\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00743}00743\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bb}}\ =\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box}{dim2::Box<double>}}(\mbox{\hyperlink{classlemon_1_1dim2_1_1_point}{dim2::Point<double>}}(0,0));}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00744}00744\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00745}00745\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00746}00746\ \ \ \ \ \textcolor{keywordflow}{if}(\_scaleToA4)}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00747}00747\ \ \ \ \ \ \ os\ <<\textcolor{stringliteral}{"{}\%\%BoundingBox:\ 0\ 0\ 596\ 842\(\backslash\)n\%\%DocumentPaperSizes:\ a4\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00748}00748\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00749}00749\ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\_preScale)\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00750}00750\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Rescale\ so\ that\ BoundingBox\ won't\ be\ neither\ to\ big\ nor\ too\ small.}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00751}00751\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bb}}.height()*\_scale>1000||\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bb}}.width()*\_scale>1000)\ \_scale/=10;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00752}00752\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bb}}.height()*\_scale<100||\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bb}}.width()*\_scale<100)\ \_scale*=10;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00753}00753\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00754}00754\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00755}00755\ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\%\%BoundingBox:\ "{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00756}00756\ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{int}}(floor(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bb}}.left()\ \ \ *\ \_scale\ -\/\ \_xBorder))\ <<\ \textcolor{charliteral}{'\ '}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00757}00757\ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{int}}(floor(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bb}}.bottom()\ *\ \_scale\ -\/\ \_yBorder))\ <<\ \textcolor{charliteral}{'\ '}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00758}00758\ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{int}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ceil}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bb}}.right()\ \ *\ \_scale\ +\ \_xBorder))\ <<\ \textcolor{charliteral}{'\ '}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00759}00759\ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{int}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ceil}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bb}}.top()\ \ \ \ *\ \_scale\ +\ \_yBorder))\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00760}00760\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00761}00761\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00762}00762\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\%\%EndComments\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00763}00763\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00764}00764\ \ \ \ \ \textcolor{comment}{//x1\ y1\ x2\ y2\ x3\ y3\ cr\ cg\ cb\ w}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00765}00765\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}/lb\ \{\ setlinewidth\ setrgbcolor\ newpath\ moveto\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00766}00766\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ 4\ 2\ roll\ 1\ index\ 1\ index\ curveto\ stroke\ \}\ bind\ def\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00767}00767\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}/l\ \{\ setlinewidth\ setrgbcolor\ newpath\ moveto\ lineto\ stroke\ \}"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00768}00768\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ bind\ def\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00769}00769\ \ \ \ \ \textcolor{comment}{//x\ y\ r}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00770}00770\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}/c\ \{\ newpath\ dup\ 3\ index\ add\ 2\ index\ moveto\ 0\ 360\ arc\ closepath\ \}"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00771}00771\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ bind\ def\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00772}00772\ \ \ \ \ \textcolor{comment}{//x\ y\ r}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00773}00773\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}/sq\ \{\ newpath\ 2\ index\ 1\ index\ add\ 2\ index\ 2\ index\ add\ moveto\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00774}00774\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ 2\ index\ 1\ index\ sub\ 2\ index\ 2\ index\ add\ lineto\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00775}00775\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ 2\ index\ 1\ index\ sub\ 2\ index\ 2\ index\ sub\ lineto\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00776}00776\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ 2\ index\ 1\ index\ add\ 2\ index\ 2\ index\ sub\ lineto\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00777}00777\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ closepath\ pop\ pop\ pop\}\ bind\ def\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00778}00778\ \ \ \ \ \textcolor{comment}{//x\ y\ r}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00779}00779\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}/di\ \{\ newpath\ 2\ index\ 1\ index\ add\ 2\ index\ moveto\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00780}00780\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ 2\ index\ \ \ \ \ \ \ \ \ \ \ \ \ 2\ index\ 2\ index\ add\ lineto\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00781}00781\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ 2\ index\ 1\ index\ sub\ 2\ index\ \ \ \ \ \ \ \ \ \ \ \ \ lineto\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00782}00782\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ 2\ index\ \ \ \ \ \ \ \ \ \ \ \ \ 2\ index\ 2\ index\ sub\ lineto\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00783}00783\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ closepath\ pop\ pop\ pop\}\ bind\ def\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00784}00784\ \ \ \ \ \textcolor{comment}{//\ x\ y\ r\ cr\ cg\ cb}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00785}00785\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}/nc\ \{\ 0\ 0\ 0\ setrgbcolor\ 5\ index\ 5\ index\ 5\ index\ c\ fill\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00786}00786\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ setrgbcolor\ "{}}\ <<\ 1+\_nodeBorderQuotient\ <<\ \textcolor{stringliteral}{"{}\ div\ c\ fill\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00787}00787\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ \ \ \}\ bind\ def\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00788}00788\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}/nsq\ \{\ 0\ 0\ 0\ setrgbcolor\ 5\ index\ 5\ index\ 5\ index\ sq\ fill\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00789}00789\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ setrgbcolor\ "{}}\ <<\ 1+\_nodeBorderQuotient\ <<\ \textcolor{stringliteral}{"{}\ div\ sq\ fill\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00790}00790\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ \ \ \}\ bind\ def\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00791}00791\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}/ndi\ \{\ 0\ 0\ 0\ setrgbcolor\ 5\ index\ 5\ index\ 5\ index\ di\ fill\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00792}00792\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ setrgbcolor\ "{}}\ <<\ 1+\_nodeBorderQuotient\ <<\ \textcolor{stringliteral}{"{}\ div\ di\ fill\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00793}00793\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ \ \ \}\ bind\ def\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00794}00794\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}/nfemale\ \{\ 0\ 0\ 0\ setrgbcolor\ 3\ index\ "{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00795}00795\ \ \ \ \ \ \ \ <<\ \_nodeBorderQuotient/(1+\_nodeBorderQuotient)}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00796}00796\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ 1.5\ mul\ mul\ setlinewidth\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00797}00797\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ \ newpath\ 5\ index\ 5\ index\ moveto\ "{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00798}00798\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}5\ index\ 5\ index\ 5\ index\ 3.01\ mul\ sub\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00799}00799\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ \ lineto\ 5\ index\ 4\ index\ .7\ mul\ sub\ 5\ index\ 5\ index\ 2.2\ mul\ sub"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00800}00800\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ moveto\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00801}00801\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ \ 5\ index\ 4\ index\ .7\ mul\ add\ 5\ index\ 5\ index\ 2.2\ mul\ sub\ lineto\ "{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00802}00802\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}stroke\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00803}00803\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ \ 5\ index\ 5\ index\ 5\ index\ c\ fill\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00804}00804\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ \ setrgbcolor\ "{}}\ <<\ 1+\_nodeBorderQuotient\ <<\ \textcolor{stringliteral}{"{}\ div\ c\ fill\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00805}00805\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ \ \}\ bind\ def\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00806}00806\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}/nmale\ \{\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00807}00807\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ \ 0\ 0\ 0\ setrgbcolor\ 3\ index\ "{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00808}00808\ \ \ \ \ \ \ \ <<\ \_nodeBorderQuotient/(1+\_nodeBorderQuotient)}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00809}00809\ \ \ \ \ \ \ \ <<\textcolor{stringliteral}{"{}\ 1.5\ mul\ mul\ setlinewidth\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00810}00810\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ \ newpath\ 5\ index\ 5\ index\ moveto\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00811}00811\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ \ 5\ index\ 4\ index\ 1\ mul\ 1.5\ mul\ add\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00812}00812\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ \ 5\ index\ 5\ index\ 3\ sqrt\ 1.5\ mul\ mul\ add\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00813}00813\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ \ 1\ index\ 1\ index\ lineto\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00814}00814\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ \ 1\ index\ 1\ index\ 7\ index\ sub\ moveto\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00815}00815\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ \ 1\ index\ 1\ index\ lineto\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00816}00816\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ \ exch\ 5\ index\ 3\ sqrt\ .5\ mul\ mul\ sub\ exch\ 5\ index\ .5\ mul\ sub"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00817}00817\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ lineto\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00818}00818\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ \ stroke\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00819}00819\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ \ 5\ index\ 5\ index\ 5\ index\ c\ fill\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00820}00820\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ \ setrgbcolor\ "{}}\ <<\ 1+\_nodeBorderQuotient\ <<\ \textcolor{stringliteral}{"{}\ div\ c\ fill\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00821}00821\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ \ \}\ bind\ def\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00822}00822\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00823}00823\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00824}00824\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}/arrl\ "{}}\ <<\ \_arrowLength\ <<\ \textcolor{stringliteral}{"{}\ def\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00825}00825\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}/arrw\ "{}}\ <<\ \_arrowWidth\ <<\ \textcolor{stringliteral}{"{}\ def\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00826}00826\ \ \ \ \ \textcolor{comment}{//\ l\ dx\_norm\ dy\_norm}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00827}00827\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}/lrl\ \{\ 2\ index\ mul\ exch\ 2\ index\ mul\ exch\ rlineto\ pop\}\ bind\ def\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00828}00828\ \ \ \ \ \textcolor{comment}{//len\ w\ dx\_norm\ dy\_norm\ x1\ y1\ cr\ cg\ cb}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00829}00829\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}/arr\ \{\ setrgbcolor\ /y1\ exch\ def\ /x1\ exch\ def\ /dy\ exch\ def\ /dx\ "{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00830}00830\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}exch\ def\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00831}00831\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ /w\ exch\ def\ /len\ exch\ def\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00832}00832\ \ \ \ \ \ \ \textcolor{comment}{//<<\ "{}0.1\ setlinewidth\ x1\ y1\ moveto\ dx\ len\ mul\ dy\ len\ mul\ rlineto\ stroke"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00833}00833\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ newpath\ x1\ dy\ w\ 2\ div\ mul\ add\ y1\ dx\ w\ 2\ div\ mul\ sub\ moveto\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00834}00834\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ len\ w\ sub\ arrl\ sub\ dx\ dy\ lrl\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00835}00835\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ arrw\ dy\ dx\ neg\ lrl\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00836}00836\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ dx\ arrl\ w\ add\ mul\ dy\ w\ 2\ div\ arrw\ add\ mul\ sub\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00837}00837\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ dy\ arrl\ w\ add\ mul\ dx\ w\ 2\ div\ arrw\ add\ mul\ add\ rlineto\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00838}00838\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ dx\ arrl\ w\ add\ mul\ neg\ dy\ w\ 2\ div\ arrw\ add\ mul\ sub\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00839}00839\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ dy\ arrl\ w\ add\ mul\ neg\ dx\ w\ 2\ div\ arrw\ add\ mul\ add\ rlineto\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00840}00840\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ arrw\ dy\ dx\ neg\ lrl\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00841}00841\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ len\ w\ sub\ arrl\ sub\ neg\ dx\ dy\ lrl\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00842}00842\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ closepath\ fill\ \}\ bind\ def\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00843}00843\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}/cshow\ \{\ 2\ index\ 2\ index\ moveto\ dup\ stringwidth\ pop\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00844}00844\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ \ neg\ 2\ div\ fosi\ .35\ mul\ neg\ rmoveto\ show\ pop\ pop\}\ def\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00845}00845\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00846}00846\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)ngsave\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00847}00847\ \ \ \ \ \textcolor{keywordflow}{if}(\_scaleToA4)}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00848}00848\ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bb}}.height()>\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bb}}.width())\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00849}00849\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{sc}}=\ std::min((\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a1e7608d9f1c8758d9053d1b34966e323}{A4HEIGHT}}-\/2*\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a7e83dd09ac67fee74238f92c6ffb26db}{A4BORDER}})/\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bb}}.height(),}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00850}00850\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\mbox{\hyperlink{classlemon_1_1_graph_to_eps_ac9a5e814befd5614a55be3a6a34f846b}{A4WIDTH}}-\/2*\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a7e83dd09ac67fee74238f92c6ffb26db}{A4BORDER}})/\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bb}}.width());}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00851}00851\ \ \ \ \ \ \ \ \ os\ <<\ ((\mbox{\hyperlink{classlemon_1_1_graph_to_eps_ac9a5e814befd5614a55be3a6a34f846b}{A4WIDTH}}\ -\/2*\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a7e83dd09ac67fee74238f92c6ffb26db}{A4BORDER}})-\/\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{sc}}*\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bb}}.width())/2\ +\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a7e83dd09ac67fee74238f92c6ffb26db}{A4BORDER}}\ <<\ \textcolor{charliteral}{'\ '}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00852}00852\ \ \ \ \ \ \ \ \ \ \ \ <<\ ((\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a1e7608d9f1c8758d9053d1b34966e323}{A4HEIGHT}}-\/2*\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a7e83dd09ac67fee74238f92c6ffb26db}{A4BORDER}})-\/\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{sc}}*\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bb}}.height())/2\ +\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a7e83dd09ac67fee74238f92c6ffb26db}{A4BORDER}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00853}00853\ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ translate\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00854}00854\ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{sc}}\ <<\ \textcolor{stringliteral}{"{}\ dup\ scale\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00855}00855\ \ \ \ \ \ \ \ \ \ \ \ <<\ -\/\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bb}}.left()\ <<\ \textcolor{charliteral}{'\ '}\ <<\ -\/\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bb}}.bottom()\ <<\ \textcolor{stringliteral}{"{}\ translate\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00856}00856\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00857}00857\ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00858}00858\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{sc}}=\ std::min((\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a1e7608d9f1c8758d9053d1b34966e323}{A4HEIGHT}}-\/2*\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a7e83dd09ac67fee74238f92c6ffb26db}{A4BORDER}})/\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bb}}.width(),}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00859}00859\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\mbox{\hyperlink{classlemon_1_1_graph_to_eps_ac9a5e814befd5614a55be3a6a34f846b}{A4WIDTH}}-\/2*\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a7e83dd09ac67fee74238f92c6ffb26db}{A4BORDER}})/\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bb}}.height());}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00860}00860\ \ \ \ \ \ \ \ \ os\ <<\ ((\mbox{\hyperlink{classlemon_1_1_graph_to_eps_ac9a5e814befd5614a55be3a6a34f846b}{A4WIDTH}}\ -\/2*\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a7e83dd09ac67fee74238f92c6ffb26db}{A4BORDER}})-\/\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{sc}}*\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bb}}.height())/2\ +\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a7e83dd09ac67fee74238f92c6ffb26db}{A4BORDER}}\ <<\ \textcolor{charliteral}{'\ '}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00861}00861\ \ \ \ \ \ \ \ \ \ \ \ <<\ ((\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a1e7608d9f1c8758d9053d1b34966e323}{A4HEIGHT}}-\/2*\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a7e83dd09ac67fee74238f92c6ffb26db}{A4BORDER}})-\/\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{sc}}*\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bb}}.width())/2\ +\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a7e83dd09ac67fee74238f92c6ffb26db}{A4BORDER}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00862}00862\ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ translate\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00863}00863\ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{sc}}\ <<\ \textcolor{stringliteral}{"{}\ dup\ scale\(\backslash\)n90\ rotate\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00864}00864\ \ \ \ \ \ \ \ \ \ \ \ <<\ -\/\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bb}}.left()\ <<\ \textcolor{charliteral}{'\ '}\ <<\ -\/\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bb}}.top()\ <<\ \textcolor{stringliteral}{"{}\ translate\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00865}00865\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00866}00866\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(\_scale!=1.0)\ os\ <<\ \_scale\ <<\ \textcolor{stringliteral}{"{}\ dup\ scale\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00867}00867\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00868}00868\ \ \ \ \ \textcolor{keywordflow}{if}(\_showArcs)\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00869}00869\ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\%Arcs:\(\backslash\)ngsave\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00870}00870\ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\_enableParallel)\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00871}00871\ \ \ \ \ \ \ \ \ std::vector<Arc>\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{el}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00872}00872\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\mbox{\hyperlink{classlemon_1_1_graph_to_eps_aac213cfe5618c9d0df5b20391044849a}{ArcIt}}\ e(g);e!=\mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};++e)}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00873}00873\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((!\_undirected||g.source(e)<g.target(e))\&\&\_arcWidths[e]>0}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00874}00874\ \ \ \ \ \ \ \ \ \ \ \ \ \ \&\&g.source(e)!=g.target(e))}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00875}00875\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{el}}.push\_back(e);}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00876}00876\ \ \ \ \ \ \ \ \ std::sort(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{el}}.begin(),\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{el}}.end(),\mbox{\hyperlink{classlemon_1_1_graph_to_eps_1_1arc_less}{arcLess}}(g));}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00877}00877\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00878}00878\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ std::vector<Arc>::iterator\ j;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00879}00879\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keyword}{typename}\ std::vector<Arc>::iterator\ i=\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{el}}.begin();i!=\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{el}}.end();i=j)\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00880}00880\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(j=i+1;j!=\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{el}}.end()\&\&\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a91bcf7c7a1ca8e2c39e0fb8e97485c71}{isParallel}}(*i,*j);++j)\ ;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00881}00881\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00882}00882\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{sw}}=0;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00883}00883\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keyword}{typename}\ std::vector<Arc>::iterator\ e=i;e!=j;++e)}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00884}00884\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{sw}}+=\_arcWidths[*e]*\_arcWidthScale+\_parArcDist;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00885}00885\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{sw}}-\/=\_parArcDist;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00886}00886\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{sw}}/=-\/2.0;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00887}00887\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_point}{dim2::Point<double>}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00888}00888\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{dvec}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{mycoords}}[g.target(*i)]-\/\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{mycoords}}[g.source(*i)]);}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00889}00889\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{l}}=std::sqrt(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{dvec}}.normSquare());}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00890}00890\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_point}{dim2::Point<double>}}\ d(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{dvec}}/std::max(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{l}},\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{EPSILON}}));}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00891}00891\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_point}{dim2::Point<double>}}\ m;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00892}00892\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ m=dim2::Point<double>(mycoords[g.target(*i)]+}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00893}00893\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mycoords[g.source(*i)])/2.0;}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00894}00894\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00895}00895\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ m=dim2::Point<double>(mycoords[g.source(*i)])+}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00896}00896\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ dvec*(double(\_nodeSizes[g.source(*i)])/}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00897}00897\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\_nodeSizes[g.source(*i)]+\_nodeSizes[g.target(*i)]));}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00898}00898\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00899}00899\ \ \ \ \ \ \ \ \ \ \ m=\mbox{\hyperlink{classlemon_1_1dim2_1_1_point}{dim2::Point<double>}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{mycoords}}[g.source(*i)])+}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00900}00900\ \ \ \ \ \ \ \ \ \ \ \ \ d*(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{l}}+\_nodeSizes[g.source(*i)]-\/\_nodeSizes[g.target(*i)])/2.0;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00901}00901\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00902}00902\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keyword}{typename}\ std::vector<Arc>::iterator\ e=i;e!=j;++e)\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00903}00903\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{sw}}+=\_arcWidths[*e]*\_arcWidthScale/2.0;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00904}00904\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_point}{dim2::Point<double>}}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{mm}}=m+rot90(d)*\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{sw}}/.75;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00905}00905\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\_drawArrows)\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00906}00906\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{node\_shape}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00907}00907\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_point}{dim2::Point<double>}}\ s=\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{mycoords}}[g.source(*e)];}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00908}00908\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_point}{dim2::Point<double>}}\ t=\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{mycoords}}[g.target(*e)];}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00909}00909\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{rn}}=\_nodeSizes[g.target(*e)]*\_nodeScale;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00910}00910\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{node\_shape}}=\_nodeShapes[g.target(*e)];}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00911}00911\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_bezier3}{dim2::Bezier3}}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bez}}(s,\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{mm}},\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{mm}},t);}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00912}00912\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{t1}}=0,\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{t2}}=1;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00913}00913\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ii}}=0;\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ii}}<\mbox{\hyperlink{classlemon_1_1_graph_to_eps_ad99c97a3f00ee561dc343eebbdd13c24}{INTERPOL\_PREC}};++\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ii}})}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00914}00914\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a10f19ca92bce3a789b8944a9d2d5a934}{isInsideNode}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bez}}((\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{t1}}+\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{t2}})/2)-\/t,\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{rn}},\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{node\_shape}}))\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{t2}}=(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{t1}}+\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{t2}})/2;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00915}00915\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{t1}}=(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{t1}}+\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{t2}})/2;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00916}00916\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_point}{dim2::Point<double>}}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{apoint}}=\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bez}}((\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{t1}}+\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{t2}})/2);}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00917}00917\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{rn}}\ =\ \_arrowLength+\_arcWidths[*e]*\_arcWidthScale;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00918}00918\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{rn}}*=\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{rn}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00919}00919\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{t2}}=(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{t1}}+\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{t2}})/2;\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{t1}}=0;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00920}00920\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ii}}=0;\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ii}}<\mbox{\hyperlink{classlemon_1_1_graph_to_eps_ad99c97a3f00ee561dc343eebbdd13c24}{INTERPOL\_PREC}};++\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ii}})}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00921}00921\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bez}}((\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{t1}}+\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{t2}})/2)-\/\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{apoint}}).normSquare()>\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{rn}})\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{t1}}=(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{t1}}+\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{t2}})/2;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00922}00922\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{t2}}=(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{t1}}+\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{t2}})/2;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00923}00923\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_point}{dim2::Point<double>}}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{linend}}=\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bez}}((\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{t1}}+\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{t2}})/2);}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00924}00924\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bez}}=\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bez}}.before((\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{t1}}+\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{t2}})/2);}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00925}00925\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rn=\_nodeSizes[g.source(*e)]*\_nodeScale;}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00926}00926\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ node\_shape=\_nodeShapes[g.source(*e)];}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00927}00927\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ t1=0;t2=1;}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00928}00928\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ for(int\ i=0;i<INTERPOL\_PREC;++i)}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00929}00929\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ if(isInsideNode(bez((t1+t2)/2)-\/t,rn,node\_shape))}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00930}00930\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ t1=(t1+t2)/2;}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00931}00931\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ else\ t2=(t1+t2)/2;}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00932}00932\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bez=bez.after((t1+t2)/2);}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00933}00933\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ \_arcWidths[*e]*\_arcWidthScale\ <<\ \textcolor{stringliteral}{"{}\ setlinewidth\ "{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00934}00934\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \_arcColors[*e].red()\ <<\ \textcolor{charliteral}{'\ '}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00935}00935\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \_arcColors[*e].green()\ <<\ \textcolor{charliteral}{'\ '}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00936}00936\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \_arcColors[*e].blue()\ <<\ \textcolor{stringliteral}{"{}\ setrgbcolor\ newpath\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00937}00937\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bez}}.p1.x\ <<\ \textcolor{charliteral}{'\ '}\ <<\ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bez}}.p1.y\ <<\ \textcolor{stringliteral}{"{}\ moveto\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00938}00938\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bez}}.p2.x\ <<\ \textcolor{charliteral}{'\ '}\ <<\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bez}}.p2.y\ <<\ \textcolor{charliteral}{'\ '}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00939}00939\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bez}}.p3.x\ <<\ \textcolor{charliteral}{'\ '}\ <<\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bez}}.p3.y\ <<\ \textcolor{charliteral}{'\ '}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00940}00940\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bez}}.p4.x\ <<\ \textcolor{charliteral}{'\ '}\ <<\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bez}}.p4.y\ <<\ \textcolor{stringliteral}{"{}\ curveto\ stroke\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00941}00941\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_point}{dim2::Point<double>}}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{dd}}(rot90(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{linend}}-\/\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{apoint}}));}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00942}00942\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{dd}}*=(.5*\_arcWidths[*e]*\_arcWidthScale+\_arrowWidth)/}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00943}00943\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::sqrt(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{dd}}.normSquare());}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00944}00944\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}newpath\ "{}}\ <<\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_abd51108e5a0d00cceb61fbe32c433578}{psOut}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{apoint}})\ <<\ \textcolor{stringliteral}{"{}\ moveto\ "{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00945}00945\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_abd51108e5a0d00cceb61fbe32c433578}{psOut}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{linend}}+\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{dd}})\ <<\ \textcolor{stringliteral}{"{}\ lineto\ "{}}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00946}00946\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_abd51108e5a0d00cceb61fbe32c433578}{psOut}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{linend}}-\/\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{dd}})\ <<\ \textcolor{stringliteral}{"{}\ lineto\ closepath\ fill\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00947}00947\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00948}00948\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00949}00949\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{mycoords}}[g.source(*e)].x\ <<\ \textcolor{charliteral}{'\ '}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00950}00950\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{mycoords}}[g.source(*e)].y\ <<\ \textcolor{charliteral}{'\ '}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00951}00951\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{mm}}.x\ <<\ \textcolor{charliteral}{'\ '}\ <<\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{mm}}.y\ <<\ \textcolor{charliteral}{'\ '}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00952}00952\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{mycoords}}[g.target(*e)].x\ <<\ \textcolor{charliteral}{'\ '}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00953}00953\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{mycoords}}[g.target(*e)].y\ <<\ \textcolor{charliteral}{'\ '}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00954}00954\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \_arcColors[*e].red()\ <<\ \textcolor{charliteral}{'\ '}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00955}00955\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \_arcColors[*e].green()\ <<\ \textcolor{charliteral}{'\ '}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00956}00956\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \_arcColors[*e].blue()\ <<\ \textcolor{charliteral}{'\ '}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00957}00957\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \_arcWidths[*e]*\_arcWidthScale\ <<\ \textcolor{stringliteral}{"{}\ lb\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00958}00958\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00959}00959\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{sw}}+=\_arcWidths[*e]*\_arcWidthScale/2.0+\_parArcDist;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00960}00960\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00961}00961\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00962}00962\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00963}00963\ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{for}(\mbox{\hyperlink{classlemon_1_1_graph_to_eps_aac213cfe5618c9d0df5b20391044849a}{ArcIt}}\ e(g);e!=\mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};++e)}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00964}00964\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((!\_undirected||g.source(e)<g.target(e))\&\&\_arcWidths[e]>0}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00965}00965\ \ \ \ \ \ \ \ \ \ \ \ \&\&g.source(e)!=g.target(e))\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00966}00966\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\_drawArrows)\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00967}00967\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_point}{dim2::Point<double>}}\ d(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{mycoords}}[g.target(e)]-\/\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{mycoords}}[g.source(e)]);}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00968}00968\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{rn}}=\_nodeSizes[g.target(e)]*\_nodeScale;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00969}00969\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{node\_shape}}=\_nodeShapes[g.target(e)];}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00970}00970\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{t1}}=0,\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{t2}}=1;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00971}00971\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i=0;i<\mbox{\hyperlink{classlemon_1_1_graph_to_eps_ad99c97a3f00ee561dc343eebbdd13c24}{INTERPOL\_PREC}};++i)}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00972}00972\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a10f19ca92bce3a789b8944a9d2d5a934}{isInsideNode}}((-\/(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{t1}}+\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{t2}})/2)*d,\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{rn}},\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{node\_shape}}))\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{t1}}=(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{t1}}+\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{t2}})/2;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00973}00973\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{t2}}=(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{t1}}+\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{t2}})/2;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00974}00974\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{l}}=std::sqrt(d.\mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a07b3bc074d805989cf147acb9e985fd7}{normSquare}}());}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00975}00975\ \ \ \ \ \ \ \ \ \ \ \ \ d/=\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{l}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00976}00976\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00977}00977\ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{l}}*(1-\/(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{t1}}+\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{t2}})/2)\ <<\ \textcolor{charliteral}{'\ '}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00978}00978\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \_arcWidths[e]*\_arcWidthScale\ <<\ \textcolor{charliteral}{'\ '}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00979}00979\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ d.\mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a2266765760e76540bd56a3f7ab7a722a}{x}}\ <<\ \textcolor{charliteral}{'\ '}\ <<\ d.\mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a5da4fd902a1cebc442073f172774036d}{y}}\ <<\ \textcolor{charliteral}{'\ '}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00980}00980\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{mycoords}}[g.source(e)].x\ <<\ \textcolor{charliteral}{'\ '}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00981}00981\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{mycoords}}[g.source(e)].y\ <<\ \textcolor{charliteral}{'\ '}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00982}00982\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \_arcColors[e].red()\ <<\ \textcolor{charliteral}{'\ '}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00983}00983\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \_arcColors[e].green()\ <<\ \textcolor{charliteral}{'\ '}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00984}00984\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \_arcColors[e].blue()\ <<\ \textcolor{stringliteral}{"{}\ arr\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00985}00985\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00986}00986\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ os\ <<\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{mycoords}}[g.source(e)].x\ <<\ \textcolor{charliteral}{'\ '}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00987}00987\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{mycoords}}[g.source(e)].y\ <<\ \textcolor{charliteral}{'\ '}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00988}00988\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{mycoords}}[g.target(e)].x\ <<\ \textcolor{charliteral}{'\ '}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00989}00989\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{mycoords}}[g.target(e)].y\ <<\ \textcolor{charliteral}{'\ '}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00990}00990\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \_arcColors[e].red()\ <<\ \textcolor{charliteral}{'\ '}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00991}00991\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \_arcColors[e].green()\ <<\ \textcolor{charliteral}{'\ '}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00992}00992\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \_arcColors[e].blue()\ <<\ \textcolor{charliteral}{'\ '}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00993}00993\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \_arcWidths[e]*\_arcWidthScale\ <<\ \textcolor{stringliteral}{"{}\ l\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00994}00994\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00995}00995\ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}grestore\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00996}00996\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00997}00997\ \ \ \ \ \textcolor{keywordflow}{if}(\_showNodes)\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00998}00998\ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\%Nodes:\(\backslash\)ngsave\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l00999}00999\ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\mbox{\hyperlink{classlemon_1_1_graph_to_eps_adcd5d9ecff4d4c066f302ae635efa1b4}{NodeIt}}\ n(g);n!=\mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};++n)\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01000}01000\ \ \ \ \ \ \ \ \ os\ <<\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{mycoords}}[n].x\ <<\ \textcolor{charliteral}{'\ '}\ <<\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{mycoords}}[n].y\ <<\ \textcolor{charliteral}{'\ '}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01001}01001\ \ \ \ \ \ \ \ \ \ \ \ <<\ \_nodeSizes[n]*\_nodeScale\ <<\ \textcolor{charliteral}{'\ '}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01002}01002\ \ \ \ \ \ \ \ \ \ \ \ <<\ \_nodeColors[n].red()\ <<\ \textcolor{charliteral}{'\ '}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01003}01003\ \ \ \ \ \ \ \ \ \ \ \ <<\ \_nodeColors[n].green()\ <<\ \textcolor{charliteral}{'\ '}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01004}01004\ \ \ \ \ \ \ \ \ \ \ \ <<\ \_nodeColors[n].blue()\ <<\ \textcolor{charliteral}{'\ '};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01005}01005\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(\_nodeShapes[n])\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01006}01006\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a5c1333cc3db216dbcd2e8876998332e5a1f95025cf5871e830174821e9666b0a3}{CIRCLE}}:}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01007}01007\ \ \ \ \ \ \ \ \ \ \ os<<\ \textcolor{stringliteral}{"{}nc"{}};\textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01008}01008\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a5c1333cc3db216dbcd2e8876998332e5a87da73ea73b036de34b95da063bde4f9}{SQUARE}}:}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01009}01009\ \ \ \ \ \ \ \ \ \ \ os<<\ \textcolor{stringliteral}{"{}nsq"{}};\textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01010}01010\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a5c1333cc3db216dbcd2e8876998332e5af030b0d34902c84fe44f3d2e0f712a86}{DIAMOND}}:}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01011}01011\ \ \ \ \ \ \ \ \ \ \ os<<\ \textcolor{stringliteral}{"{}ndi"{}};\textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01012}01012\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a5c1333cc3db216dbcd2e8876998332e5aaf8515451d374df61b1828d5f790ffbc}{MALE}}:}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01013}01013\ \ \ \ \ \ \ \ \ \ \ os<<\ \textcolor{stringliteral}{"{}nmale"{}};\textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01014}01014\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a5c1333cc3db216dbcd2e8876998332e5a068b7c5cc81d4c1b0685741179d1c769}{FEMALE}}:}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01015}01015\ \ \ \ \ \ \ \ \ \ \ os<<\ \textcolor{stringliteral}{"{}nfemale"{}};\textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01016}01016\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01017}01017\ \ \ \ \ \ \ \ \ os<<\textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01018}01018\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01019}01019\ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}grestore\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01020}01020\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01021}01021\ \ \ \ \ \textcolor{keywordflow}{if}(\_showNodeText)\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01022}01022\ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\%Node\ texts:\(\backslash\)ngsave\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01023}01023\ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}/fosi\ "{}}\ <<\ \_nodeTextSize\ <<\ \textcolor{stringliteral}{"{}\ def\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01024}01024\ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}(Helvetica)\ findfont\ fosi\ scalefont\ setfont\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01025}01025\ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\mbox{\hyperlink{classlemon_1_1_graph_to_eps_adcd5d9ecff4d4c066f302ae635efa1b4}{NodeIt}}\ n(g);n!=\mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};++n)\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01026}01026\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(\_nodeTextColorType)\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01027}01027\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ DIST\_COL:}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01028}01028\ \ \ \ \ \ \ \ \ \ \ os\ <<\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_abd51108e5a0d00cceb61fbe32c433578}{psOut}}(\mbox{\hyperlink{group__misc_gaafbc768b20325e1e5048dcd2b10bc4e7}{distantColor}}(\_nodeColors[n]))\ <<\ \textcolor{stringliteral}{"{}\ setrgbcolor\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01029}01029\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01030}01030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ DIST\_BW:}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01031}01031\ \ \ \ \ \ \ \ \ \ \ os\ <<\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_abd51108e5a0d00cceb61fbe32c433578}{psOut}}(\mbox{\hyperlink{group__misc_ga22a184708d82339466dd08286e01a756}{distantBW}}(\_nodeColors[n]))\ <<\ \textcolor{stringliteral}{"{}\ setrgbcolor\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01032}01032\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01033}01033\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ CUST\_COL:}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01034}01034\ \ \ \ \ \ \ \ \ \ \ os\ <<\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_abd51108e5a0d00cceb61fbe32c433578}{psOut}}(\mbox{\hyperlink{group__misc_gaafbc768b20325e1e5048dcd2b10bc4e7}{distantColor}}(\_nodeTextColors[n]))\ <<\ \textcolor{stringliteral}{"{}\ setrgbcolor\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01035}01035\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01036}01036\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01037}01037\ \ \ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}0\ 0\ 0\ setrgbcolor\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01038}01038\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01039}01039\ \ \ \ \ \ \ \ \ os\ <<\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{mycoords}}[n].x\ <<\ \textcolor{charliteral}{'\ '}\ <<\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{mycoords}}[n].y}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01040}01040\ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ ("{}}\ <<\ \_nodeTexts[n]\ <<\ \textcolor{stringliteral}{"{})\ cshow\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01041}01041\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01042}01042\ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}grestore\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01043}01043\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01044}01044\ \ \ \ \ \textcolor{keywordflow}{if}(\_showNodePsText)\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01045}01045\ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\%Node\ PS\ blocks:\(\backslash\)ngsave\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01046}01046\ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\mbox{\hyperlink{classlemon_1_1_graph_to_eps_adcd5d9ecff4d4c066f302ae635efa1b4}{NodeIt}}\ n(g);n!=\mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};++n)}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01047}01047\ \ \ \ \ \ \ \ \ os\ <<\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{mycoords}}[n].x\ <<\ \textcolor{charliteral}{'\ '}\ <<\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{mycoords}}[n].y}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01048}01048\ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ moveto\(\backslash\)n"{}}\ <<\ \_nodePsTexts[n]\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01049}01049\ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}grestore\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01050}01050\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01051}01051\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01052}01052\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}grestore\(\backslash\)nshowpage\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01053}01053\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01054}01054\ \ \ \ \ \textcolor{comment}{//CleanUp:}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01055}01055\ \ \ \ \ \textcolor{keywordflow}{if}(\_pleaseRemoveOsStream)\ \{\textcolor{keyword}{delete}\ \&os;\}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01056}01056\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01057}01057\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01060}01060\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01062}01062\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01064}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a2d3b2f7fc1847ef26a530100e1da884d}{01064}}\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ X>\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<ArcWidthsTraits<X>}}\ >\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a2d3b2f7fc1847ef26a530100e1da884d}{edgeWidths}}(\textcolor{keyword}{const}\ X\ \&x)}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01065}01065\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01066}01066\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a7695351d0e9b83c3454c32bc0ce3cbcb}{arcWidths}}(x);}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01067}01067\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01068}01068\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01070}01070\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ X>\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<ArcColorsTraits<X>}}\ >}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01071}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_ad977239aa83ccc3c2d8a47cb58b97a8a}{01071}}\ \ \ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_ad977239aa83ccc3c2d8a47cb58b97a8a}{edgeColors}}(\textcolor{keyword}{const}\ X\ \&x)}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01072}01072\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01073}01073\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a18f20804f29fdc575ec9a731a87afc75}{arcColors}}(x);}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01074}01074\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01075}01075\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01077}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a0284bf685e545632f5298d58a7c3830a}{01077}}\ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<T>}}\ \&\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a0284bf685e545632f5298d58a7c3830a}{edgeWidthScale}}(\textcolor{keywordtype}{double}\ d)\ \{\textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a959a23320121d48336c52dc9b2587673}{arcWidthScale}}(d);\}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01078}01078\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01080}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_afe06f6c4f8c7fbe160ec0eb993dccf96}{01080}}\ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<T>}}\ \&\mbox{\hyperlink{classlemon_1_1_graph_to_eps_afe06f6c4f8c7fbe160ec0eb993dccf96}{autoEdgeWidthScale}}(\textcolor{keywordtype}{bool}\ b=\textcolor{keyword}{true})}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01081}01081\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01082}01082\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_ae702ab97c28944657c8265f836dbe315}{autoArcWidthScale}}(b);}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01083}01083\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01084}01084\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01086}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_ae7e8ef38a4376e367edfdd5a33ee2cf4}{01086}}\ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<T>}}\ \&\mbox{\hyperlink{classlemon_1_1_graph_to_eps_ae7e8ef38a4376e367edfdd5a33ee2cf4}{absoluteEdgeWidths}}(\textcolor{keywordtype}{bool}\ b=\textcolor{keyword}{true})}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01087}01087\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01088}01088\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_ac491fc2751685fe3b53be77583520b45}{absoluteArcWidths}}(b);}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01089}01089\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01090}01090\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01092}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a3b1b29c03841b3bb24b6266f508235f0}{01092}}\ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<T>}}\ \&\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a3b1b29c03841b3bb24b6266f508235f0}{parEdgeDist}}(\textcolor{keywordtype}{double}\ d)\ \{\textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a329c14bfaf0d9fe15f5621017034065a}{parArcDist}}(d);\}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01093}01093\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01095}\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a53f47275146e04b4b17184b35481e357}{01095}}\ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<T>}}\ \&\mbox{\hyperlink{classlemon_1_1_graph_to_eps_a53f47275146e04b4b17184b35481e357}{hideEdges}}(\textcolor{keywordtype}{bool}\ b=\textcolor{keyword}{true})\ \{\textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a923f55c5cae5b3d747d04435b931fc01}{hideArcs}}(b);\}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01096}01096\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01098}01098\ \};}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01099}01099\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01100}01100\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01101}01101\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_ad99c97a3f00ee561dc343eebbdd13c24}{GraphToEps<T>::INTERPOL\_PREC}}\ =\ 20;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01102}01102\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01103}01103\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a1e7608d9f1c8758d9053d1b34966e323}{GraphToEps<T>::A4HEIGHT}}\ =\ 841.8897637795276;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01104}01104\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01105}01105\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_ac9a5e814befd5614a55be3a6a34f846b}{GraphToEps<T>::A4WIDTH}}\ \ =\ 595.275590551181;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01106}01106\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01107}01107\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classlemon_1_1_graph_to_eps_a7e83dd09ac67fee74238f92c6ffb26db}{GraphToEps<T>::A4BORDER}}\ =\ 15;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01108}01108\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01109}01109\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01111}01111\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01134}01134\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ GR>}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01135}01135\ GraphToEps<DefaultGraphToEpsTraits<GR>\ >}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01136}\mbox{\hyperlink{namespacelemon_a2a94866f5af65c48cf42da1e4a84550a}{01136}}\ \mbox{\hyperlink{namespacelemon_a2a94866f5af65c48cf42da1e4a84550a}{graphToEps}}(GR\ \&g,\ std::ostream\&\ os=std::cout)}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01137}01137\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01138}01138\ \ \ \textcolor{keywordflow}{return}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01139}01139\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<DefaultGraphToEpsTraits<GR>}}\ >(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{DefaultGraphToEpsTraits<GR>}}(g,os));}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01140}01140\ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01141}01141\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01143}01143\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01150}01150\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ GR>}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01151}01151\ GraphToEps<DefaultGraphToEpsTraits<GR>\ >}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01152}\mbox{\hyperlink{namespacelemon_ae7d8f312c94b9a158174671609568c13}{01152}}\ \mbox{\hyperlink{namespacelemon_a2a94866f5af65c48cf42da1e4a84550a}{graphToEps}}(GR\ \&g,\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{file\_name}})}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01153}01153\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01154}01154\ \ \ std::ostream*\ os\ =\ \textcolor{keyword}{new}\ std::ofstream(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{file\_name}});}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01155}01155\ \ \ \textcolor{keywordflow}{if}\ (!(*os))\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01156}01156\ \ \ \ \ \textcolor{keyword}{delete}\ os;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01157}01157\ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classlemon_1_1_io_error}{IoError}}(\textcolor{stringliteral}{"{}Cannot\ write\ file"{}},\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{file\_name}});}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01158}01158\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01159}01159\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<DefaultGraphToEpsTraits<GR>}}\ >}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01160}01160\ \ \ \ \ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{DefaultGraphToEpsTraits<GR>}}(g,*os,\textcolor{keyword}{true}));}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01161}01161\ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01162}01162\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01164}01164\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01171}01171\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ GR>}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01172}01172\ GraphToEps<DefaultGraphToEpsTraits<GR>\ >}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01173}\mbox{\hyperlink{namespacelemon_a1ce88bfc0c0d631da7febc83728beda9}{01173}}\ \mbox{\hyperlink{namespacelemon_a2a94866f5af65c48cf42da1e4a84550a}{graphToEps}}(GR\ \&g,\textcolor{keyword}{const}\ std::string\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{file\_name}})}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01174}01174\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01175}01175\ \ \ std::ostream*\ os\ =\ \textcolor{keyword}{new}\ std::ofstream(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{file\_name}}.c\_str());}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01176}01176\ \ \ \textcolor{keywordflow}{if}\ (!(*os))\ \{}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01177}01177\ \ \ \ \ \textcolor{keyword}{delete}\ os;}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01178}01178\ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classlemon_1_1_io_error}{IoError}}(\textcolor{stringliteral}{"{}Cannot\ write\ file"{}},\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{file\_name}});}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01179}01179\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01180}01180\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{GraphToEps<DefaultGraphToEpsTraits<GR>}}\ >}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01181}01181\ \ \ \ \ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{DefaultGraphToEpsTraits<GR>}}(g,*os,\textcolor{keyword}{true}));}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01182}01182\ \}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01183}01183\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01184}01184\ \}\ \textcolor{comment}{//END\ OF\ NAMESPACE\ LEMON}}
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01185}01185\ }
+\DoxyCodeLine{\Hypertarget{graph__to__eps_8h_source_l01186}01186\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ LEMON\_GRAPH\_TO\_EPS\_H}}
+
+\end{DoxyCode}

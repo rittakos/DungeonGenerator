@@ -1,0 +1,133 @@
+\doxysection{Generator\+::Grid2\+DControl\+Point\+Generator Class Reference}
+\hypertarget{class_generator_1_1_grid2_d_control_point_generator}{}\label{class_generator_1_1_grid2_d_control_point_generator}\index{Generator::Grid2DControlPointGenerator@{Generator::Grid2DControlPointGenerator}}
+
+
+{\ttfamily \#include $<$control\+Point\+Generator.\+hpp$>$}
+
+
+
+Inheritance diagram for Generator\+::Grid2\+DControl\+Point\+Generator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{class_generator_1_1_grid2_d_control_point_generator__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Generator\+::Grid2\+DControl\+Point\+Generator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_generator_1_1_grid2_d_control_point_generator__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_generator_1_1_grid2_d_control_point_generator_a20097dac0d42528ddae48105aaede0e4}{Grid2\+DControl\+Point\+Generator}} (size\+\_\+t \mbox{\hyperlink{class_generator_1_1_grid2_d_control_point_generator_abe75d28f0e974f9a9d3c36726cb9edd5}{width}}, size\+\_\+t \mbox{\hyperlink{class_generator_1_1_grid2_d_control_point_generator_a46f897ef4167bfb2e33ac4a8c8b444b1}{height}})
+\item 
+std\+::vector$<$ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} $>$ \mbox{\hyperlink{class_generator_1_1_grid2_d_control_point_generator_ad4cb4680961e769fa300afdd9275952f}{generate}} () const override
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} \mbox{\hyperlink{class_generator_1_1_grid2_d_control_point_generator_a34695deb095079bcc7b802068d4261a5}{left\+Up\+Corner}}
+\item 
+const \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} \mbox{\hyperlink{class_generator_1_1_grid2_d_control_point_generator_a79daf9f34611405c60d47862ba201143}{right\+Down\+Corner}}
+\item 
+const size\+\_\+t \mbox{\hyperlink{class_generator_1_1_grid2_d_control_point_generator_a46f897ef4167bfb2e33ac4a8c8b444b1}{height}}
+\item 
+const size\+\_\+t \mbox{\hyperlink{class_generator_1_1_grid2_d_control_point_generator_abe75d28f0e974f9a9d3c36726cb9edd5}{width}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{control_point_generator_8hpp_source_l00015}{15}} of file \mbox{\hyperlink{control_point_generator_8hpp_source}{control\+Point\+Generator.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_generator_1_1_grid2_d_control_point_generator_a20097dac0d42528ddae48105aaede0e4}\label{class_generator_1_1_grid2_d_control_point_generator_a20097dac0d42528ddae48105aaede0e4} 
+\index{Generator::Grid2DControlPointGenerator@{Generator::Grid2DControlPointGenerator}!Grid2DControlPointGenerator@{Grid2DControlPointGenerator}}
+\index{Grid2DControlPointGenerator@{Grid2DControlPointGenerator}!Generator::Grid2DControlPointGenerator@{Generator::Grid2DControlPointGenerator}}
+\doxysubsubsection{\texorpdfstring{Grid2DControlPointGenerator()}{Grid2DControlPointGenerator()}}
+{\footnotesize\ttfamily Generator\+::\+Grid2\+DControl\+Point\+Generator\+::\+Grid2\+DControl\+Point\+Generator (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{width,  }\item[{size\+\_\+t}]{height }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_generator_1_1_grid2_d_control_point_generator_ad4cb4680961e769fa300afdd9275952f}\label{class_generator_1_1_grid2_d_control_point_generator_ad4cb4680961e769fa300afdd9275952f} 
+\index{Generator::Grid2DControlPointGenerator@{Generator::Grid2DControlPointGenerator}!generate@{generate}}
+\index{generate@{generate}!Generator::Grid2DControlPointGenerator@{Generator::Grid2DControlPointGenerator}}
+\doxysubsubsection{\texorpdfstring{generate()}{generate()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} $>$ Generator\+::\+Grid2\+DControl\+Point\+Generator\+::generate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_generator_1_1_control_point_generator_a30031e5f0dbb4dbf107e0bf110547ae4}{Generator\+::\+Control\+Point\+Generator$<$ Math\+::\+Vec2f $>$}}.
+
+
+
+Definition at line \mbox{\hyperlink{control_point_generator_8cpp_source_l00006}{6}} of file \mbox{\hyperlink{control_point_generator_8cpp_source}{control\+Point\+Generator.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00007\ \ \ \ \ \{}
+\DoxyCodeLine{00008\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::vector<Math::Vec2f>();}
+\DoxyCodeLine{00009\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_generator_1_1_grid2_d_control_point_generator_a46f897ef4167bfb2e33ac4a8c8b444b1}\label{class_generator_1_1_grid2_d_control_point_generator_a46f897ef4167bfb2e33ac4a8c8b444b1} 
+\index{Generator::Grid2DControlPointGenerator@{Generator::Grid2DControlPointGenerator}!height@{height}}
+\index{height@{height}!Generator::Grid2DControlPointGenerator@{Generator::Grid2DControlPointGenerator}}
+\doxysubsubsection{\texorpdfstring{height}{height}}
+{\footnotesize\ttfamily const size\+\_\+t Generator\+::\+Grid2\+DControl\+Point\+Generator\+::height\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{control_point_generator_8hpp_source_l00020}{20}} of file \mbox{\hyperlink{control_point_generator_8hpp_source}{control\+Point\+Generator.\+hpp}}.
+
+\Hypertarget{class_generator_1_1_grid2_d_control_point_generator_a34695deb095079bcc7b802068d4261a5}\label{class_generator_1_1_grid2_d_control_point_generator_a34695deb095079bcc7b802068d4261a5} 
+\index{Generator::Grid2DControlPointGenerator@{Generator::Grid2DControlPointGenerator}!leftUpCorner@{leftUpCorner}}
+\index{leftUpCorner@{leftUpCorner}!Generator::Grid2DControlPointGenerator@{Generator::Grid2DControlPointGenerator}}
+\doxysubsubsection{\texorpdfstring{leftUpCorner}{leftUpCorner}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} Generator\+::\+Grid2\+DControl\+Point\+Generator\+::left\+Up\+Corner\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{control_point_generator_8hpp_source_l00017}{17}} of file \mbox{\hyperlink{control_point_generator_8hpp_source}{control\+Point\+Generator.\+hpp}}.
+
+\Hypertarget{class_generator_1_1_grid2_d_control_point_generator_a79daf9f34611405c60d47862ba201143}\label{class_generator_1_1_grid2_d_control_point_generator_a79daf9f34611405c60d47862ba201143} 
+\index{Generator::Grid2DControlPointGenerator@{Generator::Grid2DControlPointGenerator}!rightDownCorner@{rightDownCorner}}
+\index{rightDownCorner@{rightDownCorner}!Generator::Grid2DControlPointGenerator@{Generator::Grid2DControlPointGenerator}}
+\doxysubsubsection{\texorpdfstring{rightDownCorner}{rightDownCorner}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} Generator\+::\+Grid2\+DControl\+Point\+Generator\+::right\+Down\+Corner\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{control_point_generator_8hpp_source_l00018}{18}} of file \mbox{\hyperlink{control_point_generator_8hpp_source}{control\+Point\+Generator.\+hpp}}.
+
+\Hypertarget{class_generator_1_1_grid2_d_control_point_generator_abe75d28f0e974f9a9d3c36726cb9edd5}\label{class_generator_1_1_grid2_d_control_point_generator_abe75d28f0e974f9a9d3c36726cb9edd5} 
+\index{Generator::Grid2DControlPointGenerator@{Generator::Grid2DControlPointGenerator}!width@{width}}
+\index{width@{width}!Generator::Grid2DControlPointGenerator@{Generator::Grid2DControlPointGenerator}}
+\doxysubsubsection{\texorpdfstring{width}{width}}
+{\footnotesize\ttfamily const size\+\_\+t Generator\+::\+Grid2\+DControl\+Point\+Generator\+::width\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{control_point_generator_8hpp_source_l00021}{21}} of file \mbox{\hyperlink{control_point_generator_8hpp_source}{control\+Point\+Generator.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Generator/\mbox{\hyperlink{control_point_generator_8hpp}{control\+Point\+Generator.\+hpp}}\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Generator/\mbox{\hyperlink{control_point_generator_8cpp}{control\+Point\+Generator.\+cpp}}\end{DoxyCompactItemize}

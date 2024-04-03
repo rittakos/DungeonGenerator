@@ -1,0 +1,7 @@
+<map id="Geometry::Delaunay::DelaunayTriangulator::isClockWise" name="Geometry::Delaunay::DelaunayTriangulator::isClockWise">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,23,156,81"/>
+<area shape="rect" id="Node000002" href="$namespace_math.html#acb53f49cacbc0754cf4b882a41837468" title=" " alt="" coords="224,5,334,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="155,37,208,28,209,33,156,42"/>
+<area shape="rect" id="Node000003" href="$class_geometry_1_1_delaunay_1_1_delaunay_triangulator.html#ae028afd65295aee2711868bc470ce3c1" title=" " alt="" coords="204,56,354,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="156,62,189,68,188,73,155,67"/>
+</map>

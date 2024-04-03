@@ -1,0 +1,48 @@
+\doxysection{delaunay.\+hpp}
+\hypertarget{delaunay_8hpp_source}{}\label{delaunay_8hpp_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/Geometry/delaunay.hpp@{C:/Dev/DungeonGenerator/DungeonGenerator/Geometry/delaunay.hpp}}
+\mbox{\hyperlink{delaunay_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{delaunay_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{delaunay_8hpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{delaunay_8hpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{\Hypertarget{delaunay_8hpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{vector_8hpp}{vector.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{delaunay_8hpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{graph_8hpp}{graph.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{delaunay_8hpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <optional>}}
+\DoxyCodeLine{\Hypertarget{delaunay_8hpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{delaunay_8hpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{delaunay_base_8hpp}{delaunayBase.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{delaunay_8hpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{delaunay_8hpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{delaunay_8hpp_source_l00011}00011\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_geometry}{Geometry}}}
+\DoxyCodeLine{\Hypertarget{delaunay_8hpp_source_l00012}00012\ \{}
+\DoxyCodeLine{\Hypertarget{delaunay_8hpp_source_l00013}00013\ \ \ \ \ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{dungeon_genereator_settings_8hpp_ada2a74446377272bd4129f812d0d5ffcaad26bd8e079b5cc9c32586fc970a9f8f}{Delaunay}}}
+\DoxyCodeLine{\Hypertarget{delaunay_8hpp_source_l00014}00014\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{delaunay_8hpp_source_l00015}\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator}{00015}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator}{DelaunayTriangulator}}}
+\DoxyCodeLine{\Hypertarget{delaunay_8hpp_source_l00016}00016\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{delaunay_8hpp_source_l00017}00017\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{delaunay_8hpp_source_l00018}\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_a1f6df495255726ddda7b6dee3fa52b97}{00018}}\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Math::Vec2f>\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_a1f6df495255726ddda7b6dee3fa52b97}{vertices}};}
+\DoxyCodeLine{\Hypertarget{delaunay_8hpp_source_l00019}\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_a61e9909126570bb2fdfb4e849337d390}{00019}}\ \ \ \ \ \ \ \ \ \ \ \ \ std::array<Math::Vec2f,\ 3>\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_a61e9909126570bb2fdfb4e849337d390}{superTriangleVertices}};}
+\DoxyCodeLine{\Hypertarget{delaunay_8hpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{delaunay_8hpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{delaunay_8hpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Triangle>\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_ad4897f8bf662366cd4ef0c5ff4ab4df4}{triangulate}}();}
+\DoxyCodeLine{\Hypertarget{delaunay_8hpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{delaunay_8hpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_a831e0817fcb53c7f774acd471be6d3a6}{isPointInTrianglesCircle}}(\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle}{Triangle}}\ triangle,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index}{PointIndex}}\&\ P)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{delaunay_8hpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle}{Triangle}}\ \ \ \ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_af636b712d53051910bb8cb9e922dff17}{createSuperTriangle}}();}
+\DoxyCodeLine{\Hypertarget{delaunay_8hpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_ae028afd65295aee2711868bc470ce3c1}{getValueOfPoint}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index}{PointIndex}}\&\ pointIdx)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{delaunay_8hpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{delaunay_8hpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_af3a90327ec8e2f6ada93d6fc772f6ce1}{transformAllTriangles}}(std::vector<Triangle>\&\ triangles,\ \mbox{\hyperlink{namespace_geometry_1_1_delaunay_a643e8f927eebc3f3a702ca86183886ab}{TriangleDirection}}\ direction)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{delaunay_8hpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{delaunay_8hpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_a74ef6e888f2eb487200c441d3947cc11}{isClockWise}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle}{Triangle}}\&\ triangle)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{delaunay_8hpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{delaunay_8hpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ std::optional<Edge>\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_ab38b4d47cb57a4c47107819c002ec0fd}{hasCommonEdge}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle}{Triangle}}\&\ triangle1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle}{Triangle}}\&\ triangle2)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{delaunay_8hpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{delaunay_8hpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_graph}{Math::Graph<Triangle>}}\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_ae0c9fc57c7a2b2008ca7e84f5cb94f7d}{getNeighbourhoodGraph}}(\textcolor{keyword}{const}\ std::vector<Triangle>\&\ triangulation)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{delaunay_8hpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{delaunay_8hpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_ae1df51c3ea860305745e8ca7f60f9210}{DelaunayTriangulator}}(\textcolor{keyword}{const}\ std::vector<Math::Vec2f>\&\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_a1f6df495255726ddda7b6dee3fa52b97}{vertices}});}
+\DoxyCodeLine{\Hypertarget{delaunay_8hpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{delaunay_8hpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_geometry_1_1_delaunay_1_1_delaunay_triangulation}{DelaunayTriangulation}}\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_a921bd03d4bfa6885387c960c66293e01}{Triangulate}}(\mbox{\hyperlink{namespace_geometry_1_1_delaunay_a643e8f927eebc3f3a702ca86183886ab}{TriangleDirection}}\ direction\ =\ \mbox{\hyperlink{namespace_geometry_1_1_delaunay_a643e8f927eebc3f3a702ca86183886aba2a7a2eaef4c00214f4370cff589ce368}{CounterClockWise}});\ \textcolor{comment}{//\ gives\ the\ indexes\ of\ the\ points\ in\ the\ original\ vector}}
+\DoxyCodeLine{\Hypertarget{delaunay_8hpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{delaunay_8hpp_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{delaunay_8hpp_source_l00041}00041\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{delaunay_8hpp_source_l00042}00042\ \}}
+
+\end{DoxyCode}

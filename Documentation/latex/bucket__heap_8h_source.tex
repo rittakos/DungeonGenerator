@@ -1,0 +1,377 @@
+\doxysection{bucket\+\_\+heap.\+h}
+\hypertarget{bucket__heap_8h_source}{}\label{bucket__heap_8h_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/lemon/bucket\_heap.h@{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/lemon/bucket\_heap.h}}
+\mbox{\hyperlink{bucket__heap_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00001}00001\ \textcolor{comment}{/*\ -\/*-\/\ mode:\ C++;\ indent-\/tabs-\/mode:\ nil;\ -\/*-\/}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00002}00002\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00003}00003\ \textcolor{comment}{\ *\ This\ file\ is\ a\ part\ of\ LEMON,\ a\ generic\ C++\ optimization\ library.}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00004}00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00005}00005\ \textcolor{comment}{\ *\ Copyright\ (C)\ 2003-\/2010}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00006}00006\ \textcolor{comment}{\ *\ Egervary\ Jeno\ Kombinatorikus\ Optimalizalasi\ Kutatocsoport}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00007}00007\ \textcolor{comment}{\ *\ (Egervary\ Research\ Group\ on\ Combinatorial\ Optimization,\ EGRES).}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00008}00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00009}00009\ \textcolor{comment}{\ *\ Permission\ to\ use,\ modify\ and\ distribute\ this\ software\ is\ granted}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00010}00010\ \textcolor{comment}{\ *\ provided\ that\ this\ copyright\ notice\ appears\ in\ all\ copies.\ For}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00011}00011\ \textcolor{comment}{\ *\ precise\ terms\ see\ the\ accompanying\ LICENSE\ file.}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00012}00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00013}00013\ \textcolor{comment}{\ *\ This\ software\ is\ provided\ "{}AS\ IS"{}\ with\ no\ warranty\ of\ any\ kind,}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00014}00014\ \textcolor{comment}{\ *\ express\ or\ implied,\ and\ with\ no\ claim\ as\ to\ its\ suitability\ for\ any}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00015}00015\ \textcolor{comment}{\ *\ purpose.}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00016}00016\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00017}00017\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00019}00019\ \textcolor{preprocessor}{\#ifndef\ LEMON\_BUCKET\_HEAP\_H}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00020}00020\ \textcolor{preprocessor}{\#define\ LEMON\_BUCKET\_HEAP\_H}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00026}00026\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00027}00027\ \textcolor{preprocessor}{\#include\ <utility>}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00028}00028\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00030}00030\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacelemon}{lemon}}\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00032}\mbox{\hyperlink{namespacelemon_1_1__bucket__heap__bits}{00032}}\ \ \ \textcolor{keyword}{namespace\ }\_bucket\_heap\_bits\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00034}00034\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{bool}\ MIN>}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00035}\mbox{\hyperlink{structlemon_1_1__bucket__heap__bits_1_1_direction_traits}{00035}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1__bucket__heap__bits_1_1_direction_traits}{DirectionTraits}}\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00036}\mbox{\hyperlink{structlemon_1_1__bucket__heap__bits_1_1_direction_traits_aa4343e6212428efe44872c40974f917d}{00036}}\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structlemon_1_1__bucket__heap__bits_1_1_direction_traits_aa4343e6212428efe44872c40974f917d}{less}}(\textcolor{keywordtype}{int}\ left,\ \textcolor{keywordtype}{int}\ right)\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00037}00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ left\ <\ right;}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00038}00038\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00039}\mbox{\hyperlink{structlemon_1_1__bucket__heap__bits_1_1_direction_traits_a22fbced79c74148a412ed0b62cbdeba9}{00039}}\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structlemon_1_1__bucket__heap__bits_1_1_direction_traits_a22fbced79c74148a412ed0b62cbdeba9}{increase}}(\textcolor{keywordtype}{int}\&\ \mbox{\hyperlink{classvalue}{value}})\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00040}00040\ \ \ \ \ \ \ \ \ ++\mbox{\hyperlink{classvalue}{value}};}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00041}00041\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00042}00042\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00044}00044\ \ \ \ \ \textcolor{keyword}{template}\ <>}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00045}\mbox{\hyperlink{structlemon_1_1__bucket__heap__bits_1_1_direction_traits_3_01false_01_4}{00045}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1__bucket__heap__bits_1_1_direction_traits}{DirectionTraits}}<\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{false}}>\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00046}\mbox{\hyperlink{structlemon_1_1__bucket__heap__bits_1_1_direction_traits_3_01false_01_4_a9c98c724afca92185ab2a2fa31635ce9}{00046}}\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structlemon_1_1__bucket__heap__bits_1_1_direction_traits_3_01false_01_4_a9c98c724afca92185ab2a2fa31635ce9}{less}}(\textcolor{keywordtype}{int}\ left,\ \textcolor{keywordtype}{int}\ right)\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00047}00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ left\ >\ right;}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00048}00048\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00049}\mbox{\hyperlink{structlemon_1_1__bucket__heap__bits_1_1_direction_traits_3_01false_01_4_ad9744220726a3e976d8a55f7163fe30b}{00049}}\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structlemon_1_1__bucket__heap__bits_1_1_direction_traits_3_01false_01_4_ad9744220726a3e976d8a55f7163fe30b}{increase}}(\textcolor{keywordtype}{int}\&\ \mbox{\hyperlink{classvalue}{value}})\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00050}00050\ \ \ \ \ \ \ \ \ -\/-\/\mbox{\hyperlink{classvalue}{value}};}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00051}00051\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00052}00052\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00054}00054\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00078}00078\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ IM,\ \textcolor{keywordtype}{bool}\ MIN\ =\ true>}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00079}\mbox{\hyperlink{classlemon_1_1_bucket_heap}{00079}}\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_bucket_heap}{BucketHeap}}\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00081}00081\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00084}\mbox{\hyperlink{classlemon_1_1_bucket_heap_ada059c31e9317f51aba15010b708094f}{00084}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{IM}}\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_ada059c31e9317f51aba15010b708094f}{ItemIntMap}};}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00086}\mbox{\hyperlink{classlemon_1_1_bucket_heap_ac6fb9bb03a5a5cb0ad0b612964bedd69}{00086}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_ac6fb9bb03a5a5cb0ad0b612964bedd69}{Prio}};}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00088}\mbox{\hyperlink{classlemon_1_1_bucket_heap_a7fd7555a7a4ffae34a619bf78e675981}{00088}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ ItemIntMap::Key\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a7fd7555a7a4ffae34a619bf78e675981}{Item}};}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00090}\mbox{\hyperlink{classlemon_1_1_bucket_heap_ae2ea4e584c4457cbee164788d965f2c1}{00090}}\ \ \ \ \ \textcolor{keyword}{typedef}\ std::pair<Item,Prio>\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_ae2ea4e584c4457cbee164788d965f2c1}{Pair}};}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00092}00092\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00094}\mbox{\hyperlink{classlemon_1_1_bucket_heap_a66729d8885b5b3ca1f86bd969fe0934f}{00094}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{structlemon_1_1__bucket__heap__bits_1_1_direction_traits}{\_bucket\_heap\_bits::DirectionTraits<MIN>}}\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a66729d8885b5b3ca1f86bd969fe0934f}{Direction}};}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00096}00096\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00106}\mbox{\hyperlink{classlemon_1_1_bucket_heap_a213e1153a6a340a16ef7423aeeaa4cd9}{00106}}\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a213e1153a6a340a16ef7423aeeaa4cd9}{State}}\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00107}\mbox{\hyperlink{classlemon_1_1_bucket_heap_a213e1153a6a340a16ef7423aeeaa4cd9aff0403716b7dc66b278f2cd661367330}{00107}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a213e1153a6a340a16ef7423aeeaa4cd9aff0403716b7dc66b278f2cd661367330}{IN\_HEAP}}\ =\ 0,\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00108}\mbox{\hyperlink{classlemon_1_1_bucket_heap_a213e1153a6a340a16ef7423aeeaa4cd9a105bd54a9b715d05262cc9f6bebfc748}{00108}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a213e1153a6a340a16ef7423aeeaa4cd9a105bd54a9b715d05262cc9f6bebfc748}{PRE\_HEAP}}\ =\ -\/1,\ \ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00109}00109\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a213e1153a6a340a16ef7423aeeaa4cd9ae7f4a45eee7afa36c027bd8b1a4d6bf3}{POST\_HEAP}}\ =\ -\/2\ \ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00110}\mbox{\hyperlink{classlemon_1_1_bucket_heap_a213e1153a6a340a16ef7423aeeaa4cd9ae7f4a45eee7afa36c027bd8b1a4d6bf3}{00110}}\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00112}00112\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00120}\mbox{\hyperlink{classlemon_1_1_bucket_heap_af02b84529651e1706d8900de685f79fe}{00120}}\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_af02b84529651e1706d8900de685f79fe}{BucketHeap}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ItemIntMap}}\ \&\mbox{\hyperlink{bundled_2ranges_8h_a080be1238e6ee3bd4b9f193b4181cf4da1d78dc8ed51214e518b5114fe24490ae}{map}})\ :\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_aab9540fbb96eda9859ce06b8b0ea096f}{\_iim}}(\mbox{\hyperlink{bundled_2ranges_8h_a080be1238e6ee3bd4b9f193b4181cf4da1d78dc8ed51214e518b5114fe24490ae}{map}}),\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a96f41be45df564fa8e7967919eac0193}{\_minimum}}(0)\ \{\}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00125}\mbox{\hyperlink{classlemon_1_1_bucket_heap_a8f6503e152b918996da197f80fd00922}{00125}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a8f6503e152b918996da197f80fd00922}{size}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_afd250c6c68efa8d49c87b47701a85935}{\_data}}.size();\ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00126}00126\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00130}\mbox{\hyperlink{classlemon_1_1_bucket_heap_ab0c742e75a8941f758f16f7c0d5cca64}{00130}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_ab0c742e75a8941f758f16f7c0d5cca64}{empty}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_afd250c6c68efa8d49c87b47701a85935}{\_data}}.empty();\ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00139}\mbox{\hyperlink{classlemon_1_1_bucket_heap_ac9913a816defe84db642cae2c06cf8ab}{00139}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_ac9913a816defe84db642cae2c06cf8ab}{clear}}()\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00140}00140\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bucket_heap_afd250c6c68efa8d49c87b47701a85935}{\_data}}.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_af2726dacd301d1fdc114b18b6eeb5f51}{clear}}();\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_ac579c67b35704d986aefcdd8ebd47cd8}{\_first}}.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_af2726dacd301d1fdc114b18b6eeb5f51}{clear}}();\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a96f41be45df564fa8e7967919eac0193}{\_minimum}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00141}00141\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00142}00142\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00143}00143\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00144}00144\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00145}\mbox{\hyperlink{classlemon_1_1_bucket_heap_a04a277bef8ecd4e06f10d9eaf0589728}{00145}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a04a277bef8ecd4e06f10d9eaf0589728}{relocateLast}}(\textcolor{keywordtype}{int}\ idx)\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00146}00146\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (idx\ +\ 1\ <\ \textcolor{keywordtype}{int}(\mbox{\hyperlink{classlemon_1_1_bucket_heap_afd250c6c68efa8d49c87b47701a85935}{\_data}}.size()))\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00147}00147\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bucket_heap_afd250c6c68efa8d49c87b47701a85935}{\_data}}[idx]\ =\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_afd250c6c68efa8d49c87b47701a85935}{\_data}}.back();}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00148}00148\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_bucket_heap_afd250c6c68efa8d49c87b47701a85935}{\_data}}[idx].prev\ !=\ -\/1)\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bucket_heap_afd250c6c68efa8d49c87b47701a85935}{\_data}}[\mbox{\hyperlink{classlemon_1_1_bucket_heap_afd250c6c68efa8d49c87b47701a85935}{\_data}}[idx].prev].\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a0cfd891938ddddea6beb693c92ac6510}{next}}\ =\ idx;}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00150}00150\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bucket_heap_ac579c67b35704d986aefcdd8ebd47cd8}{\_first}}[\mbox{\hyperlink{classlemon_1_1_bucket_heap_afd250c6c68efa8d49c87b47701a85935}{\_data}}[idx].value]\ =\ idx;}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00152}00152\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00153}00153\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_bucket_heap_afd250c6c68efa8d49c87b47701a85935}{\_data}}[idx].next\ !=\ -\/1)\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bucket_heap_afd250c6c68efa8d49c87b47701a85935}{\_data}}[\mbox{\hyperlink{classlemon_1_1_bucket_heap_afd250c6c68efa8d49c87b47701a85935}{\_data}}[idx].next].prev\ =\ idx;}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00155}00155\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00156}00156\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bucket_heap_aab9540fbb96eda9859ce06b8b0ea096f}{\_iim}}[\mbox{\hyperlink{classlemon_1_1_bucket_heap_afd250c6c68efa8d49c87b47701a85935}{\_data}}[idx].item]\ =\ idx;}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00157}00157\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00158}00158\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bucket_heap_afd250c6c68efa8d49c87b47701a85935}{\_data}}.pop\_back();}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00159}00159\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00160}00160\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00161}\mbox{\hyperlink{classlemon_1_1_bucket_heap_a9453d16de0a7495b058a0000613a6683}{00161}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a9453d16de0a7495b058a0000613a6683}{unlace}}(\textcolor{keywordtype}{int}\ idx)\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00162}00162\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_bucket_heap_afd250c6c68efa8d49c87b47701a85935}{\_data}}[idx].prev\ !=\ -\/1)\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00163}00163\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bucket_heap_afd250c6c68efa8d49c87b47701a85935}{\_data}}[\mbox{\hyperlink{classlemon_1_1_bucket_heap_afd250c6c68efa8d49c87b47701a85935}{\_data}}[idx].prev].\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a0cfd891938ddddea6beb693c92ac6510}{next}}\ =\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_afd250c6c68efa8d49c87b47701a85935}{\_data}}[idx].\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a0cfd891938ddddea6beb693c92ac6510}{next}};}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00164}00164\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00165}00165\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bucket_heap_ac579c67b35704d986aefcdd8ebd47cd8}{\_first}}[\mbox{\hyperlink{classlemon_1_1_bucket_heap_afd250c6c68efa8d49c87b47701a85935}{\_data}}[idx].value]\ =\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_afd250c6c68efa8d49c87b47701a85935}{\_data}}[idx].\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a0cfd891938ddddea6beb693c92ac6510}{next}};}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00166}00166\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00167}00167\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_bucket_heap_afd250c6c68efa8d49c87b47701a85935}{\_data}}[idx].next\ !=\ -\/1)\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00168}00168\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bucket_heap_afd250c6c68efa8d49c87b47701a85935}{\_data}}[\mbox{\hyperlink{classlemon_1_1_bucket_heap_afd250c6c68efa8d49c87b47701a85935}{\_data}}[idx].next].prev\ =\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_afd250c6c68efa8d49c87b47701a85935}{\_data}}[idx].prev;}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00169}00169\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00170}00170\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00171}00171\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00172}\mbox{\hyperlink{classlemon_1_1_bucket_heap_a9eedcd310ac32e701d81d5a6320afa28}{00172}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a9eedcd310ac32e701d81d5a6320afa28}{lace}}(\textcolor{keywordtype}{int}\ idx)\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00173}00173\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keywordtype}{int}(\mbox{\hyperlink{classlemon_1_1_bucket_heap_ac579c67b35704d986aefcdd8ebd47cd8}{\_first}}.size())\ <=\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_afd250c6c68efa8d49c87b47701a85935}{\_data}}[idx].value)\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00174}00174\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bucket_heap_ac579c67b35704d986aefcdd8ebd47cd8}{\_first}}.resize(\mbox{\hyperlink{classlemon_1_1_bucket_heap_afd250c6c68efa8d49c87b47701a85935}{\_data}}[idx].\mbox{\hyperlink{classvalue}{value}}\ +\ 1,\ -\/1);}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00175}00175\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00176}00176\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bucket_heap_afd250c6c68efa8d49c87b47701a85935}{\_data}}[idx].\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a0cfd891938ddddea6beb693c92ac6510}{next}}\ =\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_ac579c67b35704d986aefcdd8ebd47cd8}{\_first}}[\mbox{\hyperlink{classlemon_1_1_bucket_heap_afd250c6c68efa8d49c87b47701a85935}{\_data}}[idx].value];}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00177}00177\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_bucket_heap_afd250c6c68efa8d49c87b47701a85935}{\_data}}[idx].next\ !=\ -\/1)\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00178}00178\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bucket_heap_afd250c6c68efa8d49c87b47701a85935}{\_data}}[\mbox{\hyperlink{classlemon_1_1_bucket_heap_afd250c6c68efa8d49c87b47701a85935}{\_data}}[idx].next].prev\ =\ idx;}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00179}00179\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00180}00180\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bucket_heap_ac579c67b35704d986aefcdd8ebd47cd8}{\_first}}[\mbox{\hyperlink{classlemon_1_1_bucket_heap_afd250c6c68efa8d49c87b47701a85935}{\_data}}[idx].value]\ =\ idx;}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00181}00181\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bucket_heap_afd250c6c68efa8d49c87b47701a85935}{\_data}}[idx].prev\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00182}00182\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00183}00183\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00184}00184\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00185}00185\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00192}\mbox{\hyperlink{classlemon_1_1_bucket_heap_a44670cc95598dcffd56ff9e6ac7711e3}{00192}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a44670cc95598dcffd56ff9e6ac7711e3}{push}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_ae2ea4e584c4457cbee164788d965f2c1}{Pair}}\&\ p)\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00193}00193\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a44670cc95598dcffd56ff9e6ac7711e3}{push}}(p.first,\ p.second);}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00194}00194\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00195}00195\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00203}\mbox{\hyperlink{classlemon_1_1_bucket_heap_a0d19af8fc5104232d679e98099c2fb1c}{00203}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a0d19af8fc5104232d679e98099c2fb1c}{push}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a7fd7555a7a4ffae34a619bf78e675981}{Item}}\ \&i,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Prio}}\ \&p)\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00204}00204\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ idx\ =\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_afd250c6c68efa8d49c87b47701a85935}{\_data}}.size();}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00205}00205\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bucket_heap_aab9540fbb96eda9859ce06b8b0ea096f}{\_iim}}[i]\ =\ idx;}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00206}00206\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bucket_heap_afd250c6c68efa8d49c87b47701a85935}{\_data}}.push\_back(\mbox{\hyperlink{structlemon_1_1_bucket_heap_1_1_bucket_item}{BucketItem}}(i,\ p));}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00207}00207\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a9eedcd310ac32e701d81d5a6320afa28}{lace}}(idx);}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00208}00208\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structlemon_1_1__bucket__heap__bits_1_1_direction_traits_aa4343e6212428efe44872c40974f917d}{Direction::less}}(p,\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a96f41be45df564fa8e7967919eac0193}{\_minimum}}))\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00209}00209\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a96f41be45df564fa8e7967919eac0193}{\_minimum}}\ =\ p;}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00210}00210\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00211}00211\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00212}00212\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00217}\mbox{\hyperlink{classlemon_1_1_bucket_heap_a08c2e56665155f4e9d004b9d9e903258}{00217}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a7fd7555a7a4ffae34a619bf78e675981}{Item}}\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a08c2e56665155f4e9d004b9d9e903258}{top}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00218}00218\ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{classlemon_1_1_bucket_heap_ac579c67b35704d986aefcdd8ebd47cd8}{\_first}}[\mbox{\hyperlink{classlemon_1_1_bucket_heap_a96f41be45df564fa8e7967919eac0193}{\_minimum}}]\ ==\ -\/1)\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00219}00219\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1__bucket__heap__bits_1_1_direction_traits_a22fbced79c74148a412ed0b62cbdeba9}{Direction::increase}}(\mbox{\hyperlink{classlemon_1_1_bucket_heap_a96f41be45df564fa8e7967919eac0193}{\_minimum}});}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00220}00220\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00221}00221\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_afd250c6c68efa8d49c87b47701a85935}{\_data}}[\mbox{\hyperlink{classlemon_1_1_bucket_heap_ac579c67b35704d986aefcdd8ebd47cd8}{\_first}}[\mbox{\hyperlink{classlemon_1_1_bucket_heap_a96f41be45df564fa8e7967919eac0193}{\_minimum}}]].item;}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00222}00222\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00223}00223\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00228}\mbox{\hyperlink{classlemon_1_1_bucket_heap_a44b075158a6e9d18c75e1e53384e6918}{00228}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Prio}}\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a44b075158a6e9d18c75e1e53384e6918}{prio}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00229}00229\ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{classlemon_1_1_bucket_heap_ac579c67b35704d986aefcdd8ebd47cd8}{\_first}}[\mbox{\hyperlink{classlemon_1_1_bucket_heap_a96f41be45df564fa8e7967919eac0193}{\_minimum}}]\ ==\ -\/1)\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00230}00230\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1__bucket__heap__bits_1_1_direction_traits_a22fbced79c74148a412ed0b62cbdeba9}{Direction::increase}}(\mbox{\hyperlink{classlemon_1_1_bucket_heap_a96f41be45df564fa8e7967919eac0193}{\_minimum}});}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00231}00231\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00232}00232\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a96f41be45df564fa8e7967919eac0193}{\_minimum}};}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00233}00233\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00234}00234\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00239}\mbox{\hyperlink{classlemon_1_1_bucket_heap_afbf3586a70928fa5f0a48fef16a6d1dc}{00239}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_afbf3586a70928fa5f0a48fef16a6d1dc}{pop}}()\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00240}00240\ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{classlemon_1_1_bucket_heap_ac579c67b35704d986aefcdd8ebd47cd8}{\_first}}[\mbox{\hyperlink{classlemon_1_1_bucket_heap_a96f41be45df564fa8e7967919eac0193}{\_minimum}}]\ ==\ -\/1)\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00241}00241\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1__bucket__heap__bits_1_1_direction_traits_a22fbced79c74148a412ed0b62cbdeba9}{Direction::increase}}(\mbox{\hyperlink{classlemon_1_1_bucket_heap_a96f41be45df564fa8e7967919eac0193}{\_minimum}});}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00242}00242\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00243}00243\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ idx\ =\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_ac579c67b35704d986aefcdd8ebd47cd8}{\_first}}[\mbox{\hyperlink{classlemon_1_1_bucket_heap_a96f41be45df564fa8e7967919eac0193}{\_minimum}}];}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00244}00244\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bucket_heap_aab9540fbb96eda9859ce06b8b0ea096f}{\_iim}}[\mbox{\hyperlink{classlemon_1_1_bucket_heap_afd250c6c68efa8d49c87b47701a85935}{\_data}}[idx].item]\ =\ -\/2;}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00245}00245\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a9453d16de0a7495b058a0000613a6683}{unlace}}(idx);}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00246}00246\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a04a277bef8ecd4e06f10d9eaf0589728}{relocateLast}}(idx);}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00247}00247\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00248}00248\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00255}\mbox{\hyperlink{classlemon_1_1_bucket_heap_aaca8d48e901c06562c2699aa06412b3a}{00255}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_aaca8d48e901c06562c2699aa06412b3a}{erase}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a7fd7555a7a4ffae34a619bf78e675981}{Item}}\ \&i)\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00256}00256\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ idx\ =\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_aab9540fbb96eda9859ce06b8b0ea096f}{\_iim}}[i];}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00257}00257\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bucket_heap_aab9540fbb96eda9859ce06b8b0ea096f}{\_iim}}[\mbox{\hyperlink{classlemon_1_1_bucket_heap_afd250c6c68efa8d49c87b47701a85935}{\_data}}[idx].item]\ =\ -\/2;}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00258}00258\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a9453d16de0a7495b058a0000613a6683}{unlace}}(idx);}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00259}00259\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a04a277bef8ecd4e06f10d9eaf0589728}{relocateLast}}(idx);}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00260}00260\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00261}00261\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00267}\mbox{\hyperlink{classlemon_1_1_bucket_heap_a35f5d95b41aefdb456913a961796ad9d}{00267}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Prio}}\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a35f5d95b41aefdb456913a961796ad9d}{operator[]}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a7fd7555a7a4ffae34a619bf78e675981}{Item}}\ \&i)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00268}00268\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ idx\ =\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_aab9540fbb96eda9859ce06b8b0ea096f}{\_iim}}[i];}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00269}00269\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_afd250c6c68efa8d49c87b47701a85935}{\_data}}[idx].value;}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00270}00270\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00271}00271\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00280}\mbox{\hyperlink{classlemon_1_1_bucket_heap_a553a939e2b753c2a1eb1b4d408081704}{00280}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a553a939e2b753c2a1eb1b4d408081704}{set}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a7fd7555a7a4ffae34a619bf78e675981}{Item}}\ \&i,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Prio}}\ \&p)\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00281}00281\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ idx\ =\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_aab9540fbb96eda9859ce06b8b0ea096f}{\_iim}}[i];}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00282}00282\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (idx\ <\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00283}00283\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a44670cc95598dcffd56ff9e6ac7711e3}{push}}(i,\ p);}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00284}00284\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structlemon_1_1__bucket__heap__bits_1_1_direction_traits_aa4343e6212428efe44872c40974f917d}{Direction::less}}(p,\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_afd250c6c68efa8d49c87b47701a85935}{\_data}}[idx].\mbox{\hyperlink{classvalue}{value}}))\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00285}00285\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a0a727b3b697bb2d9d249679e96ad8f0d}{decrease}}(i,\ p);}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00286}00286\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00287}00287\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a494081f31d5de773900d1afba5c618b5}{increase}}(i,\ p);}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00288}00288\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00289}00289\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00290}00290\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00297}\mbox{\hyperlink{classlemon_1_1_bucket_heap_a0a727b3b697bb2d9d249679e96ad8f0d}{00297}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a0a727b3b697bb2d9d249679e96ad8f0d}{decrease}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a7fd7555a7a4ffae34a619bf78e675981}{Item}}\ \&i,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Prio}}\ \&p)\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00298}00298\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ idx\ =\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_aab9540fbb96eda9859ce06b8b0ea096f}{\_iim}}[i];}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00299}00299\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a9453d16de0a7495b058a0000613a6683}{unlace}}(idx);}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00300}00300\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bucket_heap_afd250c6c68efa8d49c87b47701a85935}{\_data}}[idx].value\ =\ p;}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00301}00301\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structlemon_1_1__bucket__heap__bits_1_1_direction_traits_aa4343e6212428efe44872c40974f917d}{Direction::less}}(p,\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a96f41be45df564fa8e7967919eac0193}{\_minimum}}))\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00302}00302\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a96f41be45df564fa8e7967919eac0193}{\_minimum}}\ =\ p;}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00303}00303\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00304}00304\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a9eedcd310ac32e701d81d5a6320afa28}{lace}}(idx);}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00305}00305\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00306}00306\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00313}\mbox{\hyperlink{classlemon_1_1_bucket_heap_a494081f31d5de773900d1afba5c618b5}{00313}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a494081f31d5de773900d1afba5c618b5}{increase}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a7fd7555a7a4ffae34a619bf78e675981}{Item}}\ \&i,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Prio}}\ \&p)\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00314}00314\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ idx\ =\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_aab9540fbb96eda9859ce06b8b0ea096f}{\_iim}}[i];}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00315}00315\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a9453d16de0a7495b058a0000613a6683}{unlace}}(idx);}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00316}00316\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bucket_heap_afd250c6c68efa8d49c87b47701a85935}{\_data}}[idx].value\ =\ p;}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00317}00317\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a9eedcd310ac32e701d81d5a6320afa28}{lace}}(idx);}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00318}00318\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00319}00319\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00328}\mbox{\hyperlink{classlemon_1_1_bucket_heap_aa39254a492971e7730f13de4f10e0641}{00328}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a213e1153a6a340a16ef7423aeeaa4cd9}{State}}\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_aa39254a492971e7730f13de4f10e0641}{state}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a7fd7555a7a4ffae34a619bf78e675981}{Item}}\ \&i)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00329}00329\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ idx\ =\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_aab9540fbb96eda9859ce06b8b0ea096f}{\_iim}}[i];}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00330}00330\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (idx\ >=\ 0)\ idx\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00331}00331\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a213e1153a6a340a16ef7423aeeaa4cd9}{State}}(idx);}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00332}00332\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00333}00333\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00341}\mbox{\hyperlink{classlemon_1_1_bucket_heap_a761f6db2971503812b78c6c934d295b7}{00341}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a761f6db2971503812b78c6c934d295b7}{state}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a7fd7555a7a4ffae34a619bf78e675981}{Item}}\&\ i,\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a213e1153a6a340a16ef7423aeeaa4cd9}{State}}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{st}})\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00342}00342\ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{st}})\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00343}00343\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a213e1153a6a340a16ef7423aeeaa4cd9ae7f4a45eee7afa36c027bd8b1a4d6bf3}{POST\_HEAP}}:}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00344}00344\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a213e1153a6a340a16ef7423aeeaa4cd9a105bd54a9b715d05262cc9f6bebfc748}{PRE\_HEAP}}:}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00345}00345\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_bucket_heap_aa39254a492971e7730f13de4f10e0641}{state}}(i)\ ==\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a213e1153a6a340a16ef7423aeeaa4cd9aff0403716b7dc66b278f2cd661367330}{IN\_HEAP}})\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00346}00346\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bucket_heap_aaca8d48e901c06562c2699aa06412b3a}{erase}}(i);}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00347}00347\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00348}00348\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bucket_heap_aab9540fbb96eda9859ce06b8b0ea096f}{\_iim}}[i]\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{st}};}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00349}00349\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00350}00350\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a213e1153a6a340a16ef7423aeeaa4cd9aff0403716b7dc66b278f2cd661367330}{IN\_HEAP}}:}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00351}00351\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00352}00352\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00353}00353\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00354}00354\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00355}00355\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00356}00356\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00357}\mbox{\hyperlink{structlemon_1_1_bucket_heap_1_1_bucket_item}{00357}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_bucket_heap_1_1_bucket_item}{BucketItem}}\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00358}\mbox{\hyperlink{structlemon_1_1_bucket_heap_1_1_bucket_item_ac1165ac9f9bc97e9e7554177c1544c66}{00358}}\ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_bucket_heap_1_1_bucket_item_ac1165ac9f9bc97e9e7554177c1544c66}{BucketItem}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a7fd7555a7a4ffae34a619bf78e675981}{Item}}\&\ \_item,\ \textcolor{keywordtype}{int}\ \_value)}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00359}00359\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{structlemon_1_1_bucket_heap_1_1_bucket_item_a9da5907dd6fbcda0d6ef22a3d49e47d8}{item}}(\_item),\ \mbox{\hyperlink{classvalue}{value}}(\_value)\ \{\}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00360}00360\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00361}\mbox{\hyperlink{structlemon_1_1_bucket_heap_1_1_bucket_item_a9da5907dd6fbcda0d6ef22a3d49e47d8}{00361}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a7fd7555a7a4ffae34a619bf78e675981}{Item}}\ \mbox{\hyperlink{structlemon_1_1_bucket_heap_1_1_bucket_item_a9da5907dd6fbcda0d6ef22a3d49e47d8}{item}};}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00362}\mbox{\hyperlink{structlemon_1_1_bucket_heap_1_1_bucket_item_ae2716fa45eb9314bf81dd7f7874b83e3}{00362}}\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structlemon_1_1_bucket_heap_1_1_bucket_item_ae2716fa45eb9314bf81dd7f7874b83e3}{value}};}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00363}00363\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00364}\mbox{\hyperlink{structlemon_1_1_bucket_heap_1_1_bucket_item_a4662e490bef721f578b58df3383cc0a9}{00364}}\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structlemon_1_1_bucket_heap_1_1_bucket_item_aa32802b4d55c84b034c0fe1afeea5d2a}{prev}},\ \mbox{\hyperlink{structlemon_1_1_bucket_heap_1_1_bucket_item_a4662e490bef721f578b58df3383cc0a9}{next}};}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00365}00365\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00366}00366\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00367}\mbox{\hyperlink{classlemon_1_1_bucket_heap_aab9540fbb96eda9859ce06b8b0ea096f}{00367}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ItemIntMap}}\&\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_aab9540fbb96eda9859ce06b8b0ea096f}{\_iim}};}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00368}\mbox{\hyperlink{classlemon_1_1_bucket_heap_ac579c67b35704d986aefcdd8ebd47cd8}{00368}}\ \ \ \ \ std::vector<int>\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_ac579c67b35704d986aefcdd8ebd47cd8}{\_first}};}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00369}\mbox{\hyperlink{classlemon_1_1_bucket_heap_afd250c6c68efa8d49c87b47701a85935}{00369}}\ \ \ \ \ std::vector<BucketItem>\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_afd250c6c68efa8d49c87b47701a85935}{\_data}};}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00370}\mbox{\hyperlink{classlemon_1_1_bucket_heap_a96f41be45df564fa8e7967919eac0193}{00370}}\ \ \ \ \ \textcolor{keyword}{mutable}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_bucket_heap_a96f41be45df564fa8e7967919eac0193}{\_minimum}};}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00371}00371\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00372}00372\ \ \ \};\ \textcolor{comment}{//\ class\ BucketHeap}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00373}00373\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00399}00399\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ IM,\ \textcolor{keywordtype}{bool}\ MIN\ =\ true\ >}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00400}\mbox{\hyperlink{classlemon_1_1_simple_bucket_heap}{00400}}\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_simple_bucket_heap}{SimpleBucketHeap}}\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00401}00401\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00402}00402\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00403}00403\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00405}\mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_ac20b95eb2d6d88ab8c8f0270e2bd080c}{00405}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{IM}}\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_ac20b95eb2d6d88ab8c8f0270e2bd080c}{ItemIntMap}};}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00407}\mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a19897d2e3b2d0e89e6d8dcdebb894f2e}{00407}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a19897d2e3b2d0e89e6d8dcdebb894f2e}{Prio}};}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00409}\mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_ae562ed30ad8252133793f4db9dbad916}{00409}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ ItemIntMap::Key\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_ae562ed30ad8252133793f4db9dbad916}{Item}};}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00411}\mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_ab7b3ec7e02d2718a0b24d3dca12d1f0d}{00411}}\ \ \ \ \ \textcolor{keyword}{typedef}\ std::pair<Item,Prio>\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_ab7b3ec7e02d2718a0b24d3dca12d1f0d}{Pair}};}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00412}00412\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00413}00413\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00414}00414\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00415}\mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a2771079082ff098f6735ee5b4c000c9a}{00415}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{structlemon_1_1__bucket__heap__bits_1_1_direction_traits}{\_bucket\_heap\_bits::DirectionTraits<MIN>}}\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a2771079082ff098f6735ee5b4c000c9a}{Direction}};}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00416}00416\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00417}00417\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00418}00418\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00427}\mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a7308d59c62935436714e937d865194cc}{00427}}\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a7308d59c62935436714e937d865194cc}{State}}\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00428}\mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a7308d59c62935436714e937d865194cca43c842072225150f1b45ce3026670ccb}{00428}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a7308d59c62935436714e937d865194cca43c842072225150f1b45ce3026670ccb}{IN\_HEAP}}\ =\ 0,\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00429}\mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a7308d59c62935436714e937d865194ccaad759e5ea2a6ab762574d375f0e39f24}{00429}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a7308d59c62935436714e937d865194ccaad759e5ea2a6ab762574d375f0e39f24}{PRE\_HEAP}}\ =\ -\/1,\ \ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00430}00430\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a7308d59c62935436714e937d865194cca60dfa2d5dd284bb86451d4bfe2037b5e}{POST\_HEAP}}\ =\ -\/2\ \ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00431}\mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a7308d59c62935436714e937d865194cca60dfa2d5dd284bb86451d4bfe2037b5e}{00431}}\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00432}00432\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00433}00433\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00434}00434\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00441}\mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a81394d69d2453758e0cfc9afc3093045}{00441}}\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a81394d69d2453758e0cfc9afc3093045}{SimpleBucketHeap}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ItemIntMap}}\ \&\mbox{\hyperlink{bundled_2ranges_8h_a080be1238e6ee3bd4b9f193b4181cf4da1d78dc8ed51214e518b5114fe24490ae}{map}})}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00442}00442\ \ \ \ \ \ \ :\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a52f6bd9a1603a1d4c49544d17d7042fd}{\_iim}}(\mbox{\hyperlink{bundled_2ranges_8h_a080be1238e6ee3bd4b9f193b4181cf4da1d78dc8ed51214e518b5114fe24490ae}{map}}),\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a86eaca19d677e15a80516cee4cdd99f6}{\_free}}(-\/1),\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a557f15d8aaa60229461fbb46ec542fb1}{\_num}}(0),\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_ab149f03466a2154f0e7c5deca43396de}{\_minimum}}(0)\ \{\}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00443}00443\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00447}\mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a03205ea4f7b78cca531c2e16083ba46d}{00447}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a03205ea4f7b78cca531c2e16083ba46d}{size}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a557f15d8aaa60229461fbb46ec542fb1}{\_num}};\ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00448}00448\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00452}\mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_ab8d23da55b93621284e85d499eef3c5f}{00452}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_ab8d23da55b93621284e85d499eef3c5f}{empty}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a557f15d8aaa60229461fbb46ec542fb1}{\_num}}\ ==\ 0;\ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00453}00453\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00461}\mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a33cee27d27de22e941c4af4c233869bb}{00461}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a33cee27d27de22e941c4af4c233869bb}{clear}}()\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00462}00462\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a1b054d7100db366789c47c84f716c7ad}{\_data}}.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_af2726dacd301d1fdc114b18b6eeb5f51}{clear}}();\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a7fae141657c653543cca6e939fc2b9a0}{\_first}}.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_af2726dacd301d1fdc114b18b6eeb5f51}{clear}}();\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a86eaca19d677e15a80516cee4cdd99f6}{\_free}}\ =\ -\/1;\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a557f15d8aaa60229461fbb46ec542fb1}{\_num}}\ =\ 0;\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_ab149f03466a2154f0e7c5deca43396de}{\_minimum}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00463}00463\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00464}00464\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00471}\mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_aa35c30bc18d4aa0828b188ca6ba31d68}{00471}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_aa35c30bc18d4aa0828b188ca6ba31d68}{push}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_ab7b3ec7e02d2718a0b24d3dca12d1f0d}{Pair}}\&\ p)\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00472}00472\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_aa35c30bc18d4aa0828b188ca6ba31d68}{push}}(p.first,\ p.second);}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00473}00473\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00474}00474\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00482}\mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a623274e47ed186d0e2f8474331a091a8}{00482}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a623274e47ed186d0e2f8474331a091a8}{push}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_ae562ed30ad8252133793f4db9dbad916}{Item}}\ \&i,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Prio}}\ \&p)\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00483}00483\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ idx;}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00484}00484\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a86eaca19d677e15a80516cee4cdd99f6}{\_free}}\ ==\ -\/1)\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00485}00485\ \ \ \ \ \ \ \ \ idx\ =\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a1b054d7100db366789c47c84f716c7ad}{\_data}}.size();}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00486}00486\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a1b054d7100db366789c47c84f716c7ad}{\_data}}.push\_back(\mbox{\hyperlink{structlemon_1_1_simple_bucket_heap_1_1_bucket_item}{BucketItem}}(i));}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00487}00487\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00488}00488\ \ \ \ \ \ \ \ \ idx\ =\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a86eaca19d677e15a80516cee4cdd99f6}{\_free}};}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00489}00489\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a86eaca19d677e15a80516cee4cdd99f6}{\_free}}\ =\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a1b054d7100db366789c47c84f716c7ad}{\_data}}[idx].\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a0cfd891938ddddea6beb693c92ac6510}{next}};}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00490}00490\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a1b054d7100db366789c47c84f716c7ad}{\_data}}[idx].item\ =\ i;}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00491}00491\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00492}00492\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a52f6bd9a1603a1d4c49544d17d7042fd}{\_iim}}[i]\ =\ idx;}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00493}00493\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p\ >=\ \textcolor{keywordtype}{int}(\mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a7fae141657c653543cca6e939fc2b9a0}{\_first}}.size()))\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a7fae141657c653543cca6e939fc2b9a0}{\_first}}.resize(p\ +\ 1,\ -\/1);}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00494}00494\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a1b054d7100db366789c47c84f716c7ad}{\_data}}[idx].\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a0cfd891938ddddea6beb693c92ac6510}{next}}\ =\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a7fae141657c653543cca6e939fc2b9a0}{\_first}}[p];}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00495}00495\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a7fae141657c653543cca6e939fc2b9a0}{\_first}}[p]\ =\ idx;}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00496}00496\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structlemon_1_1__bucket__heap__bits_1_1_direction_traits_aa4343e6212428efe44872c40974f917d}{Direction::less}}(p,\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_ab149f03466a2154f0e7c5deca43396de}{\_minimum}}))\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00497}00497\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_ab149f03466a2154f0e7c5deca43396de}{\_minimum}}\ =\ p;}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00498}00498\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00499}00499\ \ \ \ \ \ \ ++\mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a557f15d8aaa60229461fbb46ec542fb1}{\_num}};}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00500}00500\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00501}00501\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00506}\mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a92a68931d134fb1dfd304c18157d2e53}{00506}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_ae562ed30ad8252133793f4db9dbad916}{Item}}\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a92a68931d134fb1dfd304c18157d2e53}{top}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00507}00507\ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a7fae141657c653543cca6e939fc2b9a0}{\_first}}[\mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_ab149f03466a2154f0e7c5deca43396de}{\_minimum}}]\ ==\ -\/1)\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00508}00508\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1__bucket__heap__bits_1_1_direction_traits_a22fbced79c74148a412ed0b62cbdeba9}{Direction::increase}}(\mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_ab149f03466a2154f0e7c5deca43396de}{\_minimum}});}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00509}00509\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00510}00510\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a1b054d7100db366789c47c84f716c7ad}{\_data}}[\mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a7fae141657c653543cca6e939fc2b9a0}{\_first}}[\mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_ab149f03466a2154f0e7c5deca43396de}{\_minimum}}]].item;}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00511}00511\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00512}00512\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00517}\mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_aa800115a24813cea1e745bc44036ded9}{00517}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Prio}}\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_aa800115a24813cea1e745bc44036ded9}{prio}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00518}00518\ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a7fae141657c653543cca6e939fc2b9a0}{\_first}}[\mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_ab149f03466a2154f0e7c5deca43396de}{\_minimum}}]\ ==\ -\/1)\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00519}00519\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1__bucket__heap__bits_1_1_direction_traits_a22fbced79c74148a412ed0b62cbdeba9}{Direction::increase}}(\mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_ab149f03466a2154f0e7c5deca43396de}{\_minimum}});}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00520}00520\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00521}00521\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_ab149f03466a2154f0e7c5deca43396de}{\_minimum}};}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00522}00522\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00523}00523\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00528}\mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a6f9f77b3fcff9717dca25e9cb8eba70f}{00528}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a6f9f77b3fcff9717dca25e9cb8eba70f}{pop}}()\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00529}00529\ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a7fae141657c653543cca6e939fc2b9a0}{\_first}}[\mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_ab149f03466a2154f0e7c5deca43396de}{\_minimum}}]\ ==\ -\/1)\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00530}00530\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1__bucket__heap__bits_1_1_direction_traits_a22fbced79c74148a412ed0b62cbdeba9}{Direction::increase}}(\mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_ab149f03466a2154f0e7c5deca43396de}{\_minimum}});}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00531}00531\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00532}00532\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ idx\ =\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a7fae141657c653543cca6e939fc2b9a0}{\_first}}[\mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_ab149f03466a2154f0e7c5deca43396de}{\_minimum}}];}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00533}00533\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a52f6bd9a1603a1d4c49544d17d7042fd}{\_iim}}[\mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a1b054d7100db366789c47c84f716c7ad}{\_data}}[idx].item]\ =\ -\/2;}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00534}00534\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a7fae141657c653543cca6e939fc2b9a0}{\_first}}[\mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_ab149f03466a2154f0e7c5deca43396de}{\_minimum}}]\ =\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a1b054d7100db366789c47c84f716c7ad}{\_data}}[idx].\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a0cfd891938ddddea6beb693c92ac6510}{next}};}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00535}00535\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a1b054d7100db366789c47c84f716c7ad}{\_data}}[idx].\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a0cfd891938ddddea6beb693c92ac6510}{next}}\ =\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a86eaca19d677e15a80516cee4cdd99f6}{\_free}};}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00536}00536\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a86eaca19d677e15a80516cee4cdd99f6}{\_free}}\ =\ idx;}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00537}00537\ \ \ \ \ \ \ -\/-\/\mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a557f15d8aaa60229461fbb46ec542fb1}{\_num}};}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00538}00538\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00539}00539\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00547}\mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_aa9eb8c7e7bd9e75c97b51336cef89e1f}{00547}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Prio}}\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_aa9eb8c7e7bd9e75c97b51336cef89e1f}{operator[]}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_ae562ed30ad8252133793f4db9dbad916}{Item}}\ \&i)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00548}00548\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ 0;\ k\ <\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{int}}(\mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a7fae141657c653543cca6e939fc2b9a0}{\_first}}.size());\ ++k)\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00549}00549\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ idx\ =\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a7fae141657c653543cca6e939fc2b9a0}{\_first}}[k];}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00550}00550\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (idx\ !=\ -\/1)\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00551}00551\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a1b054d7100db366789c47c84f716c7ad}{\_data}}[idx].item\ ==\ i)\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00552}00552\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ k;}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00553}00553\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00554}00554\ \ \ \ \ \ \ \ \ \ \ idx\ =\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a1b054d7100db366789c47c84f716c7ad}{\_data}}[idx].\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a0cfd891938ddddea6beb693c92ac6510}{next}};}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00555}00555\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00556}00556\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00557}00557\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00558}00558\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00559}00559\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00568}\mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a6072d7f360098cee912da8a27bcb5eaa}{00568}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a7308d59c62935436714e937d865194cc}{State}}\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a6072d7f360098cee912da8a27bcb5eaa}{state}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_ae562ed30ad8252133793f4db9dbad916}{Item}}\ \&i)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00569}00569\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ idx\ =\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a52f6bd9a1603a1d4c49544d17d7042fd}{\_iim}}[i];}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00570}00570\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (idx\ >=\ 0)\ idx\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00571}00571\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a7308d59c62935436714e937d865194cc}{State}}(idx);}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00572}00572\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00573}00573\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00574}00574\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00575}00575\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00576}\mbox{\hyperlink{structlemon_1_1_simple_bucket_heap_1_1_bucket_item}{00576}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_simple_bucket_heap_1_1_bucket_item}{BucketItem}}\ \{}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00577}\mbox{\hyperlink{structlemon_1_1_simple_bucket_heap_1_1_bucket_item_af6ebeb2809ab07b2c1699a9148eede60}{00577}}\ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_simple_bucket_heap_1_1_bucket_item_af6ebeb2809ab07b2c1699a9148eede60}{BucketItem}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_ae562ed30ad8252133793f4db9dbad916}{Item}}\&\ \_item)}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00578}00578\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{structlemon_1_1_simple_bucket_heap_1_1_bucket_item_af06fb89a5362abcad63d29c1cde9937e}{item}}(\_item)\ \{\}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00579}00579\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00580}\mbox{\hyperlink{structlemon_1_1_simple_bucket_heap_1_1_bucket_item_af06fb89a5362abcad63d29c1cde9937e}{00580}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_ae562ed30ad8252133793f4db9dbad916}{Item}}\ \mbox{\hyperlink{structlemon_1_1_simple_bucket_heap_1_1_bucket_item_af06fb89a5362abcad63d29c1cde9937e}{item}};}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00581}\mbox{\hyperlink{structlemon_1_1_simple_bucket_heap_1_1_bucket_item_a20cda3e2882fc5e6a4c41ac8e919bb43}{00581}}\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structlemon_1_1_simple_bucket_heap_1_1_bucket_item_a20cda3e2882fc5e6a4c41ac8e919bb43}{next}};}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00582}00582\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00583}00583\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00584}\mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a52f6bd9a1603a1d4c49544d17d7042fd}{00584}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ItemIntMap}}\&\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a52f6bd9a1603a1d4c49544d17d7042fd}{\_iim}};}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00585}\mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a7fae141657c653543cca6e939fc2b9a0}{00585}}\ \ \ \ \ std::vector<int>\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a7fae141657c653543cca6e939fc2b9a0}{\_first}};}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00586}\mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a1b054d7100db366789c47c84f716c7ad}{00586}}\ \ \ \ \ std::vector<BucketItem>\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a1b054d7100db366789c47c84f716c7ad}{\_data}};}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00587}\mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a86eaca19d677e15a80516cee4cdd99f6}{00587}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a86eaca19d677e15a80516cee4cdd99f6}{\_free}},\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_a557f15d8aaa60229461fbb46ec542fb1}{\_num}};}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00588}\mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_ab149f03466a2154f0e7c5deca43396de}{00588}}\ \ \ \ \ \textcolor{keyword}{mutable}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_simple_bucket_heap_ab149f03466a2154f0e7c5deca43396de}{\_minimum}};}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00589}00589\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00590}00590\ \ \ \};\ \textcolor{comment}{//\ class\ SimpleBucketHeap}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00591}00591\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00592}00592\ \}}
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00593}00593\ }
+\DoxyCodeLine{\Hypertarget{bucket__heap_8h_source_l00594}00594\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

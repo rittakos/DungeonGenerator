@@ -1,0 +1,132 @@
+\doxysection{stdout\+\_\+sinks-\/inl.h}
+\hypertarget{stdout__sinks-inl_8h_source}{}\label{stdout__sinks-inl_8h_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/spdlog/sinks/stdout\_sinks-\/inl.h@{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/spdlog/sinks/stdout\_sinks-\/inl.h}}
+\mbox{\hyperlink{stdout__sinks-inl_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00001}00001\ \textcolor{comment}{//\ Copyright(c)\ 2015-\/present,\ Gabi\ Melman\ \&\ spdlog\ contributors.}}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00002}00002\ \textcolor{comment}{//\ Distributed\ under\ the\ MIT\ License\ (http://opensource.org/licenses/MIT)}}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00004}00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00006}00006\ \textcolor{preprocessor}{\#ifndef\ SPDLOG\_HEADER\_ONLY}}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00007}00007\ \textcolor{preprocessor}{\ \ \ \ \#include\ <\mbox{\hyperlink{stdout__sinks_8h}{spdlog/sinks/stdout\_sinks.h}}>}}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00008}00008\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{console__globals_8h}{spdlog/details/console\_globals.h}}>}}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{pattern__formatter_8h}{spdlog/pattern\_formatter.h}}>}}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00014}00014\ \textcolor{preprocessor}{\#ifdef\ \_WIN32}}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00015}00015\ \ \ \ \ \textcolor{comment}{//\ under\ windows\ using\ fwrite\ to\ non-\/binary\ stream\ results\ in\ \(\backslash\)r\(\backslash\)r\(\backslash\)n\ (see\ issue\ \#1675)}}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00016}00016\ \ \ \ \ \textcolor{comment}{//\ so\ instead\ we\ use\ ::FileWrite}}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00017}00017\ \textcolor{preprocessor}{\ \ \ \ \#include\ <\mbox{\hyperlink{windows__include_8h}{spdlog/details/windows\_include.h}}>}}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00019}00019\ \textcolor{preprocessor}{\ \ \ \ \#ifndef\ \_USING\_V110\_SDK71\_\ \ }\textcolor{comment}{//\ fileapi.h\ doesn't\ exist\ in\ winxp}}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00020}00020\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#include\ <fileapi.h>}\ \ \ \ \textcolor{comment}{//\ WriteFile\ (..)}}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00021}00021\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00023}00023\ \textcolor{preprocessor}{\ \ \ \ \#include\ <io.h>}\ \ \ \ \ \textcolor{comment}{//\ \_get\_osfhandle(..)}}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00024}00024\ \textcolor{preprocessor}{\ \ \ \ \#include\ <stdio.h>}\ \ \textcolor{comment}{//\ \_fileno(..)}}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00025}00025\ \textcolor{preprocessor}{\#endif\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ WIN32}}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00027}00027\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacespdlog}{spdlog}}\ \{}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00029}00029\ \textcolor{keyword}{namespace\ }sinks\ \{}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00031}00031\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ConsoleMutex>}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00032}\mbox{\hyperlink{classspdlog_1_1sinks_1_1stdout__sink__base_a7044a6f292088dbc525961deec8a3823}{00032}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1stdout__sink__base_a7044a6f292088dbc525961deec8a3823}{stdout\_sink\_base<ConsoleMutex>::stdout\_sink\_base}}(FILE\ *file)}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00033}00033\ \ \ \ \ :\ mutex\_(ConsoleMutex::mutex()),}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00034}00034\ \ \ \ \ \ \ file\_(file),}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00035}00035\ \ \ \ \ \ \ formatter\_(details::make\_unique<\mbox{\hyperlink{namespacespdlog}{spdlog}}::\mbox{\hyperlink{classspdlog_1_1pattern__formatter}{pattern\_formatter}}>())\ \{}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00036}00036\ \textcolor{preprocessor}{\#ifdef\ \_WIN32}}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00037}00037\ \ \ \ \ \textcolor{comment}{//\ get\ windows\ handle\ from\ the\ FILE*\ object}}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00039}00039\ \ \ \ \ handle\_\ =\ \textcolor{keyword}{reinterpret\_cast<}HANDLE\textcolor{keyword}{>}(::\_get\_osfhandle(::\_fileno(\mbox{\hyperlink{classspdlog_1_1sinks_1_1stdout__sink__base_a0e8721f25867741bcf4aa7ff4bfa92a7}{file\_}})));}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00041}00041\ \ \ \ \ \textcolor{comment}{//\ don't\ throw\ to\ support\ cases\ where\ no\ console\ is\ attached,}}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00042}00042\ \ \ \ \ \textcolor{comment}{//\ and\ let\ the\ log\ method\ to\ do\ nothing\ if\ (handle\_\ ==\ INVALID\_HANDLE\_VALUE).}}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00043}00043\ \ \ \ \ \textcolor{comment}{//\ throw\ only\ if\ non\ stdout/stderr\ target\ is\ requested\ (probably\ regular\ file\ and\ not\ console).}}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00044}00044\ \ \ \ \ \textcolor{keywordflow}{if}\ (handle\_\ ==\ INVALID\_HANDLE\_VALUE\ \&\&\ file\ !=\ stdout\ \&\&\ file\ !=\ stderr)\ \{}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00045}00045\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_ac3d8b7e83aad48720518fbac80836c3c}{throw\_spdlog\_ex}}(\textcolor{stringliteral}{"{}spdlog::stdout\_sink\_base:\ \_get\_osfhandle()\ failed"{}},\ errno);}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00046}00046\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00047}00047\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ WIN32}}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00048}00048\ \}}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00050}00050\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ConsoleMutex>}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00051}\mbox{\hyperlink{classspdlog_1_1sinks_1_1stdout__sink__base_a42b184a292ea3ccaceaacbc2da70ec53}{00051}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1stdout__sink__base_a42b184a292ea3ccaceaacbc2da70ec53}{stdout\_sink\_base<ConsoleMutex>::log}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{details::log\_msg}}\ \&msg)\ \{}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00052}00052\ \textcolor{preprocessor}{\#ifdef\ \_WIN32}}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00053}00053\ \ \ \ \ \textcolor{keywordflow}{if}\ (handle\_\ ==\ INVALID\_HANDLE\_VALUE)\ \{}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00054}00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00055}00055\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00056}00056\ \ \ \ \ std::lock\_guard<mutex\_t>\ lock(mutex\_);}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00057}00057\ \ \ \ \ \mbox{\hyperlink{namespacespdlog_a9ae6875ab28ec95e33921c45ae451633}{memory\_buf\_t}}\ formatted;}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00058}00058\ \ \ \ \ formatter\_-\/>format(msg,\ formatted);}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00059}00059\ \ \ \ \ \textcolor{keyword}{auto}\ size\ =\ \textcolor{keyword}{static\_cast<}DWORD\textcolor{keyword}{>}(formatted.size());}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00060}00060\ \ \ \ \ DWORD\ bytes\_written\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00061}00061\ \ \ \ \ \textcolor{keywordtype}{bool}\ ok\ =\ ::WriteFile(handle\_,\ formatted.data(),\ size,\ \&bytes\_written,\ \textcolor{keyword}{nullptr})\ !=\ 0;}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00062}00062\ \ \ \ \ \textcolor{keywordflow}{if}\ (!ok)\ \{}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00063}00063\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacespdlog_ac3d8b7e83aad48720518fbac80836c3c}{throw\_spdlog\_ex}}(\textcolor{stringliteral}{"{}stdout\_sink\_base:\ WriteFile()\ failed.\ GetLastError():\ "{}}\ +}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::to\_string(::GetLastError()));}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00065}00065\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00066}00066\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00067}00067\ \ \ \ \ std::lock\_guard<mutex\_t>\ lock(mutex\_);}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00068}00068\ \ \ \ \ \mbox{\hyperlink{namespacespdlog_a9ae6875ab28ec95e33921c45ae451633}{memory\_buf\_t}}\ formatted;}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00069}00069\ \ \ \ \ formatter\_-\/>format(msg,\ formatted);}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00070}00070\ \ \ \ \ ::fwrite(formatted.data(),\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}),\ formatted.size(),\ file\_);}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00071}00071\ \textcolor{preprocessor}{\#endif\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ WIN32}}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00072}00072\ \ \ \ \ ::fflush(file\_);\ \ \textcolor{comment}{//\ flush\ every\ line\ to\ terminal}}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00073}00073\ \}}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00075}00075\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ConsoleMutex>}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00076}\mbox{\hyperlink{classspdlog_1_1sinks_1_1stdout__sink__base_a362e6d15b80bfc0becd264d23197d7db}{00076}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1stdout__sink__base_a362e6d15b80bfc0becd264d23197d7db}{stdout\_sink\_base<ConsoleMutex>::flush}}()\ \{}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00077}00077\ \ \ \ \ std::lock\_guard<mutex\_t>\ lock(mutex\_);}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00078}00078\ \ \ \ \ fflush(file\_);}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00079}00079\ \}}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00081}00081\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ConsoleMutex>}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00082}\mbox{\hyperlink{classspdlog_1_1sinks_1_1stdout__sink__base_a4b9a3b76512cc571be1f4a02b9a0463d}{00082}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1stdout__sink__base_a4b9a3b76512cc571be1f4a02b9a0463d}{stdout\_sink\_base<ConsoleMutex>::set\_pattern}}(\textcolor{keyword}{const}\ std::string\ \&pattern)\ \{}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00083}00083\ \ \ \ \ std::lock\_guard<mutex\_t>\ lock(mutex\_);}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00084}00084\ \ \ \ \ formatter\_\ =\ std::unique\_ptr<spdlog::formatter>(\textcolor{keyword}{new}\ \mbox{\hyperlink{classspdlog_1_1pattern__formatter}{pattern\_formatter}}(pattern));}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00085}00085\ \}}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00087}00087\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ConsoleMutex>}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00088}\mbox{\hyperlink{classspdlog_1_1sinks_1_1stdout__sink__base_aca9265b7d7c22c6a3cbc81e7363c6a0e}{00088}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1stdout__sink__base_aca9265b7d7c22c6a3cbc81e7363c6a0e}{stdout\_sink\_base<ConsoleMutex>::set\_formatter}}(}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00089}00089\ \ \ \ \ std::unique\_ptr<spdlog::formatter>\ sink\_formatter)\ \{}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00090}00090\ \ \ \ \ std::lock\_guard<mutex\_t>\ lock(mutex\_);}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00091}00091\ \ \ \ \ formatter\_\ =\ std::move(sink\_formatter);}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00092}00092\ \}}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00094}00094\ \textcolor{comment}{//\ stdout\ sink}}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00095}00095\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ConsoleMutex>}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00096}\mbox{\hyperlink{classspdlog_1_1sinks_1_1stdout__sink_a150eb239c5cc342dc77367213d0ec69a}{00096}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1stdout__sink_a150eb239c5cc342dc77367213d0ec69a}{stdout\_sink<ConsoleMutex>::stdout\_sink}}()}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00097}00097\ \ \ \ \ :\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1stdout__sink__base}{stdout\_sink\_base}}<ConsoleMutex>(stdout)\ \{\}}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00099}00099\ \textcolor{comment}{//\ stderr\ sink}}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00100}00100\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ConsoleMutex>}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00101}\mbox{\hyperlink{classspdlog_1_1sinks_1_1stderr__sink_a33cb6632fc5c4b5d6afdd4fc41b81cde}{00101}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1stderr__sink_a33cb6632fc5c4b5d6afdd4fc41b81cde}{stderr\_sink<ConsoleMutex>::stderr\_sink}}()}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00102}00102\ \ \ \ \ :\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1stdout__sink__base}{stdout\_sink\_base}}<ConsoleMutex>(stderr)\ \{\}}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00104}00104\ \}\ \ \textcolor{comment}{//\ namespace\ sinks}}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00106}00106\ \textcolor{comment}{//\ factory\ methods}}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00107}00107\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Factory>}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00108}\mbox{\hyperlink{namespacespdlog_a516fdf34980f5784cea05c235482f390}{00108}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ std::shared\_ptr<logger>\ \mbox{\hyperlink{namespacespdlog_a516fdf34980f5784cea05c235482f390}{stdout\_logger\_mt}}(\textcolor{keyword}{const}\ std::string\ \&logger\_name)\ \{}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00109}00109\ \ \ \ \ \textcolor{keywordflow}{return}\ Factory::template\ create<sinks::stdout\_sink\_mt>(logger\_name);}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00110}00110\ \}}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00112}00112\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Factory>}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00113}\mbox{\hyperlink{namespacespdlog_aab8d90e1cf494b2e3083822355e5a068}{00113}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ std::shared\_ptr<logger>\ \mbox{\hyperlink{namespacespdlog_aab8d90e1cf494b2e3083822355e5a068}{stdout\_logger\_st}}(\textcolor{keyword}{const}\ std::string\ \&logger\_name)\ \{}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00114}00114\ \ \ \ \ \textcolor{keywordflow}{return}\ Factory::template\ create<sinks::stdout\_sink\_st>(logger\_name);}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00115}00115\ \}}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00117}00117\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Factory>}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00118}\mbox{\hyperlink{namespacespdlog_aa93a6b05fecf99174e4bce4a70f7757c}{00118}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ std::shared\_ptr<logger>\ \mbox{\hyperlink{namespacespdlog_aa93a6b05fecf99174e4bce4a70f7757c}{stderr\_logger\_mt}}(\textcolor{keyword}{const}\ std::string\ \&logger\_name)\ \{}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00119}00119\ \ \ \ \ \textcolor{keywordflow}{return}\ Factory::template\ create<sinks::stderr\_sink\_mt>(logger\_name);}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00120}00120\ \}}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00122}00122\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Factory>}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00123}\mbox{\hyperlink{namespacespdlog_aa84aa6273e35e45d5ad91faf1ec7e805}{00123}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ std::shared\_ptr<logger>\ \mbox{\hyperlink{namespacespdlog_aa84aa6273e35e45d5ad91faf1ec7e805}{stderr\_logger\_st}}(\textcolor{keyword}{const}\ std::string\ \&logger\_name)\ \{}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00124}00124\ \ \ \ \ \textcolor{keywordflow}{return}\ Factory::template\ create<sinks::stderr\_sink\_st>(logger\_name);}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00125}00125\ \}}
+\DoxyCodeLine{\Hypertarget{stdout__sinks-inl_8h_source_l00126}00126\ \}\ \ \textcolor{comment}{//\ namespace\ spdlog}}
+
+\end{DoxyCode}

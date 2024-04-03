@@ -1,0 +1,7 @@
+<map id="Data::RoomData" name="Data::RoomData">
+<area shape="rect" id="Node000001" title=" " alt="" coords="52,869,164,1088"/>
+<area shape="rect" id="Node000002" href="$class_data_1_1_layout_data.html" title=" " alt="" coords="5,565,211,805"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="111,805,111,852,105,852,105,805"/>
+<area shape="rect" id="Node000003" href="$class_geometry_1_1_polygon.html" title=" " alt="" coords="38,5,178,501"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="111,501,111,549,105,549,105,501"/>
+</map>

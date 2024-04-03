@@ -1,0 +1,53 @@
+\doxysection{std\+::hash\texorpdfstring{$<$}{<} Geometry\+::Delaunay\+::Delaunay\+Triangulation \texorpdfstring{$>$}{>} Struct Reference}
+\hypertarget{structstd_1_1hash_3_01_geometry_1_1_delaunay_1_1_delaunay_triangulation_01_4}{}\label{structstd_1_1hash_3_01_geometry_1_1_delaunay_1_1_delaunay_triangulation_01_4}\index{std::hash$<$ Geometry::Delaunay::DelaunayTriangulation $>$@{std::hash$<$ Geometry::Delaunay::DelaunayTriangulation $>$}}
+
+
+{\ttfamily \#include $<$delaunay\+Base.\+hpp$>$}
+
+
+
+Collaboration diagram for std\+::hash\texorpdfstring{$<$}{<} Geometry\+::Delaunay\+::Delaunay\+Triangulation \texorpdfstring{$>$}{>}\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=246pt]{structstd_1_1hash_3_01_geometry_1_1_delaunay_1_1_delaunay_triangulation_01_4__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+size\+\_\+t \mbox{\hyperlink{structstd_1_1hash_3_01_geometry_1_1_delaunay_1_1_delaunay_triangulation_01_4_a734190b0864118ab799e9d479cb274a1}{operator()}} (const \mbox{\hyperlink{struct_geometry_1_1_delaunay_1_1_delaunay_triangulation}{Geometry\+::\+Delaunay\+::\+Delaunay\+Triangulation}} \&record) const noexcept
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{delaunay_base_8hpp_source_l00077}{77}} of file \mbox{\hyperlink{delaunay_base_8hpp_source}{delaunay\+Base.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structstd_1_1hash_3_01_geometry_1_1_delaunay_1_1_delaunay_triangulation_01_4_a734190b0864118ab799e9d479cb274a1}\label{structstd_1_1hash_3_01_geometry_1_1_delaunay_1_1_delaunay_triangulation_01_4_a734190b0864118ab799e9d479cb274a1} 
+\index{std::hash$<$ Geometry::Delaunay::DelaunayTriangulation $>$@{std::hash$<$ Geometry::Delaunay::DelaunayTriangulation $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!std::hash$<$ Geometry::Delaunay::DelaunayTriangulation $>$@{std::hash$<$ Geometry::Delaunay::DelaunayTriangulation $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily size\+\_\+t std\+::hash$<$ \mbox{\hyperlink{struct_geometry_1_1_delaunay_1_1_delaunay_triangulation}{Geometry\+::\+Delaunay\+::\+Delaunay\+Triangulation}} $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_geometry_1_1_delaunay_1_1_delaunay_triangulation}{Geometry\+::\+Delaunay\+::\+Delaunay\+Triangulation}} \&}]{record }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Definition at line \mbox{\hyperlink{delaunay_base_8hpp_source_l00079}{79}} of file \mbox{\hyperlink{delaunay_base_8hpp_source}{delaunay\+Base.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ hash<size\_t>()(record.\mbox{\hyperlink{struct_geometry_1_1_delaunay_1_1_delaunay_triangulation_a750debeecb5f91a86fa743402289dbba}{Triangles}}.size());}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Geometry/\mbox{\hyperlink{delaunay_base_8hpp}{delaunay\+Base.\+hpp}}\end{DoxyCompactItemize}

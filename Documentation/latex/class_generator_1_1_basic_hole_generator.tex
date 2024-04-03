@@ -1,0 +1,106 @@
+\doxysection{Generator\+::Basic\+Hole\+Generator Class Reference}
+\hypertarget{class_generator_1_1_basic_hole_generator}{}\label{class_generator_1_1_basic_hole_generator}\index{Generator::BasicHoleGenerator@{Generator::BasicHoleGenerator}}
+
+
+{\ttfamily \#include $<$basic\+Hole\+Generator.\+hpp$>$}
+
+
+
+Inheritance diagram for Generator\+::Basic\+Hole\+Generator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=225pt]{class_generator_1_1_basic_hole_generator__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Generator\+::Basic\+Hole\+Generator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=225pt]{class_generator_1_1_basic_hole_generator__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_generator_1_1_basic_hole_generator_a71278848337a912910e27af122004b0f}{Generate}} (\mbox{\hyperlink{class_data_1_1_dungeon_data}{Data\+::\+Dungeon\+Data}} \&dungeon\+Data) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_generator_1_1_hole_generator_algorithm}{Generator\+::\+Hole\+Generator\+Algorithm}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_generator_1_1_hole_generator_algorithm_a1c025d1af7ece505262db8cb773918a8}{\texorpdfstring{$\sim$}{\string~}\+Hole\+Generator\+Algorithm}} ()=default
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{basic_hole_generator_8hpp_source_l00007}{7}} of file \mbox{\hyperlink{basic_hole_generator_8hpp_source}{basic\+Hole\+Generator.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_generator_1_1_basic_hole_generator_a71278848337a912910e27af122004b0f}\label{class_generator_1_1_basic_hole_generator_a71278848337a912910e27af122004b0f} 
+\index{Generator::BasicHoleGenerator@{Generator::BasicHoleGenerator}!Generate@{Generate}}
+\index{Generate@{Generate}!Generator::BasicHoleGenerator@{Generator::BasicHoleGenerator}}
+\doxysubsubsection{\texorpdfstring{Generate()}{Generate()}}
+{\footnotesize\ttfamily void Generator\+::\+Basic\+Hole\+Generator\+::\+Generate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_data_1_1_dungeon_data}{Data\+::\+Dungeon\+Data}} \&}]{dungeon\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_generator_1_1_hole_generator_algorithm_a747505e28ada213677b9abe7299b027e}{Generator\+::\+Hole\+Generator\+Algorithm}}.
+
+
+
+Definition at line \mbox{\hyperlink{basic_hole_generator_8cpp_source_l00005}{5}} of file \mbox{\hyperlink{basic_hole_generator_8cpp_source}{basic\+Hole\+Generator.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00006\ \ \ \ \ \{}
+\DoxyCodeLine{00007\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ MUST\ implement}}
+\DoxyCodeLine{00008\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{class_data_1_1_room_data}{Data::RoomData}}\&\ room\ :\ dungeonData.getRooms())}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_polygon}{Geometry::Polygon}}\ polygon\ =\ room.getFloor().getPolygon();}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!polygon.\mbox{\hyperlink{class_geometry_1_1_polygon_ad2999da7bce9957d9974cc294aaa9efb}{isConvex}}())}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_polygon}{Geometry::Polygon}}\ hole;}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ center;}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\&\ P\ :\ polygon.getPoints())}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ center\ +=\ P;}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ center\ /=\ polygon.\mbox{\hyperlink{class_geometry_1_1_polygon_a94dc0f266b827e9596f29888c796ca17}{getPoints}}().size();}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\&\ P\ :\ polygon.getPoints())}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ newPoint\ =\ center\ +\ ((P\ -\/\ center)\ /\ 4.0f);}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hole.\mbox{\hyperlink{class_geometry_1_1_polygon_a12c9321822bdf861cf7c304fa0c888e7}{addPoint}}(newPoint);}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ polygon.\mbox{\hyperlink{class_geometry_1_1_polygon_ade2489b324459e8eb35c6050fa7263b1}{addHole}}(hole);}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ room.getFloor().setPolygon(polygon);}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00033\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_generator_1_1_basic_hole_generator_a71278848337a912910e27af122004b0f_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Generator/\mbox{\hyperlink{basic_hole_generator_8hpp}{basic\+Hole\+Generator.\+hpp}}\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Generator/\mbox{\hyperlink{basic_hole_generator_8cpp}{basic\+Hole\+Generator.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,254 @@
+\doxysection{digraph.\+h}
+\hypertarget{digraph_8h_source}{}\label{digraph_8h_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/lemon/concepts/digraph.h@{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/lemon/concepts/digraph.h}}
+\mbox{\hyperlink{digraph_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00001}00001\ \textcolor{comment}{/*\ -\/*-\/\ mode:\ C++;\ indent-\/tabs-\/mode:\ nil;\ -\/*-\/}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00002}00002\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00003}00003\ \textcolor{comment}{\ *\ This\ file\ is\ a\ part\ of\ LEMON,\ a\ generic\ C++\ optimization\ library.}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00004}00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00005}00005\ \textcolor{comment}{\ *\ Copyright\ (C)\ 2003-\/2013}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00006}00006\ \textcolor{comment}{\ *\ Egervary\ Jeno\ Kombinatorikus\ Optimalizalasi\ Kutatocsoport}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00007}00007\ \textcolor{comment}{\ *\ (Egervary\ Research\ Group\ on\ Combinatorial\ Optimization,\ EGRES).}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00008}00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00009}00009\ \textcolor{comment}{\ *\ Permission\ to\ use,\ modify\ and\ distribute\ this\ software\ is\ granted}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00010}00010\ \textcolor{comment}{\ *\ provided\ that\ this\ copyright\ notice\ appears\ in\ all\ copies.\ For}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00011}00011\ \textcolor{comment}{\ *\ precise\ terms\ see\ the\ accompanying\ LICENSE\ file.}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00012}00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00013}00013\ \textcolor{comment}{\ *\ This\ software\ is\ provided\ "{}AS\ IS"{}\ with\ no\ warranty\ of\ any\ kind,}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00014}00014\ \textcolor{comment}{\ *\ express\ or\ implied,\ and\ with\ no\ claim\ as\ to\ its\ suitability\ for\ any}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00015}00015\ \textcolor{comment}{\ *\ purpose.}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00016}00016\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00017}00017\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00019}00019\ \textcolor{preprocessor}{\#ifndef\ LEMON\_CONCEPTS\_DIGRAPH\_H}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00020}00020\ \textcolor{preprocessor}{\#define\ LEMON\_CONCEPTS\_DIGRAPH\_H}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00026}00026\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{lemon_2core_8h}{lemon/core.h}}>}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00027}00027\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{concepts_2maps_8h}{lemon/concepts/maps.h}}>}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00028}00028\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{concept__check_8h}{lemon/concept\_check.h}}>}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00029}00029\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{graph__components_8h}{lemon/concepts/graph\_components.h}}>}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00031}00031\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacelemon}{lemon}}\ \{}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00032}00032\ \ \ \textcolor{keyword}{namespace\ }concepts\ \{}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00049}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph}{00049}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph}{Digraph}}\ \{}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00050}00050\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00052}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_a7da55c226164fc7958def6477ffe4a26}{00052}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_a7da55c226164fc7958def6477ffe4a26}{Digraph}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph}{Digraph}}\ \&)\ \{\}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00055}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_acd22336b3948f76d66a8231baeb55c27}{00055}}\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_acd22336b3948f76d66a8231baeb55c27}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph}{Digraph}}\ \&)\ \{\}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00057}00057\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00059}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_a2c812a8308802c7726ff0253b8d767af}{00059}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_a2c812a8308802c7726ff0253b8d767af}{Digraph}}()\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00066}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node}{00066}}\ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node}{Node}}\ \{}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00067}00067\ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00072}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node_a1c047ed0b33f31dbd68a4d453e353bb9}{00072}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node_a1c047ed0b33f31dbd68a4d453e353bb9}{Node}}()\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00077}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node_a1daaf30dc7059c9c26aad3484c019d1e}{00077}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node_a1daaf30dc7059c9c26aad3484c019d1e}{Node}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node}{Node}}\&)\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00083}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node_a5de0305ebde61ae3168892a516ed3510}{00083}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node_a5de0305ebde61ae3168892a516ed3510}{Node}}(\mbox{\hyperlink{structlemon_1_1_invalid}{Invalid}})\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00090}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node_a2ab4aa8e8c8491e62a62a4afa413269e}{00090}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node_a2ab4aa8e8c8491e62a62a4afa413269e}{operator==}}(\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node}{Node}})\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00095}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node_aa784869db12063ce356f3c672594a4a1}{00095}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node_aa784869db12063ce356f3c672594a4a1}{operator!=}}(\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node}{Node}})\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00104}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node_a791899a6cdb951d364f74a0377768d3b}{00104}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node_a791899a6cdb951d364f74a0377768d3b}{operator<}}(\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node}{Node}})\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00105}00105\ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00116}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node_it}{00116}}\ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node_it}{NodeIt}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node}{Node}}\ \{}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00117}00117\ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00122}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node_it_a8129c0a416662b05cc6b6a794164fd46}{00122}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node_it_a8129c0a416662b05cc6b6a794164fd46}{NodeIt}}()\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00127}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node_it_a82334d2acff821eaebb9bf1b10c7b835}{00127}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node_it_a82334d2acff821eaebb9bf1b10c7b835}{NodeIt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node_it}{NodeIt}}\&\ n)\ :\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node}{Node}}(n)\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00132}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node_it_a544968d040f44276a3820aa270fe04e2}{00132}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node_it_a544968d040f44276a3820aa270fe04e2}{NodeIt}}(\mbox{\hyperlink{structlemon_1_1_invalid}{Invalid}})\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00137}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node_it_a38b09a240883676b19de1e92bf51e08b}{00137}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node_it_a38b09a240883676b19de1e92bf51e08b}{NodeIt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph}{Digraph}}\&)\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00139}00139\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00142}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node_it_a4275e7192f040669743f5ca2e7b2d6f7}{00142}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node_it_a4275e7192f040669743f5ca2e7b2d6f7}{NodeIt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph}{Digraph}}\&,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node}{Node}}\&)\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00144}00144\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00147}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node_it_a53e28ae882a278b49455ec49e394c1f7}{00147}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node_it}{NodeIt}}\&\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node_it_a53e28ae882a278b49455ec49e394c1f7}{operator++}}()\ \{\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00148}00148\ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00149}00149\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00150}00150\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00152}00152\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00156}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc}{00156}}\ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc}{Arc}}\ \{}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00157}00157\ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00159}00159\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00162}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc_a655252d7b39afae395698676fd5a4efd}{00162}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc_a655252d7b39afae395698676fd5a4efd}{Arc}}()\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00164}00164\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00167}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc_afaff5650472672db1e247ee54fc1ed58}{00167}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc_afaff5650472672db1e247ee54fc1ed58}{Arc}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc}{Arc}}\&)\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00169}00169\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00172}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc_a3862c8e01e4eefbffd44066ef4123764}{00172}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc_a3862c8e01e4eefbffd44066ef4123764}{Arc}}(\mbox{\hyperlink{structlemon_1_1_invalid}{Invalid}})\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00174}00174\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00179}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc_a926f27c1a6249bc3694aebc8a53c91d4}{00179}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc_a926f27c1a6249bc3694aebc8a53c91d4}{operator==}}(\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc}{Arc}})\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00181}00181\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00183}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc_a99085353059501d5a85de32790868a0d}{00183}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc_a99085353059501d5a85de32790868a0d}{operator!=}}(\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc}{Arc}})\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00184}00184\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00186}00186\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00192}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc_a7c56842b8d6d6902bc42691f02693a29}{00192}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc_a7c56842b8d6d6902bc42691f02693a29}{operator<}}(\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc}{Arc}})\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00193}00193\ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00194}00194\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00196}00196\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00206}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_out_arc_it}{00206}}\ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_out_arc_it}{OutArcIt}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc}{Arc}}\ \{}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00207}00207\ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00209}00209\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00212}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_out_arc_it_ae5f6dc00fc079c8fe96bf8f258158b62}{00212}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_out_arc_it_ae5f6dc00fc079c8fe96bf8f258158b62}{OutArcIt}}()\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00214}00214\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00217}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_out_arc_it_a3e3b8161546d0c52c1aa49059282fd95}{00217}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_out_arc_it_a3e3b8161546d0c52c1aa49059282fd95}{OutArcIt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_out_arc_it}{OutArcIt}}\&\ e)\ :\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc}{Arc}}(e)\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00219}00219\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00222}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_out_arc_it_a458d6b786b48006922d99b294c0be598}{00222}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_out_arc_it_a458d6b786b48006922d99b294c0be598}{OutArcIt}}(\mbox{\hyperlink{structlemon_1_1_invalid}{Invalid}})\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00224}00224\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00227}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_out_arc_it_ac33264ee90a46b77bcd67dbcf6cc8f83}{00227}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_out_arc_it_ac33264ee90a46b77bcd67dbcf6cc8f83}{OutArcIt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph}{Digraph}}\&,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node}{Node}}\&)\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00229}00229\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00232}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_out_arc_it_a4802a27e4347cac12d0a0d039f4fd799}{00232}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_out_arc_it_a4802a27e4347cac12d0a0d039f4fd799}{OutArcIt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph}{Digraph}}\&,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc}{Arc}}\&)\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00234}00234\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00237}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_out_arc_it_a500900816e05d97a274cc5692f5ab0fb}{00237}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_out_arc_it}{OutArcIt}}\&\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_out_arc_it_a500900816e05d97a274cc5692f5ab0fb}{operator++}}()\ \{\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00238}00238\ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00239}00239\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00241}00241\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00251}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_in_arc_it}{00251}}\ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_in_arc_it}{InArcIt}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc}{Arc}}\ \{}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00252}00252\ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00254}00254\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00257}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_in_arc_it_a081f3665af44a15643fe8737c2eb24ae}{00257}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_in_arc_it_a081f3665af44a15643fe8737c2eb24ae}{InArcIt}}()\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00259}00259\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00262}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_in_arc_it_a731b0189b01b2b75401ac6e851ded7b9}{00262}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_in_arc_it_a731b0189b01b2b75401ac6e851ded7b9}{InArcIt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_in_arc_it}{InArcIt}}\&\ e)\ :\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc}{Arc}}(e)\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00264}00264\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00267}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_in_arc_it_ae449a439830ef01deeae5efed88a6710}{00267}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_in_arc_it_ae449a439830ef01deeae5efed88a6710}{InArcIt}}(\mbox{\hyperlink{structlemon_1_1_invalid}{Invalid}})\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00269}00269\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00272}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_in_arc_it_a6f2a06fddb42bbe1eb3b963d4409b14e}{00272}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_in_arc_it_a6f2a06fddb42bbe1eb3b963d4409b14e}{InArcIt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph}{Digraph}}\&,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node}{Node}}\&)\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00274}00274\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00277}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_in_arc_it_aafb40b775fb6c5e517316d1bcf4e107b}{00277}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_in_arc_it_aafb40b775fb6c5e517316d1bcf4e107b}{InArcIt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph}{Digraph}}\&,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc}{Arc}}\&)\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00279}00279\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00282}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_in_arc_it_ad4ee912ac00a7b574510d2e250e27db3}{00282}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_in_arc_it}{InArcIt}}\&\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_in_arc_it_ad4ee912ac00a7b574510d2e250e27db3}{operator++}}()\ \{\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00283}00283\ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00284}00284\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00286}00286\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00294}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc_it}{00294}}\ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc_it}{ArcIt}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc}{Arc}}\ \{}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00295}00295\ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00297}00297\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00300}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc_it_a57fd9e31e24699b552f52dd95d39ac7b}{00300}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc_it_a57fd9e31e24699b552f52dd95d39ac7b}{ArcIt}}()\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00302}00302\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00305}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc_it_a7d775a843fe5f2c15dfd4def316eeb09}{00305}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc_it_a7d775a843fe5f2c15dfd4def316eeb09}{ArcIt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc_it}{ArcIt}}\&\ e)\ :\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc}{Arc}}(e)\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00307}00307\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00310}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc_it_acaadec038b17bab2b10c10032699329a}{00310}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc_it_acaadec038b17bab2b10c10032699329a}{ArcIt}}(\mbox{\hyperlink{structlemon_1_1_invalid}{Invalid}})\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00312}00312\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00315}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc_it_a02d4d4ee5e3cebb87bee6cba7ee382a6}{00315}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc_it_a02d4d4ee5e3cebb87bee6cba7ee382a6}{ArcIt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph}{Digraph}}\&\ g)\ \{}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00316}00316\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelemon_a0362774395838bda46cb4400a1189f21}{::lemon::ignore\_unused\_variable\_warning}}(g);}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00317}00317\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00319}00319\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00322}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc_it_a10f96b6887f482b4083d038f29bfa45b}{00322}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc_it_a10f96b6887f482b4083d038f29bfa45b}{ArcIt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph}{Digraph}}\&,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc}{Arc}}\&)\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00324}00324\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00327}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc_it_af39a325a29c866263eee7d3b6d784863}{00327}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc_it}{ArcIt}}\&\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc_it_af39a325a29c866263eee7d3b6d784863}{operator++}}()\ \{\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00328}00328\ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00329}00329\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00333}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_a0e67b1edc619109aca7a61ab0dcee6a9}{00333}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node}{Node}}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_a0e67b1edc619109aca7a61ab0dcee6a9}{source}}(\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc}{Arc}})\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00334}00334\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00338}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_abd58e7ddc1f9670c5a5eea46c609d497}{00338}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node}{Node}}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_abd58e7ddc1f9670c5a5eea46c609d497}{target}}(\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc}{Arc}})\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00339}00339\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00343}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_a2796d718505c4e69a61e1ae578248cff}{00343}}\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_a2796d718505c4e69a61e1ae578248cff}{id}}(\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node}{Node}})\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ -\/1;\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00344}00344\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00348}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_aea898f71831ff47f4c22eccd31110f28}{00348}}\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_aea898f71831ff47f4c22eccd31110f28}{id}}(\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc}{Arc}})\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ -\/1;\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00349}00349\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00354}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_ac118159c6359a34136985f77c9db67ff}{00354}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node}{Node}}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_ac118159c6359a34136985f77c9db67ff}{nodeFromId}}(\textcolor{keywordtype}{int})\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00355}00355\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00360}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_a4e5b4f8a5de1f7777e8fae7826f89f1e}{00360}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc}{Arc}}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_a4e5b4f8a5de1f7777e8fae7826f89f1e}{arcFromId}}(\textcolor{keywordtype}{int})\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00361}00361\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00365}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_a023e268b739df3d8a400d5857835f367}{00365}}\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_a023e268b739df3d8a400d5857835f367}{maxNodeId}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ -\/1;\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00366}00366\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00370}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_ab3b88da1ef2f46302ab3dc877fae72cc}{00370}}\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_ab3b88da1ef2f46302ab3dc877fae72cc}{maxArcId}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ -\/1;\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00371}00371\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00372}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_aafdabae92b97f110b44c6c57ea1d434e}{00372}}\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_aafdabae92b97f110b44c6c57ea1d434e}{first}}(\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node}{Node}}\&)\textcolor{keyword}{\ const\ }\{\}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00373}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_a8ddc9ff90292816f807ab85a97c08406}{00373}}\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_a8ddc9ff90292816f807ab85a97c08406}{next}}(\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node}{Node}}\&)\textcolor{keyword}{\ const\ }\{\}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00374}00374\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00375}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_a1aa2006ef46ebe6b9f92f5bdb413741f}{00375}}\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_a1aa2006ef46ebe6b9f92f5bdb413741f}{first}}(\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc}{Arc}}\&)\textcolor{keyword}{\ const\ }\{\}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00376}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_aa96337a11b9e26ee7df57ff601f60373}{00376}}\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_aa96337a11b9e26ee7df57ff601f60373}{next}}(\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc}{Arc}}\&)\textcolor{keyword}{\ const\ }\{\}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00377}00377\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00378}00378\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00379}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_ac562d14d7b41a27c22f551a76dc76763}{00379}}\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_ac562d14d7b41a27c22f551a76dc76763}{firstIn}}(\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc}{Arc}}\&,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node}{Node}}\&)\textcolor{keyword}{\ const\ }\{\}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00380}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_a51131cffe77bd26f555c0a60b0d4c7c0}{00380}}\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_a51131cffe77bd26f555c0a60b0d4c7c0}{nextIn}}(\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc}{Arc}}\&)\textcolor{keyword}{\ const\ }\{\}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00381}00381\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00382}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_a4383c62b436e30e0f8125e191eb011c4}{00382}}\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_a4383c62b436e30e0f8125e191eb011c4}{firstOut}}(\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc}{Arc}}\&,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node}{Node}}\&)\textcolor{keyword}{\ const\ }\{\}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00383}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_a4bbcf08a7e4fff608da926602f8597fc}{00383}}\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_a4bbcf08a7e4fff608da926602f8597fc}{nextOut}}(\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc}{Arc}}\&)\textcolor{keyword}{\ const\ }\{\}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00384}00384\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00385}00385\ \ \ \ \ \ \ \textcolor{comment}{//\ The\ second\ parameter\ is\ dummy.}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00386}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_a8ed62273a1e4b854b4e577dc375ee855}{00386}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node}{Node}}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_a8ed62273a1e4b854b4e577dc375ee855}{fromId}}(\textcolor{keywordtype}{int},\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node}{Node}})\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00387}00387\ \ \ \ \ \ \ \textcolor{comment}{//\ The\ second\ parameter\ is\ dummy.}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00388}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_a23e1f307a80ae030ca945e423a058b15}{00388}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc}{Arc}}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_a23e1f307a80ae030ca945e423a058b15}{fromId}}(\textcolor{keywordtype}{int},\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc}{Arc}})\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00389}00389\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00390}00390\ \ \ \ \ \ \ \textcolor{comment}{//\ Dummy\ parameter.}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00391}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_ae56afb444b98446a0ef7283e334e9c70}{00391}}\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_ae56afb444b98446a0ef7283e334e9c70}{maxId}}(\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node}{Node}})\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ -\/1;\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00392}00392\ \ \ \ \ \ \ \textcolor{comment}{//\ Dummy\ parameter.}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00393}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_a4295172457c2dab57753879678bf22e3}{00393}}\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_a4295172457c2dab57753879678bf22e3}{maxId}}(\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc}{Arc}})\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ -\/1;\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00394}00394\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00398}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_ac511df20cdda17616c1abc06ac1d3438}{00398}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node}{Node}}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_ac511df20cdda17616c1abc06ac1d3438}{oppositeNode}}(\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node}{Node}},\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc}{Arc}})\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00399}00399\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00404}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_a20d3444b8d584c546375d3f9c561e9a8}{00404}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node}{Node}}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_a20d3444b8d584c546375d3f9c561e9a8}{baseNode}}(\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_out_arc_it}{OutArcIt}})\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00405}00405\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00410}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_a2085b5e630e6a713310b7f35787ddbbb}{00410}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node}{Node}}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_a2085b5e630e6a713310b7f35787ddbbb}{runningNode}}(\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_out_arc_it}{OutArcIt}})\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00411}00411\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00416}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_afac7707d615a17783b89eafda3120122}{00416}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node}{Node}}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_afac7707d615a17783b89eafda3120122}{baseNode}}(\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_in_arc_it}{InArcIt}})\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00417}00417\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00422}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_ade76edf49de4cfae2df5089d713bd758}{00422}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node}{Node}}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_ade76edf49de4cfae2df5089d713bd758}{runningNode}}(\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_in_arc_it}{InArcIt}})\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00423}00423\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00428}00428\ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00429}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node_map}{00429}}\ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node_map}{NodeMap}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_reference_map}{ReferenceMap}}<Node,\ T,\ T\&,\ const\ T\&>\ \{}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00430}00430\ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00431}00431\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00433}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node_map_a2bac115979a4f0beaa3d71325ed9958f}{00433}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node_map_a2bac115979a4f0beaa3d71325ed9958f}{NodeMap}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph}{Digraph}}\&)\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00435}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node_map_a4272cf1e6a0b691e34644f3aadea0d87}{00435}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node_map_a4272cf1e6a0b691e34644f3aadea0d87}{NodeMap}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph}{Digraph}}\&,\ T)\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00436}00436\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00437}00437\ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00439}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node_map_aae5b1f12c6873be966b750859eb297cd}{00439}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node_map_aae5b1f12c6873be966b750859eb297cd}{NodeMap}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node_map}{NodeMap}}\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{nm}})\ :}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00440}00440\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1concepts_1_1_reference_map}{ReferenceMap}}<\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node}{Node}},\ T,\ T\&,\ const\ T\&>(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{nm}})\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00442}00442\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ CMap>}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00443}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node_map_ae9de5fd9aeb7d8f7a323e384fcd488d1}{00443}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node_map}{NodeMap}}\&\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_node_map_ae9de5fd9aeb7d8f7a323e384fcd488d1}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CMap}}\&)\ \{}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00444}00444\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{checkConcept<ReadMap<Node,\ T>}},\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CMap}}>();}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00445}00445\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00446}00446\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00447}00447\ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00448}00448\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00453}00453\ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00454}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc_map}{00454}}\ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc_map}{ArcMap}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_reference_map}{ReferenceMap}}<Arc,\ T,\ T\&,\ const\ T\&>\ \{}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00455}00455\ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00456}00456\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00458}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc_map_a6efa1826403ce2fb961273ae440f1e47}{00458}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc_map_a6efa1826403ce2fb961273ae440f1e47}{ArcMap}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph}{Digraph}}\&)\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00460}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc_map_a5a752551c9aa07508c90413018527b97}{00460}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc_map_a5a752551c9aa07508c90413018527b97}{ArcMap}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph}{Digraph}}\&,\ T)\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00461}00461\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00462}00462\ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00464}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc_map_aa41568efab8bc0833d7d1f2263e765db}{00464}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc_map_aa41568efab8bc0833d7d1f2263e765db}{ArcMap}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc_map}{ArcMap}}\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{em}})\ :}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00465}00465\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1concepts_1_1_reference_map}{ReferenceMap}}<\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc}{Arc}},\ T,\ T\&,\ const\ T\&>(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{em}})\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00467}00467\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ CMap>}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00468}\mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc_map_a4cc2a1ebaccfa2ad924113337c5fc015}{00468}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc_map}{ArcMap}}\&\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_digraph_1_1_arc_map_a4cc2a1ebaccfa2ad924113337c5fc015}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CMap}}\&)\ \{}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00469}00469\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{checkConcept<ReadMap<Arc,\ T>}},\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CMap}}>();}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00470}00470\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00471}00471\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00472}00472\ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00473}00473\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00474}00474\ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ \_Digraph>}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00475}\mbox{\hyperlink{structlemon_1_1concepts_1_1_digraph_1_1_constraints}{00475}}\ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1concepts_1_1_digraph_1_1_constraints}{Constraints}}\ \{}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00476}\mbox{\hyperlink{structlemon_1_1concepts_1_1_digraph_1_1_constraints_a95ff9550548649e567ca1a9dee25a9c3}{00476}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structlemon_1_1concepts_1_1_digraph_1_1_constraints_a95ff9550548649e567ca1a9dee25a9c3}{constraints}}()\ \{}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00477}00477\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{checkConcept<BaseDigraphComponent,\ \_Digraph>}}();}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00478}00478\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{checkConcept<IterableDigraphComponent<>}},\ \_Digraph>();}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00479}00479\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{checkConcept<IDableDigraphComponent<>}},\ \_Digraph>();}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00480}00480\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{checkConcept<MappableDigraphComponent<>}},\ \_Digraph>();}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00481}00481\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00482}00482\ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00483}00483\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00484}00484\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00485}00485\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00486}00486\ \ \ \}\ \textcolor{comment}{//namespace\ concepts}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00487}00487\ \}\ \textcolor{comment}{//namespace\ lemon}}
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00488}00488\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00489}00489\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00490}00490\ }
+\DoxyCodeLine{\Hypertarget{digraph_8h_source_l00491}00491\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

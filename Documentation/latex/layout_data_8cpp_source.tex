@@ -1,0 +1,64 @@
+\doxysection{layout\+Data.\+cpp}
+\hypertarget{layout_data_8cpp_source}{}\label{layout_data_8cpp_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/Data/layoutData.cpp@{C:/Dev/DungeonGenerator/DungeonGenerator/Data/layoutData.cpp}}
+\mbox{\hyperlink{layout_data_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{layout_data_8hpp}{layoutData.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{polygon_triangulator_8hpp}{polygonTriangulator.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00005}00005\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_data}{Data}}}
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00006}00006\ \{}
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00007}\mbox{\hyperlink{class_data_1_1_layout_data_a070b01671003c628c6f1e54d0eb7bd98}{00007}}\ \ \ \ \ \mbox{\hyperlink{class_data_1_1_layout_data_a070b01671003c628c6f1e54d0eb7bd98}{LayoutData::LayoutData}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_geometry_1_1_polygon}{Geometry::Polygon}}\&\ polygon)\ :\ polygon(polygon)}
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00008}00008\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00009}00009\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_data_1_1_layout_data_a04efcfe6e95802616126cc961b3126cf}{triangulate}}();}
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00010}00010\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00012}\mbox{\hyperlink{class_data_1_1_layout_data_a459274e04257649888b135d9d8b3848e}{00012}}\ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_polygon}{Geometry::Polygon}}\ \mbox{\hyperlink{class_data_1_1_layout_data_a459274e04257649888b135d9d8b3848e}{LayoutData::getPolygon}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00013}00013\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00014}00014\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_data_1_1_layout_data_a41ae3ec54c62c920602d502744484abc}{polygon}};}
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00015}00015\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00017}\mbox{\hyperlink{class_data_1_1_layout_data_a2296e02f19e06eb0f99ea267c63da4e4}{00017}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_data_1_1_layout_data_a2296e02f19e06eb0f99ea267c63da4e4}{LayoutData::setPolygon}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_geometry_1_1_polygon}{Geometry::Polygon}}\&\ polygon)}
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00018}00018\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ this-\/>polygon\ =\ \mbox{\hyperlink{class_data_1_1_layout_data_a41ae3ec54c62c920602d502744484abc}{polygon}};}
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_data_1_1_layout_data_a04efcfe6e95802616126cc961b3126cf}{triangulate}}();}
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00021}00021\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00023}\mbox{\hyperlink{class_data_1_1_layout_data_a04efcfe6e95802616126cc961b3126cf}{00023}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_data_1_1_layout_data_a04efcfe6e95802616126cc961b3126cf}{LayoutData::triangulate}}()}
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00024}00024\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_polygon_triangulator}{Geometry::Delaunay::PolygonTriangulator}}\ triangulator(\mbox{\hyperlink{class_data_1_1_layout_data_a41ae3ec54c62c920602d502744484abc}{polygon}});}
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_geometry_1_1_delaunay_1_1_delaunay_triangulation}{Geometry::Delaunay::DelaunayTriangulation}}\ triangulation\ =\ triangulator.\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_polygon_triangulator_af16f9414e72248d90710aade9710cfdb}{Triangulate}}(\mbox{\hyperlink{namespace_geometry_1_1_delaunay_a643e8f927eebc3f3a702ca86183886abaea59a27b26cd393a09ae579c7b8d504a}{Geometry::Delaunay::ClockWise}});}
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_data_1_1_layout_data_aed17909c4a0e70243fa325c04a0ec435}{points}}.clear();}
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ p\ :\ triangulation.\mbox{\hyperlink{struct_geometry_1_1_delaunay_1_1_delaunay_triangulation_a8276e067aa96cc68fb35249965e3705e}{Vertices}})}
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_data_1_1_layout_data_aed17909c4a0e70243fa325c04a0ec435}{points}}.push\_back(\mbox{\hyperlink{class_math_1_1_vec}{Math::Vec3f}}(p[0],\ p[1],\ 0.0f));}
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_data_1_1_layout_data_a84d2d89182d3c52474ab6708d196e455}{triangles}}.clear();}
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_data_1_1_layout_data_aec4c88ab3396e53fe16796405459ab91}{counterTriangles}}.clear();}
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ triangle\ :\ triangulation.\mbox{\hyperlink{struct_geometry_1_1_delaunay_1_1_delaunay_triangulation_a750debeecb5f91a86fa743402289dbba}{Triangles}})}
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_data_1_1_layout_data_a84d2d89182d3c52474ab6708d196e455}{triangles}}.push\_back(\mbox{\hyperlink{class_math_1_1_vec}{Math::Vec3i}}(triangle.P0.index,\ triangle.P1.index,\ triangle.P2.index));}
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_data_1_1_layout_data_aec4c88ab3396e53fe16796405459ab91}{counterTriangles}}.push\_back(\mbox{\hyperlink{class_math_1_1_vec}{Math::Vec3i}}(triangle.P2.index,\ triangle.P1.index,\ triangle.P0.index));}
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00041}00041\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00043}\mbox{\hyperlink{class_data_1_1_layout_data_a2407f920a97acbeec2e4928a62627816}{00043}}\ \ \ \ \ std::vector<Math::Vec3i>\ \mbox{\hyperlink{class_data_1_1_layout_data_a2407f920a97acbeec2e4928a62627816}{LayoutData::getTrianglesClockWise}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00044}00044\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_data_1_1_layout_data_a84d2d89182d3c52474ab6708d196e455}{triangles}};}
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00046}00046\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00048}\mbox{\hyperlink{class_data_1_1_layout_data_af2ae57fc3a964ee0220f340d32817ae1}{00048}}\ \ \ \ \ std::vector<Math::Vec3i>\ \mbox{\hyperlink{class_data_1_1_layout_data_af2ae57fc3a964ee0220f340d32817ae1}{LayoutData::getTrianglesCounterClockwise}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00049}00049\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_data_1_1_layout_data_aec4c88ab3396e53fe16796405459ab91}{counterTriangles}};}
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00051}00051\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00053}\mbox{\hyperlink{class_data_1_1_layout_data_ad0327c57353bc5f5407a436d980b073d}{00053}}\ \ \ \ \ std::vector<Math::Vec3f>\ \mbox{\hyperlink{class_data_1_1_layout_data_ad0327c57353bc5f5407a436d980b073d}{LayoutData::getPoints}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00054}00054\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_data_1_1_layout_data_aed17909c4a0e70243fa325c04a0ec435}{points}};}
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00056}00056\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{layout_data_8cpp_source_l00058}00058\ \}}
+
+\end{DoxyCode}

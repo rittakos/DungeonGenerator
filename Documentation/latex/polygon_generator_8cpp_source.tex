@@ -1,0 +1,106 @@
+\doxysection{polygon\+Generator.\+cpp}
+\hypertarget{polygon_generator_8cpp_source}{}\label{polygon_generator_8cpp_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/Generator/polygonGenerator.cpp@{C:/Dev/DungeonGenerator/DungeonGenerator/Generator/polygonGenerator.cpp}}
+\mbox{\hyperlink{polygon_generator_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{polygon_generator_8hpp}{polygonGenerator.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{polygon_8hpp}{polygon.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{vector_8hpp}{vector.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{random_8h}{random.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{transformation_8hpp}{transformation.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00008}00008\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_generator}{Generator}}}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00009}00009\ \{}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00010}\mbox{\hyperlink{class_generator_1_1_base_convex_polygon_generator_algorithm_a88f1f156d21fd4c61eb28d2e6e615dec}{00010}}\ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_polygon}{Geometry::Polygon}}\ \mbox{\hyperlink{class_generator_1_1_base_convex_polygon_generator_algorithm_a88f1f156d21fd4c61eb28d2e6e615dec}{BaseConvexPolygonGeneratorAlgorithm::generate}}(\textcolor{keywordtype}{int}\ verticesCount)}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00011}00011\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00012}00012\ \ \ \ \ \ \ \ \ assert(verticesCount\ >=\ 3);}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00014}00014\ \ \ \ \ \ \ \ \ std::vector<Math::Angle>\ angles\ =\ \mbox{\hyperlink{class_generator_1_1_base_convex_polygon_generator_algorithm_a739e5b700f046a346eb1e2afb5cecb89}{getAngles}}(verticesCount);}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00015}00015\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ radius\ =\ \mbox{\hyperlink{class_generator_1_1_base_convex_polygon_generator_algorithm_a0777ea305d0851a39a77f051d34843ae}{getRadius}}();}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00017}00017\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ X0\ =\ \mbox{\hyperlink{class_random_a2ed52650d126b0d4479584ad7f6a5b76}{Random::GetFloat}}(-\/radius,\ radius);}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00018}00018\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ firstPoint\ =\ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math::Vec2f}}(X0,\ std::sqrtf(radius\ *\ radius\ -\/\ X0\ *\ X0));}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ std::vector<Math::Vec2f>\ points;}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ points.push\_back(firstPoint);}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ 1;\ idx\ <\ verticesCount;\ ++idx)}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ newPoint\ =\ \mbox{\hyperlink{namespace_geometry_a2a037051bb9263fa553810b06691426c}{Geometry::rotate}}(points[idx\ -\/\ 1],\ angles[idx]);}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ newPoint\ =\ newPoint\ *\ \mbox{\hyperlink{class_random_a2ed52650d126b0d4479584ad7f6a5b76}{Random::GetFloat}}(1.0f\ -\/\ \mbox{\hyperlink{class_generator_1_1_base_convex_polygon_generator_algorithm_ac35eb6854cdd0205f08ee0e140b064f3}{parameters}}.\mbox{\hyperlink{struct_generator_1_1_generation_parameters_af300715301fc685e9b8a56c72d6317c6}{radiusDistribution}},\ 1.0f\ +\ \mbox{\hyperlink{class_generator_1_1_base_convex_polygon_generator_algorithm_ac35eb6854cdd0205f08ee0e140b064f3}{parameters}}.\mbox{\hyperlink{struct_generator_1_1_generation_parameters_af300715301fc685e9b8a56c72d6317c6}{radiusDistribution}});}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ points.push\_back(newPoint);}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ p\ :\ points)}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ p\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_polygon}{Geometry::Polygon}}\ randomPolygon(points);}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ randomPolygon;}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00035}00035\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00037}\mbox{\hyperlink{class_generator_1_1_base_convex_polygon_generator_algorithm_a739e5b700f046a346eb1e2afb5cecb89}{00037}}\ \ \ \ \ std::vector<Math::Angle>\ \mbox{\hyperlink{class_generator_1_1_base_convex_polygon_generator_algorithm_a739e5b700f046a346eb1e2afb5cecb89}{BaseConvexPolygonGeneratorAlgorithm::getAngles}}(\textcolor{keywordtype}{int}\ verticesCount)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00038}00038\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ std::vector<Math::Angle>\ angles;}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{float}\ a\ :\ \mbox{\hyperlink{class_random_a90cbd4e8366e8097648f33250ceb45f8}{Random::GetFloatWithFixedSum}}(verticesCount,\ \mbox{\hyperlink{namespace_math_1_1_constant_a813f7c3fa8784d0eb5224edc26e53b1c}{Math::Constant::Pi}}\ *\ 2.0f,\ \mbox{\hyperlink{class_generator_1_1_base_convex_polygon_generator_algorithm_ac35eb6854cdd0205f08ee0e140b064f3}{parameters}}.\mbox{\hyperlink{struct_generator_1_1_generation_parameters_a7a34c7d143e41bded2a2c049887fe39f}{angleDistribution}}))}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ angles.push\_back(\mbox{\hyperlink{class_math_1_1_angle}{Math::Angle}}(a));}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ angles;}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00045}00045\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00047}\mbox{\hyperlink{class_generator_1_1_base_convex_polygon_generator_algorithm_a0777ea305d0851a39a77f051d34843ae}{00047}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_generator_1_1_base_convex_polygon_generator_algorithm_a0777ea305d0851a39a77f051d34843ae}{BaseConvexPolygonGeneratorAlgorithm::getRadius}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00048}00048\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ radiusX\ =\ std::abs(\mbox{\hyperlink{class_generator_1_1_base_convex_polygon_generator_algorithm_ac35eb6854cdd0205f08ee0e140b064f3}{parameters}}.\mbox{\hyperlink{struct_generator_1_1_generation_parameters_abff7f5fc5171c3ccccd5ed72b12630f8}{maxCoord}}[0]\ -\/\ \mbox{\hyperlink{class_generator_1_1_base_convex_polygon_generator_algorithm_ac35eb6854cdd0205f08ee0e140b064f3}{parameters}}.\mbox{\hyperlink{struct_generator_1_1_generation_parameters_a2fa9d77efd5abbfc93216696a71733b7}{minCoord}}[0])\ /\ 2.0f;}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ radiusY\ =\ std::abs(\mbox{\hyperlink{class_generator_1_1_base_convex_polygon_generator_algorithm_ac35eb6854cdd0205f08ee0e140b064f3}{parameters}}.\mbox{\hyperlink{struct_generator_1_1_generation_parameters_abff7f5fc5171c3ccccd5ed72b12630f8}{maxCoord}}[1]\ -\/\ \mbox{\hyperlink{class_generator_1_1_base_convex_polygon_generator_algorithm_ac35eb6854cdd0205f08ee0e140b064f3}{parameters}}.\mbox{\hyperlink{struct_generator_1_1_generation_parameters_a2fa9d77efd5abbfc93216696a71733b7}{minCoord}}[1])\ /\ 2.0f;}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ radiusMax\ =\ (radiusX\ +\ radiusY)\ /\ 2.0f;}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_random_a2ed52650d126b0d4479584ad7f6a5b76}{Random::GetFloat}}(radiusMax\ *\ \mbox{\hyperlink{class_generator_1_1_base_convex_polygon_generator_algorithm_ac35eb6854cdd0205f08ee0e140b064f3}{parameters}}.\mbox{\hyperlink{struct_generator_1_1_generation_parameters_a33065b12378786dc344a458eb456b993}{sizeDistribution}},\ radiusMax);}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00054}00054\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00056}\mbox{\hyperlink{class_generator_1_1_base_convex_polygon_generator_algorithm_a1c3b30da4516779437b8c679a265409a}{00056}}\ \ \ \ \ \mbox{\hyperlink{class_generator_1_1_base_convex_polygon_generator_algorithm_a1c3b30da4516779437b8c679a265409a}{BaseConvexPolygonGeneratorAlgorithm::BaseConvexPolygonGeneratorAlgorithm}}(\mbox{\hyperlink{struct_generator_1_1_generation_parameters}{GenerationParameters}}\ parameters)\ :\ parameters(parameters)}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00057}00057\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00058}00058\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00060}00060\ \}}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00063}00063\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_generator}{Generator}}}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00064}00064\ \{}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00065}\mbox{\hyperlink{class_generator_1_1_polygon_generator_ac948f06ecebbfee3a60559de68ee94f4}{00065}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_generator_1_1_polygon_generator_ac948f06ecebbfee3a60559de68ee94f4}{PolygonGenerator::setCustomGeneratorAlgorithm}}(std::shared\_ptr<PolygonGeneratorAlgorithm>\ customAlgorithm)}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00066}00066\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ assert(\mbox{\hyperlink{class_generator_1_1_polygon_generator_a396e618cf5b4cd3a4bf88a0dde3465d7}{type}}\ ==\ \mbox{\hyperlink{namespace_generator_aab97d3824ed99fe4a8f7c770d08137dda2a70bab439f98f02d43d8c4c383b8047}{Custom}}\ \&\&\ customAlgorithm\ !=\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_generator_1_1_polygon_generator_a396e618cf5b4cd3a4bf88a0dde3465d7}{type}}\ ==\ \mbox{\hyperlink{namespace_generator_aab97d3824ed99fe4a8f7c770d08137dda2a70bab439f98f02d43d8c4c383b8047}{Custom}})}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_generator_1_1_polygon_generator_a688212fafae0a55d544abfafdb959042}{algorithm}}\ =\ customAlgorithm;}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00070}00070\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00073}\mbox{\hyperlink{class_generator_1_1_polygon_generator_a654108b65ed435b8d0785aec0b9641e7}{00073}}\ \ \ \ \ \mbox{\hyperlink{class_generator_1_1_polygon_generator_a654108b65ed435b8d0785aec0b9641e7}{PolygonGenerator::PolygonGenerator}}(\textcolor{keywordtype}{int}\ verticesCount,\ \mbox{\hyperlink{namespace_generator_aab97d3824ed99fe4a8f7c770d08137dd}{PolygonGeneratorType}}\ type)\ }
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ :\ verticesCount(verticesCount),\ type(type)}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00075}00075\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ assert(\mbox{\hyperlink{class_generator_1_1_polygon_generator_a39d26abb3f8682e37ef1fbc1805379de}{verticesCount}}\ >=\ 3);}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_generator_1_1_generation_parameters}{GenerationParameters}}\ regularPolygonParameters(\mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}(-\/100.0f,\ -\/100.0f),\ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}(100.0f,\ 100.0f),\ 0.0f,\ 0.0f,\ 0.0f);}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (\mbox{\hyperlink{class_generator_1_1_polygon_generator_a396e618cf5b4cd3a4bf88a0dde3465d7}{type}})}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{namespace_generator_aab97d3824ed99fe4a8f7c770d08137dda95c0af1328a4bff72d336a631512dbd7}{Generator::BaseConvex}}:}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_generator_1_1_polygon_generator_a688212fafae0a55d544abfafdb959042}{algorithm}}\ =\ std::make\_shared<BaseConvexPolygonGeneratorAlgorithm>(regularPolygonParameters);}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{namespace_generator_aab97d3824ed99fe4a8f7c770d08137dda2a70bab439f98f02d43d8c4c383b8047}{Generator::Custom}}:}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_generator_1_1_polygon_generator_a688212fafae0a55d544abfafdb959042}{algorithm}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_generator_1_1_polygon_generator_a688212fafae0a55d544abfafdb959042}{algorithm}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00092}00092\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00095}\mbox{\hyperlink{class_generator_1_1_polygon_generator_af08121393c8ba007ce5d1c14677a6fbf}{00095}}\ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_polygon}{Geometry::Polygon}}\ \mbox{\hyperlink{class_generator_1_1_polygon_generator_af08121393c8ba007ce5d1c14677a6fbf}{PolygonGenerator::generate}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00096}00096\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00097}00097\ \ \ \ \ \ \ \ \ assert(\mbox{\hyperlink{class_generator_1_1_polygon_generator_a688212fafae0a55d544abfafdb959042}{algorithm}}\ !=\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00098}00098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_generator_1_1_polygon_generator_a688212fafae0a55d544abfafdb959042}{algorithm}}-\/>generate(\mbox{\hyperlink{class_generator_1_1_polygon_generator_a39d26abb3f8682e37ef1fbc1805379de}{verticesCount}});}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00099}00099\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{polygon_generator_8cpp_source_l00100}00100\ \}}
+
+\end{DoxyCode}

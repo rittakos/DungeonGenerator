@@ -1,0 +1,76 @@
+\doxysection{lp.\+h}
+\hypertarget{lp_8h_source}{}\label{lp_8h_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/lemon/lp.h@{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/lemon/lp.h}}
+\mbox{\hyperlink{lp_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00001}00001\ \textcolor{comment}{/*\ -\/*-\/\ mode:\ C++;\ indent-\/tabs-\/mode:\ nil;\ -\/*-\/}}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00002}00002\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00003}00003\ \textcolor{comment}{\ *\ This\ file\ is\ a\ part\ of\ LEMON,\ a\ generic\ C++\ optimization\ library.}}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00004}00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00005}00005\ \textcolor{comment}{\ *\ Copyright\ (C)\ 2003-\/2013}}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00006}00006\ \textcolor{comment}{\ *\ Egervary\ Jeno\ Kombinatorikus\ Optimalizalasi\ Kutatocsoport}}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00007}00007\ \textcolor{comment}{\ *\ (Egervary\ Research\ Group\ on\ Combinatorial\ Optimization,\ EGRES).}}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00008}00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00009}00009\ \textcolor{comment}{\ *\ Permission\ to\ use,\ modify\ and\ distribute\ this\ software\ is\ granted}}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00010}00010\ \textcolor{comment}{\ *\ provided\ that\ this\ copyright\ notice\ appears\ in\ all\ copies.\ For}}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00011}00011\ \textcolor{comment}{\ *\ precise\ terms\ see\ the\ accompanying\ LICENSE\ file.}}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00012}00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00013}00013\ \textcolor{comment}{\ *\ This\ software\ is\ provided\ "{}AS\ IS"{}\ with\ no\ warranty\ of\ any\ kind,}}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00014}00014\ \textcolor{comment}{\ *\ express\ or\ implied,\ and\ with\ no\ claim\ as\ to\ its\ suitability\ for\ any}}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00015}00015\ \textcolor{comment}{\ *\ purpose.}}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00016}00016\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00017}00017\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00019}00019\ \textcolor{preprocessor}{\#ifndef\ LEMON\_LP\_H}}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00020}00020\ \textcolor{preprocessor}{\#define\ LEMON\_LP\_H}}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00022}00022\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{config_8h}{lemon/config.h}}>}}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00025}00025\ \textcolor{preprocessor}{\#ifdef\ LEMON\_HAVE\_GLPK}}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00026}00026\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{glpk_8h}{lemon/glpk.h}}>}}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00027}00027\ \textcolor{preprocessor}{\#elif\ LEMON\_HAVE\_CPLEX}}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00028}00028\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{cplex_8h}{lemon/cplex.h}}>}}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00029}00029\ \textcolor{preprocessor}{\#elif\ LEMON\_HAVE\_SOPLEX}}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00030}00030\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{soplex_8h}{lemon/soplex.h}}>}}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00031}00031\ \textcolor{preprocessor}{\#elif\ LEMON\_HAVE\_CLP}}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00032}00032\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{clp_8h}{lemon/clp.h}}>}}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00033}00033\ \textcolor{preprocessor}{\#elif\ LEMON\_HAVE\_CBC}}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00034}00034\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{cbc_8h}{lemon/cbc.h}}>}}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00035}00035\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00040}00040\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacelemon}{lemon}}\ \{}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00042}00042\ \textcolor{preprocessor}{\#ifdef\ DOXYGEN}}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00050}00050\ \textcolor{preprocessor}{\#define\ LEMON\_DEFAULT\_LP\ SOLVER}}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00057}00057\ \ \ \textcolor{keyword}{typedef}\ GlpkLp\ \mbox{\hyperlink{namespacelemon_a060945dfbdc58f92f0d478d27e0acb3d}{Lp}};}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00066}00066\ \textcolor{preprocessor}{\#define\ LEMON\_DEFAULT\_MIP\ SOLVER}}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00073}00073\ \ \ \textcolor{keyword}{typedef}\ GlpkMip\ \mbox{\hyperlink{namespacelemon_ab3c9308b8af84e50a305634e972ee765}{Mip}};}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00074}00074\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00075}00075\ \textcolor{preprocessor}{\#if\ LEMON\_DEFAULT\_LP\ ==\ \_LEMON\_GLPK}}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00076}\mbox{\hyperlink{namespacelemon_a060945dfbdc58f92f0d478d27e0acb3d}{00076}}\ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_glpk_lp}{GlpkLp}}\ \mbox{\hyperlink{namespacelemon_a060945dfbdc58f92f0d478d27e0acb3d}{Lp}};}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00077}00077\ \textcolor{preprocessor}{\#elif\ LEMON\_DEFAULT\_LP\ ==\ \_LEMON\_CPLEX}}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00078}00078\ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_cplex_lp}{CplexLp}}\ \mbox{\hyperlink{namespacelemon_a060945dfbdc58f92f0d478d27e0acb3d}{Lp}};}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00079}00079\ \textcolor{preprocessor}{\#elif\ LEMON\_DEFAULT\_LP\ ==\ \_LEMON\_SOPLEX}}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00080}00080\ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_soplex_lp}{SoplexLp}}\ \mbox{\hyperlink{namespacelemon_a060945dfbdc58f92f0d478d27e0acb3d}{Lp}};}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00081}00081\ \textcolor{preprocessor}{\#elif\ LEMON\_DEFAULT\_LP\ ==\ \_LEMON\_CLP}}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00082}00082\ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_clp_lp}{ClpLp}}\ \mbox{\hyperlink{namespacelemon_a060945dfbdc58f92f0d478d27e0acb3d}{Lp}};}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00083}00083\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00084}00084\ \textcolor{preprocessor}{\#if\ LEMON\_DEFAULT\_MIP\ ==\ \_LEMON\_GLPK}}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00085}\mbox{\hyperlink{namespacelemon_ab3c9308b8af84e50a305634e972ee765}{00085}}\ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_glpk_mip}{GlpkMip}}\ \mbox{\hyperlink{namespacelemon_ab3c9308b8af84e50a305634e972ee765}{Mip}};}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00086}00086\ \textcolor{preprocessor}{\#elif\ LEMON\_DEFAULT\_MIP\ ==\ \_LEMON\_CPLEX}}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00087}00087\ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_cplex_mip}{CplexMip}}\ \mbox{\hyperlink{namespacelemon_ab3c9308b8af84e50a305634e972ee765}{Mip}};}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00088}00088\ \textcolor{preprocessor}{\#elif\ LEMON\_DEFAULT\_MIP\ ==\ \_LEMON\_CBC}}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00089}00089\ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_cbc_mip}{CbcMip}}\ \mbox{\hyperlink{namespacelemon_ab3c9308b8af84e50a305634e972ee765}{Mip}};}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00090}00090\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00091}00091\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00093}00093\ \}\ \textcolor{comment}{//namespace\ lemon}}
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{lp_8h_source_l00095}00095\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//LEMON\_LP\_H}}
+
+\end{DoxyCode}

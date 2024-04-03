@@ -1,0 +1,5 @@
+<map id="Data::WallData::getPoints" name="Data::WallData::getPoints">
+<area shape="rect" id="Node000001" title=" " alt="" coords="123,5,295,32"/>
+<area shape="rect" id="Node000002" href="$namespace_i_o.html#abdf0a680b30d8298ad2aa6d813accc30" title=" " alt="" coords="5,5,75,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,21,75,21,75,16,107,16"/>
+</map>

@@ -1,0 +1,68 @@
+\doxysection{stopwatch.\+h}
+\hypertarget{stopwatch_8h_source}{}\label{stopwatch_8h_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/spdlog/stopwatch.h@{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/spdlog/stopwatch.h}}
+\mbox{\hyperlink{stopwatch_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00001}00001\ \textcolor{comment}{//\ Copyright(c)\ 2015-\/present,\ Gabi\ Melman\ \&\ spdlog\ contributors.}}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00002}00002\ \textcolor{comment}{//\ Distributed\ under\ the\ MIT\ License\ (http://opensource.org/licenses/MIT)}}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00004}00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <chrono>}}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fmt_8h}{spdlog/fmt/fmt.h}}>}}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00009}00009\ \textcolor{comment}{//\ Stopwatch\ support\ for\ spdlog\ \ (using\ std::chrono::steady\_clock).}}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00010}00010\ \textcolor{comment}{//\ Displays\ elapsed\ seconds\ since\ construction\ as\ double.}}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00011}00011\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00012}00012\ \textcolor{comment}{//\ Usage:}}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00013}00013\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00014}00014\ \textcolor{comment}{//\ spdlog::stopwatch\ sw;}}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00015}00015\ \textcolor{comment}{//\ ...}}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00016}00016\ \textcolor{comment}{//\ spdlog::debug("{}Elapsed:\ \{\}\ seconds"{},\ sw);\ \ \ \ =>\ \ "{}Elapsed\ 0.005116733\ seconds"{}}}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00017}00017\ \textcolor{comment}{//\ spdlog::info("{}Elapsed:\ \{:.6\}\ seconds"{},\ sw);\ \ =>\ \ "{}Elapsed\ 0.005163\ seconds"{}}}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00018}00018\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00019}00019\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00020}00020\ \textcolor{comment}{//\ If\ other\ units\ are\ needed\ (e.g.\ millis\ instead\ of\ double),\ include\ "{}fmt/chrono.h"{}\ and\ use}}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00021}00021\ \textcolor{comment}{//\ "{}duration\_cast<..>(sw.elapsed())"{}:}}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00022}00022\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00023}00023\ \textcolor{comment}{//\ \#include\ <spdlog/fmt/chrono.h>}}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00024}00024\ \textcolor{comment}{//..}}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00025}00025\ \textcolor{comment}{//\ using\ std::chrono::duration\_cast;}}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00026}00026\ \textcolor{comment}{//\ using\ std::chrono::milliseconds;}}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00027}00027\ \textcolor{comment}{//\ spdlog::info("{}Elapsed\ \{\}"{},\ duration\_cast<milliseconds>(sw.elapsed()));\ =>\ "{}Elapsed\ 5ms"{}}}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00029}00029\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacespdlog}{spdlog}}\ \{}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00030}\mbox{\hyperlink{classspdlog_1_1stopwatch}{00030}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classspdlog_1_1stopwatch}{stopwatch}}\ \{}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00031}\mbox{\hyperlink{classspdlog_1_1stopwatch_ab94f8e2c458ebc211f34f3b1bfeeabe9}{00031}}\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classspdlog_1_1stopwatch_ab94f8e2c458ebc211f34f3b1bfeeabe9}{clock}}\ =\ std::chrono::steady\_clock;}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00032}\mbox{\hyperlink{classspdlog_1_1stopwatch_a5e9d45bd43e487c8dcd80f8c4b1a5fa7}{00032}}\ \ \ \ \ std::chrono::time\_point<clock>\ \mbox{\hyperlink{classspdlog_1_1stopwatch_a5e9d45bd43e487c8dcd80f8c4b1a5fa7}{start\_tp\_}};}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00034}00034\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00035}\mbox{\hyperlink{classspdlog_1_1stopwatch_a422e40a18a3d7b7de8b05470529ef06c}{00035}}\ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1stopwatch_a422e40a18a3d7b7de8b05470529ef06c}{stopwatch}}()}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00036}00036\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classspdlog_1_1stopwatch_a5e9d45bd43e487c8dcd80f8c4b1a5fa7}{start\_tp\_}}\{\mbox{\hyperlink{classspdlog_1_1stopwatch_ab94f8e2c458ebc211f34f3b1bfeeabe9}{clock}}::now()\}\ \{\}}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00038}\mbox{\hyperlink{classspdlog_1_1stopwatch_ab35526e0d462c030f510498cb58f8b73}{00038}}\ \ \ \ \ std::chrono::duration<double>\ \mbox{\hyperlink{classspdlog_1_1stopwatch_ab35526e0d462c030f510498cb58f8b73}{elapsed}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00039}00039\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::chrono::duration<double>(clock::now()\ -\/\ \mbox{\hyperlink{classspdlog_1_1stopwatch_a5e9d45bd43e487c8dcd80f8c4b1a5fa7}{start\_tp\_}});}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00040}00040\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00042}\mbox{\hyperlink{classspdlog_1_1stopwatch_ab171b9fbf0e64fa5716a08d0c126f227}{00042}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1stopwatch_ab171b9fbf0e64fa5716a08d0c126f227}{reset}}()\ \{\ \mbox{\hyperlink{classspdlog_1_1stopwatch_a5e9d45bd43e487c8dcd80f8c4b1a5fa7}{start\_tp\_}}\ =\ clock::now();\ \}}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00043}00043\ \};}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00044}00044\ \}\ \ \textcolor{comment}{//\ namespace\ spdlog}}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00046}00046\ \textcolor{comment}{//\ Support\ for\ fmt\ formatting\ \ (e.g.\ "{}\{:012.9\}"{}\ or\ just\ "{}\{\}"{})}}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00047}00047\ \textcolor{keyword}{namespace}}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00048}00048\ \textcolor{preprocessor}{\#ifdef\ SPDLOG\_USE\_STD\_FORMAT}}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00049}00049\ \ \ \ \ \mbox{\hyperlink{namespacestd}{std}}}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00050}00050\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00051}00051\ \ \ \ \ \mbox{\hyperlink{namespacefmt}{fmt}}}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00052}00052\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00053}00053\ \{}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00055}00055\ \textcolor{keyword}{template}\ <>}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00056}\mbox{\hyperlink{structfmt_1_1formatter_3_01spdlog_1_1stopwatch_01_4}{00056}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structformatter}{formatter}}<\mbox{\hyperlink{namespacespdlog}{spdlog}}::stopwatch>\ :\ \mbox{\hyperlink{structformatter}{formatter}}<double>\ \{}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00057}00057\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ FormatContext>}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00058}\mbox{\hyperlink{structfmt_1_1formatter_3_01spdlog_1_1stopwatch_01_4_a2cf0333c29a970a493884b1479e92c69}{00058}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{structfmt_1_1formatter_3_01spdlog_1_1stopwatch_01_4_a2cf0333c29a970a493884b1479e92c69}{format}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classspdlog_1_1stopwatch}{spdlog::stopwatch}}\ \&sw,\ FormatContext\ \&ctx)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keyword}{decltype}(ctx.out())\ \{}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00059}00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structformatter}{formatter<double>::format}}(sw.elapsed().count(),\ ctx);}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00060}00060\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00061}00061\ \};}
+\DoxyCodeLine{\Hypertarget{stopwatch_8h_source_l00062}00062\ \}\ \ \textcolor{comment}{//\ namespace\ std}}
+
+\end{DoxyCode}

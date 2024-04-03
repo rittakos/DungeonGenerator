@@ -1,0 +1,47 @@
+\doxysection{C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Geometry/polygon.hpp File Reference}
+\hypertarget{polygon_8hpp}{}\label{polygon_8hpp}\index{C:/Dev/DungeonGenerator/DungeonGenerator/Geometry/polygon.hpp@{C:/Dev/DungeonGenerator/DungeonGenerator/Geometry/polygon.hpp}}
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include "{}line.\+hpp"{}}\newline
+{\ttfamily \#include "{}vector.\+hpp"{}}\newline
+{\ttfamily \#include "{}edge.\+hpp"{}}\newline
+Include dependency graph for polygon.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{polygon_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{polygon_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_geometry_1_1_polygon}{Geometry\+::\+Polygon}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_geometry}{Geometry}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} $>$ \mbox{\hyperlink{namespace_geometry_a8dddd11d4083106d030f51b1ca825cfc}{Geometry\+::get\+Intersection\+Points}} (const \mbox{\hyperlink{class_geometry_1_1_line}{Line}} \&line, const \mbox{\hyperlink{class_geometry_1_1_polygon}{Polygon}} \&polygon)
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_geometry_1_1_polygon}{Polygon}} $>$ \mbox{\hyperlink{namespace_geometry_aefbbcab5ceafe8317239d651d6b5137b}{Geometry\+::divide\+Polygon\+By\+Line}} (const \mbox{\hyperlink{class_geometry_1_1_line}{Line}} \&line, const \mbox{\hyperlink{class_geometry_1_1_polygon}{Polygon}} \&polygon)
+\item 
+\mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} \mbox{\hyperlink{namespace_geometry_a94d394c48efca5ab84fc1dc8022412be}{Geometry\+::cut\+Part\+From\+Polygon}} (\mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} P, float targer\+Area, \mbox{\hyperlink{class_geometry_1_1_polygon}{Polygon}} polygon)
+\item 
+std\+::ostream \& \mbox{\hyperlink{namespace_geometry_a165e903029a6dc0d13e2b94841457c5b}{Geometry\+::operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{class_geometry_1_1_polygon}{Polygon}} \&polygon)
+\item 
+bool \mbox{\hyperlink{namespace_geometry_a30ae5518f5e6f5a31b920add2beee6b6}{Geometry\+::operator==}} (const \mbox{\hyperlink{class_geometry_1_1_polygon}{Polygon}} \&polygon1, const \mbox{\hyperlink{class_geometry_1_1_polygon}{Polygon}} \&polygon2)
+\item 
+bool \mbox{\hyperlink{namespace_geometry_aa0f4c906ecb08704e81d18f6c27cdd77}{Geometry\+::operator!=}} (const \mbox{\hyperlink{class_geometry_1_1_polygon}{Polygon}} \&polygon1, const \mbox{\hyperlink{class_geometry_1_1_polygon}{Polygon}} \&polygon2)
+\end{DoxyCompactItemize}

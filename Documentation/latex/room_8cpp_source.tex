@@ -1,0 +1,30 @@
+\doxysection{room.\+cpp}
+\hypertarget{room_8cpp_source}{}\label{room_8cpp_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/Data/room.cpp@{C:/Dev/DungeonGenerator/DungeonGenerator/Data/room.cpp}}
+\mbox{\hyperlink{room_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{room_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{room_8hpp}{room.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{room_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{room_8cpp_source_l00003}00003\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_data}{Data}}}
+\DoxyCodeLine{\Hypertarget{room_8cpp_source_l00004}00004\ \{}
+\DoxyCodeLine{\Hypertarget{room_8cpp_source_l00005}00005\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_data_1_1_room_data_a8a686ebd6b3a3f1d1f454e7f2c98adb6}{RoomData::nextId}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{room_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{room_8cpp_source_l00007}\mbox{\hyperlink{class_data_1_1_room_data_aa355e4db2cb5f3e291ab867f533d4820}{00007}}\ \ \ \ \ \mbox{\hyperlink{class_data_1_1_room_data_aa355e4db2cb5f3e291ab867f533d4820}{RoomData::RoomData}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_geometry_1_1_polygon}{Geometry::Polygon}}\&\ polygon)\ :\ id(nextId),\ floor(polygon)}
+\DoxyCodeLine{\Hypertarget{room_8cpp_source_l00008}00008\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{room_8cpp_source_l00009}00009\ \ \ \ \ \ \ \ \ ++\mbox{\hyperlink{class_data_1_1_room_data_a8a686ebd6b3a3f1d1f454e7f2c98adb6}{RoomData::nextId}};}
+\DoxyCodeLine{\Hypertarget{room_8cpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{room_8cpp_source_l00011}00011\ \ \ \ \ \ \ \ \ std::vector<Math::Vec3f>\ points\ =\ \mbox{\hyperlink{class_data_1_1_room_data_a642788b2dfb6d8d06efe4bf6d94b60ba}{floor}}.\mbox{\hyperlink{class_data_1_1_layout_data_ad0327c57353bc5f5407a436d980b073d}{getPoints}}();}
+\DoxyCodeLine{\Hypertarget{room_8cpp_source_l00012}00012\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ 0;\ idx\ <\ points.size()\ -\/\ 1;\ ++idx)}
+\DoxyCodeLine{\Hypertarget{room_8cpp_source_l00013}00013\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{room_8cpp_source_l00014}00014\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_data_1_1_room_data_a2d6654849439a0388b63d106af4955ca}{walls}}.push\_back(\mbox{\hyperlink{class_data_1_1_wall_data}{Data::WallData}}(points[idx],\ points[idx\ +\ 1]));}
+\DoxyCodeLine{\Hypertarget{room_8cpp_source_l00015}00015\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{room_8cpp_source_l00016}00016\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_data_1_1_room_data_a2d6654849439a0388b63d106af4955ca}{walls}}.push\_back(\mbox{\hyperlink{class_data_1_1_wall_data}{Data::WallData}}(points[points.size()\ -\/\ 1],\ points[0]));}
+\DoxyCodeLine{\Hypertarget{room_8cpp_source_l00017}00017\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{room_8cpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{room_8cpp_source_l00019}\mbox{\hyperlink{class_data_1_1_room_data_aa1977a5084afe5da179f5c72ebebd02e}{00019}}\ \ \ \ \ \mbox{\hyperlink{class_data_1_1_room_data}{RoomData}}\&\ \mbox{\hyperlink{class_data_1_1_room_data_aa1977a5084afe5da179f5c72ebebd02e}{RoomData::operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_data_1_1_room_data}{RoomData}}\&\ other)}
+\DoxyCodeLine{\Hypertarget{room_8cpp_source_l00020}00020\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{room_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{room_8cpp_source_l00022}00022\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{room_8cpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{room_8cpp_source_l00024}00024\ \}}
+
+\end{DoxyCode}

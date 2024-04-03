@@ -1,0 +1,7 @@
+<map id="Data::DungeonData::getRooms" name="Data::DungeonData::getRooms">
+<area shape="rect" id="Node000001" title=" " alt="" coords="256,39,398,81"/>
+<area shape="rect" id="Node000002" href="$class_generator_1_1_basic_hole_generator.html#a71278848337a912910e27af122004b0f" title=" " alt="" coords="5,5,208,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="240,50,208,45,209,39,241,44"/>
+<area shape="rect" id="Node000003" href="$class_generator_1_1_delaunay_based_generator_algorithm.html#ad3c444ceb88e6094c3895ce8e80d5fdd" title=" " alt="" coords="9,72,204,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="241,76,204,81,204,76,240,70"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="Generator::GeneratorAlgorithm" name="Generator::GeneratorAlgorithm">
+<area shape="rect" id="Node000001" title=" " alt="" coords="163,5,352,96"/>
+<area shape="rect" id="Node000002" href="$class_generator_1_1_delaunay_based_generator_algorithm.html" title=" " alt="" coords="5,237,248,515"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="236,111,185,239,180,237,231,109"/>
+<area shape="rect" id="Node000003" href="$class_generator_1_1_voronoi_based_generator_algorithm.html" title=" " alt="" coords="272,144,504,608"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="283,109,297,143,292,145,278,111"/>
+</map>

@@ -1,0 +1,258 @@
+\doxysection{IO\+::Dungeon\+Writer Class Reference}
+\hypertarget{class_i_o_1_1_dungeon_writer}{}\label{class_i_o_1_1_dungeon_writer}\index{IO::DungeonWriter@{IO::DungeonWriter}}
+
+
+{\ttfamily \#include $<$dungeon\+Writer.\+hpp$>$}
+
+
+
+Collaboration diagram for IO\+::Dungeon\+Writer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_i_o_1_1_dungeon_writer__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_i_o_1_1_dungeon_writer_abcfb281b6e7718152c788387872b04d6}{Dungeon\+Writer}} (const \mbox{\hyperlink{class_data_1_1_dungeon_data}{Data\+::\+Dungeon\+Data}} \&dungeon\+Data, std\+::string path)
+\item 
+\mbox{\hyperlink{class_i_o_1_1_dungeon_writer_a73357d9afcf08e09d5dbc7c3685b0cc6}{\texorpdfstring{$\sim$}{\string~}\+Dungeon\+Writer}} ()
+\item 
+void \mbox{\hyperlink{class_i_o_1_1_dungeon_writer_a6b35e5995e08e53716d960988ddec32c}{write}} ()
+\item 
+void \mbox{\hyperlink{class_i_o_1_1_dungeon_writer_a2f9da349500db48b769d0af11cd1b09e}{write\+Floors}} ()
+\item 
+void \mbox{\hyperlink{class_i_o_1_1_dungeon_writer_aace52b8071b34ef3f65e89efde518ef5}{write\+Walls}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ofstream \mbox{\hyperlink{class_i_o_1_1_dungeon_writer_ad2b3e9f732e232009fc3145a41738eb2}{file}}
+\item 
+std\+::string \mbox{\hyperlink{class_i_o_1_1_dungeon_writer_ab35d1e38461504c45b98ade4386b4087}{file\+Path}}
+\item 
+\mbox{\hyperlink{class_data_1_1_dungeon_data}{Data\+::\+Dungeon\+Data}} \mbox{\hyperlink{class_i_o_1_1_dungeon_writer_a7f81038091786bbc6e701115ed32cb3d}{data}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{dungeon_writer_8hpp_source_l00008}{8}} of file \mbox{\hyperlink{dungeon_writer_8hpp_source}{dungeon\+Writer.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_i_o_1_1_dungeon_writer_abcfb281b6e7718152c788387872b04d6}\label{class_i_o_1_1_dungeon_writer_abcfb281b6e7718152c788387872b04d6} 
+\index{IO::DungeonWriter@{IO::DungeonWriter}!DungeonWriter@{DungeonWriter}}
+\index{DungeonWriter@{DungeonWriter}!IO::DungeonWriter@{IO::DungeonWriter}}
+\doxysubsubsection{\texorpdfstring{DungeonWriter()}{DungeonWriter()}}
+{\footnotesize\ttfamily IO\+::\+Dungeon\+Writer\+::\+Dungeon\+Writer (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_data_1_1_dungeon_data}{Data\+::\+Dungeon\+Data}} \&}]{dungeon\+Data,  }\item[{std\+::string}]{path }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{dungeon_writer_8cpp_source_l00011}{11}} of file \mbox{\hyperlink{dungeon_writer_8cpp_source}{dungeon\+Writer.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{class_i_o_1_1_dungeon_writer_ad2b3e9f732e232009fc3145a41738eb2}{file}}(path,\ std::ofstream::out),\ \mbox{\hyperlink{class_i_o_1_1_dungeon_writer_a7f81038091786bbc6e701115ed32cb3d}{data}}(dungeonData) }
+\DoxyCodeLine{00012\ \ \ \ \ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_i_o_1_1_dungeon_writer_ab35d1e38461504c45b98ade4386b4087}{filePath}}\ =\ path;}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ assert(\mbox{\hyperlink{class_i_o_1_1_dungeon_writer_ad2b3e9f732e232009fc3145a41738eb2}{file}}.is\_open());}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_i_o_1_1_dungeon_writer_ad2b3e9f732e232009fc3145a41738eb2}{file}}.is\_open())}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_log_a2625a4aa82f846d5b9a51af99905b7e5}{Log::error}}(\textcolor{stringliteral}{"{}Can\ not\ open\ file!"{}});}
+\DoxyCodeLine{00017\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_i_o_1_1_dungeon_writer_abcfb281b6e7718152c788387872b04d6_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_i_o_1_1_dungeon_writer_a73357d9afcf08e09d5dbc7c3685b0cc6}\label{class_i_o_1_1_dungeon_writer_a73357d9afcf08e09d5dbc7c3685b0cc6} 
+\index{IO::DungeonWriter@{IO::DungeonWriter}!````~DungeonWriter@{\texorpdfstring{$\sim$}{\string~}DungeonWriter}}
+\index{````~DungeonWriter@{\texorpdfstring{$\sim$}{\string~}DungeonWriter}!IO::DungeonWriter@{IO::DungeonWriter}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}DungeonWriter()}{\string~DungeonWriter()}}
+{\footnotesize\ttfamily IO\+::\+Dungeon\+Writer\+::\texorpdfstring{$\sim$}{\string~}\+Dungeon\+Writer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{dungeon_writer_8cpp_source_l00019}{19}} of file \mbox{\hyperlink{dungeon_writer_8cpp_source}{dungeon\+Writer.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00020\ \ \ \ \ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_i_o_1_1_dungeon_writer_ad2b3e9f732e232009fc3145a41738eb2}{file}}.is\_open())}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_i_o_1_1_dungeon_writer_ad2b3e9f732e232009fc3145a41738eb2}{file}}.close();}
+\DoxyCodeLine{00023\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_i_o_1_1_dungeon_writer_a6b35e5995e08e53716d960988ddec32c}\label{class_i_o_1_1_dungeon_writer_a6b35e5995e08e53716d960988ddec32c} 
+\index{IO::DungeonWriter@{IO::DungeonWriter}!write@{write}}
+\index{write@{write}!IO::DungeonWriter@{IO::DungeonWriter}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily void IO\+::\+Dungeon\+Writer\+::write (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{dungeon_writer_8cpp_source_l00025}{25}} of file \mbox{\hyperlink{dungeon_writer_8cpp_source}{dungeon\+Writer.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00026\ \ \ \ \ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_i_o_1_1_dungeon_writer_ad2b3e9f732e232009fc3145a41738eb2}{file}}.is\_open())}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_i_o_1_1_dungeon_writer_ad2b3e9f732e232009fc3145a41738eb2}{file}}\ <<\ \mbox{\hyperlink{class_i_o_1_1_dungeon_writer_a7f81038091786bbc6e701115ed32cb3d}{data}}.\mbox{\hyperlink{class_data_1_1_dungeon_data_a63f3a29a0427ac44a40a4b59238b0fe0}{getVersion}}\ ()\ <<\ \mbox{\hyperlink{namespace_i_o_a9943de923a977491a8be5298467bd19b}{endOfLine}};}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_i_o_1_1_dungeon_writer_ad2b3e9f732e232009fc3145a41738eb2}{file}}\ <<\ \mbox{\hyperlink{class_i_o_1_1_dungeon_writer_a7f81038091786bbc6e701115ed32cb3d}{data}}.\mbox{\hyperlink{class_data_1_1_dungeon_data_aba1d1943e0c048a08ca7e11ca68b943b}{getSeed}}\ ()\ <<\ \mbox{\hyperlink{namespace_i_o_a9943de923a977491a8be5298467bd19b}{endOfLine}};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_i_o_1_1_dungeon_writer_a2f9da349500db48b769d0af11cd1b09e}{writeFloors}}();}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_i_o_1_1_dungeon_writer_aace52b8071b34ef3f65e89efde518ef5}{writeWalls}}();}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{comment}{//for\ (const\ Data::RoomData\&\ room\ :\ data.getRooms())}}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ IO::write(room,\ file);}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_i_o_1_1_dungeon_writer_ad2b3e9f732e232009fc3145a41738eb2}{file}}\ <<\ \textcolor{stringliteral}{"{}End"{}}\ <<\ \mbox{\hyperlink{namespace_i_o_a9943de923a977491a8be5298467bd19b}{endOfLine}};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_i_o_1_1_dungeon_writer_ad2b3e9f732e232009fc3145a41738eb2}{file}}.close();}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_log_acc334094de2c17174209b77597e7742d}{Log::info}}(\textcolor{stringliteral}{"{}File\ saved!\ ("{}}\ +\ \mbox{\hyperlink{class_i_o_1_1_dungeon_writer_ab35d1e38461504c45b98ade4386b4087}{filePath}}\ +\ \textcolor{stringliteral}{"{})"{}});}
+\DoxyCodeLine{00044\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_i_o_1_1_dungeon_writer_a6b35e5995e08e53716d960988ddec32c_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_i_o_1_1_dungeon_writer_a6b35e5995e08e53716d960988ddec32c_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_i_o_1_1_dungeon_writer_a2f9da349500db48b769d0af11cd1b09e}\label{class_i_o_1_1_dungeon_writer_a2f9da349500db48b769d0af11cd1b09e} 
+\index{IO::DungeonWriter@{IO::DungeonWriter}!writeFloors@{writeFloors}}
+\index{writeFloors@{writeFloors}!IO::DungeonWriter@{IO::DungeonWriter}}
+\doxysubsubsection{\texorpdfstring{writeFloors()}{writeFloors()}}
+{\footnotesize\ttfamily void IO\+::\+Dungeon\+Writer\+::write\+Floors (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{dungeon_writer_8cpp_source_l00046}{46}} of file \mbox{\hyperlink{dungeon_writer_8cpp_source}{dungeon\+Writer.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00047\ \ \ \ \ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{class_data_1_1_layout_data}{Data::LayoutData}}\&\ layout\ :\ \mbox{\hyperlink{class_i_o_1_1_dungeon_writer_a7f81038091786bbc6e701115ed32cb3d}{data}}.getFloors())}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_i_o_ab979242afe8bf9f39df609bf7cd8e1fe}{IO::write}}(layout,\ \mbox{\hyperlink{class_i_o_1_1_dungeon_writer_ad2b3e9f732e232009fc3145a41738eb2}{file}});}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00052\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_i_o_1_1_dungeon_writer_a2f9da349500db48b769d0af11cd1b09e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_i_o_1_1_dungeon_writer_a2f9da349500db48b769d0af11cd1b09e_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_i_o_1_1_dungeon_writer_aace52b8071b34ef3f65e89efde518ef5}\label{class_i_o_1_1_dungeon_writer_aace52b8071b34ef3f65e89efde518ef5} 
+\index{IO::DungeonWriter@{IO::DungeonWriter}!writeWalls@{writeWalls}}
+\index{writeWalls@{writeWalls}!IO::DungeonWriter@{IO::DungeonWriter}}
+\doxysubsubsection{\texorpdfstring{writeWalls()}{writeWalls()}}
+{\footnotesize\ttfamily void IO\+::\+Dungeon\+Writer\+::write\+Walls (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{dungeon_writer_8cpp_source_l00054}{54}} of file \mbox{\hyperlink{dungeon_writer_8cpp_source}{dungeon\+Writer.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00055\ \ \ \ \ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{class_data_1_1_wall_data}{Data::WallData}}\&\ wall\ :\ \mbox{\hyperlink{class_i_o_1_1_dungeon_writer_a7f81038091786bbc6e701115ed32cb3d}{data}}.getWalls())}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_i_o_ab979242afe8bf9f39df609bf7cd8e1fe}{IO::write}}(wall,\ \mbox{\hyperlink{class_i_o_1_1_dungeon_writer_ad2b3e9f732e232009fc3145a41738eb2}{file}});}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00060\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_i_o_1_1_dungeon_writer_aace52b8071b34ef3f65e89efde518ef5_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_i_o_1_1_dungeon_writer_aace52b8071b34ef3f65e89efde518ef5_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_i_o_1_1_dungeon_writer_a7f81038091786bbc6e701115ed32cb3d}\label{class_i_o_1_1_dungeon_writer_a7f81038091786bbc6e701115ed32cb3d} 
+\index{IO::DungeonWriter@{IO::DungeonWriter}!data@{data}}
+\index{data@{data}!IO::DungeonWriter@{IO::DungeonWriter}}
+\doxysubsubsection{\texorpdfstring{data}{data}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_data_1_1_dungeon_data}{Data\+::\+Dungeon\+Data}} IO\+::\+Dungeon\+Writer\+::data\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{dungeon_writer_8hpp_source_l00013}{13}} of file \mbox{\hyperlink{dungeon_writer_8hpp_source}{dungeon\+Writer.\+hpp}}.
+
+\Hypertarget{class_i_o_1_1_dungeon_writer_ad2b3e9f732e232009fc3145a41738eb2}\label{class_i_o_1_1_dungeon_writer_ad2b3e9f732e232009fc3145a41738eb2} 
+\index{IO::DungeonWriter@{IO::DungeonWriter}!file@{file}}
+\index{file@{file}!IO::DungeonWriter@{IO::DungeonWriter}}
+\doxysubsubsection{\texorpdfstring{file}{file}}
+{\footnotesize\ttfamily std\+::ofstream IO\+::\+Dungeon\+Writer\+::file\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{dungeon_writer_8hpp_source_l00011}{11}} of file \mbox{\hyperlink{dungeon_writer_8hpp_source}{dungeon\+Writer.\+hpp}}.
+
+\Hypertarget{class_i_o_1_1_dungeon_writer_ab35d1e38461504c45b98ade4386b4087}\label{class_i_o_1_1_dungeon_writer_ab35d1e38461504c45b98ade4386b4087} 
+\index{IO::DungeonWriter@{IO::DungeonWriter}!filePath@{filePath}}
+\index{filePath@{filePath}!IO::DungeonWriter@{IO::DungeonWriter}}
+\doxysubsubsection{\texorpdfstring{filePath}{filePath}}
+{\footnotesize\ttfamily std\+::string IO\+::\+Dungeon\+Writer\+::file\+Path\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{dungeon_writer_8hpp_source_l00012}{12}} of file \mbox{\hyperlink{dungeon_writer_8hpp_source}{dungeon\+Writer.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Dungeon\+Generator/\mbox{\hyperlink{dungeon_writer_8hpp}{dungeon\+Writer.\+hpp}}\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Dungeon\+Generator/\mbox{\hyperlink{dungeon_writer_8cpp}{dungeon\+Writer.\+cpp}}\end{DoxyCompactItemize}

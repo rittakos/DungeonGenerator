@@ -1,0 +1,222 @@
+\doxysection{Math\+::Edge\texorpdfstring{$<$}{<} Type \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_math_1_1_edge}{}\label{class_math_1_1_edge}\index{Math::Edge$<$ Type $>$@{Math::Edge$<$ Type $>$}}
+
+
+{\ttfamily \#include $<$graph.\+hpp$>$}
+
+
+
+Collaboration diagram for Math\+::Edge\texorpdfstring{$<$}{<} Type \texorpdfstring{$>$}{>}\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=179pt]{class_math_1_1_edge__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_math_1_1_edge_ad1c64d01a32cb9ac62981f6ffa577b1a}{Edge}} (\mbox{\hyperlink{class_math_1_1_node}{Node}} \mbox{\hyperlink{class_math_1_1_edge_a32f5c42d4ba64547cb0c54b4247d6fe6}{from}}, \mbox{\hyperlink{class_math_1_1_node}{Node}} \mbox{\hyperlink{class_math_1_1_edge_acbe8393d25b0b486cbe6595aaed7f9c7}{to}}, int \mbox{\hyperlink{class_math_1_1_edge_a20254d60ca5546537d13ab8141973c48}{id}}=-\/1)
+\item 
+bool \mbox{\hyperlink{class_math_1_1_edge_ac1d74ca4a72990ad5850e6a266318bb3}{operator==}} (const \mbox{\hyperlink{class_math_1_1_edge}{Edge}} \&other) const
+\item 
+\mbox{\hyperlink{class_math_1_1_edge_a41d6542cdde28a06a603a0c4662235a9}{Edge}} (int \mbox{\hyperlink{class_math_1_1_edge_a20254d60ca5546537d13ab8141973c48}{id}}, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_math_1_1_node}{Node}}$<$ Type $>$ $>$ \mbox{\hyperlink{class_math_1_1_edge_a32f5c42d4ba64547cb0c54b4247d6fe6}{from}}, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_math_1_1_node}{Node}}$<$ Type $>$ $>$ \mbox{\hyperlink{class_math_1_1_edge_acbe8393d25b0b486cbe6595aaed7f9c7}{to}}, float \mbox{\hyperlink{class_math_1_1_edge_a9e471183848847790d51ecb4eb3fe1ab}{weight}}=1.\+0f)
+\item 
+int \mbox{\hyperlink{class_math_1_1_edge_ad1977006bf07709de987d1a666143cdc}{get\+Id}} () const
+\item 
+float \mbox{\hyperlink{class_math_1_1_edge_a2803e4578c05c47f4f9456366006defe}{get\+Weight}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_math_1_1_edge_a20254d60ca5546537d13ab8141973c48}{id}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_math_1_1_node}{Node}} \mbox{\hyperlink{class_math_1_1_edge_a32f5c42d4ba64547cb0c54b4247d6fe6}{from}}
+\item 
+\mbox{\hyperlink{class_math_1_1_node}{Node}} \mbox{\hyperlink{class_math_1_1_edge_acbe8393d25b0b486cbe6595aaed7f9c7}{to}}
+\item 
+float \mbox{\hyperlink{class_math_1_1_edge_a9e471183848847790d51ecb4eb3fe1ab}{weight}}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_math_1_1_node}{Node}}$<$ Type $>$ $>$ \mbox{\hyperlink{class_math_1_1_edge_a8af91eb96f3d4ac1f625f00df4cd3a47}{from}}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_math_1_1_node}{Node}}$<$ Type $>$ $>$ \mbox{\hyperlink{class_math_1_1_edge_a6d386d3fc253a53f643dc74fcce491c2}{to}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class Type$>$\newline
+class Math\+::\+Edge$<$ Type $>$}
+
+
+Definition at line \mbox{\hyperlink{graph_8hpp_source_l00029}{29}} of file \mbox{\hyperlink{graph_8hpp_source}{graph.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_math_1_1_edge_ad1c64d01a32cb9ac62981f6ffa577b1a}\label{class_math_1_1_edge_ad1c64d01a32cb9ac62981f6ffa577b1a} 
+\index{Math::Edge$<$ Type $>$@{Math::Edge$<$ Type $>$}!Edge@{Edge}}
+\index{Edge@{Edge}!Math::Edge$<$ Type $>$@{Math::Edge$<$ Type $>$}}
+\doxysubsubsection{\texorpdfstring{Edge()}{Edge()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class Type $>$ \\
+\mbox{\hyperlink{class_math_1_1_edge}{Math\+::\+Edge}}$<$ Type $>$\+::\+Edge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_math_1_1_node}{Node}}}]{from,  }\item[{\mbox{\hyperlink{class_math_1_1_node}{Node}}}]{to,  }\item[{int}]{id = {\ttfamily -\/1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{graph_8hpp_source_l00042}{42}} of file \mbox{\hyperlink{graph_8hpp_source}{graph.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00042\ :\ \mbox{\hyperlink{class_math_1_1_edge_a32f5c42d4ba64547cb0c54b4247d6fe6}{from}}(\mbox{\hyperlink{class_math_1_1_edge_a32f5c42d4ba64547cb0c54b4247d6fe6}{from}}),\ \mbox{\hyperlink{class_math_1_1_edge_acbe8393d25b0b486cbe6595aaed7f9c7}{to}}(\mbox{\hyperlink{class_math_1_1_edge_acbe8393d25b0b486cbe6595aaed7f9c7}{to}}),\ \mbox{\hyperlink{class_math_1_1_edge_a20254d60ca5546537d13ab8141973c48}{id}}(\textcolor{keywordtype}{id})\ \{\}}
+
+\end{DoxyCode}
+\Hypertarget{class_math_1_1_edge_a41d6542cdde28a06a603a0c4662235a9}\label{class_math_1_1_edge_a41d6542cdde28a06a603a0c4662235a9} 
+\index{Math::Edge$<$ Type $>$@{Math::Edge$<$ Type $>$}!Edge@{Edge}}
+\index{Edge@{Edge}!Math::Edge$<$ Type $>$@{Math::Edge$<$ Type $>$}}
+\doxysubsubsection{\texorpdfstring{Edge()}{Edge()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class Type $>$ \\
+\mbox{\hyperlink{class_math_1_1_edge}{Math\+::\+Edge}}$<$ Type $>$\+::\+Edge (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_math_1_1_node}{Node}}$<$ Type $>$ $>$}]{from,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_math_1_1_node}{Node}}$<$ Type $>$ $>$}]{to,  }\item[{float}]{weight = {\ttfamily 1.0f} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_my_graph_8hpp_source_l00058}{58}} of file \mbox{\hyperlink{_my_graph_8hpp_source}{My\+Graph.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{keywordtype}{id}\{\ \textcolor{keywordtype}{id}\ \},\ \mbox{\hyperlink{class_math_1_1_edge_a9e471183848847790d51ecb4eb3fe1ab}{weight}}\{\ \mbox{\hyperlink{class_math_1_1_edge_a9e471183848847790d51ecb4eb3fe1ab}{weight}}\ \}}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{class_math_1_1_edge_a32f5c42d4ba64547cb0c54b4247d6fe6}{from}}\ =\ \mbox{\hyperlink{class_math_1_1_edge_a32f5c42d4ba64547cb0c54b4247d6fe6}{from}};}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{class_math_1_1_edge_acbe8393d25b0b486cbe6595aaed7f9c7}{to}}\ =\ \mbox{\hyperlink{class_math_1_1_edge_acbe8393d25b0b486cbe6595aaed7f9c7}{to}};}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_math_1_1_edge_ad1977006bf07709de987d1a666143cdc}\label{class_math_1_1_edge_ad1977006bf07709de987d1a666143cdc} 
+\index{Math::Edge$<$ Type $>$@{Math::Edge$<$ Type $>$}!getId@{getId}}
+\index{getId@{getId}!Math::Edge$<$ Type $>$@{Math::Edge$<$ Type $>$}}
+\doxysubsubsection{\texorpdfstring{getId()}{getId()}}
+{\footnotesize\ttfamily template$<$class Type $>$ \\
+int \mbox{\hyperlink{class_math_1_1_edge}{Math\+::\+Edge}}$<$ Type $>$\+::get\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_my_graph_8hpp_source_l00064}{64}} of file \mbox{\hyperlink{_my_graph_8hpp_source}{My\+Graph.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00064\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_math_1_1_edge_a20254d60ca5546537d13ab8141973c48}{id}};\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_math_1_1_edge_a2803e4578c05c47f4f9456366006defe}\label{class_math_1_1_edge_a2803e4578c05c47f4f9456366006defe} 
+\index{Math::Edge$<$ Type $>$@{Math::Edge$<$ Type $>$}!getWeight@{getWeight}}
+\index{getWeight@{getWeight}!Math::Edge$<$ Type $>$@{Math::Edge$<$ Type $>$}}
+\doxysubsubsection{\texorpdfstring{getWeight()}{getWeight()}}
+{\footnotesize\ttfamily template$<$class Type $>$ \\
+float \mbox{\hyperlink{class_math_1_1_edge}{Math\+::\+Edge}}$<$ Type $>$\+::get\+Weight (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_my_graph_8hpp_source_l00065}{65}} of file \mbox{\hyperlink{_my_graph_8hpp_source}{My\+Graph.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00065\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_math_1_1_edge_a9e471183848847790d51ecb4eb3fe1ab}{weight}};\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_math_1_1_edge_ac1d74ca4a72990ad5850e6a266318bb3}\label{class_math_1_1_edge_ac1d74ca4a72990ad5850e6a266318bb3} 
+\index{Math::Edge$<$ Type $>$@{Math::Edge$<$ Type $>$}!operator==@{operator==}}
+\index{operator==@{operator==}!Math::Edge$<$ Type $>$@{Math::Edge$<$ Type $>$}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily template$<$class Type $>$ \\
+bool \mbox{\hyperlink{class_math_1_1_edge}{Math\+::\+Edge}}$<$ Type $>$\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_math_1_1_edge}{Edge}}$<$ Type $>$ \&}]{other }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{graph_8hpp_source_l00044}{44}} of file \mbox{\hyperlink{graph_8hpp_source}{graph.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_math_1_1_edge_a32f5c42d4ba64547cb0c54b4247d6fe6}{from}}\ ==\ other.from\ \&\&\ \mbox{\hyperlink{class_math_1_1_edge_acbe8393d25b0b486cbe6595aaed7f9c7}{to}}\ ==\ other.to;}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_math_1_1_edge_a32f5c42d4ba64547cb0c54b4247d6fe6}\label{class_math_1_1_edge_a32f5c42d4ba64547cb0c54b4247d6fe6} 
+\index{Math::Edge$<$ Type $>$@{Math::Edge$<$ Type $>$}!from@{from}}
+\index{from@{from}!Math::Edge$<$ Type $>$@{Math::Edge$<$ Type $>$}}
+\doxysubsubsection{\texorpdfstring{from}{from}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class Type $>$ \\
+\mbox{\hyperlink{class_math_1_1_node}{Node}} \mbox{\hyperlink{class_math_1_1_edge}{Math\+::\+Edge}}$<$ Type $>$\+::from\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{graph_8hpp_source_l00033}{33}} of file \mbox{\hyperlink{graph_8hpp_source}{graph.\+hpp}}.
+
+\Hypertarget{class_math_1_1_edge_a8af91eb96f3d4ac1f625f00df4cd3a47}\label{class_math_1_1_edge_a8af91eb96f3d4ac1f625f00df4cd3a47} 
+\index{Math::Edge$<$ Type $>$@{Math::Edge$<$ Type $>$}!from@{from}}
+\index{from@{from}!Math::Edge$<$ Type $>$@{Math::Edge$<$ Type $>$}}
+\doxysubsubsection{\texorpdfstring{from}{from}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class Type $>$ \\
+std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_math_1_1_node}{Node}}$<$Type$>$ $>$ \mbox{\hyperlink{class_math_1_1_edge}{Math\+::\+Edge}}$<$ Type $>$\+::from\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_my_graph_8hpp_source_l00054}{54}} of file \mbox{\hyperlink{_my_graph_8hpp_source}{My\+Graph.\+hpp}}.
+
+\Hypertarget{class_math_1_1_edge_a20254d60ca5546537d13ab8141973c48}\label{class_math_1_1_edge_a20254d60ca5546537d13ab8141973c48} 
+\index{Math::Edge$<$ Type $>$@{Math::Edge$<$ Type $>$}!id@{id}}
+\index{id@{id}!Math::Edge$<$ Type $>$@{Math::Edge$<$ Type $>$}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily template$<$class Type $>$ \\
+int \mbox{\hyperlink{class_math_1_1_edge}{Math\+::\+Edge}}$<$ Type $>$\+::id}
+
+
+
+Definition at line \mbox{\hyperlink{graph_8hpp_source_l00040}{40}} of file \mbox{\hyperlink{graph_8hpp_source}{graph.\+hpp}}.
+
+\Hypertarget{class_math_1_1_edge_acbe8393d25b0b486cbe6595aaed7f9c7}\label{class_math_1_1_edge_acbe8393d25b0b486cbe6595aaed7f9c7} 
+\index{Math::Edge$<$ Type $>$@{Math::Edge$<$ Type $>$}!to@{to}}
+\index{to@{to}!Math::Edge$<$ Type $>$@{Math::Edge$<$ Type $>$}}
+\doxysubsubsection{\texorpdfstring{to}{to}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class Type $>$ \\
+\mbox{\hyperlink{class_math_1_1_node}{Node}} \mbox{\hyperlink{class_math_1_1_edge}{Math\+::\+Edge}}$<$ Type $>$\+::to\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{graph_8hpp_source_l00035}{35}} of file \mbox{\hyperlink{graph_8hpp_source}{graph.\+hpp}}.
+
+\Hypertarget{class_math_1_1_edge_a6d386d3fc253a53f643dc74fcce491c2}\label{class_math_1_1_edge_a6d386d3fc253a53f643dc74fcce491c2} 
+\index{Math::Edge$<$ Type $>$@{Math::Edge$<$ Type $>$}!to@{to}}
+\index{to@{to}!Math::Edge$<$ Type $>$@{Math::Edge$<$ Type $>$}}
+\doxysubsubsection{\texorpdfstring{to}{to}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class Type $>$ \\
+std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_math_1_1_node}{Node}}$<$Type$>$ $>$ \mbox{\hyperlink{class_math_1_1_edge}{Math\+::\+Edge}}$<$ Type $>$\+::to\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_my_graph_8hpp_source_l00055}{55}} of file \mbox{\hyperlink{_my_graph_8hpp_source}{My\+Graph.\+hpp}}.
+
+\Hypertarget{class_math_1_1_edge_a9e471183848847790d51ecb4eb3fe1ab}\label{class_math_1_1_edge_a9e471183848847790d51ecb4eb3fe1ab} 
+\index{Math::Edge$<$ Type $>$@{Math::Edge$<$ Type $>$}!weight@{weight}}
+\index{weight@{weight}!Math::Edge$<$ Type $>$@{Math::Edge$<$ Type $>$}}
+\doxysubsubsection{\texorpdfstring{weight}{weight}}
+{\footnotesize\ttfamily template$<$class Type $>$ \\
+float \mbox{\hyperlink{class_math_1_1_edge}{Math\+::\+Edge}}$<$ Type $>$\+::weight\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_my_graph_8hpp_source_l00052}{52}} of file \mbox{\hyperlink{_my_graph_8hpp_source}{My\+Graph.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Math/\mbox{\hyperlink{graph_8hpp}{graph.\+hpp}}\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Math/\mbox{\hyperlink{_my_graph_8hpp}{My\+Graph.\+hpp}}\end{DoxyCompactItemize}

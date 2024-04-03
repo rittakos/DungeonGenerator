@@ -1,0 +1,11 @@
+<map id="C:/Dev/DungeonGenerator/DungeonGenerator/Math/angle.hpp" name="C:/Dev/DungeonGenerator/DungeonGenerator/Math/angle.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="42,5,214,64"/>
+<area shape="rect" id="Node000002" href="$math_8hpp.html" title=" " alt="" coords="90,112,166,139"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="131,64,131,96,125,96,125,64"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,187,67,213"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="114,141,65,179,62,175,110,137"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="91,187,165,213"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="131,139,131,171,125,171,125,139"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="189,187,267,213"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="147,137,200,175,197,179,144,141"/>
+</map>

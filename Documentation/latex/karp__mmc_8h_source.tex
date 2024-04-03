@@ -1,0 +1,422 @@
+\doxysection{karp\+\_\+mmc.\+h}
+\hypertarget{karp__mmc_8h_source}{}\label{karp__mmc_8h_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/lemon/karp\_mmc.h@{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/lemon/karp\_mmc.h}}
+\mbox{\hyperlink{karp__mmc_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00001}00001\ \textcolor{comment}{/*\ -\/*-\/\ mode:\ C++;\ indent-\/tabs-\/mode:\ nil;\ -\/*-\/}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00002}00002\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00003}00003\ \textcolor{comment}{\ *\ This\ file\ is\ a\ part\ of\ LEMON,\ a\ generic\ C++\ optimization\ library.}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00004}00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00005}00005\ \textcolor{comment}{\ *\ Copyright\ (C)\ 2003-\/2013}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00006}00006\ \textcolor{comment}{\ *\ Egervary\ Jeno\ Kombinatorikus\ Optimalizalasi\ Kutatocsoport}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00007}00007\ \textcolor{comment}{\ *\ (Egervary\ Research\ Group\ on\ Combinatorial\ Optimization,\ EGRES).}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00008}00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00009}00009\ \textcolor{comment}{\ *\ Permission\ to\ use,\ modify\ and\ distribute\ this\ software\ is\ granted}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00010}00010\ \textcolor{comment}{\ *\ provided\ that\ this\ copyright\ notice\ appears\ in\ all\ copies.\ For}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00011}00011\ \textcolor{comment}{\ *\ precise\ terms\ see\ the\ accompanying\ LICENSE\ file.}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00012}00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00013}00013\ \textcolor{comment}{\ *\ This\ software\ is\ provided\ "{}AS\ IS"{}\ with\ no\ warranty\ of\ any\ kind,}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00014}00014\ \textcolor{comment}{\ *\ express\ or\ implied,\ and\ with\ no\ claim\ as\ to\ its\ suitability\ for\ any}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00015}00015\ \textcolor{comment}{\ *\ purpose.}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00016}00016\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00017}00017\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00019}00019\ \textcolor{preprocessor}{\#ifndef\ LEMON\_KARP\_MMC\_H}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00020}00020\ \textcolor{preprocessor}{\#define\ LEMON\_KARP\_MMC\_H}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00027}00027\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00028}00028\ \textcolor{preprocessor}{\#include\ <limits>}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00029}00029\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{lemon_2core_8h}{lemon/core.h}}>}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00030}00030\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{path_8h}{lemon/path.h}}>}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00031}00031\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{tolerance_8h}{lemon/tolerance.h}}>}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00032}00032\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{connectivity_8h}{lemon/connectivity.h}}>}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00034}00034\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacelemon}{lemon}}\ \{}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00042}00042\ \textcolor{preprocessor}{\#ifdef\ DOXYGEN}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00043}00043\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ GR,\ \textcolor{keyword}{typename}\ CM>}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00044}00044\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00045}00045\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ GR,\ \textcolor{keyword}{typename}\ CM,}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00046}00046\ \ \ \ \ \textcolor{keywordtype}{bool}\ integer\ =\ std::numeric\_limits<typename\ CM::Value>::is\_integer>}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00047}00047\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00048}\mbox{\hyperlink{structlemon_1_1_karp_mmc_default_traits}{00048}}\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_karp_mmc_default_traits}{KarpMmcDefaultTraits}}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00049}00049\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00051}\mbox{\hyperlink{structlemon_1_1_karp_mmc_default_traits_a477f894c9b5ae611838670c6cf039b86}{00051}}\ \ \ \ \ \textcolor{keyword}{typedef}\ GR\ \mbox{\hyperlink{structlemon_1_1_karp_mmc_default_traits_a477f894c9b5ae611838670c6cf039b86}{Digraph}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00053}\mbox{\hyperlink{structlemon_1_1_karp_mmc_default_traits_a29149e52e31899a7e9a01f52350228bb}{00053}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CM}}\ \mbox{\hyperlink{structlemon_1_1_karp_mmc_default_traits_a29149e52e31899a7e9a01f52350228bb}{CostMap}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00055}\mbox{\hyperlink{structlemon_1_1_karp_mmc_default_traits_a9cdddf6765120327505ebdc08c09ce46}{00055}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ CostMap::Value\ \mbox{\hyperlink{structlemon_1_1_karp_mmc_default_traits_a9cdddf6765120327505ebdc08c09ce46}{Cost}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00063}\mbox{\hyperlink{structlemon_1_1_karp_mmc_default_traits_adc2805277575f5722a6bc1c211ffe579}{00063}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structlemon_1_1_karp_mmc_default_traits_adc2805277575f5722a6bc1c211ffe579}{LargeCost}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00066}\mbox{\hyperlink{structlemon_1_1_karp_mmc_default_traits_a5e08b28300d2735ef2c27b63ab255183}{00066}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{lemon::Tolerance<LargeCost>}}\ \mbox{\hyperlink{structlemon_1_1_karp_mmc_default_traits_a5e08b28300d2735ef2c27b63ab255183}{Tolerance}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00073}\mbox{\hyperlink{structlemon_1_1_karp_mmc_default_traits_a54e22b4f9556f3bbef6e77b32d883705}{00073}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{lemon::Path<Digraph>}}\ \mbox{\hyperlink{structlemon_1_1_karp_mmc_default_traits_a54e22b4f9556f3bbef6e77b32d883705}{Path}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00074}00074\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00076}00076\ \ \ \textcolor{comment}{//\ Default\ traits\ class\ for\ integer\ cost\ types}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00077}00077\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ GR,\ \textcolor{keyword}{typename}\ CM>}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00078}\mbox{\hyperlink{structlemon_1_1_karp_mmc_default_traits_3_01_g_r_00_01_c_m_00_01true_01_4}{00078}}\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_karp_mmc_default_traits}{KarpMmcDefaultTraits}}<GR,\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CM}},\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{true}}>}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00079}00079\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00080}\mbox{\hyperlink{structlemon_1_1_karp_mmc_default_traits_3_01_g_r_00_01_c_m_00_01true_01_4_a37ef41dd2abba915668dcaa28abf9587}{00080}}\ \ \ \ \ \textcolor{keyword}{typedef}\ GR\ \mbox{\hyperlink{structlemon_1_1_karp_mmc_default_traits_3_01_g_r_00_01_c_m_00_01true_01_4_a37ef41dd2abba915668dcaa28abf9587}{Digraph}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00081}\mbox{\hyperlink{structlemon_1_1_karp_mmc_default_traits_3_01_g_r_00_01_c_m_00_01true_01_4_ab6e87c34dac0ca72183f0b4472cf6b31}{00081}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CM}}\ \mbox{\hyperlink{structlemon_1_1_karp_mmc_default_traits_3_01_g_r_00_01_c_m_00_01true_01_4_ab6e87c34dac0ca72183f0b4472cf6b31}{CostMap}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00082}\mbox{\hyperlink{structlemon_1_1_karp_mmc_default_traits_3_01_g_r_00_01_c_m_00_01true_01_4_a4bd9c0d72459022acc7911f6caabdd3f}{00082}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ CostMap::Value\ \mbox{\hyperlink{structlemon_1_1_karp_mmc_default_traits_3_01_g_r_00_01_c_m_00_01true_01_4_a4bd9c0d72459022acc7911f6caabdd3f}{Cost}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00083}00083\ \textcolor{preprocessor}{\#ifdef\ LEMON\_HAVE\_LONG\_LONG}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00084}00084\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{structlemon_1_1_karp_mmc_default_traits_adc2805277575f5722a6bc1c211ffe579}{LargeCost}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00085}00085\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00086}\mbox{\hyperlink{structlemon_1_1_karp_mmc_default_traits_3_01_g_r_00_01_c_m_00_01true_01_4_a1bc4d9f10f7da4377d7f4aeca620d9d7}{00086}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{structlemon_1_1_karp_mmc_default_traits_3_01_g_r_00_01_c_m_00_01true_01_4_a1bc4d9f10f7da4377d7f4aeca620d9d7}{LargeCost}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00087}00087\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00088}\mbox{\hyperlink{structlemon_1_1_karp_mmc_default_traits_3_01_g_r_00_01_c_m_00_01true_01_4_aa2bdb208e727cb8a23da41ba670e593c}{00088}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{lemon::Tolerance<LargeCost>}}\ \mbox{\hyperlink{structlemon_1_1_karp_mmc_default_traits_3_01_g_r_00_01_c_m_00_01true_01_4_aa2bdb208e727cb8a23da41ba670e593c}{Tolerance}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00089}\mbox{\hyperlink{structlemon_1_1_karp_mmc_default_traits_3_01_g_r_00_01_c_m_00_01true_01_4_afb85113f1b61289adf18d188bc675861}{00089}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{lemon::Path<Digraph>}}\ \mbox{\hyperlink{structlemon_1_1_karp_mmc_default_traits_3_01_g_r_00_01_c_m_00_01true_01_4_afb85113f1b61289adf18d188bc675861}{Path}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00090}00090\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00112}00112\ \textcolor{preprocessor}{\#ifdef\ DOXYGEN}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00113}00113\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ GR,\ \textcolor{keyword}{typename}\ CM,\ \textcolor{keyword}{typename}\ TR>}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00114}00114\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00115}00115\ \ \ \textcolor{keyword}{template}\ <\ \textcolor{keyword}{typename}\ GR,}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CM}}\ =\ \textcolor{keyword}{typename}\ GR::template\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ArcMap<int>}},}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ TR\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{KarpMmcDefaultTraits<GR,\ CM>}}\ >}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00118}00118\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00119}\mbox{\hyperlink{classlemon_1_1_karp_mmc}{00119}}\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_karp_mmc}{KarpMmc}}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00120}00120\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00121}00121\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00122}00122\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00124}\mbox{\hyperlink{classlemon_1_1_karp_mmc_a957f1cbd26229f8d6ec30f91846c82a9}{00124}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ TR::Digraph\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a957f1cbd26229f8d6ec30f91846c82a9}{Digraph}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00126}\mbox{\hyperlink{classlemon_1_1_karp_mmc_ac2efd7397ed753319e1f024cd8bf328e}{00126}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ TR::CostMap\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_ac2efd7397ed753319e1f024cd8bf328e}{CostMap}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00128}\mbox{\hyperlink{classlemon_1_1_karp_mmc_a1c8f7bd68450138c4ab6e62237b78d16}{00128}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ TR::Cost\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a1c8f7bd68450138c4ab6e62237b78d16}{Cost}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00135}\mbox{\hyperlink{classlemon_1_1_karp_mmc_a61bd4f6fa94e0733a13dbef53d9ac5ca}{00135}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ TR::LargeCost\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a61bd4f6fa94e0733a13dbef53d9ac5ca}{LargeCost}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00136}00136\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00138}\mbox{\hyperlink{classlemon_1_1_karp_mmc_ad5b855629a3978d1a8355c08b5155167}{00138}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ TR::Tolerance\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_ad5b855629a3978d1a8355c08b5155167}{Tolerance}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00139}00139\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00145}\mbox{\hyperlink{classlemon_1_1_karp_mmc_a9f2a5e8d34c83f69806cafc2328e5d61}{00145}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ TR::Path\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a9f2a5e8d34c83f69806cafc2328e5d61}{Path}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00146}00146\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00148}\mbox{\hyperlink{classlemon_1_1_karp_mmc_a690dc58fdfc0b4f11f80192bd1341f49}{00148}}\ \ \ \ \ \textcolor{keyword}{typedef}\ TR\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a690dc58fdfc0b4f11f80192bd1341f49}{Traits}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00149}00149\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00150}00150\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00151}00151\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00152}\mbox{\hyperlink{classlemon_1_1_karp_mmc_a9f2ada7f523909acdd44ec07b9c11370}{00152}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a9f2ada7f523909acdd44ec07b9c11370}{TEMPLATE\_DIGRAPH\_TYPEDEFS}}(\mbox{\hyperlink{classlemon_1_1_karp_mmc_a957f1cbd26229f8d6ec30f91846c82a9}{Digraph}});}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00153}00153\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00154}00154\ \ \ \ \ \textcolor{comment}{//\ Data\ sturcture\ for\ path\ data}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00155}\mbox{\hyperlink{structlemon_1_1_karp_mmc_1_1_path_data}{00155}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_karp_mmc_1_1_path_data}{PathData}}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00156}00156\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00157}\mbox{\hyperlink{structlemon_1_1_karp_mmc_1_1_path_data_af3c8a7821b299432b0712ba12f4aeea0}{00157}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a61bd4f6fa94e0733a13dbef53d9ac5ca}{LargeCost}}\ \mbox{\hyperlink{structlemon_1_1_karp_mmc_1_1_path_data_af3c8a7821b299432b0712ba12f4aeea0}{dist}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00158}\mbox{\hyperlink{structlemon_1_1_karp_mmc_1_1_path_data_ae08130ebbeb3c686e6c3ceaeb1d82876}{00158}}\ \ \ \ \ \ \ Arc\ \mbox{\hyperlink{structlemon_1_1_karp_mmc_1_1_path_data_ae08130ebbeb3c686e6c3ceaeb1d82876}{pred}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00159}\mbox{\hyperlink{structlemon_1_1_karp_mmc_1_1_path_data_a7af9c648501b971b706a894d0b6ab91d}{00159}}\ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_karp_mmc_1_1_path_data_a7af9c648501b971b706a894d0b6ab91d}{PathData}}(\mbox{\hyperlink{classlemon_1_1_karp_mmc_a61bd4f6fa94e0733a13dbef53d9ac5ca}{LargeCost}}\ d,\ Arc\ p\ =\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}})\ :}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00160}00160\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_karp_mmc_1_1_path_data_af3c8a7821b299432b0712ba12f4aeea0}{dist}}(d),\ \mbox{\hyperlink{structlemon_1_1_karp_mmc_1_1_path_data_ae08130ebbeb3c686e6c3ceaeb1d82876}{pred}}(p)\ \{\}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00161}00161\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00162}00162\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00163}00163\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Digraph::template\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{NodeMap<std::vector<PathData>}}\ >}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00164}\mbox{\hyperlink{classlemon_1_1_karp_mmc_acab613e8222beba29ad282c60456a452}{00164}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_acab613e8222beba29ad282c60456a452}{PathDataNodeMap}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00165}00165\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00166}00166\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00167}00167\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00168}00168\ \ \ \ \ \textcolor{comment}{//\ The\ digraph\ the\ algorithm\ runs\ on}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00169}\mbox{\hyperlink{classlemon_1_1_karp_mmc_a70764cba746cf353c917bb5a9bcf9af0}{00169}}\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a957f1cbd26229f8d6ec30f91846c82a9}{Digraph}}\ \&\mbox{\hyperlink{classlemon_1_1_karp_mmc_a70764cba746cf353c917bb5a9bcf9af0}{\_gr}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00170}00170\ \ \ \ \ \textcolor{comment}{//\ The\ cost\ of\ the\ arcs}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00171}\mbox{\hyperlink{classlemon_1_1_karp_mmc_a55856b218d56642d2cffe4422f26dbcf}{00171}}\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_ac2efd7397ed753319e1f024cd8bf328e}{CostMap}}\ \&\mbox{\hyperlink{classlemon_1_1_karp_mmc_a55856b218d56642d2cffe4422f26dbcf}{\_cost}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00172}00172\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00173}00173\ \ \ \ \ \textcolor{comment}{//\ Data\ for\ storing\ the\ strongly\ connected\ components}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00174}\mbox{\hyperlink{classlemon_1_1_karp_mmc_a71dc427457a9fc61958fb24c3b1ac9bb}{00174}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a71dc427457a9fc61958fb24c3b1ac9bb}{\_comp\_num}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00175}\mbox{\hyperlink{classlemon_1_1_karp_mmc_a647162001a4c69710761185f20020c6d}{00175}}\ \ \ \ \ \textcolor{keyword}{typename}\ Digraph::template\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{NodeMap<int>}}\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a647162001a4c69710761185f20020c6d}{\_comp}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00176}\mbox{\hyperlink{classlemon_1_1_karp_mmc_addf9a85f1481e080ecc2444492d45691}{00176}}\ \ \ \ \ std::vector<std::vector<Node>\ >\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_addf9a85f1481e080ecc2444492d45691}{\_comp\_nodes}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00177}\mbox{\hyperlink{classlemon_1_1_karp_mmc_accd8a5dd91f665bb2bc23ba07095f7c0}{00177}}\ \ \ \ \ std::vector<Node>*\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_accd8a5dd91f665bb2bc23ba07095f7c0}{\_nodes}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00178}\mbox{\hyperlink{classlemon_1_1_karp_mmc_abc1f2554924dad89e629399412dca1df}{00178}}\ \ \ \ \ \textcolor{keyword}{typename}\ Digraph::template\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{NodeMap<std::vector<Arc>}}\ >\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_abc1f2554924dad89e629399412dca1df}{\_out\_arcs}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00179}00179\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00180}00180\ \ \ \ \ \textcolor{comment}{//\ Data\ for\ the\ found\ cycle}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00181}\mbox{\hyperlink{classlemon_1_1_karp_mmc_a9bce73ada6cb9a8b55085574f23f0d25}{00181}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a61bd4f6fa94e0733a13dbef53d9ac5ca}{LargeCost}}\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a9bce73ada6cb9a8b55085574f23f0d25}{\_cycle\_cost}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00182}\mbox{\hyperlink{classlemon_1_1_karp_mmc_ad11693491d360e041415f10d4f3e3c3e}{00182}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_ad11693491d360e041415f10d4f3e3c3e}{\_cycle\_size}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00183}\mbox{\hyperlink{classlemon_1_1_karp_mmc_a7fe667156204e4f91690e23f21d5b07f}{00183}}\ \ \ \ \ Node\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a7fe667156204e4f91690e23f21d5b07f}{\_cycle\_node}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00184}00184\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00185}\mbox{\hyperlink{classlemon_1_1_karp_mmc_a8b1084b37f38158f5673ad02a1bfbf20}{00185}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a9f2a5e8d34c83f69806cafc2328e5d61}{Path}}\ *\mbox{\hyperlink{classlemon_1_1_karp_mmc_a8b1084b37f38158f5673ad02a1bfbf20}{\_cycle\_path}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00186}\mbox{\hyperlink{classlemon_1_1_karp_mmc_ae980d8294ab820448f8ea8754fafee89}{00186}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_ae980d8294ab820448f8ea8754fafee89}{\_local\_path}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00187}00187\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00188}00188\ \ \ \ \ \textcolor{comment}{//\ Node\ map\ for\ storing\ path\ data}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00189}\mbox{\hyperlink{classlemon_1_1_karp_mmc_a96a55be6cdb570fb1c1481c568acefad}{00189}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_acab613e8222beba29ad282c60456a452}{PathDataNodeMap}}\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a96a55be6cdb570fb1c1481c568acefad}{\_data}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00190}00190\ \ \ \ \ \textcolor{comment}{//\ The\ processed\ nodes\ in\ the\ last\ round}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00191}\mbox{\hyperlink{classlemon_1_1_karp_mmc_a4fa5c7e2779db514520ce5d2f88b22f6}{00191}}\ \ \ \ \ std::vector<Node>\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a4fa5c7e2779db514520ce5d2f88b22f6}{\_process}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00192}00192\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00193}\mbox{\hyperlink{classlemon_1_1_karp_mmc_ac68824a0fbfe3700a84906a515356840}{00193}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_ad5b855629a3978d1a8355c08b5155167}{Tolerance}}\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_ac68824a0fbfe3700a84906a515356840}{\_tolerance}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00194}00194\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00195}00195\ \ \ \ \ \textcolor{comment}{//\ Infinite\ constant}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00196}\mbox{\hyperlink{classlemon_1_1_karp_mmc_a093f6696052a083caf10cea7c51ae40c}{00196}}\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a61bd4f6fa94e0733a13dbef53d9ac5ca}{LargeCost}}\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a093f6696052a083caf10cea7c51ae40c}{INF}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00197}00197\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00198}00198\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00199}00199\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00202}00202\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00203}00203\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00204}\mbox{\hyperlink{structlemon_1_1_karp_mmc_1_1_set_large_cost_traits}{00204}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_karp_mmc_1_1_set_large_cost_traits}{SetLargeCostTraits}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a690dc58fdfc0b4f11f80192bd1341f49}{Traits}}\ \{}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00205}\mbox{\hyperlink{structlemon_1_1_karp_mmc_1_1_set_large_cost_traits_ab758944d101ab617cc3ec8a847e1c957}{00205}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ T\ \mbox{\hyperlink{structlemon_1_1_karp_mmc_1_1_set_large_cost_traits_ab758944d101ab617cc3ec8a847e1c957}{LargeCost}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00206}\mbox{\hyperlink{structlemon_1_1_karp_mmc_1_1_set_large_cost_traits_a72fad524662163fa5fdfc6d506313304}{00206}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{lemon::Tolerance<T>}}\ \mbox{\hyperlink{structlemon_1_1_karp_mmc_1_1_set_large_cost_traits_a72fad524662163fa5fdfc6d506313304}{Tolerance}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00207}00207\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00208}00208\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00214}00214\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00215}\mbox{\hyperlink{structlemon_1_1_karp_mmc_1_1_set_large_cost}{00215}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_karp_mmc_1_1_set_large_cost}{SetLargeCost}}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00216}00216\ \ \ \ \ \ \ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1_karp_mmc}{KarpMmc}}<GR,\ CM,\ SetLargeCostTraits<T>\ >\ \{}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00217}\mbox{\hyperlink{structlemon_1_1_karp_mmc_1_1_set_large_cost_ab974466dde6ecbf91fda8f0a66c577fd}{00217}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{KarpMmc<GR,\ CM,\ SetLargeCostTraits<T>}}\ >\ \mbox{\hyperlink{structlemon_1_1_karp_mmc_1_1_set_large_cost_ab974466dde6ecbf91fda8f0a66c577fd}{Create}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00218}00218\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00219}00219\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00220}00220\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00221}\mbox{\hyperlink{structlemon_1_1_karp_mmc_1_1_set_path_traits}{00221}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_karp_mmc_1_1_set_path_traits}{SetPathTraits}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a690dc58fdfc0b4f11f80192bd1341f49}{Traits}}\ \{}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00222}\mbox{\hyperlink{structlemon_1_1_karp_mmc_1_1_set_path_traits_a31a4a07f7e41a4df37c20a733491cd06}{00222}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ T\ \mbox{\hyperlink{structlemon_1_1_karp_mmc_1_1_set_path_traits_a31a4a07f7e41a4df37c20a733491cd06}{Path}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00223}00223\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00224}00224\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00232}00232\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00233}\mbox{\hyperlink{structlemon_1_1_karp_mmc_1_1_set_path}{00233}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_karp_mmc_1_1_set_path}{SetPath}}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00234}00234\ \ \ \ \ \ \ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1_karp_mmc}{KarpMmc}}<GR,\ CM,\ SetPathTraits<T>\ >\ \{}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00235}\mbox{\hyperlink{structlemon_1_1_karp_mmc_1_1_set_path_a206f6db97d012220de9a7d213ebf8d15}{00235}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{KarpMmc<GR,\ CM,\ SetPathTraits<T>}}\ >\ \mbox{\hyperlink{structlemon_1_1_karp_mmc_1_1_set_path_a206f6db97d012220de9a7d213ebf8d15}{Create}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00236}00236\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00237}00237\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00239}00239\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00240}00240\ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00241}00241\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00242}\mbox{\hyperlink{classlemon_1_1_karp_mmc_a11d123bf8150248e7f66243c9098af40}{00242}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a11d123bf8150248e7f66243c9098af40}{KarpMmc}}()\ \{\}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00243}00243\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00244}00244\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00245}00245\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00252}\mbox{\hyperlink{classlemon_1_1_karp_mmc_a41ad0038fb4f78f8f95067964d327ebe}{00252}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a41ad0038fb4f78f8f95067964d327ebe}{KarpMmc}}(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a957f1cbd26229f8d6ec30f91846c82a9}{Digraph}}\ \&digraph,}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00253}00253\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_ac2efd7397ed753319e1f024cd8bf328e}{CostMap}}\ \&\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cost}}\ )\ :}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00254}00254\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a70764cba746cf353c917bb5a9bcf9af0}{\_gr}}(digraph),\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a55856b218d56642d2cffe4422f26dbcf}{\_cost}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cost}}),\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a647162001a4c69710761185f20020c6d}{\_comp}}(digraph),\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_abc1f2554924dad89e629399412dca1df}{\_out\_arcs}}(digraph),}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00255}00255\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a9bce73ada6cb9a8b55085574f23f0d25}{\_cycle\_cost}}(0),\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_ad11693491d360e041415f10d4f3e3c3e}{\_cycle\_size}}(1),\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a7fe667156204e4f91690e23f21d5b07f}{\_cycle\_node}}(\mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}}),}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00256}00256\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a8b1084b37f38158f5673ad02a1bfbf20}{\_cycle\_path}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{NULL}}),\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_ae980d8294ab820448f8ea8754fafee89}{\_local\_path}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{false}}),\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a96a55be6cdb570fb1c1481c568acefad}{\_data}}(digraph),}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00257}00257\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a093f6696052a083caf10cea7c51ae40c}{INF}}(\mbox{\hyperlink{namespacestd}{std}}::\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{numeric\_limits}}<\mbox{\hyperlink{classlemon_1_1_karp_mmc_a61bd4f6fa94e0733a13dbef53d9ac5ca}{LargeCost}}>::\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{has\_infinity}}\ ?}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00258}00258\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacestd}{std}}::\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{numeric\_limits}}<\mbox{\hyperlink{classlemon_1_1_karp_mmc_a61bd4f6fa94e0733a13dbef53d9ac5ca}{LargeCost}}>::infinity()\ :}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00259}00259\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacestd}{std}}::\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{numeric\_limits}}<\mbox{\hyperlink{classlemon_1_1_karp_mmc_a61bd4f6fa94e0733a13dbef53d9ac5ca}{LargeCost}}>::max())}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00260}00260\ \ \ \ \ \{\}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00261}00261\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00263}\mbox{\hyperlink{classlemon_1_1_karp_mmc_aa460e5d79dc5583f3ab0a0af0a6f4c89}{00263}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_aa460e5d79dc5583f3ab0a0af0a6f4c89}{\string~KarpMmc}}()\ \{}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00264}00264\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_karp_mmc_ae980d8294ab820448f8ea8754fafee89}{\_local\_path}})\ \textcolor{keyword}{delete}\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a8b1084b37f38158f5673ad02a1bfbf20}{\_cycle\_path}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00265}00265\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00266}00266\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00281}\mbox{\hyperlink{classlemon_1_1_karp_mmc_a6b46cd11f641cad8d063d58c5450b690}{00281}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc}{KarpMmc}}\&\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a6b46cd11f641cad8d063d58c5450b690}{cycle}}(\mbox{\hyperlink{classlemon_1_1_karp_mmc_a9f2a5e8d34c83f69806cafc2328e5d61}{Path}}\ \&path)\ \{}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00282}00282\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_karp_mmc_ae980d8294ab820448f8ea8754fafee89}{\_local\_path}})\ \{}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00283}00283\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a8b1084b37f38158f5673ad02a1bfbf20}{\_cycle\_path}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00284}00284\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_ae980d8294ab820448f8ea8754fafee89}{\_local\_path}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00285}00285\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00286}00286\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a8b1084b37f38158f5673ad02a1bfbf20}{\_cycle\_path}}\ =\ \&path;}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00287}00287\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00288}00288\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00289}00289\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00295}\mbox{\hyperlink{classlemon_1_1_karp_mmc_a8351522fb72dd4360d4f71b1c0a4c7bb}{00295}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc}{KarpMmc}}\&\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a8351522fb72dd4360d4f71b1c0a4c7bb}{tolerance}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_ad5b855629a3978d1a8355c08b5155167}{Tolerance}}\&\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_af46de00a2110f5b7442bdefaae230aac}{tolerance}})\ \{}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00296}00296\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_ac68824a0fbfe3700a84906a515356840}{\_tolerance}}\ =\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_af46de00a2110f5b7442bdefaae230aac}{tolerance}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00297}00297\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00298}00298\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00299}00299\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00304}\mbox{\hyperlink{classlemon_1_1_karp_mmc_af46de00a2110f5b7442bdefaae230aac}{00304}}\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_ad5b855629a3978d1a8355c08b5155167}{Tolerance}}\&\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_af46de00a2110f5b7442bdefaae230aac}{tolerance}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00305}00305\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_ac68824a0fbfe3700a84906a515356840}{\_tolerance}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00306}00306\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00307}00307\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00313}00313\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00315}00315\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00328}\mbox{\hyperlink{classlemon_1_1_karp_mmc_a8d465a7cd6418f6a334eeea91fdce98d}{00328}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a8d465a7cd6418f6a334eeea91fdce98d}{run}}()\ \{}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00329}00329\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_ac386fac8b894f1bf845fe28d8d5b32e5}{findCycleMean}}()\ \&\&\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a6f2ca54c70bc486b45dd5a5f4cadd3c4}{findCycle}}();}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00330}00330\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00331}00331\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00338}\mbox{\hyperlink{classlemon_1_1_karp_mmc_ac386fac8b894f1bf845fe28d8d5b32e5}{00338}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_ac386fac8b894f1bf845fe28d8d5b32e5}{findCycleMean}}()\ \{}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00339}00339\ \ \ \ \ \ \ \textcolor{comment}{//\ Initialization\ and\ find\ strongly\ connected\ components}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00340}00340\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_acbeb38c50103f164c53793db51dbca44}{init}}();}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00341}00341\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_aae90600d971f7c7655e34fb712ac72d7}{findComponents}}();}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00342}00342\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00343}00343\ \ \ \ \ \ \ \textcolor{comment}{//\ Find\ the\ minimum\ cycle\ mean\ in\ the\ components}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00344}00344\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ comp\ =\ 0;\ comp\ <\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a71dc427457a9fc61958fb24c3b1ac9bb}{\_comp\_num}};\ ++comp)\ \{}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00345}00345\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classlemon_1_1_karp_mmc_a11eaf79cf666d15b0d1becb2851b5a4c}{initComponent}}(comp))\ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00346}00346\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a89884ae45cc67a15fda18866d588f1ae}{processRounds}}();}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00347}00347\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_afe5a0949828fe895ddff883270425e99}{updateMinMean}}();}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00348}00348\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00349}00349\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{classlemon_1_1_karp_mmc_a7fe667156204e4f91690e23f21d5b07f}{\_cycle\_node}}\ !=\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}});}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00350}00350\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00351}00351\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00360}\mbox{\hyperlink{classlemon_1_1_karp_mmc_a6f2ca54c70bc486b45dd5a5f4cadd3c4}{00360}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a6f2ca54c70bc486b45dd5a5f4cadd3c4}{findCycle}}()\ \{}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00361}00361\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_karp_mmc_a7fe667156204e4f91690e23f21d5b07f}{\_cycle\_node}}\ ==\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}})\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00362}00362\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{IntNodeMap}}\ reached(\mbox{\hyperlink{classlemon_1_1_karp_mmc_a70764cba746cf353c917bb5a9bcf9af0}{\_gr}},\ -\/1);}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00363}00363\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ r\ =\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a96a55be6cdb570fb1c1481c568acefad}{\_data}}[\mbox{\hyperlink{classlemon_1_1_karp_mmc_a7fe667156204e4f91690e23f21d5b07f}{\_cycle\_node}}].size();}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00364}00364\ \ \ \ \ \ \ Node\ u\ =\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a7fe667156204e4f91690e23f21d5b07f}{\_cycle\_node}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00365}00365\ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (reached[u]\ <\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00366}00366\ \ \ \ \ \ \ \ \ reached[u]\ =\ -\/-\/r;}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00367}00367\ \ \ \ \ \ \ \ \ u\ =\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a70764cba746cf353c917bb5a9bcf9af0}{\_gr}}.source(\mbox{\hyperlink{classlemon_1_1_karp_mmc_a96a55be6cdb570fb1c1481c568acefad}{\_data}}[u][r].pred);}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00368}00368\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00369}00369\ \ \ \ \ \ \ r\ =\ reached[u];}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00370}00370\ \ \ \ \ \ \ Arc\ e\ =\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a96a55be6cdb570fb1c1481c568acefad}{\_data}}[u][r].pred;}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00371}00371\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a8b1084b37f38158f5673ad02a1bfbf20}{\_cycle\_path}}-\/>addFront(e);}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00372}00372\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a9bce73ada6cb9a8b55085574f23f0d25}{\_cycle\_cost}}\ =\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a55856b218d56642d2cffe4422f26dbcf}{\_cost}}[e];}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00373}00373\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_ad11693491d360e041415f10d4f3e3c3e}{\_cycle\_size}}\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00374}00374\ \ \ \ \ \ \ Node\ v;}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00375}00375\ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ ((v\ =\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a70764cba746cf353c917bb5a9bcf9af0}{\_gr}}.source(e))\ !=\ u)\ \{}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00376}00376\ \ \ \ \ \ \ \ \ e\ =\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a96a55be6cdb570fb1c1481c568acefad}{\_data}}[v][-\/-\/r].pred;}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00377}00377\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a8b1084b37f38158f5673ad02a1bfbf20}{\_cycle\_path}}-\/>addFront(e);}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00378}00378\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a9bce73ada6cb9a8b55085574f23f0d25}{\_cycle\_cost}}\ +=\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a55856b218d56642d2cffe4422f26dbcf}{\_cost}}[e];}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00379}00379\ \ \ \ \ \ \ \ \ ++\mbox{\hyperlink{classlemon_1_1_karp_mmc_ad11693491d360e041415f10d4f3e3c3e}{\_cycle\_size}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00380}00380\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00381}00381\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00382}00382\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00383}00383\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00385}00385\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00390}00390\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00392}00392\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00399}\mbox{\hyperlink{classlemon_1_1_karp_mmc_aa4276d1211f133bcdde579c954a549ce}{00399}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a1c8f7bd68450138c4ab6e62237b78d16}{Cost}}\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_aa4276d1211f133bcdde579c954a549ce}{cycleCost}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00400}00400\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{classlemon_1_1_karp_mmc_a1c8f7bd68450138c4ab6e62237b78d16}{Cost}}\textcolor{keyword}{>}(\mbox{\hyperlink{classlemon_1_1_karp_mmc_a9bce73ada6cb9a8b55085574f23f0d25}{\_cycle\_cost}});}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00401}00401\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00402}00402\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00409}\mbox{\hyperlink{classlemon_1_1_karp_mmc_a1d54374aceb406c6f78936cc1d87c010}{00409}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a1d54374aceb406c6f78936cc1d87c010}{cycleSize}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00410}00410\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_ad11693491d360e041415f10d4f3e3c3e}{\_cycle\_size}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00411}00411\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00412}00412\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00425}\mbox{\hyperlink{classlemon_1_1_karp_mmc_ad2fb84cbf826b1679484582209833e23}{00425}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_ad2fb84cbf826b1679484582209833e23}{cycleMean}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00426}00426\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(\mbox{\hyperlink{classlemon_1_1_karp_mmc_a9bce73ada6cb9a8b55085574f23f0d25}{\_cycle\_cost}})\ /\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_ad11693491d360e041415f10d4f3e3c3e}{\_cycle\_size}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00427}00427\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00428}00428\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00436}\mbox{\hyperlink{classlemon_1_1_karp_mmc_a6ba80e67727a078f9becd2d7012c879e}{00436}}\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a9f2a5e8d34c83f69806cafc2328e5d61}{Path}}\&\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a6ba80e67727a078f9becd2d7012c879e}{cycle}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00437}00437\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\mbox{\hyperlink{classlemon_1_1_karp_mmc_a8b1084b37f38158f5673ad02a1bfbf20}{\_cycle\_path}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00438}00438\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00439}00439\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00441}00441\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00442}00442\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00443}00443\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00444}00444\ \ \ \ \ \textcolor{comment}{//\ Initialization}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00445}\mbox{\hyperlink{classlemon_1_1_karp_mmc_acbeb38c50103f164c53793db51dbca44}{00445}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_acbeb38c50103f164c53793db51dbca44}{init}}()\ \{}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00446}00446\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classlemon_1_1_karp_mmc_a8b1084b37f38158f5673ad02a1bfbf20}{\_cycle\_path}})\ \{}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00447}00447\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_ae980d8294ab820448f8ea8754fafee89}{\_local\_path}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00448}00448\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a8b1084b37f38158f5673ad02a1bfbf20}{\_cycle\_path}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a9f2a5e8d34c83f69806cafc2328e5d61}{Path}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00449}00449\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00450}00450\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a8b1084b37f38158f5673ad02a1bfbf20}{\_cycle\_path}}-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_af2726dacd301d1fdc114b18b6eeb5f51}{clear}}();}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00451}00451\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a9bce73ada6cb9a8b55085574f23f0d25}{\_cycle\_cost}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00452}00452\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_ad11693491d360e041415f10d4f3e3c3e}{\_cycle\_size}}\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00453}00453\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a7fe667156204e4f91690e23f21d5b07f}{\_cycle\_node}}\ =\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00454}00454\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (NodeIt\ u(\mbox{\hyperlink{classlemon_1_1_karp_mmc_a70764cba746cf353c917bb5a9bcf9af0}{\_gr}});\ u\ !=\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ ++u)}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00455}00455\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a96a55be6cdb570fb1c1481c568acefad}{\_data}}[u].clear();}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00456}00456\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00457}00457\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00458}00458\ \ \ \ \ \textcolor{comment}{//\ Find\ strongly\ connected\ components\ and\ initialize\ \_comp\_nodes}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00459}00459\ \ \ \ \ \textcolor{comment}{//\ and\ \_out\_arcs}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00460}\mbox{\hyperlink{classlemon_1_1_karp_mmc_aae90600d971f7c7655e34fb712ac72d7}{00460}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_aae90600d971f7c7655e34fb712ac72d7}{findComponents}}()\ \{}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00461}00461\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a71dc427457a9fc61958fb24c3b1ac9bb}{\_comp\_num}}\ =\ \mbox{\hyperlink{namespacelemon_a46f8c22f3e2989c4689faa4c46ec9436}{stronglyConnectedComponents}}(\mbox{\hyperlink{classlemon_1_1_karp_mmc_a70764cba746cf353c917bb5a9bcf9af0}{\_gr}},\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a647162001a4c69710761185f20020c6d}{\_comp}});}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00462}00462\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_addf9a85f1481e080ecc2444492d45691}{\_comp\_nodes}}.resize(\mbox{\hyperlink{classlemon_1_1_karp_mmc_a71dc427457a9fc61958fb24c3b1ac9bb}{\_comp\_num}});}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00463}00463\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_karp_mmc_a71dc427457a9fc61958fb24c3b1ac9bb}{\_comp\_num}}\ ==\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00464}00464\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_addf9a85f1481e080ecc2444492d45691}{\_comp\_nodes}}[0].clear();}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00465}00465\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (NodeIt\ n(\mbox{\hyperlink{classlemon_1_1_karp_mmc_a70764cba746cf353c917bb5a9bcf9af0}{\_gr}});\ n\ !=\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ ++n)\ \{}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00466}00466\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_addf9a85f1481e080ecc2444492d45691}{\_comp\_nodes}}[0].push\_back(n);}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00467}00467\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_abc1f2554924dad89e629399412dca1df}{\_out\_arcs}}[n].\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_af2726dacd301d1fdc114b18b6eeb5f51}{clear}}();}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00468}00468\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (OutArcIt\ a(\mbox{\hyperlink{classlemon_1_1_karp_mmc_a70764cba746cf353c917bb5a9bcf9af0}{\_gr}},\ n);\ a\ !=\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ ++a)\ \{}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00469}00469\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_abc1f2554924dad89e629399412dca1df}{\_out\_arcs}}[n].push\_back(a);}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00470}00470\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00471}00471\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00472}00472\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00473}00473\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a71dc427457a9fc61958fb24c3b1ac9bb}{\_comp\_num}};\ ++i)}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00474}00474\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_addf9a85f1481e080ecc2444492d45691}{\_comp\_nodes}}[i].clear();}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00475}00475\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (NodeIt\ n(\mbox{\hyperlink{classlemon_1_1_karp_mmc_a70764cba746cf353c917bb5a9bcf9af0}{\_gr}});\ n\ !=\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ ++n)\ \{}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00476}00476\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ k\ =\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a647162001a4c69710761185f20020c6d}{\_comp}}[n];}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00477}00477\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_addf9a85f1481e080ecc2444492d45691}{\_comp\_nodes}}[k].push\_back(n);}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00478}00478\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_abc1f2554924dad89e629399412dca1df}{\_out\_arcs}}[n].\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_af2726dacd301d1fdc114b18b6eeb5f51}{clear}}();}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00479}00479\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (OutArcIt\ a(\mbox{\hyperlink{classlemon_1_1_karp_mmc_a70764cba746cf353c917bb5a9bcf9af0}{\_gr}},\ n);\ a\ !=\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ ++a)\ \{}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00480}00480\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_karp_mmc_a647162001a4c69710761185f20020c6d}{\_comp}}[\mbox{\hyperlink{classlemon_1_1_karp_mmc_a70764cba746cf353c917bb5a9bcf9af0}{\_gr}}.target(a)]\ ==\ k)\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_abc1f2554924dad89e629399412dca1df}{\_out\_arcs}}[n].push\_back(a);}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00481}00481\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00482}00482\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00483}00483\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00484}00484\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00485}00485\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00486}00486\ \ \ \ \ \textcolor{comment}{//\ Initialize\ path\ data\ for\ the\ current\ component}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00487}\mbox{\hyperlink{classlemon_1_1_karp_mmc_a11eaf79cf666d15b0d1becb2851b5a4c}{00487}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a11eaf79cf666d15b0d1becb2851b5a4c}{initComponent}}(\textcolor{keywordtype}{int}\ comp)\ \{}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00488}00488\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_accd8a5dd91f665bb2bc23ba07095f7c0}{\_nodes}}\ =\ \&(\mbox{\hyperlink{classlemon_1_1_karp_mmc_addf9a85f1481e080ecc2444492d45691}{\_comp\_nodes}}[comp]);}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00489}00489\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ n\ =\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_accd8a5dd91f665bb2bc23ba07095f7c0}{\_nodes}}-\/>size();}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00490}00490\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ <\ 1\ ||\ (n\ ==\ 1\ \&\&\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_abc1f2554924dad89e629399412dca1df}{\_out\_arcs}}[(*\mbox{\hyperlink{classlemon_1_1_karp_mmc_accd8a5dd91f665bb2bc23ba07095f7c0}{\_nodes}})[0]].size()\ ==\ 0))\ \{}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00491}00491\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00492}00492\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00493}00493\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ n;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00494}00494\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a96a55be6cdb570fb1c1481c568acefad}{\_data}}[(*\_nodes)[i]].resize(n\ +\ 1,\ \mbox{\hyperlink{structlemon_1_1_karp_mmc_1_1_path_data}{PathData}}(\mbox{\hyperlink{classlemon_1_1_karp_mmc_a093f6696052a083caf10cea7c51ae40c}{INF}}));}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00495}00495\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00496}00496\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00497}00497\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00498}00498\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00499}00499\ \ \ \ \ \textcolor{comment}{//\ Process\ all\ rounds\ of\ computing\ path\ data\ for\ the\ current\ component.}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00500}00500\ \ \ \ \ \textcolor{comment}{//\ \_data[v][k]\ is\ the\ cost\ of\ a\ shortest\ directed\ walk\ from\ the\ root}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00501}00501\ \ \ \ \ \textcolor{comment}{//\ node\ to\ node\ v\ containing\ exactly\ k\ arcs.}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00502}\mbox{\hyperlink{classlemon_1_1_karp_mmc_a89884ae45cc67a15fda18866d588f1ae}{00502}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a89884ae45cc67a15fda18866d588f1ae}{processRounds}}()\ \{}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00503}00503\ \ \ \ \ \ \ Node\ start\ =\ (*\_nodes)[0];}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00504}00504\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a96a55be6cdb570fb1c1481c568acefad}{\_data}}[start][0]\ =\ \mbox{\hyperlink{structlemon_1_1_karp_mmc_1_1_path_data}{PathData}}(0);}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00505}00505\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a4fa5c7e2779db514520ce5d2f88b22f6}{\_process}}.clear();}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00506}00506\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a4fa5c7e2779db514520ce5d2f88b22f6}{\_process}}.push\_back(start);}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00507}00507\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00508}00508\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ k,\ n\ =\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_accd8a5dd91f665bb2bc23ba07095f7c0}{\_nodes}}-\/>size();}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00509}00509\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (k\ =\ 1;\ k\ <=\ n\ \&\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{int}}(\mbox{\hyperlink{classlemon_1_1_karp_mmc_a4fa5c7e2779db514520ce5d2f88b22f6}{\_process}}.size())\ <\ n;\ ++k)\ \{}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00510}00510\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a98def01f06fc41b17f8510b07ae73b55}{processNextBuildRound}}(k);}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00511}00511\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00512}00512\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\ ;\ k\ <=\ n;\ ++k)\ \{}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00513}00513\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a5163d269fdaa5c504804b85203d3397e}{processNextFullRound}}(k);}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00514}00514\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00515}00515\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00516}00516\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00517}00517\ \ \ \ \ \textcolor{comment}{//\ Process\ one\ round\ and\ rebuild\ \_process}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00518}\mbox{\hyperlink{classlemon_1_1_karp_mmc_a98def01f06fc41b17f8510b07ae73b55}{00518}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a98def01f06fc41b17f8510b07ae73b55}{processNextBuildRound}}(\textcolor{keywordtype}{int}\ k)\ \{}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00519}00519\ \ \ \ \ \ \ std::vector<Node>\ next;}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00520}00520\ \ \ \ \ \ \ Node\ u,\ v;}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00521}00521\ \ \ \ \ \ \ Arc\ e;}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00522}00522\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a61bd4f6fa94e0733a13dbef53d9ac5ca}{LargeCost}}\ d;}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00523}00523\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{int}}(\mbox{\hyperlink{classlemon_1_1_karp_mmc_a4fa5c7e2779db514520ce5d2f88b22f6}{\_process}}.size());\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00524}00524\ \ \ \ \ \ \ \ \ u\ =\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a4fa5c7e2779db514520ce5d2f88b22f6}{\_process}}[i];}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00525}00525\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{int}}(\mbox{\hyperlink{classlemon_1_1_karp_mmc_abc1f2554924dad89e629399412dca1df}{\_out\_arcs}}[u].size());\ ++j)\ \{}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00526}00526\ \ \ \ \ \ \ \ \ \ \ e\ =\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_abc1f2554924dad89e629399412dca1df}{\_out\_arcs}}[u][j];}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00527}00527\ \ \ \ \ \ \ \ \ \ \ v\ =\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a70764cba746cf353c917bb5a9bcf9af0}{\_gr}}.target(e);}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00528}00528\ \ \ \ \ \ \ \ \ \ \ d\ =\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a96a55be6cdb570fb1c1481c568acefad}{\_data}}[u][k-\/1].dist\ +\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a55856b218d56642d2cffe4422f26dbcf}{\_cost}}[e];}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00529}00529\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_karp_mmc_ac68824a0fbfe3700a84906a515356840}{\_tolerance}}.less(d,\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a96a55be6cdb570fb1c1481c568acefad}{\_data}}[v][k].dist))\ \{}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00530}00530\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_karp_mmc_a96a55be6cdb570fb1c1481c568acefad}{\_data}}[v][k].dist\ ==\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a093f6696052a083caf10cea7c51ae40c}{INF}})\ next.push\_back(v);}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00531}00531\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a96a55be6cdb570fb1c1481c568acefad}{\_data}}[v][k]\ =\ \mbox{\hyperlink{structlemon_1_1_karp_mmc_1_1_path_data}{PathData}}(d,\ e);}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00532}00532\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00533}00533\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00534}00534\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00535}00535\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a4fa5c7e2779db514520ce5d2f88b22f6}{\_process}}.swap(next);}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00536}00536\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00537}00537\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00538}00538\ \ \ \ \ \textcolor{comment}{//\ Process\ one\ round\ using\ \_nodes\ instead\ of\ \_process}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00539}\mbox{\hyperlink{classlemon_1_1_karp_mmc_a5163d269fdaa5c504804b85203d3397e}{00539}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a5163d269fdaa5c504804b85203d3397e}{processNextFullRound}}(\textcolor{keywordtype}{int}\ k)\ \{}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00540}00540\ \ \ \ \ \ \ Node\ u,\ v;}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00541}00541\ \ \ \ \ \ \ Arc\ e;}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00542}00542\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a61bd4f6fa94e0733a13dbef53d9ac5ca}{LargeCost}}\ d;}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00543}00543\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{int}}(\mbox{\hyperlink{classlemon_1_1_karp_mmc_accd8a5dd91f665bb2bc23ba07095f7c0}{\_nodes}}-\/>size());\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00544}00544\ \ \ \ \ \ \ \ \ u\ =\ (*\_nodes)[i];}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00545}00545\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{int}}(\mbox{\hyperlink{classlemon_1_1_karp_mmc_abc1f2554924dad89e629399412dca1df}{\_out\_arcs}}[u].size());\ ++j)\ \{}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00546}00546\ \ \ \ \ \ \ \ \ \ \ e\ =\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_abc1f2554924dad89e629399412dca1df}{\_out\_arcs}}[u][j];}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00547}00547\ \ \ \ \ \ \ \ \ \ \ v\ =\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a70764cba746cf353c917bb5a9bcf9af0}{\_gr}}.target(e);}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00548}00548\ \ \ \ \ \ \ \ \ \ \ d\ =\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a96a55be6cdb570fb1c1481c568acefad}{\_data}}[u][k-\/1].dist\ +\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a55856b218d56642d2cffe4422f26dbcf}{\_cost}}[e];}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00549}00549\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_karp_mmc_ac68824a0fbfe3700a84906a515356840}{\_tolerance}}.less(d,\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a96a55be6cdb570fb1c1481c568acefad}{\_data}}[v][k].dist))\ \{}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00550}00550\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a96a55be6cdb570fb1c1481c568acefad}{\_data}}[v][k]\ =\ \mbox{\hyperlink{structlemon_1_1_karp_mmc_1_1_path_data}{PathData}}(d,\ e);}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00551}00551\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00552}00552\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00553}00553\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00554}00554\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00555}00555\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00556}00556\ \ \ \ \ \textcolor{comment}{//\ Update\ the\ minimum\ cycle\ mean}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00557}\mbox{\hyperlink{classlemon_1_1_karp_mmc_afe5a0949828fe895ddff883270425e99}{00557}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_afe5a0949828fe895ddff883270425e99}{updateMinMean}}()\ \{}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00558}00558\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ n\ =\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_accd8a5dd91f665bb2bc23ba07095f7c0}{\_nodes}}-\/>size();}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00559}00559\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ n;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00560}00560\ \ \ \ \ \ \ \ \ Node\ u\ =\ (*\_nodes)[i];}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00561}00561\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_karp_mmc_a96a55be6cdb570fb1c1481c568acefad}{\_data}}[u][n].dist\ ==\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a093f6696052a083caf10cea7c51ae40c}{INF}})\ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00562}00562\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a61bd4f6fa94e0733a13dbef53d9ac5ca}{LargeCost}}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cost}},\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{max\_cost}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00563}00563\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ size,\ max\_size\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00564}00564\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{found\_curr}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00565}00565\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ 0;\ k\ <\ n;\ ++k)\ \{}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00566}00566\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_karp_mmc_a96a55be6cdb570fb1c1481c568acefad}{\_data}}[u][k].dist\ ==\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a093f6696052a083caf10cea7c51ae40c}{INF}})\ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00567}00567\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cost}}\ =\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a96a55be6cdb570fb1c1481c568acefad}{\_data}}[u][n].dist\ -\/\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a96a55be6cdb570fb1c1481c568acefad}{\_data}}[u][k].dist;}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00568}00568\ \ \ \ \ \ \ \ \ \ \ size\ =\ n\ -\/\ k;}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00569}00569\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{found\_curr}}\ ||\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cost}}\ *\ max\_size\ >\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{max\_cost}}\ *\ size)\ \{}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00570}00570\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{found\_curr}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00571}00571\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{max\_cost}}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cost}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00572}00572\ \ \ \ \ \ \ \ \ \ \ \ \ max\_size\ =\ size;}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00573}00573\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00574}00574\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00575}00575\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{found\_curr}}\ \&\&\ (\mbox{\hyperlink{classlemon_1_1_karp_mmc_a7fe667156204e4f91690e23f21d5b07f}{\_cycle\_node}}\ ==\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}}\ ||}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00576}00576\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{max\_cost}}\ *\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_ad11693491d360e041415f10d4f3e3c3e}{\_cycle\_size}}\ <\ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a9bce73ada6cb9a8b55085574f23f0d25}{\_cycle\_cost}}\ *\ max\_size)\ )\ \{}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00577}00577\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a9bce73ada6cb9a8b55085574f23f0d25}{\_cycle\_cost}}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{max\_cost}};}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00578}00578\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_ad11693491d360e041415f10d4f3e3c3e}{\_cycle\_size}}\ =\ max\_size;}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00579}00579\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_karp_mmc_a7fe667156204e4f91690e23f21d5b07f}{\_cycle\_node}}\ =\ u;}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00580}00580\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00581}00581\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00582}00582\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00583}00583\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00584}00584\ \ \ \};\ \textcolor{comment}{//class\ KarpMmc}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00585}00585\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00587}00587\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00588}00588\ \}\ \textcolor{comment}{//namespace\ lemon}}
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00589}00589\ }
+\DoxyCodeLine{\Hypertarget{karp__mmc_8h_source_l00590}00590\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//LEMON\_KARP\_MMC\_H}}
+
+\end{DoxyCode}

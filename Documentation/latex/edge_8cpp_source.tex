@@ -1,0 +1,90 @@
+\doxysection{edge.\+cpp}
+\hypertarget{edge_8cpp_source}{}\label{edge_8cpp_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/Geometry/edge.cpp@{C:/Dev/DungeonGenerator/DungeonGenerator/Geometry/edge.cpp}}
+\mbox{\hyperlink{edge_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{edge_8hpp}{edge.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{line_8hpp}{line.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00004}00004\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_geometry}{Geometry}}}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00005}00005\ \{}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00006}\mbox{\hyperlink{class_geometry_1_1_edge_a1f83d5ef10b37fa928229621896da7e8}{00006}}\ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_edge_a6a3a576ec9b51824c7f7032d22d7ac47}{Edge::Edge}}(\mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ p1,\ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ p2)}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00007}00007\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00008}00008\ \ \ \ \ \ \ \ \ this-\/>p1\ =\ \mbox{\hyperlink{class_geometry_1_1_edge_a5b4f8f2fac2c4745cbd8e9635d104105}{p1}};}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00009}00009\ \ \ \ \ \ \ \ \ this-\/>p2\ =\ \mbox{\hyperlink{class_geometry_1_1_edge_adaa100000f5ab8b3fcba32828419ae39}{p2}};}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00010}00010\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00012}\mbox{\hyperlink{class_geometry_1_1_edge_a0f13464ad4e6beb72ac11d60420ee522}{00012}}\ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_line}{Line}}\ \mbox{\hyperlink{class_geometry_1_1_edge_a0f13464ad4e6beb72ac11d60420ee522}{Edge::convertToLine}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00013}00013\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00014}00014\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_geometry_1_1_line}{Line}}(\mbox{\hyperlink{class_geometry_1_1_edge_a5b4f8f2fac2c4745cbd8e9635d104105}{p1}},\ \mbox{\hyperlink{class_geometry_1_1_edge_adaa100000f5ab8b3fcba32828419ae39}{p2}});}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00015}00015\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00017}\mbox{\hyperlink{class_geometry_1_1_edge_a6be170808c12e3833bec4c8c8d7720d4}{00017}}\ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_edge_a6a3a576ec9b51824c7f7032d22d7ac47}{Edge::Edge}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_geometry_1_1_edge}{Edge}}\&\ other)}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00018}00018\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_edge_a5b4f8f2fac2c4745cbd8e9635d104105}{p1}}\ =\ other.\mbox{\hyperlink{class_geometry_1_1_edge_a5b4f8f2fac2c4745cbd8e9635d104105}{p1}};}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_edge_adaa100000f5ab8b3fcba32828419ae39}{p2}}\ =\ other.\mbox{\hyperlink{class_geometry_1_1_edge_adaa100000f5ab8b3fcba32828419ae39}{p2}};}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00021}00021\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00023}\mbox{\hyperlink{class_geometry_1_1_edge_a3192e56d5e902f8d9f798ecf2d868954}{00023}}\ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_edge}{Edge}}\&\ \mbox{\hyperlink{class_geometry_1_1_edge_a3192e56d5e902f8d9f798ecf2d868954}{Edge::operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_geometry_1_1_edge}{Edge}}\&\ other)}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00024}00024\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_edge_a5b4f8f2fac2c4745cbd8e9635d104105}{p1}}\ =\ other.\mbox{\hyperlink{class_geometry_1_1_edge_a5b4f8f2fac2c4745cbd8e9635d104105}{p1}};}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_edge_adaa100000f5ab8b3fcba32828419ae39}{p2}}\ =\ other.\mbox{\hyperlink{class_geometry_1_1_edge_adaa100000f5ab8b3fcba32828419ae39}{p2}};}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00029}00029\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00031}\mbox{\hyperlink{class_geometry_1_1_edge_a2c78bde87fb1927bb27bf3382079dfb1}{00031}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_geometry_1_1_edge_a2c78bde87fb1927bb27bf3382079dfb1}{Edge::containsPoint}}(\mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ p)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00032}00032\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_line}{Geometry::Line}}\ l(\mbox{\hyperlink{class_geometry_1_1_edge_a5b4f8f2fac2c4745cbd8e9635d104105}{p1}},\ \mbox{\hyperlink{class_geometry_1_1_edge_adaa100000f5ab8b3fcba32828419ae39}{p2}});}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!l.\mbox{\hyperlink{class_geometry_1_1_line_a1835ee77bc90574fcace951c5b104933}{containsPoint}}(p))}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_geometry_1_1_edge_ad127bb37443f0ee46560e1cfaafad6a0}{inRange}}(p);}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00038}00038\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00040}\mbox{\hyperlink{class_geometry_1_1_edge_ad127bb37443f0ee46560e1cfaafad6a0}{00040}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_geometry_1_1_edge_ad127bb37443f0ee46560e1cfaafad6a0}{Edge::inRange}}(\mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ p)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00041}00041\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p[0]\ <\ std::fmin(\mbox{\hyperlink{class_geometry_1_1_edge_a5b4f8f2fac2c4745cbd8e9635d104105}{p1}}[0],\ \mbox{\hyperlink{class_geometry_1_1_edge_adaa100000f5ab8b3fcba32828419ae39}{p2}}[0])\ ||\ p[0]\ >\ std::fmax(\mbox{\hyperlink{class_geometry_1_1_edge_a5b4f8f2fac2c4745cbd8e9635d104105}{p1}}[0],\ \mbox{\hyperlink{class_geometry_1_1_edge_adaa100000f5ab8b3fcba32828419ae39}{p2}}[0]))\ \textcolor{comment}{//based\ on\ x}}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p[1]\ <\ std::fmin(\mbox{\hyperlink{class_geometry_1_1_edge_a5b4f8f2fac2c4745cbd8e9635d104105}{p1}}[1],\ \mbox{\hyperlink{class_geometry_1_1_edge_adaa100000f5ab8b3fcba32828419ae39}{p2}}[1])\ ||\ p[1]\ >\ std::fmax(\mbox{\hyperlink{class_geometry_1_1_edge_a5b4f8f2fac2c4745cbd8e9635d104105}{p1}}[1],\ \mbox{\hyperlink{class_geometry_1_1_edge_adaa100000f5ab8b3fcba32828419ae39}{p2}}[1]))\ \textcolor{comment}{//based\ on\ y\ (not\ necessary)}}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00049}00049\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00051}\mbox{\hyperlink{class_geometry_1_1_edge_ad16df3a1a5be67f3c06bcc4172dddb73}{00051}}\ \ \ \ \ std::optional<Math::Vec2f>\ \mbox{\hyperlink{namespace_geometry_ae680321c371d9f6bd6def5844e915b6f}{getIntersectionPoint}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_geometry_1_1_edge}{Edge}}\&\ e1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_geometry_1_1_edge}{Edge}}\&\ e2)}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00052}00052\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ std::optional<Math::Vec2f>\ P\ =\ \mbox{\hyperlink{namespace_geometry_ae680321c371d9f6bd6def5844e915b6f}{getIntersectionPoint}}(e1.\mbox{\hyperlink{class_geometry_1_1_edge_a0f13464ad4e6beb72ac11d60420ee522}{convertToLine}}(),\ e2.\mbox{\hyperlink{class_geometry_1_1_edge_a0f13464ad4e6beb72ac11d60420ee522}{convertToLine}}());}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!P.has\_value())}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{\};}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (e1.\mbox{\hyperlink{class_geometry_1_1_edge_ad127bb37443f0ee46560e1cfaafad6a0}{inRange}}(P.value())\ \&\&\ e2.\mbox{\hyperlink{class_geometry_1_1_edge_ad127bb37443f0ee46560e1cfaafad6a0}{inRange}}(P.value()))}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ P.value();}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{\};}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00062}00062\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00064}\mbox{\hyperlink{class_geometry_1_1_edge_a737ba97a1497d21e9ff0acb1394f9f26}{00064}}\ \ \ \ \ std::optional<Math::Vec2f>\ \mbox{\hyperlink{namespace_geometry_ae680321c371d9f6bd6def5844e915b6f}{getIntersectionPoint}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_geometry_1_1_edge}{Edge}}\&\ edge,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_geometry_1_1_line}{Line}}\&\ line)}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00065}00065\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_line}{Line}}\ l2(edge.\mbox{\hyperlink{class_geometry_1_1_edge_a5b4f8f2fac2c4745cbd8e9635d104105}{p1}},\ edge.\mbox{\hyperlink{class_geometry_1_1_edge_adaa100000f5ab8b3fcba32828419ae39}{p2}});}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ std::optional<Math::Vec2f>\ p\ =\ \mbox{\hyperlink{namespace_geometry_ae680321c371d9f6bd6def5844e915b6f}{getIntersectionPoint}}(line,\ l2);}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p.has\_value())}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (edge.\mbox{\hyperlink{class_geometry_1_1_edge_ad127bb37443f0ee46560e1cfaafad6a0}{inRange}}(p.value()))}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ p.value();}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{\};}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00072}00072\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00075}\mbox{\hyperlink{class_geometry_1_1_edge_a02f62dc93f3810dedf600e1890d0a01a}{00075}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespace_geometry_a86785195fbc7afcfb5a0d1ed7cddb26b}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_geometry_1_1_edge}{Edge}}\&\ e1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_geometry_1_1_edge}{Edge}}\&\ e2)}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00076}00076\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (e1.\mbox{\hyperlink{class_geometry_1_1_edge_a5b4f8f2fac2c4745cbd8e9635d104105}{p1}}\ ==\ e2.\mbox{\hyperlink{class_geometry_1_1_edge_a5b4f8f2fac2c4745cbd8e9635d104105}{p1}}\ \&\&\ e1.\mbox{\hyperlink{class_geometry_1_1_edge_adaa100000f5ab8b3fcba32828419ae39}{p2}}\ ==\ e2.\mbox{\hyperlink{class_geometry_1_1_edge_adaa100000f5ab8b3fcba32828419ae39}{p2}})\ ||\ (e1.\mbox{\hyperlink{class_geometry_1_1_edge_a5b4f8f2fac2c4745cbd8e9635d104105}{p1}}\ ==\ e2.\mbox{\hyperlink{class_geometry_1_1_edge_adaa100000f5ab8b3fcba32828419ae39}{p2}}\ \&\&\ e1.\mbox{\hyperlink{class_geometry_1_1_edge_adaa100000f5ab8b3fcba32828419ae39}{p2}}\ ==\ e2.\mbox{\hyperlink{class_geometry_1_1_edge_a5b4f8f2fac2c4745cbd8e9635d104105}{p1}});}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00078}00078\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00080}\mbox{\hyperlink{class_geometry_1_1_edge_a60655f13baa37e528f693e9a7a2c63e9}{00080}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespace_geometry_a047d2af9bc09d34e28ae00952f396bc8}{operator!=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_geometry_1_1_edge}{Edge}}\&\ e1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_geometry_1_1_edge}{Edge}}\&\ e2)}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00081}00081\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ !(e1\ ==\ e2);}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00083}00083\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge_8cpp_source_l00084}00084\ \}}
+
+\end{DoxyCode}

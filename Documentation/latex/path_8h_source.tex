@@ -1,0 +1,871 @@
+\doxysection{path.\+h}
+\hypertarget{path_8h_source}{}\label{path_8h_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/lemon/path.h@{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/lemon/path.h}}
+\mbox{\hyperlink{path_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00001}00001\ \textcolor{comment}{/*\ -\/*-\/\ mode:\ C++;\ indent-\/tabs-\/mode:\ nil;\ -\/*-\/}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00002}00002\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00003}00003\ \textcolor{comment}{\ *\ This\ file\ is\ a\ part\ of\ LEMON,\ a\ generic\ C++\ optimization\ library.}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00004}00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00005}00005\ \textcolor{comment}{\ *\ Copyright\ (C)\ 2003-\/2013}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00006}00006\ \textcolor{comment}{\ *\ Egervary\ Jeno\ Kombinatorikus\ Optimalizalasi\ Kutatocsoport}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00007}00007\ \textcolor{comment}{\ *\ (Egervary\ Research\ Group\ on\ Combinatorial\ Optimization,\ EGRES).}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00008}00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00009}00009\ \textcolor{comment}{\ *\ Permission\ to\ use,\ modify\ and\ distribute\ this\ software\ is\ granted}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00010}00010\ \textcolor{comment}{\ *\ provided\ that\ this\ copyright\ notice\ appears\ in\ all\ copies.\ For}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00011}00011\ \textcolor{comment}{\ *\ precise\ terms\ see\ the\ accompanying\ LICENSE\ file.}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00012}00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00013}00013\ \textcolor{comment}{\ *\ This\ software\ is\ provided\ "{}AS\ IS"{}\ with\ no\ warranty\ of\ any\ kind,}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00014}00014\ \textcolor{comment}{\ *\ express\ or\ implied,\ and\ with\ no\ claim\ as\ to\ its\ suitability\ for\ any}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00015}00015\ \textcolor{comment}{\ *\ purpose.}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00016}00016\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00017}00017\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00024}00024\ \textcolor{preprocessor}{\#ifndef\ LEMON\_PATH\_H}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00025}00025\ \textcolor{preprocessor}{\#define\ LEMON\_PATH\_H}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00027}00027\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00028}00028\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00030}00030\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{additional__includes_2lemon_2error_8h}{lemon/error.h}}>}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00031}00031\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{lemon_2core_8h}{lemon/core.h}}>}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00032}00032\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{concepts_2path_8h}{lemon/concepts/path.h}}>}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00034}00034\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacelemon}{lemon}}\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00055}00055\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ GR>}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00056}\mbox{\hyperlink{classlemon_1_1_path}{00056}}\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_path}{Path}}\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00057}00057\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00059}\mbox{\hyperlink{classlemon_1_1_path_afded6c4ea0b87a6ade7e12a20e9e1d20}{00059}}\ \ \ \ \ \textcolor{keyword}{typedef}\ GR\ \mbox{\hyperlink{classlemon_1_1_path_afded6c4ea0b87a6ade7e12a20e9e1d20}{Digraph}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00060}\mbox{\hyperlink{classlemon_1_1_path_a145164bbe745903264b8fadd98d87895}{00060}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Digraph::Arc\ \mbox{\hyperlink{classlemon_1_1_path_a145164bbe745903264b8fadd98d87895}{Arc}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00065}\mbox{\hyperlink{classlemon_1_1_path_a6e8e2bd49a8d9e01da3612860160f92c}{00065}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_path_a6e8e2bd49a8d9e01da3612860160f92c}{Path}}()\ \{\}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00069}\mbox{\hyperlink{classlemon_1_1_path_a20883cb626016b7a15876e176ac25a57}{00069}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_path_a20883cb626016b7a15876e176ac25a57}{Path}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_path}{Path}}\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cpath}})\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00070}00070\ \ \ \ \ \ \ \mbox{\hyperlink{group__paths_ga1c0da351dc554629ec44013576637e7d}{pathCopy}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cpath}},\ *\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00071}00071\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00077}00077\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ CPath>}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00078}\mbox{\hyperlink{classlemon_1_1_path_a4bcb371778bd03ff87ef148271126bfe}{00078}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_path_a4bcb371778bd03ff87ef148271126bfe}{Path}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CPath}}\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cpath}})\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00079}00079\ \ \ \ \ \ \ \mbox{\hyperlink{group__paths_ga1c0da351dc554629ec44013576637e7d}{pathCopy}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cpath}},\ *\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00080}00080\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00084}\mbox{\hyperlink{classlemon_1_1_path_a449141903e957e888cbce0aca0f5bd30}{00084}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_path}{Path}}\&\ \mbox{\hyperlink{classlemon_1_1_path_a449141903e957e888cbce0aca0f5bd30}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_path}{Path}}\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cpath}})\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00085}00085\ \ \ \ \ \ \ \mbox{\hyperlink{group__paths_ga1c0da351dc554629ec44013576637e7d}{pathCopy}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cpath}},\ *\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00086}00086\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00087}00087\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00092}00092\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ CPath>}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00093}\mbox{\hyperlink{classlemon_1_1_path_a28eb1dda965d6bccfe542ef44ce8aef1}{00093}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_path}{Path}}\&\ \mbox{\hyperlink{classlemon_1_1_path_a28eb1dda965d6bccfe542ef44ce8aef1}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CPath}}\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cpath}})\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00094}00094\ \ \ \ \ \ \ \mbox{\hyperlink{group__paths_ga1c0da351dc554629ec44013576637e7d}{pathCopy}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cpath}},\ *\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00095}00095\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00096}00096\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00101}\mbox{\hyperlink{classlemon_1_1_path_1_1_arc_it}{00101}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_path_1_1_arc_it}{ArcIt}}\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00102}\mbox{\hyperlink{classlemon_1_1_path_1_1_arc_it_a4877239a6b7f09fbf5a61ca68a49d74c}{00102}}\ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_path}{Path}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00103}00103\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00105}\mbox{\hyperlink{classlemon_1_1_path_1_1_arc_it_a8e7f41871f04dc99198a069673e17151}{00105}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_path_1_1_arc_it_a8e7f41871f04dc99198a069673e17151}{ArcIt}}()\ \{\}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00107}\mbox{\hyperlink{classlemon_1_1_path_1_1_arc_it_ac451ceb2a2ddbf74356aa70636b503a8}{00107}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_path_1_1_arc_it_ac451ceb2a2ddbf74356aa70636b503a8}{ArcIt}}(\mbox{\hyperlink{structlemon_1_1_invalid}{Invalid}})\ :\ \mbox{\hyperlink{classlemon_1_1_path_1_1_arc_it_a1358b11e5592f35263d05e52ba99276f}{path}}(0),\ \mbox{\hyperlink{classlemon_1_1_path_1_1_arc_it_a9854004bf239b282eb1c26ce05f7e4a0}{idx}}(-\/1)\ \{\}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00109}\mbox{\hyperlink{classlemon_1_1_path_1_1_arc_it_a65ca6bf3c6b1906b8b3f09b32d651a9d}{00109}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_path_1_1_arc_it_a65ca6bf3c6b1906b8b3f09b32d651a9d}{ArcIt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_path}{Path}}\ \&\_path)}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00110}00110\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classlemon_1_1_path_1_1_arc_it_a1358b11e5592f35263d05e52ba99276f}{path}}(\&\_path),\ \mbox{\hyperlink{classlemon_1_1_path_1_1_arc_it_a9854004bf239b282eb1c26ce05f7e4a0}{idx}}(\_path.\mbox{\hyperlink{classlemon_1_1_path_add7530a1d43e88982acb2690407d9a26}{empty}}()\ ?\ -\/1\ :\ 0)\ \{\}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00112}00112\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00114}\mbox{\hyperlink{classlemon_1_1_path_1_1_arc_it_ac81106a1757399e8e4c47cb921e731f1}{00114}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_path_1_1_arc_it_ac81106a1757399e8e4c47cb921e731f1}{ArcIt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_path}{Path}}\ \&\_path,\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_idx}})}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00115}00115\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classlemon_1_1_path_1_1_arc_it_a1358b11e5592f35263d05e52ba99276f}{path}}(\&\_path),\ \mbox{\hyperlink{classlemon_1_1_path_1_1_arc_it_a9854004bf239b282eb1c26ce05f7e4a0}{idx}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_idx}})\ \{\}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00117}00117\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00120}\mbox{\hyperlink{classlemon_1_1_path_1_1_arc_it_a032e150dda8b6b7e8ae0955ac3b861bf}{00120}}\ \ \ \ \ \ \ \textcolor{keyword}{operator}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_path_a145164bbe745903264b8fadd98d87895}{Arc}}\&()\ \textcolor{keyword}{const}\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00121}00121\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_path_1_1_arc_it_a1358b11e5592f35263d05e52ba99276f}{path}}-\/>\mbox{\hyperlink{classlemon_1_1_path_ae0ef304c2ce6fa703f45fb743193ff6a}{nth}}(\mbox{\hyperlink{classlemon_1_1_path_1_1_arc_it_a9854004bf239b282eb1c26ce05f7e4a0}{idx}});}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00122}00122\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00125}\mbox{\hyperlink{classlemon_1_1_path_1_1_arc_it_ab4729d449fb1d8439da6f7cb55eb7606}{00125}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_path_1_1_arc_it}{ArcIt}}\&\ \mbox{\hyperlink{classlemon_1_1_path_1_1_arc_it_ab4729d449fb1d8439da6f7cb55eb7606}{operator++}}()\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00126}00126\ \ \ \ \ \ \ \ \ ++\mbox{\hyperlink{classlemon_1_1_path_1_1_arc_it_a9854004bf239b282eb1c26ce05f7e4a0}{idx}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00127}00127\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_path_1_1_arc_it_a9854004bf239b282eb1c26ce05f7e4a0}{idx}}\ >=\ \mbox{\hyperlink{classlemon_1_1_path_1_1_arc_it_a1358b11e5592f35263d05e52ba99276f}{path}}-\/>\mbox{\hyperlink{classlemon_1_1_path_a42813b52af0c4745126a440e4adcc923}{length}}())\ \mbox{\hyperlink{classlemon_1_1_path_1_1_arc_it_a9854004bf239b282eb1c26ce05f7e4a0}{idx}}\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00128}00128\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00129}00129\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00130}00130\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00132}\mbox{\hyperlink{classlemon_1_1_path_1_1_arc_it_aa67dd9f4623cdc3542d14cbff78e369c}{00132}}\ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_path_1_1_arc_it_aa67dd9f4623cdc3542d14cbff78e369c}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_path_1_1_arc_it}{ArcIt}}\&\ e)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_path_1_1_arc_it_a9854004bf239b282eb1c26ce05f7e4a0}{idx}}==e.\mbox{\hyperlink{classlemon_1_1_path_1_1_arc_it_a9854004bf239b282eb1c26ce05f7e4a0}{idx}};\ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00134}\mbox{\hyperlink{classlemon_1_1_path_1_1_arc_it_ae7c9b28f24d01cfc165cbffb3c410083}{00134}}\ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_path_1_1_arc_it_ae7c9b28f24d01cfc165cbffb3c410083}{operator!=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_path_1_1_arc_it}{ArcIt}}\&\ e)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_path_1_1_arc_it_a9854004bf239b282eb1c26ce05f7e4a0}{idx}}!=e.\mbox{\hyperlink{classlemon_1_1_path_1_1_arc_it_a9854004bf239b282eb1c26ce05f7e4a0}{idx}};\ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00136}\mbox{\hyperlink{classlemon_1_1_path_1_1_arc_it_aee17ef26bba540470c19803179e34f5b}{00136}}\ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_path_1_1_arc_it_aee17ef26bba540470c19803179e34f5b}{operator<}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_path_1_1_arc_it}{ArcIt}}\&\ e)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_path_1_1_arc_it_a9854004bf239b282eb1c26ce05f7e4a0}{idx}}<e.\mbox{\hyperlink{classlemon_1_1_path_1_1_arc_it_a9854004bf239b282eb1c26ce05f7e4a0}{idx}};\ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00137}00137\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00138}00138\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00139}\mbox{\hyperlink{classlemon_1_1_path_1_1_arc_it_a1358b11e5592f35263d05e52ba99276f}{00139}}\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_path}{Path}}\ *\mbox{\hyperlink{classlemon_1_1_path_1_1_arc_it_a1358b11e5592f35263d05e52ba99276f}{path}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00140}\mbox{\hyperlink{classlemon_1_1_path_1_1_arc_it_a9854004bf239b282eb1c26ce05f7e4a0}{00140}}\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_path_1_1_arc_it_a9854004bf239b282eb1c26ce05f7e4a0}{idx}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00141}00141\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00142}00142\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00144}\mbox{\hyperlink{classlemon_1_1_path_a42813b52af0c4745126a440e4adcc923}{00144}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_path_a42813b52af0c4745126a440e4adcc923}{length}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_path_a2640d6a88105049a5e0b4984ba445f3b}{head}}.size()\ +\ \mbox{\hyperlink{classlemon_1_1_path_a04b97c0b9f0b9121fa5519f5526ca8a7}{tail}}.size();\ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00146}\mbox{\hyperlink{classlemon_1_1_path_add7530a1d43e88982acb2690407d9a26}{00146}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_path_add7530a1d43e88982acb2690407d9a26}{empty}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_path_a2640d6a88105049a5e0b4984ba445f3b}{head}}.empty()\ \&\&\ \mbox{\hyperlink{classlemon_1_1_path_a04b97c0b9f0b9121fa5519f5526ca8a7}{tail}}.empty();\ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00147}00147\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00149}\mbox{\hyperlink{classlemon_1_1_path_ab931fba957386b19cb1512a63784459e}{00149}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_path_ab931fba957386b19cb1512a63784459e}{clear}}()\ \{\ \mbox{\hyperlink{classlemon_1_1_path_a2640d6a88105049a5e0b4984ba445f3b}{head}}.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_af2726dacd301d1fdc114b18b6eeb5f51}{clear}}();\ \mbox{\hyperlink{classlemon_1_1_path_a04b97c0b9f0b9121fa5519f5526ca8a7}{tail}}.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_af2726dacd301d1fdc114b18b6eeb5f51}{clear}}();\ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00150}00150\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00154}\mbox{\hyperlink{classlemon_1_1_path_ae0ef304c2ce6fa703f45fb743193ff6a}{00154}}\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_path_a145164bbe745903264b8fadd98d87895}{Arc}}\&\ \mbox{\hyperlink{classlemon_1_1_path_ae0ef304c2ce6fa703f45fb743193ff6a}{nth}}(\textcolor{keywordtype}{int}\ n)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00155}00155\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ n\ <\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{int}}(\mbox{\hyperlink{classlemon_1_1_path_a2640d6a88105049a5e0b4984ba445f3b}{head}}.size())\ ?\ *(\mbox{\hyperlink{classlemon_1_1_path_a2640d6a88105049a5e0b4984ba445f3b}{head}}.rbegin()\ +\ n)\ :}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00156}00156\ \ \ \ \ \ \ \ \ *(\mbox{\hyperlink{classlemon_1_1_path_a04b97c0b9f0b9121fa5519f5526ca8a7}{tail}}.begin()\ +\ (n\ -\/\ \mbox{\hyperlink{classlemon_1_1_path_a2640d6a88105049a5e0b4984ba445f3b}{head}}.size()));}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00157}00157\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00158}00158\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00162}\mbox{\hyperlink{classlemon_1_1_path_aaf5eb7ea85330eeea67fe290bbe0a52e}{00162}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_path_1_1_arc_it}{ArcIt}}\ \mbox{\hyperlink{classlemon_1_1_path_aaf5eb7ea85330eeea67fe290bbe0a52e}{nthIt}}(\textcolor{keywordtype}{int}\ n)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00163}00163\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_path_1_1_arc_it}{ArcIt}}(*\textcolor{keyword}{this},\ n);}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00164}00164\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00165}00165\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00167}\mbox{\hyperlink{classlemon_1_1_path_a5e35c177f5d69becf1dab9a923dfd86e}{00167}}\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_path_a145164bbe745903264b8fadd98d87895}{Arc}}\&\ \mbox{\hyperlink{classlemon_1_1_path_a5e35c177f5d69becf1dab9a923dfd86e}{front}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00168}00168\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_path_a2640d6a88105049a5e0b4984ba445f3b}{head}}.empty()\ ?\ \mbox{\hyperlink{classlemon_1_1_path_a04b97c0b9f0b9121fa5519f5526ca8a7}{tail}}.front()\ :\ \mbox{\hyperlink{classlemon_1_1_path_a2640d6a88105049a5e0b4984ba445f3b}{head}}.back();}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00169}00169\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00170}00170\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00172}\mbox{\hyperlink{classlemon_1_1_path_ab8c64918de8724eec2827a50a57f26e5}{00172}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_path_ab8c64918de8724eec2827a50a57f26e5}{addFront}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_path_a145164bbe745903264b8fadd98d87895}{Arc}}\&\ arc)\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00173}00173\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_path_a2640d6a88105049a5e0b4984ba445f3b}{head}}.push\_back(arc);}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00174}00174\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00175}00175\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00177}\mbox{\hyperlink{classlemon_1_1_path_abea0d30e439dc54e018e2bae3be8a5ff}{00177}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_path_abea0d30e439dc54e018e2bae3be8a5ff}{eraseFront}}()\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00178}00178\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classlemon_1_1_path_a2640d6a88105049a5e0b4984ba445f3b}{head}}.empty())\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00179}00179\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_path_a2640d6a88105049a5e0b4984ba445f3b}{head}}.pop\_back();}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00180}00180\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00181}00181\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_path_a2640d6a88105049a5e0b4984ba445f3b}{head}}.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_af2726dacd301d1fdc114b18b6eeb5f51}{clear}}();}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00182}00182\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{halfsize}}\ =\ \mbox{\hyperlink{classlemon_1_1_path_a04b97c0b9f0b9121fa5519f5526ca8a7}{tail}}.size()\ /\ 2;}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00183}00183\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_path_a2640d6a88105049a5e0b4984ba445f3b}{head}}.resize(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{halfsize}});}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00184}00184\ \ \ \ \ \ \ \ \ std::copy(\mbox{\hyperlink{classlemon_1_1_path_a04b97c0b9f0b9121fa5519f5526ca8a7}{tail}}.begin()\ +\ 1,\ \mbox{\hyperlink{classlemon_1_1_path_a04b97c0b9f0b9121fa5519f5526ca8a7}{tail}}.begin()\ +\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{halfsize}}\ +\ 1,}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00185}00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_path_a2640d6a88105049a5e0b4984ba445f3b}{head}}.rbegin());}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00186}00186\ \ \ \ \ \ \ \ \ std::copy(\mbox{\hyperlink{classlemon_1_1_path_a04b97c0b9f0b9121fa5519f5526ca8a7}{tail}}.begin()\ +\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{halfsize}}\ +\ 1,\ \mbox{\hyperlink{classlemon_1_1_path_a04b97c0b9f0b9121fa5519f5526ca8a7}{tail}}.end(),\ \mbox{\hyperlink{classlemon_1_1_path_a04b97c0b9f0b9121fa5519f5526ca8a7}{tail}}.begin());}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00187}00187\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_path_a04b97c0b9f0b9121fa5519f5526ca8a7}{tail}}.resize(\mbox{\hyperlink{classlemon_1_1_path_a04b97c0b9f0b9121fa5519f5526ca8a7}{tail}}.size()\ -\/\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{halfsize}}\ -\/\ 1);}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00188}00188\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00189}00189\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00190}00190\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00192}\mbox{\hyperlink{classlemon_1_1_path_a8be764fc578e41e005ae895e4d4c55b2}{00192}}\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_path_a145164bbe745903264b8fadd98d87895}{Arc}}\&\ \mbox{\hyperlink{classlemon_1_1_path_a8be764fc578e41e005ae895e4d4c55b2}{back}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00193}00193\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_path_a04b97c0b9f0b9121fa5519f5526ca8a7}{tail}}.empty()\ ?\ \mbox{\hyperlink{classlemon_1_1_path_a2640d6a88105049a5e0b4984ba445f3b}{head}}.front()\ :\ \mbox{\hyperlink{classlemon_1_1_path_a04b97c0b9f0b9121fa5519f5526ca8a7}{tail}}.back();}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00194}00194\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00195}00195\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00197}\mbox{\hyperlink{classlemon_1_1_path_a83376dd53f4e6c72782e5e73cb150d8a}{00197}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_path_a83376dd53f4e6c72782e5e73cb150d8a}{addBack}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_path_a145164bbe745903264b8fadd98d87895}{Arc}}\&\ arc)\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00198}00198\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_path_a04b97c0b9f0b9121fa5519f5526ca8a7}{tail}}.push\_back(arc);}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00199}00199\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00200}00200\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00202}\mbox{\hyperlink{classlemon_1_1_path_aeaf54dc7976cdbf1d48a71d5748a5f05}{00202}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_path_aeaf54dc7976cdbf1d48a71d5748a5f05}{eraseBack}}()\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00203}00203\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classlemon_1_1_path_a04b97c0b9f0b9121fa5519f5526ca8a7}{tail}}.empty())\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00204}00204\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_path_a04b97c0b9f0b9121fa5519f5526ca8a7}{tail}}.pop\_back();}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00205}00205\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00206}00206\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{halfsize}}\ =\ \mbox{\hyperlink{classlemon_1_1_path_a2640d6a88105049a5e0b4984ba445f3b}{head}}.size()\ /\ 2;}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00207}00207\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_path_a04b97c0b9f0b9121fa5519f5526ca8a7}{tail}}.resize(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{halfsize}});}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00208}00208\ \ \ \ \ \ \ \ \ std::copy(\mbox{\hyperlink{classlemon_1_1_path_a2640d6a88105049a5e0b4984ba445f3b}{head}}.begin()\ +\ 1,\ \mbox{\hyperlink{classlemon_1_1_path_a2640d6a88105049a5e0b4984ba445f3b}{head}}.begin()\ +\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{halfsize}}\ +\ 1,}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00209}00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_path_a04b97c0b9f0b9121fa5519f5526ca8a7}{tail}}.rbegin());}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00210}00210\ \ \ \ \ \ \ \ \ std::copy(\mbox{\hyperlink{classlemon_1_1_path_a2640d6a88105049a5e0b4984ba445f3b}{head}}.begin()\ +\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{halfsize}}\ +\ 1,\ \mbox{\hyperlink{classlemon_1_1_path_a2640d6a88105049a5e0b4984ba445f3b}{head}}.end(),\ \mbox{\hyperlink{classlemon_1_1_path_a2640d6a88105049a5e0b4984ba445f3b}{head}}.begin());}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00211}00211\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_path_a2640d6a88105049a5e0b4984ba445f3b}{head}}.resize(\mbox{\hyperlink{classlemon_1_1_path_a2640d6a88105049a5e0b4984ba445f3b}{head}}.size()\ -\/\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{halfsize}}\ -\/\ 1);}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00212}00212\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00213}00213\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00214}00214\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00215}\mbox{\hyperlink{classlemon_1_1_path_a2a658fe6d01ce7b62a3e9047be613674}{00215}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{structlemon_1_1_true}{True}}\ \mbox{\hyperlink{classlemon_1_1_path_a2a658fe6d01ce7b62a3e9047be613674}{BuildTag}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00216}00216\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00217}00217\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ CPath>}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00218}\mbox{\hyperlink{classlemon_1_1_path_ad7ccef94c055b3e22f041bcea6cef2e3}{00218}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_path_ad7ccef94c055b3e22f041bcea6cef2e3}{build}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CPath}}\&\ path)\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00219}00219\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ len\ =\ path.length();}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00220}00220\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_path_a04b97c0b9f0b9121fa5519f5526ca8a7}{tail}}.reserve(len);}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00221}00221\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{typename}\ CPath::ArcIt\ it(path);\ it\ !=\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ ++it)\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00222}00222\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_path_a04b97c0b9f0b9121fa5519f5526ca8a7}{tail}}.push\_back(it);}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00223}00223\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00224}00224\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00225}00225\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00226}00226\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ CPath>}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00227}\mbox{\hyperlink{classlemon_1_1_path_ad529738c4434bd3b59168f2cf152d28b}{00227}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_path_ad529738c4434bd3b59168f2cf152d28b}{buildRev}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CPath}}\&\ path)\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00228}00228\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ len\ =\ path.length();}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00229}00229\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_path_a2640d6a88105049a5e0b4984ba445f3b}{head}}.reserve(len);}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00230}00230\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{typename}\ CPath::RevArcIt\ it(path);\ it\ !=\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ ++it)\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00231}00231\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_path_a2640d6a88105049a5e0b4984ba445f3b}{head}}.push\_back(it);}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00232}00232\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00233}00233\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00234}00234\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00235}00235\ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00236}\mbox{\hyperlink{classlemon_1_1_path_a0051eba269368e08b2fb38e527ad6445}{00236}}\ \ \ \ \ \textcolor{keyword}{typedef}\ std::vector<Arc>\ \mbox{\hyperlink{classlemon_1_1_path_a0051eba269368e08b2fb38e527ad6445}{Container}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00237}\mbox{\hyperlink{classlemon_1_1_path_a2640d6a88105049a5e0b4984ba445f3b}{00237}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_path_a0051eba269368e08b2fb38e527ad6445}{Container}}\ \mbox{\hyperlink{classlemon_1_1_path_a2640d6a88105049a5e0b4984ba445f3b}{head}},\ \mbox{\hyperlink{classlemon_1_1_path_a04b97c0b9f0b9121fa5519f5526ca8a7}{tail}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00238}00238\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00239}00239\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00240}00240\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00256}00256\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ GR>}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00257}\mbox{\hyperlink{classlemon_1_1_simple_path}{00257}}\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_simple_path}{SimplePath}}\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00258}00258\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00259}00259\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00260}\mbox{\hyperlink{classlemon_1_1_simple_path_ad4e49efa0ab3ef1c47ef149eea08e75d}{00260}}\ \ \ \ \ \textcolor{keyword}{typedef}\ GR\ \mbox{\hyperlink{classlemon_1_1_simple_path_ad4e49efa0ab3ef1c47ef149eea08e75d}{Digraph}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00261}\mbox{\hyperlink{classlemon_1_1_simple_path_a6383dd34636c0c785b2ff0e0ca04b00c}{00261}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Digraph::Arc\ \mbox{\hyperlink{classlemon_1_1_simple_path_a6383dd34636c0c785b2ff0e0ca04b00c}{Arc}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00262}00262\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00266}\mbox{\hyperlink{classlemon_1_1_simple_path_aacaee636102b25496b30d271f1219c3d}{00266}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_simple_path_aacaee636102b25496b30d271f1219c3d}{SimplePath}}()\ \{\}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00267}00267\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00270}\mbox{\hyperlink{classlemon_1_1_simple_path_a3931cea5d57fd0f4bace9fd17123c715}{00270}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_simple_path_a3931cea5d57fd0f4bace9fd17123c715}{SimplePath}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_simple_path}{SimplePath}}\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cpath}})\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00271}00271\ \ \ \ \ \ \ \mbox{\hyperlink{group__paths_ga1c0da351dc554629ec44013576637e7d}{pathCopy}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cpath}},\ *\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00272}00272\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00273}00273\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00278}00278\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ CPath>}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00279}\mbox{\hyperlink{classlemon_1_1_simple_path_a16d2cf97afe60e8f5fcd9bae436a3787}{00279}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_simple_path_a16d2cf97afe60e8f5fcd9bae436a3787}{SimplePath}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CPath}}\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cpath}})\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00280}00280\ \ \ \ \ \ \ \mbox{\hyperlink{group__paths_ga1c0da351dc554629ec44013576637e7d}{pathCopy}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cpath}},\ *\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00281}00281\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00282}00282\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00285}\mbox{\hyperlink{classlemon_1_1_simple_path_a8dfa76be47a340a75185cb62f741709e}{00285}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_simple_path}{SimplePath}}\&\ \mbox{\hyperlink{classlemon_1_1_simple_path_a8dfa76be47a340a75185cb62f741709e}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_simple_path}{SimplePath}}\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cpath}})\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00286}00286\ \ \ \ \ \ \ \mbox{\hyperlink{group__paths_ga1c0da351dc554629ec44013576637e7d}{pathCopy}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cpath}},\ *\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00287}00287\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00288}00288\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00289}00289\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00294}00294\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ CPath>}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00295}\mbox{\hyperlink{classlemon_1_1_simple_path_ae293733347a65763cb847dd11c98777e}{00295}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_simple_path}{SimplePath}}\&\ \mbox{\hyperlink{classlemon_1_1_simple_path_ae293733347a65763cb847dd11c98777e}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CPath}}\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cpath}})\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00296}00296\ \ \ \ \ \ \ \mbox{\hyperlink{group__paths_ga1c0da351dc554629ec44013576637e7d}{pathCopy}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cpath}},\ *\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00297}00297\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00298}00298\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00299}00299\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00305}\mbox{\hyperlink{classlemon_1_1_simple_path_1_1_arc_it}{00305}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_simple_path_1_1_arc_it}{ArcIt}}\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00306}\mbox{\hyperlink{classlemon_1_1_simple_path_1_1_arc_it_a25d676e5abbca167b4b2c6624e10ec29}{00306}}\ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_simple_path}{SimplePath}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00307}00307\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00309}\mbox{\hyperlink{classlemon_1_1_simple_path_1_1_arc_it_afeda335ce584c8a130b926943cb16216}{00309}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_simple_path_1_1_arc_it_afeda335ce584c8a130b926943cb16216}{ArcIt}}()\ \{\}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00311}\mbox{\hyperlink{classlemon_1_1_simple_path_1_1_arc_it_a037bfce49d895df18916724fa12f865e}{00311}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_simple_path_1_1_arc_it_a037bfce49d895df18916724fa12f865e}{ArcIt}}(\mbox{\hyperlink{structlemon_1_1_invalid}{Invalid}})\ :\ \mbox{\hyperlink{classlemon_1_1_simple_path_1_1_arc_it_a8b6c5b9ca17d30509c64cad2fa207552}{path}}(0),\ \mbox{\hyperlink{classlemon_1_1_simple_path_1_1_arc_it_a074e3e78a3bb8b3c2d243d04929b6ded}{idx}}(-\/1)\ \{\}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00313}\mbox{\hyperlink{classlemon_1_1_simple_path_1_1_arc_it_ac3294ebb3557cf6d3ebd3bda947b471c}{00313}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_simple_path_1_1_arc_it_ac3294ebb3557cf6d3ebd3bda947b471c}{ArcIt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_simple_path}{SimplePath}}\ \&\_path)}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00314}00314\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classlemon_1_1_simple_path_1_1_arc_it_a8b6c5b9ca17d30509c64cad2fa207552}{path}}(\&\_path),\ \mbox{\hyperlink{classlemon_1_1_simple_path_1_1_arc_it_a074e3e78a3bb8b3c2d243d04929b6ded}{idx}}(\_path.\mbox{\hyperlink{classlemon_1_1_simple_path_af222cb443d6d2b4bf76a1ac353497cd1}{empty}}()\ ?\ -\/1\ :\ 0)\ \{\}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00315}00315\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00316}00316\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00317}00317\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00319}\mbox{\hyperlink{classlemon_1_1_simple_path_1_1_arc_it_a3d79db9a63a81f01fa1404433839ae8a}{00319}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_simple_path_1_1_arc_it_a3d79db9a63a81f01fa1404433839ae8a}{ArcIt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_simple_path}{SimplePath}}\ \&\_path,\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_idx}})}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00320}00320\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classlemon_1_1_simple_path_1_1_arc_it_a8b6c5b9ca17d30509c64cad2fa207552}{path}}(\&\_path),\ \mbox{\hyperlink{classlemon_1_1_simple_path_1_1_arc_it_a074e3e78a3bb8b3c2d243d04929b6ded}{idx}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_idx}})\ \{\}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00321}00321\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00322}00322\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00323}00323\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00325}\mbox{\hyperlink{classlemon_1_1_simple_path_1_1_arc_it_a98784d58316d54bc02097c56fa7802c6}{00325}}\ \ \ \ \ \ \ \textcolor{keyword}{operator}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_simple_path_a6383dd34636c0c785b2ff0e0ca04b00c}{Arc}}\&()\ \textcolor{keyword}{const}\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00326}00326\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_simple_path_1_1_arc_it_a8b6c5b9ca17d30509c64cad2fa207552}{path}}-\/>\mbox{\hyperlink{classlemon_1_1_simple_path_a14066703b2264ce4548f8277567961d9}{nth}}(\mbox{\hyperlink{classlemon_1_1_simple_path_1_1_arc_it_a074e3e78a3bb8b3c2d243d04929b6ded}{idx}});}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00327}00327\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00328}00328\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00330}\mbox{\hyperlink{classlemon_1_1_simple_path_1_1_arc_it_aaa87fcacf79360f1999083bcd77d103c}{00330}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_simple_path_1_1_arc_it}{ArcIt}}\&\ \mbox{\hyperlink{classlemon_1_1_simple_path_1_1_arc_it_aaa87fcacf79360f1999083bcd77d103c}{operator++}}()\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00331}00331\ \ \ \ \ \ \ \ \ ++\mbox{\hyperlink{classlemon_1_1_simple_path_1_1_arc_it_a074e3e78a3bb8b3c2d243d04929b6ded}{idx}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00332}00332\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_simple_path_1_1_arc_it_a074e3e78a3bb8b3c2d243d04929b6ded}{idx}}\ >=\ \mbox{\hyperlink{classlemon_1_1_simple_path_1_1_arc_it_a8b6c5b9ca17d30509c64cad2fa207552}{path}}-\/>\mbox{\hyperlink{classlemon_1_1_simple_path_a272353cf8d51c58c6dc282a442b609a7}{length}}())\ \mbox{\hyperlink{classlemon_1_1_simple_path_1_1_arc_it_a074e3e78a3bb8b3c2d243d04929b6ded}{idx}}\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00333}00333\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00334}00334\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00335}00335\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00337}\mbox{\hyperlink{classlemon_1_1_simple_path_1_1_arc_it_ae12105de35634edc0fa45eac2e011969}{00337}}\ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_simple_path_1_1_arc_it_ae12105de35634edc0fa45eac2e011969}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_simple_path_1_1_arc_it}{ArcIt}}\&\ e)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_simple_path_1_1_arc_it_a074e3e78a3bb8b3c2d243d04929b6ded}{idx}}==e.\mbox{\hyperlink{classlemon_1_1_simple_path_1_1_arc_it_a074e3e78a3bb8b3c2d243d04929b6ded}{idx}};\ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00339}\mbox{\hyperlink{classlemon_1_1_simple_path_1_1_arc_it_a8fc56e55cb80868277362abd00bc24dd}{00339}}\ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_simple_path_1_1_arc_it_a8fc56e55cb80868277362abd00bc24dd}{operator!=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_simple_path_1_1_arc_it}{ArcIt}}\&\ e)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_simple_path_1_1_arc_it_a074e3e78a3bb8b3c2d243d04929b6ded}{idx}}!=e.\mbox{\hyperlink{classlemon_1_1_simple_path_1_1_arc_it_a074e3e78a3bb8b3c2d243d04929b6ded}{idx}};\ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00341}\mbox{\hyperlink{classlemon_1_1_simple_path_1_1_arc_it_a8633340f9972d19b7d2b217fc7528b85}{00341}}\ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_simple_path_1_1_arc_it_a8633340f9972d19b7d2b217fc7528b85}{operator<}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_simple_path_1_1_arc_it}{ArcIt}}\&\ e)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_simple_path_1_1_arc_it_a074e3e78a3bb8b3c2d243d04929b6ded}{idx}}<e.\mbox{\hyperlink{classlemon_1_1_simple_path_1_1_arc_it_a074e3e78a3bb8b3c2d243d04929b6ded}{idx}};\ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00342}00342\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00343}00343\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00344}\mbox{\hyperlink{classlemon_1_1_simple_path_1_1_arc_it_a8b6c5b9ca17d30509c64cad2fa207552}{00344}}\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_simple_path}{SimplePath}}\ *\mbox{\hyperlink{classlemon_1_1_simple_path_1_1_arc_it_a8b6c5b9ca17d30509c64cad2fa207552}{path}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00345}\mbox{\hyperlink{classlemon_1_1_simple_path_1_1_arc_it_a074e3e78a3bb8b3c2d243d04929b6ded}{00345}}\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_simple_path_1_1_arc_it_a074e3e78a3bb8b3c2d243d04929b6ded}{idx}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00346}00346\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00347}00347\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00349}\mbox{\hyperlink{classlemon_1_1_simple_path_a272353cf8d51c58c6dc282a442b609a7}{00349}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_simple_path_a272353cf8d51c58c6dc282a442b609a7}{length}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structdata}{data}}.size();\ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00351}\mbox{\hyperlink{classlemon_1_1_simple_path_af222cb443d6d2b4bf76a1ac353497cd1}{00351}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_simple_path_af222cb443d6d2b4bf76a1ac353497cd1}{empty}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structdata}{data}}.empty();\ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00352}00352\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00354}\mbox{\hyperlink{classlemon_1_1_simple_path_a628601ea981a45e412b3efc5eb964d31}{00354}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_simple_path_a628601ea981a45e412b3efc5eb964d31}{clear}}()\ \{\ \mbox{\hyperlink{structdata}{data}}.clear();\ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00355}00355\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00359}\mbox{\hyperlink{classlemon_1_1_simple_path_a14066703b2264ce4548f8277567961d9}{00359}}\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_simple_path_a6383dd34636c0c785b2ff0e0ca04b00c}{Arc}}\&\ \mbox{\hyperlink{classlemon_1_1_simple_path_a14066703b2264ce4548f8277567961d9}{nth}}(\textcolor{keywordtype}{int}\ n)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00360}00360\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structdata}{data}}[n];}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00361}00361\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00362}00362\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00364}\mbox{\hyperlink{classlemon_1_1_simple_path_a14184c74a9e7c82194e8f865a0185700}{00364}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_simple_path_1_1_arc_it}{ArcIt}}\ \mbox{\hyperlink{classlemon_1_1_simple_path_a14184c74a9e7c82194e8f865a0185700}{nthIt}}(\textcolor{keywordtype}{int}\ n)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00365}00365\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_simple_path_1_1_arc_it}{ArcIt}}(*\textcolor{keyword}{this},\ n);}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00366}00366\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00367}00367\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00369}\mbox{\hyperlink{classlemon_1_1_simple_path_af151256d68a000d1263a0248be079ecc}{00369}}\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_simple_path_a6383dd34636c0c785b2ff0e0ca04b00c}{Arc}}\&\ \mbox{\hyperlink{classlemon_1_1_simple_path_af151256d68a000d1263a0248be079ecc}{front}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00370}00370\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structdata}{data}}.front();}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00371}00371\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00372}00372\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00374}\mbox{\hyperlink{classlemon_1_1_simple_path_a7c9f5038b9edab295a8487fde2637817}{00374}}\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_simple_path_a6383dd34636c0c785b2ff0e0ca04b00c}{Arc}}\&\ \mbox{\hyperlink{classlemon_1_1_simple_path_a7c9f5038b9edab295a8487fde2637817}{back}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00375}00375\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structdata}{data}}.back();}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00376}00376\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00377}00377\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00379}\mbox{\hyperlink{classlemon_1_1_simple_path_ad6021e565d934942a39e3304ce69a217}{00379}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_simple_path_ad6021e565d934942a39e3304ce69a217}{addBack}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_simple_path_a6383dd34636c0c785b2ff0e0ca04b00c}{Arc}}\&\ arc)\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00380}00380\ \ \ \ \ \ \ \mbox{\hyperlink{structdata}{data}}.push\_back(arc);}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00381}00381\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00382}00382\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00384}\mbox{\hyperlink{classlemon_1_1_simple_path_a34ce1ab01a231ad6d4e0084e313c3cab}{00384}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_simple_path_a34ce1ab01a231ad6d4e0084e313c3cab}{eraseBack}}()\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00385}00385\ \ \ \ \ \ \ \mbox{\hyperlink{structdata}{data}}.pop\_back();}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00386}00386\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00387}00387\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00388}\mbox{\hyperlink{classlemon_1_1_simple_path_a6d1de6550fa30dd1875b8240696dd39a}{00388}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{structlemon_1_1_true}{True}}\ \mbox{\hyperlink{classlemon_1_1_simple_path_a6d1de6550fa30dd1875b8240696dd39a}{BuildTag}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00389}00389\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00390}00390\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ CPath>}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00391}\mbox{\hyperlink{classlemon_1_1_simple_path_ab8107d64872c6a42b511f4d9234a74c3}{00391}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_simple_path_ab8107d64872c6a42b511f4d9234a74c3}{build}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CPath}}\&\ path)\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00392}00392\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ len\ =\ path.length();}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00393}00393\ \ \ \ \ \ \ \mbox{\hyperlink{structdata}{data}}.resize(len);}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00394}00394\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a7fc0249f0f8ba720115d2430f5b86cbaa6a992d5529f459a44fee58c733255e86}{index}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00395}00395\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{typename}\ CPath::ArcIt\ it(path);\ it\ !=\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ ++it)\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00396}00396\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structdata}{data}}[\mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a7fc0249f0f8ba720115d2430f5b86cbaa6a992d5529f459a44fee58c733255e86}{index}}]\ =\ it;;}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00397}00397\ \ \ \ \ \ \ \ \ ++\mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a7fc0249f0f8ba720115d2430f5b86cbaa6a992d5529f459a44fee58c733255e86}{index}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00398}00398\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00399}00399\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00400}00400\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00401}00401\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ CPath>}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00402}\mbox{\hyperlink{classlemon_1_1_simple_path_a79dae248a163e4c35fe3cb6c56a83647}{00402}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_simple_path_a79dae248a163e4c35fe3cb6c56a83647}{buildRev}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CPath}}\&\ path)\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00403}00403\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ len\ =\ path.length();}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00404}00404\ \ \ \ \ \ \ \mbox{\hyperlink{structdata}{data}}.resize(len);}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00405}00405\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a7fc0249f0f8ba720115d2430f5b86cbaa6a992d5529f459a44fee58c733255e86}{index}}\ =\ len;}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00406}00406\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{typename}\ CPath::RevArcIt\ it(path);\ it\ !=\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ ++it)\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00407}00407\ \ \ \ \ \ \ \ \ -\/-\/\mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a7fc0249f0f8ba720115d2430f5b86cbaa6a992d5529f459a44fee58c733255e86}{index}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00408}00408\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structdata}{data}}[\mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a7fc0249f0f8ba720115d2430f5b86cbaa6a992d5529f459a44fee58c733255e86}{index}}]\ =\ it;;}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00409}00409\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00410}00410\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00411}00411\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00412}00412\ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00413}\mbox{\hyperlink{classlemon_1_1_simple_path_afd23370bd30652dc33fb9ea541f22e76}{00413}}\ \ \ \ \ \textcolor{keyword}{typedef}\ std::vector<Arc>\ \mbox{\hyperlink{classlemon_1_1_simple_path_afd23370bd30652dc33fb9ea541f22e76}{Container}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00414}\mbox{\hyperlink{classlemon_1_1_simple_path_ac1e41ec1f7f319894a341c0f8eec6826}{00414}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_simple_path_afd23370bd30652dc33fb9ea541f22e76}{Container}}\ \mbox{\hyperlink{classlemon_1_1_simple_path_ac1e41ec1f7f319894a341c0f8eec6826}{data}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00415}00415\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00416}00416\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00417}00417\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00433}00433\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ GR>}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00434}\mbox{\hyperlink{classlemon_1_1_list_path}{00434}}\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_list_path}{ListPath}}\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00435}00435\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00436}00436\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00437}\mbox{\hyperlink{classlemon_1_1_list_path_a9042a7a4e21999c0b14407ea1066535e}{00437}}\ \ \ \ \ \textcolor{keyword}{typedef}\ GR\ \mbox{\hyperlink{classlemon_1_1_list_path_a9042a7a4e21999c0b14407ea1066535e}{Digraph}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00438}\mbox{\hyperlink{classlemon_1_1_list_path_aca7c7c855b2e2493f4f1e048800d61ac}{00438}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Digraph::Arc\ \mbox{\hyperlink{classlemon_1_1_list_path_aca7c7c855b2e2493f4f1e048800d61ac}{Arc}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00439}00439\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00440}00440\ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00441}00441\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00442}00442\ \ \ \ \ \textcolor{comment}{//\ the\ std::list<>\ is\ incompatible}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00443}00443\ \ \ \ \ \textcolor{comment}{//\ hard\ to\ create\ invalid\ iterator}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00444}\mbox{\hyperlink{structlemon_1_1_list_path_1_1_node}{00444}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_list_path_1_1_node}{Node}}\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00445}\mbox{\hyperlink{structlemon_1_1_list_path_1_1_node_a1f4e21a6c96f9b689c735570b159791c}{00445}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_aca7c7c855b2e2493f4f1e048800d61ac}{Arc}}\ \mbox{\hyperlink{structlemon_1_1_list_path_1_1_node_a1f4e21a6c96f9b689c735570b159791c}{arc}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00446}\mbox{\hyperlink{structlemon_1_1_list_path_1_1_node_a5b05d2ee246853f77f55a724ce70434b}{00446}}\ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_list_path_1_1_node}{Node}}\ *\mbox{\hyperlink{structlemon_1_1_list_path_1_1_node_a5b05d2ee246853f77f55a724ce70434b}{next}},\ *\mbox{\hyperlink{structlemon_1_1_list_path_1_1_node_a95880a9e34aff8073e7cdf4d0a830f7d}{prev}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00447}00447\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00448}00448\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00449}\mbox{\hyperlink{classlemon_1_1_list_path_a849fbf867c289e89cf6e6dc66174f944}{00449}}\ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_list_path_1_1_node}{Node}}\ *\mbox{\hyperlink{classlemon_1_1_list_path_a849fbf867c289e89cf6e6dc66174f944}{first}},\ *\mbox{\hyperlink{classlemon_1_1_list_path_acf252c253486ef3bc4bfc197ce4f4e73}{last}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00450}00450\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00451}\mbox{\hyperlink{classlemon_1_1_list_path_a4e582ac17c7117926322a6365a156dcb}{00451}}\ \ \ \ \ std::allocator<Node>\ \mbox{\hyperlink{classlemon_1_1_list_path_a4e582ac17c7117926322a6365a156dcb}{alloc}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00452}00452\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00453}00453\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00454}00454\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00458}\mbox{\hyperlink{classlemon_1_1_list_path_a83e2eb04f89f6c9b7b77f396d0edad95}{00458}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_a83e2eb04f89f6c9b7b77f396d0edad95}{ListPath}}()\ :\ \mbox{\hyperlink{classlemon_1_1_list_path_a849fbf867c289e89cf6e6dc66174f944}{first}}(0),\ \mbox{\hyperlink{classlemon_1_1_list_path_acf252c253486ef3bc4bfc197ce4f4e73}{last}}(0)\ \{\}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00459}00459\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00462}\mbox{\hyperlink{classlemon_1_1_list_path_aa1400f04ee06b3a6ee6029f81549dfcd}{00462}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_aa1400f04ee06b3a6ee6029f81549dfcd}{ListPath}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_list_path}{ListPath}}\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cpath}})\ :\ \mbox{\hyperlink{classlemon_1_1_list_path_a849fbf867c289e89cf6e6dc66174f944}{first}}(0),\ \mbox{\hyperlink{classlemon_1_1_list_path_acf252c253486ef3bc4bfc197ce4f4e73}{last}}(0)\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00463}00463\ \ \ \ \ \ \ \mbox{\hyperlink{group__paths_ga1c0da351dc554629ec44013576637e7d}{pathCopy}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cpath}},\ *\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00464}00464\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00465}00465\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00470}00470\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ CPath>}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00471}\mbox{\hyperlink{classlemon_1_1_list_path_a8b9cf657d7d8d573386e5b50289a275d}{00471}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_a8b9cf657d7d8d573386e5b50289a275d}{ListPath}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CPath}}\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cpath}})\ :\ \mbox{\hyperlink{classlemon_1_1_list_path_a849fbf867c289e89cf6e6dc66174f944}{first}}(0),\ \mbox{\hyperlink{classlemon_1_1_list_path_acf252c253486ef3bc4bfc197ce4f4e73}{last}}(0)\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00472}00472\ \ \ \ \ \ \ \mbox{\hyperlink{group__paths_ga1c0da351dc554629ec44013576637e7d}{pathCopy}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cpath}},\ *\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00473}00473\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00474}00474\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00478}\mbox{\hyperlink{classlemon_1_1_list_path_adc94190a131e5fb273a69dd6896ab9c0}{00478}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_adc94190a131e5fb273a69dd6896ab9c0}{\string~ListPath}}()\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00479}00479\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_a632f3d4c2da912928ea0fa64d79eb0f6}{clear}}();}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00480}00480\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00481}00481\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00484}\mbox{\hyperlink{classlemon_1_1_list_path_a00c7c7449cb41d36a1f6776ab7b69573}{00484}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path}{ListPath}}\&\ \mbox{\hyperlink{classlemon_1_1_list_path_a00c7c7449cb41d36a1f6776ab7b69573}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_list_path}{ListPath}}\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cpath}})\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00485}00485\ \ \ \ \ \ \ \mbox{\hyperlink{group__paths_ga1c0da351dc554629ec44013576637e7d}{pathCopy}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cpath}},\ *\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00486}00486\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00487}00487\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00488}00488\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00493}00493\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ CPath>}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00494}\mbox{\hyperlink{classlemon_1_1_list_path_a7126e92100197e83a822ebda5faca788}{00494}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path}{ListPath}}\&\ \mbox{\hyperlink{classlemon_1_1_list_path_a7126e92100197e83a822ebda5faca788}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CPath}}\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cpath}})\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00495}00495\ \ \ \ \ \ \ \mbox{\hyperlink{group__paths_ga1c0da351dc554629ec44013576637e7d}{pathCopy}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cpath}},\ *\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00496}00496\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00497}00497\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00498}00498\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00504}\mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it}{00504}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it}{ArcIt}}\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00505}\mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it_aaedc87d29540884f64a7d8b8e01e6700}{00505}}\ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_list_path}{ListPath}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00506}00506\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00508}\mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it_a09bdcf3402e11eeaef12da3ec95cede1}{00508}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it_a09bdcf3402e11eeaef12da3ec95cede1}{ArcIt}}()\ \{\}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00510}\mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it_a75a00f9292fbb09d51f9c8a790caaff1}{00510}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it_a75a00f9292fbb09d51f9c8a790caaff1}{ArcIt}}(\mbox{\hyperlink{structlemon_1_1_invalid}{Invalid}})\ :\ \mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it_a2e574c4d2ab320d07dbaceede8c0c3a0}{path}}(0),\ \mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it_aed45afb54619a26187814401cc18aeb8}{node}}(0)\ \{\}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00512}\mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it_af8f9918366aab0f3e48fb7b0978faaf9}{00512}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it_af8f9918366aab0f3e48fb7b0978faaf9}{ArcIt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_list_path}{ListPath}}\ \&\_path)}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00513}00513\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it_a2e574c4d2ab320d07dbaceede8c0c3a0}{path}}(\&\_path),\ \mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it_aed45afb54619a26187814401cc18aeb8}{node}}(\_path.\mbox{\hyperlink{classlemon_1_1_list_path_a849fbf867c289e89cf6e6dc66174f944}{first}})\ \{\}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00514}00514\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00515}00515\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00516}00516\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00517}\mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it_a48a34ba9361940e8e9a2ded19c087ca5}{00517}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it_a48a34ba9361940e8e9a2ded19c087ca5}{ArcIt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_list_path}{ListPath}}\ \&\_path,\ \mbox{\hyperlink{structlemon_1_1_list_path_1_1_node}{Node}}\ *\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_node}})}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00518}00518\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it_a2e574c4d2ab320d07dbaceede8c0c3a0}{path}}(\&\_path),\ \mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it_aed45afb54619a26187814401cc18aeb8}{node}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_node}})\ \{\}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00519}00519\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00520}00520\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00521}00521\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00522}00522\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00524}\mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it_ad71ca8a06f591df9198fa14428a6964b}{00524}}\ \ \ \ \ \ \ \textcolor{keyword}{operator}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_list_path_aca7c7c855b2e2493f4f1e048800d61ac}{Arc}}\&()\ \textcolor{keyword}{const}\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00525}00525\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it_aed45afb54619a26187814401cc18aeb8}{node}}-\/>\mbox{\hyperlink{structlemon_1_1_list_path_1_1_node_a1f4e21a6c96f9b689c735570b159791c}{arc}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00526}00526\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00527}00527\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00529}\mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it_ae42e863ff7b7a16c74393514696a6293}{00529}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it}{ArcIt}}\&\ \mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it_ae42e863ff7b7a16c74393514696a6293}{operator++}}()\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00530}00530\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it_aed45afb54619a26187814401cc18aeb8}{node}}\ =\ \mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it_aed45afb54619a26187814401cc18aeb8}{node}}-\/>\mbox{\hyperlink{structlemon_1_1_list_path_1_1_node_a5b05d2ee246853f77f55a724ce70434b}{next}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00531}00531\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00532}00532\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00533}00533\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00535}\mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it_afc785e9803034865d823f6da59abab1c}{00535}}\ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it_afc785e9803034865d823f6da59abab1c}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it}{ArcIt}}\&\ e)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it_aed45afb54619a26187814401cc18aeb8}{node}}==e.\mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it_aed45afb54619a26187814401cc18aeb8}{node}};\ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00537}\mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it_a0c3040df3a970cc18e1bcdd4f2f615a5}{00537}}\ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it_a0c3040df3a970cc18e1bcdd4f2f615a5}{operator!=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it}{ArcIt}}\&\ e)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it_aed45afb54619a26187814401cc18aeb8}{node}}!=e.\mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it_aed45afb54619a26187814401cc18aeb8}{node}};\ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00539}\mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it_a7f28c0db32fb93ed69d30ae1045c3741}{00539}}\ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it_a7f28c0db32fb93ed69d30ae1045c3741}{operator<}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it}{ArcIt}}\&\ e)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it_aed45afb54619a26187814401cc18aeb8}{node}}<e.\mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it_aed45afb54619a26187814401cc18aeb8}{node}};\ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00540}00540\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00541}00541\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00542}\mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it_a2e574c4d2ab320d07dbaceede8c0c3a0}{00542}}\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_list_path}{ListPath}}\ *\mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it_a2e574c4d2ab320d07dbaceede8c0c3a0}{path}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00543}\mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it_aed45afb54619a26187814401cc18aeb8}{00543}}\ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_list_path_1_1_node}{Node}}\ *\mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it_aed45afb54619a26187814401cc18aeb8}{node}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00544}00544\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00545}00545\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00550}\mbox{\hyperlink{classlemon_1_1_list_path_abbb6489a4f93ab87323ac81908d5acc7}{00550}}\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_list_path_aca7c7c855b2e2493f4f1e048800d61ac}{Arc}}\&\ \mbox{\hyperlink{classlemon_1_1_list_path_abbb6489a4f93ab87323ac81908d5acc7}{nth}}(\textcolor{keywordtype}{int}\ n)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00551}00551\ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_list_path_1_1_node}{Node}}\ *node\ =\ \mbox{\hyperlink{classlemon_1_1_list_path_a849fbf867c289e89cf6e6dc66174f944}{first}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00552}00552\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ n;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00553}00553\ \ \ \ \ \ \ \ \ node\ =\ node-\/>\mbox{\hyperlink{structlemon_1_1_list_path_1_1_node_a5b05d2ee246853f77f55a724ce70434b}{next}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00554}00554\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00555}00555\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ node-\/>\mbox{\hyperlink{structlemon_1_1_list_path_1_1_node_a1f4e21a6c96f9b689c735570b159791c}{arc}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00556}00556\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00557}00557\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00559}\mbox{\hyperlink{classlemon_1_1_list_path_aff35d1b5bd3be0a6554f757ee7f94866}{00559}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it}{ArcIt}}\ \mbox{\hyperlink{classlemon_1_1_list_path_aff35d1b5bd3be0a6554f757ee7f94866}{nthIt}}(\textcolor{keywordtype}{int}\ n)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00560}00560\ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_list_path_1_1_node}{Node}}\ *node\ =\ \mbox{\hyperlink{classlemon_1_1_list_path_a849fbf867c289e89cf6e6dc66174f944}{first}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00561}00561\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ n;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00562}00562\ \ \ \ \ \ \ \ \ node\ =\ node-\/>\mbox{\hyperlink{structlemon_1_1_list_path_1_1_node_a5b05d2ee246853f77f55a724ce70434b}{next}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00563}00563\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00564}00564\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it}{ArcIt}}(*\textcolor{keyword}{this},\ node);}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00565}00565\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00566}00566\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00568}\mbox{\hyperlink{classlemon_1_1_list_path_a249010017b50bd219820225c6e7d2784}{00568}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_list_path_a249010017b50bd219820225c6e7d2784}{length}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00569}00569\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ len\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00570}00570\ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_list_path_1_1_node}{Node}}\ *node\ =\ \mbox{\hyperlink{classlemon_1_1_list_path_a849fbf867c289e89cf6e6dc66174f944}{first}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00571}00571\ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (node\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00572}00572\ \ \ \ \ \ \ \ \ node\ =\ node-\/>\mbox{\hyperlink{structlemon_1_1_list_path_1_1_node_a5b05d2ee246853f77f55a724ce70434b}{next}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00573}00573\ \ \ \ \ \ \ \ \ ++len;}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00574}00574\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00575}00575\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ len;}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00576}00576\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00577}00577\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00579}\mbox{\hyperlink{classlemon_1_1_list_path_a329998a4a96ad66b9d7a79a90530d01a}{00579}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_list_path_a329998a4a96ad66b9d7a79a90530d01a}{empty}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_list_path_a849fbf867c289e89cf6e6dc66174f944}{first}}\ ==\ 0;\ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00580}00580\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00582}\mbox{\hyperlink{classlemon_1_1_list_path_a632f3d4c2da912928ea0fa64d79eb0f6}{00582}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_list_path_a632f3d4c2da912928ea0fa64d79eb0f6}{clear}}()\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00583}00583\ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{classlemon_1_1_list_path_a849fbf867c289e89cf6e6dc66174f944}{first}}\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00584}00584\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_acf252c253486ef3bc4bfc197ce4f4e73}{last}}\ =\ \mbox{\hyperlink{classlemon_1_1_list_path_a849fbf867c289e89cf6e6dc66174f944}{first}}-\/>\mbox{\hyperlink{structlemon_1_1_list_path_1_1_node_a5b05d2ee246853f77f55a724ce70434b}{next}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00585}00585\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_a4e582ac17c7117926322a6365a156dcb}{alloc}}.destroy(\mbox{\hyperlink{classlemon_1_1_list_path_a849fbf867c289e89cf6e6dc66174f944}{first}});}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00586}00586\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_a4e582ac17c7117926322a6365a156dcb}{alloc}}.deallocate(\mbox{\hyperlink{classlemon_1_1_list_path_a849fbf867c289e89cf6e6dc66174f944}{first}},\ 1);}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00587}00587\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_a849fbf867c289e89cf6e6dc66174f944}{first}}\ =\ \mbox{\hyperlink{classlemon_1_1_list_path_acf252c253486ef3bc4bfc197ce4f4e73}{last}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00588}00588\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00589}00589\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00590}00590\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00592}\mbox{\hyperlink{classlemon_1_1_list_path_abd9fa2db4d3c658ac9a6213b61ccfb67}{00592}}\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_list_path_aca7c7c855b2e2493f4f1e048800d61ac}{Arc}}\&\ \mbox{\hyperlink{classlemon_1_1_list_path_abd9fa2db4d3c658ac9a6213b61ccfb67}{front}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00593}00593\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_list_path_a849fbf867c289e89cf6e6dc66174f944}{first}}-\/>\mbox{\hyperlink{structlemon_1_1_list_path_1_1_node_a1f4e21a6c96f9b689c735570b159791c}{arc}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00594}00594\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00595}00595\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00597}\mbox{\hyperlink{classlemon_1_1_list_path_ac8b0d84bdab21bcf1599b40c35ff8ead}{00597}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_list_path_ac8b0d84bdab21bcf1599b40c35ff8ead}{addFront}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_list_path_aca7c7c855b2e2493f4f1e048800d61ac}{Arc}}\&\ arc)\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00598}00598\ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_list_path_1_1_node}{Node}}\ *node\ =\ \mbox{\hyperlink{classlemon_1_1_list_path_a4e582ac17c7117926322a6365a156dcb}{alloc}}.allocate(1);}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00599}00599\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_a4e582ac17c7117926322a6365a156dcb}{alloc}}.construct(node,\ \mbox{\hyperlink{structlemon_1_1_list_path_1_1_node}{Node}}());}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00600}00600\ \ \ \ \ \ \ node-\/>\mbox{\hyperlink{structlemon_1_1_list_path_1_1_node_a95880a9e34aff8073e7cdf4d0a830f7d}{prev}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00601}00601\ \ \ \ \ \ \ node-\/>\mbox{\hyperlink{structlemon_1_1_list_path_1_1_node_a5b05d2ee246853f77f55a724ce70434b}{next}}\ =\ \mbox{\hyperlink{classlemon_1_1_list_path_a849fbf867c289e89cf6e6dc66174f944}{first}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00602}00602\ \ \ \ \ \ \ node-\/>\mbox{\hyperlink{structlemon_1_1_list_path_1_1_node_a1f4e21a6c96f9b689c735570b159791c}{arc}}\ =\ arc;}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00603}00603\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_list_path_a849fbf867c289e89cf6e6dc66174f944}{first}})\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00604}00604\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_a849fbf867c289e89cf6e6dc66174f944}{first}}-\/>\mbox{\hyperlink{structlemon_1_1_list_path_1_1_node_a95880a9e34aff8073e7cdf4d0a830f7d}{prev}}\ =\ node;}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00605}00605\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_a849fbf867c289e89cf6e6dc66174f944}{first}}\ =\ node;}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00606}00606\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00607}00607\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_a849fbf867c289e89cf6e6dc66174f944}{first}}\ =\ \mbox{\hyperlink{classlemon_1_1_list_path_acf252c253486ef3bc4bfc197ce4f4e73}{last}}\ =\ node;}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00608}00608\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00609}00609\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00610}00610\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00612}\mbox{\hyperlink{classlemon_1_1_list_path_a21bc0ca8153062ffc1b94f4a601eb947}{00612}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_list_path_a21bc0ca8153062ffc1b94f4a601eb947}{eraseFront}}()\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00613}00613\ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_list_path_1_1_node}{Node}}\ *node\ =\ \mbox{\hyperlink{classlemon_1_1_list_path_a849fbf867c289e89cf6e6dc66174f944}{first}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00614}00614\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_a849fbf867c289e89cf6e6dc66174f944}{first}}\ =\ \mbox{\hyperlink{classlemon_1_1_list_path_a849fbf867c289e89cf6e6dc66174f944}{first}}-\/>\mbox{\hyperlink{structlemon_1_1_list_path_1_1_node_a5b05d2ee246853f77f55a724ce70434b}{next}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00615}00615\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_list_path_a849fbf867c289e89cf6e6dc66174f944}{first}})\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00616}00616\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_a849fbf867c289e89cf6e6dc66174f944}{first}}-\/>\mbox{\hyperlink{structlemon_1_1_list_path_1_1_node_a95880a9e34aff8073e7cdf4d0a830f7d}{prev}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00617}00617\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00618}00618\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_acf252c253486ef3bc4bfc197ce4f4e73}{last}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00619}00619\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00620}00620\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_a4e582ac17c7117926322a6365a156dcb}{alloc}}.destroy(node);}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00621}00621\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_a4e582ac17c7117926322a6365a156dcb}{alloc}}.deallocate(node,\ 1);}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00622}00622\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00623}00623\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00625}\mbox{\hyperlink{classlemon_1_1_list_path_ae8254e3b7d70067ac322d7bc6afdef76}{00625}}\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_list_path_aca7c7c855b2e2493f4f1e048800d61ac}{Arc}}\&\ \mbox{\hyperlink{classlemon_1_1_list_path_ae8254e3b7d70067ac322d7bc6afdef76}{back}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00626}00626\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_list_path_acf252c253486ef3bc4bfc197ce4f4e73}{last}}-\/>\mbox{\hyperlink{structlemon_1_1_list_path_1_1_node_a1f4e21a6c96f9b689c735570b159791c}{arc}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00627}00627\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00628}00628\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00630}\mbox{\hyperlink{classlemon_1_1_list_path_a07b4baeb4a4ade05be0d44625436136b}{00630}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_list_path_a07b4baeb4a4ade05be0d44625436136b}{addBack}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_list_path_aca7c7c855b2e2493f4f1e048800d61ac}{Arc}}\&\ arc)\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00631}00631\ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_list_path_1_1_node}{Node}}\ *node\ =\ \mbox{\hyperlink{classlemon_1_1_list_path_a4e582ac17c7117926322a6365a156dcb}{alloc}}.allocate(1);}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00632}00632\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_a4e582ac17c7117926322a6365a156dcb}{alloc}}.construct(node,\ \mbox{\hyperlink{structlemon_1_1_list_path_1_1_node}{Node}}());}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00633}00633\ \ \ \ \ \ \ node-\/>\mbox{\hyperlink{structlemon_1_1_list_path_1_1_node_a5b05d2ee246853f77f55a724ce70434b}{next}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00634}00634\ \ \ \ \ \ \ node-\/>\mbox{\hyperlink{structlemon_1_1_list_path_1_1_node_a95880a9e34aff8073e7cdf4d0a830f7d}{prev}}\ =\ \mbox{\hyperlink{classlemon_1_1_list_path_acf252c253486ef3bc4bfc197ce4f4e73}{last}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00635}00635\ \ \ \ \ \ \ node-\/>\mbox{\hyperlink{structlemon_1_1_list_path_1_1_node_a1f4e21a6c96f9b689c735570b159791c}{arc}}\ =\ arc;}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00636}00636\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_list_path_acf252c253486ef3bc4bfc197ce4f4e73}{last}})\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00637}00637\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_acf252c253486ef3bc4bfc197ce4f4e73}{last}}-\/>\mbox{\hyperlink{structlemon_1_1_list_path_1_1_node_a5b05d2ee246853f77f55a724ce70434b}{next}}\ =\ node;}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00638}00638\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_acf252c253486ef3bc4bfc197ce4f4e73}{last}}\ =\ node;}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00639}00639\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00640}00640\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_acf252c253486ef3bc4bfc197ce4f4e73}{last}}\ =\ \mbox{\hyperlink{classlemon_1_1_list_path_a849fbf867c289e89cf6e6dc66174f944}{first}}\ =\ node;}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00641}00641\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00642}00642\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00643}00643\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00645}\mbox{\hyperlink{classlemon_1_1_list_path_a1eb581899bc06f0a302ba7392dc8c928}{00645}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_list_path_a1eb581899bc06f0a302ba7392dc8c928}{eraseBack}}()\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00646}00646\ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_list_path_1_1_node}{Node}}\ *node\ =\ \mbox{\hyperlink{classlemon_1_1_list_path_acf252c253486ef3bc4bfc197ce4f4e73}{last}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00647}00647\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_acf252c253486ef3bc4bfc197ce4f4e73}{last}}\ =\ \mbox{\hyperlink{classlemon_1_1_list_path_acf252c253486ef3bc4bfc197ce4f4e73}{last}}-\/>\mbox{\hyperlink{structlemon_1_1_list_path_1_1_node_a95880a9e34aff8073e7cdf4d0a830f7d}{prev}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00648}00648\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_list_path_acf252c253486ef3bc4bfc197ce4f4e73}{last}})\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00649}00649\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_acf252c253486ef3bc4bfc197ce4f4e73}{last}}-\/>\mbox{\hyperlink{structlemon_1_1_list_path_1_1_node_a5b05d2ee246853f77f55a724ce70434b}{next}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00650}00650\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00651}00651\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_a849fbf867c289e89cf6e6dc66174f944}{first}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00652}00652\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00653}00653\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_a4e582ac17c7117926322a6365a156dcb}{alloc}}.destroy(node);}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00654}00654\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_a4e582ac17c7117926322a6365a156dcb}{alloc}}.deallocate(node,\ 1);}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00655}00655\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00656}00656\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00662}\mbox{\hyperlink{classlemon_1_1_list_path_a8710efe0eae8b849863482d317325dc0}{00662}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_list_path_a8710efe0eae8b849863482d317325dc0}{spliceBack}}(\mbox{\hyperlink{classlemon_1_1_list_path}{ListPath}}\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tpath}})\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00663}00663\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_list_path_a849fbf867c289e89cf6e6dc66174f944}{first}})\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00664}00664\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tpath}}.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a23ed3a4a39b3d5724f67e27ad8bafc77}{first}})\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00665}00665\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_acf252c253486ef3bc4bfc197ce4f4e73}{last}}-\/>\mbox{\hyperlink{structlemon_1_1_list_path_1_1_node_a5b05d2ee246853f77f55a724ce70434b}{next}}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tpath}}.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a23ed3a4a39b3d5724f67e27ad8bafc77}{first}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00666}00666\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tpath}}.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a23ed3a4a39b3d5724f67e27ad8bafc77}{first}}-\/>prev\ =\ \mbox{\hyperlink{classlemon_1_1_list_path_acf252c253486ef3bc4bfc197ce4f4e73}{last}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00667}00667\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_acf252c253486ef3bc4bfc197ce4f4e73}{last}}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tpath}}.last;}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00668}00668\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00669}00669\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00670}00670\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_a849fbf867c289e89cf6e6dc66174f944}{first}}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tpath}}.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a23ed3a4a39b3d5724f67e27ad8bafc77}{first}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00671}00671\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_acf252c253486ef3bc4bfc197ce4f4e73}{last}}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tpath}}.last;}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00672}00672\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00673}00673\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tpath}}.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a23ed3a4a39b3d5724f67e27ad8bafc77}{first}}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tpath}}.last\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00674}00674\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00675}00675\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00681}\mbox{\hyperlink{classlemon_1_1_list_path_ab144da1947239fe40b25529e2dd6cbda}{00681}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_list_path_ab144da1947239fe40b25529e2dd6cbda}{spliceFront}}(\mbox{\hyperlink{classlemon_1_1_list_path}{ListPath}}\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tpath}})\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00682}00682\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_list_path_a849fbf867c289e89cf6e6dc66174f944}{first}})\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00683}00683\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tpath}}.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a23ed3a4a39b3d5724f67e27ad8bafc77}{first}})\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00684}00684\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_a849fbf867c289e89cf6e6dc66174f944}{first}}-\/>\mbox{\hyperlink{structlemon_1_1_list_path_1_1_node_a95880a9e34aff8073e7cdf4d0a830f7d}{prev}}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tpath}}.last;}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00685}00685\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tpath}}.last-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a0cfd891938ddddea6beb693c92ac6510}{next}}\ =\ \mbox{\hyperlink{classlemon_1_1_list_path_a849fbf867c289e89cf6e6dc66174f944}{first}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00686}00686\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_a849fbf867c289e89cf6e6dc66174f944}{first}}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tpath}}.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a23ed3a4a39b3d5724f67e27ad8bafc77}{first}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00687}00687\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00688}00688\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00689}00689\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_a849fbf867c289e89cf6e6dc66174f944}{first}}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tpath}}.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a23ed3a4a39b3d5724f67e27ad8bafc77}{first}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00690}00690\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_acf252c253486ef3bc4bfc197ce4f4e73}{last}}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tpath}}.last;}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00691}00691\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00692}00692\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tpath}}.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a23ed3a4a39b3d5724f67e27ad8bafc77}{first}}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tpath}}.last\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00693}00693\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00694}00694\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00701}\mbox{\hyperlink{classlemon_1_1_list_path_a07f584d27f64bf39d9bb150a099766cc}{00701}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_list_path_a07f584d27f64bf39d9bb150a099766cc}{splice}}(\mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it}{ArcIt}}\ it,\ \mbox{\hyperlink{classlemon_1_1_list_path}{ListPath}}\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tpath}})\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00702}00702\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (it.\mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it_aed45afb54619a26187814401cc18aeb8}{node}})\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00703}00703\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tpath}}.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a23ed3a4a39b3d5724f67e27ad8bafc77}{first}})\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00704}00704\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tpath}}.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a23ed3a4a39b3d5724f67e27ad8bafc77}{first}}-\/>prev\ =\ it.\mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it_aed45afb54619a26187814401cc18aeb8}{node}}-\/>\mbox{\hyperlink{structlemon_1_1_list_path_1_1_node_a95880a9e34aff8073e7cdf4d0a830f7d}{prev}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00705}00705\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (it.\mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it_aed45afb54619a26187814401cc18aeb8}{node}}-\/>\mbox{\hyperlink{structlemon_1_1_list_path_1_1_node_a95880a9e34aff8073e7cdf4d0a830f7d}{prev}})\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00706}00706\ \ \ \ \ \ \ \ \ \ \ \ \ it.\mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it_aed45afb54619a26187814401cc18aeb8}{node}}-\/>\mbox{\hyperlink{structlemon_1_1_list_path_1_1_node_a95880a9e34aff8073e7cdf4d0a830f7d}{prev}}-\/>\mbox{\hyperlink{structlemon_1_1_list_path_1_1_node_a5b05d2ee246853f77f55a724ce70434b}{next}}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tpath}}.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a23ed3a4a39b3d5724f67e27ad8bafc77}{first}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00707}00707\ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00708}00708\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_a849fbf867c289e89cf6e6dc66174f944}{first}}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tpath}}.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a23ed3a4a39b3d5724f67e27ad8bafc77}{first}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00709}00709\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00710}00710\ \ \ \ \ \ \ \ \ \ \ it.\mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it_aed45afb54619a26187814401cc18aeb8}{node}}-\/>\mbox{\hyperlink{structlemon_1_1_list_path_1_1_node_a95880a9e34aff8073e7cdf4d0a830f7d}{prev}}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tpath}}.last;}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00711}00711\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tpath}}.last-\/>\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a0cfd891938ddddea6beb693c92ac6510}{next}}\ =\ it.\mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it_aed45afb54619a26187814401cc18aeb8}{node}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00712}00712\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00713}00713\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00714}00714\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_list_path_a849fbf867c289e89cf6e6dc66174f944}{first}})\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00715}00715\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tpath}}.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a23ed3a4a39b3d5724f67e27ad8bafc77}{first}})\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00716}00716\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_acf252c253486ef3bc4bfc197ce4f4e73}{last}}-\/>\mbox{\hyperlink{structlemon_1_1_list_path_1_1_node_a5b05d2ee246853f77f55a724ce70434b}{next}}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tpath}}.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a23ed3a4a39b3d5724f67e27ad8bafc77}{first}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00717}00717\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tpath}}.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a23ed3a4a39b3d5724f67e27ad8bafc77}{first}}-\/>prev\ =\ \mbox{\hyperlink{classlemon_1_1_list_path_acf252c253486ef3bc4bfc197ce4f4e73}{last}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00718}00718\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_acf252c253486ef3bc4bfc197ce4f4e73}{last}}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tpath}}.last;}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00719}00719\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00720}00720\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00721}00721\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_a849fbf867c289e89cf6e6dc66174f944}{first}}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tpath}}.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a23ed3a4a39b3d5724f67e27ad8bafc77}{first}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00722}00722\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_acf252c253486ef3bc4bfc197ce4f4e73}{last}}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tpath}}.last;}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00723}00723\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00724}00724\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00725}00725\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tpath}}.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a23ed3a4a39b3d5724f67e27ad8bafc77}{first}}\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tpath}}.last\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00726}00726\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00727}00727\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00737}\mbox{\hyperlink{classlemon_1_1_list_path_af6ab23a13a66a08ed95738d55dc62345}{00737}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_list_path_af6ab23a13a66a08ed95738d55dc62345}{split}}(\mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it}{ArcIt}}\ it,\ \mbox{\hyperlink{classlemon_1_1_list_path}{ListPath}}\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tpath}})\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00738}00738\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tpath}}.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_af2726dacd301d1fdc114b18b6eeb5f51}{clear}}();}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00739}00739\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (it.\mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it_aed45afb54619a26187814401cc18aeb8}{node}})\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00740}00740\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tpath}}.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a23ed3a4a39b3d5724f67e27ad8bafc77}{first}}\ =\ it.\mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it_aed45afb54619a26187814401cc18aeb8}{node}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00741}00741\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{tpath}}.last\ =\ \mbox{\hyperlink{classlemon_1_1_list_path_acf252c253486ef3bc4bfc197ce4f4e73}{last}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00742}00742\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (it.\mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it_aed45afb54619a26187814401cc18aeb8}{node}}-\/>\mbox{\hyperlink{structlemon_1_1_list_path_1_1_node_a95880a9e34aff8073e7cdf4d0a830f7d}{prev}})\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00743}00743\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_acf252c253486ef3bc4bfc197ce4f4e73}{last}}\ =\ it.\mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it_aed45afb54619a26187814401cc18aeb8}{node}}-\/>\mbox{\hyperlink{structlemon_1_1_list_path_1_1_node_a95880a9e34aff8073e7cdf4d0a830f7d}{prev}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00744}00744\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_acf252c253486ef3bc4bfc197ce4f4e73}{last}}-\/>\mbox{\hyperlink{structlemon_1_1_list_path_1_1_node_a5b05d2ee246853f77f55a724ce70434b}{next}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00745}00745\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00746}00746\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_a849fbf867c289e89cf6e6dc66174f944}{first}}\ =\ \mbox{\hyperlink{classlemon_1_1_list_path_acf252c253486ef3bc4bfc197ce4f4e73}{last}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00747}00747\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00748}00748\ \ \ \ \ \ \ \ \ it.\mbox{\hyperlink{classlemon_1_1_list_path_1_1_arc_it_aed45afb54619a26187814401cc18aeb8}{node}}-\/>\mbox{\hyperlink{structlemon_1_1_list_path_1_1_node_a95880a9e34aff8073e7cdf4d0a830f7d}{prev}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00749}00749\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00750}00750\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00751}00751\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00752}00752\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00753}\mbox{\hyperlink{classlemon_1_1_list_path_a6e9a34581974de7f2a9e2a2b8af15bdf}{00753}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{structlemon_1_1_true}{True}}\ \mbox{\hyperlink{classlemon_1_1_list_path_a6e9a34581974de7f2a9e2a2b8af15bdf}{BuildTag}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00754}00754\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00755}00755\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ CPath>}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00756}\mbox{\hyperlink{classlemon_1_1_list_path_ab66d06b8e7a85b5a50a2b624999fd60f}{00756}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_list_path_ab66d06b8e7a85b5a50a2b624999fd60f}{build}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CPath}}\&\ path)\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00757}00757\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{typename}\ CPath::ArcIt\ it(path);\ it\ !=\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ ++it)\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00758}00758\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_a07b4baeb4a4ade05be0d44625436136b}{addBack}}(it);}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00759}00759\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00760}00760\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00761}00761\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00762}00762\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ CPath>}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00763}\mbox{\hyperlink{classlemon_1_1_list_path_a2bf857175940d1308200e18d44c2faad}{00763}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_list_path_a2bf857175940d1308200e18d44c2faad}{buildRev}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CPath}}\&\ path)\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00764}00764\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{typename}\ CPath::RevArcIt\ it(path);\ it\ !=\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ ++it)\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00765}00765\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_list_path_ac8b0d84bdab21bcf1599b40c35ff8ead}{addFront}}(it);}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00766}00766\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00767}00767\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00768}00768\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00769}00769\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00770}00770\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00788}00788\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ GR>}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00789}\mbox{\hyperlink{classlemon_1_1_static_path}{00789}}\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_static_path}{StaticPath}}\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00790}00790\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00791}00791\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00792}\mbox{\hyperlink{classlemon_1_1_static_path_af45a4537a08421a936f4bc08590d81de}{00792}}\ \ \ \ \ \textcolor{keyword}{typedef}\ GR\ \mbox{\hyperlink{classlemon_1_1_static_path_af45a4537a08421a936f4bc08590d81de}{Digraph}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00793}\mbox{\hyperlink{classlemon_1_1_static_path_ad07be50921181dc8ea5fcc54b9c000c4}{00793}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Digraph::Arc\ \mbox{\hyperlink{classlemon_1_1_static_path_ad07be50921181dc8ea5fcc54b9c000c4}{Arc}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00794}00794\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00798}\mbox{\hyperlink{classlemon_1_1_static_path_a1c5e789aec547fded6297c41fad6de60}{00798}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_static_path_a1c5e789aec547fded6297c41fad6de60}{StaticPath}}()\ :\ \mbox{\hyperlink{classlemon_1_1_static_path_aab29c430c4c0224bc1d2186f041b4bb5}{len}}(0),\ \mbox{\hyperlink{classlemon_1_1_static_path_a360dc2dc7f4576fdb7e36053b05ed913}{arcs}}(0)\ \{\}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00799}00799\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00802}\mbox{\hyperlink{classlemon_1_1_static_path_a31ed0b06cd9638a7c207e3ac6915d825}{00802}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_static_path_a31ed0b06cd9638a7c207e3ac6915d825}{StaticPath}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_static_path}{StaticPath}}\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cpath}})\ :\ \mbox{\hyperlink{classlemon_1_1_static_path_a360dc2dc7f4576fdb7e36053b05ed913}{arcs}}(0)\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00803}00803\ \ \ \ \ \ \ \mbox{\hyperlink{group__paths_ga1c0da351dc554629ec44013576637e7d}{pathCopy}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cpath}},\ *\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00804}00804\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00805}00805\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00809}00809\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ CPath>}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00810}\mbox{\hyperlink{classlemon_1_1_static_path_a72d31ed1b9492fc4f51c2416598446f7}{00810}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_static_path_a72d31ed1b9492fc4f51c2416598446f7}{StaticPath}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CPath}}\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cpath}})\ :\ \mbox{\hyperlink{classlemon_1_1_static_path_a360dc2dc7f4576fdb7e36053b05ed913}{arcs}}(0)\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00811}00811\ \ \ \ \ \ \ \mbox{\hyperlink{group__paths_ga1c0da351dc554629ec44013576637e7d}{pathCopy}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cpath}},\ *\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00812}00812\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00813}00813\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00817}\mbox{\hyperlink{classlemon_1_1_static_path_a14ce433408da4075a495d65d940f9ee6}{00817}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_static_path_a14ce433408da4075a495d65d940f9ee6}{\string~StaticPath}}()\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00818}00818\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_static_path_a360dc2dc7f4576fdb7e36053b05ed913}{arcs}})\ \textcolor{keyword}{delete}[]\ \mbox{\hyperlink{classlemon_1_1_static_path_a360dc2dc7f4576fdb7e36053b05ed913}{arcs}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00819}00819\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00820}00820\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00823}\mbox{\hyperlink{classlemon_1_1_static_path_a2f89d0ff195a422427197ec10b57c243}{00823}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_static_path}{StaticPath}}\&\ \mbox{\hyperlink{classlemon_1_1_static_path_a2f89d0ff195a422427197ec10b57c243}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_static_path}{StaticPath}}\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cpath}})\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00824}00824\ \ \ \ \ \ \ \mbox{\hyperlink{group__paths_ga1c0da351dc554629ec44013576637e7d}{pathCopy}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cpath}},\ *\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00825}00825\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00826}00826\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00827}00827\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00832}00832\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ CPath>}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00833}\mbox{\hyperlink{classlemon_1_1_static_path_aadb38f314771679217cb152c53490285}{00833}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_static_path}{StaticPath}}\&\ \mbox{\hyperlink{classlemon_1_1_static_path_aadb38f314771679217cb152c53490285}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CPath}}\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cpath}})\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00834}00834\ \ \ \ \ \ \ \mbox{\hyperlink{group__paths_ga1c0da351dc554629ec44013576637e7d}{pathCopy}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cpath}},\ *\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00835}00835\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00836}00836\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00837}00837\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00843}\mbox{\hyperlink{classlemon_1_1_static_path_1_1_arc_it}{00843}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_static_path_1_1_arc_it}{ArcIt}}\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00844}\mbox{\hyperlink{classlemon_1_1_static_path_1_1_arc_it_ab3cc99f6eee3530e3a0403ac74c05a34}{00844}}\ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_static_path}{StaticPath}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00845}00845\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00847}\mbox{\hyperlink{classlemon_1_1_static_path_1_1_arc_it_af09bd34c1c2e47f3f7b1ba749114ef7f}{00847}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_static_path_1_1_arc_it_af09bd34c1c2e47f3f7b1ba749114ef7f}{ArcIt}}()\ \{\}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00849}\mbox{\hyperlink{classlemon_1_1_static_path_1_1_arc_it_a09ac101e7e859260bc20ca0a984ef8e0}{00849}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_static_path_1_1_arc_it_a09ac101e7e859260bc20ca0a984ef8e0}{ArcIt}}(\mbox{\hyperlink{structlemon_1_1_invalid}{Invalid}})\ :\ \mbox{\hyperlink{classlemon_1_1_static_path_1_1_arc_it_ac8c27ba2ed2f9237fd4d388195445976}{path}}(0),\ \mbox{\hyperlink{classlemon_1_1_static_path_1_1_arc_it_a36b40d5d699ec854df1b573662a1c438}{idx}}(-\/1)\ \{\}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00851}\mbox{\hyperlink{classlemon_1_1_static_path_1_1_arc_it_a6719da751bc8a9690437dc682f7a3ca6}{00851}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_static_path_1_1_arc_it_a6719da751bc8a9690437dc682f7a3ca6}{ArcIt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_static_path}{StaticPath}}\ \&\_path)}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00852}00852\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classlemon_1_1_static_path_1_1_arc_it_ac8c27ba2ed2f9237fd4d388195445976}{path}}(\&\_path),\ \mbox{\hyperlink{classlemon_1_1_static_path_1_1_arc_it_a36b40d5d699ec854df1b573662a1c438}{idx}}(\_path.\mbox{\hyperlink{classlemon_1_1_static_path_a2c799bf24029a3af7e54b43d102bb569}{empty}}()\ ?\ -\/1\ :\ 0)\ \{\}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00853}00853\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00854}00854\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00855}00855\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00857}\mbox{\hyperlink{classlemon_1_1_static_path_1_1_arc_it_af5e4b7f92f7d7df591d0e3b9ebbf726f}{00857}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_static_path_1_1_arc_it_af5e4b7f92f7d7df591d0e3b9ebbf726f}{ArcIt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_static_path}{StaticPath}}\ \&\_path,\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_idx}})}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00858}00858\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classlemon_1_1_static_path_1_1_arc_it_a36b40d5d699ec854df1b573662a1c438}{idx}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_idx}}),\ \mbox{\hyperlink{classlemon_1_1_static_path_1_1_arc_it_ac8c27ba2ed2f9237fd4d388195445976}{path}}(\&\_path)\ \{\}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00859}00859\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00860}00860\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00861}00861\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00863}\mbox{\hyperlink{classlemon_1_1_static_path_1_1_arc_it_ae09a91fc309f9591e8b5bb0618a4a113}{00863}}\ \ \ \ \ \ \ \textcolor{keyword}{operator}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_static_path_ad07be50921181dc8ea5fcc54b9c000c4}{Arc}}\&()\ \textcolor{keyword}{const}\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00864}00864\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_static_path_1_1_arc_it_ac8c27ba2ed2f9237fd4d388195445976}{path}}-\/>\mbox{\hyperlink{classlemon_1_1_static_path_a5f4441e143bfae2ca55898b67c8d78fa}{nth}}(\mbox{\hyperlink{classlemon_1_1_static_path_1_1_arc_it_a36b40d5d699ec854df1b573662a1c438}{idx}});}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00865}00865\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00866}00866\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00868}\mbox{\hyperlink{classlemon_1_1_static_path_1_1_arc_it_a62c8b3f9b0e5a24bb65df96fced3ede5}{00868}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_static_path_1_1_arc_it}{ArcIt}}\&\ \mbox{\hyperlink{classlemon_1_1_static_path_1_1_arc_it_a62c8b3f9b0e5a24bb65df96fced3ede5}{operator++}}()\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00869}00869\ \ \ \ \ \ \ \ \ ++\mbox{\hyperlink{classlemon_1_1_static_path_1_1_arc_it_a36b40d5d699ec854df1b573662a1c438}{idx}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00870}00870\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_static_path_1_1_arc_it_a36b40d5d699ec854df1b573662a1c438}{idx}}\ >=\ \mbox{\hyperlink{classlemon_1_1_static_path_1_1_arc_it_ac8c27ba2ed2f9237fd4d388195445976}{path}}-\/>\mbox{\hyperlink{classlemon_1_1_static_path_a93e4f7c2256bdc5c9d0930a50537a78a}{length}}())\ \mbox{\hyperlink{classlemon_1_1_static_path_1_1_arc_it_a36b40d5d699ec854df1b573662a1c438}{idx}}\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00871}00871\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00872}00872\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00873}00873\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00875}\mbox{\hyperlink{classlemon_1_1_static_path_1_1_arc_it_a0f4d3fdd70fcd88d6f530dde79860e4c}{00875}}\ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_static_path_1_1_arc_it_a0f4d3fdd70fcd88d6f530dde79860e4c}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_static_path_1_1_arc_it}{ArcIt}}\&\ e)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_static_path_1_1_arc_it_a36b40d5d699ec854df1b573662a1c438}{idx}}==e.\mbox{\hyperlink{classlemon_1_1_static_path_1_1_arc_it_a36b40d5d699ec854df1b573662a1c438}{idx}};\ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00877}\mbox{\hyperlink{classlemon_1_1_static_path_1_1_arc_it_a966c94bf508c02bd7c2af0d91031225e}{00877}}\ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_static_path_1_1_arc_it_a966c94bf508c02bd7c2af0d91031225e}{operator!=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_static_path_1_1_arc_it}{ArcIt}}\&\ e)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_static_path_1_1_arc_it_a36b40d5d699ec854df1b573662a1c438}{idx}}!=e.\mbox{\hyperlink{classlemon_1_1_static_path_1_1_arc_it_a36b40d5d699ec854df1b573662a1c438}{idx}};\ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00879}\mbox{\hyperlink{classlemon_1_1_static_path_1_1_arc_it_a33077b8e3f035ebe51f245058c70abe8}{00879}}\ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_static_path_1_1_arc_it_a33077b8e3f035ebe51f245058c70abe8}{operator<}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_static_path_1_1_arc_it}{ArcIt}}\&\ e)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_static_path_1_1_arc_it_a36b40d5d699ec854df1b573662a1c438}{idx}}<e.\mbox{\hyperlink{classlemon_1_1_static_path_1_1_arc_it_a36b40d5d699ec854df1b573662a1c438}{idx}};\ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00880}00880\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00881}00881\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00882}\mbox{\hyperlink{classlemon_1_1_static_path_1_1_arc_it_ac8c27ba2ed2f9237fd4d388195445976}{00882}}\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_static_path}{StaticPath}}\ *\mbox{\hyperlink{classlemon_1_1_static_path_1_1_arc_it_ac8c27ba2ed2f9237fd4d388195445976}{path}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00883}\mbox{\hyperlink{classlemon_1_1_static_path_1_1_arc_it_a36b40d5d699ec854df1b573662a1c438}{00883}}\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_static_path_1_1_arc_it_a36b40d5d699ec854df1b573662a1c438}{idx}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00884}00884\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00885}00885\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00889}\mbox{\hyperlink{classlemon_1_1_static_path_a5f4441e143bfae2ca55898b67c8d78fa}{00889}}\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_static_path_ad07be50921181dc8ea5fcc54b9c000c4}{Arc}}\&\ \mbox{\hyperlink{classlemon_1_1_static_path_a5f4441e143bfae2ca55898b67c8d78fa}{nth}}(\textcolor{keywordtype}{int}\ n)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00890}00890\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_static_path_a360dc2dc7f4576fdb7e36053b05ed913}{arcs}}[n];}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00891}00891\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00892}00892\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00894}\mbox{\hyperlink{classlemon_1_1_static_path_ae097b9b3c33765b38b7c77fd896cde8c}{00894}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_static_path_1_1_arc_it}{ArcIt}}\ \mbox{\hyperlink{classlemon_1_1_static_path_ae097b9b3c33765b38b7c77fd896cde8c}{nthIt}}(\textcolor{keywordtype}{int}\ n)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00895}00895\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_static_path_1_1_arc_it}{ArcIt}}(*\textcolor{keyword}{this},\ n);}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00896}00896\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00897}00897\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00899}\mbox{\hyperlink{classlemon_1_1_static_path_a93e4f7c2256bdc5c9d0930a50537a78a}{00899}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_static_path_a93e4f7c2256bdc5c9d0930a50537a78a}{length}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_static_path_aab29c430c4c0224bc1d2186f041b4bb5}{len}};\ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00900}00900\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00902}\mbox{\hyperlink{classlemon_1_1_static_path_a2c799bf24029a3af7e54b43d102bb569}{00902}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_static_path_a2c799bf24029a3af7e54b43d102bb569}{empty}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_static_path_aab29c430c4c0224bc1d2186f041b4bb5}{len}}\ ==\ 0;\ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00903}00903\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00905}\mbox{\hyperlink{classlemon_1_1_static_path_a503e3f14bca1162723cfb0f761f53bc7}{00905}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_static_path_a503e3f14bca1162723cfb0f761f53bc7}{clear}}()\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00906}00906\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_static_path_aab29c430c4c0224bc1d2186f041b4bb5}{len}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00907}00907\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_static_path_a360dc2dc7f4576fdb7e36053b05ed913}{arcs}})\ \textcolor{keyword}{delete}[]\ \mbox{\hyperlink{classlemon_1_1_static_path_a360dc2dc7f4576fdb7e36053b05ed913}{arcs}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00908}00908\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_static_path_a360dc2dc7f4576fdb7e36053b05ed913}{arcs}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00909}00909\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00910}00910\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00912}\mbox{\hyperlink{classlemon_1_1_static_path_a593a563e1ac569a2ebfb081e8a760603}{00912}}\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_static_path_ad07be50921181dc8ea5fcc54b9c000c4}{Arc}}\&\ \mbox{\hyperlink{classlemon_1_1_static_path_a593a563e1ac569a2ebfb081e8a760603}{front}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00913}00913\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_static_path_a360dc2dc7f4576fdb7e36053b05ed913}{arcs}}[0];}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00914}00914\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00915}00915\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00917}\mbox{\hyperlink{classlemon_1_1_static_path_acb0a99dd5bf3a63bfd5ae5b255c0b3dd}{00917}}\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_static_path_ad07be50921181dc8ea5fcc54b9c000c4}{Arc}}\&\ \mbox{\hyperlink{classlemon_1_1_static_path_acb0a99dd5bf3a63bfd5ae5b255c0b3dd}{back}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00918}00918\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_static_path_a360dc2dc7f4576fdb7e36053b05ed913}{arcs}}[\mbox{\hyperlink{classlemon_1_1_static_path_aab29c430c4c0224bc1d2186f041b4bb5}{len}}\ -\/\ 1];}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00919}00919\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00920}00920\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00921}00921\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00922}\mbox{\hyperlink{classlemon_1_1_static_path_adc83f48e45068c70edfa393c22eeb07d}{00922}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{structlemon_1_1_true}{True}}\ \mbox{\hyperlink{classlemon_1_1_static_path_adc83f48e45068c70edfa393c22eeb07d}{BuildTag}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00923}00923\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00924}00924\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ CPath>}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00925}\mbox{\hyperlink{classlemon_1_1_static_path_a133c1b348ca75ce68e8c03beb7046f2c}{00925}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_static_path_a133c1b348ca75ce68e8c03beb7046f2c}{build}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CPath}}\&\ path)\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00926}00926\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_static_path_aab29c430c4c0224bc1d2186f041b4bb5}{len}}\ =\ path.length();}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00927}00927\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_static_path_a360dc2dc7f4576fdb7e36053b05ed913}{arcs}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classlemon_1_1_static_path_ad07be50921181dc8ea5fcc54b9c000c4}{Arc}}[\mbox{\hyperlink{classlemon_1_1_static_path_aab29c430c4c0224bc1d2186f041b4bb5}{len}}];}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00928}00928\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a7fc0249f0f8ba720115d2430f5b86cbaa6a992d5529f459a44fee58c733255e86}{index}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00929}00929\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{typename}\ CPath::ArcIt\ it(path);\ it\ !=\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ ++it)\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00930}00930\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_static_path_a360dc2dc7f4576fdb7e36053b05ed913}{arcs}}[\mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a7fc0249f0f8ba720115d2430f5b86cbaa6a992d5529f459a44fee58c733255e86}{index}}]\ =\ it;}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00931}00931\ \ \ \ \ \ \ \ \ ++\mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a7fc0249f0f8ba720115d2430f5b86cbaa6a992d5529f459a44fee58c733255e86}{index}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00932}00932\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00933}00933\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00934}00934\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00935}00935\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ CPath>}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00936}\mbox{\hyperlink{classlemon_1_1_static_path_a66d9af1c1a3210df4816f3b7ff5151c2}{00936}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_static_path_a66d9af1c1a3210df4816f3b7ff5151c2}{buildRev}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CPath}}\&\ path)\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00937}00937\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_static_path_aab29c430c4c0224bc1d2186f041b4bb5}{len}}\ =\ path.length();}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00938}00938\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_static_path_a360dc2dc7f4576fdb7e36053b05ed913}{arcs}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classlemon_1_1_static_path_ad07be50921181dc8ea5fcc54b9c000c4}{Arc}}[\mbox{\hyperlink{classlemon_1_1_static_path_aab29c430c4c0224bc1d2186f041b4bb5}{len}}];}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00939}00939\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a7fc0249f0f8ba720115d2430f5b86cbaa6a992d5529f459a44fee58c733255e86}{index}}\ =\ \mbox{\hyperlink{classlemon_1_1_static_path_aab29c430c4c0224bc1d2186f041b4bb5}{len}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00940}00940\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{typename}\ CPath::RevArcIt\ it(path);\ it\ !=\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ ++it)\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00941}00941\ \ \ \ \ \ \ \ \ -\/-\/\mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a7fc0249f0f8ba720115d2430f5b86cbaa6a992d5529f459a44fee58c733255e86}{index}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00942}00942\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_static_path_a360dc2dc7f4576fdb7e36053b05ed913}{arcs}}[\mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a7fc0249f0f8ba720115d2430f5b86cbaa6a992d5529f459a44fee58c733255e86}{index}}]\ =\ it;}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00943}00943\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00944}00944\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00945}00945\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00946}00946\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00947}\mbox{\hyperlink{classlemon_1_1_static_path_aab29c430c4c0224bc1d2186f041b4bb5}{00947}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_static_path_aab29c430c4c0224bc1d2186f041b4bb5}{len}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00948}\mbox{\hyperlink{classlemon_1_1_static_path_a360dc2dc7f4576fdb7e36053b05ed913}{00948}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_static_path_ad07be50921181dc8ea5fcc54b9c000c4}{Arc}}*\ \mbox{\hyperlink{classlemon_1_1_static_path_a360dc2dc7f4576fdb7e36053b05ed913}{arcs}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00949}00949\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00950}00950\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00952}00952\ \ \ \textcolor{comment}{//\ Additional\ utilities}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00954}00954\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00955}\mbox{\hyperlink{namespacelemon_1_1__path__bits}{00955}}\ \ \ \textcolor{keyword}{namespace\ }\_path\_bits\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00956}00956\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00957}00957\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Path,\ \textcolor{keyword}{typename}\ Enable\ =\ \textcolor{keywordtype}{void}>}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00958}\mbox{\hyperlink{structlemon_1_1__path__bits_1_1_rev_path_tag_indicator}{00958}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1__path__bits_1_1_rev_path_tag_indicator}{RevPathTagIndicator}}\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00959}\mbox{\hyperlink{structlemon_1_1__path__bits_1_1_rev_path_tag_indicator_a0a8e8bf46d83529b53d7428f6f2770db}{00959}}\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classvalue}{value}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00960}00960\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00961}00961\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00962}00962\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Path>}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00963}\mbox{\hyperlink{structlemon_1_1__path__bits_1_1_rev_path_tag_indicator_3_01_path_00_01typename_01enable__if_3_01313a3d894895a41ffc69f40c8330ee4d}{00963}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1__path__bits_1_1_rev_path_tag_indicator}{RevPathTagIndicator}}<}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00964}00964\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_path}{Path}},}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00965}00965\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{typename}}\ \mbox{\hyperlink{structlemon_1_1enable__if}{enable\_if}}<\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{typename}}\ \mbox{\hyperlink{classlemon_1_1_path}{Path}}::RevPathTag,\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{void}}>\mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a7aead736a07eaf25623ad7bfa1f0ee2d}{::type}}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00966}00966\ \ \ \ \ \ \ >\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00967}\mbox{\hyperlink{structlemon_1_1__path__bits_1_1_rev_path_tag_indicator_3_01_path_00_01typename_01enable__if_3_01313a3d894895a41ffc69f40c8330ee4d_a33275df48a732dd789ccefd2023e9610}{00967}}\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classvalue}{value}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00968}00968\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00969}00969\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00970}00970\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Path,\ \textcolor{keyword}{typename}\ Enable\ =\ \textcolor{keywordtype}{void}>}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00971}\mbox{\hyperlink{structlemon_1_1__path__bits_1_1_build_tag_indicator}{00971}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1__path__bits_1_1_build_tag_indicator}{BuildTagIndicator}}\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00972}\mbox{\hyperlink{structlemon_1_1__path__bits_1_1_build_tag_indicator_a6902c35d29575fff5f2fda5e2966b94f}{00972}}\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classvalue}{value}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00973}00973\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00974}00974\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00975}00975\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Path>}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00976}\mbox{\hyperlink{structlemon_1_1__path__bits_1_1_build_tag_indicator_3_01_path_00_01typename_01enable__if_3_01typc54fcbb59e600d53c78b73859d80b719}{00976}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1__path__bits_1_1_build_tag_indicator}{BuildTagIndicator}}<}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00977}00977\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_path}{Path}},}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00978}00978\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{typename}}\ \mbox{\hyperlink{structlemon_1_1enable__if}{enable\_if}}<\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{typename}}\ \mbox{\hyperlink{classlemon_1_1_path}{Path}}::BuildTag,\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{void}}>\mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a7aead736a07eaf25623ad7bfa1f0ee2d}{::type}}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00979}00979\ \ \ \ \ >\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00980}\mbox{\hyperlink{structlemon_1_1__path__bits_1_1_build_tag_indicator_3_01_path_00_01typename_01enable__if_3_01typc54fcbb59e600d53c78b73859d80b719_adba6cfa5dcf48b09c36085a237fe5f98}{00980}}\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classvalue}{value}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00981}00981\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00982}00982\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00983}00983\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ From,\ \textcolor{keyword}{typename}\ To,}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00984}00984\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{buildEnable}}\ =\ \mbox{\hyperlink{structlemon_1_1__path__bits_1_1_build_tag_indicator}{BuildTagIndicator<To>::value}}>}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00985}\mbox{\hyperlink{structlemon_1_1__path__bits_1_1_path_copy_selector_forward}{00985}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1__path__bits_1_1_path_copy_selector_forward}{PathCopySelectorForward}}\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00986}\mbox{\hyperlink{structlemon_1_1__path__bits_1_1_path_copy_selector_forward_a365b79bbdb19f3d1865b82122c9ead89}{00986}}\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structlemon_1_1__path__bits_1_1_path_copy_selector_forward_a365b79bbdb19f3d1865b82122c9ead89}{copy}}(\textcolor{keyword}{const}\ From\&\ from,\ To\&\ to)\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00987}00987\ \ \ \ \ \ \ \ \ to.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_af2726dacd301d1fdc114b18b6eeb5f51}{clear}}();}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00988}00988\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{typename}\ From::ArcIt\ it(from);\ it\ !=\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ ++it)\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00989}00989\ \ \ \ \ \ \ \ \ \ \ to.addBack(it);}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00990}00990\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00991}00991\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00992}00992\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00993}00993\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00994}00994\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ From,\ \textcolor{keyword}{typename}\ To>}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00995}\mbox{\hyperlink{structlemon_1_1__path__bits_1_1_path_copy_selector_forward_3_01_from_00_01_to_00_01true_01_4}{00995}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1__path__bits_1_1_path_copy_selector_forward}{PathCopySelectorForward}}<From,\ To,\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{true}}>\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00996}\mbox{\hyperlink{structlemon_1_1__path__bits_1_1_path_copy_selector_forward_3_01_from_00_01_to_00_01true_01_4_aaaf05cc5a24493b9101b144a52a97b5b}{00996}}\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structlemon_1_1__path__bits_1_1_path_copy_selector_forward_3_01_from_00_01_to_00_01true_01_4_aaaf05cc5a24493b9101b144a52a97b5b}{copy}}(\textcolor{keyword}{const}\ From\&\ from,\ To\&\ to)\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00997}00997\ \ \ \ \ \ \ \ \ to.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_af2726dacd301d1fdc114b18b6eeb5f51}{clear}}();}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00998}00998\ \ \ \ \ \ \ \ \ to.build(from);}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l00999}00999\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01000}01000\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01001}01001\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01002}01002\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ From,\ \textcolor{keyword}{typename}\ To,}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01003}01003\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{buildEnable}}\ =\ \mbox{\hyperlink{structlemon_1_1_build_tag_indicator}{BuildTagIndicator<To>::value}}>}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01004}\mbox{\hyperlink{structlemon_1_1__path__bits_1_1_path_copy_selector_backward}{01004}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1__path__bits_1_1_path_copy_selector_backward}{PathCopySelectorBackward}}\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01005}\mbox{\hyperlink{structlemon_1_1__path__bits_1_1_path_copy_selector_backward_a7019a5d42c299b6e879abbcef6225dc8}{01005}}\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structlemon_1_1__path__bits_1_1_path_copy_selector_backward_a7019a5d42c299b6e879abbcef6225dc8}{copy}}(\textcolor{keyword}{const}\ From\&\ from,\ To\&\ to)\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01006}01006\ \ \ \ \ \ \ \ \ to.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_af2726dacd301d1fdc114b18b6eeb5f51}{clear}}();}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01007}01007\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{typename}\ From::RevArcIt\ it(from);\ it\ !=\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ ++it)\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01008}01008\ \ \ \ \ \ \ \ \ \ \ to.addFront(it);}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01009}01009\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01010}01010\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01011}01011\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01012}01012\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01013}01013\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ From,\ \textcolor{keyword}{typename}\ To>}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01014}\mbox{\hyperlink{structlemon_1_1__path__bits_1_1_path_copy_selector_backward_3_01_from_00_01_to_00_01true_01_4}{01014}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1__path__bits_1_1_path_copy_selector_backward}{PathCopySelectorBackward}}<From,\ To,\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{true}}>\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01015}\mbox{\hyperlink{structlemon_1_1__path__bits_1_1_path_copy_selector_backward_3_01_from_00_01_to_00_01true_01_4_ab69e0499edea7fa16877a5057e8321c0}{01015}}\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structlemon_1_1__path__bits_1_1_path_copy_selector_backward_3_01_from_00_01_to_00_01true_01_4_ab69e0499edea7fa16877a5057e8321c0}{copy}}(\textcolor{keyword}{const}\ From\&\ from,\ To\&\ to)\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01016}01016\ \ \ \ \ \ \ \ \ to.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_af2726dacd301d1fdc114b18b6eeb5f51}{clear}}();}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01017}01017\ \ \ \ \ \ \ \ \ to.buildRev(from);}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01018}01018\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01019}01019\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01020}01020\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01021}01021\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01022}01022\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ From,\ \textcolor{keyword}{typename}\ To,}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01023}01023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{revEnable}}\ =\ \mbox{\hyperlink{structlemon_1_1__path__bits_1_1_rev_path_tag_indicator_a0a8e8bf46d83529b53d7428f6f2770db}{RevPathTagIndicator<From>::value}}>}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01024}\mbox{\hyperlink{structlemon_1_1__path__bits_1_1_path_copy_selector}{01024}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1__path__bits_1_1_path_copy_selector}{PathCopySelector}}\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01025}\mbox{\hyperlink{structlemon_1_1__path__bits_1_1_path_copy_selector_a2d0def6df44dc07b754f687905410412}{01025}}\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structlemon_1_1__path__bits_1_1_path_copy_selector_a2d0def6df44dc07b754f687905410412}{copy}}(\textcolor{keyword}{const}\ From\&\ from,\ To\&\ to)\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01026}01026\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1__path__bits_1_1_path_copy_selector_forward_a365b79bbdb19f3d1865b82122c9ead89}{PathCopySelectorForward<From,\ To>::copy}}(from,\ to);}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01027}01027\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01028}01028\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01029}01029\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01030}01030\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ From,\ \textcolor{keyword}{typename}\ To>}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01031}\mbox{\hyperlink{structlemon_1_1__path__bits_1_1_path_copy_selector_3_01_from_00_01_to_00_01true_01_4}{01031}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1__path__bits_1_1_path_copy_selector}{PathCopySelector}}<From,\ To,\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{true}}>\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01032}\mbox{\hyperlink{structlemon_1_1__path__bits_1_1_path_copy_selector_3_01_from_00_01_to_00_01true_01_4_a4361a7b5c2ba7915f6a9a5721ba91587}{01032}}\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structlemon_1_1__path__bits_1_1_path_copy_selector_3_01_from_00_01_to_00_01true_01_4_a4361a7b5c2ba7915f6a9a5721ba91587}{copy}}(\textcolor{keyword}{const}\ From\&\ from,\ To\&\ to)\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01033}01033\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1__path__bits_1_1_path_copy_selector_backward_a7019a5d42c299b6e879abbcef6225dc8}{PathCopySelectorBackward<From,\ To>::copy}}(from,\ to);}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01034}01034\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01035}01035\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01036}01036\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01037}01037\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01038}01038\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01039}01039\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01043}01043\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ From,\ \textcolor{keyword}{typename}\ To>}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01044}\mbox{\hyperlink{group__paths_ga1c0da351dc554629ec44013576637e7d}{01044}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group__paths_ga1c0da351dc554629ec44013576637e7d}{pathCopy}}(\textcolor{keyword}{const}\ From\&\ from,\ To\&\ to)\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01045}01045\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{checkConcept<concepts::PathDumper<typename\ From::Digraph>}},\ From>();}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01046}01046\ \ \ \ \ \mbox{\hyperlink{structlemon_1_1__path__bits_1_1_path_copy_selector_a2d0def6df44dc07b754f687905410412}{\_path\_bits::PathCopySelector<From,\ To>::copy}}(from,\ to);}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01047}01047\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01048}01048\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01052}01052\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ To,\ \textcolor{keyword}{typename}\ From>}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01053}\mbox{\hyperlink{group__paths_ga437e79537f340c99bb743bc928cb0a10}{01053}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group__paths_ga437e79537f340c99bb743bc928cb0a10}{copyPath}}(To\&\ to,\ \textcolor{keyword}{const}\ From\&\ from)\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01054}01054\ \ \ \ \ \mbox{\hyperlink{group__paths_ga1c0da351dc554629ec44013576637e7d}{pathCopy}}(from,\ to);}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01055}01055\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01056}01056\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01062}01062\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Digraph,\ \textcolor{keyword}{typename}\ Path>}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01063}\mbox{\hyperlink{group__paths_ga72529b1d8158a18d4a428dc3eab15a69}{01063}}\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{group__paths_ga72529b1d8158a18d4a428dc3eab15a69}{checkPath}}(\textcolor{keyword}{const}\ Digraph\&\ digraph,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_path}{Path}}\&\ path)\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01064}01064\ \ \ \ \ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classlemon_1_1_path_1_1_arc_it}{Path::ArcIt}}\ it(path);}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01065}01065\ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ ==\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}})\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01066}01066\ \ \ \ \ \textcolor{keyword}{typename}\ Digraph::Node\ node\ =\ digraph.target(it);}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01067}01067\ \ \ \ \ ++it;}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01068}01068\ \ \ \ \ \textcolor{keywordflow}{while}\ (it\ !=\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}})\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01069}01069\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (digraph.source(it)\ !=\ node)\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01070}01070\ \ \ \ \ \ \ node\ =\ digraph.target(it);}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01071}01071\ \ \ \ \ \ \ ++it;}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01072}01072\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01073}01073\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01074}01074\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01075}01075\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01080}01080\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Digraph,\ \textcolor{keyword}{typename}\ Path>}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01081}\mbox{\hyperlink{group__paths_ga8cd2b147cef7e0a4fa05145908d95c15}{01081}}\ \ \ \textcolor{keyword}{typename}\ Digraph::Node\ \mbox{\hyperlink{group__paths_ga8cd2b147cef7e0a4fa05145908d95c15}{pathSource}}(\textcolor{keyword}{const}\ Digraph\&\ digraph,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_path}{Path}}\&\ path)\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01082}01082\ \ \ \ \ \textcolor{keywordflow}{return}\ path.\mbox{\hyperlink{classlemon_1_1_path_add7530a1d43e88982acb2690407d9a26}{empty}}()\ ?\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}}\ :\ digraph.source(path.\mbox{\hyperlink{classlemon_1_1_path_a5e35c177f5d69becf1dab9a923dfd86e}{front}}());}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01083}01083\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01084}01084\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01089}01089\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Digraph,\ \textcolor{keyword}{typename}\ Path>}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01090}\mbox{\hyperlink{group__paths_ga885afd9d4ba099bf2d8104e6e0408b66}{01090}}\ \ \ \textcolor{keyword}{typename}\ Digraph::Node\ \mbox{\hyperlink{group__paths_ga885afd9d4ba099bf2d8104e6e0408b66}{pathTarget}}(\textcolor{keyword}{const}\ Digraph\&\ digraph,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_path}{Path}}\&\ path)\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01091}01091\ \ \ \ \ \textcolor{keywordflow}{return}\ path.\mbox{\hyperlink{classlemon_1_1_path_add7530a1d43e88982acb2690407d9a26}{empty}}()\ ?\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}}\ :\ digraph.target(path.\mbox{\hyperlink{classlemon_1_1_path_a8be764fc578e41e005ae895e4d4c55b2}{back}}());}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01092}01092\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01093}01093\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01104}01104\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Path>}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01105}\mbox{\hyperlink{classlemon_1_1_path_node_it}{01105}}\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_path_node_it}{PathNodeIt}}\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01106}01106\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01107}\mbox{\hyperlink{classlemon_1_1_path_node_it_a2814412d5031e424100685f0537df8b6}{01107}}\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classlemon_1_1_path_afded6c4ea0b87a6ade7e12a20e9e1d20}{Path::Digraph}}\ *\mbox{\hyperlink{classlemon_1_1_path_node_it_a2814412d5031e424100685f0537df8b6}{\_digraph}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01108}\mbox{\hyperlink{classlemon_1_1_path_node_it_ac9c0ff6f6bccd5c124b5f9f441d8239f}{01108}}\ \ \ \ \ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classlemon_1_1_path_1_1_arc_it}{Path::ArcIt}}\ \mbox{\hyperlink{classlemon_1_1_path_node_it_ac9c0ff6f6bccd5c124b5f9f441d8239f}{\_it}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01109}\mbox{\hyperlink{classlemon_1_1_path_node_it_a0c3ff1cf00eb5d46f6da019273a2a77e}{01109}}\ \ \ \ \ \textcolor{keyword}{typename}\ Path::Digraph::Node\ \mbox{\hyperlink{classlemon_1_1_path_node_it_a0c3ff1cf00eb5d46f6da019273a2a77e}{\_nd}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01110}01110\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01111}01111\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01112}01112\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01113}\mbox{\hyperlink{classlemon_1_1_path_node_it_ad27a6193cac109f8721abc5673345c81}{01113}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classlemon_1_1_path_afded6c4ea0b87a6ade7e12a20e9e1d20}{Path::Digraph}}\ \mbox{\hyperlink{classlemon_1_1_path_node_it_ad27a6193cac109f8721abc5673345c81}{Digraph}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01114}\mbox{\hyperlink{classlemon_1_1_path_node_it_ab1393cd7ef06f82c7edd35e34e97d4b8}{01114}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Digraph::Node\ \mbox{\hyperlink{classlemon_1_1_path_node_it_ab1393cd7ef06f82c7edd35e34e97d4b8}{Node}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01115}01115\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01117}\mbox{\hyperlink{classlemon_1_1_path_node_it_a3238122ce5dd14452288736edb98ad4a}{01117}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_path_node_it_a3238122ce5dd14452288736edb98ad4a}{PathNodeIt}}()\ \{\}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01119}\mbox{\hyperlink{classlemon_1_1_path_node_it_a720cbb81c20c56cd5e07f361c42122bb}{01119}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_path_node_it_a720cbb81c20c56cd5e07f361c42122bb}{PathNodeIt}}(\mbox{\hyperlink{structlemon_1_1_invalid}{Invalid}})}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01120}01120\ \ \ \ \ \ \ :\ \mbox{\hyperlink{classlemon_1_1_path_node_it_a2814412d5031e424100685f0537df8b6}{\_digraph}}(0),\ \mbox{\hyperlink{classlemon_1_1_path_node_it_ac9c0ff6f6bccd5c124b5f9f441d8239f}{\_it}}(\mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}}),\ \mbox{\hyperlink{classlemon_1_1_path_node_it_a0c3ff1cf00eb5d46f6da019273a2a77e}{\_nd}}(\mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}})\ \{\}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01122}\mbox{\hyperlink{classlemon_1_1_path_node_it_af777fa7452ca1bcf81b9356fb2ab7cf7}{01122}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_path_node_it_af777fa7452ca1bcf81b9356fb2ab7cf7}{PathNodeIt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_path_node_it_ad27a6193cac109f8721abc5673345c81}{Digraph}}\&\ digraph,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_path}{Path}}\&\ path)}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01123}01123\ \ \ \ \ \ \ :\ \mbox{\hyperlink{classlemon_1_1_path_node_it_a2814412d5031e424100685f0537df8b6}{\_digraph}}(\&digraph),\ \mbox{\hyperlink{classlemon_1_1_path_node_it_ac9c0ff6f6bccd5c124b5f9f441d8239f}{\_it}}(path)\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01124}01124\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_path_node_it_a0c3ff1cf00eb5d46f6da019273a2a77e}{\_nd}}\ =\ (\mbox{\hyperlink{classlemon_1_1_path_node_it_ac9c0ff6f6bccd5c124b5f9f441d8239f}{\_it}}\ !=\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}}\ ?\ \mbox{\hyperlink{classlemon_1_1_path_node_it_a2814412d5031e424100685f0537df8b6}{\_digraph}}-\/>source(\mbox{\hyperlink{classlemon_1_1_path_node_it_ac9c0ff6f6bccd5c124b5f9f441d8239f}{\_it}})\ :\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}});}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01125}01125\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01127}\mbox{\hyperlink{classlemon_1_1_path_node_it_ade8a9c3f264eac52d61425f3affd8b43}{01127}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_path_node_it_ade8a9c3f264eac52d61425f3affd8b43}{PathNodeIt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_path_node_it_ad27a6193cac109f8721abc5673345c81}{Digraph}}\&\ digraph,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_path}{Path}}\&\ path,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_path_node_it_ab1393cd7ef06f82c7edd35e34e97d4b8}{Node}}\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{src}})}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01128}01128\ \ \ \ \ \ \ :\ \mbox{\hyperlink{classlemon_1_1_path_node_it_a2814412d5031e424100685f0537df8b6}{\_digraph}}(\&digraph),\ \mbox{\hyperlink{classlemon_1_1_path_node_it_ac9c0ff6f6bccd5c124b5f9f441d8239f}{\_it}}(path),\ \mbox{\hyperlink{classlemon_1_1_path_node_it_a0c3ff1cf00eb5d46f6da019273a2a77e}{\_nd}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{src}})\ \{\}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01129}01129\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01131}\mbox{\hyperlink{classlemon_1_1_path_node_it_a87696526372124f0092f6aa2d3b41663}{01131}}\ \ \ \ \ \textcolor{keyword}{operator}\ \mbox{\hyperlink{classlemon_1_1_path_node_it_ab1393cd7ef06f82c7edd35e34e97d4b8}{Node}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01132}01132\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_path_node_it_a0c3ff1cf00eb5d46f6da019273a2a77e}{\_nd}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01133}01133\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01134}01134\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01136}\mbox{\hyperlink{classlemon_1_1_path_node_it_ae062bcdaa1ce73e48e062910675d94a5}{01136}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_path_node_it}{PathNodeIt}}\&\ \mbox{\hyperlink{classlemon_1_1_path_node_it_ae062bcdaa1ce73e48e062910675d94a5}{operator++}}()\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01137}01137\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_path_node_it_ac9c0ff6f6bccd5c124b5f9f441d8239f}{\_it}}\ ==\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}})\ \mbox{\hyperlink{classlemon_1_1_path_node_it_a0c3ff1cf00eb5d46f6da019273a2a77e}{\_nd}}\ =\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01138}01138\ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01139}01139\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_path_node_it_a0c3ff1cf00eb5d46f6da019273a2a77e}{\_nd}}\ =\ \mbox{\hyperlink{classlemon_1_1_path_node_it_a2814412d5031e424100685f0537df8b6}{\_digraph}}-\/>target(\mbox{\hyperlink{classlemon_1_1_path_node_it_ac9c0ff6f6bccd5c124b5f9f441d8239f}{\_it}});}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01140}01140\ \ \ \ \ \ \ \ \ ++\mbox{\hyperlink{classlemon_1_1_path_node_it_ac9c0ff6f6bccd5c124b5f9f441d8239f}{\_it}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01141}01141\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01142}01142\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01143}01143\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01144}01144\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01146}\mbox{\hyperlink{classlemon_1_1_path_node_it_add5d92ee95b5db67cd0e4c39ca857782}{01146}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_path_node_it_add5d92ee95b5db67cd0e4c39ca857782}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_path_node_it}{PathNodeIt}}\&\ n)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01147}01147\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_path_node_it_ac9c0ff6f6bccd5c124b5f9f441d8239f}{\_it}}\ ==\ n.\mbox{\hyperlink{classlemon_1_1_path_node_it_ac9c0ff6f6bccd5c124b5f9f441d8239f}{\_it}}\ \&\&\ \mbox{\hyperlink{classlemon_1_1_path_node_it_a0c3ff1cf00eb5d46f6da019273a2a77e}{\_nd}}\ ==\ n.\mbox{\hyperlink{classlemon_1_1_path_node_it_a0c3ff1cf00eb5d46f6da019273a2a77e}{\_nd}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01148}01148\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01150}\mbox{\hyperlink{classlemon_1_1_path_node_it_a1ef6d6773e79ad83ab5cd01cd5fd72a9}{01150}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_path_node_it_a1ef6d6773e79ad83ab5cd01cd5fd72a9}{operator!=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_path_node_it}{PathNodeIt}}\&\ n)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01151}01151\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_path_node_it_ac9c0ff6f6bccd5c124b5f9f441d8239f}{\_it}}\ !=\ n.\mbox{\hyperlink{classlemon_1_1_path_node_it_ac9c0ff6f6bccd5c124b5f9f441d8239f}{\_it}}\ ||\ \mbox{\hyperlink{classlemon_1_1_path_node_it_a0c3ff1cf00eb5d46f6da019273a2a77e}{\_nd}}\ !=\ n.\mbox{\hyperlink{classlemon_1_1_path_node_it_a0c3ff1cf00eb5d46f6da019273a2a77e}{\_nd}};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01152}01152\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01154}\mbox{\hyperlink{classlemon_1_1_path_node_it_a120297713f618378d23fa99b336e700b}{01154}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_path_node_it_a120297713f618378d23fa99b336e700b}{operator<}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_path_node_it}{PathNodeIt}}\&\ n)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01155}01155\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{classlemon_1_1_path_node_it_ac9c0ff6f6bccd5c124b5f9f441d8239f}{\_it}}\ <\ n.\mbox{\hyperlink{classlemon_1_1_path_node_it_ac9c0ff6f6bccd5c124b5f9f441d8239f}{\_it}}\ \&\&\ \mbox{\hyperlink{classlemon_1_1_path_node_it_a0c3ff1cf00eb5d46f6da019273a2a77e}{\_nd}}\ !=\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}});}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01156}01156\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01157}01157\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01158}01158\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01159}01159\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01161}01161\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01162}01162\ \}\ \textcolor{comment}{//\ namespace\ lemon}}
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01163}01163\ }
+\DoxyCodeLine{\Hypertarget{path_8h_source_l01164}01164\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ LEMON\_PATH\_H}}
+
+\end{DoxyCode}

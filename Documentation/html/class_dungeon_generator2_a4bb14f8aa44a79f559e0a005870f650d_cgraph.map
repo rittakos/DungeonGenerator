@@ -1,0 +1,19 @@
+<map id="DungeonGenerator2::MakeStairs" name="DungeonGenerator2::MakeStairs">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,64,150,107"/>
+<area shape="rect" id="Node000002" href="$class_dungeon_generator2.html#abb49186bb8d8ea2c4522926b9ed75926" title=" " alt="" coords="198,5,342,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="149,61,182,51,184,56,150,66"/>
+<area shape="rect" id="Node000003" href="$class_map.html#aa1f7005c3fbb9abb0378bf64d5e78a40" title=" " alt="" coords="212,72,328,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="150,83,197,83,197,88,150,88"/>
+<area shape="rect" id="Node000007" href="$class_map.html#a7ca1f7faa99f517dc20392fea8365be0" title=" " alt="" coords="391,160,487,187"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="151,100,376,156,375,161,149,105"/>
+<area shape="rect" id="Node000004" href="$class_map.html#ad3ea7f31c54421e091ef5863d28fac61" title=" " alt="" coords="390,59,487,85"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="328,78,375,74,375,80,328,83"/>
+<area shape="rect" id="Node000005" href="$class_map.html#a4de2da6d9b40ffca2a28b1d0b9596f8d" title=" " alt="" coords="536,59,662,85"/>
+<area shape="poly" id="edge6_Node000003_Node000005" title=" " alt="" coords="309,69,389,44,439,40,488,44,534,52,533,57,487,49,439,45,391,49,310,74"/>
+<area shape="rect" id="Node000006" href="$class_map.html#a6b8d29d0524c3539845f3fa4e11e6856" title=" " alt="" coords="535,109,663,136"/>
+<area shape="poly" id="edge7_Node000003_Node000006" title=" " alt="" coords="328,89,520,111,520,116,328,94"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="488,69,521,69,521,75,488,75"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="484,83,541,102,539,107,483,89"/>
+<area shape="poly" id="edge9_Node000007_Node000005" title=" " alt="" coords="453,157,488,127,534,95,544,90,546,95,537,100,492,131,456,162"/>
+<area shape="poly" id="edge10_Node000007_Node000006" title=" " alt="" coords="483,157,539,139,541,144,484,162"/>
+</map>

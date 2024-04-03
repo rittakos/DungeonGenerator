@@ -1,0 +1,7 @@
+<map id="IO::DungeonWriter::write" name="IO::DungeonWriter::write">
+<area shape="rect" id="Node000001" title=" " alt="" coords="257,5,393,48"/>
+<area shape="rect" id="Node000002" href="$class_dungeon.html#aaf6d5027e2783df4fdf332e87c4e4f44" title=" " alt="" coords="103,13,209,40"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="241,29,209,29,209,24,241,24"/>
+<area shape="rect" id="Node000003" href="$_dungeon_generator_2main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,13,55,40"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="87,29,55,29,55,24,87,24"/>
+</map>

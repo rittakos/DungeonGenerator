@@ -1,0 +1,206 @@
+\doxysection{Log Namespace Reference}
+\hypertarget{namespace_log}{}\label{namespace_log}\index{Log@{Log}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_log_1_1_logger}{Logger}}
+\item 
+class \mbox{\hyperlink{class_log_1_1_spd_logger}{Spd\+Logger}}
+\item 
+class \mbox{\hyperlink{class_log_1_1_win_logger}{Win\+Logger}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespace_log_a805552f70da3cfb241c39e914ed62162}{Logger\+Type}} \{ \mbox{\hyperlink{namespace_log_a805552f70da3cfb241c39e914ed62162a170a22f51d14d6ce688308e797e7b98d}{None}}
+, \mbox{\hyperlink{namespace_log_a805552f70da3cfb241c39e914ed62162ae9cb6be534b8dd2fa6e174bea10533b5}{Release}}
+, \mbox{\hyperlink{namespace_log_a805552f70da3cfb241c39e914ed62162aec4d6b151ce2b9205065081b0218dc1f}{Debug}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespace_log_a803875bac15543f0fc620c80bcd25d81}{Platform}} \{ \mbox{\hyperlink{namespace_log_a803875bac15543f0fc620c80bcd25d81af4f3dd9b0efe1eb3f43ba08892abf517}{Win}}
+, \mbox{\hyperlink{namespace_log_a803875bac15543f0fc620c80bcd25d81a09da985e2a9bdd68687ea609926d7cc6}{Mac}}
+, \mbox{\hyperlink{namespace_log_a803875bac15543f0fc620c80bcd25d81acbe333eb0cb14b36ec8226f27da2c778}{Independent}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{namespace_log_acc334094de2c17174209b77597e7742d}{info}} (std\+::string message)
+\item 
+static void \mbox{\hyperlink{namespace_log_a2625a4aa82f846d5b9a51af99905b7e5}{error}} (std\+::string message)
+\item 
+static void \mbox{\hyperlink{namespace_log_a9375e16c8a2572b41f7678dadf699dcc}{warn}} (std\+::string message)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_log_1_1_logger}{Logger}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespace_log_a138fb456060b46c135a7c9da930d436b}{logger}} = new \mbox{\hyperlink{class_log_1_1_win_logger}{Win\+Logger}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{namespace_log_a805552f70da3cfb241c39e914ed62162}\label{namespace_log_a805552f70da3cfb241c39e914ed62162} 
+\index{Log@{Log}!LoggerType@{LoggerType}}
+\index{LoggerType@{LoggerType}!Log@{Log}}
+\doxysubsubsection{\texorpdfstring{LoggerType}{LoggerType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespace_log_a805552f70da3cfb241c39e914ed62162}{Log\+::\+Logger\+Type}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{None@{None}!Log@{Log}}\index{Log@{Log}!None@{None}}}\Hypertarget{namespace_log_a805552f70da3cfb241c39e914ed62162a170a22f51d14d6ce688308e797e7b98d}\label{namespace_log_a805552f70da3cfb241c39e914ed62162a170a22f51d14d6ce688308e797e7b98d} 
+None&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Release@{Release}!Log@{Log}}\index{Log@{Log}!Release@{Release}}}\Hypertarget{namespace_log_a805552f70da3cfb241c39e914ed62162ae9cb6be534b8dd2fa6e174bea10533b5}\label{namespace_log_a805552f70da3cfb241c39e914ed62162ae9cb6be534b8dd2fa6e174bea10533b5} 
+Release&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Debug@{Debug}!Log@{Log}}\index{Log@{Log}!Debug@{Debug}}}\Hypertarget{namespace_log_a805552f70da3cfb241c39e914ed62162aec4d6b151ce2b9205065081b0218dc1f}\label{namespace_log_a805552f70da3cfb241c39e914ed62162aec4d6b151ce2b9205065081b0218dc1f} 
+Debug&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{log_8h_source_l00019}{19}} of file \mbox{\hyperlink{log_8h_source}{log.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00019\ \{\mbox{\hyperlink{namespace_log_a805552f70da3cfb241c39e914ed62162a170a22f51d14d6ce688308e797e7b98d}{None}},\ \mbox{\hyperlink{namespace_log_a805552f70da3cfb241c39e914ed62162ae9cb6be534b8dd2fa6e174bea10533b5}{Release}},\ \mbox{\hyperlink{namespace_log_a805552f70da3cfb241c39e914ed62162aec4d6b151ce2b9205065081b0218dc1f}{Debug}}\};}
+
+\end{DoxyCode}
+\Hypertarget{namespace_log_a803875bac15543f0fc620c80bcd25d81}\label{namespace_log_a803875bac15543f0fc620c80bcd25d81} 
+\index{Log@{Log}!Platform@{Platform}}
+\index{Platform@{Platform}!Log@{Log}}
+\doxysubsubsection{\texorpdfstring{Platform}{Platform}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespace_log_a803875bac15543f0fc620c80bcd25d81}{Log\+::\+Platform}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Win@{Win}!Log@{Log}}\index{Log@{Log}!Win@{Win}}}\Hypertarget{namespace_log_a803875bac15543f0fc620c80bcd25d81af4f3dd9b0efe1eb3f43ba08892abf517}\label{namespace_log_a803875bac15543f0fc620c80bcd25d81af4f3dd9b0efe1eb3f43ba08892abf517} 
+Win&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Mac@{Mac}!Log@{Log}}\index{Log@{Log}!Mac@{Mac}}}\Hypertarget{namespace_log_a803875bac15543f0fc620c80bcd25d81a09da985e2a9bdd68687ea609926d7cc6}\label{namespace_log_a803875bac15543f0fc620c80bcd25d81a09da985e2a9bdd68687ea609926d7cc6} 
+Mac&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Independent@{Independent}!Log@{Log}}\index{Log@{Log}!Independent@{Independent}}}\Hypertarget{namespace_log_a803875bac15543f0fc620c80bcd25d81acbe333eb0cb14b36ec8226f27da2c778}\label{namespace_log_a803875bac15543f0fc620c80bcd25d81acbe333eb0cb14b36ec8226f27da2c778} 
+Independent&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{log_8h_source_l00020}{20}} of file \mbox{\hyperlink{log_8h_source}{log.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00020\ \{\mbox{\hyperlink{namespace_log_a803875bac15543f0fc620c80bcd25d81af4f3dd9b0efe1eb3f43ba08892abf517}{Win}},\ \mbox{\hyperlink{namespace_log_a803875bac15543f0fc620c80bcd25d81a09da985e2a9bdd68687ea609926d7cc6}{Mac}},\ \mbox{\hyperlink{namespace_log_a803875bac15543f0fc620c80bcd25d81acbe333eb0cb14b36ec8226f27da2c778}{Independent}}\};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespace_log_a2625a4aa82f846d5b9a51af99905b7e5}\label{namespace_log_a2625a4aa82f846d5b9a51af99905b7e5} 
+\index{Log@{Log}!error@{error}}
+\index{error@{error}!Log@{Log}}
+\doxysubsubsection{\texorpdfstring{error()}{error()}}
+{\footnotesize\ttfamily static void Log\+::error (\begin{DoxyParamCaption}\item[{std\+::string}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{log_8h_source_l00076}{76}} of file \mbox{\hyperlink{log_8h_source}{log.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00077\ \ \ \ \ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_log_a138fb456060b46c135a7c9da930d436b}{logger}}-\/>\mbox{\hyperlink{class_log_1_1_logger_a89cf5f479d83785333eccdf2ae983512}{error}}(message);}
+\DoxyCodeLine{00079\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=266pt]{namespace_log_a2625a4aa82f846d5b9a51af99905b7e5_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_log_a2625a4aa82f846d5b9a51af99905b7e5_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespace_log_acc334094de2c17174209b77597e7742d}\label{namespace_log_acc334094de2c17174209b77597e7742d} 
+\index{Log@{Log}!info@{info}}
+\index{info@{info}!Log@{Log}}
+\doxysubsubsection{\texorpdfstring{info()}{info()}}
+{\footnotesize\ttfamily static void Log\+::info (\begin{DoxyParamCaption}\item[{std\+::string}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{log_8h_source_l00071}{71}} of file \mbox{\hyperlink{log_8h_source}{log.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00072\ \ \ \ \ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_log_a138fb456060b46c135a7c9da930d436b}{logger}}-\/>\mbox{\hyperlink{class_log_1_1_logger_a45aece334a9680706aabc171f1c1fc64}{info}}(message);}
+\DoxyCodeLine{00074\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=257pt]{namespace_log_acc334094de2c17174209b77597e7742d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_log_acc334094de2c17174209b77597e7742d_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespace_log_a9375e16c8a2572b41f7678dadf699dcc}\label{namespace_log_a9375e16c8a2572b41f7678dadf699dcc} 
+\index{Log@{Log}!warn@{warn}}
+\index{warn@{warn}!Log@{Log}}
+\doxysubsubsection{\texorpdfstring{warn()}{warn()}}
+{\footnotesize\ttfamily static void Log\+::warn (\begin{DoxyParamCaption}\item[{std\+::string}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{log_8h_source_l00081}{81}} of file \mbox{\hyperlink{log_8h_source}{log.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00082\ \ \ \ \ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_log_a138fb456060b46c135a7c9da930d436b}{logger}}-\/>\mbox{\hyperlink{class_log_1_1_logger_a3769eec17552ac56f0562b4b10a2c677}{warn}}(message);}
+\DoxyCodeLine{00084\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=267pt]{namespace_log_a9375e16c8a2572b41f7678dadf699dcc_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{namespace_log_a138fb456060b46c135a7c9da930d436b}\label{namespace_log_a138fb456060b46c135a7c9da930d436b} 
+\index{Log@{Log}!logger@{logger}}
+\index{logger@{logger}!Log@{Log}}
+\doxysubsubsection{\texorpdfstring{logger}{logger}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_log_1_1_logger}{Logger}}\texorpdfstring{$\ast$}{*} Log\+::logger = new \mbox{\hyperlink{class_log_1_1_win_logger}{Win\+Logger}} ()\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{log_8h_source_l00069}{69}} of file \mbox{\hyperlink{log_8h_source}{log.\+h}}.
+

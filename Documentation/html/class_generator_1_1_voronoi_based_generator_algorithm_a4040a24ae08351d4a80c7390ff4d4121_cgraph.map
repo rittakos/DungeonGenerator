@@ -1,0 +1,24 @@
+<map id="Generator::VoronoiBasedGeneratorAlgorithm::getAllPolygons" name="Generator::VoronoiBasedGeneratorAlgorithm::getAllPolygons">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,256,230,299"/>
+<area shape="rect" id="Node000002" href="$class_geometry_1_1_polygon.html#a12c9321822bdf861cf7c304fa0c888e7" title=" " alt="" coords="278,105,419,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="151,253,300,155,303,159,153,258"/>
+<area shape="rect" id="Node000007" href="$class_geometry_1_1_polygon.html#ac06279101046016730d9bbcd946663c4" title=" " alt="" coords="278,256,419,299"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="230,275,262,275,262,280,230,280"/>
+<area shape="rect" id="Node000011" href="$class_geometry_1_1_polygon.html#a94dc0f266b827e9596f29888c796ca17" title=" " alt="" coords="278,323,419,365"/>
+<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="194,297,263,317,262,322,193,302"/>
+<area shape="rect" id="Node000003" href="$class_geometry_1_1_polygon.html#abe0fa2f30629ae38dd88b28a85509a9e" title=" " alt="" coords="482,5,623,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="384,103,466,58,478,52,480,57,468,62,386,107"/>
+<area shape="rect" id="Node000004" href="$class_geometry_1_1_polygon.html#a55ccb3a6bfa3c5176ceb1ed12efc91fd" title=" " alt="" coords="482,72,623,115"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="419,112,466,105,467,110,420,118"/>
+<area shape="rect" id="Node000006" href="$class_geometry_1_1_polygon.html#ade26117ec3b1f56362190e27e6056535" title=" " alt="" coords="482,139,623,181"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="420,136,467,143,466,149,419,141"/>
+<area shape="rect" id="Node000005" href="$namespace_math.html#acb53f49cacbc0754cf4b882a41837468" title=" " alt="" coords="686,143,796,169"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="620,113,685,135,683,140,618,118"/>
+<area shape="poly" id="edge9_Node000007_Node000005" title=" " alt="" coords="419,255,638,191,689,173,690,178,639,196,420,260"/>
+<area shape="rect" id="Node000008" href="$class_geometry_1_1_polygon.html#a5bc5243e1c5a1e9c80d2e7e59d8688c2" title=" " alt="" coords="482,256,623,299"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="420,275,466,275,466,280,420,280"/>
+<area shape="rect" id="Node000009" href="$namespace_math.html#afe7eb6918da89ee598397ad25d291c08" title=" " alt="" coords="505,323,601,349"/>
+<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="420,295,491,316,489,321,419,300"/>
+<area shape="rect" id="Node000010" href="$namespace_geometry.html#ae680321c371d9f6bd6def5844e915b6f" title=" " alt="" coords="467,373,638,416"/>
+<area shape="poly" id="edge10_Node000007_Node000010" title=" " alt="" coords="402,297,421,309,435,322,445,335,454,347,469,359,475,363,472,368,465,363,450,350,441,338,431,326,417,313,399,302"/>
+</map>

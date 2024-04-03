@@ -1,0 +1,442 @@
+\doxysection{Map Class Reference}
+\hypertarget{class_map}{}\label{class_map}\index{Map@{Map}}
+
+
+Collaboration diagram for Map\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=164pt]{class_map__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_map_a0f5ad0fd4563497b4214038cbca8b582}{Map}} ()
+\item 
+\mbox{\hyperlink{class_map_a367fb12d6bc5f661f8a83bf977a7eb44}{Map}} (int x, int y, \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7}{Tile}} value=\mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7a92e592d90b9548016776a6fb68dccded}{Tile\+::\+Unused}})
+\item 
+void \mbox{\hyperlink{class_map_a7ca1f7faa99f517dc20392fea8365be0}{Set\+Cell}} (int x, int y, \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7}{Tile}} celltype)
+\item 
+\mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7}{Tile}} \mbox{\hyperlink{class_map_ad3ea7f31c54421e091ef5863d28fac61}{Get\+Cell}} (int x, int y) const
+\item 
+void \mbox{\hyperlink{class_map_aee4abccaa57ef1c0c5f688c22811bce9}{Set\+Cells}} (int x\+Start, int y\+Start, int x\+End, int y\+End, \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7}{Tile}} cell\+Type)
+\item 
+bool \mbox{\hyperlink{class_map_a4de2da6d9b40ffca2a28b1d0b9596f8d}{Is\+XIn\+Bounds}} (int x) const
+\item 
+bool \mbox{\hyperlink{class_map_a6b8d29d0524c3539845f3fa4e11e6856}{Is\+YIn\+Bounds}} (int y) const
+\item 
+bool \mbox{\hyperlink{class_map_a8776c15802924d8455f4e86bbdcedc64}{Is\+Area\+Unused}} (int x\+Start, int y\+Start, int x\+End, int y\+End)
+\item 
+bool \mbox{\hyperlink{class_map_aa1f7005c3fbb9abb0378bf64d5e78a40}{Is\+Adjacent}} (int x, int y, \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7}{Tile}} tile)
+\item 
+void \mbox{\hyperlink{class_map_ad98f17483072d6f71a369dbde0ecc04e}{Print}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_map_a19052d37067703cee90b41c1719caf49}{x\+Size}}
+\item 
+int \mbox{\hyperlink{class_map_a8094c1ac27c2e09cbd1c4396142ad4f2}{y\+Size}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7}{Tile}} $>$ \mbox{\hyperlink{class_map_ae157b4fd272b8a57572000f383fd3aab}{data}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_dungeon_generator_2main_8cpp_source_l00027}{27}} of file \mbox{\hyperlink{_dungeon_generator_2main_8cpp_source}{main.\+cpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_map_a0f5ad0fd4563497b4214038cbca8b582}\label{class_map_a0f5ad0fd4563497b4214038cbca8b582} 
+\index{Map@{Map}!Map@{Map}}
+\index{Map@{Map}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{Map()}{Map()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Map\+::\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_dungeon_generator_2main_8cpp_source_l00031}{31}} of file \mbox{\hyperlink{_dungeon_generator_2main_8cpp_source}{main.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ :}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_map_a19052d37067703cee90b41c1719caf49}{xSize}}(0),\ \mbox{\hyperlink{class_map_a8094c1ac27c2e09cbd1c4396142ad4f2}{ySize}}(0),}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_map_ae157b4fd272b8a57572000f383fd3aab}{data}}()\ \{\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_map_a367fb12d6bc5f661f8a83bf977a7eb44}\label{class_map_a367fb12d6bc5f661f8a83bf977a7eb44} 
+\index{Map@{Map}!Map@{Map}}
+\index{Map@{Map}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{Map()}{Map()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Map\+::\+Map (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{\mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7}{Tile}}}]{value = {\ttfamily \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7a92e592d90b9548016776a6fb68dccded}{Tile\+::\+Unused}}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_dungeon_generator_2main_8cpp_source_l00035}{35}} of file \mbox{\hyperlink{_dungeon_generator_2main_8cpp_source}{main.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_map_a19052d37067703cee90b41c1719caf49}{xSize}}(x),\ \mbox{\hyperlink{class_map_a8094c1ac27c2e09cbd1c4396142ad4f2}{ySize}}(y),}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_map_ae157b4fd272b8a57572000f383fd3aab}{data}}(x*\ y,\ value)\ \{\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_map_ad3ea7f31c54421e091ef5863d28fac61}\label{class_map_ad3ea7f31c54421e091ef5863d28fac61} 
+\index{Map@{Map}!GetCell@{GetCell}}
+\index{GetCell@{GetCell}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{GetCell()}{GetCell()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7}{Tile}} Map\+::\+Get\+Cell (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_dungeon_generator_2main_8cpp_source_l00048}{48}} of file \mbox{\hyperlink{_dungeon_generator_2main_8cpp_source}{main.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00049\ \ \ \ \ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ assert(\mbox{\hyperlink{class_map_a4de2da6d9b40ffca2a28b1d0b9596f8d}{IsXInBounds}}(x));}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ assert(\mbox{\hyperlink{class_map_a6b8d29d0524c3539845f3fa4e11e6856}{IsYInBounds}}(y));}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ idx\ =\ \mbox{\hyperlink{namespace_math_1_1_constant_ac99dbfbdfd0c9f6006acda74b4dfe294}{x}}\ +\ \mbox{\hyperlink{class_map_a19052d37067703cee90b41c1719caf49}{xSize}}\ *\ \mbox{\hyperlink{namespace_math_1_1_constant_af608b96d5b319e6ce8e1c0a9bd9cf0d6}{y}};}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_map_ae157b4fd272b8a57572000f383fd3aab}{data}}[idx];}
+\DoxyCodeLine{00055\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=285pt]{class_map_ad3ea7f31c54421e091ef5863d28fac61_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_map_ad3ea7f31c54421e091ef5863d28fac61_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_map_aa1f7005c3fbb9abb0378bf64d5e78a40}\label{class_map_aa1f7005c3fbb9abb0378bf64d5e78a40} 
+\index{Map@{Map}!IsAdjacent@{IsAdjacent}}
+\index{IsAdjacent@{IsAdjacent}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{IsAdjacent()}{IsAdjacent()}}
+{\footnotesize\ttfamily bool Map\+::\+Is\+Adjacent (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{\mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7}{Tile}}}]{tile }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_dungeon_generator_2main_8cpp_source_l00096}{96}} of file \mbox{\hyperlink{_dungeon_generator_2main_8cpp_source}{main.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00097\ \ \ \ \ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ assert(\mbox{\hyperlink{class_map_a4de2da6d9b40ffca2a28b1d0b9596f8d}{IsXInBounds}}(x\ -\/\ 1)\ \&\&\ \mbox{\hyperlink{class_map_a4de2da6d9b40ffca2a28b1d0b9596f8d}{IsXInBounds}}(x\ +\ 1));}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ assert(\mbox{\hyperlink{class_map_a6b8d29d0524c3539845f3fa4e11e6856}{IsYInBounds}}(y\ -\/\ 1)\ \&\&\ \mbox{\hyperlink{class_map_a6b8d29d0524c3539845f3fa4e11e6856}{IsYInBounds}}(y\ +\ 1));}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_map_ad3ea7f31c54421e091ef5863d28fac61}{GetCell}}(x\ -\/\ 1,\ y)\ ==\ tile\ ||\ \mbox{\hyperlink{class_map_ad3ea7f31c54421e091ef5863d28fac61}{GetCell}}(x\ +\ 1,\ y)\ ==\ tile\ ||}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_map_ad3ea7f31c54421e091ef5863d28fac61}{GetCell}}(x,\ y\ -\/\ 1)\ ==\ tile\ ||\ \mbox{\hyperlink{class_map_ad3ea7f31c54421e091ef5863d28fac61}{GetCell}}(x,\ y\ +\ 1)\ ==\ tile;}
+\DoxyCodeLine{00104\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_map_aa1f7005c3fbb9abb0378bf64d5e78a40_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_map_aa1f7005c3fbb9abb0378bf64d5e78a40_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_map_a8776c15802924d8455f4e86bbdcedc64}\label{class_map_a8776c15802924d8455f4e86bbdcedc64} 
+\index{Map@{Map}!IsAreaUnused@{IsAreaUnused}}
+\index{IsAreaUnused@{IsAreaUnused}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{IsAreaUnused()}{IsAreaUnused()}}
+{\footnotesize\ttfamily bool Map\+::\+Is\+Area\+Unused (\begin{DoxyParamCaption}\item[{int}]{x\+Start,  }\item[{int}]{y\+Start,  }\item[{int}]{x\+End,  }\item[{int}]{y\+End }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_dungeon_generator_2main_8cpp_source_l00080}{80}} of file \mbox{\hyperlink{_dungeon_generator_2main_8cpp_source}{main.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00081\ \ \ \ \ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ assert(\mbox{\hyperlink{class_map_a4de2da6d9b40ffca2a28b1d0b9596f8d}{IsXInBounds}}(xStart)\ \&\&\ \mbox{\hyperlink{class_map_a4de2da6d9b40ffca2a28b1d0b9596f8d}{IsXInBounds}}(xEnd));}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ assert(\mbox{\hyperlink{class_map_a6b8d29d0524c3539845f3fa4e11e6856}{IsYInBounds}}(yStart)\ \&\&\ \mbox{\hyperlink{class_map_a6b8d29d0524c3539845f3fa4e11e6856}{IsYInBounds}}(yEnd));}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ assert(xStart\ <=\ xEnd);}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ assert(yStart\ <=\ yEnd);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ y\ =\ yStart;\ \mbox{\hyperlink{namespace_math_1_1_constant_af608b96d5b319e6ce8e1c0a9bd9cf0d6}{y}}\ !=\ yEnd\ +\ 1;\ ++\mbox{\hyperlink{namespace_math_1_1_constant_af608b96d5b319e6ce8e1c0a9bd9cf0d6}{y}})}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ x\ =\ xStart;\ \mbox{\hyperlink{namespace_math_1_1_constant_ac99dbfbdfd0c9f6006acda74b4dfe294}{x}}\ !=\ xEnd\ +\ 1;\ ++\mbox{\hyperlink{namespace_math_1_1_constant_ac99dbfbdfd0c9f6006acda74b4dfe294}{x}})}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_map_ad3ea7f31c54421e091ef5863d28fac61}{GetCell}}(x,\ y)\ !=\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7a92e592d90b9548016776a6fb68dccded}{Tile::Unused}})}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00094\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_map_a8776c15802924d8455f4e86bbdcedc64_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_map_a8776c15802924d8455f4e86bbdcedc64_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_map_a4de2da6d9b40ffca2a28b1d0b9596f8d}\label{class_map_a4de2da6d9b40ffca2a28b1d0b9596f8d} 
+\index{Map@{Map}!IsXInBounds@{IsXInBounds}}
+\index{IsXInBounds@{IsXInBounds}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{IsXInBounds()}{IsXInBounds()}}
+{\footnotesize\ttfamily bool Map\+::\+Is\+XIn\+Bounds (\begin{DoxyParamCaption}\item[{int}]{x }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_dungeon_generator_2main_8cpp_source_l00070}{70}} of file \mbox{\hyperlink{_dungeon_generator_2main_8cpp_source}{main.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00071\ \ \ \ \ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespace_math_1_1_constant_ac99dbfbdfd0c9f6006acda74b4dfe294}{x}}\ >=\ 0\ \&\&\ \mbox{\hyperlink{namespace_math_1_1_constant_ac99dbfbdfd0c9f6006acda74b4dfe294}{x}}\ <\ \mbox{\hyperlink{class_map_a19052d37067703cee90b41c1719caf49}{xSize}};}
+\DoxyCodeLine{00073\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_map_a4de2da6d9b40ffca2a28b1d0b9596f8d_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_map_a6b8d29d0524c3539845f3fa4e11e6856}\label{class_map_a6b8d29d0524c3539845f3fa4e11e6856} 
+\index{Map@{Map}!IsYInBounds@{IsYInBounds}}
+\index{IsYInBounds@{IsYInBounds}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{IsYInBounds()}{IsYInBounds()}}
+{\footnotesize\ttfamily bool Map\+::\+Is\+YIn\+Bounds (\begin{DoxyParamCaption}\item[{int}]{y }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_dungeon_generator_2main_8cpp_source_l00075}{75}} of file \mbox{\hyperlink{_dungeon_generator_2main_8cpp_source}{main.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00076\ \ \ \ \ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespace_math_1_1_constant_af608b96d5b319e6ce8e1c0a9bd9cf0d6}{y}}\ >=\ 0\ \&\&\ \mbox{\hyperlink{namespace_math_1_1_constant_af608b96d5b319e6ce8e1c0a9bd9cf0d6}{y}}\ <\ \mbox{\hyperlink{class_map_a8094c1ac27c2e09cbd1c4396142ad4f2}{ySize}};}
+\DoxyCodeLine{00078\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_map_a6b8d29d0524c3539845f3fa4e11e6856_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_map_ad98f17483072d6f71a369dbde0ecc04e}\label{class_map_ad98f17483072d6f71a369dbde0ecc04e} 
+\index{Map@{Map}!Print@{Print}}
+\index{Print@{Print}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Map\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_dungeon_generator_2main_8cpp_source_l00106}{106}} of file \mbox{\hyperlink{_dungeon_generator_2main_8cpp_source}{main.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00107\ \ \ \ \ \{}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ y\ =\ 0;\ \mbox{\hyperlink{namespace_math_1_1_constant_af608b96d5b319e6ce8e1c0a9bd9cf0d6}{y}}\ !=\ \mbox{\hyperlink{class_map_a8094c1ac27c2e09cbd1c4396142ad4f2}{ySize}};\ \mbox{\hyperlink{namespace_math_1_1_constant_af608b96d5b319e6ce8e1c0a9bd9cf0d6}{y}}++)}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ x\ =\ 0;\ \mbox{\hyperlink{namespace_math_1_1_constant_ac99dbfbdfd0c9f6006acda74b4dfe294}{x}}\ !=\ \mbox{\hyperlink{class_map_a19052d37067703cee90b41c1719caf49}{xSize}};\ \mbox{\hyperlink{namespace_math_1_1_constant_ac99dbfbdfd0c9f6006acda74b4dfe294}{x}}++)}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (\mbox{\hyperlink{class_map_ad3ea7f31c54421e091ef5863d28fac61}{GetCell}}(x,\ y))}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7a92e592d90b9548016776a6fb68dccded}{Tile::Unused}}:}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7af91c008736f743d4a81dc92553e571a0}{Tile::DirtWall}}:}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\#"{}};}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7afaefc6c46db8f233bf2fc4ddf6ac2bd6}{Tile::DirtFloor}}:}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7a78b14475f6b820d3111037c2f17b5361}{Tile::Corridor}}:}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7af44e14d49cd011d1e873d9fe0c4624f1}{Tile::Door}}:}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}+"{}};}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7af206f85d6241680cf7cdb256d8b8dbdf}{Tile::UpStairs}}:}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}<"{}};}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7acb38b4029eab73f5ccc9af24c527fd03}{Tile::DownStairs}}:}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}>"{}};}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00142\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_map_ad98f17483072d6f71a369dbde0ecc04e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=258pt]{class_map_ad98f17483072d6f71a369dbde0ecc04e_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_map_a7ca1f7faa99f517dc20392fea8365be0}\label{class_map_a7ca1f7faa99f517dc20392fea8365be0} 
+\index{Map@{Map}!SetCell@{SetCell}}
+\index{SetCell@{SetCell}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{SetCell()}{SetCell()}}
+{\footnotesize\ttfamily void Map\+::\+Set\+Cell (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{\mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7}{Tile}}}]{celltype }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_dungeon_generator_2main_8cpp_source_l00039}{39}} of file \mbox{\hyperlink{_dungeon_generator_2main_8cpp_source}{main.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00040\ \ \ \ \ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ assert(\mbox{\hyperlink{class_map_a4de2da6d9b40ffca2a28b1d0b9596f8d}{IsXInBounds}}(x));}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ assert(\mbox{\hyperlink{class_map_a6b8d29d0524c3539845f3fa4e11e6856}{IsYInBounds}}(y));}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ idx\ =\ \mbox{\hyperlink{namespace_math_1_1_constant_ac99dbfbdfd0c9f6006acda74b4dfe294}{x}}\ +\ \mbox{\hyperlink{class_map_a19052d37067703cee90b41c1719caf49}{xSize}}\ *\ \mbox{\hyperlink{namespace_math_1_1_constant_af608b96d5b319e6ce8e1c0a9bd9cf0d6}{y}};}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_map_ae157b4fd272b8a57572000f383fd3aab}{data}}[idx]\ =\ celltype;}
+\DoxyCodeLine{00046\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=284pt]{class_map_a7ca1f7faa99f517dc20392fea8365be0_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_map_a7ca1f7faa99f517dc20392fea8365be0_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_map_aee4abccaa57ef1c0c5f688c22811bce9}\label{class_map_aee4abccaa57ef1c0c5f688c22811bce9} 
+\index{Map@{Map}!SetCells@{SetCells}}
+\index{SetCells@{SetCells}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{SetCells()}{SetCells()}}
+{\footnotesize\ttfamily void Map\+::\+Set\+Cells (\begin{DoxyParamCaption}\item[{int}]{x\+Start,  }\item[{int}]{y\+Start,  }\item[{int}]{x\+End,  }\item[{int}]{y\+End,  }\item[{\mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7}{Tile}}}]{cell\+Type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_dungeon_generator_2main_8cpp_source_l00057}{57}} of file \mbox{\hyperlink{_dungeon_generator_2main_8cpp_source}{main.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00058\ \ \ \ \ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ assert(\mbox{\hyperlink{class_map_a4de2da6d9b40ffca2a28b1d0b9596f8d}{IsXInBounds}}(xStart)\ \&\&\ \mbox{\hyperlink{class_map_a4de2da6d9b40ffca2a28b1d0b9596f8d}{IsXInBounds}}(xEnd));}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ assert(\mbox{\hyperlink{class_map_a6b8d29d0524c3539845f3fa4e11e6856}{IsYInBounds}}(yStart)\ \&\&\ \mbox{\hyperlink{class_map_a6b8d29d0524c3539845f3fa4e11e6856}{IsYInBounds}}(yEnd));}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ assert(xStart\ <=\ xEnd);}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ assert(yStart\ <=\ yEnd);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ y\ =\ yStart;\ \mbox{\hyperlink{namespace_math_1_1_constant_af608b96d5b319e6ce8e1c0a9bd9cf0d6}{y}}\ !=\ yEnd\ +\ 1;\ ++\mbox{\hyperlink{namespace_math_1_1_constant_af608b96d5b319e6ce8e1c0a9bd9cf0d6}{y}})}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ x\ =\ xStart;\ \mbox{\hyperlink{namespace_math_1_1_constant_ac99dbfbdfd0c9f6006acda74b4dfe294}{x}}\ !=\ xEnd\ +\ 1;\ ++\mbox{\hyperlink{namespace_math_1_1_constant_ac99dbfbdfd0c9f6006acda74b4dfe294}{x}})}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_map_a7ca1f7faa99f517dc20392fea8365be0}{SetCell}}(x,\ y,\ cellType);}
+\DoxyCodeLine{00068\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_map_aee4abccaa57ef1c0c5f688c22811bce9_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_map_aee4abccaa57ef1c0c5f688c22811bce9_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_map_ae157b4fd272b8a57572000f383fd3aab}\label{class_map_ae157b4fd272b8a57572000f383fd3aab} 
+\index{Map@{Map}!data@{data}}
+\index{data@{data}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{data}{data}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7}{Tile}}$>$ Map\+::data\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_dungeon_generator_2main_8cpp_source_l00148}{148}} of file \mbox{\hyperlink{_dungeon_generator_2main_8cpp_source}{main.\+cpp}}.
+
+\Hypertarget{class_map_a19052d37067703cee90b41c1719caf49}\label{class_map_a19052d37067703cee90b41c1719caf49} 
+\index{Map@{Map}!xSize@{xSize}}
+\index{xSize@{xSize}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{xSize}{xSize}}
+{\footnotesize\ttfamily int Map\+::x\+Size\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_dungeon_generator_2main_8cpp_source_l00146}{146}} of file \mbox{\hyperlink{_dungeon_generator_2main_8cpp_source}{main.\+cpp}}.
+
+\Hypertarget{class_map_a8094c1ac27c2e09cbd1c4396142ad4f2}\label{class_map_a8094c1ac27c2e09cbd1c4396142ad4f2} 
+\index{Map@{Map}!ySize@{ySize}}
+\index{ySize@{ySize}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{ySize}{ySize}}
+{\footnotesize\ttfamily int Map\+::y\+Size\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_dungeon_generator_2main_8cpp_source_l00146}{146}} of file \mbox{\hyperlink{_dungeon_generator_2main_8cpp_source}{main.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Dungeon\+Generator/\mbox{\hyperlink{_dungeon_generator_2main_8cpp}{main.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,195 @@
+\doxysection{Log\+::Spd\+Logger Class Reference}
+\hypertarget{class_log_1_1_spd_logger}{}\label{class_log_1_1_spd_logger}\index{Log::SpdLogger@{Log::SpdLogger}}
+
+
+{\ttfamily \#include $<$log.\+h$>$}
+
+
+
+Inheritance diagram for Log\+::Spd\+Logger\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=164pt]{class_log_1_1_spd_logger__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Log\+::Spd\+Logger\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=164pt]{class_log_1_1_spd_logger__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_log_1_1_spd_logger_ac9b5f82890e02dd9cf58d7568dbbab01}{Spd\+Logger}} (\mbox{\hyperlink{namespace_log_a805552f70da3cfb241c39e914ed62162}{Logger\+Type}} type)
+\item 
+virtual void \mbox{\hyperlink{class_log_1_1_spd_logger_ad10ba24cf4c075ae95950b621b5bf39d}{info}} (std\+::string message) override
+\item 
+virtual void \mbox{\hyperlink{class_log_1_1_spd_logger_adbc573ffbcaea261dc3278121c1761cb}{error}} (std\+::string message) override
+\item 
+virtual void \mbox{\hyperlink{class_log_1_1_spd_logger_a76fd0033a71099946d62a93ce31ef134}{warn}} (std\+::string message) override
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const std\+::string \mbox{\hyperlink{class_log_1_1_spd_logger_a013b87b5e2b0c8a59d258db19af52301}{Debug\+Pattern}} = "{}\mbox{[}\%H\+:\%M\+:\%S\mbox{]}\%\texorpdfstring{$^\wedge$}{\string^}\%v\%\$"{}
+\item 
+const std\+::string \mbox{\hyperlink{class_log_1_1_spd_logger_ad26e93bae928bd7e3b47f7ea8e928ff4}{None\+Pattern}} = "{}"{}
+\item 
+const std\+::string \mbox{\hyperlink{class_log_1_1_spd_logger_a2d9611edd96d4fac3c94bb1f12ffcc1e}{Release\+Pattern}} = "{}\mbox{[}\%H\+:\%M\+:\%S\mbox{]}\%\texorpdfstring{$^\wedge$}{\string^}\%v\%\$"{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{log_8h_source_l00031}{31}} of file \mbox{\hyperlink{log_8h_source}{log.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_log_1_1_spd_logger_ac9b5f82890e02dd9cf58d7568dbbab01}\label{class_log_1_1_spd_logger_ac9b5f82890e02dd9cf58d7568dbbab01} 
+\index{Log::SpdLogger@{Log::SpdLogger}!SpdLogger@{SpdLogger}}
+\index{SpdLogger@{SpdLogger}!Log::SpdLogger@{Log::SpdLogger}}
+\doxysubsubsection{\texorpdfstring{SpdLogger()}{SpdLogger()}}
+{\footnotesize\ttfamily Log\+::\+Spd\+Logger\+::\+Spd\+Logger (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_log_a805552f70da3cfb241c39e914ed62162}{Logger\+Type}}}]{type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Definition at line \mbox{\hyperlink{log_8cpp_source_l00009}{9}} of file \mbox{\hyperlink{log_8cpp_source}{log.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00010\ \ \ \ \ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*switch\ (type) }}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ \ \ \ \ \ \ \ \{ }}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ case\ Debug: }}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spdlog::set\_pattern(DebugPattern); }}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ break; }}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ case\ Release: }}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spdlog::set\_pattern(ReleasePattern); }}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ break; }}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ case\ None: }}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spdlog::set\_pattern(NonePattern); }}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ break; }}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ default: }}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spdlog::set\_pattern(DebugPattern); }}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ break; }}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}*/}}
+\DoxyCodeLine{00026\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_log_1_1_spd_logger_adbc573ffbcaea261dc3278121c1761cb}\label{class_log_1_1_spd_logger_adbc573ffbcaea261dc3278121c1761cb} 
+\index{Log::SpdLogger@{Log::SpdLogger}!error@{error}}
+\index{error@{error}!Log::SpdLogger@{Log::SpdLogger}}
+\doxysubsubsection{\texorpdfstring{error()}{error()}}
+{\footnotesize\ttfamily void Log\+::\+Spd\+Logger\+::error (\begin{DoxyParamCaption}\item[{std\+::string}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_log_1_1_logger_a89cf5f479d83785333eccdf2ae983512}{Log\+::\+Logger}}.
+
+
+
+Definition at line \mbox{\hyperlink{log_8cpp_source_l00035}{35}} of file \mbox{\hyperlink{log_8cpp_source}{log.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00036\ \ \ \ \ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{comment}{//spdlog::error("{}\{\}"{},\ message);}}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}!!!\ Error:\ "{}}\ <<\ message\ <<\ std::endl;}
+\DoxyCodeLine{00039\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_log_1_1_spd_logger_ad10ba24cf4c075ae95950b621b5bf39d}\label{class_log_1_1_spd_logger_ad10ba24cf4c075ae95950b621b5bf39d} 
+\index{Log::SpdLogger@{Log::SpdLogger}!info@{info}}
+\index{info@{info}!Log::SpdLogger@{Log::SpdLogger}}
+\doxysubsubsection{\texorpdfstring{info()}{info()}}
+{\footnotesize\ttfamily void Log\+::\+Spd\+Logger\+::info (\begin{DoxyParamCaption}\item[{std\+::string}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_log_1_1_logger_a45aece334a9680706aabc171f1c1fc64}{Log\+::\+Logger}}.
+
+
+
+Definition at line \mbox{\hyperlink{log_8cpp_source_l00028}{28}} of file \mbox{\hyperlink{log_8cpp_source}{log.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029\ \ \ \ \ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{comment}{//spdlog::info("{}\{\}"{},\ message);}}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}-\/-\/-\/\ Info:\ "{}}\ <<\ message\ <<\ std::endl;}
+\DoxyCodeLine{00032\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_log_1_1_spd_logger_a76fd0033a71099946d62a93ce31ef134}\label{class_log_1_1_spd_logger_a76fd0033a71099946d62a93ce31ef134} 
+\index{Log::SpdLogger@{Log::SpdLogger}!warn@{warn}}
+\index{warn@{warn}!Log::SpdLogger@{Log::SpdLogger}}
+\doxysubsubsection{\texorpdfstring{warn()}{warn()}}
+{\footnotesize\ttfamily void Log\+::\+Spd\+Logger\+::warn (\begin{DoxyParamCaption}\item[{std\+::string}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_log_1_1_logger_a3769eec17552ac56f0562b4b10a2c677}{Log\+::\+Logger}}.
+
+
+
+Definition at line \mbox{\hyperlink{log_8cpp_source_l00041}{41}} of file \mbox{\hyperlink{log_8cpp_source}{log.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00042\ \ \ \ \ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{comment}{//spdlog::warn("{}\{\}"{},\ message);}}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}+++\ Warning:\ "{}}\ <<\ message\ <<\ std::endl;}
+\DoxyCodeLine{00045\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_log_1_1_spd_logger_a013b87b5e2b0c8a59d258db19af52301}\label{class_log_1_1_spd_logger_a013b87b5e2b0c8a59d258db19af52301} 
+\index{Log::SpdLogger@{Log::SpdLogger}!DebugPattern@{DebugPattern}}
+\index{DebugPattern@{DebugPattern}!Log::SpdLogger@{Log::SpdLogger}}
+\doxysubsubsection{\texorpdfstring{DebugPattern}{DebugPattern}}
+{\footnotesize\ttfamily const std\+::string Log\+::\+Spd\+Logger\+::\+Debug\+Pattern = "{}\mbox{[}\%H\+:\%M\+:\%S\mbox{]}\%\texorpdfstring{$^\wedge$}{\string^}\%v\%\$"{}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{log_8h_source_l00033}{33}} of file \mbox{\hyperlink{log_8h_source}{log.\+h}}.
+
+\Hypertarget{class_log_1_1_spd_logger_ad26e93bae928bd7e3b47f7ea8e928ff4}\label{class_log_1_1_spd_logger_ad26e93bae928bd7e3b47f7ea8e928ff4} 
+\index{Log::SpdLogger@{Log::SpdLogger}!NonePattern@{NonePattern}}
+\index{NonePattern@{NonePattern}!Log::SpdLogger@{Log::SpdLogger}}
+\doxysubsubsection{\texorpdfstring{NonePattern}{NonePattern}}
+{\footnotesize\ttfamily const std\+::string Log\+::\+Spd\+Logger\+::\+None\+Pattern = "{}"{}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{log_8h_source_l00034}{34}} of file \mbox{\hyperlink{log_8h_source}{log.\+h}}.
+
+\Hypertarget{class_log_1_1_spd_logger_a2d9611edd96d4fac3c94bb1f12ffcc1e}\label{class_log_1_1_spd_logger_a2d9611edd96d4fac3c94bb1f12ffcc1e} 
+\index{Log::SpdLogger@{Log::SpdLogger}!ReleasePattern@{ReleasePattern}}
+\index{ReleasePattern@{ReleasePattern}!Log::SpdLogger@{Log::SpdLogger}}
+\doxysubsubsection{\texorpdfstring{ReleasePattern}{ReleasePattern}}
+{\footnotesize\ttfamily const std\+::string Log\+::\+Spd\+Logger\+::\+Release\+Pattern = "{}\mbox{[}\%H\+:\%M\+:\%S\mbox{]}\%\texorpdfstring{$^\wedge$}{\string^}\%v\%\$"{}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{log_8h_source_l00035}{35}} of file \mbox{\hyperlink{log_8h_source}{log.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Base/\mbox{\hyperlink{log_8h}{log.\+h}}\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Base/\mbox{\hyperlink{log_8cpp}{log.\+cpp}}\end{DoxyCompactItemize}

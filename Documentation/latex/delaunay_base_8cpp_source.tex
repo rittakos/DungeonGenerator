@@ -1,0 +1,88 @@
+\doxysection{delaunay\+Base.\+cpp}
+\hypertarget{delaunay_base_8cpp_source}{}\label{delaunay_base_8cpp_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/Geometry/delaunayBase.cpp@{C:/Dev/DungeonGenerator/DungeonGenerator/Geometry/delaunayBase.cpp}}
+\mbox{\hyperlink{delaunay_base_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{delaunay_base_8hpp}{delaunayBase.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <exception>}}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{edge_8hpp}{edge.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00005}00005\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_geometry}{Geometry}}}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00006}00006\ \{}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00007}00007\ \ \ \ \ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{dungeon_genereator_settings_8hpp_ada2a74446377272bd4129f812d0d5ffcaad26bd8e079b5cc9c32586fc970a9f8f}{Delaunay}}}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00008}00008\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00010}\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_ad596f24a287dba298d451551b367fd81}{00010}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_afdcaa192ecb5d29b0f8d0ccd690ca328}{Triangle::Triangle}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index}{PointIndex}}\&\ p0,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index}{PointIndex}}\&\ p1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index}{PointIndex}}\&\ p2)}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00011}00011\ \ \ \ \ \ \ \ \ \ \ \ \ :\ P0(p0),\ P1(p1),\ P2(p2)}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00012}00012\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00013}00013\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a5393f6fbc2544c6aca2e3a4b0459034d}{P0}}\ ==\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a0bfa7ea205fcff658484be77c282b145}{P1}}\ ||\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a5393f6fbc2544c6aca2e3a4b0459034d}{P0}}\ ==\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a0dbb112e10abc660457705488d2c1412}{P2}}\ ||\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a0bfa7ea205fcff658484be77c282b145}{P1}}\ ==\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a0dbb112e10abc660457705488d2c1412}{P2}})}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00014}00014\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::exception(\textcolor{stringliteral}{"{}Invalid\ Triangle!"{}});}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00015}00015\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00017}\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a6375459284ef90ef48bab163a79e67b0}{00017}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a6375459284ef90ef48bab163a79e67b0}{Triangle::hasPoint}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index}{PointIndex}}\&\ P)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00018}00018\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a5393f6fbc2544c6aca2e3a4b0459034d}{P0}}\ ==\ P\ ||\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a0bfa7ea205fcff658484be77c282b145}{P1}}\ ==\ P\ ||\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a0dbb112e10abc660457705488d2c1412}{P2}}\ ==\ P)}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00024}\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a63caa8d311a44e0726a243fced8c44f6}{00024}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a63caa8d311a44e0726a243fced8c44f6}{Triangle::hasEdge}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_edge}{Edge}}\&\ edge)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00025}00025\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a6375459284ef90ef48bab163a79e67b0}{hasPoint}}(edge.\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_edge_af8dcb5746d5729416ffe3695f98a2857}{P0}})\ \&\&\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a6375459284ef90ef48bab163a79e67b0}{hasPoint}}(edge.\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_edge_ab3293c1826e7c035e3cbd434d9a5cb58}{P1}}))}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00031}\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_adc55cb08484f7c5c7aa843c0cfda4001}{00031}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_adc55cb08484f7c5c7aa843c0cfda4001}{Triangle::rotate}}()}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ std::swap(\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a0bfa7ea205fcff658484be77c282b145}{P1}},\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a0dbb112e10abc660457705488d2c1412}{P2}});}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00036}\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a02f5ab36fc7a352b7280e2d91b190016}{00036}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a02f5ab36fc7a352b7280e2d91b190016}{Triangle::operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle}{Triangle}}\&\ other)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00037}00037\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (other.\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a6375459284ef90ef48bab163a79e67b0}{hasPoint}}(\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a5393f6fbc2544c6aca2e3a4b0459034d}{P0}})\ \&\&\ other.\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a6375459284ef90ef48bab163a79e67b0}{hasPoint}}(\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a0bfa7ea205fcff658484be77c282b145}{P1}})\ \&\&\ other.\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a6375459284ef90ef48bab163a79e67b0}{hasPoint}}(\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a0dbb112e10abc660457705488d2c1412}{P2}}))}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00043}\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_ad714b105eb74b4b4277c18812f9753c5}{00043}}\ \ \ \ \ \ \ \ \ std::array<Edge,\ 3>\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_ad714b105eb74b4b4277c18812f9753c5}{Triangle::getEdges}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00044}00044\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ std::array<Edge,\ 3>\ edges;}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ edges[0]\ =\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_edge}{Edge}}(\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a5393f6fbc2544c6aca2e3a4b0459034d}{P0}},\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a0bfa7ea205fcff658484be77c282b145}{P1}});}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ edges[1]\ =\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_edge}{Edge}}(\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a0bfa7ea205fcff658484be77c282b145}{P1}},\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a0dbb112e10abc660457705488d2c1412}{P2}});}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ edges[2]\ =\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_edge}{Edge}}(\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a0dbb112e10abc660457705488d2c1412}{P2}},\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a5393f6fbc2544c6aca2e3a4b0459034d}{P0}});}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ edges;}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00054}\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a060a5d9908b31023488e60fcba4b110b}{00054}}\ \ \ \ \ \ \ \ \ std::array<PointIndex,\ 3>\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a060a5d9908b31023488e60fcba4b110b}{Triangle::getPoints}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00055}00055\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a5393f6fbc2544c6aca2e3a4b0459034d}{P0}},\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a0bfa7ea205fcff658484be77c282b145}{P1}},\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a0dbb112e10abc660457705488d2c1412}{P2}}\ \};}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00060}\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_edge_a1c78688318ff42f05e520e51ac47bf19}{00060}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_edge}{Edge}}\&\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_edge_a1c78688318ff42f05e520e51ac47bf19}{Edge::operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_edge}{Edge}}\&\ other)}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_edge_af8dcb5746d5729416ffe3695f98a2857}{P0}}\ =\ other.\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_edge_af8dcb5746d5729416ffe3695f98a2857}{P0}};}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_edge_ab3293c1826e7c035e3cbd434d9a5cb58}{P1}}\ =\ other.\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_edge_ab3293c1826e7c035e3cbd434d9a5cb58}{P1}};}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00068}\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index_a6741b8c3daa0c295eee694366e01264a}{00068}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index}{PointIndex}}\&\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index_a6741b8c3daa0c295eee694366e01264a}{PointIndex::operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index}{PointIndex}}\&\ other)}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index_a1652441f28986d9e30535c39be8df5ef}{index}}\ =\ other.\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index_a1652441f28986d9e30535c39be8df5ef}{index}};}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index_a9f10682973baa68ee184df2637672b4b}{superTriangle}}\ =\ other.\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index_a9f10682973baa68ee184df2637672b4b}{superTriangle}};}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00076}\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index_a3dda950bd7b5f62bca5b543030a75da1}{00076}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index_a3dda950bd7b5f62bca5b543030a75da1}{PointIndex::operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index}{PointIndex}}\&\ other)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00077}00077\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index_a1652441f28986d9e30535c39be8df5ef}{index}}\ ==\ other.\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index_a1652441f28986d9e30535c39be8df5ef}{index}}\ \&\&\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index_a9f10682973baa68ee184df2637672b4b}{superTriangle}}\ ==\ other.\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index_a9f10682973baa68ee184df2637672b4b}{superTriangle}};}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00081}00081\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{delaunay_base_8cpp_source_l00082}00082\ \}}
+
+\end{DoxyCode}

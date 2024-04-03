@@ -1,0 +1,141 @@
+\doxysection{Generator\+::Hole\+Generator Class Reference}
+\hypertarget{class_generator_1_1_hole_generator}{}\label{class_generator_1_1_hole_generator}\index{Generator::HoleGenerator@{Generator::HoleGenerator}}
+
+
+{\ttfamily \#include $<$hole\+Generator.\+hpp$>$}
+
+
+
+Collaboration diagram for Generator\+::Hole\+Generator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=202pt]{class_generator_1_1_hole_generator__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_generator_1_1_hole_generator_aa8a8491dc6c93a2ade1024702fa9f7ae}{Hole\+Generator}} (const \mbox{\hyperlink{class_hole_generator_settings}{Hole\+Generator\+Settings}} \&\mbox{\hyperlink{class_generator_1_1_hole_generator_adc1ba3e769dbcad27b7a4767336dc31d}{settings}})
+\item 
+void \mbox{\hyperlink{class_generator_1_1_hole_generator_a9a96dd443bbded7dffab03e77890528c}{generate}} (\mbox{\hyperlink{class_data_1_1_dungeon_data}{Data\+::\+Dungeon\+Data}} \&dungeon)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_generator_1_1_hole_generator_algorithm}{Generator\+::\+Hole\+Generator\+Algorithm}} $>$ \mbox{\hyperlink{class_generator_1_1_hole_generator_a7efbb9141abc183d220354ffa64932fc}{algorithm}}
+\item 
+\mbox{\hyperlink{class_hole_generator_settings}{Hole\+Generator\+Settings}} \mbox{\hyperlink{class_generator_1_1_hole_generator_adc1ba3e769dbcad27b7a4767336dc31d}{settings}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{hole_generator_8hpp_source_l00010}{10}} of file \mbox{\hyperlink{hole_generator_8hpp_source}{hole\+Generator.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_generator_1_1_hole_generator_aa8a8491dc6c93a2ade1024702fa9f7ae}\label{class_generator_1_1_hole_generator_aa8a8491dc6c93a2ade1024702fa9f7ae} 
+\index{Generator::HoleGenerator@{Generator::HoleGenerator}!HoleGenerator@{HoleGenerator}}
+\index{HoleGenerator@{HoleGenerator}!Generator::HoleGenerator@{Generator::HoleGenerator}}
+\doxysubsubsection{\texorpdfstring{HoleGenerator()}{HoleGenerator()}}
+{\footnotesize\ttfamily Generator\+::\+Hole\+Generator\+::\+Hole\+Generator (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_hole_generator_settings}{Hole\+Generator\+Settings}} \&}]{settings }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{hole_generator_8cpp_source_l00009}{9}} of file \mbox{\hyperlink{hole_generator_8cpp_source}{hole\+Generator.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{class_generator_1_1_hole_generator_adc1ba3e769dbcad27b7a4767336dc31d}{settings}}(\mbox{\hyperlink{class_generator_1_1_hole_generator_adc1ba3e769dbcad27b7a4767336dc31d}{settings}}) }
+\DoxyCodeLine{00010\ \ \ \ \ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (\mbox{\hyperlink{class_generator_1_1_hole_generator_adc1ba3e769dbcad27b7a4767336dc31d}{settings}}.\mbox{\hyperlink{class_hole_generator_settings_a67709732d8f3be08c4192220d3663408}{getAlgorithmType}}())}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{hole_generator_settings_8hpp_af2806801ae870bdf479d1804ae258fb3ae7daa0df03dc17e169eb5190f575f3ef}{Basic}}:}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_log_acc334094de2c17174209b77597e7742d}{Log::info}}(\textcolor{stringliteral}{"{}Hole\ generation\ with\ Basic\ algorithm!"{}});}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_generator_1_1_hole_generator_a7efbb9141abc183d220354ffa64932fc}{algorithm}}\ =\ std::make\_shared<BasicHoleGenerator>();}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_generator_1_1_hole_generator_a7efbb9141abc183d220354ffa64932fc}{algorithm}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00020\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_generator_1_1_hole_generator_aa8a8491dc6c93a2ade1024702fa9f7ae_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_generator_1_1_hole_generator_a9a96dd443bbded7dffab03e77890528c}\label{class_generator_1_1_hole_generator_a9a96dd443bbded7dffab03e77890528c} 
+\index{Generator::HoleGenerator@{Generator::HoleGenerator}!generate@{generate}}
+\index{generate@{generate}!Generator::HoleGenerator@{Generator::HoleGenerator}}
+\doxysubsubsection{\texorpdfstring{generate()}{generate()}}
+{\footnotesize\ttfamily void Generator\+::\+Hole\+Generator\+::generate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_data_1_1_dungeon_data}{Data\+::\+Dungeon\+Data}} \&}]{dungeon }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{hole_generator_8cpp_source_l00022}{22}} of file \mbox{\hyperlink{hole_generator_8cpp_source}{hole\+Generator.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00023\ \ \ \ \ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_time_guard}{TimeGuard}}\ timeGuard(\textcolor{stringliteral}{"{}Hole\ Generation"{}});}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_generator_1_1_hole_generator_a7efbb9141abc183d220354ffa64932fc}{algorithm}}-\/>Generate(dungeon);}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_log_acc334094de2c17174209b77597e7742d}{Log::info}}(\textcolor{stringliteral}{"{}Holes\ generated"{}});}
+\DoxyCodeLine{00027\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_generator_1_1_hole_generator_a9a96dd443bbded7dffab03e77890528c_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_generator_1_1_hole_generator_a9a96dd443bbded7dffab03e77890528c_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_generator_1_1_hole_generator_a7efbb9141abc183d220354ffa64932fc}\label{class_generator_1_1_hole_generator_a7efbb9141abc183d220354ffa64932fc} 
+\index{Generator::HoleGenerator@{Generator::HoleGenerator}!algorithm@{algorithm}}
+\index{algorithm@{algorithm}!Generator::HoleGenerator@{Generator::HoleGenerator}}
+\doxysubsubsection{\texorpdfstring{algorithm}{algorithm}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_generator_1_1_hole_generator_algorithm}{Generator\+::\+Hole\+Generator\+Algorithm}}$>$ Generator\+::\+Hole\+Generator\+::algorithm\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{hole_generator_8hpp_source_l00012}{12}} of file \mbox{\hyperlink{hole_generator_8hpp_source}{hole\+Generator.\+hpp}}.
+
+\Hypertarget{class_generator_1_1_hole_generator_adc1ba3e769dbcad27b7a4767336dc31d}\label{class_generator_1_1_hole_generator_adc1ba3e769dbcad27b7a4767336dc31d} 
+\index{Generator::HoleGenerator@{Generator::HoleGenerator}!settings@{settings}}
+\index{settings@{settings}!Generator::HoleGenerator@{Generator::HoleGenerator}}
+\doxysubsubsection{\texorpdfstring{settings}{settings}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_hole_generator_settings}{Hole\+Generator\+Settings}} Generator\+::\+Hole\+Generator\+::settings\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{hole_generator_8hpp_source_l00013}{13}} of file \mbox{\hyperlink{hole_generator_8hpp_source}{hole\+Generator.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Generator/\mbox{\hyperlink{hole_generator_8hpp}{hole\+Generator.\+hpp}}\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Generator/\mbox{\hyperlink{hole_generator_8cpp}{hole\+Generator.\+cpp}}\end{DoxyCompactItemize}

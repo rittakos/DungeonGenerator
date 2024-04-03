@@ -1,0 +1,28 @@
+\doxysection{sink-\/inl.h}
+\hypertarget{sink-inl_8h_source}{}\label{sink-inl_8h_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/spdlog/sinks/sink-\/inl.h@{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/spdlog/sinks/sink-\/inl.h}}
+\mbox{\hyperlink{sink-inl_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{sink-inl_8h_source_l00001}00001\ \textcolor{comment}{//\ Copyright(c)\ 2015-\/present,\ Gabi\ Melman\ \&\ spdlog\ contributors.}}
+\DoxyCodeLine{\Hypertarget{sink-inl_8h_source_l00002}00002\ \textcolor{comment}{//\ Distributed\ under\ the\ MIT\ License\ (http://opensource.org/licenses/MIT)}}
+\DoxyCodeLine{\Hypertarget{sink-inl_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{sink-inl_8h_source_l00004}00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{sink-inl_8h_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{sink-inl_8h_source_l00006}00006\ \textcolor{preprocessor}{\#ifndef\ SPDLOG\_HEADER\_ONLY}}
+\DoxyCodeLine{\Hypertarget{sink-inl_8h_source_l00007}00007\ \textcolor{preprocessor}{\ \ \ \ \#include\ <\mbox{\hyperlink{sink_8h}{spdlog/sinks/sink.h}}>}}
+\DoxyCodeLine{\Hypertarget{sink-inl_8h_source_l00008}00008\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{sink-inl_8h_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{sink-inl_8h_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{common_8h}{spdlog/common.h}}>}}
+\DoxyCodeLine{\Hypertarget{sink-inl_8h_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{sink-inl_8h_source_l00012}\mbox{\hyperlink{classspdlog_1_1sinks_1_1sink_a9e6824420e6352e0f5cbb436a0b5d0a4}{00012}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1sink_a9e6824420e6352e0f5cbb436a0b5d0a4}{spdlog::sinks::sink::should\_log}}(\mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861}{spdlog::level::level\_enum}}\ msg\_level)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{sink-inl_8h_source_l00013}00013\ \ \ \ \ \textcolor{keywordflow}{return}\ msg\_level\ >=\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1sink_a435da07b59e1165b38d53635cdada30a}{level\_}}.load(std::memory\_order\_relaxed);}
+\DoxyCodeLine{\Hypertarget{sink-inl_8h_source_l00014}00014\ \}}
+\DoxyCodeLine{\Hypertarget{sink-inl_8h_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{sink-inl_8h_source_l00016}\mbox{\hyperlink{classspdlog_1_1sinks_1_1sink_a862aa1ac5ed27de35f1bd3b1aaeb7dc1}{00016}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1sink_a862aa1ac5ed27de35f1bd3b1aaeb7dc1}{spdlog::sinks::sink::set\_level}}(\mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861}{level::level\_enum}}\ log\_level)\ \{}
+\DoxyCodeLine{\Hypertarget{sink-inl_8h_source_l00017}00017\ \ \ \ \ level\_.store(log\_level,\ std::memory\_order\_relaxed);}
+\DoxyCodeLine{\Hypertarget{sink-inl_8h_source_l00018}00018\ \}}
+\DoxyCodeLine{\Hypertarget{sink-inl_8h_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{sink-inl_8h_source_l00020}\mbox{\hyperlink{classspdlog_1_1sinks_1_1sink_a8b9693e7ea883ce02234bed0e3b3348d}{00020}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861}{spdlog::level::level\_enum}}\ \mbox{\hyperlink{classspdlog_1_1sinks_1_1sink_a8b9693e7ea883ce02234bed0e3b3348d}{spdlog::sinks::sink::level}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{sink-inl_8h_source_l00021}00021\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{namespacespdlog_1_1level_a335eabf5eff13482903eb26be08f3861}{spdlog::level::level\_enum}}\textcolor{keyword}{>}(level\_.load(std::memory\_order\_relaxed));}
+\DoxyCodeLine{\Hypertarget{sink-inl_8h_source_l00022}00022\ \}}
+
+\end{DoxyCode}

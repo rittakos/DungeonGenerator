@@ -1,0 +1,26 @@
+<map id="Generator::BasicHoleGenerator::Generate" name="Generator::BasicHoleGenerator::Generate">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,139,208,181"/>
+<area shape="rect" id="Node000002" href="$class_geometry_1_1_polygon.html#ade2489b324459e8eb35c6050fa7263b1" title=" " alt="" coords="256,72,398,115"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="178,136,240,117,242,122,180,141"/>
+<area shape="rect" id="Node000003" href="$class_geometry_1_1_polygon.html#a94dc0f266b827e9596f29888c796ca17" title=" " alt="" coords="446,5,587,48"/>
+<area shape="poly" id="edge10_Node000001_Node000003" title=" " alt="" coords="130,136,185,95,219,74,255,58,299,44,344,34,430,25,430,30,345,40,300,49,257,62,221,79,188,99,134,140"/>
+<area shape="rect" id="Node000006" href="$class_geometry_1_1_polygon.html#a12c9321822bdf861cf7c304fa0c888e7" title=" " alt="" coords="256,139,398,181"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="208,157,241,157,241,163,208,163"/>
+<area shape="rect" id="Node000011" href="$class_data_1_1_dungeon_data.html#ac1254b047a02d00344fccd75205ec2b2" title=" " alt="" coords="256,205,398,248"/>
+<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="180,179,241,198,240,203,178,184"/>
+<area shape="rect" id="Node000012" href="$class_geometry_1_1_polygon.html#ad2999da7bce9957d9974cc294aaa9efb" title=" " alt="" coords="256,272,398,315"/>
+<area shape="poly" id="edge12_Node000001_Node000012" title=" " alt="" coords="139,179,193,217,257,258,265,262,263,267,254,262,190,222,135,184"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="389,69,439,51,440,56,390,74"/>
+<area shape="rect" id="Node000004" href="$class_geometry_1_1_polygon.html#a4466acaad96810bfea459ba890c1bd64" title=" " alt="" coords="446,72,587,115"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="398,91,430,91,430,96,398,96"/>
+<area shape="rect" id="Node000005" href="$namespace_geometry.html#ae680321c371d9f6bd6def5844e915b6f" title=" " alt="" coords="635,72,807,115"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="588,91,620,91,620,96,588,96"/>
+<area shape="rect" id="Node000007" href="$class_geometry_1_1_polygon.html#abe0fa2f30629ae38dd88b28a85509a9e" title=" " alt="" coords="446,139,587,181"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="398,157,430,157,430,163,398,163"/>
+<area shape="rect" id="Node000008" href="$class_geometry_1_1_polygon.html#a55ccb3a6bfa3c5176ceb1ed12efc91fd" title=" " alt="" coords="446,205,587,248"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="390,179,440,197,439,202,389,184"/>
+<area shape="rect" id="Node000010" href="$class_geometry_1_1_polygon.html#ade26117ec3b1f56362190e27e6056535" title=" " alt="" coords="446,272,587,315"/>
+<area shape="poly" id="edge9_Node000006_Node000010" title=" " alt="" coords="383,180,400,191,416,209,424,225,433,241,448,258,452,261,448,265,444,262,428,245,420,228,411,212,396,195,380,184"/>
+<area shape="rect" id="Node000009" href="$namespace_math.html#acb53f49cacbc0754cf4b882a41837468" title=" " alt="" coords="666,213,776,240"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="588,224,651,224,651,229,588,229"/>
+</map>

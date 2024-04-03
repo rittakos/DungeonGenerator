@@ -1,0 +1,16 @@
+<map id="Geometry::Polygon::getHoles" name="Geometry::Polygon::getHoles">
+<area shape="rect" id="Node000001" title=" " alt="" coords="871,55,1012,97"/>
+<area shape="rect" id="Node000002" href="$class_geometry_1_1_delaunay_1_1_polygon_triangulator.html#aac6e65db21ef080a90251d126996373c" title=" " alt="" coords="679,5,823,64"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="855,60,822,53,823,48,856,55"/>
+<area shape="rect" id="Node000007" href="$class_geometry_1_1_delaunay_1_1_polygon_triangulator.html#ac0d8ea6ff903207502a1b029c5a4e481" title=" " alt="" coords="679,88,823,147"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="856,97,823,104,822,99,855,92"/>
+<area shape="rect" id="Node000003" href="$class_geometry_1_1_delaunay_1_1_polygon_triangulator.html#af16f9414e72248d90710aade9710cfdb" title=" " alt="" coords="488,47,631,105"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="665,56,632,63,631,58,664,51"/>
+<area shape="rect" id="Node000004" href="$class_data_1_1_layout_data.html#a04efcfe6e95802616126cc961b3126cf" title=" " alt="" coords="250,63,440,89"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="472,79,440,79,440,73,472,73"/>
+<area shape="rect" id="Node000005" href="$class_data_1_1_layout_data.html#a070b01671003c628c6f1e54d0eb7bd98" title=" " alt="" coords="5,37,202,64"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="234,67,202,64,202,58,234,62"/>
+<area shape="rect" id="Node000006" href="$class_data_1_1_layout_data.html#a2296e02f19e06eb0f99ea267c63da4e4" title=" " alt="" coords="6,88,201,115"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="234,90,202,94,201,88,234,85"/>
+<area shape="poly" id="edge7_Node000007_Node000003" title=" " alt="" coords="664,101,631,94,632,89,665,96"/>
+</map>

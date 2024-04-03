@@ -1,0 +1,188 @@
+\doxysection{default\+\_\+map.\+h}
+\hypertarget{default__map_8h_source}{}\label{default__map_8h_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/lemon/bits/default\_map.h@{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/lemon/bits/default\_map.h}}
+\mbox{\hyperlink{default__map_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00001}00001\ \textcolor{comment}{/*\ -\/*-\/\ mode:\ C++;\ indent-\/tabs-\/mode:\ nil;\ -\/*-\/}}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00002}00002\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00003}00003\ \textcolor{comment}{\ *\ This\ file\ is\ a\ part\ of\ LEMON,\ a\ generic\ C++\ optimization\ library.}}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00004}00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00005}00005\ \textcolor{comment}{\ *\ Copyright\ (C)\ 2003-\/2013}}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00006}00006\ \textcolor{comment}{\ *\ Egervary\ Jeno\ Kombinatorikus\ Optimalizalasi\ Kutatocsoport}}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00007}00007\ \textcolor{comment}{\ *\ (Egervary\ Research\ Group\ on\ Combinatorial\ Optimization,\ EGRES).}}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00008}00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00009}00009\ \textcolor{comment}{\ *\ Permission\ to\ use,\ modify\ and\ distribute\ this\ software\ is\ granted}}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00010}00010\ \textcolor{comment}{\ *\ provided\ that\ this\ copyright\ notice\ appears\ in\ all\ copies.\ For}}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00011}00011\ \textcolor{comment}{\ *\ precise\ terms\ see\ the\ accompanying\ LICENSE\ file.}}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00012}00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00013}00013\ \textcolor{comment}{\ *\ This\ software\ is\ provided\ "{}AS\ IS"{}\ with\ no\ warranty\ of\ any\ kind,}}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00014}00014\ \textcolor{comment}{\ *\ express\ or\ implied,\ and\ with\ no\ claim\ as\ to\ its\ suitability\ for\ any}}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00015}00015\ \textcolor{comment}{\ *\ purpose.}}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00016}00016\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00017}00017\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00019}00019\ \textcolor{preprocessor}{\#ifndef\ LEMON\_BITS\_DEFAULT\_MAP\_H}}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00020}00020\ \textcolor{preprocessor}{\#define\ LEMON\_BITS\_DEFAULT\_MAP\_H}}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{config_8h}{lemon/config.h}}>}}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00023}00023\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{array__map_8h}{lemon/bits/array\_map.h}}>}}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00024}00024\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{vector__map_8h}{lemon/bits/vector\_map.h}}>}}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00025}00025\ \textcolor{comment}{//\#include\ <lemon/bits/debug\_map.h>}}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00027}00027\ \textcolor{comment}{//\(\backslash\)ingroup\ graphbits}}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00028}00028\ \textcolor{comment}{//\(\backslash\)file}}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00029}00029\ \textcolor{comment}{//\(\backslash\)brief\ Graph\ maps\ that\ construct\ and\ destruct\ their\ elements\ dynamically.}}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00031}00031\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacelemon}{lemon}}\ \{}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00034}00034\ \ \ \textcolor{comment}{//\#ifndef\ LEMON\_USE\_DEBUG\_MAP}}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00036}00036\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ \_Graph,\ \textcolor{keyword}{typename}\ \_Item,\ \textcolor{keyword}{typename}\ \_Value>}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00037}\mbox{\hyperlink{structlemon_1_1_default_map_selector}{00037}}\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_default_map_selector}{DefaultMapSelector}}\ \{}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00038}\mbox{\hyperlink{structlemon_1_1_default_map_selector_afb3178e7900878e2707c90ee92274fb8}{00038}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ArrayMap<\_Graph,\ \_Item,\ \_Value>}}\ \mbox{\hyperlink{structlemon_1_1_default_map_selector_afb3178e7900878e2707c90ee92274fb8}{Map}};}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00039}00039\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00041}00041\ \ \ \textcolor{comment}{//\ bool}}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00042}00042\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ \_Graph,\ \textcolor{keyword}{typename}\ \_Item>}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00043}\mbox{\hyperlink{structlemon_1_1_default_map_selector_3_01___graph_00_01___item_00_01bool_01_4}{00043}}\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_default_map_selector}{DefaultMapSelector}}<\_Graph,\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_Item}},\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{bool}}>\ \{}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00044}\mbox{\hyperlink{structlemon_1_1_default_map_selector_3_01___graph_00_01___item_00_01bool_01_4_a68dddd92631d2f5d2f8003db8fcb49ff}{00044}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{VectorMap<\_Graph,\ \_Item,\ bool>}}\ \mbox{\hyperlink{structlemon_1_1_default_map_selector_3_01___graph_00_01___item_00_01bool_01_4_a68dddd92631d2f5d2f8003db8fcb49ff}{Map}};}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00045}00045\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00047}00047\ \ \ \textcolor{comment}{//\ char}}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00048}00048\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ \_Graph,\ \textcolor{keyword}{typename}\ \_Item>}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00049}\mbox{\hyperlink{structlemon_1_1_default_map_selector_3_01___graph_00_01___item_00_01char_01_4}{00049}}\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_default_map_selector}{DefaultMapSelector}}<\_Graph,\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_Item}},\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{char}}>\ \{}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00050}\mbox{\hyperlink{structlemon_1_1_default_map_selector_3_01___graph_00_01___item_00_01char_01_4_ade982dd965cd59d888856a84868f0109}{00050}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{VectorMap<\_Graph,\ \_Item,\ char>}}\ \mbox{\hyperlink{structlemon_1_1_default_map_selector_3_01___graph_00_01___item_00_01char_01_4_ade982dd965cd59d888856a84868f0109}{Map}};}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00051}00051\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00053}00053\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ \_Graph,\ \textcolor{keyword}{typename}\ \_Item>}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00054}\mbox{\hyperlink{structlemon_1_1_default_map_selector_3_01___graph_00_01___item_00_01signed_01char_01_4}{00054}}\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_default_map_selector}{DefaultMapSelector}}<\_Graph,\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_Item}},\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{signed}}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{char}}>\ \{}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00055}\mbox{\hyperlink{structlemon_1_1_default_map_selector_3_01___graph_00_01___item_00_01signed_01char_01_4_a5f2afbe5bade3129137260dcf6015161}{00055}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{VectorMap<\_Graph,\ \_Item,\ signed\ char>}}\ \mbox{\hyperlink{structlemon_1_1_default_map_selector_3_01___graph_00_01___item_00_01signed_01char_01_4_a5f2afbe5bade3129137260dcf6015161}{Map}};}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00056}00056\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00058}00058\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ \_Graph,\ \textcolor{keyword}{typename}\ \_Item>}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00059}\mbox{\hyperlink{structlemon_1_1_default_map_selector_3_01___graph_00_01___item_00_01unsigned_01char_01_4}{00059}}\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_default_map_selector}{DefaultMapSelector}}<\_Graph,\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_Item}},\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{unsigned}}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{char}}>\ \{}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00060}\mbox{\hyperlink{structlemon_1_1_default_map_selector_3_01___graph_00_01___item_00_01unsigned_01char_01_4_a134dc446d1ecdd60dfaaf0e28615554a}{00060}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{VectorMap<\_Graph,\ \_Item,\ unsigned\ char>}}\ \mbox{\hyperlink{structlemon_1_1_default_map_selector_3_01___graph_00_01___item_00_01unsigned_01char_01_4_a134dc446d1ecdd60dfaaf0e28615554a}{Map}};}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00061}00061\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00064}00064\ \ \ \textcolor{comment}{//\ int}}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00065}00065\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ \_Graph,\ \textcolor{keyword}{typename}\ \_Item>}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00066}\mbox{\hyperlink{structlemon_1_1_default_map_selector_3_01___graph_00_01___item_00_01signed_01int_01_4}{00066}}\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_default_map_selector}{DefaultMapSelector}}<\_Graph,\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_Item}},\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{signed}}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{int}}>\ \{}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00067}\mbox{\hyperlink{structlemon_1_1_default_map_selector_3_01___graph_00_01___item_00_01signed_01int_01_4_a70955edb1e40f03ffc55305aaf369553}{00067}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{VectorMap<\_Graph,\ \_Item,\ signed\ int>}}\ \mbox{\hyperlink{structlemon_1_1_default_map_selector_3_01___graph_00_01___item_00_01signed_01int_01_4_a70955edb1e40f03ffc55305aaf369553}{Map}};}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00068}00068\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00070}00070\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ \_Graph,\ \textcolor{keyword}{typename}\ \_Item>}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00071}\mbox{\hyperlink{structlemon_1_1_default_map_selector_3_01___graph_00_01___item_00_01unsigned_01int_01_4}{00071}}\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_default_map_selector}{DefaultMapSelector}}<\_Graph,\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_Item}},\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{unsigned}}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{int}}>\ \{}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00072}\mbox{\hyperlink{structlemon_1_1_default_map_selector_3_01___graph_00_01___item_00_01unsigned_01int_01_4_ab4f6a06fcd0824b8ccd9fa5dbd62abc4}{00072}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{VectorMap<\_Graph,\ \_Item,\ unsigned\ int>}}\ \mbox{\hyperlink{structlemon_1_1_default_map_selector_3_01___graph_00_01___item_00_01unsigned_01int_01_4_ab4f6a06fcd0824b8ccd9fa5dbd62abc4}{Map}};}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00073}00073\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00076}00076\ \ \ \textcolor{comment}{//\ short}}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00077}00077\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ \_Graph,\ \textcolor{keyword}{typename}\ \_Item>}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00078}\mbox{\hyperlink{structlemon_1_1_default_map_selector_3_01___graph_00_01___item_00_01signed_01short_01_4}{00078}}\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_default_map_selector}{DefaultMapSelector}}<\_Graph,\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_Item}},\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{signed}}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{short}}>\ \{}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00079}\mbox{\hyperlink{structlemon_1_1_default_map_selector_3_01___graph_00_01___item_00_01signed_01short_01_4_a772211e2b779ade32034d8ea3df805a6}{00079}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{VectorMap<\_Graph,\ \_Item,\ signed\ short>}}\ \mbox{\hyperlink{structlemon_1_1_default_map_selector_3_01___graph_00_01___item_00_01signed_01short_01_4_a772211e2b779ade32034d8ea3df805a6}{Map}};}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00080}00080\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00082}00082\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ \_Graph,\ \textcolor{keyword}{typename}\ \_Item>}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00083}\mbox{\hyperlink{structlemon_1_1_default_map_selector_3_01___graph_00_01___item_00_01unsigned_01short_01_4}{00083}}\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_default_map_selector}{DefaultMapSelector}}<\_Graph,\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_Item}},\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{unsigned}}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{short}}>\ \{}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00084}\mbox{\hyperlink{structlemon_1_1_default_map_selector_3_01___graph_00_01___item_00_01unsigned_01short_01_4_a9b5d0a55905ff88e95b3d4efdb1fe84c}{00084}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{VectorMap<\_Graph,\ \_Item,\ unsigned\ short>}}\ \mbox{\hyperlink{structlemon_1_1_default_map_selector_3_01___graph_00_01___item_00_01unsigned_01short_01_4_a9b5d0a55905ff88e95b3d4efdb1fe84c}{Map}};}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00085}00085\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00088}00088\ \ \ \textcolor{comment}{//\ long}}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00089}00089\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ \_Graph,\ \textcolor{keyword}{typename}\ \_Item>}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00090}\mbox{\hyperlink{structlemon_1_1_default_map_selector_3_01___graph_00_01___item_00_01signed_01long_01_4}{00090}}\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_default_map_selector}{DefaultMapSelector}}<\_Graph,\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_Item}},\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{signed}}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{long}}>\ \{}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00091}\mbox{\hyperlink{structlemon_1_1_default_map_selector_3_01___graph_00_01___item_00_01signed_01long_01_4_a3e2ca367f9594435fdffb628b40c71b4}{00091}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{VectorMap<\_Graph,\ \_Item,\ signed\ long>}}\ \mbox{\hyperlink{structlemon_1_1_default_map_selector_3_01___graph_00_01___item_00_01signed_01long_01_4_a3e2ca367f9594435fdffb628b40c71b4}{Map}};}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00092}00092\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00094}00094\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ \_Graph,\ \textcolor{keyword}{typename}\ \_Item>}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00095}\mbox{\hyperlink{structlemon_1_1_default_map_selector_3_01___graph_00_01___item_00_01unsigned_01long_01_4}{00095}}\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_default_map_selector}{DefaultMapSelector}}<\_Graph,\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_Item}},\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{unsigned}}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{long}}>\ \{}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00096}\mbox{\hyperlink{structlemon_1_1_default_map_selector_3_01___graph_00_01___item_00_01unsigned_01long_01_4_a58d5386bb665d99698a0abbafaf03030}{00096}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{VectorMap<\_Graph,\ \_Item,\ unsigned\ long>}}\ \mbox{\hyperlink{structlemon_1_1_default_map_selector_3_01___graph_00_01___item_00_01unsigned_01long_01_4_a58d5386bb665d99698a0abbafaf03030}{Map}};}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00097}00097\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00100}00100\ \textcolor{preprocessor}{\#if\ defined\ LEMON\_HAVE\_LONG\_LONG}}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00102}00102\ \ \ \textcolor{comment}{//\ long\ long}}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00103}00103\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ \_Graph,\ \textcolor{keyword}{typename}\ \_Item>}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00104}00104\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_default_map_selector}{DefaultMapSelector}}<\_Graph,\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_Item}},\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{signed}}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{long}}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{long}}>\ \{}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00105}00105\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{VectorMap<\_Graph,\ \_Item,\ signed\ long\ long>}}\ \mbox{\hyperlink{structlemon_1_1_default_map_selector_afb3178e7900878e2707c90ee92274fb8}{Map}};}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00106}00106\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00108}00108\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ \_Graph,\ \textcolor{keyword}{typename}\ \_Item>}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00109}00109\ \ \ \textcolor{keyword}{struct\ }DefaultMapSelector<\_Graph,\ \_Item,\ unsigned\ long\ long>\ \{}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00110}00110\ \ \ \ \ \textcolor{keyword}{typedef}\ VectorMap<\_Graph,\ \_Item,\ unsigned\ long\ long>\ \mbox{\hyperlink{structlemon_1_1_default_map_selector_afb3178e7900878e2707c90ee92274fb8}{Map}};}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00111}00111\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00113}00113\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00116}00116\ \ \ \textcolor{comment}{//\ float}}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00117}00117\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ \_Graph,\ \textcolor{keyword}{typename}\ \_Item>}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00118}\mbox{\hyperlink{structlemon_1_1_default_map_selector_3_01___graph_00_01___item_00_01float_01_4}{00118}}\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_default_map_selector}{DefaultMapSelector}}<\_Graph,\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_Item}},\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{float}}>\ \{}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00119}\mbox{\hyperlink{structlemon_1_1_default_map_selector_3_01___graph_00_01___item_00_01float_01_4_afed5c0988810c3e09641777fb4d0de82}{00119}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{VectorMap<\_Graph,\ \_Item,\ float>}}\ \mbox{\hyperlink{structlemon_1_1_default_map_selector_3_01___graph_00_01___item_00_01float_01_4_afed5c0988810c3e09641777fb4d0de82}{Map}};}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00120}00120\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00122}00122\ }
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00123}00123\ \ \ \textcolor{comment}{//\ double}}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00124}00124\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ \_Graph,\ \textcolor{keyword}{typename}\ \_Item>}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00125}\mbox{\hyperlink{structlemon_1_1_default_map_selector_3_01___graph_00_01___item_00_01double_01_4}{00125}}\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_default_map_selector}{DefaultMapSelector}}<\_Graph,\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_Item}},\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{double}}>\ \{}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00126}\mbox{\hyperlink{structlemon_1_1_default_map_selector_3_01___graph_00_01___item_00_01double_01_4_aa541cea78955f7116a77ac4217509df7}{00126}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{VectorMap<\_Graph,\ \_Item,\ \ double>}}\ \mbox{\hyperlink{structlemon_1_1_default_map_selector_3_01___graph_00_01___item_00_01double_01_4_aa541cea78955f7116a77ac4217509df7}{Map}};}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00127}00127\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00130}00130\ \ \ \textcolor{comment}{//\ long\ double}}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00131}00131\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ \_Graph,\ \textcolor{keyword}{typename}\ \_Item>}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00132}\mbox{\hyperlink{structlemon_1_1_default_map_selector_3_01___graph_00_01___item_00_01long_01double_01_4}{00132}}\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_default_map_selector}{DefaultMapSelector}}<\_Graph,\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_Item}},\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{long}}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{double}}>\ \{}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00133}\mbox{\hyperlink{structlemon_1_1_default_map_selector_3_01___graph_00_01___item_00_01long_01double_01_4_af9668a7d857d9eb230ecd516503cb3a7}{00133}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{VectorMap<\_Graph,\ \_Item,\ long\ double>}}\ \mbox{\hyperlink{structlemon_1_1_default_map_selector_3_01___graph_00_01___item_00_01long_01double_01_4_af9668a7d857d9eb230ecd516503cb3a7}{Map}};}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00134}00134\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00135}00135\ }
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00136}00136\ }
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00137}00137\ \ \ \textcolor{comment}{//\ pointer}}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00138}00138\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ \_Graph,\ \textcolor{keyword}{typename}\ \_Item,\ \textcolor{keyword}{typename}\ \_Ptr>}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00139}\mbox{\hyperlink{structlemon_1_1_default_map_selector_3_01___graph_00_01___item_00_01___ptr_01_5_01_4}{00139}}\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_default_map_selector}{DefaultMapSelector}}<\_Graph,\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_Item}},\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_Ptr}}*>\ \{}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00140}\mbox{\hyperlink{structlemon_1_1_default_map_selector_3_01___graph_00_01___item_00_01___ptr_01_5_01_4_a821390573f37edb1e23c879abb00eb48}{00140}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{VectorMap<\_Graph,\ \_Item,\ \_Ptr*>}}\ \mbox{\hyperlink{structlemon_1_1_default_map_selector_3_01___graph_00_01___item_00_01___ptr_01_5_01_4_a821390573f37edb1e23c879abb00eb48}{Map}};}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00141}00141\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00142}00142\ }
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00143}00143\ \textcolor{comment}{//\ \#else}}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00144}00144\ }
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00145}00145\ \textcolor{comment}{//\ \ \ template\ <typename\ \_Graph,\ typename\ \_Item,\ typename\ \_Value>}}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00146}00146\ \textcolor{comment}{//\ \ \ struct\ DefaultMapSelector\ \{}}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00147}00147\ \textcolor{comment}{//\ \ \ \ \ typedef\ DebugMap<\_Graph,\ \_Item,\ \_Value>\ Map;}}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00148}00148\ \textcolor{comment}{//\ \ \ \};}}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00149}00149\ }
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00150}00150\ \textcolor{comment}{//\ \#endif}}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00151}00151\ }
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00152}00152\ \ \ \textcolor{comment}{//\ DefaultMap\ class}}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00153}00153\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ \_Graph,\ \textcolor{keyword}{typename}\ \_Item,\ \textcolor{keyword}{typename}\ \_Value>}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00154}\mbox{\hyperlink{classlemon_1_1_default_map}{00154}}\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_default_map}{DefaultMap}}}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00155}00155\ \ \ \ \ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{structlemon_1_1_default_map_selector}{DefaultMapSelector}}<\_Graph,\ \_Item,\ \_Value>\mbox{\hyperlink{class_map}{::Map}}\ \{}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00156}\mbox{\hyperlink{classlemon_1_1_default_map_ade5a0e236e7953acdb798f8f39d83c28}{00156}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classlemon_1_1_array_map}{DefaultMapSelector<\_Graph,\ \_Item,\ \_Value>::Map}}\ \mbox{\hyperlink{classlemon_1_1_default_map_ade5a0e236e7953acdb798f8f39d83c28}{Parent}};}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00157}00157\ }
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00158}00158\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00159}\mbox{\hyperlink{classlemon_1_1_default_map_a1fb58dde48d322245ba9a0f06ab9b615}{00159}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{DefaultMap<\_Graph,\ \_Item,\ \_Value>}}\ \mbox{\hyperlink{classlemon_1_1_default_map_a1fb58dde48d322245ba9a0f06ab9b615}{Map}};}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00160}00160\ }
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00161}\mbox{\hyperlink{classlemon_1_1_default_map_a0d9ba092e45a004bdede3ea825fb885d}{00161}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classlemon_1_1_array_map_ab3f990d7915b6d6e1932633d1c896f4e}{Parent::GraphType}}\ \mbox{\hyperlink{classlemon_1_1_default_map_a0d9ba092e45a004bdede3ea825fb885d}{GraphType}};}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00162}\mbox{\hyperlink{classlemon_1_1_default_map_a9ec1a06d80c8ee8ffa8bd9b6839f415b}{00162}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Parent::Value}}\ \mbox{\hyperlink{classlemon_1_1_default_map_a9ec1a06d80c8ee8ffa8bd9b6839f415b}{Value}};}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00163}00163\ }
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00164}\mbox{\hyperlink{classlemon_1_1_default_map_a94785ba99d84b36d806e9613de595009}{00164}}\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classlemon_1_1_default_map_a94785ba99d84b36d806e9613de595009}{DefaultMap}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_default_map_a0d9ba092e45a004bdede3ea825fb885d}{GraphType}}\&\ graph)\ :\ \mbox{\hyperlink{classlemon_1_1_array_map}{Parent}}(graph)\ \{\}}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00165}\mbox{\hyperlink{classlemon_1_1_default_map_aebacc8cce50b9112826ff17970d039cc}{00165}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_default_map_aebacc8cce50b9112826ff17970d039cc}{DefaultMap}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_default_map_a0d9ba092e45a004bdede3ea825fb885d}{GraphType}}\&\ graph,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Value}}\&\ \mbox{\hyperlink{classvalue}{value}})}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00166}00166\ \ \ \ \ \ \ :\ \mbox{\hyperlink{classlemon_1_1_array_map}{Parent}}(graph,\ \mbox{\hyperlink{classvalue}{value}})\ \{\}}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00167}00167\ }
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00168}\mbox{\hyperlink{classlemon_1_1_default_map_af3f14874131c1623d97d18a67a648803}{00168}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_default_map}{DefaultMap}}\&\ \mbox{\hyperlink{classlemon_1_1_default_map_af3f14874131c1623d97d18a67a648803}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_default_map}{DefaultMap}}\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cmap}})\ \{}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00169}00169\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{operator}=<\mbox{\hyperlink{classlemon_1_1_default_map}{DefaultMap}}>(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cmap}});}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00170}00170\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00171}00171\ }
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00172}00172\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ CMap>}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00173}\mbox{\hyperlink{classlemon_1_1_default_map_a0c575d5773278dc618628a1b55ccf4d5}{00173}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_default_map}{DefaultMap}}\&\ \mbox{\hyperlink{classlemon_1_1_default_map_a0c575d5773278dc618628a1b55ccf4d5}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CMap}}\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cmap}})\ \{}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00174}00174\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_array_map_a73d783294fafac992aed1791ed3fa98a}{Parent::operator=}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cmap}});}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00175}00175\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00176}00176\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00177}00177\ }
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00178}00178\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00179}00179\ }
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00180}00180\ \}}
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00181}00181\ }
+\DoxyCodeLine{\Hypertarget{default__map_8h_source_l00182}00182\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

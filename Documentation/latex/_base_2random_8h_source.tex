@@ -1,0 +1,83 @@
+\doxysection{random.\+h}
+\hypertarget{_base_2random_8h_source}{}\label{_base_2random_8h_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/Base/random.h@{C:/Dev/DungeonGenerator/DungeonGenerator/Base/random.h}}
+\mbox{\hyperlink{_base_2random_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <random>}}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00006}\mbox{\hyperlink{class_random}{00006}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_random}{Random}}}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00007}00007\ \{}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00008}00008\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00010}\mbox{\hyperlink{class_random_1_1_seed}{00010}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_random_1_1_seed}{Seed}}}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00011}00011\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00012}\mbox{\hyperlink{class_random_1_1_seed_a6f7bf0af92325e5a0d5483433041e422}{00012}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_random_1_1_seed_a6f7bf0af92325e5a0d5483433041e422}{seed}};}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00013}00013\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00014}\mbox{\hyperlink{class_random_1_1_seed_a35f622604b011761ecc95d7a4c2041ef}{00014}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_random_1_1_seed_a35f622604b011761ecc95d7a4c2041ef}{Seed}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_random_1_1_seed_a6f7bf0af92325e5a0d5483433041e422}{seed}})\ :\ \mbox{\hyperlink{class_random_1_1_seed_a6f7bf0af92325e5a0d5483433041e422}{seed}}\{\ \mbox{\hyperlink{class_random_1_1_seed_a6f7bf0af92325e5a0d5483433041e422}{seed}}\ \}\ \{\}}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00016}\mbox{\hyperlink{class_random_1_1_seed_ad7e70ff8e291cdb7a1c03f2fe901427f}{00016}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_random_1_1_seed_ad7e70ff8e291cdb7a1c03f2fe901427f}{getUnsignedValue}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_random_1_1_seed_a6f7bf0af92325e5a0d5483433041e422}{seed}};\ \}}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00017}00017\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00019}00019\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00020}\mbox{\hyperlink{class_random_ae58bc46824b7193c45b7cffbe1284f43}{00020}}\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_random_1_1_seed}{Seed}}\ \mbox{\hyperlink{class_random_ae58bc46824b7193c45b7cffbe1284f43}{seed}};}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00021}\mbox{\hyperlink{class_random_a30c3ccf9b57b559356a0109f90d89bc2}{00021}}\ \ \ \ \ \textcolor{keyword}{static}\ std::mt19937\ \mbox{\hyperlink{class_random_a30c3ccf9b57b559356a0109f90d89bc2}{rng}};}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00023}00023\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00025}\mbox{\hyperlink{class_random_af0a19f72c2e5bb10e5b0c93e2fe7a6c6}{00025}}\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_random_af0a19f72c2e5bb10e5b0c93e2fe7a6c6}{SetSeed}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_random_1_1_seed}{Seed}}\ \mbox{\hyperlink{class_random_ae58bc46824b7193c45b7cffbe1284f43}{seed}})}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00026}00026\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00027}00027\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_random_ae58bc46824b7193c45b7cffbe1284f43}{Random::seed}}\ =\ \mbox{\hyperlink{class_random_ae58bc46824b7193c45b7cffbe1284f43}{seed}};}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00028}00028\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_random_a30c3ccf9b57b559356a0109f90d89bc2}{rng}}\ =\ std::mt19937(\mbox{\hyperlink{class_random_ae58bc46824b7193c45b7cffbe1284f43}{seed}}.\mbox{\hyperlink{class_random_1_1_seed_ad7e70ff8e291cdb7a1c03f2fe901427f}{getUnsignedValue}}());}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00029}00029\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00031}\mbox{\hyperlink{class_random_aede4242f7756acb68fad3af0c807548d}{00031}}\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_random_1_1_seed}{Seed}}\ \mbox{\hyperlink{class_random_aede4242f7756acb68fad3af0c807548d}{GetSeed}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_random_ae58bc46824b7193c45b7cffbe1284f43}{seed}};\ \}}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00033}\mbox{\hyperlink{class_random_a9ac07f9db20c07db3e6d99f14d7bdc72}{00033}}\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_random_a9ac07f9db20c07db3e6d99f14d7bdc72}{GetInteger}}(\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ min,\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ max)}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00034}00034\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00035}00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::uniform\_int\_distribution<int>(min,\ max)(\mbox{\hyperlink{class_random_a30c3ccf9b57b559356a0109f90d89bc2}{rng}});}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00036}00036\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00038}\mbox{\hyperlink{class_random_a2ed52650d126b0d4479584ad7f6a5b76}{00038}}\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_random_a2ed52650d126b0d4479584ad7f6a5b76}{GetFloat}}(\textcolor{keywordtype}{float}\ min,\ \textcolor{keywordtype}{float}\ max)}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00039}00039\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00040}00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::uniform\_real\_distribution<float>(min,\ max)(\mbox{\hyperlink{class_random_a30c3ccf9b57b559356a0109f90d89bc2}{rng}});}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00041}00041\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00043}\mbox{\hyperlink{class_random_a90cbd4e8366e8097648f33250ceb45f8}{00043}}\ \ \ \ \ \textcolor{keyword}{static}\ std::vector<float>\ \mbox{\hyperlink{class_random_a90cbd4e8366e8097648f33250ceb45f8}{GetFloatWithFixedSum}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a501bb1bb2f0cc5706178ed237958e73b}{count}},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ sum,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ spread\ =\ 0.0f)}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00044}00044\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00045}00045\ \ \ \ \ \ \ \ \ std::vector<float>\ result;}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00047}00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ 0;\ idx\ <\ \mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a501bb1bb2f0cc5706178ed237958e73b}{count}};\ ++idx)}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ result.push\_back(sum\ /\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(\mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a501bb1bb2f0cc5706178ed237958e73b}{count}}));}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00050}00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ 0;\ idx\ <\ \mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a501bb1bb2f0cc5706178ed237958e73b}{count}};\ ++idx)}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00051}00051\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ diff\ =\ \mbox{\hyperlink{class_random_a2ed52650d126b0d4479584ad7f6a5b76}{GetFloat}}(-\/spread,\ spread);}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ result[idx]\ +=\ diff;}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a501bb1bb2f0cc5706178ed237958e73b}{count}};\ ++i)}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ idx)}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result[i]\ -\/=\ diff\ /\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(\mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a501bb1bb2f0cc5706178ed237958e73b}{count}}\ -\/\ 1);}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00062}00062\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00064}00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00065}00065\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00067}\mbox{\hyperlink{class_random_a5b12d7ab75fa617ee1d2c654e953c8c3}{00067}}\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_random_a5b12d7ab75fa617ee1d2c654e953c8c3}{GetBool}}()}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00068}00068\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00069}00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_random_a9ac07f9db20c07db3e6d99f14d7bdc72}{GetInteger}}(0,\ 1)\ ==\ 0;}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00070}00070\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00074}\mbox{\hyperlink{class_random_aaf270d08fecf46d504ceee4696942eee}{00074}}\ \ \ \ \ \mbox{\hyperlink{class_random_aaf270d08fecf46d504ceee4696942eee}{Random}}()\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00075}\mbox{\hyperlink{class_random_a9bfadeaa4adc5ac44142d000b1c99441}{00075}}\ \ \ \ \ \mbox{\hyperlink{class_random_a9bfadeaa4adc5ac44142d000b1c99441}{Random}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_random}{Random}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00076}\mbox{\hyperlink{class_random_a9b02aa846156b5ab239c3cac0012d4e3}{00076}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_random_a9b02aa846156b5ab239c3cac0012d4e3}{operator=\ }}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_random}{Random}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{_base_2random_8h_source_l00077}00077\ \};}
+
+\end{DoxyCode}

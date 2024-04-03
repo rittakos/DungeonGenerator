@@ -1,0 +1,162 @@
+\doxysection{Time\+Guard Class Reference}
+\hypertarget{class_time_guard}{}\label{class_time_guard}\index{TimeGuard@{TimeGuard}}
+
+
+{\ttfamily \#include $<$guard.\+h$>$}
+
+
+
+Inheritance diagram for Time\+Guard\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=157pt]{class_time_guard__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Time\+Guard\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=157pt]{class_time_guard__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_time_guard_a568583ef8ba5080805320d864a85d24e}{Time\+Guard}} (std\+::string \mbox{\hyperlink{class_time_guard_a0669efae3df2f3afa6a6cf4f6fd1e220}{text}}="{}"{})
+\item 
+void \mbox{\hyperlink{class_time_guard_a21549e0a9e246d77397c445bc4ccf9ef}{end}} () const
+\item 
+virtual \mbox{\hyperlink{class_time_guard_ad8871d1213f358a716ad74d80318a980}{\texorpdfstring{$\sim$}{\string~}\+Time\+Guard}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_guard}{Guard}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_guard_ae0c8b6eda313da41baffbc79b17b6607}{\texorpdfstring{$\sim$}{\string~}\+Guard}} ()=default
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::chrono\+::steady\+\_\+clock\+::time\+\_\+point \mbox{\hyperlink{class_time_guard_aec4973c7cc20b6f4e8008ae19685e935}{start\+Time}}
+\item 
+const std\+::string \mbox{\hyperlink{class_time_guard_a0669efae3df2f3afa6a6cf4f6fd1e220}{text}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{guard_8h_source_l00024}{24}} of file \mbox{\hyperlink{guard_8h_source}{guard.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_time_guard_a568583ef8ba5080805320d864a85d24e}\label{class_time_guard_a568583ef8ba5080805320d864a85d24e} 
+\index{TimeGuard@{TimeGuard}!TimeGuard@{TimeGuard}}
+\index{TimeGuard@{TimeGuard}!TimeGuard@{TimeGuard}}
+\doxysubsubsection{\texorpdfstring{TimeGuard()}{TimeGuard()}}
+{\footnotesize\ttfamily Time\+Guard\+::\+Time\+Guard (\begin{DoxyParamCaption}\item[{std\+::string}]{text = {\ttfamily "{}"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Definition at line \mbox{\hyperlink{guard_8h_source_l00029}{29}} of file \mbox{\hyperlink{guard_8h_source}{guard.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029\ :\ \mbox{\hyperlink{class_time_guard_a0669efae3df2f3afa6a6cf4f6fd1e220}{text}}\{\mbox{\hyperlink{class_time_guard_a0669efae3df2f3afa6a6cf4f6fd1e220}{text}}\}\ \{\ \mbox{\hyperlink{class_time_guard_aec4973c7cc20b6f4e8008ae19685e935}{startTime}}\ =\ std::chrono::steady\_clock::now();\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_time_guard_ad8871d1213f358a716ad74d80318a980}\label{class_time_guard_ad8871d1213f358a716ad74d80318a980} 
+\index{TimeGuard@{TimeGuard}!````~TimeGuard@{\texorpdfstring{$\sim$}{\string~}TimeGuard}}
+\index{````~TimeGuard@{\texorpdfstring{$\sim$}{\string~}TimeGuard}!TimeGuard@{TimeGuard}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}TimeGuard()}{\string~TimeGuard()}}
+{\footnotesize\ttfamily virtual Time\+Guard\+::\texorpdfstring{$\sim$}{\string~}\+Time\+Guard (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line \mbox{\hyperlink{guard_8h_source_l00038}{38}} of file \mbox{\hyperlink{guard_8h_source}{guard.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00038\ \{\ \mbox{\hyperlink{class_time_guard_a21549e0a9e246d77397c445bc4ccf9ef}{end}}();\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_time_guard_ad8871d1213f358a716ad74d80318a980_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_time_guard_a21549e0a9e246d77397c445bc4ccf9ef}\label{class_time_guard_a21549e0a9e246d77397c445bc4ccf9ef} 
+\index{TimeGuard@{TimeGuard}!end@{end}}
+\index{end@{end}!TimeGuard@{TimeGuard}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily void Time\+Guard\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{guard_8h_source_l00031}{31}} of file \mbox{\hyperlink{guard_8h_source}{guard.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00032\ \ \ \ \ \{\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ std::chrono::steady\_clock::time\_point\ \mbox{\hyperlink{class_time_guard_a21549e0a9e246d77397c445bc4ccf9ef}{end}}\ =\ std::chrono::steady\_clock::now();}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ elapsed\ =\ std::chrono::duration\_cast<std::chrono::milliseconds>(\mbox{\hyperlink{class_time_guard_a21549e0a9e246d77397c445bc4ccf9ef}{end}}\ -\/\ \mbox{\hyperlink{class_time_guard_aec4973c7cc20b6f4e8008ae19685e935}{startTime}}).count();}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ std::string\ result\ =\ \textcolor{stringliteral}{"{}elapsed\ time:\ "{}}\ +\ std::to\_string(elapsed)\ +\ \textcolor{stringliteral}{"{}ms"{}};}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_log_acc334094de2c17174209b77597e7742d}{Log::info}}(\mbox{\hyperlink{class_time_guard_a0669efae3df2f3afa6a6cf4f6fd1e220}{text}}\ +\ \textcolor{stringliteral}{"{}\ "{}}\ +\ result);}
+\DoxyCodeLine{00037\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_time_guard_a21549e0a9e246d77397c445bc4ccf9ef_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=324pt]{class_time_guard_a21549e0a9e246d77397c445bc4ccf9ef_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_time_guard_aec4973c7cc20b6f4e8008ae19685e935}\label{class_time_guard_aec4973c7cc20b6f4e8008ae19685e935} 
+\index{TimeGuard@{TimeGuard}!startTime@{startTime}}
+\index{startTime@{startTime}!TimeGuard@{TimeGuard}}
+\doxysubsubsection{\texorpdfstring{startTime}{startTime}}
+{\footnotesize\ttfamily std\+::chrono\+::steady\+\_\+clock\+::time\+\_\+point Time\+Guard\+::start\+Time\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{guard_8h_source_l00026}{26}} of file \mbox{\hyperlink{guard_8h_source}{guard.\+h}}.
+
+\Hypertarget{class_time_guard_a0669efae3df2f3afa6a6cf4f6fd1e220}\label{class_time_guard_a0669efae3df2f3afa6a6cf4f6fd1e220} 
+\index{TimeGuard@{TimeGuard}!text@{text}}
+\index{text@{text}!TimeGuard@{TimeGuard}}
+\doxysubsubsection{\texorpdfstring{text}{text}}
+{\footnotesize\ttfamily const std\+::string Time\+Guard\+::text\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{guard_8h_source_l00027}{27}} of file \mbox{\hyperlink{guard_8h_source}{guard.\+h}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Base/\mbox{\hyperlink{guard_8h}{guard.\+h}}\end{DoxyCompactItemize}

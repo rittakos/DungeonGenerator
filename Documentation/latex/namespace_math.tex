@@ -1,0 +1,1349 @@
+\doxysection{Math Namespace Reference}
+\hypertarget{namespace_math}{}\label{namespace_math}\index{Math@{Math}}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_math_1_1_constant}{Constant}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_math_1_1_angle}{Angle}}
+\item 
+class \mbox{\hyperlink{class_math_1_1_edge}{Edge}}
+\item 
+class \mbox{\hyperlink{class_math_1_1_graph}{Graph}}
+\item 
+class \mbox{\hyperlink{class_math_1_1_linear_equation}{Linear\+Equation}}
+\item 
+class \mbox{\hyperlink{class_math_1_1_linear_equation_system}{Linear\+Equation\+System}}
+\item 
+class \mbox{\hyperlink{class_math_1_1_mat}{Mat}}
+\item 
+class \mbox{\hyperlink{class_math_1_1_node}{Node}}
+\item 
+class \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}}
+\item 
+class \mbox{\hyperlink{class_math_1_1_rational_number}{Rational\+Number}}
+\item 
+class \mbox{\hyperlink{class_math_1_1_second_degree_equation}{Second\+Degree\+Equation}}
+\item 
+class \mbox{\hyperlink{class_math_1_1_too_much_parameters_exception}{Too\+Much\+Parameters\+Exception}}
+\item 
+class \mbox{\hyperlink{class_math_1_1_vec}{Vec}}
+\item 
+class \mbox{\hyperlink{class_math_1_1_zero_division_exception}{Zero\+Division\+Exception}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Concepts}
+\begin{DoxyCompactItemize}
+\item 
+concept \mbox{\hyperlink{concept_math_1_1_has_equal}{Has\+Equal}}
+\item 
+concept \mbox{\hyperlink{concept_math_1_1_vec_number}{Vec\+Number}}
+\item 
+concept \mbox{\hyperlink{concept_math_1_1_graph_type}{Graph\+Type}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespace_math_aa455d8dec0d1090697b3a5721cc71f90}{Mat3x3f}} = \mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$3, 3, float$>$
+\item 
+{\footnotesize template$<$class Type $>$ }\\using \mbox{\hyperlink{namespace_math_a06f3cffc74efa72837e49e5086d249f9}{Node\+Ref}} = std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_math_1_1_node}{Node}}$<$Type$>$$>$
+\item 
+{\footnotesize template$<$class Type $>$ }\\using \mbox{\hyperlink{namespace_math_aa200588c638f4f5fc9d0e570ac9e8620}{Edge\+Ref}} = std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_math_1_1_edge}{Edge}}$<$Type$>$$>$
+\item 
+using \mbox{\hyperlink{namespace_math_a38403b98e9aeb47ec7fd300a7a8e896a}{Vec3i}} = \mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$3, int$>$
+\item 
+using \mbox{\hyperlink{namespace_math_a753baf5938292fd107023b09e4287523}{Vec3f}} = \mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$3, float$>$
+\item 
+using \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Vec2f}} = \mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$2, float$>$
+\item 
+using \mbox{\hyperlink{namespace_math_a21d67a411a488c738db3604e6783f6b8}{Vec2i}} = \mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$2, int$>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_math_1_1_angle}{Angle}} \mbox{\hyperlink{namespace_math_a70feada65f6fd29c0d91896ec760d89c}{operator+}} (const \mbox{\hyperlink{class_math_1_1_angle}{Angle}} \&angle1, const \mbox{\hyperlink{class_math_1_1_angle}{Angle}} \&angle2)
+\item 
+\mbox{\hyperlink{class_math_1_1_angle}{Angle}} \mbox{\hyperlink{namespace_math_a8e77424bc391c697f34fa264df2a02a8}{operator-\/}} (const \mbox{\hyperlink{class_math_1_1_angle}{Angle}} \&angle1, const \mbox{\hyperlink{class_math_1_1_angle}{Angle}} \&angle2)
+\item 
+\mbox{\hyperlink{class_math_1_1_angle}{Angle}} \mbox{\hyperlink{namespace_math_abe6214b00c20d4e4859ef3f2a9f95702}{operator\texorpdfstring{$\ast$}{*}}} (const \mbox{\hyperlink{class_math_1_1_angle}{Angle}} \&angle1, const \mbox{\hyperlink{class_math_1_1_angle}{Angle}} \&angle2)
+\item 
+\mbox{\hyperlink{class_math_1_1_angle}{Angle}} \mbox{\hyperlink{namespace_math_a16ec2f0da62f23f986300533fa182498}{operator\texorpdfstring{$\ast$}{*}}} (float skalar, const \mbox{\hyperlink{class_math_1_1_angle}{Angle}} \&angle)
+\item 
+\mbox{\hyperlink{class_math_1_1_angle}{Angle}} \mbox{\hyperlink{namespace_math_a3c89551f9e0431fe0dee03cedac5a19a}{operator\texorpdfstring{$\ast$}{*}}} (const \mbox{\hyperlink{class_math_1_1_angle}{Angle}} \&angle, float skalar)
+\item 
+\mbox{\hyperlink{class_math_1_1_angle}{Angle}} \mbox{\hyperlink{namespace_math_acc53036f27eb30c66e163209631ad15b}{operator/}} (const \mbox{\hyperlink{class_math_1_1_angle}{Angle}} \&angle1, const \mbox{\hyperlink{class_math_1_1_angle}{Angle}} \&angle2)
+\item 
+\mbox{\hyperlink{class_math_1_1_angle}{Angle}} \mbox{\hyperlink{namespace_math_a502e2a81977fc80492d4f49630ad76f3}{operator/}} (const \mbox{\hyperlink{class_math_1_1_angle}{Angle}} \&angle, float skalar)
+\item 
+float \mbox{\hyperlink{namespace_math_a6c2ee98486b2c89d39861f1a125b7ece}{sin}} (const \mbox{\hyperlink{class_math_1_1_angle}{Angle}} \&angle)
+\item 
+float \mbox{\hyperlink{namespace_math_a07351496a0c0f761c78c20f13e52ab82}{cos}} (const \mbox{\hyperlink{class_math_1_1_angle}{Angle}} \&angle)
+\item 
+float \mbox{\hyperlink{namespace_math_a248e06026c0989f801ad27daec6aaf57}{tan}} (const \mbox{\hyperlink{class_math_1_1_angle}{Angle}} \&angle)
+\item 
+\mbox{\hyperlink{class_math_1_1_angle}{Angle}} \mbox{\hyperlink{namespace_math_a0134971e1b54a38842ca2af4068e52be}{asin}} (float \mbox{\hyperlink{namespace_math_a6c2ee98486b2c89d39861f1a125b7ece}{sin}})
+\item 
+\mbox{\hyperlink{class_math_1_1_angle}{Angle}} \mbox{\hyperlink{namespace_math_ae5c5f0233891e46156265db09387dd97}{acos}} (float \mbox{\hyperlink{namespace_math_a07351496a0c0f761c78c20f13e52ab82}{cos}})
+\item 
+\mbox{\hyperlink{class_math_1_1_angle}{Angle}} \mbox{\hyperlink{namespace_math_a909f6ac93481191661bb61998243b7a2}{atan}} (float \mbox{\hyperlink{namespace_math_a248e06026c0989f801ad27daec6aaf57}{tan}})
+\item 
+\mbox{\hyperlink{class_math_1_1_angle}{Angle}} \mbox{\hyperlink{namespace_math_a4ba63981c45bfd0fe604c67dee13c6b7}{Angle\+From\+Deg}} (float deg)
+\item 
+\mbox{\hyperlink{class_math_1_1_angle}{Angle}} \mbox{\hyperlink{namespace_math_af712574d14736016ce501334ac25fa92}{Angle\+From\+Rad}} (float rad)
+\item 
+{\footnotesize template$<$class Node\+Type , class Edge\+Type $>$ }\\bool \mbox{\hyperlink{namespace_math_af101691560a371a73f6fe4af76ccf1ab}{operator==}} (\mbox{\hyperlink{class_math_1_1_graph}{Graph}}$<$ Node\+Type, Edge\+Type $>$ graph1, \mbox{\hyperlink{class_math_1_1_graph}{Graph}}$<$ Node\+Type, Edge\+Type $>$ graph2)
+\item 
+{\footnotesize template$<$class \mbox{\hyperlink{namespace_math_a6f686e44ef531f116542143a580a02ce}{T}} $>$ }\\void \mbox{\hyperlink{namespace_math_afe011f5cbcdb32c19fb3a9f07e568964}{breadth\+First}} (\mbox{\hyperlink{class_math_1_1_graph}{Graph}}$<$ \mbox{\hyperlink{namespace_math_a6f686e44ef531f116542143a580a02ce}{T}} $>$ \texorpdfstring{$\ast$}{*}graph)
+\item 
+{\footnotesize template$<$class \mbox{\hyperlink{namespace_math_a6f686e44ef531f116542143a580a02ce}{T}} $>$ }\\void \mbox{\hyperlink{namespace_math_aecf926a228a02cfe5081470e353d9969}{depth\+First}} (\mbox{\hyperlink{class_math_1_1_graph}{Graph}}$<$ \mbox{\hyperlink{namespace_math_a6f686e44ef531f116542143a580a02ce}{T}} $>$ \texorpdfstring{$\ast$}{*}graph)
+\item 
+{\footnotesize template$<$class \mbox{\hyperlink{namespace_math_a6f686e44ef531f116542143a580a02ce}{T}} $>$ }\\\mbox{\hyperlink{class_math_1_1_graph}{Graph}}$<$ \mbox{\hyperlink{namespace_math_a6f686e44ef531f116542143a580a02ce}{T}} $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespace_math_ac8404d36574a7e32d1d7b15328899a4d}{Kruskal}} (\mbox{\hyperlink{class_math_1_1_graph}{Graph}}$<$ \mbox{\hyperlink{namespace_math_a6f686e44ef531f116542143a580a02ce}{T}} $>$ \texorpdfstring{$\ast$}{*}graph)
+\item 
+{\footnotesize template$<$class \mbox{\hyperlink{namespace_math_a6f686e44ef531f116542143a580a02ce}{T}} $>$ }\\void \mbox{\hyperlink{namespace_math_a7e43e3dfd71f9bb750206a2cdf4d0f0a}{sortest\+Path}} (\mbox{\hyperlink{class_math_1_1_graph}{Graph}}$<$ \mbox{\hyperlink{namespace_math_a6f686e44ef531f116542143a580a02ce}{T}} $>$ \texorpdfstring{$\ast$}{*}graph)
+\item 
+{\footnotesize template$<$class \mbox{\hyperlink{namespace_math_a6f686e44ef531f116542143a580a02ce}{T}} $>$ }\\void \mbox{\hyperlink{namespace_math_afcc3d4fd04a47cda46dce25b4bbc70fc}{get\+Circles}} (\mbox{\hyperlink{class_math_1_1_graph}{Graph}}$<$ \mbox{\hyperlink{namespace_math_a6f686e44ef531f116542143a580a02ce}{T}} $>$ \texorpdfstring{$\ast$}{*}graph)
+\item 
+static bool \mbox{\hyperlink{namespace_math_a42a948d5fe666f25ee0f13d5b02b2a74}{is\+Equal}} (float f1, float f2, float epsilon=\mbox{\hyperlink{namespace_math_1_1_constant_adb2a456ef71c62332f477d01b4c46fb9}{Constant\+::epsilon}})
+\item 
+{\footnotesize template$<$int D, class Type $>$ }\\\mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ 1, D, Type $>$ \mbox{\hyperlink{namespace_math_ab92ba61c4061d6dbca8ecf4b727c18e5}{create\+Matrix\+From\+Vector}} (\mbox{\hyperlink{class_math_1_1_vec}{Math\+::\+Vec}}$<$ D, Type $>$ vec)
+\item 
+{\footnotesize template$<$int W1, int H1, class Type1 $>$ }\\\mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ W1, H1, Type1 $>$ \mbox{\hyperlink{namespace_math_a6f686e44ef531f116542143a580a02ce}{T}} (const \mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W1, Type1 $>$ \&m)
+\item 
+{\footnotesize template$<$int W1, int H1, class Type1 $>$ }\\float \mbox{\hyperlink{namespace_math_ad7e98ce6e9027ffbe4a87184f67f7034}{det}} (\mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ W1, H1, Type1 $>$ m)
+\item 
+{\footnotesize template$<$int H1, int W1, class Type1 $>$ }\\std\+::ostream \& \mbox{\hyperlink{namespace_math_a302164d4878a290980ee559a4583e7b9}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W1, Type1 $>$ \&m)
+\item 
+{\footnotesize template$<$int W1, int H1, class Type1 $>$ }\\std\+::istream \& \mbox{\hyperlink{namespace_math_af08e2151a06b520864821924e203be94}{operator$>$$>$}} (std\+::istream \&is, \mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W1, Type1 $>$ \&m)
+\item 
+{\footnotesize template$<$int H1, int W1, class Type1 $>$ }\\\mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W1, float $>$ \mbox{\hyperlink{namespace_math_a19a34a0e7320c79458a20463a387ae3d}{operator\texorpdfstring{$\ast$}{*}}} (const \mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W1, Type1 $>$ \&m, float skalar)
+\item 
+{\footnotesize template$<$int H1, int W1, class Type1 $>$ }\\\mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W1, float $>$ \mbox{\hyperlink{namespace_math_a7ef65bccde0286b8269ef014e72c5e13}{operator\texorpdfstring{$\ast$}{*}}} (float skalar, const \mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W1, Type1 $>$ \&m)
+\item 
+{\footnotesize template$<$int H1, int W1, class Type1 $>$ }\\\mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W1, float $>$ \mbox{\hyperlink{namespace_math_aeb8b201c2a077719593910dc97c5e10e}{operator/}} (const \mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W1, Type1 $>$ \&m, float skalar)
+\item 
+{\footnotesize template$<$int W1, int W2, int H1, int H2, class Type1 $>$ }\\\mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W2, Type1 $>$ \mbox{\hyperlink{namespace_math_ad302d4a12ce328bed1e6d4627511927c}{operator\texorpdfstring{$\ast$}{*}}} (const \mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W1, Type1 $>$ \&m1, const \mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H2, W2, Type1 $>$ \&m2)
+\item 
+{\footnotesize template$<$int W1, int H1, int D, class Type1 $>$ }\\\mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ D, Type1 $>$ \mbox{\hyperlink{namespace_math_a98549687ea1b097e84cd2cfc28c7d813}{operator\texorpdfstring{$\ast$}{*}}} (const \mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ D, Type1 $>$ \&v, const \mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ W1, H1, Type1 $>$ \&m)
+\item 
+{\footnotesize template$<$int W1, int H1, int D, class Type1 $>$ }\\\mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ D, Type1 $>$ \mbox{\hyperlink{namespace_math_a9cd63f3df19405b9474c0b5a2b2255fb}{operator\texorpdfstring{$\ast$}{*}}} (const \mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ W1, H1, Type1 $>$ \&m, const \mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ D, Type1 $>$ \&v)
+\item 
+\mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{namespace_math_aa4702dd289093f85efd2ce191d042773}{operator+}} (const \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} \&q1, const \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} \&q2)
+\item 
+\mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{namespace_math_ae4d4050d108be2ff9bbaacbd613cbf48}{operator-\/}} (const \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} \&q1, const \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} \&q2)
+\item 
+\mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{namespace_math_adf16f62e56ee18741a93b0db7a555fe2}{operator\texorpdfstring{$\ast$}{*}}} (const \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} \&q1, const \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} \&q2)
+\item 
+\mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{namespace_math_a3c991495498537acdda332a3601d70db}{operator\texorpdfstring{$\ast$}{*}}} (float f, const \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} \&q)
+\item 
+\mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{namespace_math_a563d4ed2718b5048b6440afc0b7e9b0d}{operator\texorpdfstring{$\ast$}{*}}} (const \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} \&q, float f)
+\item 
+std\+::ostream \& \mbox{\hyperlink{namespace_math_aa60f97b163694b187f7dda23b0817e90}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} \&q)
+\item 
+\mbox{\hyperlink{class_math_1_1_angle}{Angle}} \mbox{\hyperlink{namespace_math_acb53f49cacbc0754cf4b882a41837468}{get\+Angle}} (\mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Vec2f}} P1, \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Vec2f}} P2, \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Vec2f}} P3)
+\item 
+{\footnotesize template$<$int D, class Type $>$ }\\std\+::ostream \& \mbox{\hyperlink{namespace_math_af3506750043ed7528dd970cc061be75c}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ D, Type $>$ \&vec)
+\item 
+{\footnotesize template$<$int D, class Type $>$ }\\std\+::istream \& \mbox{\hyperlink{namespace_math_a84070993850ce1b6459cd7ba73616bd1}{operator$>$$>$}} (std\+::istream \&is, \mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ D, Type $>$ \&vec)
+\item 
+{\footnotesize template$<$int D1, class Type1 $>$ }\\\mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ D1, Type1 $>$ \mbox{\hyperlink{namespace_math_ad126e64a23d83e208fca1fc6934b1169}{operator\texorpdfstring{$\ast$}{*}}} (const \mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ D1, Type1 $>$ \&vec, float skalar)
+\item 
+{\footnotesize template$<$int D1, class Type1 $>$ }\\\mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ D1, Type1 $>$ \mbox{\hyperlink{namespace_math_a8221350dc6e7edce7bdb1cf441815185}{operator\texorpdfstring{$\ast$}{*}}} (float skalar, const \mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ D1, Type1 $>$ \&vec)
+\item 
+{\footnotesize template$<$int D1, class Type1 $>$ }\\\mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ D1, Type1 $>$ \mbox{\hyperlink{namespace_math_a41b72cd072e1246000ffbcef107d6d94}{operator/}} (const \mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ D1, Type1 $>$ \&vec, float skalar)
+\item 
+{\footnotesize template$<$int D1, class Type1 $>$ }\\float \mbox{\hyperlink{namespace_math_a4d802a1ddda1935eea6b99782aa2effa}{distance}} (const \mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ D1, Type1 $>$ \&v1, const \mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ D1, Type1 $>$ \&v2)
+\item 
+{\footnotesize template$<$int D1, class Type1 $>$ }\\bool \mbox{\hyperlink{namespace_math_afe7eb6918da89ee598397ad25d291c08}{equals}} (const \mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ D1, Type1 $>$ \&v1, const \mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ D1, Type1 $>$ \&v2, float epsilon)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{namespace_math_aa200588c638f4f5fc9d0e570ac9e8620}\label{namespace_math_aa200588c638f4f5fc9d0e570ac9e8620} 
+\index{Math@{Math}!EdgeRef@{EdgeRef}}
+\index{EdgeRef@{EdgeRef}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{EdgeRef}{EdgeRef}}
+{\footnotesize\ttfamily template$<$class Type $>$ \\
+using \mbox{\hyperlink{namespace_math_aa200588c638f4f5fc9d0e570ac9e8620}{Math\+::\+Edge\+Ref}} = std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_math_1_1_edge}{Edge}}$<$Type$>$$>$}
+
+
+
+Definition at line \mbox{\hyperlink{_my_graph_8hpp_source_l00022}{22}} of file \mbox{\hyperlink{_my_graph_8hpp_source}{My\+Graph.\+hpp}}.
+
+\Hypertarget{namespace_math_aa455d8dec0d1090697b3a5721cc71f90}\label{namespace_math_aa455d8dec0d1090697b3a5721cc71f90} 
+\index{Math@{Math}!Mat3x3f@{Mat3x3f}}
+\index{Mat3x3f@{Mat3x3f}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{Mat3x3f}{Mat3x3f}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespace_math_aa455d8dec0d1090697b3a5721cc71f90}{Math\+::\+Mat3x3f}} = \mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$3, 3, float$>$}
+
+
+
+Definition at line \mbox{\hyperlink{matrix_8hpp_source_l00014}{14}} of file \mbox{\hyperlink{matrix_8hpp_source}{matrix.\+hpp}}.
+
+\Hypertarget{namespace_math_a06f3cffc74efa72837e49e5086d249f9}\label{namespace_math_a06f3cffc74efa72837e49e5086d249f9} 
+\index{Math@{Math}!NodeRef@{NodeRef}}
+\index{NodeRef@{NodeRef}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{NodeRef}{NodeRef}}
+{\footnotesize\ttfamily template$<$class Type $>$ \\
+using \mbox{\hyperlink{namespace_math_a06f3cffc74efa72837e49e5086d249f9}{Math\+::\+Node\+Ref}} = std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_math_1_1_node}{Node}}$<$Type$>$$>$}
+
+
+
+Definition at line \mbox{\hyperlink{_my_graph_8hpp_source_l00012}{12}} of file \mbox{\hyperlink{_my_graph_8hpp_source}{My\+Graph.\+hpp}}.
+
+\Hypertarget{namespace_math_ab201d576e9167c8e4384272d9d3039d5}\label{namespace_math_ab201d576e9167c8e4384272d9d3039d5} 
+\index{Math@{Math}!Vec2f@{Vec2f}}
+\index{Vec2f@{Vec2f}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{Vec2f}{Vec2f}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} = \mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$2, float$>$}
+
+
+
+Definition at line \mbox{\hyperlink{vector_8hpp_source_l00021}{21}} of file \mbox{\hyperlink{vector_8hpp_source}{vector.\+hpp}}.
+
+\Hypertarget{namespace_math_a21d67a411a488c738db3604e6783f6b8}\label{namespace_math_a21d67a411a488c738db3604e6783f6b8} 
+\index{Math@{Math}!Vec2i@{Vec2i}}
+\index{Vec2i@{Vec2i}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{Vec2i}{Vec2i}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespace_math_a21d67a411a488c738db3604e6783f6b8}{Math\+::\+Vec2i}} = \mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$2, int$>$}
+
+
+
+Definition at line \mbox{\hyperlink{vector_8hpp_source_l00022}{22}} of file \mbox{\hyperlink{vector_8hpp_source}{vector.\+hpp}}.
+
+\Hypertarget{namespace_math_a753baf5938292fd107023b09e4287523}\label{namespace_math_a753baf5938292fd107023b09e4287523} 
+\index{Math@{Math}!Vec3f@{Vec3f}}
+\index{Vec3f@{Vec3f}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{Vec3f}{Vec3f}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespace_math_a753baf5938292fd107023b09e4287523}{Math\+::\+Vec3f}} = \mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$3, float$>$}
+
+
+
+Definition at line \mbox{\hyperlink{vector_8hpp_source_l00020}{20}} of file \mbox{\hyperlink{vector_8hpp_source}{vector.\+hpp}}.
+
+\Hypertarget{namespace_math_a38403b98e9aeb47ec7fd300a7a8e896a}\label{namespace_math_a38403b98e9aeb47ec7fd300a7a8e896a} 
+\index{Math@{Math}!Vec3i@{Vec3i}}
+\index{Vec3i@{Vec3i}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{Vec3i}{Vec3i}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespace_math_a38403b98e9aeb47ec7fd300a7a8e896a}{Math\+::\+Vec3i}} = \mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$3, int$>$}
+
+
+
+Definition at line \mbox{\hyperlink{vector_8hpp_source_l00019}{19}} of file \mbox{\hyperlink{vector_8hpp_source}{vector.\+hpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespace_math_ae5c5f0233891e46156265db09387dd97}\label{namespace_math_ae5c5f0233891e46156265db09387dd97} 
+\index{Math@{Math}!acos@{acos}}
+\index{acos@{acos}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{acos()}{acos()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_math_1_1_angle}{Angle}} Math\+::acos (\begin{DoxyParamCaption}\item[{float}]{cos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}, {\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{angle_8hpp_source_l00136}{136}} of file \mbox{\hyperlink{angle_8hpp_source}{angle.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00137\ \ \ \ \ \{}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_math_1_1_angle}{Angle}}(acosf(cos));}
+\DoxyCodeLine{00139\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=240pt]{namespace_math_ae5c5f0233891e46156265db09387dd97_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespace_math_a4ba63981c45bfd0fe604c67dee13c6b7}\label{namespace_math_a4ba63981c45bfd0fe604c67dee13c6b7} 
+\index{Math@{Math}!AngleFromDeg@{AngleFromDeg}}
+\index{AngleFromDeg@{AngleFromDeg}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{AngleFromDeg()}{AngleFromDeg()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_math_1_1_angle}{Angle}} Math\+::\+Angle\+From\+Deg (\begin{DoxyParamCaption}\item[{float}]{deg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}, {\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{angle_8hpp_source_l00146}{146}} of file \mbox{\hyperlink{angle_8hpp_source}{angle.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00147\ \ \ \ \ \{}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_math_1_1_angle}{Angle}}(deg\ /\ 180.0f\ *\ Constant::Pi);}
+\DoxyCodeLine{00149\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespace_math_af712574d14736016ce501334ac25fa92}\label{namespace_math_af712574d14736016ce501334ac25fa92} 
+\index{Math@{Math}!AngleFromRad@{AngleFromRad}}
+\index{AngleFromRad@{AngleFromRad}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{AngleFromRad()}{AngleFromRad()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_math_1_1_angle}{Angle}} Math\+::\+Angle\+From\+Rad (\begin{DoxyParamCaption}\item[{float}]{rad }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}, {\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{angle_8hpp_source_l00151}{151}} of file \mbox{\hyperlink{angle_8hpp_source}{angle.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00152\ \ \ \ \ \{}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_math_1_1_angle}{Angle}}(rad);}
+\DoxyCodeLine{00154\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespace_math_a0134971e1b54a38842ca2af4068e52be}\label{namespace_math_a0134971e1b54a38842ca2af4068e52be} 
+\index{Math@{Math}!asin@{asin}}
+\index{asin@{asin}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{asin()}{asin()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_math_1_1_angle}{Angle}} Math\+::asin (\begin{DoxyParamCaption}\item[{float}]{sin }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}, {\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{angle_8hpp_source_l00131}{131}} of file \mbox{\hyperlink{angle_8hpp_source}{angle.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00132\ \ \ \ \ \{}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_math_1_1_angle}{Angle}}(asinf(sin));}
+\DoxyCodeLine{00134\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{namespace_math_a0134971e1b54a38842ca2af4068e52be_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespace_math_a909f6ac93481191661bb61998243b7a2}\label{namespace_math_a909f6ac93481191661bb61998243b7a2} 
+\index{Math@{Math}!atan@{atan}}
+\index{atan@{atan}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{atan()}{atan()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_math_1_1_angle}{Angle}} Math\+::atan (\begin{DoxyParamCaption}\item[{float}]{tan }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}, {\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{angle_8hpp_source_l00141}{141}} of file \mbox{\hyperlink{angle_8hpp_source}{angle.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00142\ \ \ \ \ \{}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_math_1_1_angle}{Angle}}(atanf(tan));}
+\DoxyCodeLine{00144\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=236pt]{namespace_math_a909f6ac93481191661bb61998243b7a2_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespace_math_afe011f5cbcdb32c19fb3a9f07e568964}\label{namespace_math_afe011f5cbcdb32c19fb3a9f07e568964} 
+\index{Math@{Math}!breadthFirst@{breadthFirst}}
+\index{breadthFirst@{breadthFirst}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{breadthFirst()}{breadthFirst()}}
+{\footnotesize\ttfamily template$<$class \mbox{\hyperlink{namespace_math_a6f686e44ef531f116542143a580a02ce}{T}} $>$ \\
+void Math\+::breadth\+First (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_math_1_1_graph}{Graph}}$<$ \mbox{\hyperlink{namespace_math_a6f686e44ef531f116542143a580a02ce}{T}} $>$ \texorpdfstring{$\ast$}{*}}]{graph }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{graph_algorithm_8hpp_source_l00010}{10}} of file \mbox{\hyperlink{graph_algorithm_8hpp_source}{graph\+Algorithm.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00011\ \ \ \ \ \{}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespace_math_a07351496a0c0f761c78c20f13e52ab82}\label{namespace_math_a07351496a0c0f761c78c20f13e52ab82} 
+\index{Math@{Math}!cos@{cos}}
+\index{cos@{cos}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{cos()}{cos()}}
+{\footnotesize\ttfamily float Math\+::cos (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_math_1_1_angle}{Angle}} \&}]{angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}, {\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{angle_8hpp_source_l00121}{121}} of file \mbox{\hyperlink{angle_8hpp_source}{angle.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00122\ \ \ \ \ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ cosf(angle.\mbox{\hyperlink{class_math_1_1_angle_a6f35e3d0d452af58223b6e8a246b49f0}{angleInRad}});}
+\DoxyCodeLine{00124\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=320pt]{namespace_math_a07351496a0c0f761c78c20f13e52ab82_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespace_math_ab92ba61c4061d6dbca8ecf4b727c18e5}\label{namespace_math_ab92ba61c4061d6dbca8ecf4b727c18e5} 
+\index{Math@{Math}!createMatrixFromVector@{createMatrixFromVector}}
+\index{createMatrixFromVector@{createMatrixFromVector}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{createMatrixFromVector()}{createMatrixFromVector()}}
+{\footnotesize\ttfamily template$<$int D, class Type $>$ \\
+\mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ 1, D, Type $>$ Math\+::create\+Matrix\+From\+Vector (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_math_1_1_vec}{Math\+::\+Vec}}$<$ D, Type $>$}]{vec }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{matrix_8hpp_source_l00239}{239}} of file \mbox{\hyperlink{matrix_8hpp_source}{matrix.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00240\ \ \ \ \ \{}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_mat}{Mat<1,\ D,\ Type>}}\ m;}
+\DoxyCodeLine{00242\ }
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ 0;\ idx\ <\ D;\ ++idx)}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ \ \ m(0,\ idx)\ =\ vec[idx];}
+\DoxyCodeLine{00245\ }
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m;}
+\DoxyCodeLine{00247\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{namespace_math_ab92ba61c4061d6dbca8ecf4b727c18e5_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespace_math_aecf926a228a02cfe5081470e353d9969}\label{namespace_math_aecf926a228a02cfe5081470e353d9969} 
+\index{Math@{Math}!depthFirst@{depthFirst}}
+\index{depthFirst@{depthFirst}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{depthFirst()}{depthFirst()}}
+{\footnotesize\ttfamily template$<$class \mbox{\hyperlink{namespace_math_a6f686e44ef531f116542143a580a02ce}{T}} $>$ \\
+void Math\+::depth\+First (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_math_1_1_graph}{Graph}}$<$ \mbox{\hyperlink{namespace_math_a6f686e44ef531f116542143a580a02ce}{T}} $>$ \texorpdfstring{$\ast$}{*}}]{graph }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{graph_algorithm_8hpp_source_l00017}{17}} of file \mbox{\hyperlink{graph_algorithm_8hpp_source}{graph\+Algorithm.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00018\ \ \ \ \ \{}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespace_math_ad7e98ce6e9027ffbe4a87184f67f7034}\label{namespace_math_ad7e98ce6e9027ffbe4a87184f67f7034} 
+\index{Math@{Math}!det@{det}}
+\index{det@{det}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{det()}{det()}}
+{\footnotesize\ttfamily template$<$int W1, int H1, class Type1 $>$ \\
+float Math\+::det (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ W1, H1, Type1 $>$}]{m }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{matrix_8hpp_source_l00262}{262}} of file \mbox{\hyperlink{matrix_8hpp_source}{matrix.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00263\ \ \ \ \ \{}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (W1\ !=\ H1)}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ std::exception();}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{namespace_math_ad7e98ce6e9027ffbe4a87184f67f7034}{det}}\ =\ 1.0f;}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ signal;}
+\DoxyCodeLine{00268\ }
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_mat}{Mat}}\ gauss\ =\ m.\mbox{\hyperlink{class_math_1_1_mat_a8240f85e3ea39ab44e0a793429bbaaa9}{gaussianEliminate}}(signal);}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ 0;\ idx\ <\ W1\ \&\&\ idx\ <\ H1;\ ++idx)}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ det\ *=\ gauss(idx,\ idx);}
+\DoxyCodeLine{00272\ }
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_math_ad7e98ce6e9027ffbe4a87184f67f7034}{det}}\ *=\ (float)signal;}
+\DoxyCodeLine{00274\ }
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespace_math_ad7e98ce6e9027ffbe4a87184f67f7034}{det}};}
+\DoxyCodeLine{00276\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_math_ad7e98ce6e9027ffbe4a87184f67f7034_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_math_ad7e98ce6e9027ffbe4a87184f67f7034_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespace_math_a4d802a1ddda1935eea6b99782aa2effa}\label{namespace_math_a4d802a1ddda1935eea6b99782aa2effa} 
+\index{Math@{Math}!distance@{distance}}
+\index{distance@{distance}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{distance()}{distance()}}
+{\footnotesize\ttfamily template$<$int D1, class Type1 $>$ \\
+float Math\+::distance (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ D1, Type1 $>$ \&}]{v1,  }\item[{const \mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ D1, Type1 $>$ \&}]{v2 }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{vector_8hpp_source_l00223}{223}} of file \mbox{\hyperlink{vector_8hpp_source}{vector.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00224\ \ \ \ \ \{}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (v1\ -\/\ v2).length();}
+\DoxyCodeLine{00226\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=290pt]{namespace_math_a4d802a1ddda1935eea6b99782aa2effa_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespace_math_afe7eb6918da89ee598397ad25d291c08}\label{namespace_math_afe7eb6918da89ee598397ad25d291c08} 
+\index{Math@{Math}!equals@{equals}}
+\index{equals@{equals}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{equals()}{equals()}}
+{\footnotesize\ttfamily template$<$int D1, class Type1 $>$ \\
+bool Math\+::equals (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ D1, Type1 $>$ \&}]{v1,  }\item[{const \mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ D1, Type1 $>$ \&}]{v2,  }\item[{float}]{epsilon }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{vector_8hpp_source_l00229}{229}} of file \mbox{\hyperlink{vector_8hpp_source}{vector.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00230\ \ \ \ \ \{}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ 0;\ idx\ <\ D1;\ ++idx)}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!isEqual(v1.\mbox{\hyperlink{class_math_1_1_vec_ae13d9e20b12ff4da8c29618f7291e841}{coords}}[idx],\ v2.\mbox{\hyperlink{class_math_1_1_vec_ae13d9e20b12ff4da8c29618f7291e841}{coords}}[idx],\ epsilon))}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (v1\ -\/\ v2).length()\ <\ epsilon;}
+\DoxyCodeLine{00235\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_math_afe7eb6918da89ee598397ad25d291c08_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespace_math_acb53f49cacbc0754cf4b882a41837468}\label{namespace_math_acb53f49cacbc0754cf4b882a41837468} 
+\index{Math@{Math}!getAngle@{getAngle}}
+\index{getAngle@{getAngle}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{getAngle()}{getAngle()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_math_1_1_angle}{Angle}} Math\+::get\+Angle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Vec2f}}}]{P1,  }\item[{\mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Vec2f}}}]{P2,  }\item[{\mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Vec2f}}}]{P3 }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{vector_8cpp_source_l00006}{6}} of file \mbox{\hyperlink{vector_8cpp_source}{vector.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00007\ \ \ \ \ \{}
+\DoxyCodeLine{00008\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Vec2f}}\ v1\ =\ P1\ -\/\ P2;}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Vec2f}}\ v2\ =\ P3\ -\/\ P2;}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ result\ =\ atan2(v2[1],\ v2[0])\ -\/\ atan2(v1[1],\ v1[0]);}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (result\ <\ 0)}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ result\ +=\ Constant::Pi\ *\ 2.0f;}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_math_1_1_angle}{Angle}}(result);}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Angle\ a\ =\ v1.angleWith(v2); }}
+\DoxyCodeLine{00019\ \textcolor{comment}{}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ \ \ \ \ \ \ \ if\ (v1[0]\ <\ v2[0]) }}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ a\ =\ -\/a; }}
+\DoxyCodeLine{00022\ \textcolor{comment}{}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ \ \ \ \ \ \ \ return\ 180.0\_deg\ -\/\ a;*/}}
+\DoxyCodeLine{00024\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_math_acb53f49cacbc0754cf4b882a41837468_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespace_math_afcc3d4fd04a47cda46dce25b4bbc70fc}\label{namespace_math_afcc3d4fd04a47cda46dce25b4bbc70fc} 
+\index{Math@{Math}!getCircles@{getCircles}}
+\index{getCircles@{getCircles}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{getCircles()}{getCircles()}}
+{\footnotesize\ttfamily template$<$class \mbox{\hyperlink{namespace_math_a6f686e44ef531f116542143a580a02ce}{T}} $>$ \\
+void Math\+::get\+Circles (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_math_1_1_graph}{Graph}}$<$ \mbox{\hyperlink{namespace_math_a6f686e44ef531f116542143a580a02ce}{T}} $>$ \texorpdfstring{$\ast$}{*}}]{graph }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{graph_algorithm_8hpp_source_l00038}{38}} of file \mbox{\hyperlink{graph_algorithm_8hpp_source}{graph\+Algorithm.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00039\ \ \ \ \ \{}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespace_math_a42a948d5fe666f25ee0f13d5b02b2a74}\label{namespace_math_a42a948d5fe666f25ee0f13d5b02b2a74} 
+\index{Math@{Math}!isEqual@{isEqual}}
+\index{isEqual@{isEqual}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{isEqual()}{isEqual()}}
+{\footnotesize\ttfamily static bool Math\+::is\+Equal (\begin{DoxyParamCaption}\item[{float}]{f1,  }\item[{float}]{f2,  }\item[{float}]{epsilon = {\ttfamily \mbox{\hyperlink{namespace_math_1_1_constant_adb2a456ef71c62332f477d01b4c46fb9}{Constant\+::epsilon}}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{math_8hpp_source_l00018}{18}} of file \mbox{\hyperlink{math_8hpp_source}{math.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00019\ \ \ \ \ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ fabs(f1\ -\/\ f2)\ <\ epsilon;}
+\DoxyCodeLine{00021\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=314pt]{namespace_math_a42a948d5fe666f25ee0f13d5b02b2a74_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespace_math_ac8404d36574a7e32d1d7b15328899a4d}\label{namespace_math_ac8404d36574a7e32d1d7b15328899a4d} 
+\index{Math@{Math}!Kruskal@{Kruskal}}
+\index{Kruskal@{Kruskal}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{Kruskal()}{Kruskal()}}
+{\footnotesize\ttfamily template$<$class \mbox{\hyperlink{namespace_math_a6f686e44ef531f116542143a580a02ce}{T}} $>$ \\
+\mbox{\hyperlink{class_math_1_1_graph}{Graph}}$<$ \mbox{\hyperlink{namespace_math_a6f686e44ef531f116542143a580a02ce}{T}} $>$ \texorpdfstring{$\ast$}{*} Math\+::\+Kruskal (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_math_1_1_graph}{Graph}}$<$ \mbox{\hyperlink{namespace_math_a6f686e44ef531f116542143a580a02ce}{T}} $>$ \texorpdfstring{$\ast$}{*}}]{graph }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{graph_algorithm_8hpp_source_l00023}{23}} of file \mbox{\hyperlink{graph_algorithm_8hpp_source}{graph\+Algorithm.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00024\ \ \ \ \ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_graph}{Graph<T>}}\ result;}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00028\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespace_math_a3c89551f9e0431fe0dee03cedac5a19a}\label{namespace_math_a3c89551f9e0431fe0dee03cedac5a19a} 
+\index{Math@{Math}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [1/13]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_math_1_1_angle}{Angle}} Math\+::operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_math_1_1_angle}{Angle}} \&}]{angle,  }\item[{float}]{skalar }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}, {\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{angle_8hpp_source_l00097}{97}} of file \mbox{\hyperlink{angle_8hpp_source}{angle.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00098\ \ \ \ \ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ skalar\ *\ angle;}
+\DoxyCodeLine{00100\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespace_math_abe6214b00c20d4e4859ef3f2a9f95702}\label{namespace_math_abe6214b00c20d4e4859ef3f2a9f95702} 
+\index{Math@{Math}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [2/13]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_math_1_1_angle}{Angle}} Math\+::operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_math_1_1_angle}{Angle}} \&}]{angle1,  }\item[{const \mbox{\hyperlink{class_math_1_1_angle}{Angle}} \&}]{angle2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}, {\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{angle_8hpp_source_l00083}{83}} of file \mbox{\hyperlink{angle_8hpp_source}{angle.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00084\ \ \ \ \ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_angle}{Angle}}\ res(angle1.\mbox{\hyperlink{class_math_1_1_angle_a6f35e3d0d452af58223b6e8a246b49f0}{angleInRad}}\ *\ angle2.\mbox{\hyperlink{class_math_1_1_angle_a6f35e3d0d452af58223b6e8a246b49f0}{angleInRad}});}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{comment}{//res.normalise();}}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00088\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespace_math_a19a34a0e7320c79458a20463a387ae3d}\label{namespace_math_a19a34a0e7320c79458a20463a387ae3d} 
+\index{Math@{Math}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [3/13]}}
+{\footnotesize\ttfamily template$<$int H1, int W1, class Type1 $>$ \\
+\mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W1, float $>$ Math\+::operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W1, Type1 $>$ \&}]{m,  }\item[{float}]{skalar }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{matrix_8hpp_source_l00304}{304}} of file \mbox{\hyperlink{matrix_8hpp_source}{matrix.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00305\ \ \ \ \ \{}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_mat}{Mat<H1,\ W1,\ float>}}\ result;}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ 0;\ idx\ <\ m.\mbox{\hyperlink{class_math_1_1_mat_afb14c5ece4abb9e4c50b5ae4d9e27349}{length}};\ ++idx)}
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ \ \ \ \ result.\mbox{\hyperlink{class_math_1_1_mat_a85b24a2a0861361430225315a640aea1}{coords}}[idx]\ =\ m.\mbox{\hyperlink{class_math_1_1_mat_a85b24a2a0861361430225315a640aea1}{coords}}[idx]\ *\ skalar;}
+\DoxyCodeLine{00309\ }
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00311\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespace_math_ad302d4a12ce328bed1e6d4627511927c}\label{namespace_math_ad302d4a12ce328bed1e6d4627511927c} 
+\index{Math@{Math}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [4/13]}}
+{\footnotesize\ttfamily template$<$int W1, int W2, int H1, int H2, class Type1 $>$ \\
+\mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W2, Type1 $>$ Math\+::operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W1, Type1 $>$ \&}]{m1,  }\item[{const \mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H2, W2, Type1 $>$ \&}]{m2 }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{matrix_8hpp_source_l00328}{328}} of file \mbox{\hyperlink{matrix_8hpp_source}{matrix.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00329\ \ \ \ \ \{}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_assert}(W1\ ==\ H2,\ \textcolor{stringliteral}{"{}Can\ not\ multiple\ these\ matrixes!!'"{}});}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_mat}{Mat<H1,\ W2,\ Type1>}}\ result;}
+\DoxyCodeLine{00332\ }
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ row\ =\ 0;\ row\ <\ m1.\mbox{\hyperlink{class_math_1_1_mat_a24bd14c58add0b2d8ed6b1fe94d0baba}{height}};\ ++row)\ \{}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ col\ =\ 0;\ col\ <\ m2.\mbox{\hyperlink{class_math_1_1_mat_a1168929b2b537dc294de182ba1f02719}{width}};\ ++col)\ \{}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ 0;\ k\ <\ m1.\mbox{\hyperlink{class_math_1_1_mat_a1168929b2b537dc294de182ba1f02719}{width}};\ ++k)\ \{}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result(row,\ col)\ +=\ (m1(row,\ k)\ *\ m2(k,\ col));}
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00340\ }
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00342\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespace_math_a9cd63f3df19405b9474c0b5a2b2255fb}\label{namespace_math_a9cd63f3df19405b9474c0b5a2b2255fb} 
+\index{Math@{Math}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [5/13]}}
+{\footnotesize\ttfamily template$<$int W1, int H1, int D, class Type1 $>$ \\
+\mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ D, Type1 $>$ Math\+::operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ W1, H1, Type1 $>$ \&}]{m,  }\item[{const \mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ D, Type1 $>$ \&}]{v }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{matrix_8hpp_source_l00351}{351}} of file \mbox{\hyperlink{matrix_8hpp_source}{matrix.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00352\ \ \ \ \ \{}
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_mat}{Mat}}\ vm\ =\ \mbox{\hyperlink{namespace_math_a6f686e44ef531f116542143a580a02ce}{T}}(\mbox{\hyperlink{namespace_math_ab92ba61c4061d6dbca8ecf4b727c18e5}{createMatrixFromVector}}(v));}
+\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (m\ *\ vm).getVectorFromCol();}
+\DoxyCodeLine{00355\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{namespace_math_a9cd63f3df19405b9474c0b5a2b2255fb_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespace_math_a563d4ed2718b5048b6440afc0b7e9b0d}\label{namespace_math_a563d4ed2718b5048b6440afc0b7e9b0d} 
+\index{Math@{Math}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [6/13]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} Math\+::operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} \&}]{q,  }\item[{float}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}, {\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{quaternion_8hpp_source_l00105}{105}} of file \mbox{\hyperlink{quaternion_8hpp_source}{quaternion.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00106\ \ \ \ \ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ f\ *\ q;}
+\DoxyCodeLine{00108\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespace_math_adf16f62e56ee18741a93b0db7a555fe2}\label{namespace_math_adf16f62e56ee18741a93b0db7a555fe2} 
+\index{Math@{Math}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [7/13]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} Math\+::operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} \&}]{q1,  }\item[{const \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} \&}]{q2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}, {\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{quaternion_8hpp_source_l00061}{61}} of file \mbox{\hyperlink{quaternion_8hpp_source}{quaternion.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00062\ \ \ \ \ \{}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ Q\ \ |\ \ \ \ 1\ \ \ i\ \ \ j\ \ \ k\ \ -\/1\ \ -\/i\ \ -\/j\ \ -\/k}}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/|-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ 1\ \ |\ \ \ \ 1\ \ \ i\ \ \ j\ \ \ k\ \ -\/1\ \ -\/i\ \ -\/j\ \ -\/k}}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ i\ \ |\ \ \ \ i\ \ -\/1\ \ \ k\ \ -\/j\ \ -\/i\ \ \ 1\ \ \ k\ \ \ j}}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ j\ \ |\ \ \ \ j\ \ -\/k\ \ -\/1\ \ \ i\ \ -\/j\ \ \ k\ \ \ 1\ \ -\/i}}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ k\ \ |\ \ \ \ k\ \ \ j\ \ -\/i\ \ -\/1\ \ -\/k\ \ -\/j\ \ \ i\ \ \ 1}}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ -\/1\ \ |\ \ \ -\/1\ \ -\/i\ \ -\/j\ \ -\/k\ \ \ 1\ \ \ i\ \ \ j\ \ \ k}}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ -\/i\ \ |\ \ \ -\/i\ \ \ 1\ \ -\/k\ \ \ j\ \ \ i\ \ -\/1\ \ \ k\ \ -\/j}}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ -\/j\ \ |\ \ \ -\/j\ \ \ k\ \ \ 1\ \ -\/i\ \ \ j\ \ -\/k\ \ -\/1\ \ \ i}}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ -\/k\ \ |\ \ \ -\/k\ \ -\/j\ \ \ i\ \ \ 1\ \ \ k\ \ \ j\ \ -\/i\ \ -\/1}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ Sq1\ =\ q1.\mbox{\hyperlink{class_math_1_1_quaternion_af37958bc019970ce12cf2ab69d532dd3}{Re}}();}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ Sq2\ =\ q2.\mbox{\hyperlink{class_math_1_1_quaternion_af37958bc019970ce12cf2ab69d532dd3}{Re}}();}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}}\ Vq1\ =\ q1.\mbox{\hyperlink{class_math_1_1_quaternion_a8c258b7c67c68e8212211a6b1f6beeef}{Im}}();}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}}\ Vq2\ =\ q2.\mbox{\hyperlink{class_math_1_1_quaternion_a8c258b7c67c68e8212211a6b1f6beeef}{Im}}();}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ part1\ =\ Sq1\ *\ Sq2;}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}}\ \ \ \ part2\ =\ Vq1\ *\ Sq2;}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}}\ \ \ \ part3\ =\ Sq1\ *\ Vq2;}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ part4a\ =\ -\/(q1.\mbox{\hyperlink{class_math_1_1_quaternion_a99de5cd84dde4b2166f3b6be3d67cb84}{b}}\ *\ q2.\mbox{\hyperlink{class_math_1_1_quaternion_a99de5cd84dde4b2166f3b6be3d67cb84}{b}}\ +\ q1.\mbox{\hyperlink{class_math_1_1_quaternion_ac65d917f695a04396b36d3636ec0ee05}{c}}\ *\ q2.\mbox{\hyperlink{class_math_1_1_quaternion_ac65d917f695a04396b36d3636ec0ee05}{c}}\ +\ q1.\mbox{\hyperlink{class_math_1_1_quaternion_a99ff6eb759131be08ba61449ee702e7c}{d}}\ *\ q2.\mbox{\hyperlink{class_math_1_1_quaternion_a99ff6eb759131be08ba61449ee702e7c}{d}});}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ part4b\ =\ (q1.\mbox{\hyperlink{class_math_1_1_quaternion_ac65d917f695a04396b36d3636ec0ee05}{c}}\ *\ q2.\mbox{\hyperlink{class_math_1_1_quaternion_a99ff6eb759131be08ba61449ee702e7c}{d}}\ -\/\ q1.\mbox{\hyperlink{class_math_1_1_quaternion_a99ff6eb759131be08ba61449ee702e7c}{d}}\ *\ q2.\mbox{\hyperlink{class_math_1_1_quaternion_ac65d917f695a04396b36d3636ec0ee05}{c}});}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ part4c\ =\ (q1.\mbox{\hyperlink{class_math_1_1_quaternion_a99ff6eb759131be08ba61449ee702e7c}{d}}\ *\ q2.\mbox{\hyperlink{class_math_1_1_quaternion_a99de5cd84dde4b2166f3b6be3d67cb84}{b}}\ -\/\ q1.\mbox{\hyperlink{class_math_1_1_quaternion_a99de5cd84dde4b2166f3b6be3d67cb84}{b}}\ *\ q2.\mbox{\hyperlink{class_math_1_1_quaternion_a99ff6eb759131be08ba61449ee702e7c}{d}});}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ part4d\ =\ (q1.\mbox{\hyperlink{class_math_1_1_quaternion_a99de5cd84dde4b2166f3b6be3d67cb84}{b}}\ *\ q2.\mbox{\hyperlink{class_math_1_1_quaternion_ac65d917f695a04396b36d3636ec0ee05}{c}}\ -\/\ q1.\mbox{\hyperlink{class_math_1_1_quaternion_ac65d917f695a04396b36d3636ec0ee05}{c}}\ *\ q2.\mbox{\hyperlink{class_math_1_1_quaternion_a99de5cd84dde4b2166f3b6be3d67cb84}{b}});}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}}\ \ \ \ part4\ =\ \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}}(part4a,\ part4b,\ part4c,\ part4d);}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}}\ result\ =\ part1\ +\ part2\ +\ part3\ +\ part4;}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00094\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespace_math_a98549687ea1b097e84cd2cfc28c7d813}\label{namespace_math_a98549687ea1b097e84cd2cfc28c7d813} 
+\index{Math@{Math}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [8/13]}}
+{\footnotesize\ttfamily template$<$int W1, int H1, int D, class Type1 $>$ \\
+\mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ D, Type1 $>$ Math\+::operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ D, Type1 $>$ \&}]{v,  }\item[{const \mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ W1, H1, Type1 $>$ \&}]{m }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{matrix_8hpp_source_l00345}{345}} of file \mbox{\hyperlink{matrix_8hpp_source}{matrix.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00346\ \ \ \ \ \{}
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{namespace_math_ab92ba61c4061d6dbca8ecf4b727c18e5}{createMatrixFromVector}}(v)\ *\ m).getVectorFromRow();}
+\DoxyCodeLine{00348\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{namespace_math_a98549687ea1b097e84cd2cfc28c7d813_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespace_math_ad126e64a23d83e208fca1fc6934b1169}\label{namespace_math_ad126e64a23d83e208fca1fc6934b1169} 
+\index{Math@{Math}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [9/13]}}
+{\footnotesize\ttfamily template$<$int D1, class Type1 $>$ \\
+\mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ D1, Type1 $>$ Math\+::operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ D1, Type1 $>$ \&}]{vec,  }\item[{float}]{skalar }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{vector_8hpp_source_l00197}{197}} of file \mbox{\hyperlink{vector_8hpp_source}{vector.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00198\ \ \ \ \ \{}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Vec<D1,\ Type1>}}\ result\ =\ vec;}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ 0;\ idx\ <\ D1;\ ++idx)}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ result.\mbox{\hyperlink{class_math_1_1_vec_ae13d9e20b12ff4da8c29618f7291e841}{coords}}[idx]\ =\ vec[idx]\ *\ skalar;}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00204\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespace_math_a3c991495498537acdda332a3601d70db}\label{namespace_math_a3c991495498537acdda332a3601d70db} 
+\index{Math@{Math}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [10/13]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} Math\+::operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{float}]{f,  }\item[{const \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} \&}]{q }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}, {\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{quaternion_8hpp_source_l00096}{96}} of file \mbox{\hyperlink{quaternion_8hpp_source}{quaternion.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00097\ \ \ \ \ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ a\ =\ q.\mbox{\hyperlink{class_math_1_1_quaternion_a169cce970414c401851ae55002908097}{a}}\ *\ f;}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ b\ =\ q.\mbox{\hyperlink{class_math_1_1_quaternion_a99de5cd84dde4b2166f3b6be3d67cb84}{b}}\ *\ f;}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ c\ =\ q.\mbox{\hyperlink{class_math_1_1_quaternion_ac65d917f695a04396b36d3636ec0ee05}{c}}\ *\ f;}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ d\ =\ q.\mbox{\hyperlink{class_math_1_1_quaternion_a99ff6eb759131be08ba61449ee702e7c}{d}}\ *\ f;}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}}(a,\ b,\ c,\ d);}
+\DoxyCodeLine{00103\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespace_math_a16ec2f0da62f23f986300533fa182498}\label{namespace_math_a16ec2f0da62f23f986300533fa182498} 
+\index{Math@{Math}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [11/13]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_math_1_1_angle}{Angle}} Math\+::operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{float}]{skalar,  }\item[{const \mbox{\hyperlink{class_math_1_1_angle}{Angle}} \&}]{angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}, {\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{angle_8hpp_source_l00090}{90}} of file \mbox{\hyperlink{angle_8hpp_source}{angle.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00091\ \ \ \ \ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_angle}{Angle}}\ res(skalar\ *\ angle.\mbox{\hyperlink{class_math_1_1_angle_a6f35e3d0d452af58223b6e8a246b49f0}{angleInRad}});}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{comment}{//res.normalise();}}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00095\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespace_math_a7ef65bccde0286b8269ef014e72c5e13}\label{namespace_math_a7ef65bccde0286b8269ef014e72c5e13} 
+\index{Math@{Math}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [12/13]}}
+{\footnotesize\ttfamily template$<$int H1, int W1, class Type1 $>$ \\
+\mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W1, float $>$ Math\+::operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{float}]{skalar,  }\item[{const \mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W1, Type1 $>$ \&}]{m }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{matrix_8hpp_source_l00314}{314}} of file \mbox{\hyperlink{matrix_8hpp_source}{matrix.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00315\ \ \ \ \ \{}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\ *\ skalar;}
+\DoxyCodeLine{00317\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespace_math_a8221350dc6e7edce7bdb1cf441815185}\label{namespace_math_a8221350dc6e7edce7bdb1cf441815185} 
+\index{Math@{Math}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [13/13]}}
+{\footnotesize\ttfamily template$<$int D1, class Type1 $>$ \\
+\mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ D1, Type1 $>$ Math\+::operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{float}]{skalar,  }\item[{const \mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ D1, Type1 $>$ \&}]{vec }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{vector_8hpp_source_l00208}{208}} of file \mbox{\hyperlink{vector_8hpp_source}{vector.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00209\ \ \ \ \ \{}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ vec\ *\ skalar;}
+\DoxyCodeLine{00211\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespace_math_a70feada65f6fd29c0d91896ec760d89c}\label{namespace_math_a70feada65f6fd29c0d91896ec760d89c} 
+\index{Math@{Math}!operator+@{operator+}}
+\index{operator+@{operator+}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_math_1_1_angle}{Angle}} Math\+::operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_math_1_1_angle}{Angle}} \&}]{angle1,  }\item[{const \mbox{\hyperlink{class_math_1_1_angle}{Angle}} \&}]{angle2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}, {\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{angle_8hpp_source_l00071}{71}} of file \mbox{\hyperlink{angle_8hpp_source}{angle.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00072\ \ \ \ \ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_angle}{Angle}}\ res(angle1.\mbox{\hyperlink{class_math_1_1_angle_a6f35e3d0d452af58223b6e8a246b49f0}{angleInRad}}\ +\ angle2.\mbox{\hyperlink{class_math_1_1_angle_a6f35e3d0d452af58223b6e8a246b49f0}{angleInRad}});}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{comment}{//res.normalise();}}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00076\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespace_math_aa4702dd289093f85efd2ce191d042773}\label{namespace_math_aa4702dd289093f85efd2ce191d042773} 
+\index{Math@{Math}!operator+@{operator+}}
+\index{operator+@{operator+}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} Math\+::operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} \&}]{q1,  }\item[{const \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} \&}]{q2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}, {\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{quaternion_8hpp_source_l00047}{47}} of file \mbox{\hyperlink{quaternion_8hpp_source}{quaternion.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00048\ \ \ \ \ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ a\ =\ q1.\mbox{\hyperlink{class_math_1_1_quaternion_a169cce970414c401851ae55002908097}{a}}\ +\ q2.\mbox{\hyperlink{class_math_1_1_quaternion_a169cce970414c401851ae55002908097}{a}};}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ b\ =\ q1.\mbox{\hyperlink{class_math_1_1_quaternion_a99de5cd84dde4b2166f3b6be3d67cb84}{b}}\ +\ q2.\mbox{\hyperlink{class_math_1_1_quaternion_a99de5cd84dde4b2166f3b6be3d67cb84}{b}};}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ c\ =\ q1.\mbox{\hyperlink{class_math_1_1_quaternion_ac65d917f695a04396b36d3636ec0ee05}{c}}\ +\ q2.\mbox{\hyperlink{class_math_1_1_quaternion_ac65d917f695a04396b36d3636ec0ee05}{c}};}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ d\ =\ q1.\mbox{\hyperlink{class_math_1_1_quaternion_a99ff6eb759131be08ba61449ee702e7c}{d}}\ +\ q2.\mbox{\hyperlink{class_math_1_1_quaternion_a99ff6eb759131be08ba61449ee702e7c}{d}};}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}}(a,\ b,\ c,\ d);}
+\DoxyCodeLine{00054\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespace_math_a8e77424bc391c697f34fa264df2a02a8}\label{namespace_math_a8e77424bc391c697f34fa264df2a02a8} 
+\index{Math@{Math}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_math_1_1_angle}{Angle}} Math\+::operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_math_1_1_angle}{Angle}} \&}]{angle1,  }\item[{const \mbox{\hyperlink{class_math_1_1_angle}{Angle}} \&}]{angle2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}, {\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{angle_8hpp_source_l00078}{78}} of file \mbox{\hyperlink{angle_8hpp_source}{angle.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00079\ \ \ \ \ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ angle1\ +\ (-\/1.0f\ *\ angle2);}
+\DoxyCodeLine{00081\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespace_math_ae4d4050d108be2ff9bbaacbd613cbf48}\label{namespace_math_ae4d4050d108be2ff9bbaacbd613cbf48} 
+\index{Math@{Math}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} Math\+::operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} \&}]{q1,  }\item[{const \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} \&}]{q2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}, {\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{quaternion_8hpp_source_l00056}{56}} of file \mbox{\hyperlink{quaternion_8hpp_source}{quaternion.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00057\ \ \ \ \ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ q1\ +\ (-\/q2);}
+\DoxyCodeLine{00059\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespace_math_a502e2a81977fc80492d4f49630ad76f3}\label{namespace_math_a502e2a81977fc80492d4f49630ad76f3} 
+\index{Math@{Math}!operator/@{operator/}}
+\index{operator/@{operator/}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{operator/()}{operator/()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_math_1_1_angle}{Angle}} Math\+::operator/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_math_1_1_angle}{Angle}} \&}]{angle,  }\item[{float}]{skalar }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}, {\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{angle_8hpp_source_l00109}{109}} of file \mbox{\hyperlink{angle_8hpp_source}{angle.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00110\ \ \ \ \ \{}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_angle}{Angle}}\ res(angle.\mbox{\hyperlink{class_math_1_1_angle_a6f35e3d0d452af58223b6e8a246b49f0}{angleInRad}}\ /\ skalar);}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{comment}{//res.normalise();}}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00114\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespace_math_acc53036f27eb30c66e163209631ad15b}\label{namespace_math_acc53036f27eb30c66e163209631ad15b} 
+\index{Math@{Math}!operator/@{operator/}}
+\index{operator/@{operator/}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{operator/()}{operator/()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_math_1_1_angle}{Angle}} Math\+::operator/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_math_1_1_angle}{Angle}} \&}]{angle1,  }\item[{const \mbox{\hyperlink{class_math_1_1_angle}{Angle}} \&}]{angle2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}, {\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{angle_8hpp_source_l00102}{102}} of file \mbox{\hyperlink{angle_8hpp_source}{angle.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00103\ \ \ \ \ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_angle}{Angle}}\ res(angle1.\mbox{\hyperlink{class_math_1_1_angle_a6f35e3d0d452af58223b6e8a246b49f0}{angleInRad}}\ /\ angle2.\mbox{\hyperlink{class_math_1_1_angle_a6f35e3d0d452af58223b6e8a246b49f0}{angleInRad}});}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{comment}{//res.normalise();}}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00107\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespace_math_aeb8b201c2a077719593910dc97c5e10e}\label{namespace_math_aeb8b201c2a077719593910dc97c5e10e} 
+\index{Math@{Math}!operator/@{operator/}}
+\index{operator/@{operator/}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{operator/()}{operator/()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily template$<$int H1, int W1, class Type1 $>$ \\
+\mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W1, float $>$ Math\+::operator/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W1, Type1 $>$ \&}]{m,  }\item[{float}]{skalar }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{matrix_8hpp_source_l00320}{320}} of file \mbox{\hyperlink{matrix_8hpp_source}{matrix.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00321\ \ \ \ \ \{}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (skalar\ ==\ 0.0f)}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_math_1_1_zero_division_exception}{ZeroDivisionException}}();}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\ *\ (1.0f\ /\ skalar);}
+\DoxyCodeLine{00325\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespace_math_a41b72cd072e1246000ffbcef107d6d94}\label{namespace_math_a41b72cd072e1246000ffbcef107d6d94} 
+\index{Math@{Math}!operator/@{operator/}}
+\index{operator/@{operator/}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{operator/()}{operator/()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily template$<$int D1, class Type1 $>$ \\
+\mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ D1, Type1 $>$ Math\+::operator/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ D1, Type1 $>$ \&}]{vec,  }\item[{float}]{skalar }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{vector_8hpp_source_l00215}{215}} of file \mbox{\hyperlink{vector_8hpp_source}{vector.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00216\ \ \ \ \ \{}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (skalar\ ==\ 0.0f)}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_math_1_1_zero_division_exception}{ZeroDivisionException}}();}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ vec\ *\ (1.0f\ /\ skalar);}
+\DoxyCodeLine{00220\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespace_math_a302164d4878a290980ee559a4583e7b9}\label{namespace_math_a302164d4878a290980ee559a4583e7b9} 
+\index{Math@{Math}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$int H1, int W1, class Type1 $>$ \\
+std\+::ostream \& Math\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W1, Type1 $>$ \&}]{m }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{matrix_8hpp_source_l00279}{279}} of file \mbox{\hyperlink{matrix_8hpp_source}{matrix.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00280\ \ \ \ \ \{}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*os\ <<\ m.height\ <<\ "{}\(\backslash\)t"{}\ <<\ m.width\ <<\ "{}\(\backslash\)n"{};*/}}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ 0;\ idx\ <\ m.\mbox{\hyperlink{class_math_1_1_mat_afb14c5ece4abb9e4c50b5ae4d9e27349}{length}}\ -\/\ 1;\ ++idx)}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ m.\mbox{\hyperlink{class_math_1_1_mat_a85b24a2a0861361430225315a640aea1}{coords}}[idx]\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)t"{}};}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ os\ <<\ m.\mbox{\hyperlink{class_math_1_1_mat_a85b24a2a0861361430225315a640aea1}{coords}}[m.\mbox{\hyperlink{class_math_1_1_mat_afb14c5ece4abb9e4c50b5ae4d9e27349}{length}}\ -\/\ 1];}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ os;}
+\DoxyCodeLine{00288\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespace_math_aa60f97b163694b187f7dda23b0817e90}\label{namespace_math_aa60f97b163694b187f7dda23b0817e90} 
+\index{Math@{Math}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily std\+::ostream \& Math\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} \&}]{q }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}, {\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{quaternion_8hpp_source_l00110}{110}} of file \mbox{\hyperlink{quaternion_8hpp_source}{quaternion.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00111\ \ \ \ \ \{}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ a\ =\ q.\mbox{\hyperlink{class_math_1_1_quaternion_a169cce970414c401851ae55002908097}{a}};}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ b\ =\ q.\mbox{\hyperlink{class_math_1_1_quaternion_a99de5cd84dde4b2166f3b6be3d67cb84}{b}};}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ c\ =\ q.\mbox{\hyperlink{class_math_1_1_quaternion_ac65d917f695a04396b36d3636ec0ee05}{c}};}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ d\ =\ q.\mbox{\hyperlink{class_math_1_1_quaternion_a99ff6eb759131be08ba61449ee702e7c}{d}};}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ os\ <<\ a;}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (b\ >=\ 0)}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ +\ "{}}\ <<\ b;}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ -\/\ "{}}\ <<\ fabs(b);}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}i"{}};}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (c\ >=\ 0)}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ +\ "{}}\ <<\ c;}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ -\/\ "{}}\ <<\ fabs(c);}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}j"{}};}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (d\ >=\ 0)}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ +\ "{}}\ <<\ d;}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ -\/\ "{}}\ <<\ fabs(d);}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}k"{}};}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ os;}
+\DoxyCodeLine{00138\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespace_math_af3506750043ed7528dd970cc061be75c}\label{namespace_math_af3506750043ed7528dd970cc061be75c} 
+\index{Math@{Math}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$int D, class Type $>$ \\
+std\+::ostream \& Math\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ D, Type $>$ \&}]{vec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{vector_8hpp_source_l00172}{172}} of file \mbox{\hyperlink{vector_8hpp_source}{vector.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00173\ \ \ \ \ \{}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ 0;\ idx\ <\ D\ -\/\ 1;\ ++idx)}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ vec.\mbox{\hyperlink{class_math_1_1_vec_ae13d9e20b12ff4da8c29618f7291e841}{coords}}[idx]\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)t"{}};}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ os\ <<\ vec.\mbox{\hyperlink{class_math_1_1_vec_ae13d9e20b12ff4da8c29618f7291e841}{coords}}[D\ -\/\ 1];}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ os;}
+\DoxyCodeLine{00179\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespace_math_af101691560a371a73f6fe4af76ccf1ab}\label{namespace_math_af101691560a371a73f6fe4af76ccf1ab} 
+\index{Math@{Math}!operator==@{operator==}}
+\index{operator==@{operator==}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily template$<$class Node\+Type , class Edge\+Type $>$ \\
+bool Math\+::operator== (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_math_1_1_graph}{Graph}}$<$ Node\+Type, Edge\+Type $>$}]{graph1,  }\item[{\mbox{\hyperlink{class_math_1_1_graph}{Graph}}$<$ Node\+Type, Edge\+Type $>$}]{graph2 }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{graph_8hpp_source_l00256}{256}} of file \mbox{\hyperlink{graph_8hpp_source}{graph.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00257\ \ \ \ \ \{}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*if\ (!std::is\_same<Type1,\ Type2>::value) }}
+\DoxyCodeLine{00259\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ return\ false;*/}}
+\DoxyCodeLine{00260\ }
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (graph1.\mbox{\hyperlink{class_math_1_1_graph_a5ef23306162c55880d472108584a4350}{values}}\ !=\ graph2.\mbox{\hyperlink{class_math_1_1_graph_a5ef23306162c55880d472108584a4350}{values}})}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00263\ }
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (graph1.\mbox{\hyperlink{class_math_1_1_graph_ab1a4eff789486fcf855ce1613779aadd}{neighbours}}\ !=\ graph2.\mbox{\hyperlink{class_math_1_1_graph_ab1a4eff789486fcf855ce1613779aadd}{neighbours}})}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00268\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespace_math_af08e2151a06b520864821924e203be94}\label{namespace_math_af08e2151a06b520864821924e203be94} 
+\index{Math@{Math}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$()}{operator>>()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$int W1, int H1, class Type1 $>$ \\
+std\+::istream \& Math\+::operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{is,  }\item[{\mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W1, Type1 $>$ \&}]{m }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{matrix_8hpp_source_l00291}{291}} of file \mbox{\hyperlink{matrix_8hpp_source}{matrix.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00292\ \ \ \ \ \{}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ coord;}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ 0;\ idx\ <\ H1\ *\ W1;\ ++idx)}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \ \ \ \ is\ >>\ coord;}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \ \ \ \ m.\mbox{\hyperlink{class_math_1_1_mat_a85b24a2a0861361430225315a640aea1}{coords}}[idx]\ =\ coord;}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00299\ }
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ is;}
+\DoxyCodeLine{00301\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespace_math_a84070993850ce1b6459cd7ba73616bd1}\label{namespace_math_a84070993850ce1b6459cd7ba73616bd1} 
+\index{Math@{Math}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$()}{operator>>()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$int D, class Type $>$ \\
+std\+::istream \& Math\+::operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{is,  }\item[{\mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ D, Type $>$ \&}]{vec }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{vector_8hpp_source_l00183}{183}} of file \mbox{\hyperlink{vector_8hpp_source}{vector.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00184\ \ \ \ \ \{}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ coord;}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ 0;\ idx\ <\ D;\ ++idx)}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ is\ >>\ coord;}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ vec.\mbox{\hyperlink{class_math_1_1_vec_ae13d9e20b12ff4da8c29618f7291e841}{coords}}[idx]\ =\ coord;}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ is;}
+\DoxyCodeLine{00193\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespace_math_a6c2ee98486b2c89d39861f1a125b7ece}\label{namespace_math_a6c2ee98486b2c89d39861f1a125b7ece} 
+\index{Math@{Math}!sin@{sin}}
+\index{sin@{sin}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{sin()}{sin()}}
+{\footnotesize\ttfamily float Math\+::sin (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_math_1_1_angle}{Angle}} \&}]{angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}, {\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{angle_8hpp_source_l00116}{116}} of file \mbox{\hyperlink{angle_8hpp_source}{angle.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00117\ \ \ \ \ \{}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ sinf(angle.\mbox{\hyperlink{class_math_1_1_angle_a6f35e3d0d452af58223b6e8a246b49f0}{angleInRad}});}
+\DoxyCodeLine{00119\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=317pt]{namespace_math_a6c2ee98486b2c89d39861f1a125b7ece_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespace_math_a7e43e3dfd71f9bb750206a2cdf4d0f0a}\label{namespace_math_a7e43e3dfd71f9bb750206a2cdf4d0f0a} 
+\index{Math@{Math}!sortestPath@{sortestPath}}
+\index{sortestPath@{sortestPath}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{sortestPath()}{sortestPath()}}
+{\footnotesize\ttfamily template$<$class \mbox{\hyperlink{namespace_math_a6f686e44ef531f116542143a580a02ce}{T}} $>$ \\
+void Math\+::sortest\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_math_1_1_graph}{Graph}}$<$ \mbox{\hyperlink{namespace_math_a6f686e44ef531f116542143a580a02ce}{T}} $>$ \texorpdfstring{$\ast$}{*}}]{graph }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{graph_algorithm_8hpp_source_l00031}{31}} of file \mbox{\hyperlink{graph_algorithm_8hpp_source}{graph\+Algorithm.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00032\ \ \ \ \ \{}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespace_math_a6f686e44ef531f116542143a580a02ce}\label{namespace_math_a6f686e44ef531f116542143a580a02ce} 
+\index{Math@{Math}!T@{T}}
+\index{T@{T}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{T()}{T()}}
+{\footnotesize\ttfamily template$<$int W1, int H1, class Type1 $>$ \\
+\mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ W1, H1, Type1 $>$ Math\+::T (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W1, Type1 $>$ \&}]{m }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{matrix_8hpp_source_l00250}{250}} of file \mbox{\hyperlink{matrix_8hpp_source}{matrix.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00251\ \ \ \ \ \{}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_mat}{Mat<W1,\ H1,\ Type1>}}\ result;}
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ row\ =\ 0;\ row\ <\ m.\mbox{\hyperlink{class_math_1_1_mat_a24bd14c58add0b2d8ed6b1fe94d0baba}{height}};\ ++row)\ }
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ col\ =\ 0;\ col\ <\ m.\mbox{\hyperlink{class_math_1_1_mat_a1168929b2b537dc294de182ba1f02719}{width}};\ ++col)\ }
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result(col,\ row)\ =\ m(row,\ col);}
+\DoxyCodeLine{00257\ }
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00259\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=249pt]{namespace_math_a6f686e44ef531f116542143a580a02ce_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespace_math_a248e06026c0989f801ad27daec6aaf57}\label{namespace_math_a248e06026c0989f801ad27daec6aaf57} 
+\index{Math@{Math}!tan@{tan}}
+\index{tan@{tan}!Math@{Math}}
+\doxysubsubsection{\texorpdfstring{tan()}{tan()}}
+{\footnotesize\ttfamily float Math\+::tan (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_math_1_1_angle}{Angle}} \&}]{angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}, {\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{angle_8hpp_source_l00126}{126}} of file \mbox{\hyperlink{angle_8hpp_source}{angle.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00127\ \ \ \ \ \{}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ tanf(angle.\mbox{\hyperlink{class_math_1_1_angle_a6f35e3d0d452af58223b6e8a246b49f0}{angleInRad}});}
+\DoxyCodeLine{00129\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=236pt]{namespace_math_a248e06026c0989f801ad27daec6aaf57_icgraph}
+\end{center}
+\end{figure}

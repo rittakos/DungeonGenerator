@@ -1,0 +1,535 @@
+\doxysection{dim2.\+h}
+\hypertarget{dim2_8h_source}{}\label{dim2_8h_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/lemon/dim2.h@{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/lemon/dim2.h}}
+\mbox{\hyperlink{dim2_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00001}00001\ \textcolor{comment}{/*\ -\/*-\/\ mode:\ C++;\ indent-\/tabs-\/mode:\ nil;\ -\/*-\/}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00002}00002\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00003}00003\ \textcolor{comment}{\ *\ This\ file\ is\ a\ part\ of\ LEMON,\ a\ generic\ C++\ optimization\ library.}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00004}00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00005}00005\ \textcolor{comment}{\ *\ Copyright\ (C)\ 2003-\/2009}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00006}00006\ \textcolor{comment}{\ *\ Egervary\ Jeno\ Kombinatorikus\ Optimalizalasi\ Kutatocsoport}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00007}00007\ \textcolor{comment}{\ *\ (Egervary\ Research\ Group\ on\ Combinatorial\ Optimization,\ EGRES).}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00008}00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00009}00009\ \textcolor{comment}{\ *\ Permission\ to\ use,\ modify\ and\ distribute\ this\ software\ is\ granted}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00010}00010\ \textcolor{comment}{\ *\ provided\ that\ this\ copyright\ notice\ appears\ in\ all\ copies.\ For}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00011}00011\ \textcolor{comment}{\ *\ precise\ terms\ see\ the\ accompanying\ LICENSE\ file.}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00012}00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00013}00013\ \textcolor{comment}{\ *\ This\ software\ is\ provided\ "{}AS\ IS"{}\ with\ no\ warranty\ of\ any\ kind,}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00014}00014\ \textcolor{comment}{\ *\ express\ or\ implied,\ and\ with\ no\ claim\ as\ to\ its\ suitability\ for\ any}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00015}00015\ \textcolor{comment}{\ *\ purpose.}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00016}00016\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00017}00017\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00019}00019\ \textcolor{preprocessor}{\#ifndef\ LEMON\_DIM2\_H}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00020}00020\ \textcolor{preprocessor}{\#define\ LEMON\_DIM2\_H}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00023}00023\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00029}00029\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacelemon}{lemon}}\ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00035}00035\ \ \ \textcolor{keyword}{namespace\ }dim2\ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00044}00044\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00045}\mbox{\hyperlink{classlemon_1_1dim2_1_1_point}{00045}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1dim2_1_1_point}{Point}}\ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00047}00047\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00049}\mbox{\hyperlink{classlemon_1_1dim2_1_1_point_af0e28afc468a5de93dd28fdad2914c84}{00049}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ T\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_point_af0e28afc468a5de93dd28fdad2914c84}{Value}};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00052}\mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a2266765760e76540bd56a3f7ab7a722a}{00052}}\ \ \ \ \ \ \ T\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a2266765760e76540bd56a3f7ab7a722a}{x}};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00054}\mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a5da4fd902a1cebc442073f172774036d}{00054}}\ \ \ \ \ \ \ T\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a5da4fd902a1cebc442073f172774036d}{y}};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00057}\mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a51d148161199ba3d62afa9380606c663}{00057}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a51d148161199ba3d62afa9380606c663}{Point}}()\ \{\}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00060}\mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a2e2139a786a1e9a656546ebea2ae9f04}{00060}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a2e2139a786a1e9a656546ebea2ae9f04}{Point}}(T\ a,\ T\ b)\ :\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a2266765760e76540bd56a3f7ab7a722a}{x}}(a),\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a5da4fd902a1cebc442073f172774036d}{y}}(b)\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00066}\mbox{\hyperlink{classlemon_1_1dim2_1_1_point_abe2c58759ed61992db4ae62233c06c07}{00066}}\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_point_abe2c58759ed61992db4ae62233c06c07}{size}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ 2;\ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00072}\mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a8c0dbe237bc3bc65b929f8d7a615afd6}{00072}}\ \ \ \ \ \ \ T\&\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a8c0dbe237bc3bc65b929f8d7a615afd6}{operator[]}}(\textcolor{keywordtype}{int}\ idx)\ \{\ \textcolor{keywordflow}{return}\ idx\ ==\ 0\ ?\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a2266765760e76540bd56a3f7ab7a722a}{x}}\ :\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a5da4fd902a1cebc442073f172774036d}{y}};\ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00078}\mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a7d411924be4fd42c99ed6cf4a65d922c}{00078}}\ \ \ \ \ \ \ \textcolor{keyword}{const}\ T\&\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a7d411924be4fd42c99ed6cf4a65d922c}{operator[]}}(\textcolor{keywordtype}{int}\ idx)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ idx\ ==\ 0\ ?\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a2266765760e76540bd56a3f7ab7a722a}{x}}\ :\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a5da4fd902a1cebc442073f172774036d}{y}};\ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00081}\mbox{\hyperlink{classlemon_1_1dim2_1_1_point_aa7b79df3e9034c9bcb85b4af611b8c18}{00081}}\ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ TT>\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_point_aa7b79df3e9034c9bcb85b4af611b8c18}{Point}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<TT>}}\ \&p)\ :\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a2266765760e76540bd56a3f7ab7a722a}{x}}(p.\mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a2266765760e76540bd56a3f7ab7a722a}{x}}),\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a5da4fd902a1cebc442073f172774036d}{y}}(p.\mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a5da4fd902a1cebc442073f172774036d}{y}})\ \{\}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00084}\mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a07b3bc074d805989cf147acb9e985fd7}{00084}}\ \ \ \ \ \ \ T\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a07b3bc074d805989cf147acb9e985fd7}{normSquare}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00085}00085\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a2266765760e76540bd56a3f7ab7a722a}{x}}*\mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a2266765760e76540bd56a3f7ab7a722a}{x}}+\mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a5da4fd902a1cebc442073f172774036d}{y}}*\mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a5da4fd902a1cebc442073f172774036d}{y}};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00086}00086\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00089}\mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a4b06ed76f7277d066c91708f48f428b6}{00089}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}\&\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a4b06ed76f7277d066c91708f48f428b6}{operator\ +=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}\&\ u)\ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00090}00090\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a2266765760e76540bd56a3f7ab7a722a}{x}}\ +=\ u.x;}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00091}00091\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a5da4fd902a1cebc442073f172774036d}{y}}\ +=\ u.y;}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00092}00092\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00093}00093\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00096}\mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a24fda079a4ad7a740398e2dca8833eec}{00096}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}\&\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a24fda079a4ad7a740398e2dca8833eec}{operator\ -\/=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}\&\ u)\ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00097}00097\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a2266765760e76540bd56a3f7ab7a722a}{x}}\ -\/=\ u.x;}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00098}00098\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a5da4fd902a1cebc442073f172774036d}{y}}\ -\/=\ u.y;}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00099}00099\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00100}00100\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00103}\mbox{\hyperlink{classlemon_1_1dim2_1_1_point_adc1c53c074234cd10e7f8859de68df07}{00103}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}\&\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_point_adc1c53c074234cd10e7f8859de68df07}{operator\ *=}}(\textcolor{keyword}{const}\ T\ \&u)\ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00104}00104\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a2266765760e76540bd56a3f7ab7a722a}{x}}\ *=\ u;}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00105}00105\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a5da4fd902a1cebc442073f172774036d}{y}}\ *=\ u;}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00106}00106\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00107}00107\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00110}\mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a7fc3607dde1432a50b43c2f661a77f7a}{00110}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}\&\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a7fc3607dde1432a50b43c2f661a77f7a}{operator\ /=}}(\textcolor{keyword}{const}\ T\ \&u)\ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00111}00111\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a2266765760e76540bd56a3f7ab7a722a}{x}}\ /=\ u;}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00112}00112\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a5da4fd902a1cebc442073f172774036d}{y}}\ /=\ u;}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00113}00113\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00114}00114\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00117}\mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a5ec39b26f83c20a602394099240a023d}{00117}}\ \ \ \ \ \ \ T\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a5ec39b26f83c20a602394099240a023d}{operator\ *}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}\&\ u)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00118}00118\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a2266765760e76540bd56a3f7ab7a722a}{x}}*u.x+\mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a5da4fd902a1cebc442073f172774036d}{y}}*u.y;}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00119}00119\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00122}\mbox{\hyperlink{classlemon_1_1dim2_1_1_point_aa76877c57cefe79a8ee32b543c978f12}{00122}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_point_aa76877c57cefe79a8ee32b543c978f12}{operator+}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}\ \&u)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00123}00123\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}\ b=*\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00124}00124\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ b+=u;}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00125}00125\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00126}00126\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00128}\mbox{\hyperlink{classlemon_1_1dim2_1_1_point_ad63d264a9ffae4b1c76657c7be1b8897}{00128}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_point_ad63d264a9ffae4b1c76657c7be1b8897}{operator-\/}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00129}00129\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}\ b=*\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00130}00130\ \ \ \ \ \ \ \ \ b.x=-\/b.x;\ b.y=-\/b.y;}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00131}00131\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ b;}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00132}00132\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00135}\mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a0f2f46fd7f7d76b8e87648f373be795e}{00135}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a0f2f46fd7f7d76b8e87648f373be795e}{operator-\/}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}\ \&u)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00136}00136\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}\ b=*\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00137}00137\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ b-\/=u;}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00138}00138\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00139}00139\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00141}\mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a80961c9e22185cd9396a7a03b854ea08}{00141}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a80961c9e22185cd9396a7a03b854ea08}{operator*}}(\textcolor{keyword}{const}\ T\ \&u)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00142}00142\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}\ b=*\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00143}00143\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ b*=u;}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00144}00144\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00145}00145\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00147}\mbox{\hyperlink{classlemon_1_1dim2_1_1_point_aac2842a726595caea0c2c1544cbf24c4}{00147}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_point_aac2842a726595caea0c2c1544cbf24c4}{operator/}}(\textcolor{keyword}{const}\ T\ \&u)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00148}00148\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}\ b=*\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00149}00149\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ b/=u;}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00150}00150\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00151}00151\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00153}\mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a86cc21a425eb7c39e8e84a23e2744412}{00153}}\ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a86cc21a425eb7c39e8e84a23e2744412}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}\ \&u)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00154}00154\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a2266765760e76540bd56a3f7ab7a722a}{x}}==u.x)\ \&\&\ (\mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a5da4fd902a1cebc442073f172774036d}{y}}==u.y);}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00155}00155\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00156}00156\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00158}\mbox{\hyperlink{classlemon_1_1dim2_1_1_point_ad8c4ff47c43c5eac25cf419004508982}{00158}}\ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_point_ad8c4ff47c43c5eac25cf419004508982}{operator!=}}(\mbox{\hyperlink{classlemon_1_1dim2_1_1_point}{Point}}\ u)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00159}00159\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \ (\mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a2266765760e76540bd56a3f7ab7a722a}{x}}!=u.\mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a2266765760e76540bd56a3f7ab7a722a}{x}})\ ||\ (\mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a5da4fd902a1cebc442073f172774036d}{y}}!=u.\mbox{\hyperlink{classlemon_1_1dim2_1_1_point_a5da4fd902a1cebc442073f172774036d}{y}});}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00160}00160\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00161}00161\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00162}00162\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00163}00163\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00165}00165\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00168}00168\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00169}\mbox{\hyperlink{group__geomdat_gaecc91205bbef122826613af7d8ef7c10}{00169}}\ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}\ \mbox{\hyperlink{group__geomdat_gaecc91205bbef122826613af7d8ef7c10}{makePoint}}(\textcolor{keyword}{const}\ T\&\ x,\ \textcolor{keyword}{const}\ T\&\ y)\ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00170}00170\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}(x,\ y);}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00171}00171\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00172}00172\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00174}00174\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00177}\mbox{\hyperlink{group__geomdat_ga762dc161f1356814820d95a6c3ebb394}{00177}}\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}\ \mbox{\hyperlink{group__geomdat_ga762dc161f1356814820d95a6c3ebb394}{operator*}}(\textcolor{keyword}{const}\ T\ \&u,\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}\ \&x)\ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00178}00178\ \ \ \ \ \textcolor{keywordflow}{return}\ x*u;}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00179}00179\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00180}00180\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00182}00182\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00186}00186\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00187}\mbox{\hyperlink{group__geomdat_ga22e95035881a7964352c5eb9b46a3ca5}{00187}}\ \ \ \textcolor{keyword}{inline}\ std::istream\&\ \mbox{\hyperlink{group__geomdat_ga22e95035881a7964352c5eb9b46a3ca5}{operator>>}}(std::istream\ \&\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}},\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}\ \&z)\ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00188}00188\ \ \ \ \ \textcolor{keywordtype}{char}\ c;}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00189}00189\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}}\ >>\ c)\ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00190}00190\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (c\ !=\ \textcolor{charliteral}{'('})\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}}.putback(c);}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00191}00191\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00192}00192\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}}.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_af2726dacd301d1fdc114b18b6eeb5f51}{clear}}();}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00193}00193\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00194}00194\ \ \ \ \ \textcolor{keywordflow}{if}\ (!(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}}\ >>\ z.x))\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00195}00195\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}}\ >>\ c)\ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00196}00196\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (c\ !=\ \textcolor{charliteral}{','})\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}}.putback(c);}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00197}00197\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00198}00198\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}}.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_af2726dacd301d1fdc114b18b6eeb5f51}{clear}}();}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00199}00199\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00200}00200\ \ \ \ \ \textcolor{keywordflow}{if}\ (!(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}}\ >>\ z.y))\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00201}00201\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}}\ >>\ c)\ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00202}00202\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (c\ !=\ \textcolor{charliteral}{')'})\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}}.putback(c);}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00203}00203\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00204}00204\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}}.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_af2726dacd301d1fdc114b18b6eeb5f51}{clear}}();}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00205}00205\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00206}00206\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00207}00207\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00208}00208\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00210}00210\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00214}00214\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00215}\mbox{\hyperlink{group__geomdat_ga70027f9df22e7e13aa89877de52d1064}{00215}}\ \ \ \textcolor{keyword}{inline}\ std::ostream\&\ \mbox{\hyperlink{group__geomdat_ga70027f9df22e7e13aa89877de52d1064}{operator<<}}(std::ostream\ \&os,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}\&\ z)}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00216}00216\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00217}00217\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}("{}}\ <<\ z.x\ <<\ \textcolor{stringliteral}{"{},"{}}\ <<\ z.y\ <<\ \textcolor{stringliteral}{"{})"{}};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00218}00218\ \ \ \ \ \textcolor{keywordflow}{return}\ os;}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00219}00219\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00220}00220\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00222}00222\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00226}00226\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00227}\mbox{\hyperlink{group__geomdat_gaf827f37672f98e93c11ea37f3fc078e3}{00227}}\ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}\ \mbox{\hyperlink{group__geomdat_gaf827f37672f98e93c11ea37f3fc078e3}{rot90}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}\ \&z)}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00228}00228\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00229}00229\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}(-\/z.y,z.x);}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00230}00230\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00231}00231\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00233}00233\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00237}00237\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00238}\mbox{\hyperlink{group__geomdat_ga1837137f4a27eeda082094710fbb3201}{00238}}\ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}\ \mbox{\hyperlink{group__geomdat_ga1837137f4a27eeda082094710fbb3201}{rot180}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}\ \&z)}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00239}00239\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00240}00240\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}(-\/z.x,-\/z.y);}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00241}00241\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00242}00242\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00244}00244\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00248}00248\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00249}\mbox{\hyperlink{group__geomdat_ga98212a9b188bc640993e7fdb274cd7a3}{00249}}\ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}\ \mbox{\hyperlink{group__geomdat_ga98212a9b188bc640993e7fdb274cd7a3}{rot270}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}\ \&z)}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00250}00250\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00251}00251\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}(z.y,-\/z.x);}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00252}00252\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00253}00253\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00254}00254\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00255}00255\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00257}00257\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00260}00260\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00261}\mbox{\hyperlink{classlemon_1_1dim2_1_1_box}{00261}}\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1dim2_1_1_box}{Box}}\ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00262}\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a66b88592e8e85fbe549e2aa4771e775f}{00262}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a66b88592e8e85fbe549e2aa4771e775f}{\_bottom\_left}},\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a3453da39dff66ff37a950100a710d5bd}{\_top\_right}};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00263}\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a1731131c20cc6faf1bccc506e8083ae3}{00263}}\ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a1731131c20cc6faf1bccc506e8083ae3}{\_empty}};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00264}00264\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00265}00265\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00267}\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_ac36bea587c38179b812f988b11e97210}{00267}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_ac36bea587c38179b812f988b11e97210}{Box}}()\ \{\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a1731131c20cc6faf1bccc506e8083ae3}{\_empty}}\ =\ \textcolor{keyword}{true};\ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00268}00268\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00270}\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_aa342cf5be4c3b3da30d9fd0e253e5c11}{00270}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_aa342cf5be4c3b3da30d9fd0e253e5c11}{Box}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}\ a)\ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00271}00271\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a66b88592e8e85fbe549e2aa4771e775f}{\_bottom\_left}}\ =\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a3453da39dff66ff37a950100a710d5bd}{\_top\_right}}\ =\ a;}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00272}00272\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a1731131c20cc6faf1bccc506e8083ae3}{\_empty}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00273}00273\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00274}00274\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00276}00276\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00282}\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a34cd77c55ff457405b2fb3f6e9572faa}{00282}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a34cd77c55ff457405b2fb3f6e9572faa}{Box}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}\ a,\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}\ b)}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00283}00283\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00284}00284\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a66b88592e8e85fbe549e2aa4771e775f}{\_bottom\_left}}\ =\ a;}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00285}00285\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a3453da39dff66ff37a950100a710d5bd}{\_top\_right}}\ =\ b;}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00286}00286\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a1731131c20cc6faf1bccc506e8083ae3}{\_empty}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00287}00287\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00288}00288\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00290}00290\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00298}\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_acea6125f01c2d702570630ed540c3d47}{00298}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_acea6125f01c2d702570630ed540c3d47}{Box}}(T\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{l}},T\ b,T\ r,T\ t)}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00299}00299\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00300}00300\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a66b88592e8e85fbe549e2aa4771e775f}{\_bottom\_left}}=\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{l}},b);}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00301}00301\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a3453da39dff66ff37a950100a710d5bd}{\_top\_right}}=\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}(r,t);}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00302}00302\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a1731131c20cc6faf1bccc506e8083ae3}{\_empty}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00303}00303\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00304}00304\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00306}00306\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00312}\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_af733e44f5817e2d264b6d7ae4da0fa33}{00312}}\ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_af733e44f5817e2d264b6d7ae4da0fa33}{empty}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00313}00313\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a1731131c20cc6faf1bccc506e8083ae3}{\_empty}};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00314}00314\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00315}00315\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00317}\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_ab6998184cc575218621180d47462e1ed}{00317}}\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_ab6998184cc575218621180d47462e1ed}{clear}}()\ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00318}00318\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a1731131c20cc6faf1bccc506e8083ae3}{\_empty}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00319}00319\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00320}00320\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00322}00322\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00325}\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a9a173cdf1f0cba6a1ff03883835299c0}{00325}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a9a173cdf1f0cba6a1ff03883835299c0}{bottomLeft}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00326}00326\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a66b88592e8e85fbe549e2aa4771e775f}{\_bottom\_left}};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00327}00327\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00328}00328\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00330}00330\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00333}\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a30c4e1d8377a7ebee20d9cc0bf8361c6}{00333}}\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a30c4e1d8377a7ebee20d9cc0bf8361c6}{bottomLeft}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}\ p)\ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00334}00334\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a66b88592e8e85fbe549e2aa4771e775f}{\_bottom\_left}}\ =\ p;}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00335}00335\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00336}00336\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00338}00338\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00341}\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a2f3f685f708a16277fc58061e45b24b4}{00341}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a2f3f685f708a16277fc58061e45b24b4}{topRight}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00342}00342\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a3453da39dff66ff37a950100a710d5bd}{\_top\_right}};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00343}00343\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00344}00344\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00346}00346\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00349}\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_abe96022675ef6c9f13856b40ebac6203}{00349}}\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_abe96022675ef6c9f13856b40ebac6203}{topRight}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}\ p)\ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00350}00350\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a3453da39dff66ff37a950100a710d5bd}{\_top\_right}}\ =\ p;}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00351}00351\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00352}00352\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00354}00354\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00357}\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a9612432573c3a0ae33729bfda2de7121}{00357}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a9612432573c3a0ae33729bfda2de7121}{bottomRight}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00358}00358\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}(\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a3453da39dff66ff37a950100a710d5bd}{\_top\_right}}.x,\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a66b88592e8e85fbe549e2aa4771e775f}{\_bottom\_left}}.y);}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00359}00359\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00360}00360\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00362}00362\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00365}\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a647f6a45df78ab3fcaf4b99b474c2d55}{00365}}\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a647f6a45df78ab3fcaf4b99b474c2d55}{bottomRight}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}\ p)\ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00366}00366\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a3453da39dff66ff37a950100a710d5bd}{\_top\_right}}.x\ =\ p.x;}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00367}00367\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a66b88592e8e85fbe549e2aa4771e775f}{\_bottom\_left}}.y\ =\ p.y;}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00368}00368\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00369}00369\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00371}00371\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00374}\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a4b4ca17d45198fd003e6a122b5d7f994}{00374}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a4b4ca17d45198fd003e6a122b5d7f994}{topLeft}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00375}00375\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}(\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a66b88592e8e85fbe549e2aa4771e775f}{\_bottom\_left}}.x,\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a3453da39dff66ff37a950100a710d5bd}{\_top\_right}}.y);}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00376}00376\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00377}00377\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00379}00379\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00382}\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_ab62842208828b3d5aa406a077b7b177a}{00382}}\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_ab62842208828b3d5aa406a077b7b177a}{topLeft}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}\ p)\ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00383}00383\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a3453da39dff66ff37a950100a710d5bd}{\_top\_right}}.y\ =\ p.y;}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00384}00384\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a66b88592e8e85fbe549e2aa4771e775f}{\_bottom\_left}}.x\ =\ p.x;}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00385}00385\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00386}00386\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00388}00388\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00391}\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_af3243b105e82dca292e1b7fdbf7f58ce}{00391}}\ \ \ \ \ \ \ T\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_af3243b105e82dca292e1b7fdbf7f58ce}{bottom}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00392}00392\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a66b88592e8e85fbe549e2aa4771e775f}{\_bottom\_left}}.y;}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00393}00393\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00394}00394\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00396}00396\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00399}\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a4376b4566235ff509c7dc0daaa89a329}{00399}}\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a4376b4566235ff509c7dc0daaa89a329}{bottom}}(T\ t)\ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00400}00400\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a66b88592e8e85fbe549e2aa4771e775f}{\_bottom\_left}}.y\ =\ t;}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00401}00401\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00402}00402\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00404}00404\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00407}\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_ae750fb6e3826f3ff9d4c5e37cd05232e}{00407}}\ \ \ \ \ \ \ T\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_ae750fb6e3826f3ff9d4c5e37cd05232e}{top}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00408}00408\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a3453da39dff66ff37a950100a710d5bd}{\_top\_right}}.y;}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00409}00409\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00410}00410\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00412}00412\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00415}\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_ad3ffb1baacf35d3242c3ed2f7c386b73}{00415}}\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_ad3ffb1baacf35d3242c3ed2f7c386b73}{top}}(T\ t)\ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00416}00416\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a3453da39dff66ff37a950100a710d5bd}{\_top\_right}}.y\ =\ t;}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00417}00417\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00418}00418\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00420}00420\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00423}\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a3f898ea338587a9f5f08de1d90dc62e2}{00423}}\ \ \ \ \ \ \ T\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a3f898ea338587a9f5f08de1d90dc62e2}{left}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00424}00424\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a66b88592e8e85fbe549e2aa4771e775f}{\_bottom\_left}}.x;}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00425}00425\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00426}00426\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00428}00428\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00431}\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a26dec70904ab67b9a755f3e66a7107ce}{00431}}\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a26dec70904ab67b9a755f3e66a7107ce}{left}}(T\ t)\ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00432}00432\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a66b88592e8e85fbe549e2aa4771e775f}{\_bottom\_left}}.x\ =\ t;}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00433}00433\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00434}00434\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00436}00436\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00439}\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a69f3df928721ac43c6a0dfa3689046e9}{00439}}\ \ \ \ \ \ \ T\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a69f3df928721ac43c6a0dfa3689046e9}{right}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00440}00440\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a3453da39dff66ff37a950100a710d5bd}{\_top\_right}}.x;}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00441}00441\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00442}00442\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00444}00444\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00447}\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a10d846abf7e4d933823c41d11e93d67c}{00447}}\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a10d846abf7e4d933823c41d11e93d67c}{right}}(T\ t)\ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00448}00448\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a3453da39dff66ff37a950100a710d5bd}{\_top\_right}}.x\ =\ t;}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00449}00449\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00450}00450\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00452}00452\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00455}\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a3adad836aa130198c62daaa64c18daf1}{00455}}\ \ \ \ \ \ \ T\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a3adad836aa130198c62daaa64c18daf1}{height}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00456}00456\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a3453da39dff66ff37a950100a710d5bd}{\_top\_right}}.y-\/\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a66b88592e8e85fbe549e2aa4771e775f}{\_bottom\_left}}.y;}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00457}00457\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00458}00458\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00460}00460\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00463}\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a26c358420de7987acce11f97f0ab6cb1}{00463}}\ \ \ \ \ \ \ T\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a26c358420de7987acce11f97f0ab6cb1}{width}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00464}00464\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a3453da39dff66ff37a950100a710d5bd}{\_top\_right}}.x-\/\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a66b88592e8e85fbe549e2aa4771e775f}{\_bottom\_left}}.x;}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00465}00465\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00466}00466\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00468}\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a118361ad050be7aec0b30d4d5b81b1b3}{00468}}\ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a118361ad050be7aec0b30d4d5b81b1b3}{inside}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}\&\ u)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00469}00469\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a1731131c20cc6faf1bccc506e8083ae3}{\_empty}})}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00470}00470\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00471}00471\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00472}00472\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\ (u.x-\/\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a66b88592e8e85fbe549e2aa4771e775f}{\_bottom\_left}}.x)*(\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a3453da39dff66ff37a950100a710d5bd}{\_top\_right}}.x-\/u.x)\ >=\ 0\ \&\&}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00473}00473\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (u.y-\/\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a66b88592e8e85fbe549e2aa4771e775f}{\_bottom\_left}}.y)*(\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a3453da39dff66ff37a950100a710d5bd}{\_top\_right}}.y-\/u.y)\ >=\ 0\ );}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00474}00474\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00475}00475\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00476}00476\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00478}00478\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00481}\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a8d5648e04ab74b184bb7442bf34e8ada}{00481}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box}{Box}}\&\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a8d5648e04ab74b184bb7442bf34e8ada}{add}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}\&\ u)\{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00482}00482\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a1731131c20cc6faf1bccc506e8083ae3}{\_empty}})\ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00483}00483\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a66b88592e8e85fbe549e2aa4771e775f}{\_bottom\_left}}\ =\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a3453da39dff66ff37a950100a710d5bd}{\_top\_right}}\ =\ u;}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00484}00484\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a1731131c20cc6faf1bccc506e8083ae3}{\_empty}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00485}00485\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00486}00486\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00487}00487\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a66b88592e8e85fbe549e2aa4771e775f}{\_bottom\_left}}.x\ >\ u.x)\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a66b88592e8e85fbe549e2aa4771e775f}{\_bottom\_left}}.x\ =\ u.x;}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00488}00488\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a66b88592e8e85fbe549e2aa4771e775f}{\_bottom\_left}}.y\ >\ u.y)\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a66b88592e8e85fbe549e2aa4771e775f}{\_bottom\_left}}.y\ =\ u.y;}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00489}00489\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a3453da39dff66ff37a950100a710d5bd}{\_top\_right}}.x\ <\ u.x)\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a3453da39dff66ff37a950100a710d5bd}{\_top\_right}}.x\ =\ u.x;}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00490}00490\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a3453da39dff66ff37a950100a710d5bd}{\_top\_right}}.y\ <\ u.y)\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a3453da39dff66ff37a950100a710d5bd}{\_top\_right}}.y\ =\ u.y;}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00491}00491\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00492}00492\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00493}00493\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00494}00494\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00496}00496\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00499}\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a2df03a61212bd63a8d09cc8144774ac3}{00499}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box}{Box}}\&\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a2df03a61212bd63a8d09cc8144774ac3}{add}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box}{Box}}\ \&u)\{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00500}00500\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ !u.\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_af733e44f5817e2d264b6d7ae4da0fa33}{empty}}()\ )\{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00501}00501\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a8d5648e04ab74b184bb7442bf34e8ada}{add}}(u.\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a66b88592e8e85fbe549e2aa4771e775f}{\_bottom\_left}});}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00502}00502\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a8d5648e04ab74b184bb7442bf34e8ada}{add}}(u.\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a3453da39dff66ff37a950100a710d5bd}{\_top\_right}});}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00503}00503\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00504}00504\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00505}00505\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00506}00506\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00508}00508\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00511}\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a40ec12957e207cbf1db0971765ff6f0d}{00511}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box}{Box}}\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a40ec12957e207cbf1db0971765ff6f0d}{operator\&}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box}{Box}}\&\ u)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00512}00512\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_box}{Box}}\ b;}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00513}00513\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a1731131c20cc6faf1bccc506e8083ae3}{\_empty}}\ ||\ u.\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a1731131c20cc6faf1bccc506e8083ae3}{\_empty}})\ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00514}00514\ \ \ \ \ \ \ \ \ \ \ b.\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a1731131c20cc6faf1bccc506e8083ae3}{\_empty}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00515}00515\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00516}00516\ \ \ \ \ \ \ \ \ \ \ b.\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a66b88592e8e85fbe549e2aa4771e775f}{\_bottom\_left}}.x\ =\ std::max(\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a66b88592e8e85fbe549e2aa4771e775f}{\_bottom\_left}}.x,\ u.\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a66b88592e8e85fbe549e2aa4771e775f}{\_bottom\_left}}.x);}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00517}00517\ \ \ \ \ \ \ \ \ \ \ b.\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a66b88592e8e85fbe549e2aa4771e775f}{\_bottom\_left}}.y\ =\ std::max(\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a66b88592e8e85fbe549e2aa4771e775f}{\_bottom\_left}}.y,\ u.\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a66b88592e8e85fbe549e2aa4771e775f}{\_bottom\_left}}.y);}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00518}00518\ \ \ \ \ \ \ \ \ \ \ b.\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a3453da39dff66ff37a950100a710d5bd}{\_top\_right}}.x\ =\ std::min(\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a3453da39dff66ff37a950100a710d5bd}{\_top\_right}}.x,\ u.\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a3453da39dff66ff37a950100a710d5bd}{\_top\_right}}.x);}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00519}00519\ \ \ \ \ \ \ \ \ \ \ b.\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a3453da39dff66ff37a950100a710d5bd}{\_top\_right}}.y\ =\ std::min(\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a3453da39dff66ff37a950100a710d5bd}{\_top\_right}}.y,\ u.\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a3453da39dff66ff37a950100a710d5bd}{\_top\_right}}.y);}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00520}00520\ \ \ \ \ \ \ \ \ \ \ b.\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a1731131c20cc6faf1bccc506e8083ae3}{\_empty}}\ =\ b.\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a66b88592e8e85fbe549e2aa4771e775f}{\_bottom\_left}}.x\ >\ b.\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a3453da39dff66ff37a950100a710d5bd}{\_top\_right}}.x\ ||}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00521}00521\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ b.\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a66b88592e8e85fbe549e2aa4771e775f}{\_bottom\_left}}.y\ >\ b.\mbox{\hyperlink{classlemon_1_1dim2_1_1_box_a3453da39dff66ff37a950100a710d5bd}{\_top\_right}}.y;}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00522}00522\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00523}00523\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ b;}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00524}00524\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00525}00525\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00526}00526\ \ \ \};\textcolor{comment}{//class\ Box}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00527}00527\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00528}00528\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00530}00530\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00533}00533\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00534}\mbox{\hyperlink{group__geomdat_ga19c3bfbad77c6e998e017eadf75c2782}{00534}}\ \ \ \textcolor{keyword}{inline}\ std::istream\&\ \mbox{\hyperlink{group__geomdat_ga19c3bfbad77c6e998e017eadf75c2782}{operator>>}}(std::istream\ \&\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}},\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Box<T>}}\&\ b)\ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00535}00535\ \ \ \ \ \textcolor{keywordtype}{char}\ c;}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00536}00536\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Point<T>}}\ p;}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00537}00537\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}}\ >>\ c)\ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00538}00538\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (c\ !=\ \textcolor{charliteral}{'('})\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}}.putback(c);}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00539}00539\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00540}00540\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}}.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_af2726dacd301d1fdc114b18b6eeb5f51}{clear}}();}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00541}00541\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00542}00542\ \ \ \ \ \textcolor{keywordflow}{if}\ (!(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}}\ >>\ p))\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00543}00543\ \ \ \ \ b.bottomLeft(p);}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00544}00544\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}}\ >>\ c)\ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00545}00545\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (c\ !=\ \textcolor{charliteral}{','})\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}}.putback(c);}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00546}00546\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00547}00547\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}}.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_af2726dacd301d1fdc114b18b6eeb5f51}{clear}}();}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00548}00548\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00549}00549\ \ \ \ \ \textcolor{keywordflow}{if}\ (!(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}}\ >>\ p))\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00550}00550\ \ \ \ \ b.topRight(p);}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00551}00551\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}}\ >>\ c)\ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00552}00552\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (c\ !=\ \textcolor{charliteral}{')'})\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}}.putback(c);}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00553}00553\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00554}00554\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}}.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_af2726dacd301d1fdc114b18b6eeb5f51}{clear}}();}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00555}00555\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00556}00556\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00557}00557\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00558}00558\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00560}00560\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00563}00563\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00564}\mbox{\hyperlink{group__geomdat_gac52c35829fbea8c6f4f42e15ae3a16c1}{00564}}\ \ \ \textcolor{keyword}{inline}\ std::ostream\&\ \mbox{\hyperlink{group__geomdat_gac52c35829fbea8c6f4f42e15ae3a16c1}{operator<<}}(std::ostream\ \&os,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Box<T>}}\&\ b)}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00565}00565\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00566}00566\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}("{}}\ <<\ b.bottomLeft()\ <<\ \textcolor{stringliteral}{"{},"{}}\ <<\ b.topRight()\ <<\ \textcolor{stringliteral}{"{})"{}};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00567}00567\ \ \ \ \ \textcolor{keywordflow}{return}\ os;}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00568}00568\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00569}00569\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00571}00571\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00574}00574\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ M>}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00575}\mbox{\hyperlink{classlemon_1_1dim2_1_1_x_map}{00575}}\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1dim2_1_1_x_map}{XMap}}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00576}00576\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00577}\mbox{\hyperlink{classlemon_1_1dim2_1_1_x_map_a6fa9487020eedb8f0c037c46d928f478}{00577}}\ \ \ \ \ M\&\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_x_map_a6fa9487020eedb8f0c037c46d928f478}{\_map}};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00578}00578\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00579}00579\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00580}\mbox{\hyperlink{classlemon_1_1dim2_1_1_x_map_a352081e9302377e01f6e8af0a6202bc6}{00580}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ M::Value::Value\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_x_map_a352081e9302377e01f6e8af0a6202bc6}{Value}};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00581}\mbox{\hyperlink{classlemon_1_1dim2_1_1_x_map_ab1ac456bbd5eb3187a2092146859f4c8}{00581}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ M::Key\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_x_map_ab1ac456bbd5eb3187a2092146859f4c8}{Key}};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00583}\mbox{\hyperlink{classlemon_1_1dim2_1_1_x_map_aba849a130fc13b45539f44614be30142}{00583}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_x_map_aba849a130fc13b45539f44614be30142}{XMap}}(M\&\ \mbox{\hyperlink{bundled_2ranges_8h_a080be1238e6ee3bd4b9f193b4181cf4da1d78dc8ed51214e518b5114fe24490ae}{map}})\ :\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_x_map_a6fa9487020eedb8f0c037c46d928f478}{\_map}}(\mbox{\hyperlink{bundled_2ranges_8h_a080be1238e6ee3bd4b9f193b4181cf4da1d78dc8ed51214e518b5114fe24490ae}{map}})\ \{\}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00584}\mbox{\hyperlink{classlemon_1_1dim2_1_1_x_map_aa3021e2fad6db4069d4c241e19787b8c}{00584}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_x_map_a352081e9302377e01f6e8af0a6202bc6}{Value}}\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_x_map_aa3021e2fad6db4069d4c241e19787b8c}{operator[]}}(\mbox{\hyperlink{classlemon_1_1dim2_1_1_x_map_ab1ac456bbd5eb3187a2092146859f4c8}{Key}}\ k)\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_x_map_a6fa9487020eedb8f0c037c46d928f478}{\_map}}[k].x;\}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00585}\mbox{\hyperlink{classlemon_1_1dim2_1_1_x_map_a9ecf879f9378d870b8ee73ab48d0feb1}{00585}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_x_map_a9ecf879f9378d870b8ee73ab48d0feb1}{set}}(\mbox{\hyperlink{classlemon_1_1dim2_1_1_x_map_ab1ac456bbd5eb3187a2092146859f4c8}{Key}}\ k,\mbox{\hyperlink{classlemon_1_1dim2_1_1_x_map_a352081e9302377e01f6e8af0a6202bc6}{Value}}\ v)\ \{\mbox{\hyperlink{classlemon_1_1dim2_1_1_x_map_a6fa9487020eedb8f0c037c46d928f478}{\_map}}.set(k,\textcolor{keyword}{typename}\ M::Value(v,\mbox{\hyperlink{classlemon_1_1dim2_1_1_x_map_a6fa9487020eedb8f0c037c46d928f478}{\_map}}[k].y));\}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00586}00586\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00587}00587\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00589}00589\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00592}00592\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ M>}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00593}\mbox{\hyperlink{group__geomdat_gae41a8ab860bdbb63080b0e509c487c57}{00593}}\ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{XMap<M>}}\ \mbox{\hyperlink{group__geomdat_gae41a8ab860bdbb63080b0e509c487c57}{xMap}}(M\ \&m)}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00594}00594\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00595}00595\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{XMap<M>}}(m);}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00596}00596\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00597}00597\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00598}00598\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ M>}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00599}\mbox{\hyperlink{group__geomdat_gae44b529fe65b41ff3781a131a1bbe8b3}{00599}}\ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{XMap<M>}}\ \mbox{\hyperlink{group__geomdat_gae44b529fe65b41ff3781a131a1bbe8b3}{xMap}}(\textcolor{keyword}{const}\ M\ \&m)}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00600}00600\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00601}00601\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{XMap<M>}}(m);}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00602}00602\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00603}00603\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00605}00605\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00608}00608\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ M>}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00609}\mbox{\hyperlink{classlemon_1_1dim2_1_1_const_x_map}{00609}}\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1dim2_1_1_const_x_map}{ConstXMap}}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00610}00610\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00611}\mbox{\hyperlink{classlemon_1_1dim2_1_1_const_x_map_a677c0bf274f79eb40c748bbf9a1ccde9}{00611}}\ \ \ \ \ \textcolor{keyword}{const}\ M\&\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_const_x_map_a677c0bf274f79eb40c748bbf9a1ccde9}{\_map}};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00612}00612\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00613}00613\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00614}\mbox{\hyperlink{classlemon_1_1dim2_1_1_const_x_map_ad7c109a28c2d356191899facdae9b99c}{00614}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ M::Value::Value\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_const_x_map_ad7c109a28c2d356191899facdae9b99c}{Value}};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00615}\mbox{\hyperlink{classlemon_1_1dim2_1_1_const_x_map_a872a7bbaadb8187b2f0feab3c27041ea}{00615}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ M::Key\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_const_x_map_a872a7bbaadb8187b2f0feab3c27041ea}{Key}};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00617}\mbox{\hyperlink{classlemon_1_1dim2_1_1_const_x_map_a4ce5f3c6147d893a65f052915b5f8501}{00617}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_const_x_map_a4ce5f3c6147d893a65f052915b5f8501}{ConstXMap}}(\textcolor{keyword}{const}\ M\ \&\mbox{\hyperlink{bundled_2ranges_8h_a080be1238e6ee3bd4b9f193b4181cf4da1d78dc8ed51214e518b5114fe24490ae}{map}})\ :\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_const_x_map_a677c0bf274f79eb40c748bbf9a1ccde9}{\_map}}(\mbox{\hyperlink{bundled_2ranges_8h_a080be1238e6ee3bd4b9f193b4181cf4da1d78dc8ed51214e518b5114fe24490ae}{map}})\ \{\}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00618}\mbox{\hyperlink{classlemon_1_1dim2_1_1_const_x_map_a32e1480e9aad8b186163e988d6a7c708}{00618}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_const_x_map_ad7c109a28c2d356191899facdae9b99c}{Value}}\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_const_x_map_a32e1480e9aad8b186163e988d6a7c708}{operator[]}}(\mbox{\hyperlink{classlemon_1_1dim2_1_1_const_x_map_a872a7bbaadb8187b2f0feab3c27041ea}{Key}}\ k)\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_const_x_map_a677c0bf274f79eb40c748bbf9a1ccde9}{\_map}}[k].x;\}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00619}00619\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00620}00620\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00622}00622\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00625}00625\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ M>}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00626}\mbox{\hyperlink{group__geomdat_ga089526b0c8613c8167ee758056c79672}{00626}}\ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ConstXMap<M>}}\ \mbox{\hyperlink{group__geomdat_ga089526b0c8613c8167ee758056c79672}{xMap}}(\textcolor{keyword}{const}\ M\ \&m)}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00627}00627\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00628}00628\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ConstXMap<M>}}(m);}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00629}00629\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00630}00630\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00632}00632\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00635}00635\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ M>}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00636}\mbox{\hyperlink{classlemon_1_1dim2_1_1_y_map}{00636}}\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1dim2_1_1_y_map}{YMap}}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00637}00637\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00638}\mbox{\hyperlink{classlemon_1_1dim2_1_1_y_map_aed5af96b3fc6a8c88d02c8e24a6b9429}{00638}}\ \ \ \ \ M\&\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_y_map_aed5af96b3fc6a8c88d02c8e24a6b9429}{\_map}};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00639}00639\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00640}00640\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00641}\mbox{\hyperlink{classlemon_1_1dim2_1_1_y_map_ae294b5ddcfa8221d4f4e5b2554f577bb}{00641}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ M::Value::Value\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_y_map_ae294b5ddcfa8221d4f4e5b2554f577bb}{Value}};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00642}\mbox{\hyperlink{classlemon_1_1dim2_1_1_y_map_a3efdc20c03be2a5ad76783aa8fc8e515}{00642}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ M::Key\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_y_map_a3efdc20c03be2a5ad76783aa8fc8e515}{Key}};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00644}\mbox{\hyperlink{classlemon_1_1dim2_1_1_y_map_a0e7fbf3bde619a57190f9b58cdb69b0e}{00644}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_y_map_a0e7fbf3bde619a57190f9b58cdb69b0e}{YMap}}(M\&\ \mbox{\hyperlink{bundled_2ranges_8h_a080be1238e6ee3bd4b9f193b4181cf4da1d78dc8ed51214e518b5114fe24490ae}{map}})\ :\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_y_map_aed5af96b3fc6a8c88d02c8e24a6b9429}{\_map}}(\mbox{\hyperlink{bundled_2ranges_8h_a080be1238e6ee3bd4b9f193b4181cf4da1d78dc8ed51214e518b5114fe24490ae}{map}})\ \{\}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00645}\mbox{\hyperlink{classlemon_1_1dim2_1_1_y_map_ab6faf5816e29192dc076fd8b18e8fda7}{00645}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_y_map_ae294b5ddcfa8221d4f4e5b2554f577bb}{Value}}\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_y_map_ab6faf5816e29192dc076fd8b18e8fda7}{operator[]}}(\mbox{\hyperlink{classlemon_1_1dim2_1_1_y_map_a3efdc20c03be2a5ad76783aa8fc8e515}{Key}}\ k)\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_y_map_aed5af96b3fc6a8c88d02c8e24a6b9429}{\_map}}[k].y;\}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00646}\mbox{\hyperlink{classlemon_1_1dim2_1_1_y_map_a7c20d7f25d63209210176f81139cc3d5}{00646}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_y_map_a7c20d7f25d63209210176f81139cc3d5}{set}}(\mbox{\hyperlink{classlemon_1_1dim2_1_1_y_map_a3efdc20c03be2a5ad76783aa8fc8e515}{Key}}\ k,\mbox{\hyperlink{classlemon_1_1dim2_1_1_y_map_ae294b5ddcfa8221d4f4e5b2554f577bb}{Value}}\ v)\ \{\mbox{\hyperlink{classlemon_1_1dim2_1_1_y_map_aed5af96b3fc6a8c88d02c8e24a6b9429}{\_map}}.set(k,\textcolor{keyword}{typename}\ M::Value(\mbox{\hyperlink{classlemon_1_1dim2_1_1_y_map_aed5af96b3fc6a8c88d02c8e24a6b9429}{\_map}}[k].x,v));\}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00647}00647\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00648}00648\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00650}00650\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00653}00653\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ M>}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00654}\mbox{\hyperlink{group__geomdat_ga4b8a44ffc54cb9a2db2517d2a17f18af}{00654}}\ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{YMap<M>}}\ \mbox{\hyperlink{group__geomdat_ga4b8a44ffc54cb9a2db2517d2a17f18af}{yMap}}(M\ \&m)}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00655}00655\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00656}00656\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{YMap<M>}}(m);}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00657}00657\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00658}00658\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00659}00659\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ M>}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00660}\mbox{\hyperlink{group__geomdat_ga904503473d440cf3603732bf6b75b69b}{00660}}\ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{YMap<M>}}\ \mbox{\hyperlink{group__geomdat_ga904503473d440cf3603732bf6b75b69b}{yMap}}(\textcolor{keyword}{const}\ M\ \&m)}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00661}00661\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00662}00662\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{YMap<M>}}(m);}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00663}00663\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00664}00664\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00666}00666\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00669}00669\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ M>}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00670}\mbox{\hyperlink{classlemon_1_1dim2_1_1_const_y_map}{00670}}\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1dim2_1_1_const_y_map}{ConstYMap}}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00671}00671\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00672}\mbox{\hyperlink{classlemon_1_1dim2_1_1_const_y_map_a53268224adff60304a3974f33c476776}{00672}}\ \ \ \ \ \textcolor{keyword}{const}\ M\&\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_const_y_map_a53268224adff60304a3974f33c476776}{\_map}};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00673}00673\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00674}00674\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00675}\mbox{\hyperlink{classlemon_1_1dim2_1_1_const_y_map_ab754359b8be795e30e1d84b09caceac5}{00675}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ M::Value::Value\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_const_y_map_ab754359b8be795e30e1d84b09caceac5}{Value}};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00676}\mbox{\hyperlink{classlemon_1_1dim2_1_1_const_y_map_a99e3f35a8843bf382154a088b95b812c}{00676}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ M::Key\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_const_y_map_a99e3f35a8843bf382154a088b95b812c}{Key}};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00678}\mbox{\hyperlink{classlemon_1_1dim2_1_1_const_y_map_ad155b90851a443c6f9e2c98251a96ad6}{00678}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_const_y_map_ad155b90851a443c6f9e2c98251a96ad6}{ConstYMap}}(\textcolor{keyword}{const}\ M\ \&\mbox{\hyperlink{bundled_2ranges_8h_a080be1238e6ee3bd4b9f193b4181cf4da1d78dc8ed51214e518b5114fe24490ae}{map}})\ :\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_const_y_map_a53268224adff60304a3974f33c476776}{\_map}}(\mbox{\hyperlink{bundled_2ranges_8h_a080be1238e6ee3bd4b9f193b4181cf4da1d78dc8ed51214e518b5114fe24490ae}{map}})\ \{\}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00679}\mbox{\hyperlink{classlemon_1_1dim2_1_1_const_y_map_aa241c828218786397eb050d32a1f5533}{00679}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_const_y_map_ab754359b8be795e30e1d84b09caceac5}{Value}}\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_const_y_map_aa241c828218786397eb050d32a1f5533}{operator[]}}(\mbox{\hyperlink{classlemon_1_1dim2_1_1_const_y_map_a99e3f35a8843bf382154a088b95b812c}{Key}}\ k)\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_const_y_map_a53268224adff60304a3974f33c476776}{\_map}}[k].y;\}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00680}00680\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00681}00681\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00683}00683\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00686}00686\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ M>}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00687}\mbox{\hyperlink{group__geomdat_gacd6c062290503f0e72b7ff1e3ac82bcd}{00687}}\ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ConstYMap<M>}}\ \mbox{\hyperlink{group__geomdat_gacd6c062290503f0e72b7ff1e3ac82bcd}{yMap}}(\textcolor{keyword}{const}\ M\ \&m)}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00688}00688\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00689}00689\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ConstYMap<M>}}(m);}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00690}00690\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00691}00691\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00692}00692\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00697}00697\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ M>}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00698}\mbox{\hyperlink{classlemon_1_1dim2_1_1_norm_square_map}{00698}}\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1dim2_1_1_norm_square_map}{NormSquareMap}}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00699}00699\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00700}\mbox{\hyperlink{classlemon_1_1dim2_1_1_norm_square_map_af39e87090721eff174c7a4d3c756e08f}{00700}}\ \ \ \ \ \textcolor{keyword}{const}\ M\&\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_norm_square_map_af39e87090721eff174c7a4d3c756e08f}{\_map}};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00701}00701\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00702}00702\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00703}\mbox{\hyperlink{classlemon_1_1dim2_1_1_norm_square_map_aabaebd34bf05567e842c3d3088b46dda}{00703}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ M::Value::Value\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_norm_square_map_aabaebd34bf05567e842c3d3088b46dda}{Value}};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00704}\mbox{\hyperlink{classlemon_1_1dim2_1_1_norm_square_map_a98240fb1dff1d2b4e2d6309a9fc66e83}{00704}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ M::Key\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_norm_square_map_a98240fb1dff1d2b4e2d6309a9fc66e83}{Key}};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00706}\mbox{\hyperlink{classlemon_1_1dim2_1_1_norm_square_map_acc6242b5d87bde2a433ef61e999683b1}{00706}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_norm_square_map_acc6242b5d87bde2a433ef61e999683b1}{NormSquareMap}}(\textcolor{keyword}{const}\ M\ \&\mbox{\hyperlink{bundled_2ranges_8h_a080be1238e6ee3bd4b9f193b4181cf4da1d78dc8ed51214e518b5114fe24490ae}{map}})\ :\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_norm_square_map_af39e87090721eff174c7a4d3c756e08f}{\_map}}(\mbox{\hyperlink{bundled_2ranges_8h_a080be1238e6ee3bd4b9f193b4181cf4da1d78dc8ed51214e518b5114fe24490ae}{map}})\ \{\}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00707}\mbox{\hyperlink{classlemon_1_1dim2_1_1_norm_square_map_a45748ff8c5aa73c73012fa1736998b0e}{00707}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1dim2_1_1_norm_square_map_aabaebd34bf05567e842c3d3088b46dda}{Value}}\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_norm_square_map_a45748ff8c5aa73c73012fa1736998b0e}{operator[]}}(\mbox{\hyperlink{classlemon_1_1dim2_1_1_norm_square_map_a98240fb1dff1d2b4e2d6309a9fc66e83}{Key}}\ k)\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1dim2_1_1_norm_square_map_af39e87090721eff174c7a4d3c756e08f}{\_map}}[k].normSquare();\}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00708}00708\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00709}00709\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00711}00711\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00714}00714\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ M>}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00715}\mbox{\hyperlink{group__geomdat_ga55234f3b00cf61ed7bf2a74cfd88fbfd}{00715}}\ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{NormSquareMap<M>}}\ \mbox{\hyperlink{group__geomdat_ga55234f3b00cf61ed7bf2a74cfd88fbfd}{normSquareMap}}(\textcolor{keyword}{const}\ M\ \&m)}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00716}00716\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00717}00717\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{NormSquareMap<M>}}(m);}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00718}00718\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00719}00719\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00721}00721\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00722}00722\ \ \ \}\ \textcolor{comment}{//namespce\ dim2}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00723}00723\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00724}00724\ \}\ \textcolor{comment}{//namespace\ lemon}}
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00725}00725\ }
+\DoxyCodeLine{\Hypertarget{dim2_8h_source_l00726}00726\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//LEMON\_DIM2\_H}}
+
+\end{DoxyCode}

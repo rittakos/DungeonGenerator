@@ -1,0 +1,633 @@
+\doxysection{edge\+\_\+set\+\_\+extender.\+h}
+\hypertarget{edge__set__extender_8h_source}{}\label{edge__set__extender_8h_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/lemon/bits/edge\_set\_extender.h@{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/lemon/bits/edge\_set\_extender.h}}
+\mbox{\hyperlink{edge__set__extender_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00001}00001\ \textcolor{comment}{/*\ -\/*-\/\ mode:\ C++;\ indent-\/tabs-\/mode:\ nil;\ -\/*-\/}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00002}00002\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00003}00003\ \textcolor{comment}{\ *\ This\ file\ is\ a\ part\ of\ LEMON,\ a\ generic\ C++\ optimization\ library.}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00004}00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00005}00005\ \textcolor{comment}{\ *\ Copyright\ (C)\ 2003-\/2013}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00006}00006\ \textcolor{comment}{\ *\ Egervary\ Jeno\ Kombinatorikus\ Optimalizalasi\ Kutatocsoport}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00007}00007\ \textcolor{comment}{\ *\ (Egervary\ Research\ Group\ on\ Combinatorial\ Optimization,\ EGRES).}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00008}00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00009}00009\ \textcolor{comment}{\ *\ Permission\ to\ use,\ modify\ and\ distribute\ this\ software\ is\ granted}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00010}00010\ \textcolor{comment}{\ *\ provided\ that\ this\ copyright\ notice\ appears\ in\ all\ copies.\ For}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00011}00011\ \textcolor{comment}{\ *\ precise\ terms\ see\ the\ accompanying\ LICENSE\ file.}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00012}00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00013}00013\ \textcolor{comment}{\ *\ This\ software\ is\ provided\ "{}AS\ IS"{}\ with\ no\ warranty\ of\ any\ kind,}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00014}00014\ \textcolor{comment}{\ *\ express\ or\ implied,\ and\ with\ no\ claim\ as\ to\ its\ suitability\ for\ any}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00015}00015\ \textcolor{comment}{\ *\ purpose.}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00016}00016\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00017}00017\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00019}00019\ \textcolor{preprocessor}{\#ifndef\ LEMON\_BITS\_EDGE\_SET\_EXTENDER\_H}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00020}00020\ \textcolor{preprocessor}{\#define\ LEMON\_BITS\_EDGE\_SET\_EXTENDER\_H}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{lemon_2core_8h}{lemon/core.h}}>}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00023}00023\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{additional__includes_2lemon_2error_8h}{lemon/error.h}}>}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00024}00024\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{default__map_8h}{lemon/bits/default\_map.h}}>}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00025}00025\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{map__extender_8h}{lemon/bits/map\_extender.h}}>}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00027}00027\ \textcolor{comment}{//\(\backslash\)ingroup\ digraphbits}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00028}00028\ \textcolor{comment}{//\(\backslash\)file}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00029}00029\ \textcolor{comment}{//\(\backslash\)brief\ Extenders\ for\ the\ arc\ set\ types}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00030}00030\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacelemon}{lemon}}\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00032}00032\ \ \ \textcolor{comment}{//\ \(\backslash\)ingroup\ digraphbits}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00033}00033\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00034}00034\ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Extender\ for\ the\ ArcSets}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00035}00035\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Base>}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00036}\mbox{\hyperlink{classlemon_1_1_arc_set_extender}{00036}}\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_arc_set_extender}{ArcSetExtender}}\ :\ \textcolor{keyword}{public}\ Base\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00037}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_a952757ccf0694c56354b9c8ea68bf61c}{00037}}\ \ \ \ \ \textcolor{keyword}{typedef}\ Base\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_a952757ccf0694c56354b9c8ea68bf61c}{Parent}};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00039}00039\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00041}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_ad0bc989f7ca2a90bd1acfef90f0904ee}{00041}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender}{ArcSetExtender}}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_ad0bc989f7ca2a90bd1acfef90f0904ee}{Digraph}};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00043}00043\ \ \ \ \ \textcolor{comment}{//\ Base\ extensions}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00045}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_ab6d58c318996621ad3754fcaf6c8787c}{00045}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Parent::Node\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_ab6d58c318996621ad3754fcaf6c8787c}{Node}};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00046}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_a5f06c04a85898da8eda9a9a0516210b4}{00046}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Parent::Arc\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_a5f06c04a85898da8eda9a9a0516210b4}{Arc}};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00048}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_aa5ec8071f5a9f002dfaf23981c81613e}{00048}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_aa5ec8071f5a9f002dfaf23981c81613e}{maxId}}(\mbox{\hyperlink{classlemon_1_1_arc_set_extender_ab6d58c318996621ad3754fcaf6c8787c}{Node}})\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00049}00049\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Parent::maxNodeId();}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00050}00050\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00052}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_aadca821cb1ccc8bd24f2c081d12698b8}{00052}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_aadca821cb1ccc8bd24f2c081d12698b8}{maxId}}(\mbox{\hyperlink{classlemon_1_1_arc_set_extender_a5f06c04a85898da8eda9a9a0516210b4}{Arc}})\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00053}00053\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Parent::maxArcId();}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00054}00054\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00056}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_a2192763946730b1fd989ae7da88571af}{00056}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_ab6d58c318996621ad3754fcaf6c8787c}{Node}}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_a2192763946730b1fd989ae7da88571af}{fromId}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_ab6d58c318996621ad3754fcaf6c8787c}{Node}})\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00057}00057\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Parent::nodeFromId(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00058}00058\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00060}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_ace126a23913a9075ba7bec53a9077b21}{00060}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_a5f06c04a85898da8eda9a9a0516210b4}{Arc}}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_ace126a23913a9075ba7bec53a9077b21}{fromId}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_a5f06c04a85898da8eda9a9a0516210b4}{Arc}})\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00061}00061\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Parent::arcFromId(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00062}00062\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00064}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_a98ef5bcf77286bb73e66c92599925f74}{00064}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_ab6d58c318996621ad3754fcaf6c8787c}{Node}}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_a98ef5bcf77286bb73e66c92599925f74}{oppositeNode}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_ab6d58c318996621ad3754fcaf6c8787c}{Node}}\ \&n,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_a5f06c04a85898da8eda9a9a0516210b4}{Arc}}\ \&e)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00065}00065\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ ==\ Parent::source(e))}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00066}00066\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Parent::target(e);}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00067}00067\ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(n==Parent::target(e))}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00068}00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Parent::source(e);}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00069}00069\ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00070}00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00071}00071\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00074}00074\ \ \ \ \ \textcolor{comment}{//\ Alteration\ notifier\ extensions}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00076}00076\ \ \ \ \ \textcolor{comment}{//\ The\ arc\ observer\ registry.}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00077}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_ad9d15d1adf3c04b8b774a43593996c02}{00077}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{AlterationNotifier<ArcSetExtender,\ Arc>}}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_ad9d15d1adf3c04b8b774a43593996c02}{ArcNotifier}};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00079}00079\ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00081}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_a1df74ba7ce383bc2275e42b422b51290}{00081}}\ \ \ \ \ \textcolor{keyword}{mutable}\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier}{ArcNotifier}}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_a1df74ba7ce383bc2275e42b422b51290}{arc\_notifier}};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00083}00083\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00085}00085\ \ \ \ \ \textcolor{keyword}{using\ }Parent::notifier;}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00087}00087\ \ \ \ \ \textcolor{comment}{//\ Gives\ back\ the\ arc\ alteration\ notifier.}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00088}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_a94c2391a2b655fcfd63d5f8bf0b811f7}{00088}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_alteration_notifier}{ArcNotifier}}\&\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_a94c2391a2b655fcfd63d5f8bf0b811f7}{notifier}}(\mbox{\hyperlink{classlemon_1_1_arc_set_extender_a5f06c04a85898da8eda9a9a0516210b4}{Arc}})\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00089}00089\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_a1df74ba7ce383bc2275e42b422b51290}{arc\_notifier}};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00090}00090\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00092}00092\ \ \ \ \ \textcolor{comment}{//\ Iterable\ extensions}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00094}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_node_it}{00094}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_node_it}{NodeIt}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_ab6d58c318996621ad3754fcaf6c8787c}{Node}}\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00095}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_node_it_a6b90174a826fa253c6085ac64d1913b5}{00095}}\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender}{Digraph}}*\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_node_it_a6b90174a826fa253c6085ac64d1913b5}{digraph}};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00096}00096\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00098}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_node_it_a85a83627f4ad0520ec154b9daabab6f9}{00098}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_node_it_a85a83627f4ad0520ec154b9daabab6f9}{NodeIt}}()\ \{\}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00100}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_node_it_a3809fe0d854e7f83876e06edddb36102}{00100}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_node_it_a3809fe0d854e7f83876e06edddb36102}{NodeIt}}(\mbox{\hyperlink{structlemon_1_1_invalid}{Invalid}}\ i)\ :\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_ab6d58c318996621ad3754fcaf6c8787c}{Node}}(i)\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00102}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_node_it_a288f1feae1f5a5c5460d4f087d8a02e3}{00102}}\ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_node_it_a288f1feae1f5a5c5460d4f087d8a02e3}{NodeIt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender}{Digraph}}\&\ \_graph)\ :\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_node_it_a6b90174a826fa253c6085ac64d1913b5}{digraph}}(\&\_graph)\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00103}00103\ \ \ \ \ \ \ \ \ \_graph.first(\textcolor{keyword}{static\_cast<}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_ab6d58c318996621ad3754fcaf6c8787c}{Node}}\&\textcolor{keyword}{>}(*\textcolor{keyword}{this}));}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00104}00104\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00106}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_node_it_ae4dc0888ed15b59933a6f79564ad4016}{00106}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_node_it_ae4dc0888ed15b59933a6f79564ad4016}{NodeIt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender}{Digraph}}\&\ \_graph,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_ab6d58c318996621ad3754fcaf6c8787c}{Node}}\&\ node)}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00107}00107\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_ab6d58c318996621ad3754fcaf6c8787c}{Node}}(node),\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_node_it_a6b90174a826fa253c6085ac64d1913b5}{digraph}}(\&\_graph)\ \{\}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00109}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_node_it_a490ad347d8db4cc6501225d7e16b6f57}{00109}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_node_it}{NodeIt}}\&\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_node_it_a490ad347d8db4cc6501225d7e16b6f57}{operator++}}()\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00110}00110\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_node_it_a6b90174a826fa253c6085ac64d1913b5}{digraph}}-\/>next(*\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00111}00111\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00112}00112\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00114}00114\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00117}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_arc_it}{00117}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_arc_it}{ArcIt}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_a5f06c04a85898da8eda9a9a0516210b4}{Arc}}\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00118}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_arc_it_a127f6aac8885e2f25cb7c1224f2390c2}{00118}}\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender}{Digraph}}*\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_arc_it_a127f6aac8885e2f25cb7c1224f2390c2}{digraph}};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00119}00119\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00121}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_arc_it_ad73de311415cb267fe7be80ab7cb148b}{00121}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_arc_it_ad73de311415cb267fe7be80ab7cb148b}{ArcIt}}()\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00122}00122\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00123}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_arc_it_a2d921a023938c01e2c57de41fd264240}{00123}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_arc_it_a2d921a023938c01e2c57de41fd264240}{ArcIt}}(\mbox{\hyperlink{structlemon_1_1_invalid}{Invalid}}\ i)\ :\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_a5f06c04a85898da8eda9a9a0516210b4}{Arc}}(i)\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00125}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_arc_it_a4f5296c8424db7581f6330fa6169f105}{00125}}\ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_arc_it_a4f5296c8424db7581f6330fa6169f105}{ArcIt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender}{Digraph}}\&\ \_graph)\ :\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_arc_it_a127f6aac8885e2f25cb7c1224f2390c2}{digraph}}(\&\_graph)\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00126}00126\ \ \ \ \ \ \ \ \ \_graph.first(\textcolor{keyword}{static\_cast<}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_a5f06c04a85898da8eda9a9a0516210b4}{Arc}}\&\textcolor{keyword}{>}(*\textcolor{keyword}{this}));}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00127}00127\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00129}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_arc_it_a93e0b94b78de7bbcf81c9bbf098ef831}{00129}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_arc_it_a93e0b94b78de7bbcf81c9bbf098ef831}{ArcIt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender}{Digraph}}\&\ \_graph,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_a5f06c04a85898da8eda9a9a0516210b4}{Arc}}\&\ e)\ :}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00130}00130\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_a5f06c04a85898da8eda9a9a0516210b4}{Arc}}(e),\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_arc_it_a127f6aac8885e2f25cb7c1224f2390c2}{digraph}}(\&\_graph)\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00132}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_arc_it_a3c52ebd1ad1f34d68d54d8382d6558dd}{00132}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_arc_it}{ArcIt}}\&\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_arc_it_a3c52ebd1ad1f34d68d54d8382d6558dd}{operator++}}()\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00133}00133\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_arc_it_a127f6aac8885e2f25cb7c1224f2390c2}{digraph}}-\/>next(*\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00134}00134\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00135}00135\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00136}00136\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00137}00137\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00138}00138\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00139}00139\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00140}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_out_arc_it}{00140}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_out_arc_it}{OutArcIt}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_a5f06c04a85898da8eda9a9a0516210b4}{Arc}}\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00141}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_out_arc_it_aa77e8ef033324e557be086390b00dc37}{00141}}\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender}{Digraph}}*\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_out_arc_it_aa77e8ef033324e557be086390b00dc37}{digraph}};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00142}00142\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00143}00143\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00144}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_out_arc_it_afbd2f50d6ee6f2500c28f0b5dafad5c4}{00144}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_out_arc_it_afbd2f50d6ee6f2500c28f0b5dafad5c4}{OutArcIt}}()\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00145}00145\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00146}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_out_arc_it_ace785df35d0afb84cfdad8b01771779b}{00146}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_out_arc_it_ace785df35d0afb84cfdad8b01771779b}{OutArcIt}}(\mbox{\hyperlink{structlemon_1_1_invalid}{Invalid}}\ i)\ :\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_a5f06c04a85898da8eda9a9a0516210b4}{Arc}}(i)\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00147}00147\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00148}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_out_arc_it_ac75a6bd83abf2a279f072b36a0f53116}{00148}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_out_arc_it_ac75a6bd83abf2a279f072b36a0f53116}{OutArcIt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender}{Digraph}}\&\ \_graph,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_ab6d58c318996621ad3754fcaf6c8787c}{Node}}\&\ node)}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00149}00149\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_out_arc_it_aa77e8ef033324e557be086390b00dc37}{digraph}}(\&\_graph)\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00150}00150\ \ \ \ \ \ \ \ \ \_graph.firstOut(*\textcolor{keyword}{this},\ node);}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00151}00151\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00152}00152\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00153}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_out_arc_it_ac86307af1bc564d47dd34b279ba43e02}{00153}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_out_arc_it_ac86307af1bc564d47dd34b279ba43e02}{OutArcIt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender}{Digraph}}\&\ \_graph,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_a5f06c04a85898da8eda9a9a0516210b4}{Arc}}\&\ arc)}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00154}00154\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_a5f06c04a85898da8eda9a9a0516210b4}{Arc}}(arc),\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_out_arc_it_aa77e8ef033324e557be086390b00dc37}{digraph}}(\&\_graph)\ \{\}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00155}00155\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00156}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_out_arc_it_a3d74af61764ad6a2407c882814c39512}{00156}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_out_arc_it}{OutArcIt}}\&\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_out_arc_it_a3d74af61764ad6a2407c882814c39512}{operator++}}()\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00157}00157\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_out_arc_it_aa77e8ef033324e557be086390b00dc37}{digraph}}-\/>nextOut(*\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00158}00158\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00159}00159\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00160}00160\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00161}00161\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00162}00162\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00163}00163\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00164}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_in_arc_it}{00164}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_in_arc_it}{InArcIt}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_a5f06c04a85898da8eda9a9a0516210b4}{Arc}}\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00165}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_in_arc_it_a638474f7e735d58e82014fc9acd742a8}{00165}}\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender}{Digraph}}*\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_in_arc_it_a638474f7e735d58e82014fc9acd742a8}{digraph}};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00166}00166\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00167}00167\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00168}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_in_arc_it_a73b81ff41fa1fa67a9bd49d35d74e7dc}{00168}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_in_arc_it_a73b81ff41fa1fa67a9bd49d35d74e7dc}{InArcIt}}()\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00169}00169\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00170}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_in_arc_it_a5ea457c9a59daac9f599aacd801bc50b}{00170}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_in_arc_it_a5ea457c9a59daac9f599aacd801bc50b}{InArcIt}}(\mbox{\hyperlink{structlemon_1_1_invalid}{Invalid}}\ i)\ :\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_a5f06c04a85898da8eda9a9a0516210b4}{Arc}}(i)\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00171}00171\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00172}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_in_arc_it_a5a601a9466b2e1357aa3429b8e8882bc}{00172}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_in_arc_it_a5a601a9466b2e1357aa3429b8e8882bc}{InArcIt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender}{Digraph}}\&\ \_graph,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_ab6d58c318996621ad3754fcaf6c8787c}{Node}}\&\ node)}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00173}00173\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_in_arc_it_a638474f7e735d58e82014fc9acd742a8}{digraph}}(\&\_graph)\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00174}00174\ \ \ \ \ \ \ \ \ \_graph.firstIn(*\textcolor{keyword}{this},\ node);}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00175}00175\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00176}00176\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00177}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_in_arc_it_a92ee958dcde1282bc51969b21f28afab}{00177}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_in_arc_it_a92ee958dcde1282bc51969b21f28afab}{InArcIt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender}{Digraph}}\&\ \_graph,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_a5f06c04a85898da8eda9a9a0516210b4}{Arc}}\&\ arc)\ :}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00178}00178\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_a5f06c04a85898da8eda9a9a0516210b4}{Arc}}(arc),\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_in_arc_it_a638474f7e735d58e82014fc9acd742a8}{digraph}}(\&\_graph)\ \{\}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00179}00179\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00180}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_in_arc_it_ab92ff2bdda4905ecc26cd2e49d42623c}{00180}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_in_arc_it}{InArcIt}}\&\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_in_arc_it_ab92ff2bdda4905ecc26cd2e49d42623c}{operator++}}()\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00181}00181\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_in_arc_it_a638474f7e735d58e82014fc9acd742a8}{digraph}}-\/>nextIn(*\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00182}00182\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00183}00183\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00184}00184\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00185}00185\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00186}00186\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00187}00187\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Base\ node\ of\ the\ iterator}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00188}00188\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00189}00189\ \ \ \ \ \textcolor{comment}{//\ Returns\ the\ base\ node\ (ie.\ the\ source\ in\ this\ case)\ of\ the\ iterator}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00190}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_a3908fbfca8bb9a9c6856268ac9d90503}{00190}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_ab6d58c318996621ad3754fcaf6c8787c}{Node}}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_a3908fbfca8bb9a9c6856268ac9d90503}{baseNode}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_out_arc_it}{OutArcIt}}\ \&e)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00191}00191\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Parent::source(\textcolor{keyword}{static\_cast<}\textcolor{keyword}{const\ }\mbox{\hyperlink{classlemon_1_1_arc_set_extender_a5f06c04a85898da8eda9a9a0516210b4}{Arc}}\&\textcolor{keyword}{>}(e));}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00192}00192\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00193}00193\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Running\ node\ of\ the\ iterator}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00194}00194\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00195}00195\ \ \ \ \ \textcolor{comment}{//\ Returns\ the\ running\ node\ (ie.\ the\ target\ in\ this\ case)\ of\ the}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00196}00196\ \ \ \ \ \textcolor{comment}{//\ iterator}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00197}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_ac262ee4438e0c63cf35cd37ea758416d}{00197}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_ab6d58c318996621ad3754fcaf6c8787c}{Node}}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_ac262ee4438e0c63cf35cd37ea758416d}{runningNode}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_out_arc_it}{OutArcIt}}\ \&e)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00198}00198\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Parent::target(\textcolor{keyword}{static\_cast<}\textcolor{keyword}{const\ }\mbox{\hyperlink{classlemon_1_1_arc_set_extender_a5f06c04a85898da8eda9a9a0516210b4}{Arc}}\&\textcolor{keyword}{>}(e));}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00199}00199\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00200}00200\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00201}00201\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Base\ node\ of\ the\ iterator}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00202}00202\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00203}00203\ \ \ \ \ \textcolor{comment}{//\ Returns\ the\ base\ node\ (ie.\ the\ target\ in\ this\ case)\ of\ the\ iterator}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00204}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_a861c8eb6699e1787fe176836dc236557}{00204}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_ab6d58c318996621ad3754fcaf6c8787c}{Node}}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_a861c8eb6699e1787fe176836dc236557}{baseNode}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_in_arc_it}{InArcIt}}\ \&e)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00205}00205\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Parent::target(\textcolor{keyword}{static\_cast<}\textcolor{keyword}{const\ }\mbox{\hyperlink{classlemon_1_1_arc_set_extender_a5f06c04a85898da8eda9a9a0516210b4}{Arc}}\&\textcolor{keyword}{>}(e));}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00206}00206\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00207}00207\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Running\ node\ of\ the\ iterator}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00208}00208\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00209}00209\ \ \ \ \ \textcolor{comment}{//\ Returns\ the\ running\ node\ (ie.\ the\ source\ in\ this\ case)\ of\ the}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00210}00210\ \ \ \ \ \textcolor{comment}{//\ iterator}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00211}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_acc5de57063fac8c6dc0e19745e73f1ef}{00211}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_ab6d58c318996621ad3754fcaf6c8787c}{Node}}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_acc5de57063fac8c6dc0e19745e73f1ef}{runningNode}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_in_arc_it}{InArcIt}}\ \&e)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00212}00212\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Parent::source(\textcolor{keyword}{static\_cast<}\textcolor{keyword}{const\ }\mbox{\hyperlink{classlemon_1_1_arc_set_extender_a5f06c04a85898da8eda9a9a0516210b4}{Arc}}\&\textcolor{keyword}{>}(e));}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00213}00213\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00214}00214\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00215}00215\ \ \ \ \ \textcolor{keyword}{using\ }Parent::first;}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00216}00216\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00217}00217\ \ \ \ \ \textcolor{comment}{//\ Mappable\ extension}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00218}00218\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00219}00219\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ \_Value>}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00220}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_arc_map}{00220}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_arc_map}{ArcMap}}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00221}00221\ \ \ \ \ \ \ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1_map_extender}{MapExtender}}<DefaultMap<Digraph,\ Arc,\ \_Value>\ >\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00222}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_arc_map_ae873f27da5fea25830985577e9dc28a5}{00222}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{MapExtender<DefaultMap<Digraph,\ Arc,\ \_Value>}}\ >\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_arc_map_ae873f27da5fea25830985577e9dc28a5}{Parent}};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00223}00223\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00224}00224\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00225}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_arc_map_a57b425304aeccfa15cf61beac014dfa5}{00225}}\ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_arc_map_a57b425304aeccfa15cf61beac014dfa5}{ArcMap}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender}{Digraph}}\&\ \_g)}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00226}00226\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classlemon_1_1_map_extender}{Parent}}(\_g)\ \{\}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00227}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_arc_map_ac41b356a55a976651bce4df5ad1e857c}{00227}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_arc_map_ac41b356a55a976651bce4df5ad1e857c}{ArcMap}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender}{Digraph}}\&\ \_g,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_Value}}\&\ \_v)}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00228}00228\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classlemon_1_1_map_extender}{Parent}}(\_g,\ \_v)\ \{\}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00229}00229\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00230}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_arc_map_a51c3b4c2dc2999eaba44accf79f4b920}{00230}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_arc_map}{ArcMap}}\&\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_arc_map_a51c3b4c2dc2999eaba44accf79f4b920}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_arc_map}{ArcMap}}\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cmap}})\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00231}00231\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{operator}=<\mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_arc_map}{ArcMap}}>(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cmap}});}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00232}00232\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00233}00233\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00234}00234\ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ CMap>}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00235}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_arc_map_ae6f439dc7d90935c5a186db482e05488}{00235}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_arc_map}{ArcMap}}\&\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_1_1_arc_map_ae6f439dc7d90935c5a186db482e05488}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CMap}}\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cmap}})\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00236}00236\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_map_extender_ad1566bce0f38e7a751b54b5e311fe270}{Parent::operator=}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cmap}});}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00237}00237\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00238}00238\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00239}00239\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00240}00240\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00241}00241\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00242}00242\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00243}00243\ \ \ \ \ \textcolor{comment}{//\ Alteration\ extension}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00244}00244\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00245}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_af27d1993a9b9716581b28fb6ecc43468}{00245}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_a5f06c04a85898da8eda9a9a0516210b4}{Arc}}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_af27d1993a9b9716581b28fb6ecc43468}{addArc}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_ab6d58c318996621ad3754fcaf6c8787c}{Node}}\&\ from,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_ab6d58c318996621ad3754fcaf6c8787c}{Node}}\&\ to)\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00246}00246\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_a5f06c04a85898da8eda9a9a0516210b4}{Arc}}\ arc\ =\ Parent::addArc(from,\ to);}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00247}00247\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_a94c2391a2b655fcfd63d5f8bf0b811f7}{notifier}}(\mbox{\hyperlink{classlemon_1_1_arc_set_extender_a5f06c04a85898da8eda9a9a0516210b4}{Arc}}()).\mbox{\hyperlink{classlemon_1_1_alteration_notifier_a4999a713bc88165dd15daf2dec6a68e2}{add}}(arc);}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00248}00248\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ arc;}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00249}00249\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00250}00250\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00251}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_a15d2fdf4905c49737ebac7be4620f215}{00251}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_a15d2fdf4905c49737ebac7be4620f215}{clear}}()\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00252}00252\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_a94c2391a2b655fcfd63d5f8bf0b811f7}{notifier}}(\mbox{\hyperlink{classlemon_1_1_arc_set_extender_a5f06c04a85898da8eda9a9a0516210b4}{Arc}}()).\mbox{\hyperlink{classlemon_1_1_alteration_notifier_a0ef1f781f588b5a5ddf81e5737e03a42}{clear}}();}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00253}00253\ \ \ \ \ \ \ Parent::clear();}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00254}00254\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00255}00255\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00256}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_a21086f1158ab372000b04d73d7565118}{00256}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_a21086f1158ab372000b04d73d7565118}{erase}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_a5f06c04a85898da8eda9a9a0516210b4}{Arc}}\&\ arc)\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00257}00257\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_a94c2391a2b655fcfd63d5f8bf0b811f7}{notifier}}(\mbox{\hyperlink{classlemon_1_1_arc_set_extender_a5f06c04a85898da8eda9a9a0516210b4}{Arc}}()).\mbox{\hyperlink{classlemon_1_1_alteration_notifier_aeca8a072c99515f246b07bb846f3f4a5}{erase}}(arc);}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00258}00258\ \ \ \ \ \ \ Parent::erase(arc);}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00259}00259\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00260}00260\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00261}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_aa710fec53b4485471f3e254e3e41f2cf}{00261}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_aa710fec53b4485471f3e254e3e41f2cf}{ArcSetExtender}}()\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00262}00262\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_a1df74ba7ce383bc2275e42b422b51290}{arc\_notifier}}.\mbox{\hyperlink{classlemon_1_1_alteration_notifier_a29dcea98e5dc808b3195b4caf725d145}{setContainer}}(*\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00263}00263\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00264}00264\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00265}\mbox{\hyperlink{classlemon_1_1_arc_set_extender_a956eb08220ccb0cf7838caa98204add5}{00265}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_a956eb08220ccb0cf7838caa98204add5}{\string~ArcSetExtender}}()\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00266}00266\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_arc_set_extender_a1df74ba7ce383bc2275e42b422b51290}{arc\_notifier}}.\mbox{\hyperlink{classlemon_1_1_alteration_notifier_a0ef1f781f588b5a5ddf81e5737e03a42}{clear}}();}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00267}00267\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00268}00268\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00269}00269\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00270}00270\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00271}00271\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00272}00272\ \ \ \textcolor{comment}{//\ \(\backslash\)ingroup\ digraphbits}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00273}00273\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00274}00274\ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Extender\ for\ the\ EdgeSets}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00275}00275\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Base>}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00276}\mbox{\hyperlink{classlemon_1_1_edge_set_extender}{00276}}\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_edge_set_extender}{EdgeSetExtender}}\ :\ \textcolor{keyword}{public}\ Base\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00277}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_ae8b6f016ab2072b3f2c7303e63e20fb0}{00277}}\ \ \ \ \ \textcolor{keyword}{typedef}\ Base\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_ae8b6f016ab2072b3f2c7303e63e20fb0}{Parent}};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00278}00278\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00279}00279\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00280}00280\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00281}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_a1f6313a68517e4311871d57f07c44eb6}{00281}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender}{EdgeSetExtender}}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a1f6313a68517e4311871d57f07c44eb6}{Graph}};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00282}00282\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00283}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_a9f205bd422320a7371c1fa782c87ec9f}{00283}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{structlemon_1_1_true}{True}}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a9f205bd422320a7371c1fa782c87ec9f}{UndirectedTag}};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00284}00284\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00285}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_a97bcf44931a0e96532e063cf14df4397}{00285}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Parent::Node\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a97bcf44931a0e96532e063cf14df4397}{Node}};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00286}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_abf4a968b27da91201b1fb2d75c551b7d}{00286}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Parent::Arc\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_abf4a968b27da91201b1fb2d75c551b7d}{Arc}};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00287}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_a6f5714a67d307469a6752e94f28ece62}{00287}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Parent::Edge\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a6f5714a67d307469a6752e94f28ece62}{Edge}};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00288}00288\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00289}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_a570896c6d5b720277f9777779fe7c2cd}{00289}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a570896c6d5b720277f9777779fe7c2cd}{maxId}}(\mbox{\hyperlink{classlemon_1_1_edge_set_extender_a97bcf44931a0e96532e063cf14df4397}{Node}})\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00290}00290\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Parent::maxNodeId();}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00291}00291\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00292}00292\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00293}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_af881587f0ac654b587d0c5196bb4c475}{00293}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_af881587f0ac654b587d0c5196bb4c475}{maxId}}(\mbox{\hyperlink{classlemon_1_1_edge_set_extender_abf4a968b27da91201b1fb2d75c551b7d}{Arc}})\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00294}00294\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Parent::maxArcId();}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00295}00295\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00296}00296\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00297}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_ac06db4c66ff037f59de8bc06c7369d0b}{00297}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_ac06db4c66ff037f59de8bc06c7369d0b}{maxId}}(\mbox{\hyperlink{classlemon_1_1_edge_set_extender_a6f5714a67d307469a6752e94f28ece62}{Edge}})\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00298}00298\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Parent::maxEdgeId();}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00299}00299\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00300}00300\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00301}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_afdfe6781d52e13702bb7857ad51362f5}{00301}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a97bcf44931a0e96532e063cf14df4397}{Node}}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_afdfe6781d52e13702bb7857ad51362f5}{fromId}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a97bcf44931a0e96532e063cf14df4397}{Node}})\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00302}00302\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Parent::nodeFromId(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00303}00303\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00304}00304\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00305}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_aab389c4b259c1ad0680d644d63ebd603}{00305}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_abf4a968b27da91201b1fb2d75c551b7d}{Arc}}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_aab389c4b259c1ad0680d644d63ebd603}{fromId}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_abf4a968b27da91201b1fb2d75c551b7d}{Arc}})\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00306}00306\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Parent::arcFromId(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00307}00307\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00308}00308\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00309}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_a0f1340eceeb9c97042657d698f94f262}{00309}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a6f5714a67d307469a6752e94f28ece62}{Edge}}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a0f1340eceeb9c97042657d698f94f262}{fromId}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a6f5714a67d307469a6752e94f28ece62}{Edge}})\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00310}00310\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Parent::edgeFromId(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00311}00311\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00312}00312\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00313}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_a7f6944303abfdd3827ee9de1289b15b5}{00313}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a97bcf44931a0e96532e063cf14df4397}{Node}}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a7f6944303abfdd3827ee9de1289b15b5}{oppositeNode}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a97bcf44931a0e96532e063cf14df4397}{Node}}\ \&n,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a6f5714a67d307469a6752e94f28ece62}{Edge}}\ \&e)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00314}00314\ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ n\ ==\ Parent::u(e))}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00315}00315\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Parent::v(e);}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00316}00316\ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(\ n\ ==\ Parent::v(e))}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00317}00317\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Parent::u(e);}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00318}00318\ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00319}00319\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00320}00320\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00321}00321\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00322}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_a156c2824d9f297a5d8537c1315ba3bb3}{00322}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_abf4a968b27da91201b1fb2d75c551b7d}{Arc}}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a156c2824d9f297a5d8537c1315ba3bb3}{oppositeArc}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_abf4a968b27da91201b1fb2d75c551b7d}{Arc}}\ \&e)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00323}00323\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Parent::direct(e,\ !Parent::direction(e));}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00324}00324\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00325}00325\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00326}00326\ \ \ \ \ \textcolor{keyword}{using\ }Parent::direct;}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00327}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_adff17ffbad149e92fded7e28789c013d}{00327}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_abf4a968b27da91201b1fb2d75c551b7d}{Arc}}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_adff17ffbad149e92fded7e28789c013d}{direct}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a6f5714a67d307469a6752e94f28ece62}{Edge}}\ \&e,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a97bcf44931a0e96532e063cf14df4397}{Node}}\ \&s)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00328}00328\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Parent::direct(e,\ Parent::u(e)\ ==\ s);}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00329}00329\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00330}00330\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00331}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_aef5676b6a06c458aeae0f0da46f419a5}{00331}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{AlterationNotifier<EdgeSetExtender,\ Arc>}}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_aef5676b6a06c458aeae0f0da46f419a5}{ArcNotifier}};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00332}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_a5716dc161e6fcfd61687ea1c1177229c}{00332}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{AlterationNotifier<EdgeSetExtender,\ Edge>}}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a5716dc161e6fcfd61687ea1c1177229c}{EdgeNotifier}};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00333}00333\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00334}00334\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00335}00335\ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00336}00336\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00337}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_aed96df6a61f288482cb0cb61a0253c05}{00337}}\ \ \ \ \ \textcolor{keyword}{mutable}\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier}{ArcNotifier}}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_aed96df6a61f288482cb0cb61a0253c05}{arc\_notifier}};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00338}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_adaccba4f9f66a54fdc0305c0918cdbc5}{00338}}\ \ \ \ \ \textcolor{keyword}{mutable}\ \mbox{\hyperlink{classlemon_1_1_alteration_notifier}{EdgeNotifier}}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_adaccba4f9f66a54fdc0305c0918cdbc5}{edge\_notifier}};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00339}00339\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00340}00340\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00341}00341\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00342}00342\ \ \ \ \ \textcolor{keyword}{using\ }Parent::notifier;}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00343}00343\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00344}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_a5202c91d7148255637c66a4aa76887a3}{00344}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_alteration_notifier}{ArcNotifier}}\&\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a5202c91d7148255637c66a4aa76887a3}{notifier}}(\mbox{\hyperlink{classlemon_1_1_edge_set_extender_abf4a968b27da91201b1fb2d75c551b7d}{Arc}})\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00345}00345\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_aed96df6a61f288482cb0cb61a0253c05}{arc\_notifier}};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00346}00346\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00347}00347\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00348}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_af728a23db8f356f39381aa96525ee5f5}{00348}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_alteration_notifier}{EdgeNotifier}}\&\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_af728a23db8f356f39381aa96525ee5f5}{notifier}}(\mbox{\hyperlink{classlemon_1_1_edge_set_extender_a6f5714a67d307469a6752e94f28ece62}{Edge}})\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00349}00349\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_adaccba4f9f66a54fdc0305c0918cdbc5}{edge\_notifier}};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00350}00350\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00351}00351\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00352}00352\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00353}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_node_it}{00353}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_node_it}{NodeIt}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a97bcf44931a0e96532e063cf14df4397}{Node}}\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00354}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_node_it_a1c5fc08d2030894e1ee5b79fb0b18dac}{00354}}\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender}{Graph}}*\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_node_it_a1c5fc08d2030894e1ee5b79fb0b18dac}{graph}};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00355}00355\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00356}00356\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00357}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_node_it_a2dd2934cc115e434fdc2d5d796e8553e}{00357}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_node_it_a2dd2934cc115e434fdc2d5d796e8553e}{NodeIt}}()\ \{\}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00358}00358\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00359}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_node_it_abd205549c7aa30f525045e17396cd3c6}{00359}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_node_it_abd205549c7aa30f525045e17396cd3c6}{NodeIt}}(\mbox{\hyperlink{structlemon_1_1_invalid}{Invalid}}\ i)\ :\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a97bcf44931a0e96532e063cf14df4397}{Node}}(i)\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00360}00360\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00361}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_node_it_a5032d95e119fb1aea73999cbfc84e790}{00361}}\ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_node_it_a5032d95e119fb1aea73999cbfc84e790}{NodeIt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender}{Graph}}\&\ \_graph)\ :\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_node_it_a1c5fc08d2030894e1ee5b79fb0b18dac}{graph}}(\&\_graph)\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00362}00362\ \ \ \ \ \ \ \ \ \_graph.first(\textcolor{keyword}{static\_cast<}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_a97bcf44931a0e96532e063cf14df4397}{Node}}\&\textcolor{keyword}{>}(*\textcolor{keyword}{this}));}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00363}00363\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00364}00364\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00365}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_node_it_ada0ae95a744112161c246f797674499f}{00365}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_node_it_ada0ae95a744112161c246f797674499f}{NodeIt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender}{Graph}}\&\ \_graph,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a97bcf44931a0e96532e063cf14df4397}{Node}}\&\ node)}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00366}00366\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a97bcf44931a0e96532e063cf14df4397}{Node}}(node),\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_node_it_a1c5fc08d2030894e1ee5b79fb0b18dac}{graph}}(\&\_graph)\ \{\}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00367}00367\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00368}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_node_it_a2415090b8bc9da57ad387f57030afb9d}{00368}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_node_it}{NodeIt}}\&\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_node_it_a2415090b8bc9da57ad387f57030afb9d}{operator++}}()\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00369}00369\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_node_it_a1c5fc08d2030894e1ee5b79fb0b18dac}{graph}}-\/>next(*\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00370}00370\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00371}00371\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00372}00372\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00373}00373\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00374}00374\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00375}00375\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00376}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_arc_it}{00376}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_arc_it}{ArcIt}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_abf4a968b27da91201b1fb2d75c551b7d}{Arc}}\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00377}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_arc_it_a5cdd4f68752b504b8100c45d04ae5a50}{00377}}\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender}{Graph}}*\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_arc_it_a5cdd4f68752b504b8100c45d04ae5a50}{graph}};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00378}00378\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00379}00379\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00380}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_arc_it_a92e4f4f2f1951d494cf0482307b6aed9}{00380}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_arc_it_a92e4f4f2f1951d494cf0482307b6aed9}{ArcIt}}()\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00381}00381\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00382}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_arc_it_a67b4dd9b18726a250186c16f84efcb34}{00382}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_arc_it_a67b4dd9b18726a250186c16f84efcb34}{ArcIt}}(\mbox{\hyperlink{structlemon_1_1_invalid}{Invalid}}\ i)\ :\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_abf4a968b27da91201b1fb2d75c551b7d}{Arc}}(i)\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00383}00383\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00384}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_arc_it_adc1025fdf806bc77661aeee33810c3a7}{00384}}\ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_arc_it_adc1025fdf806bc77661aeee33810c3a7}{ArcIt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender}{Graph}}\&\ \_graph)\ :\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_arc_it_a5cdd4f68752b504b8100c45d04ae5a50}{graph}}(\&\_graph)\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00385}00385\ \ \ \ \ \ \ \ \ \_graph.first(\textcolor{keyword}{static\_cast<}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_abf4a968b27da91201b1fb2d75c551b7d}{Arc}}\&\textcolor{keyword}{>}(*\textcolor{keyword}{this}));}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00386}00386\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00387}00387\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00388}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_arc_it_a03a4d47c69b2ec7288c19c491b35835c}{00388}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_arc_it_a03a4d47c69b2ec7288c19c491b35835c}{ArcIt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender}{Graph}}\&\ \_graph,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_abf4a968b27da91201b1fb2d75c551b7d}{Arc}}\&\ e)\ :}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00389}00389\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_abf4a968b27da91201b1fb2d75c551b7d}{Arc}}(e),\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_arc_it_a5cdd4f68752b504b8100c45d04ae5a50}{graph}}(\&\_graph)\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00390}00390\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00391}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_arc_it_a0f525724387231c1772427ac3cbf6ad0}{00391}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_arc_it}{ArcIt}}\&\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_arc_it_a0f525724387231c1772427ac3cbf6ad0}{operator++}}()\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00392}00392\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_arc_it_a5cdd4f68752b504b8100c45d04ae5a50}{graph}}-\/>next(*\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00393}00393\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00394}00394\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00395}00395\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00396}00396\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00397}00397\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00398}00398\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00399}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_out_arc_it}{00399}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_out_arc_it}{OutArcIt}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_abf4a968b27da91201b1fb2d75c551b7d}{Arc}}\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00400}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_out_arc_it_adb2e86efd84dd7082faef8efe69cd995}{00400}}\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender}{Graph}}*\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_out_arc_it_adb2e86efd84dd7082faef8efe69cd995}{graph}};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00401}00401\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00402}00402\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00403}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_out_arc_it_a27bd28d08109e3301437dfc85d382020}{00403}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_out_arc_it_a27bd28d08109e3301437dfc85d382020}{OutArcIt}}()\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00404}00404\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00405}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_out_arc_it_a57bf4d9778d225efcc67944ae5425163}{00405}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_out_arc_it_a57bf4d9778d225efcc67944ae5425163}{OutArcIt}}(\mbox{\hyperlink{structlemon_1_1_invalid}{Invalid}}\ i)\ :\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_abf4a968b27da91201b1fb2d75c551b7d}{Arc}}(i)\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00406}00406\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00407}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_out_arc_it_a96fcfac0e8afc6e629a9eb7217f56393}{00407}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_out_arc_it_a96fcfac0e8afc6e629a9eb7217f56393}{OutArcIt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender}{Graph}}\&\ \_graph,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a97bcf44931a0e96532e063cf14df4397}{Node}}\&\ node)}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00408}00408\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_out_arc_it_adb2e86efd84dd7082faef8efe69cd995}{graph}}(\&\_graph)\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00409}00409\ \ \ \ \ \ \ \ \ \_graph.firstOut(*\textcolor{keyword}{this},\ node);}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00410}00410\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00411}00411\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00412}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_out_arc_it_ae1a03d33e48ddc08554ba65754e16232}{00412}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_out_arc_it_ae1a03d33e48ddc08554ba65754e16232}{OutArcIt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender}{Graph}}\&\ \_graph,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_abf4a968b27da91201b1fb2d75c551b7d}{Arc}}\&\ arc)}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00413}00413\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_abf4a968b27da91201b1fb2d75c551b7d}{Arc}}(arc),\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_out_arc_it_adb2e86efd84dd7082faef8efe69cd995}{graph}}(\&\_graph)\ \{\}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00414}00414\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00415}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_out_arc_it_aab21972bc0134f166144ba48bd200f46}{00415}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_out_arc_it}{OutArcIt}}\&\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_out_arc_it_aab21972bc0134f166144ba48bd200f46}{operator++}}()\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00416}00416\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_out_arc_it_adb2e86efd84dd7082faef8efe69cd995}{graph}}-\/>nextOut(*\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00417}00417\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00418}00418\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00419}00419\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00420}00420\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00421}00421\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00422}00422\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00423}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_in_arc_it}{00423}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_in_arc_it}{InArcIt}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_abf4a968b27da91201b1fb2d75c551b7d}{Arc}}\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00424}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_in_arc_it_a6d6ae559527baaca75b5882e3064dcdd}{00424}}\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender}{Graph}}*\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_in_arc_it_a6d6ae559527baaca75b5882e3064dcdd}{graph}};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00425}00425\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00426}00426\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00427}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_in_arc_it_ab37bf2ece4d237b453edc005c1b86b1e}{00427}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_in_arc_it_ab37bf2ece4d237b453edc005c1b86b1e}{InArcIt}}()\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00428}00428\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00429}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_in_arc_it_aeeae162da6282a4896718de29cf26586}{00429}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_in_arc_it_aeeae162da6282a4896718de29cf26586}{InArcIt}}(\mbox{\hyperlink{structlemon_1_1_invalid}{Invalid}}\ i)\ :\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_abf4a968b27da91201b1fb2d75c551b7d}{Arc}}(i)\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00430}00430\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00431}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_in_arc_it_a2103bc28513b4b6ea27ad0db81b3db53}{00431}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_in_arc_it_a2103bc28513b4b6ea27ad0db81b3db53}{InArcIt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender}{Graph}}\&\ \_graph,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a97bcf44931a0e96532e063cf14df4397}{Node}}\&\ node)}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00432}00432\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_in_arc_it_a6d6ae559527baaca75b5882e3064dcdd}{graph}}(\&\_graph)\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00433}00433\ \ \ \ \ \ \ \ \ \_graph.firstIn(*\textcolor{keyword}{this},\ node);}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00434}00434\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00435}00435\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00436}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_in_arc_it_a14d4fe03f303a8ada767e69aa7e2a914}{00436}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_in_arc_it_a14d4fe03f303a8ada767e69aa7e2a914}{InArcIt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender}{Graph}}\&\ \_graph,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_abf4a968b27da91201b1fb2d75c551b7d}{Arc}}\&\ arc)\ :}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00437}00437\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_abf4a968b27da91201b1fb2d75c551b7d}{Arc}}(arc),\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_in_arc_it_a6d6ae559527baaca75b5882e3064dcdd}{graph}}(\&\_graph)\ \{\}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00438}00438\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00439}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_in_arc_it_abeec2eaae9ae8e2fa542885c884ac6f1}{00439}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_in_arc_it}{InArcIt}}\&\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_in_arc_it_abeec2eaae9ae8e2fa542885c884ac6f1}{operator++}}()\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00440}00440\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_in_arc_it_a6d6ae559527baaca75b5882e3064dcdd}{graph}}-\/>nextIn(*\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00441}00441\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00442}00442\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00443}00443\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00444}00444\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00445}00445\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00446}00446\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00447}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_edge_it}{00447}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_edge_it}{EdgeIt}}\ :\ \textcolor{keyword}{public}\ Parent::Edge\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00448}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_edge_it_adb77ba9369d88dea5145275fb5090e87}{00448}}\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender}{Graph}}*\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_edge_it_adb77ba9369d88dea5145275fb5090e87}{graph}};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00449}00449\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00450}00450\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00451}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_edge_it_a77ed3a9a69139d89ae972d2265b90723}{00451}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_edge_it_a77ed3a9a69139d89ae972d2265b90723}{EdgeIt}}()\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00452}00452\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00453}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_edge_it_a988bab16220922d7da29c3e95f4f29d3}{00453}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_edge_it_a988bab16220922d7da29c3e95f4f29d3}{EdgeIt}}(\mbox{\hyperlink{structlemon_1_1_invalid}{Invalid}}\ i)\ :\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a6f5714a67d307469a6752e94f28ece62}{Edge}}(i)\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00454}00454\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00455}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_edge_it_a94c387833a421793279521cb168ef822}{00455}}\ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_edge_it_a94c387833a421793279521cb168ef822}{EdgeIt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender}{Graph}}\&\ \_graph)\ :\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_edge_it_adb77ba9369d88dea5145275fb5090e87}{graph}}(\&\_graph)\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00456}00456\ \ \ \ \ \ \ \ \ \_graph.first(\textcolor{keyword}{static\_cast<}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_a6f5714a67d307469a6752e94f28ece62}{Edge}}\&\textcolor{keyword}{>}(*\textcolor{keyword}{this}));}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00457}00457\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00458}00458\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00459}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_edge_it_a6977ce70fc669002910282b39633ef08}{00459}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_edge_it_a6977ce70fc669002910282b39633ef08}{EdgeIt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender}{Graph}}\&\ \_graph,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a6f5714a67d307469a6752e94f28ece62}{Edge}}\&\ e)\ :}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00460}00460\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a6f5714a67d307469a6752e94f28ece62}{Edge}}(e),\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_edge_it_adb77ba9369d88dea5145275fb5090e87}{graph}}(\&\_graph)\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00461}00461\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00462}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_edge_it_ae13913168279eb7b739406e318d7d077}{00462}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_edge_it}{EdgeIt}}\&\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_edge_it_ae13913168279eb7b739406e318d7d077}{operator++}}()\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00463}00463\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_edge_it_adb77ba9369d88dea5145275fb5090e87}{graph}}-\/>next(*\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00464}00464\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00465}00465\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00466}00466\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00467}00467\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00468}00468\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00469}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_inc_edge_it}{00469}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_inc_edge_it}{IncEdgeIt}}\ :\ \textcolor{keyword}{public}\ Parent::Edge\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00470}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_inc_edge_it_a3fbbce4b65c3c200801d2f7507cbabd4}{00470}}\ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_edge_set_extender}{EdgeSetExtender}};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00471}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_inc_edge_it_aa9e4a27b3409edee57a5863d443e42c5}{00471}}\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender}{Graph}}*\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_inc_edge_it_aa9e4a27b3409edee57a5863d443e42c5}{graph}};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00472}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_inc_edge_it_ab417477b05fe64c21927835e1f8dd76e}{00472}}\ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_inc_edge_it_ab417477b05fe64c21927835e1f8dd76e}{direction}};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00473}00473\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00474}00474\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00475}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_inc_edge_it_a696f73700180e7264f619489d58ebe18}{00475}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_inc_edge_it_a696f73700180e7264f619489d58ebe18}{IncEdgeIt}}()\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00476}00476\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00477}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_inc_edge_it_abe30e763f3651691ec61ecf75dcf54d3}{00477}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_inc_edge_it_abe30e763f3651691ec61ecf75dcf54d3}{IncEdgeIt}}(\mbox{\hyperlink{structlemon_1_1_invalid}{Invalid}}\ i)\ :\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a6f5714a67d307469a6752e94f28ece62}{Edge}}(i),\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_inc_edge_it_ab417477b05fe64c21927835e1f8dd76e}{direction}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{false}})\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00478}00478\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00479}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_inc_edge_it_abb32057fa429217c7777170a572ba7ec}{00479}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_inc_edge_it_abb32057fa429217c7777170a572ba7ec}{IncEdgeIt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender}{Graph}}\&\ \_graph,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a97bcf44931a0e96532e063cf14df4397}{Node}}\ \&n)\ :\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_inc_edge_it_aa9e4a27b3409edee57a5863d443e42c5}{graph}}(\&\_graph)\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00480}00480\ \ \ \ \ \ \ \ \ \_graph.firstInc(*\textcolor{keyword}{this},\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_inc_edge_it_ab417477b05fe64c21927835e1f8dd76e}{direction}},\ n);}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00481}00481\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00482}00482\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00483}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_inc_edge_it_a311dc3634a60cf73da5a52551b9ed58f}{00483}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_inc_edge_it_a311dc3634a60cf73da5a52551b9ed58f}{IncEdgeIt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender}{Graph}}\&\ \_graph,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a6f5714a67d307469a6752e94f28ece62}{Edge}}\ \&\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ue}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a97bcf44931a0e96532e063cf14df4397}{Node}}\ \&n)}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00484}00484\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_inc_edge_it_aa9e4a27b3409edee57a5863d443e42c5}{graph}}(\&\_graph),\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a6f5714a67d307469a6752e94f28ece62}{Edge}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ue}})\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00485}00485\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_inc_edge_it_ab417477b05fe64c21927835e1f8dd76e}{direction}}\ =\ (\_graph.source(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ue}})\ ==\ n);}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00486}00486\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00487}00487\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00488}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_inc_edge_it_a286dba0de58b28e3d490c51494670ca7}{00488}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_inc_edge_it}{IncEdgeIt}}\&\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_inc_edge_it_a286dba0de58b28e3d490c51494670ca7}{operator++}}()\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00489}00489\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_inc_edge_it_aa9e4a27b3409edee57a5863d443e42c5}{graph}}-\/>nextInc(*\textcolor{keyword}{this},\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_inc_edge_it_ab417477b05fe64c21927835e1f8dd76e}{direction}});}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00490}00490\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00491}00491\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00492}00492\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00493}00493\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00494}00494\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Base\ node\ of\ the\ iterator}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00495}00495\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00496}00496\ \ \ \ \ \textcolor{comment}{//\ Returns\ the\ base\ node\ (ie.\ the\ source\ in\ this\ case)\ of\ the\ iterator}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00497}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_a9a2333aa392f743d4e63c5a3fc8b3e17}{00497}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a97bcf44931a0e96532e063cf14df4397}{Node}}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a9a2333aa392f743d4e63c5a3fc8b3e17}{baseNode}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_out_arc_it}{OutArcIt}}\ \&e)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00498}00498\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Parent::source(\textcolor{keyword}{static\_cast<}\textcolor{keyword}{const\ }\mbox{\hyperlink{classlemon_1_1_edge_set_extender_abf4a968b27da91201b1fb2d75c551b7d}{Arc}}\&\textcolor{keyword}{>}(e));}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00499}00499\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00500}00500\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Running\ node\ of\ the\ iterator}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00501}00501\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00502}00502\ \ \ \ \ \textcolor{comment}{//\ Returns\ the\ running\ node\ (ie.\ the\ target\ in\ this\ case)\ of\ the}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00503}00503\ \ \ \ \ \textcolor{comment}{//\ iterator}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00504}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_afdc87772215f2ad9619e1dcb56be7968}{00504}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a97bcf44931a0e96532e063cf14df4397}{Node}}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_afdc87772215f2ad9619e1dcb56be7968}{runningNode}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_out_arc_it}{OutArcIt}}\ \&e)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00505}00505\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Parent::target(\textcolor{keyword}{static\_cast<}\textcolor{keyword}{const\ }\mbox{\hyperlink{classlemon_1_1_edge_set_extender_abf4a968b27da91201b1fb2d75c551b7d}{Arc}}\&\textcolor{keyword}{>}(e));}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00506}00506\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00507}00507\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00508}00508\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Base\ node\ of\ the\ iterator}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00509}00509\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00510}00510\ \ \ \ \ \textcolor{comment}{//\ Returns\ the\ base\ node\ (ie.\ the\ target\ in\ this\ case)\ of\ the\ iterator}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00511}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_a2cd183625fddac20f5775573b880a14c}{00511}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a97bcf44931a0e96532e063cf14df4397}{Node}}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a2cd183625fddac20f5775573b880a14c}{baseNode}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_in_arc_it}{InArcIt}}\ \&e)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00512}00512\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Parent::target(\textcolor{keyword}{static\_cast<}\textcolor{keyword}{const\ }\mbox{\hyperlink{classlemon_1_1_edge_set_extender_abf4a968b27da91201b1fb2d75c551b7d}{Arc}}\&\textcolor{keyword}{>}(e));}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00513}00513\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00514}00514\ \ \ \ \ \textcolor{comment}{//\ \(\backslash\)brief\ Running\ node\ of\ the\ iterator}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00515}00515\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00516}00516\ \ \ \ \ \textcolor{comment}{//\ Returns\ the\ running\ node\ (ie.\ the\ source\ in\ this\ case)\ of\ the}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00517}00517\ \ \ \ \ \textcolor{comment}{//\ iterator}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00518}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_abc25e583d399916d852b0a85816d48fb}{00518}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a97bcf44931a0e96532e063cf14df4397}{Node}}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_abc25e583d399916d852b0a85816d48fb}{runningNode}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_in_arc_it}{InArcIt}}\ \&e)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00519}00519\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Parent::source(\textcolor{keyword}{static\_cast<}\textcolor{keyword}{const\ }\mbox{\hyperlink{classlemon_1_1_edge_set_extender_abf4a968b27da91201b1fb2d75c551b7d}{Arc}}\&\textcolor{keyword}{>}(e));}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00520}00520\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00521}00521\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00522}00522\ \ \ \ \ \textcolor{comment}{//\ Base\ node\ of\ the\ iterator}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00523}00523\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00524}00524\ \ \ \ \ \textcolor{comment}{//\ Returns\ the\ base\ node\ of\ the\ iterator}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00525}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_acb5257c719f998aac2730461467d12c9}{00525}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a97bcf44931a0e96532e063cf14df4397}{Node}}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_acb5257c719f998aac2730461467d12c9}{baseNode}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_inc_edge_it}{IncEdgeIt}}\ \&e)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00526}00526\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ e.\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_inc_edge_it_ab417477b05fe64c21927835e1f8dd76e}{direction}}\ ?\ this-\/>u(e)\ :\ this-\/>v(e);}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00527}00527\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00528}00528\ \ \ \ \ \textcolor{comment}{//\ Running\ node\ of\ the\ iterator}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00529}00529\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00530}00530\ \ \ \ \ \textcolor{comment}{//\ Returns\ the\ running\ node\ of\ the\ iterator}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00531}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_a5e3e5a67bbb6e5eaa4be9fb5e2b00a12}{00531}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a97bcf44931a0e96532e063cf14df4397}{Node}}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a5e3e5a67bbb6e5eaa4be9fb5e2b00a12}{runningNode}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_inc_edge_it}{IncEdgeIt}}\ \&e)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00532}00532\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ e.\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_inc_edge_it_ab417477b05fe64c21927835e1f8dd76e}{direction}}\ ?\ this-\/>v(e)\ :\ this-\/>u(e);}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00533}00533\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00534}00534\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00535}00535\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00536}00536\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ \_Value>}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00537}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_arc_map}{00537}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_arc_map}{ArcMap}}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00538}00538\ \ \ \ \ \ \ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1_map_extender}{MapExtender}}<DefaultMap<Graph,\ Arc,\ \_Value>\ >\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00539}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_arc_map_af0d181a7369e668311f425e96bd17c2f}{00539}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{MapExtender<DefaultMap<Graph,\ Arc,\ \_Value>}}\ >\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_arc_map_af0d181a7369e668311f425e96bd17c2f}{Parent}};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00540}00540\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00541}00541\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00542}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_arc_map_ab733ca42792ce0a5f2c51be4b5415f40}{00542}}\ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_arc_map_ab733ca42792ce0a5f2c51be4b5415f40}{ArcMap}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender}{Graph}}\&\ \_g)}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00543}00543\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classlemon_1_1_map_extender}{Parent}}(\_g)\ \{\}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00544}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_arc_map_abd3d524753cd427e37dc3c593ca71477}{00544}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_arc_map_abd3d524753cd427e37dc3c593ca71477}{ArcMap}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender}{Graph}}\&\ \_g,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_Value}}\&\ \_v)}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00545}00545\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classlemon_1_1_map_extender}{Parent}}(\_g,\ \_v)\ \{\}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00546}00546\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00547}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_arc_map_af766f22cfbf57e9c27c4a609cb543472}{00547}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_arc_map}{ArcMap}}\&\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_arc_map_af766f22cfbf57e9c27c4a609cb543472}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_arc_map}{ArcMap}}\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cmap}})\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00548}00548\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{operator}=<\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_arc_map}{ArcMap}}>(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cmap}});}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00549}00549\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00550}00550\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00551}00551\ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ CMap>}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00552}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_arc_map_a65dc76294d9d37bb01198228244e8e8f}{00552}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_arc_map}{ArcMap}}\&\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_arc_map_a65dc76294d9d37bb01198228244e8e8f}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CMap}}\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cmap}})\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00553}00553\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_map_extender_ad1566bce0f38e7a751b54b5e311fe270}{Parent::operator=}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cmap}});}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00554}00554\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00555}00555\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00556}00556\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00557}00557\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00558}00558\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00559}00559\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00560}00560\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ \_Value>}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00561}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_edge_map}{00561}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_edge_map}{EdgeMap}}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00562}00562\ \ \ \ \ \ \ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1_map_extender}{MapExtender}}<DefaultMap<Graph,\ Edge,\ \_Value>\ >\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00563}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_edge_map_a89c58cde645ceb6d99bb897feb8c8f61}{00563}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{MapExtender<DefaultMap<Graph,\ Edge,\ \_Value>}}\ >\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_edge_map_a89c58cde645ceb6d99bb897feb8c8f61}{Parent}};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00564}00564\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00565}00565\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00566}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_edge_map_a43e374308ff716d43a41ddfc692ed713}{00566}}\ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_edge_map_a43e374308ff716d43a41ddfc692ed713}{EdgeMap}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender}{Graph}}\&\ \_g)}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00567}00567\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classlemon_1_1_map_extender}{Parent}}(\_g)\ \{\}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00568}00568\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00569}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_edge_map_a647fd25116941cff2e5e56bb5a492902}{00569}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_edge_map_a647fd25116941cff2e5e56bb5a492902}{EdgeMap}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender}{Graph}}\&\ \_g,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_Value}}\&\ \_v)}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00570}00570\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classlemon_1_1_map_extender}{Parent}}(\_g,\ \_v)\ \{\}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00571}00571\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00572}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_edge_map_a45ccd474e87dc688181e45e7c4c61479}{00572}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_edge_map}{EdgeMap}}\&\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_edge_map_a45ccd474e87dc688181e45e7c4c61479}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_edge_map}{EdgeMap}}\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cmap}})\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00573}00573\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{operator}=<\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_edge_map}{EdgeMap}}>(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cmap}});}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00574}00574\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00575}00575\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00576}00576\ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ CMap>}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00577}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_edge_map_af8dcebd76f98f6a6f2f5e98fae99fde0}{00577}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_edge_map}{EdgeMap}}\&\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_1_1_edge_map_af8dcebd76f98f6a6f2f5e98fae99fde0}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CMap}}\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cmap}})\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00578}00578\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_map_extender_ad1566bce0f38e7a751b54b5e311fe270}{Parent::operator=}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cmap}});}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00579}00579\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00580}00580\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00581}00581\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00582}00582\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00583}00583\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00584}00584\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00585}00585\ \ \ \ \ \textcolor{comment}{//\ Alteration\ extension}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00586}00586\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00587}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_a2d274678f0a14b1080cb138eb9abd47b}{00587}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a6f5714a67d307469a6752e94f28ece62}{Edge}}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a2d274678f0a14b1080cb138eb9abd47b}{addEdge}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a97bcf44931a0e96532e063cf14df4397}{Node}}\&\ from,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a97bcf44931a0e96532e063cf14df4397}{Node}}\&\ to)\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00588}00588\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a6f5714a67d307469a6752e94f28ece62}{Edge}}\ edge\ =\ Parent::addEdge(from,\ to);}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00589}00589\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a5202c91d7148255637c66a4aa76887a3}{notifier}}(\mbox{\hyperlink{classlemon_1_1_edge_set_extender_a6f5714a67d307469a6752e94f28ece62}{Edge}}()).\mbox{\hyperlink{classlemon_1_1_alteration_notifier_a4999a713bc88165dd15daf2dec6a68e2}{add}}(edge);}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00590}00590\ \ \ \ \ \ \ std::vector<Arc>\ arcs;}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00591}00591\ \ \ \ \ \ \ arcs.push\_back(Parent::direct(edge,\ \textcolor{keyword}{true}));}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00592}00592\ \ \ \ \ \ \ arcs.push\_back(Parent::direct(edge,\ \textcolor{keyword}{false}));}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00593}00593\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a5202c91d7148255637c66a4aa76887a3}{notifier}}(\mbox{\hyperlink{classlemon_1_1_edge_set_extender_abf4a968b27da91201b1fb2d75c551b7d}{Arc}}()).\mbox{\hyperlink{classlemon_1_1_alteration_notifier_a4999a713bc88165dd15daf2dec6a68e2}{add}}(arcs);}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00594}00594\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ edge;}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00595}00595\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00596}00596\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00597}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_a392f71ac2bf785068f2d19939c20c9fa}{00597}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a392f71ac2bf785068f2d19939c20c9fa}{clear}}()\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00598}00598\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a5202c91d7148255637c66a4aa76887a3}{notifier}}(\mbox{\hyperlink{classlemon_1_1_edge_set_extender_abf4a968b27da91201b1fb2d75c551b7d}{Arc}}()).\mbox{\hyperlink{classlemon_1_1_alteration_notifier_a0ef1f781f588b5a5ddf81e5737e03a42}{clear}}();}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00599}00599\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a5202c91d7148255637c66a4aa76887a3}{notifier}}(\mbox{\hyperlink{classlemon_1_1_edge_set_extender_a6f5714a67d307469a6752e94f28ece62}{Edge}}()).\mbox{\hyperlink{classlemon_1_1_alteration_notifier_a0ef1f781f588b5a5ddf81e5737e03a42}{clear}}();}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00600}00600\ \ \ \ \ \ \ Parent::clear();}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00601}00601\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00602}00602\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00603}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_a0e40d3820353741c7e335ac98afdfd6e}{00603}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a0e40d3820353741c7e335ac98afdfd6e}{erase}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a6f5714a67d307469a6752e94f28ece62}{Edge}}\&\ edge)\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00604}00604\ \ \ \ \ \ \ std::vector<Arc>\ arcs;}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00605}00605\ \ \ \ \ \ \ arcs.push\_back(Parent::direct(edge,\ \textcolor{keyword}{true}));}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00606}00606\ \ \ \ \ \ \ arcs.push\_back(Parent::direct(edge,\ \textcolor{keyword}{false}));}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00607}00607\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a5202c91d7148255637c66a4aa76887a3}{notifier}}(\mbox{\hyperlink{classlemon_1_1_edge_set_extender_abf4a968b27da91201b1fb2d75c551b7d}{Arc}}()).\mbox{\hyperlink{classlemon_1_1_alteration_notifier_aeca8a072c99515f246b07bb846f3f4a5}{erase}}(arcs);}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00608}00608\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a5202c91d7148255637c66a4aa76887a3}{notifier}}(\mbox{\hyperlink{classlemon_1_1_edge_set_extender_a6f5714a67d307469a6752e94f28ece62}{Edge}}()).\mbox{\hyperlink{classlemon_1_1_alteration_notifier_aeca8a072c99515f246b07bb846f3f4a5}{erase}}(edge);}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00609}00609\ \ \ \ \ \ \ Parent::erase(edge);}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00610}00610\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00611}00611\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00612}00612\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00613}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_a1cf8bf4958d11b6330a1dfc9beee66e6}{00613}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_a1cf8bf4958d11b6330a1dfc9beee66e6}{EdgeSetExtender}}()\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00614}00614\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_aed96df6a61f288482cb0cb61a0253c05}{arc\_notifier}}.\mbox{\hyperlink{classlemon_1_1_alteration_notifier_a29dcea98e5dc808b3195b4caf725d145}{setContainer}}(*\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00615}00615\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_adaccba4f9f66a54fdc0305c0918cdbc5}{edge\_notifier}}.\mbox{\hyperlink{classlemon_1_1_alteration_notifier_a29dcea98e5dc808b3195b4caf725d145}{setContainer}}(*\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00616}00616\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00617}00617\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00618}\mbox{\hyperlink{classlemon_1_1_edge_set_extender_acd12c1d19c6a737d7d32d2e849bdd747}{00618}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_acd12c1d19c6a737d7d32d2e849bdd747}{\string~EdgeSetExtender}}()\ \{}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00619}00619\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_adaccba4f9f66a54fdc0305c0918cdbc5}{edge\_notifier}}.\mbox{\hyperlink{classlemon_1_1_alteration_notifier_a0ef1f781f588b5a5ddf81e5737e03a42}{clear}}();}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00620}00620\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_edge_set_extender_aed96df6a61f288482cb0cb61a0253c05}{arc\_notifier}}.\mbox{\hyperlink{classlemon_1_1_alteration_notifier_a0ef1f781f588b5a5ddf81e5737e03a42}{clear}}();}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00621}00621\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00622}00622\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00623}00623\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00624}00624\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00625}00625\ \}}
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00626}00626\ }
+\DoxyCodeLine{\Hypertarget{edge__set__extender_8h_source_l00627}00627\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

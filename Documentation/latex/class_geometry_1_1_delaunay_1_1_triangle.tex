@@ -1,0 +1,275 @@
+\doxysection{Geometry\+::Delaunay\+::Triangle Class Reference}
+\hypertarget{class_geometry_1_1_delaunay_1_1_triangle}{}\label{class_geometry_1_1_delaunay_1_1_triangle}\index{Geometry::Delaunay::Triangle@{Geometry::Delaunay::Triangle}}
+
+
+{\ttfamily \#include $<$delaunay\+Base.\+hpp$>$}
+
+
+
+Collaboration diagram for Geometry\+::Delaunay\+::Triangle\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=179pt]{class_geometry_1_1_delaunay_1_1_triangle__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_afdcaa192ecb5d29b0f8d0ccd690ca328}{Triangle}} ()=default
+\item 
+\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_ad596f24a287dba298d451551b367fd81}{Triangle}} (const \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index}{Point\+Index}} \&p0, const \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index}{Point\+Index}} \&p1, const \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index}{Point\+Index}} \&p2)
+\item 
+bool \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a6375459284ef90ef48bab163a79e67b0}{has\+Point}} (const \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index}{Point\+Index}} \&P) const
+\item 
+bool \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a63caa8d311a44e0726a243fced8c44f6}{has\+Edge}} (const \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_edge}{Edge}} \&edge) const
+\item 
+std\+::array$<$ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_edge}{Edge}}, 3 $>$ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_ad714b105eb74b4b4277c18812f9753c5}{get\+Edges}} () const
+\item 
+std\+::array$<$ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index}{Point\+Index}}, 3 $>$ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a060a5d9908b31023488e60fcba4b110b}{get\+Points}} () const
+\item 
+void \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_adc55cb08484f7c5c7aa843c0cfda4001}{rotate}} ()
+\item 
+bool \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a02f5ab36fc7a352b7280e2d91b190016}{operator==}} (const \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle}{Triangle}} \&other) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index}{Point\+Index}} \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a5393f6fbc2544c6aca2e3a4b0459034d}{P0}}
+\item 
+\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index}{Point\+Index}} \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a0bfa7ea205fcff658484be77c282b145}{P1}}
+\item 
+\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index}{Point\+Index}} \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a0dbb112e10abc660457705488d2c1412}{P2}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{delaunay_base_8hpp_source_l00038}{38}} of file \mbox{\hyperlink{delaunay_base_8hpp_source}{delaunay\+Base.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_geometry_1_1_delaunay_1_1_triangle_afdcaa192ecb5d29b0f8d0ccd690ca328}\label{class_geometry_1_1_delaunay_1_1_triangle_afdcaa192ecb5d29b0f8d0ccd690ca328} 
+\index{Geometry::Delaunay::Triangle@{Geometry::Delaunay::Triangle}!Triangle@{Triangle}}
+\index{Triangle@{Triangle}!Geometry::Delaunay::Triangle@{Geometry::Delaunay::Triangle}}
+\doxysubsubsection{\texorpdfstring{Triangle()}{Triangle()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Geometry\+::\+Delaunay\+::\+Triangle\+::\+Triangle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{class_geometry_1_1_delaunay_1_1_triangle_ad596f24a287dba298d451551b367fd81}\label{class_geometry_1_1_delaunay_1_1_triangle_ad596f24a287dba298d451551b367fd81} 
+\index{Geometry::Delaunay::Triangle@{Geometry::Delaunay::Triangle}!Triangle@{Triangle}}
+\index{Triangle@{Triangle}!Geometry::Delaunay::Triangle@{Geometry::Delaunay::Triangle}}
+\doxysubsubsection{\texorpdfstring{Triangle()}{Triangle()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Geometry\+::\+Delaunay\+::\+Triangle\+::\+Triangle (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index}{Point\+Index}} \&}]{p0,  }\item[{const \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index}{Point\+Index}} \&}]{p1,  }\item[{const \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index}{Point\+Index}} \&}]{p2 }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{delaunay_base_8cpp_source_l00010}{10}} of file \mbox{\hyperlink{delaunay_base_8cpp_source}{delaunay\+Base.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a5393f6fbc2544c6aca2e3a4b0459034d}{P0}}(p0),\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a0bfa7ea205fcff658484be77c282b145}{P1}}(p1),\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a0dbb112e10abc660457705488d2c1412}{P2}}(p2) }
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a5393f6fbc2544c6aca2e3a4b0459034d}{P0}}\ ==\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a0bfa7ea205fcff658484be77c282b145}{P1}}\ ||\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a5393f6fbc2544c6aca2e3a4b0459034d}{P0}}\ ==\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a0dbb112e10abc660457705488d2c1412}{P2}}\ ||\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a0bfa7ea205fcff658484be77c282b145}{P1}}\ ==\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a0dbb112e10abc660457705488d2c1412}{P2}})}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::exception(\textcolor{stringliteral}{"{}Invalid\ Triangle!"{}});}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_geometry_1_1_delaunay_1_1_triangle_ad714b105eb74b4b4277c18812f9753c5}\label{class_geometry_1_1_delaunay_1_1_triangle_ad714b105eb74b4b4277c18812f9753c5} 
+\index{Geometry::Delaunay::Triangle@{Geometry::Delaunay::Triangle}!getEdges@{getEdges}}
+\index{getEdges@{getEdges}!Geometry::Delaunay::Triangle@{Geometry::Delaunay::Triangle}}
+\doxysubsubsection{\texorpdfstring{getEdges()}{getEdges()}}
+{\footnotesize\ttfamily std\+::array$<$ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_edge}{Edge}}, 3 $>$ Geometry\+::\+Delaunay\+::\+Triangle\+::get\+Edges (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{delaunay_base_8cpp_source_l00043}{43}} of file \mbox{\hyperlink{delaunay_base_8cpp_source}{delaunay\+Base.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ std::array<Edge,\ 3>\ edges;}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ edges[0]\ =\ Edge(\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a5393f6fbc2544c6aca2e3a4b0459034d}{P0}},\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a0bfa7ea205fcff658484be77c282b145}{P1}});}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ edges[1]\ =\ Edge(\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a0bfa7ea205fcff658484be77c282b145}{P1}},\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a0dbb112e10abc660457705488d2c1412}{P2}});}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ edges[2]\ =\ Edge(\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a0dbb112e10abc660457705488d2c1412}{P2}},\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a5393f6fbc2544c6aca2e3a4b0459034d}{P0}});}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ edges;}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_geometry_1_1_delaunay_1_1_triangle_ad714b105eb74b4b4277c18812f9753c5_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_geometry_1_1_delaunay_1_1_triangle_a060a5d9908b31023488e60fcba4b110b}\label{class_geometry_1_1_delaunay_1_1_triangle_a060a5d9908b31023488e60fcba4b110b} 
+\index{Geometry::Delaunay::Triangle@{Geometry::Delaunay::Triangle}!getPoints@{getPoints}}
+\index{getPoints@{getPoints}!Geometry::Delaunay::Triangle@{Geometry::Delaunay::Triangle}}
+\doxysubsubsection{\texorpdfstring{getPoints()}{getPoints()}}
+{\footnotesize\ttfamily std\+::array$<$ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index}{Point\+Index}}, 3 $>$ Geometry\+::\+Delaunay\+::\+Triangle\+::get\+Points (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{delaunay_base_8cpp_source_l00054}{54}} of file \mbox{\hyperlink{delaunay_base_8cpp_source}{delaunay\+Base.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a5393f6fbc2544c6aca2e3a4b0459034d}{P0}},\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a0bfa7ea205fcff658484be77c282b145}{P1}},\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a0dbb112e10abc660457705488d2c1412}{P2}}\ \};}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_geometry_1_1_delaunay_1_1_triangle_a63caa8d311a44e0726a243fced8c44f6}\label{class_geometry_1_1_delaunay_1_1_triangle_a63caa8d311a44e0726a243fced8c44f6} 
+\index{Geometry::Delaunay::Triangle@{Geometry::Delaunay::Triangle}!hasEdge@{hasEdge}}
+\index{hasEdge@{hasEdge}!Geometry::Delaunay::Triangle@{Geometry::Delaunay::Triangle}}
+\doxysubsubsection{\texorpdfstring{hasEdge()}{hasEdge()}}
+{\footnotesize\ttfamily bool Geometry\+::\+Delaunay\+::\+Triangle\+::has\+Edge (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_edge}{Edge}} \&}]{edge }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{delaunay_base_8cpp_source_l00024}{24}} of file \mbox{\hyperlink{delaunay_base_8cpp_source}{delaunay\+Base.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a6375459284ef90ef48bab163a79e67b0}{hasPoint}}(edge.P0)\ \&\&\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a6375459284ef90ef48bab163a79e67b0}{hasPoint}}(edge.P1))}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=327pt]{class_geometry_1_1_delaunay_1_1_triangle_a63caa8d311a44e0726a243fced8c44f6_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_geometry_1_1_delaunay_1_1_triangle_a63caa8d311a44e0726a243fced8c44f6_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_geometry_1_1_delaunay_1_1_triangle_a6375459284ef90ef48bab163a79e67b0}\label{class_geometry_1_1_delaunay_1_1_triangle_a6375459284ef90ef48bab163a79e67b0} 
+\index{Geometry::Delaunay::Triangle@{Geometry::Delaunay::Triangle}!hasPoint@{hasPoint}}
+\index{hasPoint@{hasPoint}!Geometry::Delaunay::Triangle@{Geometry::Delaunay::Triangle}}
+\doxysubsubsection{\texorpdfstring{hasPoint()}{hasPoint()}}
+{\footnotesize\ttfamily bool Geometry\+::\+Delaunay\+::\+Triangle\+::has\+Point (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index}{Point\+Index}} \&}]{P }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{delaunay_base_8cpp_source_l00017}{17}} of file \mbox{\hyperlink{delaunay_base_8cpp_source}{delaunay\+Base.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a5393f6fbc2544c6aca2e3a4b0459034d}{P0}}\ ==\ P\ ||\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a0bfa7ea205fcff658484be77c282b145}{P1}}\ ==\ P\ ||\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a0dbb112e10abc660457705488d2c1412}{P2}}\ ==\ P)}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_geometry_1_1_delaunay_1_1_triangle_a6375459284ef90ef48bab163a79e67b0_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_geometry_1_1_delaunay_1_1_triangle_a02f5ab36fc7a352b7280e2d91b190016}\label{class_geometry_1_1_delaunay_1_1_triangle_a02f5ab36fc7a352b7280e2d91b190016} 
+\index{Geometry::Delaunay::Triangle@{Geometry::Delaunay::Triangle}!operator==@{operator==}}
+\index{operator==@{operator==}!Geometry::Delaunay::Triangle@{Geometry::Delaunay::Triangle}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Geometry\+::\+Delaunay\+::\+Triangle\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle}{Triangle}} \&}]{other }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{delaunay_base_8cpp_source_l00036}{36}} of file \mbox{\hyperlink{delaunay_base_8cpp_source}{delaunay\+Base.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (other.hasPoint(\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a5393f6fbc2544c6aca2e3a4b0459034d}{P0}})\ \&\&\ other.hasPoint(\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a0bfa7ea205fcff658484be77c282b145}{P1}})\ \&\&\ other.hasPoint(\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a0dbb112e10abc660457705488d2c1412}{P2}}))}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{class_geometry_1_1_delaunay_1_1_triangle_a02f5ab36fc7a352b7280e2d91b190016_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_geometry_1_1_delaunay_1_1_triangle_adc55cb08484f7c5c7aa843c0cfda4001}\label{class_geometry_1_1_delaunay_1_1_triangle_adc55cb08484f7c5c7aa843c0cfda4001} 
+\index{Geometry::Delaunay::Triangle@{Geometry::Delaunay::Triangle}!rotate@{rotate}}
+\index{rotate@{rotate}!Geometry::Delaunay::Triangle@{Geometry::Delaunay::Triangle}}
+\doxysubsubsection{\texorpdfstring{rotate()}{rotate()}}
+{\footnotesize\ttfamily void Geometry\+::\+Delaunay\+::\+Triangle\+::rotate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{delaunay_base_8cpp_source_l00031}{31}} of file \mbox{\hyperlink{delaunay_base_8cpp_source}{delaunay\+Base.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ std::swap(\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a0bfa7ea205fcff658484be77c282b145}{P1}},\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a0dbb112e10abc660457705488d2c1412}{P2}});}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_geometry_1_1_delaunay_1_1_triangle_a5393f6fbc2544c6aca2e3a4b0459034d}\label{class_geometry_1_1_delaunay_1_1_triangle_a5393f6fbc2544c6aca2e3a4b0459034d} 
+\index{Geometry::Delaunay::Triangle@{Geometry::Delaunay::Triangle}!P0@{P0}}
+\index{P0@{P0}!Geometry::Delaunay::Triangle@{Geometry::Delaunay::Triangle}}
+\doxysubsubsection{\texorpdfstring{P0}{P0}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index}{Point\+Index}} Geometry\+::\+Delaunay\+::\+Triangle\+::\+P0}
+
+
+
+Definition at line \mbox{\hyperlink{delaunay_base_8hpp_source_l00041}{41}} of file \mbox{\hyperlink{delaunay_base_8hpp_source}{delaunay\+Base.\+hpp}}.
+
+\Hypertarget{class_geometry_1_1_delaunay_1_1_triangle_a0bfa7ea205fcff658484be77c282b145}\label{class_geometry_1_1_delaunay_1_1_triangle_a0bfa7ea205fcff658484be77c282b145} 
+\index{Geometry::Delaunay::Triangle@{Geometry::Delaunay::Triangle}!P1@{P1}}
+\index{P1@{P1}!Geometry::Delaunay::Triangle@{Geometry::Delaunay::Triangle}}
+\doxysubsubsection{\texorpdfstring{P1}{P1}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index}{Point\+Index}} Geometry\+::\+Delaunay\+::\+Triangle\+::\+P1}
+
+
+
+Definition at line \mbox{\hyperlink{delaunay_base_8hpp_source_l00042}{42}} of file \mbox{\hyperlink{delaunay_base_8hpp_source}{delaunay\+Base.\+hpp}}.
+
+\Hypertarget{class_geometry_1_1_delaunay_1_1_triangle_a0dbb112e10abc660457705488d2c1412}\label{class_geometry_1_1_delaunay_1_1_triangle_a0dbb112e10abc660457705488d2c1412} 
+\index{Geometry::Delaunay::Triangle@{Geometry::Delaunay::Triangle}!P2@{P2}}
+\index{P2@{P2}!Geometry::Delaunay::Triangle@{Geometry::Delaunay::Triangle}}
+\doxysubsubsection{\texorpdfstring{P2}{P2}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index}{Point\+Index}} Geometry\+::\+Delaunay\+::\+Triangle\+::\+P2}
+
+
+
+Definition at line \mbox{\hyperlink{delaunay_base_8hpp_source_l00043}{43}} of file \mbox{\hyperlink{delaunay_base_8hpp_source}{delaunay\+Base.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Geometry/\mbox{\hyperlink{delaunay_base_8hpp}{delaunay\+Base.\+hpp}}\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Geometry/\mbox{\hyperlink{delaunay_base_8cpp}{delaunay\+Base.\+cpp}}\end{DoxyCompactItemize}

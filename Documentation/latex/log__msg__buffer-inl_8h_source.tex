@@ -1,0 +1,60 @@
+\doxysection{log\+\_\+msg\+\_\+buffer-\/inl.h}
+\hypertarget{log__msg__buffer-inl_8h_source}{}\label{log__msg__buffer-inl_8h_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/spdlog/details/log\_msg\_buffer-\/inl.h@{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/spdlog/details/log\_msg\_buffer-\/inl.h}}
+\mbox{\hyperlink{log__msg__buffer-inl_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00001}00001\ \textcolor{comment}{//\ Copyright(c)\ 2015-\/present,\ Gabi\ Melman\ \&\ spdlog\ contributors.}}
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00002}00002\ \textcolor{comment}{//\ Distributed\ under\ the\ MIT\ License\ (http://opensource.org/licenses/MIT)}}
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00004}00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00006}00006\ \textcolor{preprocessor}{\#ifndef\ SPDLOG\_HEADER\_ONLY}}
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00007}00007\ \textcolor{preprocessor}{\ \ \ \ \#include\ <\mbox{\hyperlink{log__msg__buffer_8h}{spdlog/details/log\_msg\_buffer.h}}>}}
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00008}00008\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00010}00010\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacespdlog}{spdlog}}\ \{}
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00011}00011\ \textcolor{keyword}{namespace\ }details\ \{}
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00013}\mbox{\hyperlink{classspdlog_1_1details_1_1log__msg__buffer_af79e17eab1804d4e38a6177bf38030be}{00013}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \mbox{\hyperlink{classspdlog_1_1details_1_1log__msg__buffer_add63f59b45e3ef51fecc17ae4dafa358}{log\_msg\_buffer::log\_msg\_buffer}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{log\_msg}}\ \&orig\_msg)}
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00014}00014\ \ \ \ \ :\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{log\_msg}}\{orig\_msg\}\ \{}
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00015}00015\ \ \ \ \ \mbox{\hyperlink{classbuffer}{buffer}}.\mbox{\hyperlink{classbuffer_a144ad707b324a714fbe334896f90ba28}{append}}(\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a88ba7c1e423119fdb42957336f380277}{logger\_name}}.begin(),\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a88ba7c1e423119fdb42957336f380277}{logger\_name}}.end());}
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00016}00016\ \ \ \ \ \mbox{\hyperlink{classbuffer}{buffer}}.\mbox{\hyperlink{classbuffer_a144ad707b324a714fbe334896f90ba28}{append}}(\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a3f3bc29f5bf45e8a3dc976d544b8faed}{payload}}.begin(),\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a3f3bc29f5bf45e8a3dc976d544b8faed}{payload}}.end());}
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00017}00017\ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1details_1_1log__msg__buffer_ab3b0df56c660e971d4ee8662be62f0bf}{update\_string\_views}}();}
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00018}00018\ \}}
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00020}\mbox{\hyperlink{classspdlog_1_1details_1_1log__msg__buffer_a34c7b25a2f6155d2e3469298bb6c7015}{00020}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \mbox{\hyperlink{classspdlog_1_1details_1_1log__msg__buffer_add63f59b45e3ef51fecc17ae4dafa358}{log\_msg\_buffer::log\_msg\_buffer}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classspdlog_1_1details_1_1log__msg__buffer}{log\_msg\_buffer}}\ \&other)}
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00021}00021\ \ \ \ \ :\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{log\_msg}}\{other\}\ \{}
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00022}00022\ \ \ \ \ \mbox{\hyperlink{classbuffer}{buffer}}.\mbox{\hyperlink{classbuffer_a144ad707b324a714fbe334896f90ba28}{append}}(\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a88ba7c1e423119fdb42957336f380277}{logger\_name}}.begin(),\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a88ba7c1e423119fdb42957336f380277}{logger\_name}}.end());}
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00023}00023\ \ \ \ \ \mbox{\hyperlink{classbuffer}{buffer}}.\mbox{\hyperlink{classbuffer_a144ad707b324a714fbe334896f90ba28}{append}}(\mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a3f3bc29f5bf45e8a3dc976d544b8faed}{payload}}.begin(),\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a3f3bc29f5bf45e8a3dc976d544b8faed}{payload}}.end());}
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00024}00024\ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1details_1_1log__msg__buffer_ab3b0df56c660e971d4ee8662be62f0bf}{update\_string\_views}}();}
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00025}00025\ \}}
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00027}\mbox{\hyperlink{classspdlog_1_1details_1_1log__msg__buffer_afcd332ab43a18e2a8cc515343c9c188a}{00027}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \mbox{\hyperlink{classspdlog_1_1details_1_1log__msg__buffer_add63f59b45e3ef51fecc17ae4dafa358}{log\_msg\_buffer::log\_msg\_buffer}}(\mbox{\hyperlink{classspdlog_1_1details_1_1log__msg__buffer}{log\_msg\_buffer}}\ \&\&other)\ \mbox{\hyperlink{common_8h_a15d2dc432e6bb83beb5130be9a4ca8d6}{SPDLOG\_NOEXCEPT}}}
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00028}00028\ \ \ \ \ :\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg}{log\_msg}}\{other\},}
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00029}00029\ \ \ \ \ \ \ \mbox{\hyperlink{classbuffer}{buffer}}\{std::move(other.buffer)\}\ \{}
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00030}00030\ \ \ \ \ update\_string\_views();}
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00031}00031\ \}}
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00033}\mbox{\hyperlink{classspdlog_1_1details_1_1log__msg__buffer_a37ce73906d0ff8d28fc88e0c99bd8a83}{00033}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \mbox{\hyperlink{classspdlog_1_1details_1_1log__msg__buffer}{log\_msg\_buffer}}\ \&\mbox{\hyperlink{classspdlog_1_1details_1_1log__msg__buffer_a37ce73906d0ff8d28fc88e0c99bd8a83}{log\_msg\_buffer::operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classspdlog_1_1details_1_1log__msg__buffer}{log\_msg\_buffer}}\ \&other)\ \{}
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00034}00034\ \ \ \ \ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a02fb28b2082b1627699c52e68874cce2}{log\_msg::operator=}}(other);}
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00035}00035\ \ \ \ \ \mbox{\hyperlink{classbuffer}{buffer}}.\mbox{\hyperlink{classbuffer_a46672f0d8544fc2b27544928cd6408df}{clear}}();}
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00036}00036\ \ \ \ \ \mbox{\hyperlink{classbuffer}{buffer}}.\mbox{\hyperlink{classbuffer_a144ad707b324a714fbe334896f90ba28}{append}}(other.\mbox{\hyperlink{classspdlog_1_1details_1_1log__msg__buffer_a25eba90891514e9f5a8804e07093e27c}{buffer}}.data(),\ other.\mbox{\hyperlink{classspdlog_1_1details_1_1log__msg__buffer_a25eba90891514e9f5a8804e07093e27c}{buffer}}.data()\ +\ other.\mbox{\hyperlink{classspdlog_1_1details_1_1log__msg__buffer_a25eba90891514e9f5a8804e07093e27c}{buffer}}.size());}
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00037}00037\ \ \ \ \ \mbox{\hyperlink{classspdlog_1_1details_1_1log__msg__buffer_ab3b0df56c660e971d4ee8662be62f0bf}{update\_string\_views}}();}
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00038}00038\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00039}00039\ \}}
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00041}\mbox{\hyperlink{classspdlog_1_1details_1_1log__msg__buffer_a6bc9c2d438b883c8e736f7a8cabc3f2e}{00041}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \mbox{\hyperlink{classspdlog_1_1details_1_1log__msg__buffer}{log\_msg\_buffer}}\ \&\mbox{\hyperlink{classspdlog_1_1details_1_1log__msg__buffer_a37ce73906d0ff8d28fc88e0c99bd8a83}{log\_msg\_buffer::operator=}}(\mbox{\hyperlink{classspdlog_1_1details_1_1log__msg__buffer}{log\_msg\_buffer}}\ \&\&other)\ \mbox{\hyperlink{common_8h_a15d2dc432e6bb83beb5130be9a4ca8d6}{SPDLOG\_NOEXCEPT}}\ \{}
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00042}00042\ \ \ \ \ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a02fb28b2082b1627699c52e68874cce2}{log\_msg::operator=}}(other);}
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00043}00043\ \ \ \ \ \mbox{\hyperlink{classbuffer}{buffer}}\ =\ std::move(other.buffer);}
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00044}00044\ \ \ \ \ update\_string\_views();}
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00045}00045\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00046}00046\ \}}
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00048}\mbox{\hyperlink{classspdlog_1_1details_1_1log__msg__buffer_ab3b0df56c660e971d4ee8662be62f0bf}{00048}}\ \mbox{\hyperlink{common_8h_a81ecc4703fe6ce0f7820fc3652ee2b21}{SPDLOG\_INLINE}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classspdlog_1_1details_1_1log__msg__buffer_ab3b0df56c660e971d4ee8662be62f0bf}{log\_msg\_buffer::update\_string\_views}}()\ \{}
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00049}00049\ \ \ \ \ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a88ba7c1e423119fdb42957336f380277}{logger\_name}}\ =\ \mbox{\hyperlink{namespacespdlog_a26388f91e439f69a068bc6774caed2b1}{string\_view\_t}}\{\mbox{\hyperlink{classbuffer}{buffer}}.\mbox{\hyperlink{classbuffer_a5fe8b50555561bfb4d77a2adcd5f79b2}{data}}(),\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a88ba7c1e423119fdb42957336f380277}{logger\_name}}.size()\};}
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00050}00050\ \ \ \ \ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a3f3bc29f5bf45e8a3dc976d544b8faed}{payload}}\ =\ \mbox{\hyperlink{namespacespdlog_a26388f91e439f69a068bc6774caed2b1}{string\_view\_t}}\{\mbox{\hyperlink{classbuffer}{buffer}}.\mbox{\hyperlink{classbuffer_a5fe8b50555561bfb4d77a2adcd5f79b2}{data}}()\ +\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a88ba7c1e423119fdb42957336f380277}{logger\_name}}.size(),\ \mbox{\hyperlink{structspdlog_1_1details_1_1log__msg_a3f3bc29f5bf45e8a3dc976d544b8faed}{payload}}.size()\};}
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00051}00051\ \}}
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00053}00053\ \}\ \ \textcolor{comment}{//\ namespace\ details}}
+\DoxyCodeLine{\Hypertarget{log__msg__buffer-inl_8h_source_l00054}00054\ \}\ \ \textcolor{comment}{//\ namespace\ spdlog}}
+
+\end{DoxyCode}

@@ -1,0 +1,13 @@
+<map id="C:/Dev/DungeonGenerator/DungeonGenerator/Math/graph.hpp" name="C:/Dev/DungeonGenerator/DungeonGenerator/Math/graph.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="116,5,288,64"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,112,52,139"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="147,67,67,108,64,103,144,62"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="76,112,144,139"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="174,66,136,103,132,99,170,62"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="169,112,235,139"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="205,64,205,96,199,96,199,64"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="260,112,299,139"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="229,63,260,98,256,102,225,66"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="323,112,433,139"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="260,62,340,102,338,107,258,67"/>
+</map>

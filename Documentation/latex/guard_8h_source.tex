@@ -1,0 +1,45 @@
+\doxysection{guard.\+h}
+\hypertarget{guard_8h_source}{}\label{guard_8h_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/Base/guard.h@{C:/Dev/DungeonGenerator/DungeonGenerator/Base/guard.h}}
+\mbox{\hyperlink{guard_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{guard_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{guard_8h_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <crtdbg.h>}}
+\DoxyCodeLine{\Hypertarget{guard_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <chrono>}}
+\DoxyCodeLine{\Hypertarget{guard_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{log_8h}{log.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{guard_8h_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{guard_8h_source_l00006}\mbox{\hyperlink{guard_8h_afc30e481f763a8d68a861dba91be7316}{00006}}\ \textcolor{preprocessor}{\#define\ \_CRTDBG\_MAP\_ALLOC}}
+\DoxyCodeLine{\Hypertarget{guard_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{guard_8h_source_l00008}\mbox{\hyperlink{class_guard}{00008}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_guard}{Guard}}}
+\DoxyCodeLine{\Hypertarget{guard_8h_source_l00009}00009\ \{}
+\DoxyCodeLine{\Hypertarget{guard_8h_source_l00010}00010\ \textcolor{keyword}{public}:\ }
+\DoxyCodeLine{\Hypertarget{guard_8h_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{guard_8h_source_l00012}\mbox{\hyperlink{class_guard_ae0c8b6eda313da41baffbc79b17b6607}{00012}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_guard_ae0c8b6eda313da41baffbc79b17b6607}{\string~Guard}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{guard_8h_source_l00013}00013\ \};}
+\DoxyCodeLine{\Hypertarget{guard_8h_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{guard_8h_source_l00015}\mbox{\hyperlink{class_leak_detection_guard}{00015}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_leak_detection_guard}{LeakDetectionGuard}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_guard}{Guard}}}
+\DoxyCodeLine{\Hypertarget{guard_8h_source_l00016}00016\ \{}
+\DoxyCodeLine{\Hypertarget{guard_8h_source_l00017}00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{guard_8h_source_l00018}\mbox{\hyperlink{class_leak_detection_guard_aa7d5fa0199457301f95c1d5a02410979}{00018}}\ \ \ \ \ \mbox{\hyperlink{class_leak_detection_guard_aa7d5fa0199457301f95c1d5a02410979}{LeakDetectionGuard}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{guard_8h_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{guard_8h_source_l00020}\mbox{\hyperlink{class_leak_detection_guard_aeeab5b40bc9ad69427e6ab5d97a35fa6}{00020}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_leak_detection_guard_aeeab5b40bc9ad69427e6ab5d97a35fa6}{end}}()\textcolor{keyword}{\ const\ }\{\ \_CrtDumpMemoryLeaks();\ \}}
+\DoxyCodeLine{\Hypertarget{guard_8h_source_l00021}\mbox{\hyperlink{class_leak_detection_guard_abb499b0b03e27045423f0107ee9c6ec4}{00021}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_leak_detection_guard_abb499b0b03e27045423f0107ee9c6ec4}{\string~LeakDetectionGuard}}()\textcolor{keyword}{\ override\ }\{\ \mbox{\hyperlink{class_leak_detection_guard_aeeab5b40bc9ad69427e6ab5d97a35fa6}{end}}();\ \}}
+\DoxyCodeLine{\Hypertarget{guard_8h_source_l00022}00022\ \};}
+\DoxyCodeLine{\Hypertarget{guard_8h_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{guard_8h_source_l00024}\mbox{\hyperlink{class_time_guard}{00024}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_time_guard}{TimeGuard}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_guard}{Guard}}}
+\DoxyCodeLine{\Hypertarget{guard_8h_source_l00025}00025\ \{}
+\DoxyCodeLine{\Hypertarget{guard_8h_source_l00026}\mbox{\hyperlink{class_time_guard_aec4973c7cc20b6f4e8008ae19685e935}{00026}}\ \ \ \ \ std::chrono::steady\_clock::time\_point\ \mbox{\hyperlink{class_time_guard_aec4973c7cc20b6f4e8008ae19685e935}{startTime}};}
+\DoxyCodeLine{\Hypertarget{guard_8h_source_l00027}\mbox{\hyperlink{class_time_guard_a0669efae3df2f3afa6a6cf4f6fd1e220}{00027}}\ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \mbox{\hyperlink{class_time_guard_a0669efae3df2f3afa6a6cf4f6fd1e220}{text}};}
+\DoxyCodeLine{\Hypertarget{guard_8h_source_l00028}00028\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{guard_8h_source_l00029}\mbox{\hyperlink{class_time_guard_a568583ef8ba5080805320d864a85d24e}{00029}}\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_time_guard_a568583ef8ba5080805320d864a85d24e}{TimeGuard}}(std::string\ \mbox{\hyperlink{class_time_guard_a0669efae3df2f3afa6a6cf4f6fd1e220}{text}}\ =\ \textcolor{stringliteral}{"{}"{}})\ :\ \mbox{\hyperlink{class_time_guard_a0669efae3df2f3afa6a6cf4f6fd1e220}{text}}\{\mbox{\hyperlink{class_time_guard_a0669efae3df2f3afa6a6cf4f6fd1e220}{text}}\}\ \{\ \mbox{\hyperlink{class_time_guard_aec4973c7cc20b6f4e8008ae19685e935}{startTime}}\ =\ std::chrono::steady\_clock::now();\ \}}
+\DoxyCodeLine{\Hypertarget{guard_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{guard_8h_source_l00031}\mbox{\hyperlink{class_time_guard_a21549e0a9e246d77397c445bc4ccf9ef}{00031}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_time_guard_a21549e0a9e246d77397c445bc4ccf9ef}{end}}()\textcolor{keyword}{\ const\ }}
+\DoxyCodeLine{\Hypertarget{guard_8h_source_l00032}00032\ \textcolor{keyword}{\ \ \ \ }\{\ }
+\DoxyCodeLine{\Hypertarget{guard_8h_source_l00033}00033\ \ \ \ \ \ \ \ \ std::chrono::steady\_clock::time\_point\ \mbox{\hyperlink{class_time_guard_a21549e0a9e246d77397c445bc4ccf9ef}{end}}\ =\ std::chrono::steady\_clock::now();}
+\DoxyCodeLine{\Hypertarget{guard_8h_source_l00034}00034\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ elapsed\ =\ std::chrono::duration\_cast<std::chrono::milliseconds>(\mbox{\hyperlink{class_time_guard_a21549e0a9e246d77397c445bc4ccf9ef}{end}}\ -\/\ \mbox{\hyperlink{class_time_guard_aec4973c7cc20b6f4e8008ae19685e935}{startTime}}).count();}
+\DoxyCodeLine{\Hypertarget{guard_8h_source_l00035}00035\ \ \ \ \ \ \ \ \ std::string\ result\ =\ \textcolor{stringliteral}{"{}elapsed\ time:\ "{}}\ +\ std::to\_string(elapsed)\ +\ \textcolor{stringliteral}{"{}ms"{}};}
+\DoxyCodeLine{\Hypertarget{guard_8h_source_l00036}00036\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_log_acc334094de2c17174209b77597e7742d}{Log::info}}(\mbox{\hyperlink{class_time_guard_a0669efae3df2f3afa6a6cf4f6fd1e220}{text}}\ +\ \textcolor{stringliteral}{"{}\ "{}}\ +\ result);}
+\DoxyCodeLine{\Hypertarget{guard_8h_source_l00037}00037\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{guard_8h_source_l00038}\mbox{\hyperlink{class_time_guard_ad8871d1213f358a716ad74d80318a980}{00038}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_time_guard_ad8871d1213f358a716ad74d80318a980}{\string~TimeGuard}}()\textcolor{keyword}{\ override\ }\{\ \mbox{\hyperlink{class_time_guard_a21549e0a9e246d77397c445bc4ccf9ef}{end}}();\ \}}
+\DoxyCodeLine{\Hypertarget{guard_8h_source_l00039}00039\ \};}
+
+\end{DoxyCode}

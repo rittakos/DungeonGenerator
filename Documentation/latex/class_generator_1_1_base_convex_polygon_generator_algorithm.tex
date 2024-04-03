@@ -1,0 +1,233 @@
+\doxysection{Generator\+::Base\+Convex\+Polygon\+Generator\+Algorithm Class Reference}
+\hypertarget{class_generator_1_1_base_convex_polygon_generator_algorithm}{}\label{class_generator_1_1_base_convex_polygon_generator_algorithm}\index{Generator::BaseConvexPolygonGeneratorAlgorithm@{Generator::BaseConvexPolygonGeneratorAlgorithm}}
+
+
+{\ttfamily \#include $<$polygon\+Generator.\+hpp$>$}
+
+
+
+Inheritance diagram for Generator\+::Base\+Convex\+Polygon\+Generator\+Algorithm\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=236pt]{class_generator_1_1_base_convex_polygon_generator_algorithm__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Generator\+::Base\+Convex\+Polygon\+Generator\+Algorithm\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_generator_1_1_base_convex_polygon_generator_algorithm__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_generator_1_1_base_convex_polygon_generator_algorithm_a1c3b30da4516779437b8c679a265409a}{Base\+Convex\+Polygon\+Generator\+Algorithm}} (\mbox{\hyperlink{struct_generator_1_1_generation_parameters}{Generation\+Parameters}} \mbox{\hyperlink{class_generator_1_1_base_convex_polygon_generator_algorithm_ac35eb6854cdd0205f08ee0e140b064f3}{parameters}})
+\item 
+virtual \mbox{\hyperlink{class_geometry_1_1_polygon}{Geometry\+::\+Polygon}} \mbox{\hyperlink{class_generator_1_1_base_convex_polygon_generator_algorithm_a88f1f156d21fd4c61eb28d2e6e615dec}{generate}} (int vertices\+Count) override
+\item 
+virtual \mbox{\hyperlink{class_generator_1_1_base_convex_polygon_generator_algorithm_ae2acd221ad2a1f20c1f3f4e3344af149}{\texorpdfstring{$\sim$}{\string~}\+Base\+Convex\+Polygon\+Generator\+Algorithm}} ()=default
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_generator_1_1_polygon_generator_algorithm}{Generator\+::\+Polygon\+Generator\+Algorithm}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_generator_1_1_polygon_generator_algorithm_ac1b232fde10667c923f1a65b69bbc1f9}{\texorpdfstring{$\sim$}{\string~}\+Polygon\+Generator\+Algorithm}} ()=default
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_math_1_1_angle}{Math\+::\+Angle}} $>$ \mbox{\hyperlink{class_generator_1_1_base_convex_polygon_generator_algorithm_a739e5b700f046a346eb1e2afb5cecb89}{get\+Angles}} (int vertices\+Count) const
+\item 
+float \mbox{\hyperlink{class_generator_1_1_base_convex_polygon_generator_algorithm_a0777ea305d0851a39a77f051d34843ae}{get\+Radius}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{struct_generator_1_1_generation_parameters}{Generation\+Parameters}} \mbox{\hyperlink{class_generator_1_1_base_convex_polygon_generator_algorithm_ac35eb6854cdd0205f08ee0e140b064f3}{parameters}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{polygon_generator_8hpp_source_l00040}{40}} of file \mbox{\hyperlink{polygon_generator_8hpp_source}{polygon\+Generator.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_generator_1_1_base_convex_polygon_generator_algorithm_a1c3b30da4516779437b8c679a265409a}\label{class_generator_1_1_base_convex_polygon_generator_algorithm_a1c3b30da4516779437b8c679a265409a} 
+\index{Generator::BaseConvexPolygonGeneratorAlgorithm@{Generator::BaseConvexPolygonGeneratorAlgorithm}!BaseConvexPolygonGeneratorAlgorithm@{BaseConvexPolygonGeneratorAlgorithm}}
+\index{BaseConvexPolygonGeneratorAlgorithm@{BaseConvexPolygonGeneratorAlgorithm}!Generator::BaseConvexPolygonGeneratorAlgorithm@{Generator::BaseConvexPolygonGeneratorAlgorithm}}
+\doxysubsubsection{\texorpdfstring{BaseConvexPolygonGeneratorAlgorithm()}{BaseConvexPolygonGeneratorAlgorithm()}}
+{\footnotesize\ttfamily Generator\+::\+Base\+Convex\+Polygon\+Generator\+Algorithm\+::\+Base\+Convex\+Polygon\+Generator\+Algorithm (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_generator_1_1_generation_parameters}{Generation\+Parameters}}}]{parameters }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{polygon_generator_8cpp_source_l00056}{56}} of file \mbox{\hyperlink{polygon_generator_8cpp_source}{polygon\+Generator.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{class_generator_1_1_base_convex_polygon_generator_algorithm_ac35eb6854cdd0205f08ee0e140b064f3}{parameters}}(\mbox{\hyperlink{class_generator_1_1_base_convex_polygon_generator_algorithm_ac35eb6854cdd0205f08ee0e140b064f3}{parameters}}) }
+\DoxyCodeLine{00057\ \ \ \ \ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_generator_1_1_base_convex_polygon_generator_algorithm_ae2acd221ad2a1f20c1f3f4e3344af149}\label{class_generator_1_1_base_convex_polygon_generator_algorithm_ae2acd221ad2a1f20c1f3f4e3344af149} 
+\index{Generator::BaseConvexPolygonGeneratorAlgorithm@{Generator::BaseConvexPolygonGeneratorAlgorithm}!````~BaseConvexPolygonGeneratorAlgorithm@{\texorpdfstring{$\sim$}{\string~}BaseConvexPolygonGeneratorAlgorithm}}
+\index{````~BaseConvexPolygonGeneratorAlgorithm@{\texorpdfstring{$\sim$}{\string~}BaseConvexPolygonGeneratorAlgorithm}!Generator::BaseConvexPolygonGeneratorAlgorithm@{Generator::BaseConvexPolygonGeneratorAlgorithm}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}BaseConvexPolygonGeneratorAlgorithm()}{\string~BaseConvexPolygonGeneratorAlgorithm()}}
+{\footnotesize\ttfamily virtual Generator\+::\+Base\+Convex\+Polygon\+Generator\+Algorithm\+::\texorpdfstring{$\sim$}{\string~}\+Base\+Convex\+Polygon\+Generator\+Algorithm (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_generator_1_1_base_convex_polygon_generator_algorithm_a88f1f156d21fd4c61eb28d2e6e615dec}\label{class_generator_1_1_base_convex_polygon_generator_algorithm_a88f1f156d21fd4c61eb28d2e6e615dec} 
+\index{Generator::BaseConvexPolygonGeneratorAlgorithm@{Generator::BaseConvexPolygonGeneratorAlgorithm}!generate@{generate}}
+\index{generate@{generate}!Generator::BaseConvexPolygonGeneratorAlgorithm@{Generator::BaseConvexPolygonGeneratorAlgorithm}}
+\doxysubsubsection{\texorpdfstring{generate()}{generate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_geometry_1_1_polygon}{Geometry\+::\+Polygon}} Generator\+::\+Base\+Convex\+Polygon\+Generator\+Algorithm\+::generate (\begin{DoxyParamCaption}\item[{int}]{vertices\+Count }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_generator_1_1_polygon_generator_algorithm_a0dab2b09b64f61f43b5334fbea64d3a7}{Generator\+::\+Polygon\+Generator\+Algorithm}}.
+
+
+
+Definition at line \mbox{\hyperlink{polygon_generator_8cpp_source_l00010}{10}} of file \mbox{\hyperlink{polygon_generator_8cpp_source}{polygon\+Generator.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00011\ \ \ \ \ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ assert(verticesCount\ >=\ 3);}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ std::vector<Math::Angle>\ angles\ =\ \mbox{\hyperlink{class_generator_1_1_base_convex_polygon_generator_algorithm_a739e5b700f046a346eb1e2afb5cecb89}{getAngles}}(verticesCount);}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ radius\ =\ \mbox{\hyperlink{class_generator_1_1_base_convex_polygon_generator_algorithm_a0777ea305d0851a39a77f051d34843ae}{getRadius}}();}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ X0\ =\ \mbox{\hyperlink{class_random_a2ed52650d126b0d4479584ad7f6a5b76}{Random::GetFloat}}(-\/radius,\ radius);}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ firstPoint\ =\ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math::Vec2f}}(X0,\ std::sqrtf(radius\ *\ radius\ -\/\ X0\ *\ X0));}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ std::vector<Math::Vec2f>\ points;}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ points.push\_back(firstPoint);}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ 1;\ idx\ <\ verticesCount;\ ++idx)}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ newPoint\ =\ \mbox{\hyperlink{namespace_geometry_a2a037051bb9263fa553810b06691426c}{Geometry::rotate}}(points[idx\ -\/\ 1],\ angles[idx]);}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ newPoint\ =\ newPoint\ *\ \mbox{\hyperlink{class_random_a2ed52650d126b0d4479584ad7f6a5b76}{Random::GetFloat}}(1.0f\ -\/\ \mbox{\hyperlink{class_generator_1_1_base_convex_polygon_generator_algorithm_ac35eb6854cdd0205f08ee0e140b064f3}{parameters}}.\mbox{\hyperlink{struct_generator_1_1_generation_parameters_af300715301fc685e9b8a56c72d6317c6}{radiusDistribution}},\ 1.0f\ +\ \mbox{\hyperlink{class_generator_1_1_base_convex_polygon_generator_algorithm_ac35eb6854cdd0205f08ee0e140b064f3}{parameters}}.\mbox{\hyperlink{struct_generator_1_1_generation_parameters_af300715301fc685e9b8a56c72d6317c6}{radiusDistribution}});}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ points.push\_back(newPoint);}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ p\ :\ points)}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacestd}{std}}::cout\ <<\ p\ <<\ \mbox{\hyperlink{namespacestd}{std}}::endl;}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_polygon}{Geometry::Polygon}}\ randomPolygon(points);}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ randomPolygon;}
+\DoxyCodeLine{00035\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_generator_1_1_base_convex_polygon_generator_algorithm_a88f1f156d21fd4c61eb28d2e6e615dec_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_generator_1_1_base_convex_polygon_generator_algorithm_a739e5b700f046a346eb1e2afb5cecb89}\label{class_generator_1_1_base_convex_polygon_generator_algorithm_a739e5b700f046a346eb1e2afb5cecb89} 
+\index{Generator::BaseConvexPolygonGeneratorAlgorithm@{Generator::BaseConvexPolygonGeneratorAlgorithm}!getAngles@{getAngles}}
+\index{getAngles@{getAngles}!Generator::BaseConvexPolygonGeneratorAlgorithm@{Generator::BaseConvexPolygonGeneratorAlgorithm}}
+\doxysubsubsection{\texorpdfstring{getAngles()}{getAngles()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_math_1_1_angle}{Math\+::\+Angle}} $>$ Generator\+::\+Base\+Convex\+Polygon\+Generator\+Algorithm\+::get\+Angles (\begin{DoxyParamCaption}\item[{int}]{vertices\+Count }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{polygon_generator_8cpp_source_l00037}{37}} of file \mbox{\hyperlink{polygon_generator_8cpp_source}{polygon\+Generator.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00038\ \ \ \ \ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ std::vector<Math::Angle>\ angles;}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{float}\ a\ :\ \mbox{\hyperlink{class_random}{Random}}::GetFloatWithFixedSum(verticesCount,\ \mbox{\hyperlink{namespace_math}{Math}}::Constant::\mbox{\hyperlink{namespace_math_1_1_constant_a813f7c3fa8784d0eb5224edc26e53b1c}{Pi}}\ *\ 2.0f,\ \mbox{\hyperlink{class_generator_1_1_base_convex_polygon_generator_algorithm_ac35eb6854cdd0205f08ee0e140b064f3}{parameters}}.angleDistribution))}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ angles.push\_back(\mbox{\hyperlink{namespace_math}{Math}}::\mbox{\hyperlink{class_math_1_1_angle}{Angle}}(a));}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ angles;}
+\DoxyCodeLine{00045\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_generator_1_1_base_convex_polygon_generator_algorithm_a739e5b700f046a346eb1e2afb5cecb89_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_generator_1_1_base_convex_polygon_generator_algorithm_a739e5b700f046a346eb1e2afb5cecb89_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_generator_1_1_base_convex_polygon_generator_algorithm_a0777ea305d0851a39a77f051d34843ae}\label{class_generator_1_1_base_convex_polygon_generator_algorithm_a0777ea305d0851a39a77f051d34843ae} 
+\index{Generator::BaseConvexPolygonGeneratorAlgorithm@{Generator::BaseConvexPolygonGeneratorAlgorithm}!getRadius@{getRadius}}
+\index{getRadius@{getRadius}!Generator::BaseConvexPolygonGeneratorAlgorithm@{Generator::BaseConvexPolygonGeneratorAlgorithm}}
+\doxysubsubsection{\texorpdfstring{getRadius()}{getRadius()}}
+{\footnotesize\ttfamily float Generator\+::\+Base\+Convex\+Polygon\+Generator\+Algorithm\+::get\+Radius (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{polygon_generator_8cpp_source_l00047}{47}} of file \mbox{\hyperlink{polygon_generator_8cpp_source}{polygon\+Generator.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00048\ \ \ \ \ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ radiusX\ =\ std::abs(\mbox{\hyperlink{class_generator_1_1_base_convex_polygon_generator_algorithm_ac35eb6854cdd0205f08ee0e140b064f3}{parameters}}.\mbox{\hyperlink{struct_generator_1_1_generation_parameters_abff7f5fc5171c3ccccd5ed72b12630f8}{maxCoord}}[0]\ -\/\ \mbox{\hyperlink{class_generator_1_1_base_convex_polygon_generator_algorithm_ac35eb6854cdd0205f08ee0e140b064f3}{parameters}}.\mbox{\hyperlink{struct_generator_1_1_generation_parameters_a2fa9d77efd5abbfc93216696a71733b7}{minCoord}}[0])\ /\ 2.0f;}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ radiusY\ =\ std::abs(\mbox{\hyperlink{class_generator_1_1_base_convex_polygon_generator_algorithm_ac35eb6854cdd0205f08ee0e140b064f3}{parameters}}.\mbox{\hyperlink{struct_generator_1_1_generation_parameters_abff7f5fc5171c3ccccd5ed72b12630f8}{maxCoord}}[1]\ -\/\ \mbox{\hyperlink{class_generator_1_1_base_convex_polygon_generator_algorithm_ac35eb6854cdd0205f08ee0e140b064f3}{parameters}}.\mbox{\hyperlink{struct_generator_1_1_generation_parameters_a2fa9d77efd5abbfc93216696a71733b7}{minCoord}}[1])\ /\ 2.0f;}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ radiusMax\ =\ (radiusX\ +\ radiusY)\ /\ 2.0f;}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_random_a2ed52650d126b0d4479584ad7f6a5b76}{Random::GetFloat}}(radiusMax\ *\ \mbox{\hyperlink{class_generator_1_1_base_convex_polygon_generator_algorithm_ac35eb6854cdd0205f08ee0e140b064f3}{parameters}}.\mbox{\hyperlink{struct_generator_1_1_generation_parameters_a33065b12378786dc344a458eb456b993}{sizeDistribution}},\ radiusMax);}
+\DoxyCodeLine{00054\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_generator_1_1_base_convex_polygon_generator_algorithm_a0777ea305d0851a39a77f051d34843ae_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_generator_1_1_base_convex_polygon_generator_algorithm_a0777ea305d0851a39a77f051d34843ae_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_generator_1_1_base_convex_polygon_generator_algorithm_ac35eb6854cdd0205f08ee0e140b064f3}\label{class_generator_1_1_base_convex_polygon_generator_algorithm_ac35eb6854cdd0205f08ee0e140b064f3} 
+\index{Generator::BaseConvexPolygonGeneratorAlgorithm@{Generator::BaseConvexPolygonGeneratorAlgorithm}!parameters@{parameters}}
+\index{parameters@{parameters}!Generator::BaseConvexPolygonGeneratorAlgorithm@{Generator::BaseConvexPolygonGeneratorAlgorithm}}
+\doxysubsubsection{\texorpdfstring{parameters}{parameters}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{struct_generator_1_1_generation_parameters}{Generation\+Parameters}} Generator\+::\+Base\+Convex\+Polygon\+Generator\+Algorithm\+::parameters\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{polygon_generator_8hpp_source_l00043}{43}} of file \mbox{\hyperlink{polygon_generator_8hpp_source}{polygon\+Generator.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Generator/\mbox{\hyperlink{polygon_generator_8hpp}{polygon\+Generator.\+hpp}}\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Generator/\mbox{\hyperlink{polygon_generator_8cpp}{polygon\+Generator.\+cpp}}\end{DoxyCompactItemize}

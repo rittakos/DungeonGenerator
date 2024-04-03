@@ -1,0 +1,61 @@
+\doxysection{C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Base/log.h File Reference}
+\hypertarget{log_8h}{}\label{log_8h}\index{C:/Dev/DungeonGenerator/DungeonGenerator/Base/log.h@{C:/Dev/DungeonGenerator/DungeonGenerator/Base/log.h}}
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+Include dependency graph for log.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=230pt]{log_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{log_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_log_1_1_logger}{Log\+::\+Logger}}
+\item 
+class \mbox{\hyperlink{class_log_1_1_spd_logger}{Log\+::\+Spd\+Logger}}
+\item 
+class \mbox{\hyperlink{class_log_1_1_win_logger}{Log\+::\+Win\+Logger}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_log}{Log}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespace_log_a805552f70da3cfb241c39e914ed62162}{Log\+::\+Logger\+Type}} \{ \mbox{\hyperlink{namespace_log_a805552f70da3cfb241c39e914ed62162a170a22f51d14d6ce688308e797e7b98d}{Log\+::\+None}}
+, \mbox{\hyperlink{namespace_log_a805552f70da3cfb241c39e914ed62162ae9cb6be534b8dd2fa6e174bea10533b5}{Log\+::\+Release}}
+, \mbox{\hyperlink{namespace_log_a805552f70da3cfb241c39e914ed62162aec4d6b151ce2b9205065081b0218dc1f}{Log\+::\+Debug}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespace_log_a803875bac15543f0fc620c80bcd25d81}{Log\+::\+Platform}} \{ \mbox{\hyperlink{namespace_log_a803875bac15543f0fc620c80bcd25d81af4f3dd9b0efe1eb3f43ba08892abf517}{Log\+::\+Win}}
+, \mbox{\hyperlink{namespace_log_a803875bac15543f0fc620c80bcd25d81a09da985e2a9bdd68687ea609926d7cc6}{Log\+::\+Mac}}
+, \mbox{\hyperlink{namespace_log_a803875bac15543f0fc620c80bcd25d81acbe333eb0cb14b36ec8226f27da2c778}{Log\+::\+Independent}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{namespace_log_acc334094de2c17174209b77597e7742d}{Log\+::info}} (std\+::string message)
+\item 
+static void \mbox{\hyperlink{namespace_log_a2625a4aa82f846d5b9a51af99905b7e5}{Log\+::error}} (std\+::string message)
+\item 
+static void \mbox{\hyperlink{namespace_log_a9375e16c8a2572b41f7678dadf699dcc}{Log\+::warn}} (std\+::string message)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_log_1_1_logger}{Logger}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespace_log_a138fb456060b46c135a7c9da930d436b}{Log\+::logger}} = new \mbox{\hyperlink{class_log_1_1_win_logger}{Win\+Logger}} ()
+\end{DoxyCompactItemize}

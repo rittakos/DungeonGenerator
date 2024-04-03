@@ -1,0 +1,26 @@
+var class_math_1_1_quaternion =
+[
+    [ "TrigonometricForm", "struct_math_1_1_quaternion_1_1_trigonometric_form.html", null ],
+    [ "Quaternion", "class_math_1_1_quaternion.html#a0af09a51ab263e76041a90a035af8e30", null ],
+    [ "Quaternion", "class_math_1_1_quaternion.html#a525378ee1fc3101dfcfd9bee2e625c27", null ],
+    [ "Quaternion", "class_math_1_1_quaternion.html#a09fad3771c5662fe499162296a1fe430", null ],
+    [ "Quaternion", "class_math_1_1_quaternion.html#a0771f55c12f9e0f21aea42a04ea74ede", null ],
+    [ "conjugation", "class_math_1_1_quaternion.html#a18d3a934c8bc11845841ce8824b209b8", null ],
+    [ "i", "class_math_1_1_quaternion.html#ac6884d3900d18dc11ee565400f89ca73", null ],
+    [ "Im", "class_math_1_1_quaternion.html#a8c258b7c67c68e8212211a6b1f6beeef", null ],
+    [ "j", "class_math_1_1_quaternion.html#a97853ababc2cba1bc0484fd02b33914d", null ],
+    [ "k", "class_math_1_1_quaternion.html#a8b112e36c39b3ffa40a0110c73a1b236", null ],
+    [ "norm", "class_math_1_1_quaternion.html#ade6acc3efe3d998c0f45593f6797bd7f", null ],
+    [ "operator-", "class_math_1_1_quaternion.html#adde0a8118ce656d6e140b249494da030", null ],
+    [ "Re", "class_math_1_1_quaternion.html#af37958bc019970ce12cf2ab69d532dd3", null ],
+    [ "operator*", "class_math_1_1_quaternion.html#ac70d7a0ee943d788d45c607ddd9675c3", null ],
+    [ "operator*", "class_math_1_1_quaternion.html#a02f988d3aef50bac26fc6fed8429d6a2", null ],
+    [ "operator*", "class_math_1_1_quaternion.html#aa09032df565d20d2a7a3a46add8ecff5", null ],
+    [ "operator+", "class_math_1_1_quaternion.html#a55c89dc55cca66b19679705c566a165a", null ],
+    [ "operator-", "class_math_1_1_quaternion.html#a3a5605ba3f0bb654c528d2f7beb34147", null ],
+    [ "operator<<", "class_math_1_1_quaternion.html#a2da180d301577cd15c3869079ae73256", null ],
+    [ "a", "class_math_1_1_quaternion.html#a169cce970414c401851ae55002908097", null ],
+    [ "b", "class_math_1_1_quaternion.html#a99de5cd84dde4b2166f3b6be3d67cb84", null ],
+    [ "c", "class_math_1_1_quaternion.html#ac65d917f695a04396b36d3636ec0ee05", null ],
+    [ "d", "class_math_1_1_quaternion.html#a99ff6eb759131be08ba61449ee702e7c", null ]
+];

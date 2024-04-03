@@ -1,0 +1,186 @@
+\doxysection{args.\+h}
+\hypertarget{args_8h_source}{}\label{args_8h_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/spdlog/fmt/bundled/args.h@{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/spdlog/fmt/bundled/args.h}}
+\mbox{\hyperlink{args_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00001}00001\ \textcolor{comment}{//\ Formatting\ library\ for\ C++\ -\/\ dynamic\ format\ arguments}}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00002}00002\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00003}00003\ \textcolor{comment}{//\ Copyright\ (c)\ 2012\ -\/\ present,\ Victor\ Zverovich}}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00004}00004\ \textcolor{comment}{//\ All\ rights\ reserved.}}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00005}00005\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00006}00006\ \textcolor{comment}{//\ For\ the\ license\ information\ refer\ to\ format.h.}}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00008}00008\ \textcolor{preprocessor}{\#ifndef\ FMT\_ARGS\_H\_}}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00009}00009\ \textcolor{preprocessor}{\#define\ FMT\_ARGS\_H\_}}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <functional>}\ \ \textcolor{comment}{//\ std::reference\_wrapper}}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <memory>}\ \ \ \ \ \ \textcolor{comment}{//\ std::unique\_ptr}}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00015}00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h}{core.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00017}00017\ \mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a887c191adf8cfaf06ed40b5c4d487343}{FMT\_BEGIN\_NAMESPACE}}}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00019}\mbox{\hyperlink{namespacedetail}{00019}}\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacedetail}{detail}}\ \{}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00021}\mbox{\hyperlink{structdetail_1_1is__reference__wrapper}{00021}}\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structdetail_1_1is__reference__wrapper}{is\_reference\_wrapper}}\ :\ std::false\_type\ \{\};}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00022}00022\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00023}\mbox{\hyperlink{structdetail_1_1is__reference__wrapper_3_01std_1_1reference__wrapper_3_01_t_01_4_01_4}{00023}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structdetail_1_1is__reference__wrapper}{is\_reference\_wrapper}}<\mbox{\hyperlink{namespacestd}{std}}::reference\_wrapper<T>>\ :\ std::true\_type\ \{\};}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00025}\mbox{\hyperlink{namespacedetail_a0e78bc1771435b2f03eb002255ede72e}{00025}}\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{const}\ T\&\ \mbox{\hyperlink{namespacedetail_a0e78bc1771435b2f03eb002255ede72e}{unwrap}}(\textcolor{keyword}{const}\ T\&\ v)\ \{\ \textcolor{keywordflow}{return}\ v;\ \}}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00026}\mbox{\hyperlink{namespacedetail_adb48efe14620a0cb364af7d679f90371}{00026}}\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{const}\ T\&\ \mbox{\hyperlink{namespacedetail_a0e78bc1771435b2f03eb002255ede72e}{unwrap}}(\textcolor{keyword}{const}\ std::reference\_wrapper<T>\&\ v)\ \{}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00027}00027\ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}\textcolor{keyword}{const\ }T\&\textcolor{keyword}{>}(v);}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00028}00028\ \}}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00030}\mbox{\hyperlink{classdetail_1_1dynamic__arg__list}{00030}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classdetail_1_1dynamic__arg__list}{dynamic\_arg\_list}}\ \{}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00031}00031\ \ \ \textcolor{comment}{//\ Workaround\ for\ clang's\ -\/Wweak-\/vtables.\ Unlike\ for\ regular\ classes,\ for}}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00032}00032\ \ \ \textcolor{comment}{//\ templates\ it\ doesn't\ complain\ about\ inability\ to\ deduce\ single\ translation}}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00033}00033\ \ \ \textcolor{comment}{//\ unit\ for\ placing\ vtable.\ So\ storage\_node\_base\ is\ made\ a\ fake\ template.}}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00034}\mbox{\hyperlink{structdetail_1_1dynamic__arg__list_1_1node}{00034}}\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ =\ \textcolor{keywordtype}{void}>\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structdetail_1_1dynamic__arg__list_1_1node}{node}}\ \{}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00035}\mbox{\hyperlink{structdetail_1_1dynamic__arg__list_1_1node_a696c09fe0167fc08b332f67012e6bff8}{00035}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{structdetail_1_1dynamic__arg__list_1_1node_a696c09fe0167fc08b332f67012e6bff8}{\string~node}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00036}\mbox{\hyperlink{structdetail_1_1dynamic__arg__list_1_1node_ab50c11788f19bbcdb90f3336de440de5}{00036}}\ \ \ \ \ std::unique\_ptr<node<>>\ \mbox{\hyperlink{structdetail_1_1dynamic__arg__list_1_1node_ab50c11788f19bbcdb90f3336de440de5}{next}};}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00037}00037\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00039}\mbox{\hyperlink{structdetail_1_1dynamic__arg__list_1_1typed__node}{00039}}\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structdetail_1_1dynamic__arg__list_1_1typed__node}{typed\_node}}\ :\ \mbox{\hyperlink{structdetail_1_1dynamic__arg__list_1_1node}{node}}<>\ \{}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00040}\mbox{\hyperlink{structdetail_1_1dynamic__arg__list_1_1typed__node_ac9c6b77d9eb7e07de13c34c62bf0d24e}{00040}}\ \ \ \ \ T\ \mbox{\hyperlink{structdetail_1_1dynamic__arg__list_1_1typed__node_ac9c6b77d9eb7e07de13c34c62bf0d24e}{value}};}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00042}00042\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Arg>}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00043}\mbox{\hyperlink{structdetail_1_1dynamic__arg__list_1_1typed__node_a5d6dbb89dde0864aedf89d01148676a5}{00043}}\ \ \ \ \ \mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\_CONSTEXPR}}\ \mbox{\hyperlink{structdetail_1_1dynamic__arg__list_1_1typed__node_a5d6dbb89dde0864aedf89d01148676a5}{typed\_node}}(\textcolor{keyword}{const}\ Arg\&\ \mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a2c8e80c1b1c8b7747e99b8e9a24a0429}{arg}})\ :\ \mbox{\hyperlink{classvalue}{value}}(\mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a2c8e80c1b1c8b7747e99b8e9a24a0429}{arg}})\ \{\}}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00045}00045\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Char>}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00046}\mbox{\hyperlink{structdetail_1_1dynamic__arg__list_1_1typed__node_afeb2dd961fa0a9ebd33a7751b060ab9d}{00046}}\ \ \ \ \ \mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a69201cb276383873487bf68b4ef8b4cd}{FMT\_CONSTEXPR}}\ \mbox{\hyperlink{structdetail_1_1dynamic__arg__list_1_1typed__node_afeb2dd961fa0a9ebd33a7751b060ab9d}{typed\_node}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classbasic__string__view}{basic\_string\_view<Char>}}\&\ \mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a2c8e80c1b1c8b7747e99b8e9a24a0429}{arg}})}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00047}00047\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classvalue}{value}}(\mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a2c8e80c1b1c8b7747e99b8e9a24a0429}{arg}}.\mbox{\hyperlink{structdata}{data}}(),\ \mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a2c8e80c1b1c8b7747e99b8e9a24a0429}{arg}}.size())\ \{\}}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00048}00048\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00050}\mbox{\hyperlink{classdetail_1_1dynamic__arg__list_a46d467de3b89f026974354e830e12ef0}{00050}}\ \ \ std::unique\_ptr<node<>>\ \mbox{\hyperlink{classdetail_1_1dynamic__arg__list_a46d467de3b89f026974354e830e12ef0}{head\_}};}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00052}00052\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00053}\mbox{\hyperlink{classdetail_1_1dynamic__arg__list_a00244eee3cf42de6998df3e2f95c77bc}{00053}}\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ Arg>\ \textcolor{keyword}{const}\ T\&\ \mbox{\hyperlink{classdetail_1_1dynamic__arg__list_a00244eee3cf42de6998df3e2f95c77bc}{push}}(\textcolor{keyword}{const}\ Arg\&\ \mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a2c8e80c1b1c8b7747e99b8e9a24a0429}{arg}})\ \{}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00054}00054\ \ \ \ \ \textcolor{keyword}{auto}\ new\_node\ =\ std::unique\_ptr<typed\_node<T>>(\textcolor{keyword}{new}\ \mbox{\hyperlink{structdetail_1_1dynamic__arg__list_1_1typed__node}{typed\_node<T>}}(\mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a2c8e80c1b1c8b7747e99b8e9a24a0429}{arg}}));}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00055}00055\ \ \ \ \ \textcolor{keyword}{auto}\&\ \mbox{\hyperlink{classvalue}{value}}\ =\ new\_node-\/>\mbox{\hyperlink{classvalue_a29ee80e17824ea588fa1c2abb8e00d4e}{value}};}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00056}00056\ \ \ \ \ new\_node-\/>next\ =\ std::move(\mbox{\hyperlink{classdetail_1_1dynamic__arg__list_a46d467de3b89f026974354e830e12ef0}{head\_}});}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00057}00057\ \ \ \ \ \mbox{\hyperlink{classdetail_1_1dynamic__arg__list_a46d467de3b89f026974354e830e12ef0}{head\_}}\ =\ std::move(new\_node);}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00058}00058\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classvalue}{value}};}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00059}00059\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00060}00060\ \};}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00061}00061\ \}\ \ \textcolor{comment}{//\ namespace\ detail}}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00073}00073\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Context>}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00074}\mbox{\hyperlink{classdynamic__format__arg__store}{00074}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classdynamic__format__arg__store}{dynamic\_format\_arg\_store}}}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00075}00075\ \#if\ \mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a4f5db4f97e31a127b1236d1ff412bb0c}{FMT\_GCC\_VERSION}}\ \&\&\ \mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a4f5db4f97e31a127b1236d1ff412bb0c}{FMT\_GCC\_VERSION}}\ <\ 409}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00076}00076\ \ \ \ \ \textcolor{comment}{//\ Workaround\ a\ GCC\ template\ argument\ substitution\ bug.}}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00077}00077\ \ \ \ \ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classbasic__format__args}{basic\_format\_args<Context>}}}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00078}00078\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00079}00079\ \{}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00080}00080\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00081}\mbox{\hyperlink{classdynamic__format__arg__store_a2997fb5c2d4ac7205672e7afe550f9c1}{00081}}\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classdynamic__format__arg__store_a2997fb5c2d4ac7205672e7afe550f9c1}{char\_type}}\ =\ \textcolor{keyword}{typename}\ Context::char\_type;}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00083}\mbox{\hyperlink{structdynamic__format__arg__store_1_1need__copy}{00083}}\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structdynamic__format__arg__store_1_1need__copy}{need\_copy}}\ \{}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00084}\mbox{\hyperlink{structdynamic__format__arg__store_1_1need__copy_ad6534123e27b1c0d7f536b91d7726b3c}{00084}}\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ detail::type\ mapped\_type\ =}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00085}00085\ \ \ \ \ \ \ \ \ detail::mapped\_type\_constant<T,\ Context>::value;}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00087}00087\ \ \ \ \ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00088}00088\ \ \ \ \ \ \ \mbox{\hyperlink{classvalue}{value}}\ =\ !(\mbox{\hyperlink{structdetail_1_1is__reference__wrapper}{detail::is\_reference\_wrapper<T>::value}}\ ||}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_same<T,\ basic\_string\_view<char\_type>>\mbox{\hyperlink{classvalue}{::value}}\ ||}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_same<T,\ detail::std\_string\_view<char\_type>>\mbox{\hyperlink{classvalue}{::value}}\ ||}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (mapped\_type\ !=\ detail::type::cstring\_type\ \&\&}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mapped\_type\ !=\ detail::type::string\_type\ \&\&}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mapped\_type\ !=\ detail::type::custom\_type))}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00094}\mbox{\hyperlink{structdynamic__format__arg__store_1_1need__copy_a1ef9eae9bdb404b10ae101c22e0607a1a24f64f1fb320f7a1bb9b7d91613dac29}{00094}}\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00095}00095\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00097}00097\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00098}\mbox{\hyperlink{classdynamic__format__arg__store_a3734d79eb218e1cf90b615969241ba8c}{00098}}\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classdynamic__format__arg__store_a3734d79eb218e1cf90b615969241ba8c}{stored\_type}}\ =\ \mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_acdb0eff728aec08ed6fff07d2885ea9d}{conditional\_t}}<}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00099}00099\ \ \ \ \ \ \ std::is\_convertible<T,\ std::basic\_string<char\_type>>\mbox{\hyperlink{classvalue}{::value}}\ \&\&}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ !\mbox{\hyperlink{structdetail_1_1is__reference__wrapper}{detail::is\_reference\_wrapper<T>::value}},}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00101}00101\ \ \ \ \ \ \ std::basic\_string<char\_type>,\ T>;}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00103}00103\ \ \ \textcolor{comment}{//\ Storage\ of\ basic\_format\_arg\ must\ be\ contiguous.}}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00104}\mbox{\hyperlink{classdynamic__format__arg__store_a945374d17adbecffe69386a0c098b95a}{00104}}\ \ \ std::vector<basic\_format\_arg<Context>>\ \mbox{\hyperlink{classdynamic__format__arg__store_a945374d17adbecffe69386a0c098b95a}{data\_}};}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00105}\mbox{\hyperlink{classdynamic__format__arg__store_afcc3f9a3361e1f7a84c6deeb0830a26c}{00105}}\ \ \ std::vector<detail::named\_arg\_info<char\_type>>\ \mbox{\hyperlink{classdynamic__format__arg__store_afcc3f9a3361e1f7a84c6deeb0830a26c}{named\_info\_}};}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00107}00107\ \ \ \textcolor{comment}{//\ Storage\ of\ arguments\ not\ fitting\ into\ basic\_format\_arg\ must\ grow}}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00108}00108\ \ \ \textcolor{comment}{//\ without\ relocation\ because\ items\ in\ data\_\ refer\ to\ it.}}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00109}\mbox{\hyperlink{classdynamic__format__arg__store_ab8e9e33cc7b78829001a86ef6110ebb6}{00109}}\ \ \ \mbox{\hyperlink{classdetail_1_1dynamic__arg__list}{detail::dynamic\_arg\_list}}\ dynamic\_args\_;}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00111}00111\ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classbasic__format__args}{basic\_format\_args}}<Context>;}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00113}\mbox{\hyperlink{classdynamic__format__arg__store_a40956aef27ef510f1a68f45f3e4e0710}{00113}}\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{classdynamic__format__arg__store_a40956aef27ef510f1a68f45f3e4e0710}{get\_types}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00114}00114\ \ \ \ \ \textcolor{keywordflow}{return}\ detail::is\_unpacked\_bit\ |\ data\_.size()\ |}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ (named\_info\_.empty()}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ?\ 0ULL}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\textcolor{keyword}{>}(detail::has\_named\_args\_bit));}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00118}00118\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00120}\mbox{\hyperlink{classdynamic__format__arg__store_a89c857698fe40e877e0c3a3c1bdb1921}{00120}}\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classbasic__format__arg}{basic\_format\_arg<Context>}}*\ \mbox{\hyperlink{classdynamic__format__arg__store_a89c857698fe40e877e0c3a3c1bdb1921}{data}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00121}00121\ \ \ \ \ \textcolor{keywordflow}{return}\ named\_info\_.empty()\ ?\ data\_.data()\ :\ data\_.data()\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00122}00122\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00124}\mbox{\hyperlink{classdynamic__format__arg__store_a3e3f7af053771a3dff451014a5024c79}{00124}}\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classdynamic__format__arg__store_a3e3f7af053771a3dff451014a5024c79}{emplace\_arg}}(\textcolor{keyword}{const}\ T\&\ \mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a2c8e80c1b1c8b7747e99b8e9a24a0429}{arg}})\ \{}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00125}00125\ \ \ \ \ data\_.emplace\_back(detail::make\_arg<Context>(\mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a2c8e80c1b1c8b7747e99b8e9a24a0429}{arg}}));}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00126}00126\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00128}00128\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00129}\mbox{\hyperlink{classdynamic__format__arg__store_a013581c49dc10f6184fcc7de015957fc}{00129}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classdynamic__format__arg__store_a013581c49dc10f6184fcc7de015957fc}{emplace\_arg}}(\textcolor{keyword}{const}\ detail::named\_arg<char\_type,\ T>\&\ \mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a2c8e80c1b1c8b7747e99b8e9a24a0429}{arg}})\ \{}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00130}00130\ \ \ \ \ \textcolor{keywordflow}{if}\ (named\_info\_.empty())\ \{}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00131}00131\ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{const}\ detail::named\_arg\_info<char\_type>*\ zero\_ptr\{\textcolor{keyword}{nullptr}\};}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00132}00132\ \ \ \ \ \ \ data\_.insert(data\_.begin(),\ \{zero\_ptr,\ 0\});}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00133}00133\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00134}00134\ \ \ \ \ data\_.emplace\_back(detail::make\_arg<Context>(\mbox{\hyperlink{namespacedetail_a0e78bc1771435b2f03eb002255ede72e}{detail::unwrap}}(\mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a2c8e80c1b1c8b7747e99b8e9a24a0429}{arg}}.value)));}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00135}00135\ \ \ \ \ \textcolor{keyword}{auto}\ pop\_one\ =\ [](std::vector<basic\_format\_arg<Context>>*\ \mbox{\hyperlink{structdata}{data}})\ \{}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00136}00136\ \ \ \ \ \ \ \mbox{\hyperlink{structdata}{data}}-\/>pop\_back();}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00137}00137\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00138}00138\ \ \ \ \ std::unique\_ptr<std::vector<basic\_format\_arg<Context>>,\ \textcolor{keyword}{decltype}(pop\_one)>}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00139}00139\ \ \ \ \ \ \ \ \ guard\{\&data\_,\ pop\_one\};}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00140}00140\ \ \ \ \ named\_info\_.push\_back(\{\mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a2c8e80c1b1c8b7747e99b8e9a24a0429}{arg}}.name,\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(data\_.size()\ -\/\ 2u)\});}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00141}00141\ \ \ \ \ data\_[0].value\_.named\_args\ =\ \{named\_info\_.data(),\ named\_info\_.size()\};}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00142}00142\ \ \ \ \ guard.release();}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00143}00143\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00144}00144\ }
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00145}00145\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00146}\mbox{\hyperlink{classdynamic__format__arg__store_a48136c185f01d0d7f30a2bb20934d959}{00146}}\ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{classdynamic__format__arg__store_a48136c185f01d0d7f30a2bb20934d959}{dynamic\_format\_arg\_store}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00147}00147\ }
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00165}\mbox{\hyperlink{classdynamic__format__arg__store_a710e994685e69fd1cd4f56d29efc0d95}{00165}}\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classdynamic__format__arg__store_a710e994685e69fd1cd4f56d29efc0d95}{push\_back}}(\textcolor{keyword}{const}\ T\&\ \mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a2c8e80c1b1c8b7747e99b8e9a24a0429}{arg}})\ \{}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00166}00166\ \ \ \ \ \textcolor{keywordflow}{if}\ (detail::const\_check(\mbox{\hyperlink{structdynamic__format__arg__store_1_1need__copy}{need\_copy<T>::value}}))}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00167}00167\ \ \ \ \ \ \ emplace\_arg(dynamic\_args\_.\mbox{\hyperlink{classdetail_1_1dynamic__arg__list_a00244eee3cf42de6998df3e2f95c77bc}{push}}<\mbox{\hyperlink{classdynamic__format__arg__store_a3734d79eb218e1cf90b615969241ba8c}{stored\_type<T>}}>(\mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a2c8e80c1b1c8b7747e99b8e9a24a0429}{arg}}));}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00168}00168\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00169}00169\ \ \ \ \ \ \ emplace\_arg(\mbox{\hyperlink{namespacedetail_a0e78bc1771435b2f03eb002255ede72e}{detail::unwrap}}(\mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a2c8e80c1b1c8b7747e99b8e9a24a0429}{arg}}));}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00170}00170\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00171}00171\ }
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00187}\mbox{\hyperlink{classdynamic__format__arg__store_ac58637a7965cbfeab47c2f50e923dc07}{00187}}\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classdynamic__format__arg__store_ac58637a7965cbfeab47c2f50e923dc07}{push\_back}}(std::reference\_wrapper<T>\ \mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a2c8e80c1b1c8b7747e99b8e9a24a0429}{arg}})\ \{}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00188}00188\ \ \ \ \ \textcolor{keyword}{static\_assert}(}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00189}00189\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structdynamic__format__arg__store_1_1need__copy}{need\_copy<T>::value}},}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00190}00190\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}objects\ of\ built-\/in\ types\ and\ string\ views\ are\ always\ copied"{}});}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00191}00191\ \ \ \ \ emplace\_arg(\mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a2c8e80c1b1c8b7747e99b8e9a24a0429}{arg}}.get());}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00192}00192\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00193}00193\ }
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00199}00199\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00200}\mbox{\hyperlink{classdynamic__format__arg__store_a14baaad39c59b82fdf86dc4276f7d7cc}{00200}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classdynamic__format__arg__store_a14baaad39c59b82fdf86dc4276f7d7cc}{push\_back}}(\textcolor{keyword}{const}\ detail::named\_arg<char\_type,\ T>\&\ \mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a2c8e80c1b1c8b7747e99b8e9a24a0429}{arg}})\ \{}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00201}00201\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classdynamic__format__arg__store_a2997fb5c2d4ac7205672e7afe550f9c1}{char\_type}}*\ arg\_name\ =}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00202}00202\ \ \ \ \ \ \ \ \ dynamic\_args\_.\mbox{\hyperlink{classdetail_1_1dynamic__arg__list_a00244eee3cf42de6998df3e2f95c77bc}{push}}<std::basic\_string<char\_type>>(\mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a2c8e80c1b1c8b7747e99b8e9a24a0429}{arg}}.name).c\_str();}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00203}00203\ \ \ \ \ \textcolor{keywordflow}{if}\ (detail::const\_check(\mbox{\hyperlink{structdynamic__format__arg__store_1_1need__copy}{need\_copy<T>::value}}))\ \{}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00204}00204\ \ \ \ \ \ \ emplace\_arg(}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00205}00205\ \ \ \ \ \ \ \ \ \ \ fmt::arg(arg\_name,\ dynamic\_args\_.\mbox{\hyperlink{classdetail_1_1dynamic__arg__list_a00244eee3cf42de6998df3e2f95c77bc}{push}}<\mbox{\hyperlink{classdynamic__format__arg__store_a3734d79eb218e1cf90b615969241ba8c}{stored\_type<T>}}>(\mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a2c8e80c1b1c8b7747e99b8e9a24a0429}{arg}}.value)));}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00206}00206\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00207}00207\ \ \ \ \ \ \ emplace\_arg(fmt::arg(arg\_name,\ \mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a2c8e80c1b1c8b7747e99b8e9a24a0429}{arg}}.value));}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00208}00208\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00209}00209\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00210}00210\ }
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00212}\mbox{\hyperlink{classdynamic__format__arg__store_a94763fc905f02222d575f7c03161c212}{00212}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classdynamic__format__arg__store_a94763fc905f02222d575f7c03161c212}{clear}}()\ \{}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00213}00213\ \ \ \ \ data\_.clear();}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00214}00214\ \ \ \ \ named\_info\_.clear();}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00215}00215\ \ \ \ \ dynamic\_args\_\ =\ \mbox{\hyperlink{classdetail_1_1dynamic__arg__list}{detail::dynamic\_arg\_list}}();}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00216}00216\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00217}00217\ }
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00224}\mbox{\hyperlink{classdynamic__format__arg__store_a9c6983c46b69775b5066f6ad748be584}{00224}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classdynamic__format__arg__store_a9c6983c46b69775b5066f6ad748be584}{reserve}}(\textcolor{keywordtype}{size\_t}\ new\_cap,\ \textcolor{keywordtype}{size\_t}\ new\_cap\_named)\ \{}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00225}00225\ \ \ \ \ \mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a03e7ee720f43adc7d83c652a6a5dd5f8}{FMT\_ASSERT}}(new\_cap\ >=\ new\_cap\_named,}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00226}00226\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Set\ of\ arguments\ includes\ set\ of\ named\ arguments"{}});}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00227}00227\ \ \ \ \ data\_.reserve(new\_cap);}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00228}00228\ \ \ \ \ named\_info\_.reserve(new\_cap\_named);}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00229}00229\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00230}00230\ \};}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00231}00231\ }
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00232}00232\ \mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_ae0d2fbdf031547a949fc7e1c0b3c97f1}{FMT\_END\_NAMESPACE}}}
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00233}00233\ }
+\DoxyCodeLine{\Hypertarget{args_8h_source_l00234}00234\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ FMT\_ARGS\_H\_}}
+
+\end{DoxyCode}

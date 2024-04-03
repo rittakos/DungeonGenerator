@@ -1,0 +1,40 @@
+\doxysection{dungeon.\+cpp}
+\hypertarget{dungeon_8cpp_source}{}\label{dungeon_8cpp_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/DungeonGenerator/dungeon.cpp@{C:/Dev/DungeonGenerator/DungeonGenerator/DungeonGenerator/dungeon.cpp}}
+\mbox{\hyperlink{dungeon_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{dungeon_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{dungeon_8hpp}{dungeon.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{dungeon_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{dungeon_writer_8hpp}{dungeonWriter.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{dungeon_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{dungeon_generator_8hpp}{dungeonGenerator.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{dungeon_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{maze_generator_8hpp}{mazeGenerator.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{dungeon_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{hole_generator_8hpp}{holeGenerator.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{dungeon_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{dungeon_8cpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{dungeon_8cpp_source_l00008}\mbox{\hyperlink{class_dungeon_a556acaa766b2e25a89f51267c12daa66}{00008}}\ \mbox{\hyperlink{class_dungeon_a556acaa766b2e25a89f51267c12daa66}{Dungeon::Dungeon}}()}
+\DoxyCodeLine{\Hypertarget{dungeon_8cpp_source_l00009}00009\ \{}
+\DoxyCodeLine{\Hypertarget{dungeon_8cpp_source_l00010}00010\ \}}
+\DoxyCodeLine{\Hypertarget{dungeon_8cpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{dungeon_8cpp_source_l00012}\mbox{\hyperlink{class_dungeon_a3bdb091db0247fe1b92439195c333359}{00012}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_dungeon_a3bdb091db0247fe1b92439195c333359}{Dungeon::generateDungeon}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_dungeon_generator_settings}{DungeonGeneratorSettings}}\&\ settings)}
+\DoxyCodeLine{\Hypertarget{dungeon_8cpp_source_l00013}00013\ \{}
+\DoxyCodeLine{\Hypertarget{dungeon_8cpp_source_l00014}00014\ \ \ \ \ \mbox{\hyperlink{class_generator_1_1_dungeon_generator}{Generator::DungeonGenerator}}\ generator(settings);}
+\DoxyCodeLine{\Hypertarget{dungeon_8cpp_source_l00015}00015\ \ \ \ \ generator.\mbox{\hyperlink{class_generator_1_1_dungeon_generator_adfdeccf9958044dd44eebc01ccaa2715}{generate}}(\mbox{\hyperlink{class_dungeon_a1379766a969c24b47974e312259ac17c}{dungeonData}});}
+\DoxyCodeLine{\Hypertarget{dungeon_8cpp_source_l00016}00016\ \}}
+\DoxyCodeLine{\Hypertarget{dungeon_8cpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{dungeon_8cpp_source_l00018}\mbox{\hyperlink{class_dungeon_afdabe22843a173ffe0737ac100cdc5b5}{00018}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_dungeon_afdabe22843a173ffe0737ac100cdc5b5}{Dungeon::generateMaze}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_maze_generator_settings}{MazeGeneratorSettings}}\&\ settings)}
+\DoxyCodeLine{\Hypertarget{dungeon_8cpp_source_l00019}00019\ \{}
+\DoxyCodeLine{\Hypertarget{dungeon_8cpp_source_l00020}00020\ \ \ \ \ \mbox{\hyperlink{class_generator_1_1_maze_generator}{Generator::MazeGenerator}}\ generator(settings);}
+\DoxyCodeLine{\Hypertarget{dungeon_8cpp_source_l00021}00021\ \ \ \ \ generator.\mbox{\hyperlink{class_generator_1_1_maze_generator_a0c8a83b6a5dfc1977015ee4e3ceeb4f2}{generate}}(\mbox{\hyperlink{class_dungeon_a1379766a969c24b47974e312259ac17c}{dungeonData}}.\mbox{\hyperlink{class_data_1_1_dungeon_data_ac75b4bd327be99d4a890c34dcd4504dc}{getMaze}}());}
+\DoxyCodeLine{\Hypertarget{dungeon_8cpp_source_l00022}00022\ \}}
+\DoxyCodeLine{\Hypertarget{dungeon_8cpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{dungeon_8cpp_source_l00024}\mbox{\hyperlink{class_dungeon_ae48d08d762378df847b8d09c6871daa7}{00024}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_dungeon_ae48d08d762378df847b8d09c6871daa7}{Dungeon::generateHoles}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_hole_generator_settings}{HoleGeneratorSettings}}\&\ settings)}
+\DoxyCodeLine{\Hypertarget{dungeon_8cpp_source_l00025}00025\ \{}
+\DoxyCodeLine{\Hypertarget{dungeon_8cpp_source_l00026}00026\ \ \ \ \ \mbox{\hyperlink{class_generator_1_1_hole_generator}{Generator::HoleGenerator}}\ generator(settings);}
+\DoxyCodeLine{\Hypertarget{dungeon_8cpp_source_l00027}00027\ \ \ \ \ generator.\mbox{\hyperlink{class_generator_1_1_hole_generator_a9a96dd443bbded7dffab03e77890528c}{generate}}(\mbox{\hyperlink{class_dungeon_a1379766a969c24b47974e312259ac17c}{dungeonData}});}
+\DoxyCodeLine{\Hypertarget{dungeon_8cpp_source_l00028}00028\ \}}
+\DoxyCodeLine{\Hypertarget{dungeon_8cpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{dungeon_8cpp_source_l00030}\mbox{\hyperlink{class_dungeon_aaf6d5027e2783df4fdf332e87c4e4f44}{00030}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_dungeon_aaf6d5027e2783df4fdf332e87c4e4f44}{Dungeon::save}}(std::string\ path)}
+\DoxyCodeLine{\Hypertarget{dungeon_8cpp_source_l00031}00031\ \{}
+\DoxyCodeLine{\Hypertarget{dungeon_8cpp_source_l00032}00032\ \ \ \ \ \mbox{\hyperlink{class_i_o_1_1_dungeon_writer}{IO::DungeonWriter}}\ writer(\mbox{\hyperlink{class_dungeon_a1379766a969c24b47974e312259ac17c}{dungeonData}},\ path);}
+\DoxyCodeLine{\Hypertarget{dungeon_8cpp_source_l00033}00033\ \ \ \ \ writer.\mbox{\hyperlink{class_i_o_1_1_dungeon_writer_a6b35e5995e08e53716d960988ddec32c}{write}}();}
+\DoxyCodeLine{\Hypertarget{dungeon_8cpp_source_l00034}00034\ \}}
+
+\end{DoxyCode}

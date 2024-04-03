@@ -1,0 +1,11 @@
+<map id="Geometry::Polygon::addPoint" name="Geometry::Polygon::addPoint">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,72,147,115"/>
+<area shape="rect" id="Node000002" href="$class_geometry_1_1_polygon.html#abe0fa2f30629ae38dd88b28a85509a9e" title=" " alt="" coords="195,5,336,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="138,69,188,51,189,56,139,74"/>
+<area shape="rect" id="Node000003" href="$class_geometry_1_1_polygon.html#a55ccb3a6bfa3c5176ceb1ed12efc91fd" title=" " alt="" coords="195,72,336,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="147,91,179,91,179,96,147,96"/>
+<area shape="rect" id="Node000005" href="$class_geometry_1_1_polygon.html#ade26117ec3b1f56362190e27e6056535" title=" " alt="" coords="195,139,336,181"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="139,113,189,130,188,136,138,118"/>
+<area shape="rect" id="Node000004" href="$namespace_math.html#acb53f49cacbc0754cf4b882a41837468" title=" " alt="" coords="384,80,493,107"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="337,91,368,91,368,96,337,96"/>
+</map>

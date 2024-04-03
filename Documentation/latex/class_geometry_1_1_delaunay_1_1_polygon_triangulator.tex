@@ -1,0 +1,247 @@
+\doxysection{Geometry\+::Delaunay\+::Polygon\+Triangulator Class Reference}
+\hypertarget{class_geometry_1_1_delaunay_1_1_polygon_triangulator}{}\label{class_geometry_1_1_delaunay_1_1_polygon_triangulator}\index{Geometry::Delaunay::PolygonTriangulator@{Geometry::Delaunay::PolygonTriangulator}}
+
+
+{\ttfamily \#include $<$polygon\+Triangulator.\+hpp$>$}
+
+
+
+Collaboration diagram for Geometry\+::Delaunay\+::Polygon\+Triangulator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_geometry_1_1_delaunay_1_1_polygon_triangulator__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_polygon_triangulator_a4b91739eb212918d8fca1d9b86b0b124}{Polygon\+Triangulator}} (const \mbox{\hyperlink{class_geometry_1_1_polygon}{Polygon}} \&\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_polygon_triangulator_acb316219794a247a5ea70b0acfd1bdb1}{polygon}})
+\item 
+\mbox{\hyperlink{struct_geometry_1_1_delaunay_1_1_delaunay_triangulation}{Delaunay\+Triangulation}} \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_polygon_triangulator_af16f9414e72248d90710aade9710cfdb}{Triangulate}} (\mbox{\hyperlink{namespace_geometry_1_1_delaunay_a643e8f927eebc3f3a702ca86183886ab}{Triangle\+Direction}} direction=\mbox{\hyperlink{namespace_geometry_1_1_delaunay_a643e8f927eebc3f3a702ca86183886aba2a7a2eaef4c00214f4370cff589ce368}{Counter\+Clock\+Wise}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_polygon_triangulator_ac0d8ea6ff903207502a1b029c5a4e481}{remove\+Holes}} (\mbox{\hyperlink{struct_geometry_1_1_delaunay_1_1_delaunay_triangulation}{Delaunay\+Triangulation}} \&triangulation) const
+\item 
+void \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_polygon_triangulator_aac6e65db21ef080a90251d126996373c}{get\+Vertices}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_geometry_1_1_polygon}{Polygon}} \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_polygon_triangulator_acb316219794a247a5ea70b0acfd1bdb1}{polygon}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} $>$ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_polygon_triangulator_a5630e85033375c643006d4abc451a3e1}{vertices}}
+\item 
+std\+::set$<$ int $>$ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_polygon_triangulator_a6cc326859ff4d610f0ccd7708211d073}{hole\+Ids}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{polygon_triangulator_8hpp_source_l00011}{11}} of file \mbox{\hyperlink{polygon_triangulator_8hpp_source}{polygon\+Triangulator.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_geometry_1_1_delaunay_1_1_polygon_triangulator_a4b91739eb212918d8fca1d9b86b0b124}\label{class_geometry_1_1_delaunay_1_1_polygon_triangulator_a4b91739eb212918d8fca1d9b86b0b124} 
+\index{Geometry::Delaunay::PolygonTriangulator@{Geometry::Delaunay::PolygonTriangulator}!PolygonTriangulator@{PolygonTriangulator}}
+\index{PolygonTriangulator@{PolygonTriangulator}!Geometry::Delaunay::PolygonTriangulator@{Geometry::Delaunay::PolygonTriangulator}}
+\doxysubsubsection{\texorpdfstring{PolygonTriangulator()}{PolygonTriangulator()}}
+{\footnotesize\ttfamily Geometry\+::\+Delaunay\+::\+Polygon\+Triangulator\+::\+Polygon\+Triangulator (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_geometry_1_1_polygon}{Polygon}} \&}]{polygon }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{polygon_triangulator_8cpp_source_l00009}{9}} of file \mbox{\hyperlink{polygon_triangulator_8cpp_source}{polygon\+Triangulator.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_polygon_triangulator_acb316219794a247a5ea70b0acfd1bdb1}{polygon}}\ (\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_polygon_triangulator_acb316219794a247a5ea70b0acfd1bdb1}{polygon}}) }
+\DoxyCodeLine{00010\ \ \ \ \ \{}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_geometry_1_1_delaunay_1_1_polygon_triangulator_aac6e65db21ef080a90251d126996373c}\label{class_geometry_1_1_delaunay_1_1_polygon_triangulator_aac6e65db21ef080a90251d126996373c} 
+\index{Geometry::Delaunay::PolygonTriangulator@{Geometry::Delaunay::PolygonTriangulator}!getVertices@{getVertices}}
+\index{getVertices@{getVertices}!Geometry::Delaunay::PolygonTriangulator@{Geometry::Delaunay::PolygonTriangulator}}
+\doxysubsubsection{\texorpdfstring{getVertices()}{getVertices()}}
+{\footnotesize\ttfamily void Geometry\+::\+Delaunay\+::\+Polygon\+Triangulator\+::get\+Vertices (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{polygon_triangulator_8cpp_source_l00038}{38}} of file \mbox{\hyperlink{polygon_triangulator_8cpp_source}{polygon\+Triangulator.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00039\ \ \ \ \ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ std::vector<Math::Vec2f>\ outline\ =\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_polygon_triangulator_acb316219794a247a5ea70b0acfd1bdb1}{polygon}}.\mbox{\hyperlink{class_geometry_1_1_polygon_a94dc0f266b827e9596f29888c796ca17}{getPoints}}();}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_polygon_triangulator_a5630e85033375c643006d4abc451a3e1}{vertices}}.insert(std::end(\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_polygon_triangulator_a5630e85033375c643006d4abc451a3e1}{vertices}}),\ std::begin(outline),\ std::end(outline));}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ lastId\ =\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_polygon_triangulator_a5630e85033375c643006d4abc451a3e1}{vertices}}.size()\ -\/\ 1;}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ Polygon\&\ hole\ :\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_polygon_triangulator_acb316219794a247a5ea70b0acfd1bdb1}{polygon}}.getHoles())}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\&\ p\ :\ hole.getPoints())}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ++lastId;}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_polygon_triangulator_a5630e85033375c643006d4abc451a3e1}{vertices}}.push\_back(p);}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_polygon_triangulator_a6cc326859ff4d610f0ccd7708211d073}{holeIds}}.insert(lastId);}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00055\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{class_geometry_1_1_delaunay_1_1_polygon_triangulator_aac6e65db21ef080a90251d126996373c_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_geometry_1_1_delaunay_1_1_polygon_triangulator_aac6e65db21ef080a90251d126996373c_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_geometry_1_1_delaunay_1_1_polygon_triangulator_ac0d8ea6ff903207502a1b029c5a4e481}\label{class_geometry_1_1_delaunay_1_1_polygon_triangulator_ac0d8ea6ff903207502a1b029c5a4e481} 
+\index{Geometry::Delaunay::PolygonTriangulator@{Geometry::Delaunay::PolygonTriangulator}!removeHoles@{removeHoles}}
+\index{removeHoles@{removeHoles}!Geometry::Delaunay::PolygonTriangulator@{Geometry::Delaunay::PolygonTriangulator}}
+\doxysubsubsection{\texorpdfstring{removeHoles()}{removeHoles()}}
+{\footnotesize\ttfamily void Geometry\+::\+Delaunay\+::\+Polygon\+Triangulator\+::remove\+Holes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_geometry_1_1_delaunay_1_1_delaunay_triangulation}{Delaunay\+Triangulation}} \&}]{triangulation }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{polygon_triangulator_8cpp_source_l00014}{14}} of file \mbox{\hyperlink{polygon_triangulator_8cpp_source}{polygon\+Triangulator.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00015\ \ \ \ \ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_polygon_triangulator_acb316219794a247a5ea70b0acfd1bdb1}{polygon}}.\mbox{\hyperlink{class_geometry_1_1_polygon_a5d44f07791e41458ee4368f9570148cb}{getHoles}}().empty())}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ std::vector<Triangle>\ neededTriangles;}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ Triangle\&\ triangle\ :\ triangulation.Triangles)}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_polygon_triangulator_a6cc326859ff4d610f0ccd7708211d073}{holeIds}}.contains(triangle.P0.index)\ \&\&}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_polygon_triangulator_a6cc326859ff4d610f0ccd7708211d073}{holeIds}}.contains(triangle.P1.index)\ \&\&}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_polygon_triangulator_a6cc326859ff4d610f0ccd7708211d073}{holeIds}}.contains(triangle.P2.index))}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ neededTriangles.push\_back(triangle);}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ triangulation.Triangles\ =\ neededTriangles;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{class_geometry_1_1_delaunay_1_1_polygon_triangulator_ac0d8ea6ff903207502a1b029c5a4e481_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_geometry_1_1_delaunay_1_1_polygon_triangulator_ac0d8ea6ff903207502a1b029c5a4e481_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_geometry_1_1_delaunay_1_1_polygon_triangulator_af16f9414e72248d90710aade9710cfdb}\label{class_geometry_1_1_delaunay_1_1_polygon_triangulator_af16f9414e72248d90710aade9710cfdb} 
+\index{Geometry::Delaunay::PolygonTriangulator@{Geometry::Delaunay::PolygonTriangulator}!Triangulate@{Triangulate}}
+\index{Triangulate@{Triangulate}!Geometry::Delaunay::PolygonTriangulator@{Geometry::Delaunay::PolygonTriangulator}}
+\doxysubsubsection{\texorpdfstring{Triangulate()}{Triangulate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_geometry_1_1_delaunay_1_1_delaunay_triangulation}{Delaunay\+Triangulation}} Geometry\+::\+Delaunay\+::\+Polygon\+Triangulator\+::\+Triangulate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_geometry_1_1_delaunay_a643e8f927eebc3f3a702ca86183886ab}{Triangle\+Direction}}}]{direction = {\ttfamily \mbox{\hyperlink{namespace_geometry_1_1_delaunay_a643e8f927eebc3f3a702ca86183886aba2a7a2eaef4c00214f4370cff589ce368}{Counter\+Clock\+Wise}}} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{polygon_triangulator_8cpp_source_l00058}{58}} of file \mbox{\hyperlink{polygon_triangulator_8cpp_source}{polygon\+Triangulator.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00059\ \ \ \ \ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_polygon_triangulator_aac6e65db21ef080a90251d126996373c}{getVertices}}();}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ DelaunayTriangulator\ triangulator(\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_polygon_triangulator_a5630e85033375c643006d4abc451a3e1}{vertices}});}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ DelaunayTriangulation\ triangulation\ =\ triangulator.Triangulate(direction);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_polygon_triangulator_ac0d8ea6ff903207502a1b029c5a4e481}{removeHoles}}(triangulation);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ triangulation;}
+\DoxyCodeLine{00068\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_geometry_1_1_delaunay_1_1_polygon_triangulator_af16f9414e72248d90710aade9710cfdb_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_geometry_1_1_delaunay_1_1_polygon_triangulator_af16f9414e72248d90710aade9710cfdb_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_geometry_1_1_delaunay_1_1_polygon_triangulator_a6cc326859ff4d610f0ccd7708211d073}\label{class_geometry_1_1_delaunay_1_1_polygon_triangulator_a6cc326859ff4d610f0ccd7708211d073} 
+\index{Geometry::Delaunay::PolygonTriangulator@{Geometry::Delaunay::PolygonTriangulator}!holeIds@{holeIds}}
+\index{holeIds@{holeIds}!Geometry::Delaunay::PolygonTriangulator@{Geometry::Delaunay::PolygonTriangulator}}
+\doxysubsubsection{\texorpdfstring{holeIds}{holeIds}}
+{\footnotesize\ttfamily std\+::set$<$int$>$ Geometry\+::\+Delaunay\+::\+Polygon\+Triangulator\+::hole\+Ids\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{polygon_triangulator_8hpp_source_l00016}{16}} of file \mbox{\hyperlink{polygon_triangulator_8hpp_source}{polygon\+Triangulator.\+hpp}}.
+
+\Hypertarget{class_geometry_1_1_delaunay_1_1_polygon_triangulator_acb316219794a247a5ea70b0acfd1bdb1}\label{class_geometry_1_1_delaunay_1_1_polygon_triangulator_acb316219794a247a5ea70b0acfd1bdb1} 
+\index{Geometry::Delaunay::PolygonTriangulator@{Geometry::Delaunay::PolygonTriangulator}!polygon@{polygon}}
+\index{polygon@{polygon}!Geometry::Delaunay::PolygonTriangulator@{Geometry::Delaunay::PolygonTriangulator}}
+\doxysubsubsection{\texorpdfstring{polygon}{polygon}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_geometry_1_1_polygon}{Polygon}} Geometry\+::\+Delaunay\+::\+Polygon\+Triangulator\+::polygon\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{polygon_triangulator_8hpp_source_l00014}{14}} of file \mbox{\hyperlink{polygon_triangulator_8hpp_source}{polygon\+Triangulator.\+hpp}}.
+
+\Hypertarget{class_geometry_1_1_delaunay_1_1_polygon_triangulator_a5630e85033375c643006d4abc451a3e1}\label{class_geometry_1_1_delaunay_1_1_polygon_triangulator_a5630e85033375c643006d4abc451a3e1} 
+\index{Geometry::Delaunay::PolygonTriangulator@{Geometry::Delaunay::PolygonTriangulator}!vertices@{vertices}}
+\index{vertices@{vertices}!Geometry::Delaunay::PolygonTriangulator@{Geometry::Delaunay::PolygonTriangulator}}
+\doxysubsubsection{\texorpdfstring{vertices}{vertices}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}}$>$ Geometry\+::\+Delaunay\+::\+Polygon\+Triangulator\+::vertices\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{polygon_triangulator_8hpp_source_l00015}{15}} of file \mbox{\hyperlink{polygon_triangulator_8hpp_source}{polygon\+Triangulator.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Geometry/\mbox{\hyperlink{polygon_triangulator_8hpp}{polygon\+Triangulator.\+hpp}}\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Geometry/\mbox{\hyperlink{polygon_triangulator_8cpp}{polygon\+Triangulator.\+cpp}}\end{DoxyCompactItemize}

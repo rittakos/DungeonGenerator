@@ -1,0 +1,358 @@
+\doxysection{fib\+\_\+heap.\+h}
+\hypertarget{fib__heap_8h_source}{}\label{fib__heap_8h_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/lemon/fib\_heap.h@{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/lemon/fib\_heap.h}}
+\mbox{\hyperlink{fib__heap_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00001}00001\ \textcolor{comment}{/*\ -\/*-\/\ mode:\ C++;\ indent-\/tabs-\/mode:\ nil;\ -\/*-\/}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00002}00002\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00003}00003\ \textcolor{comment}{\ *\ This\ file\ is\ a\ part\ of\ LEMON,\ a\ generic\ C++\ optimization\ library.}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00004}00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00005}00005\ \textcolor{comment}{\ *\ Copyright\ (C)\ 2003-\/2009}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00006}00006\ \textcolor{comment}{\ *\ Egervary\ Jeno\ Kombinatorikus\ Optimalizalasi\ Kutatocsoport}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00007}00007\ \textcolor{comment}{\ *\ (Egervary\ Research\ Group\ on\ Combinatorial\ Optimization,\ EGRES).}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00008}00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00009}00009\ \textcolor{comment}{\ *\ Permission\ to\ use,\ modify\ and\ distribute\ this\ software\ is\ granted}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00010}00010\ \textcolor{comment}{\ *\ provided\ that\ this\ copyright\ notice\ appears\ in\ all\ copies.\ For}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00011}00011\ \textcolor{comment}{\ *\ precise\ terms\ see\ the\ accompanying\ LICENSE\ file.}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00012}00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00013}00013\ \textcolor{comment}{\ *\ This\ software\ is\ provided\ "{}AS\ IS"{}\ with\ no\ warranty\ of\ any\ kind,}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00014}00014\ \textcolor{comment}{\ *\ express\ or\ implied,\ and\ with\ no\ claim\ as\ to\ its\ suitability\ for\ any}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00015}00015\ \textcolor{comment}{\ *\ purpose.}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00016}00016\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00017}00017\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00019}00019\ \textcolor{preprocessor}{\#ifndef\ LEMON\_FIB\_HEAP\_H}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00020}00020\ \textcolor{preprocessor}{\#define\ LEMON\_FIB\_HEAP\_H}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00026}00026\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00027}00027\ \textcolor{preprocessor}{\#include\ <utility>}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00028}00028\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00029}00029\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{math_8h}{lemon/math.h}}>}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00031}00031\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacelemon}{lemon}}\ \{}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00049}00049\ \textcolor{preprocessor}{\#ifdef\ DOXYGEN}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00050}00050\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ PR,\ \textcolor{keyword}{typename}\ IM,\ \textcolor{keyword}{typename}\ CMP>}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00051}00051\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00052}00052\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ PR,\ \textcolor{keyword}{typename}\ IM,\ \textcolor{keyword}{typename}\ CMP\ =\ std::less<PR>\ >}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00053}00053\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00054}\mbox{\hyperlink{classlemon_1_1_fib_heap}{00054}}\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_fib_heap}{FibHeap}}\ \{}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00055}00055\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00058}\mbox{\hyperlink{classlemon_1_1_fib_heap_a612c26eb4fd1bdbe8f6997e079d61b6a}{00058}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{IM}}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a612c26eb4fd1bdbe8f6997e079d61b6a}{ItemIntMap}};}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00060}\mbox{\hyperlink{classlemon_1_1_fib_heap_a5173f01db71b1cf0e9aee895502b2288}{00060}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{PR}}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a5173f01db71b1cf0e9aee895502b2288}{Prio}};}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00062}\mbox{\hyperlink{classlemon_1_1_fib_heap_a980b71f519fd03a2d83927d4a0245ab2}{00062}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ ItemIntMap::Key\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a980b71f519fd03a2d83927d4a0245ab2}{Item}};}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00064}\mbox{\hyperlink{classlemon_1_1_fib_heap_aabb0e00cfaabdee2bd124a2c68a63719}{00064}}\ \ \ \ \ \textcolor{keyword}{typedef}\ std::pair<Item,Prio>\ \mbox{\hyperlink{classlemon_1_1_fib_heap_aabb0e00cfaabdee2bd124a2c68a63719}{Pair}};}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00066}\mbox{\hyperlink{classlemon_1_1_fib_heap_ad64965917c37c94c7ec457854b40ac65}{00066}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CMP}}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_ad64965917c37c94c7ec457854b40ac65}{Compare}};}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00068}00068\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00069}00069\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_fib_heap_1_1_store}{Store}};}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00071}\mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{00071}}\ \ \ \ \ std::vector<Store>\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}};}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00072}\mbox{\hyperlink{classlemon_1_1_fib_heap_adb0e9e9d399b9f365368ee968ca1c8c9}{00072}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_adb0e9e9d399b9f365368ee968ca1c8c9}{\_minimum}};}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00073}\mbox{\hyperlink{classlemon_1_1_fib_heap_a44f8c3780f1ac7cd4c8f4236ac506566}{00073}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ItemIntMap}}\ \&\mbox{\hyperlink{classlemon_1_1_fib_heap_a44f8c3780f1ac7cd4c8f4236ac506566}{\_iim}};}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00074}\mbox{\hyperlink{classlemon_1_1_fib_heap_a9c37ab362c7ef88791526289662d0737}{00074}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Compare}}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a9c37ab362c7ef88791526289662d0737}{\_comp}};}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00075}\mbox{\hyperlink{classlemon_1_1_fib_heap_afe6daf2040a099a4f532de8a4c99699b}{00075}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_afe6daf2040a099a4f532de8a4c99699b}{\_num}};}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00077}00077\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00087}\mbox{\hyperlink{classlemon_1_1_fib_heap_a83652f1861519a220dbbc6403369f48f}{00087}}\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a83652f1861519a220dbbc6403369f48f}{State}}\ \{}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00088}\mbox{\hyperlink{classlemon_1_1_fib_heap_a83652f1861519a220dbbc6403369f48fa196527749f28a05ba9f140a0fedd33d5}{00088}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a83652f1861519a220dbbc6403369f48fa196527749f28a05ba9f140a0fedd33d5}{IN\_HEAP}}\ =\ 0,\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00089}\mbox{\hyperlink{classlemon_1_1_fib_heap_a83652f1861519a220dbbc6403369f48fa6ea2883cf7ac07f8f0848b2f9ad9eb07}{00089}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a83652f1861519a220dbbc6403369f48fa6ea2883cf7ac07f8f0848b2f9ad9eb07}{PRE\_HEAP}}\ =\ -\/1,\ \ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00090}00090\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a83652f1861519a220dbbc6403369f48fa07c27e8c5a80b9ca46bc0cbdced73f54}{POST\_HEAP}}\ =\ -\/2\ \ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00091}\mbox{\hyperlink{classlemon_1_1_fib_heap_a83652f1861519a220dbbc6403369f48fa07c27e8c5a80b9ca46bc0cbdced73f54}{00091}}\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00099}\mbox{\hyperlink{classlemon_1_1_fib_heap_af1a74387c0570659166ea8053fecd584}{00099}}\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_af1a74387c0570659166ea8053fecd584}{FibHeap}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ItemIntMap}}\ \&\mbox{\hyperlink{bundled_2ranges_8h_a080be1238e6ee3bd4b9f193b4181cf4da1d78dc8ed51214e518b5114fe24490ae}{map}})}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00100}00100\ \ \ \ \ \ \ :\ \mbox{\hyperlink{classlemon_1_1_fib_heap_adb0e9e9d399b9f365368ee968ca1c8c9}{\_minimum}}(0),\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a44f8c3780f1ac7cd4c8f4236ac506566}{\_iim}}(\mbox{\hyperlink{bundled_2ranges_8h_a080be1238e6ee3bd4b9f193b4181cf4da1d78dc8ed51214e518b5114fe24490ae}{map}}),\ \mbox{\hyperlink{classlemon_1_1_fib_heap_afe6daf2040a099a4f532de8a4c99699b}{\_num}}()\ \{\}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00109}\mbox{\hyperlink{classlemon_1_1_fib_heap_a9fff69d532cc5f1cdfab1855d649898e}{00109}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a9fff69d532cc5f1cdfab1855d649898e}{FibHeap}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ItemIntMap}}\ \&\mbox{\hyperlink{bundled_2ranges_8h_a080be1238e6ee3bd4b9f193b4181cf4da1d78dc8ed51214e518b5114fe24490ae}{map}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Compare}}\ \&comp)}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00110}00110\ \ \ \ \ \ \ :\ \mbox{\hyperlink{classlemon_1_1_fib_heap_adb0e9e9d399b9f365368ee968ca1c8c9}{\_minimum}}(0),\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a44f8c3780f1ac7cd4c8f4236ac506566}{\_iim}}(\mbox{\hyperlink{bundled_2ranges_8h_a080be1238e6ee3bd4b9f193b4181cf4da1d78dc8ed51214e518b5114fe24490ae}{map}}),\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a9c37ab362c7ef88791526289662d0737}{\_comp}}(comp),\ \mbox{\hyperlink{classlemon_1_1_fib_heap_afe6daf2040a099a4f532de8a4c99699b}{\_num}}()\ \{\}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00115}\mbox{\hyperlink{classlemon_1_1_fib_heap_abc4b5f204b825d490642856afc79d7ca}{00115}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_abc4b5f204b825d490642856afc79d7ca}{size}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_afe6daf2040a099a4f532de8a4c99699b}{\_num}};\ \}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00120}\mbox{\hyperlink{classlemon_1_1_fib_heap_a52eff451433c6862187bbffbf98039a3}{00120}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a52eff451433c6862187bbffbf98039a3}{empty}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_afe6daf2040a099a4f532de8a4c99699b}{\_num}}==0;\ \}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00129}\mbox{\hyperlink{classlemon_1_1_fib_heap_a93341f28fcdcaf03cde8f6d9ca768d3e}{00129}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a93341f28fcdcaf03cde8f6d9ca768d3e}{clear}}()\ \{}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00130}00130\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_af2726dacd301d1fdc114b18b6eeb5f51}{clear}}();\ \mbox{\hyperlink{classlemon_1_1_fib_heap_adb0e9e9d399b9f365368ee968ca1c8c9}{\_minimum}}\ =\ 0;\ \mbox{\hyperlink{classlemon_1_1_fib_heap_afe6daf2040a099a4f532de8a4c99699b}{\_num}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00131}00131\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00140}\mbox{\hyperlink{classlemon_1_1_fib_heap_a2c5cd2db9a8a15449f27ed08d20c6a0f}{00140}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a2c5cd2db9a8a15449f27ed08d20c6a0f}{push}}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a980b71f519fd03a2d83927d4a0245ab2}{Item}}\&\ item,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Prio}}\&\ \mbox{\hyperlink{classlemon_1_1_fib_heap_aa676841a73859d58c7f2400caddf7d24}{prio}})\ \{}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00141}00141\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ i=\mbox{\hyperlink{classlemon_1_1_fib_heap_a44f8c3780f1ac7cd4c8f4236ac506566}{\_iim}}[item];}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00142}00142\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ i\ <\ 0\ )\ \{}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00143}00143\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ s=\mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}.size();}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00144}00144\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a44f8c3780f1ac7cd4c8f4236ac506566}{\_iim}}.set(\ item,\ s\ );}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00145}00145\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_1_1_store}{Store}}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{st}};}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00146}00146\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{st}}.name=item;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00147}00147\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}.push\_back(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{st}});}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00148}00148\ \ \ \ \ \ \ \ \ i=s;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00149}00149\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00150}00150\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[i].parent=\mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[i].child=-\/1;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00151}00151\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[i].degree=0;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00152}00152\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[i].in=\textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00153}00153\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[i].marked=\textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00154}00154\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00155}00155\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00156}00156\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ \mbox{\hyperlink{classlemon_1_1_fib_heap_afe6daf2040a099a4f532de8a4c99699b}{\_num}}\ )\ \{}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00157}00157\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[\mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[\mbox{\hyperlink{classlemon_1_1_fib_heap_adb0e9e9d399b9f365368ee968ca1c8c9}{\_minimum}}].right\_neighbor].left\_neighbor=i;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00158}00158\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[i].right\_neighbor=\mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[\mbox{\hyperlink{classlemon_1_1_fib_heap_adb0e9e9d399b9f365368ee968ca1c8c9}{\_minimum}}].right\_neighbor;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00159}00159\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[\mbox{\hyperlink{classlemon_1_1_fib_heap_adb0e9e9d399b9f365368ee968ca1c8c9}{\_minimum}}].right\_neighbor=i;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00160}00160\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[i].left\_neighbor=\mbox{\hyperlink{classlemon_1_1_fib_heap_adb0e9e9d399b9f365368ee968ca1c8c9}{\_minimum}};}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00161}00161\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a9c37ab362c7ef88791526289662d0737}{\_comp}}(\ \mbox{\hyperlink{classlemon_1_1_fib_heap_aa676841a73859d58c7f2400caddf7d24}{prio}},\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[\mbox{\hyperlink{classlemon_1_1_fib_heap_adb0e9e9d399b9f365368ee968ca1c8c9}{\_minimum}}].\mbox{\hyperlink{classlemon_1_1_fib_heap_aa676841a73859d58c7f2400caddf7d24}{prio}})\ )\ \mbox{\hyperlink{classlemon_1_1_fib_heap_adb0e9e9d399b9f365368ee968ca1c8c9}{\_minimum}}=i;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00162}00162\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00163}00163\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[i].right\_neighbor=\mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[i].left\_neighbor=i;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00164}00164\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_adb0e9e9d399b9f365368ee968ca1c8c9}{\_minimum}}=i;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00165}00165\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00166}00166\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[i].prio=\mbox{\hyperlink{classlemon_1_1_fib_heap_aa676841a73859d58c7f2400caddf7d24}{prio}};}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00167}00167\ \ \ \ \ \ \ ++\mbox{\hyperlink{classlemon_1_1_fib_heap_afe6daf2040a099a4f532de8a4c99699b}{\_num}};}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00168}00168\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00169}00169\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00174}\mbox{\hyperlink{classlemon_1_1_fib_heap_a1fef9288ceb2f7b807f3553dcad4bee2}{00174}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a980b71f519fd03a2d83927d4a0245ab2}{Item}}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a1fef9288ceb2f7b807f3553dcad4bee2}{top}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[\mbox{\hyperlink{classlemon_1_1_fib_heap_adb0e9e9d399b9f365368ee968ca1c8c9}{\_minimum}}].name;\ \}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00175}00175\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00180}\mbox{\hyperlink{classlemon_1_1_fib_heap_aa676841a73859d58c7f2400caddf7d24}{00180}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Prio}}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_aa676841a73859d58c7f2400caddf7d24}{prio}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[\mbox{\hyperlink{classlemon_1_1_fib_heap_adb0e9e9d399b9f365368ee968ca1c8c9}{\_minimum}}].prio;\ \}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00181}00181\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00186}\mbox{\hyperlink{classlemon_1_1_fib_heap_aee04296ef556c2108b4338f886867d25}{00186}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_aee04296ef556c2108b4338f886867d25}{pop}}()\ \{}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00187}00187\ \ \ \ \ \ \ \textcolor{comment}{/*The\ first\ case\ is\ that\ there\ are\ only\ one\ root.*/}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00188}00188\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[\mbox{\hyperlink{classlemon_1_1_fib_heap_adb0e9e9d399b9f365368ee968ca1c8c9}{\_minimum}}].left\_neighbor==\mbox{\hyperlink{classlemon_1_1_fib_heap_adb0e9e9d399b9f365368ee968ca1c8c9}{\_minimum}}\ )\ \{}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00189}00189\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[\mbox{\hyperlink{classlemon_1_1_fib_heap_adb0e9e9d399b9f365368ee968ca1c8c9}{\_minimum}}].in=\textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00190}00190\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[\mbox{\hyperlink{classlemon_1_1_fib_heap_adb0e9e9d399b9f365368ee968ca1c8c9}{\_minimum}}].degree!=0\ )\ \{}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00191}00191\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_ad953a411ff9c97d616b65f27da376510}{makeRoot}}(\mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[\mbox{\hyperlink{classlemon_1_1_fib_heap_adb0e9e9d399b9f365368ee968ca1c8c9}{\_minimum}}].child);}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00192}00192\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_adb0e9e9d399b9f365368ee968ca1c8c9}{\_minimum}}=\mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[\mbox{\hyperlink{classlemon_1_1_fib_heap_adb0e9e9d399b9f365368ee968ca1c8c9}{\_minimum}}].child;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00193}00193\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a8287264942f3f4e8be9618fafea2a282}{balance}}();}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00194}00194\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00195}00195\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00196}00196\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ right=\mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[\mbox{\hyperlink{classlemon_1_1_fib_heap_adb0e9e9d399b9f365368ee968ca1c8c9}{\_minimum}}].right\_neighbor;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00197}00197\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a84c470e258e68d5c471f349579da4485}{unlace}}(\mbox{\hyperlink{classlemon_1_1_fib_heap_adb0e9e9d399b9f365368ee968ca1c8c9}{\_minimum}});}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00198}00198\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[\mbox{\hyperlink{classlemon_1_1_fib_heap_adb0e9e9d399b9f365368ee968ca1c8c9}{\_minimum}}].in=\textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00199}00199\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[\mbox{\hyperlink{classlemon_1_1_fib_heap_adb0e9e9d399b9f365368ee968ca1c8c9}{\_minimum}}].degree\ >\ 0\ )\ \{}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00200}00200\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ left=\mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[\mbox{\hyperlink{classlemon_1_1_fib_heap_adb0e9e9d399b9f365368ee968ca1c8c9}{\_minimum}}].left\_neighbor;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00201}00201\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ child=\mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[\mbox{\hyperlink{classlemon_1_1_fib_heap_adb0e9e9d399b9f365368ee968ca1c8c9}{\_minimum}}].child;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00202}00202\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{last\_child}}=\mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[child].left\_neighbor;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00203}00203\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00204}00204\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_ad953a411ff9c97d616b65f27da376510}{makeRoot}}(child);}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00205}00205\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00206}00206\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[left].right\_neighbor=child;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00207}00207\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[child].left\_neighbor=left;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00208}00208\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[right].left\_neighbor=\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{last\_child}};}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00209}00209\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{last\_child}}].right\_neighbor=right;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00210}00210\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00211}00211\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_adb0e9e9d399b9f365368ee968ca1c8c9}{\_minimum}}=right;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00212}00212\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a8287264942f3f4e8be9618fafea2a282}{balance}}();}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00213}00213\ \ \ \ \ \ \ \}\ \textcolor{comment}{//\ the\ case\ where\ there\ are\ more\ roots}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00214}00214\ \ \ \ \ \ \ -\/-\/\mbox{\hyperlink{classlemon_1_1_fib_heap_afe6daf2040a099a4f532de8a4c99699b}{\_num}};}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00215}00215\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00216}00216\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00223}\mbox{\hyperlink{classlemon_1_1_fib_heap_a12cb1db0ef4c69dfe7dd48877095a088}{00223}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a12cb1db0ef4c69dfe7dd48877095a088}{erase}}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a980b71f519fd03a2d83927d4a0245ab2}{Item}}\&\ item)\ \{}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00224}00224\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ i=\mbox{\hyperlink{classlemon_1_1_fib_heap_a44f8c3780f1ac7cd4c8f4236ac506566}{\_iim}}[item];}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00225}00225\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00226}00226\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ i\ >=\ 0\ \&\&\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[i].in\ )\ \{}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00227}00227\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[i].parent!=-\/1\ )\ \{}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00228}00228\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ p=\mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[i].parent;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00229}00229\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a0814d458adf1d390462d9522201be728}{cut}}(i,p);}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00230}00230\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_acd4ebb8d2c64de9ff9c0b81f73f16bc9}{cascade}}(p);}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00231}00231\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00232}00232\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_adb0e9e9d399b9f365368ee968ca1c8c9}{\_minimum}}=i;\ \ \ \ \ \textcolor{comment}{//As\ if\ its\ prio\ would\ be\ -\/infinity}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00233}00233\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_aee04296ef556c2108b4338f886867d25}{pop}}();}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00234}00234\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00235}00235\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00236}00236\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00242}\mbox{\hyperlink{classlemon_1_1_fib_heap_a0941da1ab9c64c2592fbe2a9e45d5523}{00242}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Prio}}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a0941da1ab9c64c2592fbe2a9e45d5523}{operator[]}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a980b71f519fd03a2d83927d4a0245ab2}{Item}}\&\ item)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00243}00243\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[\mbox{\hyperlink{classlemon_1_1_fib_heap_a44f8c3780f1ac7cd4c8f4236ac506566}{\_iim}}[item]].prio;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00244}00244\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00245}00245\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00254}\mbox{\hyperlink{classlemon_1_1_fib_heap_a7314d61f21b7efa1b1f1e11c88f0bd5e}{00254}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a7314d61f21b7efa1b1f1e11c88f0bd5e}{set}}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a980b71f519fd03a2d83927d4a0245ab2}{Item}}\&\ item,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Prio}}\&\ \mbox{\hyperlink{classlemon_1_1_fib_heap_aa676841a73859d58c7f2400caddf7d24}{prio}})\ \{}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00255}00255\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ i=\mbox{\hyperlink{classlemon_1_1_fib_heap_a44f8c3780f1ac7cd4c8f4236ac506566}{\_iim}}[item];}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00256}00256\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ i\ >=\ 0\ \&\&\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[i].in\ )\ \{}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00257}00257\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a9c37ab362c7ef88791526289662d0737}{\_comp}}(\mbox{\hyperlink{classlemon_1_1_fib_heap_aa676841a73859d58c7f2400caddf7d24}{prio}},\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[i].\mbox{\hyperlink{classlemon_1_1_fib_heap_aa676841a73859d58c7f2400caddf7d24}{prio}})\ )\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a8edd697d8fce5824d49427a6bf445c17}{decrease}}(item,\ \mbox{\hyperlink{classlemon_1_1_fib_heap_aa676841a73859d58c7f2400caddf7d24}{prio}});}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00258}00258\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a9c37ab362c7ef88791526289662d0737}{\_comp}}(\mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[i].\mbox{\hyperlink{classlemon_1_1_fib_heap_aa676841a73859d58c7f2400caddf7d24}{prio}},\ \mbox{\hyperlink{classlemon_1_1_fib_heap_aa676841a73859d58c7f2400caddf7d24}{prio}})\ )\ \mbox{\hyperlink{classlemon_1_1_fib_heap_ab51435fd642546904e63485dfbae13c4}{increase}}(item,\ \mbox{\hyperlink{classlemon_1_1_fib_heap_aa676841a73859d58c7f2400caddf7d24}{prio}});}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00259}00259\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a2c5cd2db9a8a15449f27ed08d20c6a0f}{push}}(item,\ \mbox{\hyperlink{classlemon_1_1_fib_heap_aa676841a73859d58c7f2400caddf7d24}{prio}});}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00260}00260\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00261}00261\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00268}\mbox{\hyperlink{classlemon_1_1_fib_heap_a8edd697d8fce5824d49427a6bf445c17}{00268}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a8edd697d8fce5824d49427a6bf445c17}{decrease}}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a980b71f519fd03a2d83927d4a0245ab2}{Item}}\&\ item,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Prio}}\&\ \mbox{\hyperlink{classlemon_1_1_fib_heap_aa676841a73859d58c7f2400caddf7d24}{prio}})\ \{}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00269}00269\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ i=\mbox{\hyperlink{classlemon_1_1_fib_heap_a44f8c3780f1ac7cd4c8f4236ac506566}{\_iim}}[item];}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00270}00270\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[i].prio=\mbox{\hyperlink{classlemon_1_1_fib_heap_aa676841a73859d58c7f2400caddf7d24}{prio}};}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00271}00271\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ p=\mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[i].parent;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00272}00272\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00273}00273\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ p!=-\/1\ \&\&\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a9c37ab362c7ef88791526289662d0737}{\_comp}}(\mbox{\hyperlink{classlemon_1_1_fib_heap_aa676841a73859d58c7f2400caddf7d24}{prio}},\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[p].\mbox{\hyperlink{classlemon_1_1_fib_heap_aa676841a73859d58c7f2400caddf7d24}{prio}})\ )\ \{}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00274}00274\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a0814d458adf1d390462d9522201be728}{cut}}(i,p);}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00275}00275\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_acd4ebb8d2c64de9ff9c0b81f73f16bc9}{cascade}}(p);}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00276}00276\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00277}00277\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a9c37ab362c7ef88791526289662d0737}{\_comp}}(\mbox{\hyperlink{classlemon_1_1_fib_heap_aa676841a73859d58c7f2400caddf7d24}{prio}},\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[\mbox{\hyperlink{classlemon_1_1_fib_heap_adb0e9e9d399b9f365368ee968ca1c8c9}{\_minimum}}].\mbox{\hyperlink{classlemon_1_1_fib_heap_aa676841a73859d58c7f2400caddf7d24}{prio}})\ )\ \mbox{\hyperlink{classlemon_1_1_fib_heap_adb0e9e9d399b9f365368ee968ca1c8c9}{\_minimum}}=i;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00278}00278\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00279}00279\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00286}\mbox{\hyperlink{classlemon_1_1_fib_heap_ab51435fd642546904e63485dfbae13c4}{00286}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_ab51435fd642546904e63485dfbae13c4}{increase}}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a980b71f519fd03a2d83927d4a0245ab2}{Item}}\&\ item,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Prio}}\&\ \mbox{\hyperlink{classlemon_1_1_fib_heap_aa676841a73859d58c7f2400caddf7d24}{prio}})\ \{}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00287}00287\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a12cb1db0ef4c69dfe7dd48877095a088}{erase}}(item);}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00288}00288\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a2c5cd2db9a8a15449f27ed08d20c6a0f}{push}}(item,\ \mbox{\hyperlink{classlemon_1_1_fib_heap_aa676841a73859d58c7f2400caddf7d24}{prio}});}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00289}00289\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00290}00290\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00299}\mbox{\hyperlink{classlemon_1_1_fib_heap_a1e3f12c2982a5016170c8b684a45b100}{00299}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a83652f1861519a220dbbc6403369f48f}{State}}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a1e3f12c2982a5016170c8b684a45b100}{state}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a980b71f519fd03a2d83927d4a0245ab2}{Item}}\ \&item)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00300}00300\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ i=\mbox{\hyperlink{classlemon_1_1_fib_heap_a44f8c3780f1ac7cd4c8f4236ac506566}{\_iim}}[item];}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00301}00301\ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ i>=0\ )\ \{}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00302}00302\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[i].in\ )\ i=0;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00303}00303\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ i=-\/2;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00304}00304\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00305}00305\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a83652f1861519a220dbbc6403369f48f}{State}}(i);}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00306}00306\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00307}00307\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00315}\mbox{\hyperlink{classlemon_1_1_fib_heap_a582c106855f75fc67ccfa53d71111456}{00315}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a582c106855f75fc67ccfa53d71111456}{state}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a980b71f519fd03a2d83927d4a0245ab2}{Item}}\&\ i,\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a83652f1861519a220dbbc6403369f48f}{State}}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{st}})\ \{}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00316}00316\ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{st}})\ \{}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00317}00317\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a83652f1861519a220dbbc6403369f48fa07c27e8c5a80b9ca46bc0cbdced73f54}{POST\_HEAP}}:}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00318}00318\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a83652f1861519a220dbbc6403369f48fa6ea2883cf7ac07f8f0848b2f9ad9eb07}{PRE\_HEAP}}:}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00319}00319\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_fib_heap_a1e3f12c2982a5016170c8b684a45b100}{state}}(i)\ ==\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a83652f1861519a220dbbc6403369f48fa196527749f28a05ba9f140a0fedd33d5}{IN\_HEAP}})\ \{}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00320}00320\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a12cb1db0ef4c69dfe7dd48877095a088}{erase}}(i);}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00321}00321\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00322}00322\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a44f8c3780f1ac7cd4c8f4236ac506566}{\_iim}}[i]\ =\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{st}};}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00323}00323\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00324}00324\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a83652f1861519a220dbbc6403369f48fa196527749f28a05ba9f140a0fedd33d5}{IN\_HEAP}}:}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00325}00325\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00326}00326\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00327}00327\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00328}00328\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00329}00329\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00330}00330\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00331}\mbox{\hyperlink{classlemon_1_1_fib_heap_a8287264942f3f4e8be9618fafea2a282}{00331}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a8287264942f3f4e8be9618fafea2a282}{balance}}()\ \{}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00332}00332\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00333}00333\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{maxdeg}}=\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{int}}(\ std::floor(\ 2.08*log(\textcolor{keywordtype}{double}(\mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}.size()))))+1;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00334}00334\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00335}00335\ \ \ \ \ \ \ std::vector<int>\ A(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{maxdeg}},-\/1);}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00336}00336\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00337}00337\ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00338}00338\ \textcolor{comment}{\ \ \ \ \ \ \ *Recall\ that\ now\ minimum\ does\ not\ point\ to\ the\ minimum\ prio\ element.}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00339}00339\ \textcolor{comment}{\ \ \ \ \ \ \ *We\ set\ minimum\ to\ this\ during\ balance().}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00340}00340\ \textcolor{comment}{\ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00341}00341\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{anchor}}=\mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[\mbox{\hyperlink{classlemon_1_1_fib_heap_adb0e9e9d399b9f365368ee968ca1c8c9}{\_minimum}}].left\_neighbor;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00342}00342\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ next=\mbox{\hyperlink{classlemon_1_1_fib_heap_adb0e9e9d399b9f365368ee968ca1c8c9}{\_minimum}};}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00343}00343\ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ end=\textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00344}00344\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00345}00345\ \ \ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00346}00346\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ active=next;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00347}00347\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{anchor}}==active\ )\ end=\textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00348}00348\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ d=\mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[active].degree;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00349}00349\ \ \ \ \ \ \ \ \ next=\mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[active].right\_neighbor;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00350}00350\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00351}00351\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (A[d]!=-\/1)\ \{}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00352}00352\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a9c37ab362c7ef88791526289662d0737}{\_comp}}(\mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[active].\mbox{\hyperlink{classlemon_1_1_fib_heap_aa676841a73859d58c7f2400caddf7d24}{prio}},\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[A[d]].\mbox{\hyperlink{classlemon_1_1_fib_heap_aa676841a73859d58c7f2400caddf7d24}{prio}})\ )\ \{}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00353}00353\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3d45d528d689b6017b55b9029646208f}{fuse}}(active,A[d]);}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00354}00354\ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00355}00355\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3d45d528d689b6017b55b9029646208f}{fuse}}(A[d],active);}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00356}00356\ \ \ \ \ \ \ \ \ \ \ \ \ active=A[d];}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00357}00357\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00358}00358\ \ \ \ \ \ \ \ \ \ \ A[d]=-\/1;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00359}00359\ \ \ \ \ \ \ \ \ \ \ ++d;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00360}00360\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00361}00361\ \ \ \ \ \ \ \ \ A[d]=active;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00362}00362\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (\ !end\ );}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00363}00363\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00364}00364\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00365}00365\ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[\mbox{\hyperlink{classlemon_1_1_fib_heap_adb0e9e9d399b9f365368ee968ca1c8c9}{\_minimum}}].parent\ >=0\ )}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00366}00366\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_adb0e9e9d399b9f365368ee968ca1c8c9}{\_minimum}}=\mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[\mbox{\hyperlink{classlemon_1_1_fib_heap_adb0e9e9d399b9f365368ee968ca1c8c9}{\_minimum}}].parent;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00367}00367\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ s=\mbox{\hyperlink{classlemon_1_1_fib_heap_adb0e9e9d399b9f365368ee968ca1c8c9}{\_minimum}};}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00368}00368\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ m=\mbox{\hyperlink{classlemon_1_1_fib_heap_adb0e9e9d399b9f365368ee968ca1c8c9}{\_minimum}};}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00369}00369\ \ \ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00370}00370\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a9c37ab362c7ef88791526289662d0737}{\_comp}}(\mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[s].\mbox{\hyperlink{classlemon_1_1_fib_heap_aa676841a73859d58c7f2400caddf7d24}{prio}},\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[\mbox{\hyperlink{classlemon_1_1_fib_heap_adb0e9e9d399b9f365368ee968ca1c8c9}{\_minimum}}].\mbox{\hyperlink{classlemon_1_1_fib_heap_aa676841a73859d58c7f2400caddf7d24}{prio}})\ )\ \mbox{\hyperlink{classlemon_1_1_fib_heap_adb0e9e9d399b9f365368ee968ca1c8c9}{\_minimum}}=s;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00371}00371\ \ \ \ \ \ \ \ \ s=\mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[s].right\_neighbor;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00372}00372\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (\ s\ !=\ m\ );}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00373}00373\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00374}00374\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00375}\mbox{\hyperlink{classlemon_1_1_fib_heap_ad953a411ff9c97d616b65f27da376510}{00375}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_ad953a411ff9c97d616b65f27da376510}{makeRoot}}(\textcolor{keywordtype}{int}\ c)\ \{}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00376}00376\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ s=c;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00377}00377\ \ \ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00378}00378\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[s].parent=-\/1;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00379}00379\ \ \ \ \ \ \ \ \ s=\mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[s].right\_neighbor;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00380}00380\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (\ s\ !=\ c\ );}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00381}00381\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00382}00382\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00383}\mbox{\hyperlink{classlemon_1_1_fib_heap_a0814d458adf1d390462d9522201be728}{00383}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a0814d458adf1d390462d9522201be728}{cut}}(\textcolor{keywordtype}{int}\ a,\ \textcolor{keywordtype}{int}\ b)\ \{}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00384}00384\ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00385}00385\ \textcolor{comment}{\ \ \ \ \ \ \ *Replacing\ a\ from\ the\ children\ of\ b.}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00386}00386\ \textcolor{comment}{\ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00387}00387\ \ \ \ \ \ \ -\/-\/\mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[b].degree;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00388}00388\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00389}00389\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[b].degree\ !=0\ )\ \{}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00390}00390\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ child=\mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[b].child;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00391}00391\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ child==a\ )}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00392}00392\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[b].child=\mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[child].right\_neighbor;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00393}00393\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a84c470e258e68d5c471f349579da4485}{unlace}}(a);}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00394}00394\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00395}00395\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00396}00396\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00397}00397\ \ \ \ \ \ \ \textcolor{comment}{/*Lacing\ a\ to\ the\ roots.*/}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00398}00398\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ right=\mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[\mbox{\hyperlink{classlemon_1_1_fib_heap_adb0e9e9d399b9f365368ee968ca1c8c9}{\_minimum}}].right\_neighbor;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00399}00399\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[\mbox{\hyperlink{classlemon_1_1_fib_heap_adb0e9e9d399b9f365368ee968ca1c8c9}{\_minimum}}].right\_neighbor=a;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00400}00400\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[a].left\_neighbor=\mbox{\hyperlink{classlemon_1_1_fib_heap_adb0e9e9d399b9f365368ee968ca1c8c9}{\_minimum}};}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00401}00401\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[a].right\_neighbor=right;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00402}00402\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[right].left\_neighbor=a;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00403}00403\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00404}00404\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[a].parent=-\/1;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00405}00405\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[a].marked=\textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00406}00406\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00407}00407\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00408}\mbox{\hyperlink{classlemon_1_1_fib_heap_acd4ebb8d2c64de9ff9c0b81f73f16bc9}{00408}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_acd4ebb8d2c64de9ff9c0b81f73f16bc9}{cascade}}(\textcolor{keywordtype}{int}\ a)\ \{}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00409}00409\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[a].parent!=-\/1\ )\ \{}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00410}00410\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ p=\mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[a].parent;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00411}00411\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00412}00412\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[a].marked==\textcolor{keyword}{false}\ )\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[a].marked=\textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00413}00413\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00414}00414\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a0814d458adf1d390462d9522201be728}{cut}}(a,p);}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00415}00415\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_acd4ebb8d2c64de9ff9c0b81f73f16bc9}{cascade}}(p);}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00416}00416\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00417}00417\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00418}00418\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00419}00419\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00420}\mbox{\hyperlink{classlemon_1_1_fib_heap_a3d45d528d689b6017b55b9029646208f}{00420}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3d45d528d689b6017b55b9029646208f}{fuse}}(\textcolor{keywordtype}{int}\ a,\ \textcolor{keywordtype}{int}\ b)\ \{}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00421}00421\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a84c470e258e68d5c471f349579da4485}{unlace}}(b);}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00422}00422\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00423}00423\ \ \ \ \ \ \ \textcolor{comment}{/*Lacing\ b\ under\ a.*/}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00424}00424\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[b].parent=a;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00425}00425\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00426}00426\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[a].degree==0)\ \{}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00427}00427\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[b].left\_neighbor=b;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00428}00428\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[b].right\_neighbor=b;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00429}00429\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[a].child=b;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00430}00430\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00431}00431\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ child=\mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[a].child;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00432}00432\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{last\_child}}=\mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[child].left\_neighbor;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00433}00433\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[child].left\_neighbor=b;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00434}00434\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[b].right\_neighbor=child;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00435}00435\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{last\_child}}].right\_neighbor=b;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00436}00436\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[b].left\_neighbor=\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{last\_child}};}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00437}00437\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00438}00438\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00439}00439\ \ \ \ \ \ \ ++\mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[a].degree;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00440}00440\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00441}00441\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[b].marked=\textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00442}00442\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00443}00443\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00444}00444\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00445}00445\ \textcolor{comment}{\ \ \ \ \ *It\ is\ invoked\ only\ if\ a\ has\ siblings.}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00446}00446\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00447}\mbox{\hyperlink{classlemon_1_1_fib_heap_a84c470e258e68d5c471f349579da4485}{00447}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_a84c470e258e68d5c471f349579da4485}{unlace}}(\textcolor{keywordtype}{int}\ a)\ \{}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00448}00448\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{leftn}}=\mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[a].left\_neighbor;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00449}00449\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{rightn}}=\mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[a].right\_neighbor;}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00450}00450\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{leftn}}].right\_neighbor=\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{rightn}};}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00451}00451\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a3eee7b711c33e9d35b01dba9bf1239e9}{\_data}}[\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{rightn}}].left\_neighbor=\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{leftn}};}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00452}00452\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00453}00453\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00454}00454\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00455}\mbox{\hyperlink{classlemon_1_1_fib_heap_1_1_store}{00455}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_fib_heap_1_1_store}{Store}}\ \{}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00456}\mbox{\hyperlink{classlemon_1_1_fib_heap_1_1_store_aeb21d2a724040f2fc2042f7a8a8cccc9}{00456}}\ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_fib_heap}{FibHeap}};}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00457}00457\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00458}\mbox{\hyperlink{classlemon_1_1_fib_heap_1_1_store_a5a50a8bfb9de6c6b45951ae029834a4d}{00458}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_a980b71f519fd03a2d83927d4a0245ab2}{Item}}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_1_1_store_a5a50a8bfb9de6c6b45951ae029834a4d}{name}};}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00459}\mbox{\hyperlink{classlemon_1_1_fib_heap_1_1_store_a0a60a81b803d39540921d4ed81999ff1}{00459}}\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_1_1_store_a0a60a81b803d39540921d4ed81999ff1}{parent}};}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00460}\mbox{\hyperlink{classlemon_1_1_fib_heap_1_1_store_a5089ae087f3f7941b22c40984686d316}{00460}}\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_1_1_store_a5089ae087f3f7941b22c40984686d316}{left\_neighbor}};}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00461}\mbox{\hyperlink{classlemon_1_1_fib_heap_1_1_store_a8152a5e0f15c2eb6fad23de1a0e47929}{00461}}\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_1_1_store_a8152a5e0f15c2eb6fad23de1a0e47929}{right\_neighbor}};}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00462}\mbox{\hyperlink{classlemon_1_1_fib_heap_1_1_store_a1f240e4c3bbe54f5312403e61c8a7299}{00462}}\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_1_1_store_a1f240e4c3bbe54f5312403e61c8a7299}{child}};}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00463}\mbox{\hyperlink{classlemon_1_1_fib_heap_1_1_store_aa322e2a2552e337c9b5ece74e986f1b6}{00463}}\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_1_1_store_aa322e2a2552e337c9b5ece74e986f1b6}{degree}};}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00464}\mbox{\hyperlink{classlemon_1_1_fib_heap_1_1_store_a3c0b128189545c3c5a97fadc56425769}{00464}}\ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_1_1_store_a3c0b128189545c3c5a97fadc56425769}{marked}};}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00465}\mbox{\hyperlink{classlemon_1_1_fib_heap_1_1_store_aced6943063e6d80986e6cf8dbd7e75fa}{00465}}\ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_1_1_store_aced6943063e6d80986e6cf8dbd7e75fa}{in}};}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00466}\mbox{\hyperlink{classlemon_1_1_fib_heap_1_1_store_a1542f41792e46e2f35d3d4eb881cd301}{00466}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{Prio}}\ \mbox{\hyperlink{classlemon_1_1_fib_heap_1_1_store_a1542f41792e46e2f35d3d4eb881cd301}{prio}};}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00467}00467\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00468}\mbox{\hyperlink{classlemon_1_1_fib_heap_1_1_store_a8e08c2a46c89c99b7d84b1753badfc1f}{00468}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_fib_heap_1_1_store_a8e08c2a46c89c99b7d84b1753badfc1f}{Store}}()\ :\ \mbox{\hyperlink{classlemon_1_1_fib_heap_1_1_store_a0a60a81b803d39540921d4ed81999ff1}{parent}}(-\/1),\ \mbox{\hyperlink{classlemon_1_1_fib_heap_1_1_store_a1f240e4c3bbe54f5312403e61c8a7299}{child}}(-\/1),\ \mbox{\hyperlink{classlemon_1_1_fib_heap_1_1_store_aa322e2a2552e337c9b5ece74e986f1b6}{degree}}(),\ \mbox{\hyperlink{classlemon_1_1_fib_heap_1_1_store_a3c0b128189545c3c5a97fadc56425769}{marked}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{false}}),\ \mbox{\hyperlink{classlemon_1_1_fib_heap_1_1_store_aced6943063e6d80986e6cf8dbd7e75fa}{in}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{true}})\ \{\}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00469}00469\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00470}00470\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00471}00471\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00472}00472\ \}\ \textcolor{comment}{//namespace\ lemon}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00473}00473\ }
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00474}00474\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//LEMON\_FIB\_HEAP\_H}}
+\DoxyCodeLine{\Hypertarget{fib__heap_8h_source_l00475}00475\ }
+
+\end{DoxyCode}

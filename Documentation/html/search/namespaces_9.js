@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['safe_5fduration_5fcast_0',['safe_duration_cast',['../namespacesafe__duration__cast.html',1,'']]],
+  ['sign_1',['sign',['../namespacesign.html',1,'']]],
+  ['soplex_2',['soplex',['../namespacesoplex.html',1,'']]],
+  ['spdlog_3',['spdlog',['../namespacespdlog.html',1,'']]],
+  ['spdlog_3a_3acfg_4',['cfg',['../namespacespdlog_1_1cfg.html',1,'spdlog']]],
+  ['spdlog_3a_3acfg_3a_3ahelpers_5',['helpers',['../namespacespdlog_1_1cfg_1_1helpers.html',1,'spdlog::cfg']]],
+  ['spdlog_3a_3adetails_6',['details',['../namespacespdlog_1_1details.html',1,'spdlog']]],
+  ['spdlog_3a_3adetails_3a_3afmt_5fhelper_7',['fmt_helper',['../namespacespdlog_1_1details_1_1fmt__helper.html',1,'spdlog::details']]],
+  ['spdlog_3a_3adetails_3a_3aos_8',['os',['../namespacespdlog_1_1details_1_1os.html',1,'spdlog::details']]],
+  ['spdlog_3a_3alevel_9',['level',['../namespacespdlog_1_1level.html',1,'spdlog']]],
+  ['spdlog_3a_3asinks_10',['sinks',['../namespacespdlog_1_1sinks.html',1,'spdlog']]],
+  ['spdlog_3a_3asinks_3a_3awin_5feventlog_11',['win_eventlog',['../namespacespdlog_1_1sinks_1_1win__eventlog.html',1,'spdlog::sinks']]],
+  ['spdlog_3a_3asinks_3a_3awin_5feventlog_3a_3ainternal_12',['internal',['../namespacespdlog_1_1sinks_1_1win__eventlog_1_1internal.html',1,'spdlog::sinks::win_eventlog']]],
+  ['std_13',['std',['../namespacestd.html',1,'']]],
+  ['std_3a_3aexperimental_14',['experimental',['../namespacestd_1_1experimental.html',1,'std']]],
+  ['std_3a_3atr1_15',['tr1',['../namespacestd_1_1tr1.html',1,'std']]],
+  ['std_3a_3atr1_3a_3agtest_5finternal_16',['gtest_internal',['../namespacestd_1_1tr1_1_1gtest__internal.html',1,'std::tr1']]]
+];

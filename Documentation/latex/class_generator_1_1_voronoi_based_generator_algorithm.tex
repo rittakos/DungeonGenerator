@@ -1,0 +1,881 @@
+\doxysection{Generator\+::Voronoi\+Based\+Generator\+Algorithm Class Reference}
+\hypertarget{class_generator_1_1_voronoi_based_generator_algorithm}{}\label{class_generator_1_1_voronoi_based_generator_algorithm}\index{Generator::VoronoiBasedGeneratorAlgorithm@{Generator::VoronoiBasedGeneratorAlgorithm}}
+
+
+{\ttfamily \#include $<$voronoi\+Generator.\+hpp$>$}
+
+
+
+Inheritance diagram for Generator\+::Voronoi\+Based\+Generator\+Algorithm\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=254pt]{class_generator_1_1_voronoi_based_generator_algorithm__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Generator\+::Voronoi\+Based\+Generator\+Algorithm\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=254pt]{class_generator_1_1_voronoi_based_generator_algorithm__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_generator_1_1_voronoi_based_generator_algorithm_aa523c07dbb07736d0d3e8772c8bd282b}{\texorpdfstring{$\sim$}{\string~}\+Voronoi\+Based\+Generator\+Algorithm}} ()=default
+\item 
+virtual void \mbox{\hyperlink{class_generator_1_1_voronoi_based_generator_algorithm_aa1cf5412e39ca7c7fae0853f971e055f}{Generate}} (\mbox{\hyperlink{class_data_1_1_dungeon_data}{Data\+::\+Dungeon\+Data}} \&dungeon\+Data) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_generator_1_1_generator_algorithm}{Generator\+::\+Generator\+Algorithm}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_generator_1_1_generator_algorithm_ae926c2a9f53d2c836721bfe66813db7d}{\texorpdfstring{$\sim$}{\string~}\+Generator\+Algorithm}} ()=default
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_generator_1_1_voronoi_based_generator_algorithm_a73dee373c3e3f6f657f7f8f5385f32dc}{equals}} (const \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} \&P1, const \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} \&P2) const
+\item 
+bool \mbox{\hyperlink{class_generator_1_1_voronoi_based_generator_algorithm_a8d062a612739b3a2988e52897bfebf39}{contains}} (const std\+::vector$<$ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} $>$ \&vector, const \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} \&P) const
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_geometry_1_1_line}{Geometry\+::\+Line}} $>$ \mbox{\hyperlink{class_generator_1_1_voronoi_based_generator_algorithm_acf9fb9b0a79f891ab6d44cb0ff747a8c}{get\+Bisectors}} (const \mbox{\hyperlink{namespace_math_a21d67a411a488c738db3604e6783f6b8}{Math\+::\+Vec2i}} \&coord, const \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} \&P) const
+\item 
+std\+::vector$<$ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} $>$ \mbox{\hyperlink{class_generator_1_1_voronoi_based_generator_algorithm_a11184f7043f574ff3e5104c1728d98b8}{get\+Intersection\+Points}} (const std\+::vector$<$ \mbox{\hyperlink{class_geometry_1_1_line}{Geometry\+::\+Line}} $>$ \&lines) const
+\item 
+std\+::vector$<$ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} $>$ \mbox{\hyperlink{class_generator_1_1_voronoi_based_generator_algorithm_a28abd72e99337e30fb5658fdd3f291ee}{get\+Corners\+From\+Intersection\+Points}} (const std\+::vector$<$ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} $>$ \&intersection\+Points, const std\+::vector$<$ \mbox{\hyperlink{class_geometry_1_1_line}{Geometry\+::\+Line}} $>$ \&lines, const \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} \&P, const \mbox{\hyperlink{namespace_math_a21d67a411a488c738db3604e6783f6b8}{Math\+::\+Vec2i}} \&coord) const
+\item 
+\mbox{\hyperlink{class_geometry_1_1_polygon}{Geometry\+::\+Polygon}} \mbox{\hyperlink{class_generator_1_1_voronoi_based_generator_algorithm_a1e76a75c17fe3d9cf2019371df2815d5}{get\+Poly\+From\+Corners}} (const std\+::vector$<$ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} $>$ \&corners, const std\+::vector$<$ \mbox{\hyperlink{class_geometry_1_1_line}{Geometry\+::\+Line}} $>$ \&lines, const \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} \&P) const
+\item 
+bool \mbox{\hyperlink{class_generator_1_1_voronoi_based_generator_algorithm_a1bdfb030bc33e79a1b2042168dee0a4e}{is\+Convex}} (std\+::vector$<$ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} $>$ \&polygon) const
+\item 
+bool \mbox{\hyperlink{class_generator_1_1_voronoi_based_generator_algorithm_a302e02f3c57e35408da2c25d738f57d3}{is\+Valid\+Triangle}} (\mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} a, \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} b, \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} c) const
+\item 
+void \mbox{\hyperlink{class_generator_1_1_voronoi_based_generator_algorithm_a9892a873ad05cc70331a77873fe346ff}{get\+Polygons}} (std\+::vector$<$ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} $>$ \&points) const
+\item 
+std\+::optional$<$ \mbox{\hyperlink{class_geometry_1_1_polygon}{Geometry\+::\+Polygon}} $>$ \mbox{\hyperlink{class_generator_1_1_voronoi_based_generator_algorithm_a4040a24ae08351d4a80c7390ff4d4121}{get\+All\+Polygons}} (std\+::vector$<$ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} $>$ \&points) const
+\item 
+void \mbox{\hyperlink{class_generator_1_1_voronoi_based_generator_algorithm_ad73505eb5fd7aa8aa90126eb57d2c6d5}{generate\+Centers}} (const \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} \&cell\+Size, const \mbox{\hyperlink{namespace_math_a753baf5938292fd107023b09e4287523}{Math\+::\+Vec3f}} \&left\+Up\+Corner)
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_geometry_1_1_polygon}{Geometry\+::\+Polygon}} $>$ \mbox{\hyperlink{class_generator_1_1_voronoi_based_generator_algorithm_a3762866b91d53ab6afffce1da2d894a6}{generate\+Polygons}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_generator_1_1_voronoi_based_generator_algorithm_a87776b80aef7eec3ca8bff99eb9a933b}{width}} = 0
+\item 
+int \mbox{\hyperlink{class_generator_1_1_voronoi_based_generator_algorithm_ae1486b632bf923a0e1ddad1434d2378e}{height}} = 0
+\item 
+float \mbox{\hyperlink{class_generator_1_1_voronoi_based_generator_algorithm_a0a1da85d4bfbd620466c334a47ddd4df}{max\+Radius}} = 0
+\item 
+std\+::vector$<$ \mbox{\hyperlink{namespace_math_a753baf5938292fd107023b09e4287523}{Math\+::\+Vec3f}} $>$ \mbox{\hyperlink{class_generator_1_1_voronoi_based_generator_algorithm_a1a0f0a41ceba3b65bb4a11c76dfe282a}{centers}}
+\item 
+const float \mbox{\hyperlink{class_generator_1_1_voronoi_based_generator_algorithm_a2cb2001c147315090e86ee92c3908738}{epsilon}} = 0.\+0001f
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{voronoi_generator_8hpp_source_l00007}{7}} of file \mbox{\hyperlink{voronoi_generator_8hpp_source}{voronoi\+Generator.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_generator_1_1_voronoi_based_generator_algorithm_aa523c07dbb07736d0d3e8772c8bd282b}\label{class_generator_1_1_voronoi_based_generator_algorithm_aa523c07dbb07736d0d3e8772c8bd282b} 
+\index{Generator::VoronoiBasedGeneratorAlgorithm@{Generator::VoronoiBasedGeneratorAlgorithm}!````~VoronoiBasedGeneratorAlgorithm@{\texorpdfstring{$\sim$}{\string~}VoronoiBasedGeneratorAlgorithm}}
+\index{````~VoronoiBasedGeneratorAlgorithm@{\texorpdfstring{$\sim$}{\string~}VoronoiBasedGeneratorAlgorithm}!Generator::VoronoiBasedGeneratorAlgorithm@{Generator::VoronoiBasedGeneratorAlgorithm}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}VoronoiBasedGeneratorAlgorithm()}{\string~VoronoiBasedGeneratorAlgorithm()}}
+{\footnotesize\ttfamily virtual Generator\+::\+Voronoi\+Based\+Generator\+Algorithm\+::\texorpdfstring{$\sim$}{\string~}\+Voronoi\+Based\+Generator\+Algorithm (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_generator_1_1_voronoi_based_generator_algorithm_a8d062a612739b3a2988e52897bfebf39}\label{class_generator_1_1_voronoi_based_generator_algorithm_a8d062a612739b3a2988e52897bfebf39} 
+\index{Generator::VoronoiBasedGeneratorAlgorithm@{Generator::VoronoiBasedGeneratorAlgorithm}!contains@{contains}}
+\index{contains@{contains}!Generator::VoronoiBasedGeneratorAlgorithm@{Generator::VoronoiBasedGeneratorAlgorithm}}
+\doxysubsubsection{\texorpdfstring{contains()}{contains()}}
+{\footnotesize\ttfamily bool Generator\+::\+Voronoi\+Based\+Generator\+Algorithm\+::contains (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} $>$ \&}]{vector,  }\item[{const \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} \&}]{P }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{voronoi_generator_8cpp_source_l00013}{13}} of file \mbox{\hyperlink{voronoi_generator_8cpp_source}{voronoi\+Generator.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00014\ \ \ \ \ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ p\ :\ vector)}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_generator_1_1_voronoi_based_generator_algorithm_a73dee373c3e3f6f657f7f8f5385f32dc}{equals}}(p,\ P))}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00021\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_generator_1_1_voronoi_based_generator_algorithm_a8d062a612739b3a2988e52897bfebf39_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_generator_1_1_voronoi_based_generator_algorithm_a8d062a612739b3a2988e52897bfebf39_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_generator_1_1_voronoi_based_generator_algorithm_a73dee373c3e3f6f657f7f8f5385f32dc}\label{class_generator_1_1_voronoi_based_generator_algorithm_a73dee373c3e3f6f657f7f8f5385f32dc} 
+\index{Generator::VoronoiBasedGeneratorAlgorithm@{Generator::VoronoiBasedGeneratorAlgorithm}!equals@{equals}}
+\index{equals@{equals}!Generator::VoronoiBasedGeneratorAlgorithm@{Generator::VoronoiBasedGeneratorAlgorithm}}
+\doxysubsubsection{\texorpdfstring{equals()}{equals()}}
+{\footnotesize\ttfamily bool Generator\+::\+Voronoi\+Based\+Generator\+Algorithm\+::equals (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} \&}]{P1,  }\item[{const \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} \&}]{P2 }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{voronoi_generator_8cpp_source_l00007}{7}} of file \mbox{\hyperlink{voronoi_generator_8cpp_source}{voronoi\+Generator.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00008\ \ \ \ \ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ fabs(P1[0]\ -\/\ P2[0])\ <\ \mbox{\hyperlink{class_generator_1_1_voronoi_based_generator_algorithm_a2cb2001c147315090e86ee92c3908738}{epsilon}}\ \&\&\ fabs(P1[1]\ -\/\ P2[1])\ <\ \mbox{\hyperlink{class_generator_1_1_voronoi_based_generator_algorithm_a2cb2001c147315090e86ee92c3908738}{epsilon}};}
+\DoxyCodeLine{00010\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_generator_1_1_voronoi_based_generator_algorithm_a73dee373c3e3f6f657f7f8f5385f32dc_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_generator_1_1_voronoi_based_generator_algorithm_aa1cf5412e39ca7c7fae0853f971e055f}\label{class_generator_1_1_voronoi_based_generator_algorithm_aa1cf5412e39ca7c7fae0853f971e055f} 
+\index{Generator::VoronoiBasedGeneratorAlgorithm@{Generator::VoronoiBasedGeneratorAlgorithm}!Generate@{Generate}}
+\index{Generate@{Generate}!Generator::VoronoiBasedGeneratorAlgorithm@{Generator::VoronoiBasedGeneratorAlgorithm}}
+\doxysubsubsection{\texorpdfstring{Generate()}{Generate()}}
+{\footnotesize\ttfamily void Generator\+::\+Voronoi\+Based\+Generator\+Algorithm\+::\+Generate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_data_1_1_dungeon_data}{Data\+::\+Dungeon\+Data}} \&}]{dungeon\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_generator_1_1_generator_algorithm_a87092774c992eb30b1383c3db0b3ef2e}{Generator\+::\+Generator\+Algorithm}}.
+
+
+
+Definition at line \mbox{\hyperlink{voronoi_generator_8cpp_source_l00386}{386}} of file \mbox{\hyperlink{voronoi_generator_8cpp_source}{voronoi\+Generator.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00387\ \ \ \ \ \{}
+\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2i}}\ roomCount(3,\ 3);}
+\DoxyCodeLine{00389\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ roomSize(1000.0f,\ 1000.0f);}
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec3f}}\ origo(0.0f,\ 0.0f,\ 0.0f);}
+\DoxyCodeLine{00391\ }
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ \textcolor{comment}{//std::vector<Math::Vec2f>\ points;}}
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \ \ \textcolor{comment}{//points.push\_back(Math::Vec2f\{0.0f,\ 0.0f\});}}
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ \textcolor{comment}{//points.push\_back(Math::Vec2f\{0.0f,\ 1.0f\});}}
+\DoxyCodeLine{00395\ \ \ \ \ \ \ \ \ \textcolor{comment}{//points.push\_back(Math::Vec2f\{1.0f,\ 1.0f\});}}
+\DoxyCodeLine{00396\ \ \ \ \ \ \ \ \ \textcolor{comment}{//points.push\_back(Math::Vec2f\{1.0f,\ 0.0f\});}}
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ \textcolor{comment}{//points.push\_back(Math::Vec2f\{2.0f,\ 0.5f\});}}
+\DoxyCodeLine{00399\ }
+\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ \textcolor{comment}{//getAllPolygons(points);}}
+\DoxyCodeLine{00401\ }
+\DoxyCodeLine{00402\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_generator_1_1_voronoi_based_generator_algorithm_a0a1da85d4bfbd620466c334a47ddd4df}{maxRadius}}\ =\ roomSize.length();}
+\DoxyCodeLine{00403\ }
+\DoxyCodeLine{00404\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_generator_1_1_voronoi_based_generator_algorithm_a87776b80aef7eec3ca8bff99eb9a933b}{width}}\ =\ roomCount[0]\ +\ 2;}
+\DoxyCodeLine{00405\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_generator_1_1_voronoi_based_generator_algorithm_ae1486b632bf923a0e1ddad1434d2378e}{height}}\ =\ roomCount[1]\ +\ 2;}
+\DoxyCodeLine{00406\ }
+\DoxyCodeLine{00407\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_generator_1_1_voronoi_based_generator_algorithm_ad73505eb5fd7aa8aa90126eb57d2c6d5}{generateCenters}}(roomSize,\ origo);}
+\DoxyCodeLine{00408\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Log::info("{}Centers\ Generated!"{});}}
+\DoxyCodeLine{00409\ }
+\DoxyCodeLine{00410\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{class_geometry_1_1_polygon}{Geometry::Polygon}}\ poly\ :\ \mbox{\hyperlink{class_generator_1_1_voronoi_based_generator_algorithm_a3762866b91d53ab6afffce1da2d894a6}{generatePolygons}}())}
+\DoxyCodeLine{00411\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00412\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_data_1_1_room_data}{Data::RoomData}}\ room(poly);}
+\DoxyCodeLine{00413\ \ \ \ \ \ \ \ \ \ \ \ \ dungeonData.\mbox{\hyperlink{class_data_1_1_dungeon_data_ae2edb77eade409c7d8cfe4dc0d519a31}{addRoom}}(room);}
+\DoxyCodeLine{00414\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//dungeonData.floors.push\_back(Data::LayoutData(poly));}}
+\DoxyCodeLine{00415\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00416\ }
+\DoxyCodeLine{00417\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*for\ (const\ Data::LayoutData\&\ poly\ :\ dungeonData.floors) }}
+\DoxyCodeLine{00418\ \textcolor{comment}{\ \ \ \ \ \ \ \ \{ }}
+\DoxyCodeLine{00419\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ std::vector<Math::Vec3f>\ points\ =\ poly.getPoints(); }}
+\DoxyCodeLine{00420\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ for\ (int\ idx\ =\ 0;\ idx\ <\ points.size()\ -\/\ 1;\ ++idx) }}
+\DoxyCodeLine{00421\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \{ }}
+\DoxyCodeLine{00422\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dungeonData.walls.push\_back(Data::WallData(points[idx],\ points[idx\ +\ 1])); }}
+\DoxyCodeLine{00423\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \} }}
+\DoxyCodeLine{00424\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ dungeonData.walls.push\_back(Data::WallData(points[points.size()\ -\/\ 1],\ points[0])); }}
+\DoxyCodeLine{00425\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}*/}}
+\DoxyCodeLine{00426\ }
+\DoxyCodeLine{00427\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Log::info("{}Dungeon\ Generated\ by\ Voronoi\ Based\ Algorithm"{});}}
+\DoxyCodeLine{00428\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_generator_1_1_voronoi_based_generator_algorithm_aa1cf5412e39ca7c7fae0853f971e055f_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_generator_1_1_voronoi_based_generator_algorithm_ad73505eb5fd7aa8aa90126eb57d2c6d5}\label{class_generator_1_1_voronoi_based_generator_algorithm_ad73505eb5fd7aa8aa90126eb57d2c6d5} 
+\index{Generator::VoronoiBasedGeneratorAlgorithm@{Generator::VoronoiBasedGeneratorAlgorithm}!generateCenters@{generateCenters}}
+\index{generateCenters@{generateCenters}!Generator::VoronoiBasedGeneratorAlgorithm@{Generator::VoronoiBasedGeneratorAlgorithm}}
+\doxysubsubsection{\texorpdfstring{generateCenters()}{generateCenters()}}
+{\footnotesize\ttfamily void Generator\+::\+Voronoi\+Based\+Generator\+Algorithm\+::generate\+Centers (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} \&}]{cell\+Size,  }\item[{const \mbox{\hyperlink{namespace_math_a753baf5938292fd107023b09e4287523}{Math\+::\+Vec3f}} \&}]{left\+Up\+Corner }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{voronoi_generator_8cpp_source_l00282}{282}} of file \mbox{\hyperlink{voronoi_generator_8cpp_source}{voronoi\+Generator.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00283\ \ \ \ \ \{}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*centers.push\_back(Math::Vec3f(75.0f,\ 50.0f,\ leftUpCorner[2])); }}
+\DoxyCodeLine{00285\ \textcolor{comment}{\ \ \ \ \ \ \ \ centers.push\_back(Math::Vec3f(150.0f,\ 50.0f,\ leftUpCorner[2])); }}
+\DoxyCodeLine{00286\ \textcolor{comment}{\ \ \ \ \ \ \ \ centers.push\_back(Math::Vec3f(250.0f,\ 50.0f,\ leftUpCorner[2])); }}
+\DoxyCodeLine{00287\ \textcolor{comment}{}}
+\DoxyCodeLine{00288\ \textcolor{comment}{\ \ \ \ \ \ \ \ centers.push\_back(Math::Vec3f(50.0f,\ 150.0f,\ leftUpCorner[2])); }}
+\DoxyCodeLine{00289\ \textcolor{comment}{\ \ \ \ \ \ \ \ centers.push\_back(Math::Vec3f(150.0f,\ 150.0f,\ leftUpCorner[2])); }}
+\DoxyCodeLine{00290\ \textcolor{comment}{\ \ \ \ \ \ \ \ centers.push\_back(Math::Vec3f(250.0f,\ 150.0f,\ leftUpCorner[2])); }}
+\DoxyCodeLine{00291\ \textcolor{comment}{}}
+\DoxyCodeLine{00292\ \textcolor{comment}{\ \ \ \ \ \ \ \ centers.push\_back(Math::Vec3f(50.0f,\ 250.0f,\ leftUpCorner[2])); }}
+\DoxyCodeLine{00293\ \textcolor{comment}{\ \ \ \ \ \ \ \ centers.push\_back(Math::Vec3f(150.0f,\ 250.0f,\ leftUpCorner[2])); }}
+\DoxyCodeLine{00294\ \textcolor{comment}{\ \ \ \ \ \ \ \ centers.push\_back(Math::Vec3f(250.0f,\ 250.0f,\ leftUpCorner[2]));*/}}
+\DoxyCodeLine{00295\ }
+\DoxyCodeLine{00296\ }
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*centers.push\_back(Math::Vec3f(75.0f,\ 50.0f,\ leftUpCorner[2])); }}
+\DoxyCodeLine{00298\ \textcolor{comment}{\ \ \ \ \ \ \ \ centers.push\_back(Math::Vec3f(150.0f,\ 50.0f,\ leftUpCorner[2])); }}
+\DoxyCodeLine{00299\ \textcolor{comment}{\ \ \ \ \ \ \ \ centers.push\_back(Math::Vec3f(220.0f,\ 50.0f,\ leftUpCorner[2])); }}
+\DoxyCodeLine{00300\ \textcolor{comment}{}}
+\DoxyCodeLine{00301\ \textcolor{comment}{\ \ \ \ \ \ \ \ centers.push\_back(Math::Vec3f(75.0f,\ 150.0f,\ leftUpCorner[2])); }}
+\DoxyCodeLine{00302\ \textcolor{comment}{\ \ \ \ \ \ \ \ centers.push\_back(Math::Vec3f(150.0f,\ 150.0f,\ leftUpCorner[2])); }}
+\DoxyCodeLine{00303\ \textcolor{comment}{\ \ \ \ \ \ \ \ centers.push\_back(Math::Vec3f(225.0f,\ 150.0f,\ leftUpCorner[2])); }}
+\DoxyCodeLine{00304\ \textcolor{comment}{}}
+\DoxyCodeLine{00305\ \textcolor{comment}{\ \ \ \ \ \ \ \ centers.push\_back(Math::Vec3f(75.0f,\ 250.0f,\ leftUpCorner[2])); }}
+\DoxyCodeLine{00306\ \textcolor{comment}{\ \ \ \ \ \ \ \ centers.push\_back(Math::Vec3f(150.0f,\ 250.0f,\ leftUpCorner[2])); }}
+\DoxyCodeLine{00307\ \textcolor{comment}{\ \ \ \ \ \ \ \ centers.push\_back(Math::Vec3f(225.0f,\ 250.0f,\ leftUpCorner[2]));*/}}
+\DoxyCodeLine{00308\ }
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*centers.push\_back(Math::Vec3f(50.0f,\ 50.0f,\ leftUpCorner[2])); }}
+\DoxyCodeLine{00310\ \textcolor{comment}{\ \ \ \ \ \ \ \ centers.push\_back(Math::Vec3f(50.0f,\ 150.0f,\ leftUpCorner[2])); }}
+\DoxyCodeLine{00311\ \textcolor{comment}{\ \ \ \ \ \ \ \ centers.push\_back(Math::Vec3f(50.0f,\ 250.0f,\ leftUpCorner[2])); }}
+\DoxyCodeLine{00312\ \textcolor{comment}{}}
+\DoxyCodeLine{00313\ \textcolor{comment}{\ \ \ \ \ \ \ \ centers.push\_back(Math::Vec3f(150.0f,\ 50.0f,\ leftUpCorner[2])); }}
+\DoxyCodeLine{00314\ \textcolor{comment}{\ \ \ \ \ \ \ \ centers.push\_back(Math::Vec3f(150.0f,\ 150.0f,\ leftUpCorner[2])); }}
+\DoxyCodeLine{00315\ \textcolor{comment}{\ \ \ \ \ \ \ \ centers.push\_back(Math::Vec3f(150.0f,\ 250.0f,\ leftUpCorner[2])); }}
+\DoxyCodeLine{00316\ \textcolor{comment}{}}
+\DoxyCodeLine{00317\ \textcolor{comment}{\ \ \ \ \ \ \ \ centers.push\_back(Math::Vec3f(250.0f,\ 50.0f,\ leftUpCorner[2])); }}
+\DoxyCodeLine{00318\ \textcolor{comment}{\ \ \ \ \ \ \ \ centers.push\_back(Math::Vec3f(250.0f,\ 150.0f,\ leftUpCorner[2])); }}
+\DoxyCodeLine{00319\ \textcolor{comment}{\ \ \ \ \ \ \ \ centers.push\_back(Math::Vec3f(250.0f,\ 250.0f,\ leftUpCorner[2]));*/}}
+\DoxyCodeLine{00320\ }
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*centers.push\_back(Math::Vec3f(75.0f,\ 50.0f,\ leftUpCorner[2])); }}
+\DoxyCodeLine{00322\ \textcolor{comment}{\ \ \ \ \ \ \ \ centers.push\_back(Math::Vec3f(150.0f,\ 50.0f,\ leftUpCorner[2])); }}
+\DoxyCodeLine{00323\ \textcolor{comment}{\ \ \ \ \ \ \ \ centers.push\_back(Math::Vec3f(220.0f,\ 50.0f,\ leftUpCorner[2])); }}
+\DoxyCodeLine{00324\ \textcolor{comment}{}}
+\DoxyCodeLine{00325\ \textcolor{comment}{\ \ \ \ \ \ \ \ centers.push\_back(Math::Vec3f(75.0f,\ 150.0f,\ leftUpCorner[2])); }}
+\DoxyCodeLine{00326\ \textcolor{comment}{\ \ \ \ \ \ \ \ centers.push\_back(Math::Vec3f(150.0f,\ 150.0f,\ leftUpCorner[2])); }}
+\DoxyCodeLine{00327\ \textcolor{comment}{\ \ \ \ \ \ \ \ centers.push\_back(Math::Vec3f(225.0f,\ 150.0f,\ leftUpCorner[2])); }}
+\DoxyCodeLine{00328\ \textcolor{comment}{}}
+\DoxyCodeLine{00329\ \textcolor{comment}{\ \ \ \ \ \ \ \ centers.push\_back(Math::Vec3f(75.0f,\ 250.0f,\ leftUpCorner[2])); }}
+\DoxyCodeLine{00330\ \textcolor{comment}{\ \ \ \ \ \ \ \ centers.push\_back(Math::Vec3f(150.0f,\ 250.0f,\ leftUpCorner[2])); }}
+\DoxyCodeLine{00331\ \textcolor{comment}{\ \ \ \ \ \ \ \ centers.push\_back(Math::Vec3f(225.0f,\ 250.0f,\ leftUpCorner[2]));*/}}
+\DoxyCodeLine{00332\ }
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ row\ =\ 0;\ row\ <\ \mbox{\hyperlink{class_generator_1_1_voronoi_based_generator_algorithm_ae1486b632bf923a0e1ddad1434d2378e}{height}};\ ++row)}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ col\ =\ 0;\ col\ <\ \mbox{\hyperlink{class_generator_1_1_voronoi_based_generator_algorithm_a87776b80aef7eec3ca8bff99eb9a933b}{width}};\ ++col)}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ minX\ =\ leftUpCorner[0]\ +\ col\ *\ cellSize[0];}
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ minY\ =\ leftUpCorner[1]\ +\ row\ *\ cellSize[1];}
+\DoxyCodeLine{00339\ }
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{namespace_math_1_1_constant_ac99dbfbdfd0c9f6006acda74b4dfe294}{x}}\ =\ \mbox{\hyperlink{class_random_a2ed52650d126b0d4479584ad7f6a5b76}{Random::GetFloat}}(minX\ +\ (cellSize[0]\ /\ 4.0f),\ minX\ +\ (3.0f\ *\ cellSize[0]\ /\ 4.0f));}
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//float\ x\ =\ minX\ +\ cellSize[0]\ /\ 2.0;}}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{namespace_math_1_1_constant_af608b96d5b319e6ce8e1c0a9bd9cf0d6}{y}}\ =\ \mbox{\hyperlink{class_random_a2ed52650d126b0d4479584ad7f6a5b76}{Random::GetFloat}}(minY\ +\ (cellSize[1]\ /\ 4.0f),\ minY\ +\ (3.0f\ *\ cellSize[1]\ /\ 4.0f));}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//float\ y\ =\ minY\ +\ cellSize[1]\ /\ 2.0;}}
+\DoxyCodeLine{00344\ }
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_generator_1_1_voronoi_based_generator_algorithm_a1a0f0a41ceba3b65bb4a11c76dfe282a}{centers}}.push\_back(\mbox{\hyperlink{class_math_1_1_vec}{Math::Vec3f}}(x,\ y,\ leftUpCorner[2]));}
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00348\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_generator_1_1_voronoi_based_generator_algorithm_ad73505eb5fd7aa8aa90126eb57d2c6d5_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_generator_1_1_voronoi_based_generator_algorithm_ad73505eb5fd7aa8aa90126eb57d2c6d5_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_generator_1_1_voronoi_based_generator_algorithm_a3762866b91d53ab6afffce1da2d894a6}\label{class_generator_1_1_voronoi_based_generator_algorithm_a3762866b91d53ab6afffce1da2d894a6} 
+\index{Generator::VoronoiBasedGeneratorAlgorithm@{Generator::VoronoiBasedGeneratorAlgorithm}!generatePolygons@{generatePolygons}}
+\index{generatePolygons@{generatePolygons}!Generator::VoronoiBasedGeneratorAlgorithm@{Generator::VoronoiBasedGeneratorAlgorithm}}
+\doxysubsubsection{\texorpdfstring{generatePolygons()}{generatePolygons()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_geometry_1_1_polygon}{Geometry\+::\+Polygon}} $>$ Generator\+::\+Voronoi\+Based\+Generator\+Algorithm\+::generate\+Polygons (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{voronoi_generator_8cpp_source_l00351}{351}} of file \mbox{\hyperlink{voronoi_generator_8cpp_source}{voronoi\+Generator.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00352\ \ \ \ \ \{}
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ std::vector<Geometry::Polygon>\ polygons;}
+\DoxyCodeLine{00354\ }
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ row\ =\ 1;\ row\ <\ \mbox{\hyperlink{class_generator_1_1_voronoi_based_generator_algorithm_ae1486b632bf923a0e1ddad1434d2378e}{height}}\ -\/\ 1;\ ++row)}
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ col\ =\ 1;\ col\ <\ \mbox{\hyperlink{class_generator_1_1_voronoi_based_generator_algorithm_a87776b80aef7eec3ca8bff99eb9a933b}{width}}\ -\/\ 1;\ ++col)}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ idx\ =\ col\ +\ row\ *\ \mbox{\hyperlink{class_generator_1_1_voronoi_based_generator_algorithm_a87776b80aef7eec3ca8bff99eb9a933b}{width}};}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ P\ =\ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math::Vec2f}}(\mbox{\hyperlink{class_generator_1_1_voronoi_based_generator_algorithm_a1a0f0a41ceba3b65bb4a11c76dfe282a}{centers}}[idx][0],\ \mbox{\hyperlink{class_generator_1_1_voronoi_based_generator_algorithm_a1a0f0a41ceba3b65bb4a11c76dfe282a}{centers}}[idx][1]);}
+\DoxyCodeLine{00361\ }
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Geometry::Line>\ bisectors\ =\ \mbox{\hyperlink{class_generator_1_1_voronoi_based_generator_algorithm_acf9fb9b0a79f891ab6d44cb0ff747a8c}{getBisectors}}(\mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2i}}(col,\ row),\ P);}
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Log::info("{}Bisectors"{});}}
+\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Math::Vec2f>\ \ \ \ intersectionPoints\ =\ \mbox{\hyperlink{class_generator_1_1_voronoi_based_generator_algorithm_a11184f7043f574ff3e5104c1728d98b8}{getIntersectionPoints}}(bisectors);}
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Log::info("{}Intersection\ Points"{});}}
+\DoxyCodeLine{00366\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Math::Vec2f>\ \ \ \ corners\ =\ \mbox{\hyperlink{class_generator_1_1_voronoi_based_generator_algorithm_a28abd72e99337e30fb5658fdd3f291ee}{getCornersFromIntersectionPoints}}(intersectionPoints,\ bisectors,\ P,\ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2i}}(col,\ row));}
+\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Log::info("{}Corners"{});}}
+\DoxyCodeLine{00368\ }
+\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::optional<Geometry::Polygon>\ poly\ =\ \mbox{\hyperlink{class_generator_1_1_voronoi_based_generator_algorithm_a4040a24ae08351d4a80c7390ff4d4121}{getAllPolygons}}(corners);}
+\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Log::info("{}Poly"{});}}
+\DoxyCodeLine{00371\ }
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (poly.has\_value()\ \&\&\ poly-\/>exists())}
+\DoxyCodeLine{00373\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ polygons.push\_back(*poly);}
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//std::cout\ <<\ poly\ <<\ std::endl;}}
+\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00377\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_log_a2625a4aa82f846d5b9a51af99905b7e5}{Log::error}}(\textcolor{stringliteral}{"{}Non\ existing\ Polygon!"{}});}
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00381\ }
+\DoxyCodeLine{00382\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ polygons;}
+\DoxyCodeLine{00383\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_generator_1_1_voronoi_based_generator_algorithm_a3762866b91d53ab6afffce1da2d894a6_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_generator_1_1_voronoi_based_generator_algorithm_a3762866b91d53ab6afffce1da2d894a6_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_generator_1_1_voronoi_based_generator_algorithm_a4040a24ae08351d4a80c7390ff4d4121}\label{class_generator_1_1_voronoi_based_generator_algorithm_a4040a24ae08351d4a80c7390ff4d4121} 
+\index{Generator::VoronoiBasedGeneratorAlgorithm@{Generator::VoronoiBasedGeneratorAlgorithm}!getAllPolygons@{getAllPolygons}}
+\index{getAllPolygons@{getAllPolygons}!Generator::VoronoiBasedGeneratorAlgorithm@{Generator::VoronoiBasedGeneratorAlgorithm}}
+\doxysubsubsection{\texorpdfstring{getAllPolygons()}{getAllPolygons()}}
+{\footnotesize\ttfamily std\+::optional$<$ \mbox{\hyperlink{class_geometry_1_1_polygon}{Geometry\+::\+Polygon}} $>$ Generator\+::\+Voronoi\+Based\+Generator\+Algorithm\+::get\+All\+Polygons (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} $>$ \&}]{points }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{voronoi_generator_8cpp_source_l00219}{219}} of file \mbox{\hyperlink{voronoi_generator_8cpp_source}{voronoi\+Generator.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00220\ \ \ \ \ \{}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ n\ =\ points.size();}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}*\ arr\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{int}[points.size()]();}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ 0;\ idx\ <\ n;\ ++idx)}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \ \ \ \ arr[idx]\ =\ idx;}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ std::optional<Geometry::Polygon>\ polygon;}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ multiplePolygonFound\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Get\ all\ permutations\ of\ the\ array}}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_polygon}{Geometry::Polygon}}\ poly;}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ n;\ i++)}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ poly.\mbox{\hyperlink{class_geometry_1_1_polygon_a12c9321822bdf861cf7c304fa0c888e7}{addPoint}}(points[arr[i]]);}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*if\ (poly.getPoints()[0]\ ==\ points[0]\ \&\&\ poly.getPoints()[1]\ ==\ points[2]\ \&\& }}
+\DoxyCodeLine{00237\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ poly.getPoints()[2]\ ==\ points[3]\ \&\&\ poly.getPoints()[3]\ ==\ points[5]\ \&\& }}
+\DoxyCodeLine{00238\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ poly.getPoints()[4]\ ==\ points[4]\ \&\&\ poly.getPoints()[5]\ ==\ points[1])*/}}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*if\ (poly.getPoints()[0]\ ==\ points[0]\ \&\&\ poly.getPoints()[1]\ ==\ points[4]\ \&\& }}
+\DoxyCodeLine{00240\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ poly.getPoints()[2]\ ==\ points[1]\ \&\&\ poly.getPoints()[3]\ ==\ points[5]\ \&\& }}
+\DoxyCodeLine{00241\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ poly.getPoints()[4]\ ==\ points[2]\ \&\&\ poly.getPoints()[5]\ ==\ points[3]) }}
+\DoxyCodeLine{00242\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ "{}xxx"{}\ <<\ std::endl;*/}}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*if\ (arr[0]\ ==\ 0\ \&\&\ arr[1]\ ==\ 1\ \&\& }}
+\DoxyCodeLine{00244\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ arr[2]\ ==\ 3\ \&\&\ arr[3]\ ==\ 4\ \&\& }}
+\DoxyCodeLine{00245\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ arr[4]\ ==\ 2) }}
+\DoxyCodeLine{00246\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ "{}xxx"{}\ <<\ std::endl;*/}}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*if\ (arr[0]\ ==\ 0\ \&\&\ arr[1]\ ==\ 2\ \&\& }}
+\DoxyCodeLine{00248\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ arr[2]\ ==\ 5\ \&\&\ arr[3]\ ==\ 4\ \&\& }}
+\DoxyCodeLine{00249\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ arr[4]\ ==\ 3\ \&\&\ arr[5]\ ==\ 1) }}
+\DoxyCodeLine{00250\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ "{}xxx"{}\ <<\ std::endl;*/}}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (poly.\mbox{\hyperlink{class_geometry_1_1_polygon_ac06279101046016730d9bbcd946663c4}{exists}}()\ \&\&\ poly.\mbox{\hyperlink{class_geometry_1_1_polygon_a94dc0f266b827e9596f29888c796ca17}{getPoints}}().size()\ ==\ n)}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (polygon.has\_value()\ \&\&\ poly\ ==\ polygon.value())}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//std::cout\ <<\ poly\ <<\ std::endl;}}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (polygon.has\_value())}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//std::cout\ <<\ poly\ <<\ std::endl;}}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ multiplePolygonFound\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ polygon\ =\ poly;}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (std::next\_permutation(arr,\ arr\ +\ n));}
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (multiplePolygonFound)}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Log::warn("{}Multiple\ Polygon\ Found!"{});}}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{\};}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00272\ }
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*if\ (!polygon.has\_value()) }}
+\DoxyCodeLine{00274\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ Log::error("{}No\ polygon\ found!"{});*/}}
+\DoxyCodeLine{00275\ }
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ arr;}
+\DoxyCodeLine{00277\ }
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ polygon;}
+\DoxyCodeLine{00279\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_generator_1_1_voronoi_based_generator_algorithm_a4040a24ae08351d4a80c7390ff4d4121_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_generator_1_1_voronoi_based_generator_algorithm_a4040a24ae08351d4a80c7390ff4d4121_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_generator_1_1_voronoi_based_generator_algorithm_acf9fb9b0a79f891ab6d44cb0ff747a8c}\label{class_generator_1_1_voronoi_based_generator_algorithm_acf9fb9b0a79f891ab6d44cb0ff747a8c} 
+\index{Generator::VoronoiBasedGeneratorAlgorithm@{Generator::VoronoiBasedGeneratorAlgorithm}!getBisectors@{getBisectors}}
+\index{getBisectors@{getBisectors}!Generator::VoronoiBasedGeneratorAlgorithm@{Generator::VoronoiBasedGeneratorAlgorithm}}
+\doxysubsubsection{\texorpdfstring{getBisectors()}{getBisectors()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_geometry_1_1_line}{Geometry\+::\+Line}} $>$ Generator\+::\+Voronoi\+Based\+Generator\+Algorithm\+::get\+Bisectors (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespace_math_a21d67a411a488c738db3604e6783f6b8}{Math\+::\+Vec2i}} \&}]{coord,  }\item[{const \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} \&}]{P }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{voronoi_generator_8cpp_source_l00024}{24}} of file \mbox{\hyperlink{voronoi_generator_8cpp_source}{voronoi\+Generator.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00025\ \ \ \ \ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ std::vector<Geometry::Line>\ lines;}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ dx\ =\ -\/1;\ dx\ <=\ 1;\ ++dx)}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ dy\ =\ -\/1;\ dy\ <=\ 1;\ ++dy)}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dx\ ==\ 0\ \&\&\ dy\ ==\ 0)}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ idx\ =\ cell[0]\ +\ dx\ +\ (cell[1]\ +\ dy)\ *\ \mbox{\hyperlink{class_generator_1_1_voronoi_based_generator_algorithm_a87776b80aef7eec3ca8bff99eb9a933b}{width}};}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ P1\ =\ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math::Vec2f}}(\mbox{\hyperlink{class_generator_1_1_voronoi_based_generator_algorithm_a1a0f0a41ceba3b65bb4a11c76dfe282a}{centers}}[idx][0],\ \mbox{\hyperlink{class_generator_1_1_voronoi_based_generator_algorithm_a1a0f0a41ceba3b65bb4a11c76dfe282a}{centers}}[idx][1]);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lines.push\_back(\mbox{\hyperlink{namespace_geometry_a5435940537ec27507ccd5e8f49808d32}{Geometry::getBisector}}(P,\ P1));}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lines;}
+\DoxyCodeLine{00043\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_generator_1_1_voronoi_based_generator_algorithm_acf9fb9b0a79f891ab6d44cb0ff747a8c_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_generator_1_1_voronoi_based_generator_algorithm_acf9fb9b0a79f891ab6d44cb0ff747a8c_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_generator_1_1_voronoi_based_generator_algorithm_a28abd72e99337e30fb5658fdd3f291ee}\label{class_generator_1_1_voronoi_based_generator_algorithm_a28abd72e99337e30fb5658fdd3f291ee} 
+\index{Generator::VoronoiBasedGeneratorAlgorithm@{Generator::VoronoiBasedGeneratorAlgorithm}!getCornersFromIntersectionPoints@{getCornersFromIntersectionPoints}}
+\index{getCornersFromIntersectionPoints@{getCornersFromIntersectionPoints}!Generator::VoronoiBasedGeneratorAlgorithm@{Generator::VoronoiBasedGeneratorAlgorithm}}
+\doxysubsubsection{\texorpdfstring{getCornersFromIntersectionPoints()}{getCornersFromIntersectionPoints()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} $>$ Generator\+::\+Voronoi\+Based\+Generator\+Algorithm\+::get\+Corners\+From\+Intersection\+Points (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} $>$ \&}]{intersection\+Points,  }\item[{const std\+::vector$<$ \mbox{\hyperlink{class_geometry_1_1_line}{Geometry\+::\+Line}} $>$ \&}]{lines,  }\item[{const \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} \&}]{P,  }\item[{const \mbox{\hyperlink{namespace_math_a21d67a411a488c738db3604e6783f6b8}{Math\+::\+Vec2i}} \&}]{coord }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{voronoi_generator_8cpp_source_l00062}{62}} of file \mbox{\hyperlink{voronoi_generator_8cpp_source}{voronoi\+Generator.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00067\ \ \ \ \ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ std::vector<Math::Vec2f>\ corners;}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\&\ p\ :\ intersectionPoints)}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ d\ =\ (P\ -\/\ p).length();}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (d\ >\ \mbox{\hyperlink{class_generator_1_1_voronoi_based_generator_algorithm_a0a1da85d4bfbd620466c334a47ddd4df}{maxRadius}})}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ add\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ dx\ =\ -\/1;\ dx\ <=\ 1;\ ++dx)}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ dy\ =\ -\/1;\ dy\ <=\ 1;\ ++dy)}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dx\ ==\ 0\ \&\&\ dy\ ==\ 0)}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ idx1\ =\ coord[0]\ +\ dx\ +\ (coord[1]\ +\ dy)\ *\ \mbox{\hyperlink{class_generator_1_1_voronoi_based_generator_algorithm_a87776b80aef7eec3ca8bff99eb9a933b}{width}};}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ P1\ =\ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math::Vec2f}}(\mbox{\hyperlink{class_generator_1_1_voronoi_based_generator_algorithm_a1a0f0a41ceba3b65bb4a11c76dfe282a}{centers}}[idx1][0],\ \mbox{\hyperlink{class_generator_1_1_voronoi_based_generator_algorithm_a1a0f0a41ceba3b65bb4a11c76dfe282a}{centers}}[idx1][1]);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((P1\ -\/\ p).length()\ <\ d\ -\/\ \mbox{\hyperlink{class_generator_1_1_voronoi_based_generator_algorithm_a0a1da85d4bfbd620466c334a47ddd4df}{maxRadius}}\ *\ 0.01f)}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ add\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (add\ \textcolor{comment}{/*\&\&\ std::find(corners.begin(),\ corners.end(),\ p)\ ==\ corners.end()*/})}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ corners.push\_back(p);}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ corners;}
+\DoxyCodeLine{00100\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_generator_1_1_voronoi_based_generator_algorithm_a28abd72e99337e30fb5658fdd3f291ee_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_generator_1_1_voronoi_based_generator_algorithm_a11184f7043f574ff3e5104c1728d98b8}\label{class_generator_1_1_voronoi_based_generator_algorithm_a11184f7043f574ff3e5104c1728d98b8} 
+\index{Generator::VoronoiBasedGeneratorAlgorithm@{Generator::VoronoiBasedGeneratorAlgorithm}!getIntersectionPoints@{getIntersectionPoints}}
+\index{getIntersectionPoints@{getIntersectionPoints}!Generator::VoronoiBasedGeneratorAlgorithm@{Generator::VoronoiBasedGeneratorAlgorithm}}
+\doxysubsubsection{\texorpdfstring{getIntersectionPoints()}{getIntersectionPoints()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} $>$ Generator\+::\+Voronoi\+Based\+Generator\+Algorithm\+::get\+Intersection\+Points (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{class_geometry_1_1_line}{Geometry\+::\+Line}} $>$ \&}]{lines }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{voronoi_generator_8cpp_source_l00045}{45}} of file \mbox{\hyperlink{voronoi_generator_8cpp_source}{voronoi\+Generator.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00046\ \ \ \ \ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ std::vector<Math::Vec2f>\ points;}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ 0;\ idx\ <\ lines.size()\ -\/\ 1;\ ++idx)}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idy\ =\ idx\ +\ 1;\ idy\ <\ lines.size();\ ++idy)}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::optional<Math::Vec2f>\ Q\ =\ \mbox{\hyperlink{namespace_geometry_ae680321c371d9f6bd6def5844e915b6f}{Geometry::getIntersectionPoint}}(lines[idx],\ lines[idy]);}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Q.has\_value()\ \&\&\ !\mbox{\hyperlink{class_generator_1_1_voronoi_based_generator_algorithm_a8d062a612739b3a2988e52897bfebf39}{contains}}(points,\ Q.value()))}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ points.push\_back(Q.value());}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ points;}
+\DoxyCodeLine{00060\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_generator_1_1_voronoi_based_generator_algorithm_a11184f7043f574ff3e5104c1728d98b8_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_generator_1_1_voronoi_based_generator_algorithm_a11184f7043f574ff3e5104c1728d98b8_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_generator_1_1_voronoi_based_generator_algorithm_a1e76a75c17fe3d9cf2019371df2815d5}\label{class_generator_1_1_voronoi_based_generator_algorithm_a1e76a75c17fe3d9cf2019371df2815d5} 
+\index{Generator::VoronoiBasedGeneratorAlgorithm@{Generator::VoronoiBasedGeneratorAlgorithm}!getPolyFromCorners@{getPolyFromCorners}}
+\index{getPolyFromCorners@{getPolyFromCorners}!Generator::VoronoiBasedGeneratorAlgorithm@{Generator::VoronoiBasedGeneratorAlgorithm}}
+\doxysubsubsection{\texorpdfstring{getPolyFromCorners()}{getPolyFromCorners()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_geometry_1_1_polygon}{Geometry\+::\+Polygon}} Generator\+::\+Voronoi\+Based\+Generator\+Algorithm\+::get\+Poly\+From\+Corners (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} $>$ \&}]{corners,  }\item[{const std\+::vector$<$ \mbox{\hyperlink{class_geometry_1_1_line}{Geometry\+::\+Line}} $>$ \&}]{lines,  }\item[{const \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} \&}]{P }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{voronoi_generator_8cpp_source_l00102}{102}} of file \mbox{\hyperlink{voronoi_generator_8cpp_source}{voronoi\+Generator.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00103\ \ \ \ \ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_polygon}{Geometry::Polygon}}\ poly;}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (corners.size()\ <\ 3)}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ poly;}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ std::vector<Geometry::Line>\ chosenLines;}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ previusPoint\ =\ corners[0];}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ poly.\mbox{\hyperlink{class_geometry_1_1_polygon_a12c9321822bdf861cf7c304fa0c888e7}{addPoint}}(previusPoint);}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (poly.\mbox{\hyperlink{class_geometry_1_1_polygon_a94dc0f266b827e9596f29888c796ca17}{getPoints}}().size()\ !=\ corners.size())}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ 1;\ idx\ <\ corners.size();\ ++idx)}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{class_geometry_1_1_line}{Geometry::Line}}\ l\ :\ bisectors)}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!l.containsPoint(previusPoint)\ ||}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::find(chosenLines.begin(),\ chosenLines.end(),\ l)\ !=\ chosenLines.end())}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ chosenLines.push\_back(l);}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ c\ :\ corners)}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (previusPoint\ ==\ c)}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!l.containsPoint(c))}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (poly.\mbox{\hyperlink{class_geometry_1_1_polygon_ade26117ec3b1f56362190e27e6056535}{containsPoint}}(c))}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ poly.\mbox{\hyperlink{class_geometry_1_1_polygon_a12c9321822bdf861cf7c304fa0c888e7}{addPoint}}(c);}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ previusPoint\ =\ c;}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!poly.\mbox{\hyperlink{class_geometry_1_1_polygon_ac06279101046016730d9bbcd946663c4}{exists}}())}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_polygon}{Geometry::Polygon}}\ newPoly;}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ newPoly.\mbox{\hyperlink{class_geometry_1_1_polygon_a12c9321822bdf861cf7c304fa0c888e7}{addPoint}}(poly.\mbox{\hyperlink{class_geometry_1_1_polygon_a94dc0f266b827e9596f29888c796ca17}{getPoints}}()[0]);}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ poly.\mbox{\hyperlink{class_geometry_1_1_polygon_a94dc0f266b827e9596f29888c796ca17}{getPoints}}().size()\ -\/\ 1;\ idx\ >\ 0;\ -\/-\/idx)}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ newPoly.\mbox{\hyperlink{class_geometry_1_1_polygon_a12c9321822bdf861cf7c304fa0c888e7}{addPoint}}(poly.\mbox{\hyperlink{class_geometry_1_1_polygon_a94dc0f266b827e9596f29888c796ca17}{getPoints}}()[idx]);}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ poly\ =\ newPoly;}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ poly;}
+\DoxyCodeLine{00151\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_generator_1_1_voronoi_based_generator_algorithm_a1e76a75c17fe3d9cf2019371df2815d5_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_generator_1_1_voronoi_based_generator_algorithm_a9892a873ad05cc70331a77873fe346ff}\label{class_generator_1_1_voronoi_based_generator_algorithm_a9892a873ad05cc70331a77873fe346ff} 
+\index{Generator::VoronoiBasedGeneratorAlgorithm@{Generator::VoronoiBasedGeneratorAlgorithm}!getPolygons@{getPolygons}}
+\index{getPolygons@{getPolygons}!Generator::VoronoiBasedGeneratorAlgorithm@{Generator::VoronoiBasedGeneratorAlgorithm}}
+\doxysubsubsection{\texorpdfstring{getPolygons()}{getPolygons()}}
+{\footnotesize\ttfamily void Generator\+::\+Voronoi\+Based\+Generator\+Algorithm\+::get\+Polygons (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} $>$ \&}]{points }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{voronoi_generator_8cpp_source_l00186}{186}} of file \mbox{\hyperlink{voronoi_generator_8cpp_source}{voronoi\+Generator.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00187\ \ \ \ \ \{}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ n\ =\ points.size();}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ n;\ i++)\ \{}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ i\ +\ 1;\ j\ <\ n;\ j++)\ \{}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ j\ +\ 1;\ k\ <\ n;\ k++)\ \{}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Math::Vec2f>\ polygon;}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ polygon.push\_back(points[i]);}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ polygon.push\_back(points[j]);}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ polygon.push\_back(points[k]);}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_generator_1_1_voronoi_based_generator_algorithm_a302e02f3c57e35408da2c25d738f57d3}{isValidTriangle}}(points[i],\ points[j],\ points[k]))\ \{}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ l\ =\ 0;\ l\ <\ n;\ l++)\ \{}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (l\ !=\ i\ \&\&\ l\ !=\ j\ \&\&\ l\ !=\ k)\ \{}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ polygon.push\_back(points[l]);}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (polygon.size()\ >=\ 5\ \&\&\ \mbox{\hyperlink{class_generator_1_1_voronoi_based_generator_algorithm_a1bdfb030bc33e79a1b2042168dee0a4e}{isConvex}}(polygon))\ \{}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Polygon:\ "{}};}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ m\ =\ 0;\ m\ <\ polygon.size();\ m++)\ \{}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}("{}}\ <<\ polygon[m][0]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ polygon[m][1]\ <<\ \textcolor{stringliteral}{"{})"{}};}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (m\ !=\ polygon.size()\ -\/\ 1)\ \{}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ polygon.pop\_back();}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00217\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_generator_1_1_voronoi_based_generator_algorithm_a9892a873ad05cc70331a77873fe346ff_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_generator_1_1_voronoi_based_generator_algorithm_a1bdfb030bc33e79a1b2042168dee0a4e}\label{class_generator_1_1_voronoi_based_generator_algorithm_a1bdfb030bc33e79a1b2042168dee0a4e} 
+\index{Generator::VoronoiBasedGeneratorAlgorithm@{Generator::VoronoiBasedGeneratorAlgorithm}!isConvex@{isConvex}}
+\index{isConvex@{isConvex}!Generator::VoronoiBasedGeneratorAlgorithm@{Generator::VoronoiBasedGeneratorAlgorithm}}
+\doxysubsubsection{\texorpdfstring{isConvex()}{isConvex()}}
+{\footnotesize\ttfamily bool Generator\+::\+Voronoi\+Based\+Generator\+Algorithm\+::is\+Convex (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} $>$ \&}]{polygon }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{voronoi_generator_8cpp_source_l00153}{153}} of file \mbox{\hyperlink{voronoi_generator_8cpp_source}{voronoi\+Generator.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00154\ \ \ \ \ \{}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ n\ =\ polygon.size();}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ orientation\ =\ 0;}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ n;\ i++)\ \{}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ dx1\ =\ polygon[(i\ +\ 1)\ \%\ n][0]\ -\/\ polygon[i][0];}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ dy1\ =\ polygon[(i\ +\ 1)\ \%\ n][1]\ -\/\ polygon[i][0];}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ dx2\ =\ polygon[(i\ +\ 2)\ \%\ n][0]\ -\/\ polygon[(i\ +\ 1)\ \%\ n][0];}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ dy2\ =\ polygon[(i\ +\ 2)\ \%\ n][1]\ -\/\ polygon[(i\ +\ 1)\ \%\ n][1];}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ crossProduct\ =\ dx1\ *\ dy2\ -\/\ dy1\ *\ dx2;}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ 0)\ \{}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ orientation\ =\ crossProduct;}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (crossProduct\ *\ orientation\ <\ 0)\ \{}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00173\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_generator_1_1_voronoi_based_generator_algorithm_a1bdfb030bc33e79a1b2042168dee0a4e_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_generator_1_1_voronoi_based_generator_algorithm_a302e02f3c57e35408da2c25d738f57d3}\label{class_generator_1_1_voronoi_based_generator_algorithm_a302e02f3c57e35408da2c25d738f57d3} 
+\index{Generator::VoronoiBasedGeneratorAlgorithm@{Generator::VoronoiBasedGeneratorAlgorithm}!isValidTriangle@{isValidTriangle}}
+\index{isValidTriangle@{isValidTriangle}!Generator::VoronoiBasedGeneratorAlgorithm@{Generator::VoronoiBasedGeneratorAlgorithm}}
+\doxysubsubsection{\texorpdfstring{isValidTriangle()}{isValidTriangle()}}
+{\footnotesize\ttfamily bool Generator\+::\+Voronoi\+Based\+Generator\+Algorithm\+::is\+Valid\+Triangle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}}}]{a,  }\item[{\mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}}}]{b,  }\item[{\mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}}}]{c }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{voronoi_generator_8cpp_source_l00175}{175}} of file \mbox{\hyperlink{voronoi_generator_8cpp_source}{voronoi\+Generator.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00176\ \ \ \ \ \{}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ side1\ =\ \mbox{\hyperlink{namespace_math_a4d802a1ddda1935eea6b99782aa2effa}{distance}}(a,\ b);}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ side2\ =\ \mbox{\hyperlink{namespace_math_a4d802a1ddda1935eea6b99782aa2effa}{distance}}(b,\ c);}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ side3\ =\ \mbox{\hyperlink{namespace_math_a4d802a1ddda1935eea6b99782aa2effa}{distance}}(c,\ a);}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (side1\ +\ side2\ >\ side3\ \&\&\ side1\ +\ side3\ >\ side2\ \&\&\ side2\ +\ side3\ >\ side1)\ \{}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00184\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_generator_1_1_voronoi_based_generator_algorithm_a302e02f3c57e35408da2c25d738f57d3_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_generator_1_1_voronoi_based_generator_algorithm_a1a0f0a41ceba3b65bb4a11c76dfe282a}\label{class_generator_1_1_voronoi_based_generator_algorithm_a1a0f0a41ceba3b65bb4a11c76dfe282a} 
+\index{Generator::VoronoiBasedGeneratorAlgorithm@{Generator::VoronoiBasedGeneratorAlgorithm}!centers@{centers}}
+\index{centers@{centers}!Generator::VoronoiBasedGeneratorAlgorithm@{Generator::VoronoiBasedGeneratorAlgorithm}}
+\doxysubsubsection{\texorpdfstring{centers}{centers}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{namespace_math_a753baf5938292fd107023b09e4287523}{Math\+::\+Vec3f}}$>$ Generator\+::\+Voronoi\+Based\+Generator\+Algorithm\+::centers\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{voronoi_generator_8hpp_source_l00016}{16}} of file \mbox{\hyperlink{voronoi_generator_8hpp_source}{voronoi\+Generator.\+hpp}}.
+
+\Hypertarget{class_generator_1_1_voronoi_based_generator_algorithm_a2cb2001c147315090e86ee92c3908738}\label{class_generator_1_1_voronoi_based_generator_algorithm_a2cb2001c147315090e86ee92c3908738} 
+\index{Generator::VoronoiBasedGeneratorAlgorithm@{Generator::VoronoiBasedGeneratorAlgorithm}!epsilon@{epsilon}}
+\index{epsilon@{epsilon}!Generator::VoronoiBasedGeneratorAlgorithm@{Generator::VoronoiBasedGeneratorAlgorithm}}
+\doxysubsubsection{\texorpdfstring{epsilon}{epsilon}}
+{\footnotesize\ttfamily const float Generator\+::\+Voronoi\+Based\+Generator\+Algorithm\+::epsilon = 0.\+0001f\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{voronoi_generator_8hpp_source_l00018}{18}} of file \mbox{\hyperlink{voronoi_generator_8hpp_source}{voronoi\+Generator.\+hpp}}.
+
+\Hypertarget{class_generator_1_1_voronoi_based_generator_algorithm_ae1486b632bf923a0e1ddad1434d2378e}\label{class_generator_1_1_voronoi_based_generator_algorithm_ae1486b632bf923a0e1ddad1434d2378e} 
+\index{Generator::VoronoiBasedGeneratorAlgorithm@{Generator::VoronoiBasedGeneratorAlgorithm}!height@{height}}
+\index{height@{height}!Generator::VoronoiBasedGeneratorAlgorithm@{Generator::VoronoiBasedGeneratorAlgorithm}}
+\doxysubsubsection{\texorpdfstring{height}{height}}
+{\footnotesize\ttfamily int Generator\+::\+Voronoi\+Based\+Generator\+Algorithm\+::height = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{voronoi_generator_8hpp_source_l00011}{11}} of file \mbox{\hyperlink{voronoi_generator_8hpp_source}{voronoi\+Generator.\+hpp}}.
+
+\Hypertarget{class_generator_1_1_voronoi_based_generator_algorithm_a0a1da85d4bfbd620466c334a47ddd4df}\label{class_generator_1_1_voronoi_based_generator_algorithm_a0a1da85d4bfbd620466c334a47ddd4df} 
+\index{Generator::VoronoiBasedGeneratorAlgorithm@{Generator::VoronoiBasedGeneratorAlgorithm}!maxRadius@{maxRadius}}
+\index{maxRadius@{maxRadius}!Generator::VoronoiBasedGeneratorAlgorithm@{Generator::VoronoiBasedGeneratorAlgorithm}}
+\doxysubsubsection{\texorpdfstring{maxRadius}{maxRadius}}
+{\footnotesize\ttfamily float Generator\+::\+Voronoi\+Based\+Generator\+Algorithm\+::max\+Radius = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{voronoi_generator_8hpp_source_l00013}{13}} of file \mbox{\hyperlink{voronoi_generator_8hpp_source}{voronoi\+Generator.\+hpp}}.
+
+\Hypertarget{class_generator_1_1_voronoi_based_generator_algorithm_a87776b80aef7eec3ca8bff99eb9a933b}\label{class_generator_1_1_voronoi_based_generator_algorithm_a87776b80aef7eec3ca8bff99eb9a933b} 
+\index{Generator::VoronoiBasedGeneratorAlgorithm@{Generator::VoronoiBasedGeneratorAlgorithm}!width@{width}}
+\index{width@{width}!Generator::VoronoiBasedGeneratorAlgorithm@{Generator::VoronoiBasedGeneratorAlgorithm}}
+\doxysubsubsection{\texorpdfstring{width}{width}}
+{\footnotesize\ttfamily int Generator\+::\+Voronoi\+Based\+Generator\+Algorithm\+::width = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{voronoi_generator_8hpp_source_l00010}{10}} of file \mbox{\hyperlink{voronoi_generator_8hpp_source}{voronoi\+Generator.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Generator/\mbox{\hyperlink{voronoi_generator_8hpp}{voronoi\+Generator.\+hpp}}\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Generator/\mbox{\hyperlink{voronoi_generator_8cpp}{voronoi\+Generator.\+cpp}}\end{DoxyCompactItemize}

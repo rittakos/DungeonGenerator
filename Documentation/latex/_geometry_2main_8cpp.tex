@@ -1,0 +1,272 @@
+\doxysection{C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Geometry/main.cpp File Reference}
+\hypertarget{_geometry_2main_8cpp}{}\label{_geometry_2main_8cpp}\index{C:/Dev/DungeonGenerator/DungeonGenerator/Geometry/main.cpp@{C:/Dev/DungeonGenerator/DungeonGenerator/Geometry/main.cpp}}
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$set$>$}\newline
+{\ttfamily \#include $<$queue$>$}\newline
+{\ttfamily \#include "{}polygon.\+hpp"{}}\newline
+{\ttfamily \#include "{}transformation.\+hpp"{}}\newline
+{\ttfamily \#include "{}quaternion.\+hpp"{}}\newline
+{\ttfamily \#include "{}delaunay.\+hpp"{}}\newline
+Include dependency graph for main.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_geometry_2main_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_geometry_2main_8cpp_a3eedb7a676435478b004867601200e2f}{polygon\+Test}} ()
+\item 
+void \mbox{\hyperlink{_geometry_2main_8cpp_af3c6aa598af301932e86d3b35797ade2}{line\+Test}} ()
+\item 
+void \mbox{\hyperlink{_geometry_2main_8cpp_a5307d2a6ea79490fb0f2227bfcaddde3}{rotate\+Test}} ()
+\item 
+void \mbox{\hyperlink{_geometry_2main_8cpp_a62d8d423ee03744bf1f94794faa198e6}{divide\+Polygon\+Test}} ()
+\item 
+void \mbox{\hyperlink{_geometry_2main_8cpp_a3f2bb9b3d218349ecd3dcc0a49e6c829}{delanuay\+Test}} ()
+\item 
+int \mbox{\hyperlink{_geometry_2main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_geometry_2main_8cpp_a3f2bb9b3d218349ecd3dcc0a49e6c829}\label{_geometry_2main_8cpp_a3f2bb9b3d218349ecd3dcc0a49e6c829} 
+\index{main.cpp@{main.cpp}!delanuayTest@{delanuayTest}}
+\index{delanuayTest@{delanuayTest}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{delanuayTest()}{delanuayTest()}}
+{\footnotesize\ttfamily void delanuay\+Test (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_geometry_2main_8cpp_source_l00087}{87}} of file \mbox{\hyperlink{_geometry_2main_8cpp_source}{main.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00088\ \{}
+\DoxyCodeLine{00089\ \ \ \ \ std::vector<Math::Vec2f>\ vertices;}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{comment}{/*Math::Vec2f\ o(0.0f,\ 0.0f); }}
+\DoxyCodeLine{00092\ \textcolor{comment}{\ \ \ \ Math::Vec2f\ v(0.0f,\ 1.0f); }}
+\DoxyCodeLine{00093\ \textcolor{comment}{\ \ \ \ Math::Vec2f\ u(1.0f,\ 0.0f);*/}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{comment}{/*std::cout\ <<\ v.angleWith(u).getDeg()\ <<\ std::endl; }}
+\DoxyCodeLine{00096\ \textcolor{comment}{\ \ \ \ std::cout\ <<\ u.angleWith(v).getDeg()\ <<\ std::endl; }}
+\DoxyCodeLine{00097\ \textcolor{comment}{}}
+\DoxyCodeLine{00098\ \textcolor{comment}{\ \ \ \ std::cout\ <<\ Math::getAngle(v,\ o,\ u).getDeg()\ <<\ std::endl; }}
+\DoxyCodeLine{00099\ \textcolor{comment}{\ \ \ \ std::cout\ <<\ Math::getAngle(u,\ o,\ v).getDeg()\ <<\ std::endl;*/}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{comment}{//vertices.push\_back(Math::Vec2f(0.0f,\ 0.0f));}}
+\DoxyCodeLine{00102\ \ \ \ \ vertices.push\_back(\mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}(1.0f,\ 0.0f));}
+\DoxyCodeLine{00103\ \ \ \ \ vertices.push\_back(\mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}(0.0f,\ 1.0f));}
+\DoxyCodeLine{00104\ \ \ \ \ vertices.push\_back(\mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}(2.0f,\ 1.0f));}
+\DoxyCodeLine{00105\ \ \ \ \ vertices.push\_back(\mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}(1.5f,\ 2.0f));}
+\DoxyCodeLine{00106\ \ \ \ \ vertices.push\_back(\mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}(1.0f,\ 1.5f));}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator}{Geometry::Delaunay::DelaunayTriangulator}}\ triangulator(vertices);}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ \mbox{\hyperlink{struct_geometry_1_1_delaunay_1_1_delaunay_triangulation}{Geometry::Delaunay::DelaunayTriangulation}}\ triangulation\ =\ triangulator.Triangulate();}
+\DoxyCodeLine{00111\ \ \ \ \ }
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keyword}{const}\ Delaunay::Triangle\ triangle\ :\ triangulation.Triangles)}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacestd}{std}}::cout\ <<\ triangle.P0.index\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)t"{}}\ <<\ triangle.P1.index\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)t"{}}\ <<\ triangle.P2.index\ <<\ \mbox{\hyperlink{namespacestd}{std}}::endl;}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keyword}{auto}\ nodes\ =\ triangulation.\mbox{\hyperlink{struct_geometry_1_1_delaunay_1_1_delaunay_triangulation_a3ea5df731feaa3ea1cd1db2dd0448a2c}{Neighbours}}.getNodes();}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keyword}{auto}\ edges\ =\ triangulation.\mbox{\hyperlink{struct_geometry_1_1_delaunay_1_1_delaunay_triangulation_a3ea5df731feaa3ea1cd1db2dd0448a2c}{Neighbours}}.getEdges();}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{comment}{//for(auto\&\ [key,\ value]\ :\ triangulation.Neighbours.getNodes())}}
+\DoxyCodeLine{00118\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_geometry_2main_8cpp_a3f2bb9b3d218349ecd3dcc0a49e6c829_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=227pt]{_geometry_2main_8cpp_a3f2bb9b3d218349ecd3dcc0a49e6c829_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{_geometry_2main_8cpp_a62d8d423ee03744bf1f94794faa198e6}\label{_geometry_2main_8cpp_a62d8d423ee03744bf1f94794faa198e6} 
+\index{main.cpp@{main.cpp}!dividePolygonTest@{dividePolygonTest}}
+\index{dividePolygonTest@{dividePolygonTest}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{dividePolygonTest()}{dividePolygonTest()}}
+{\footnotesize\ttfamily void divide\+Polygon\+Test (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_geometry_2main_8cpp_source_l00081}{81}} of file \mbox{\hyperlink{_geometry_2main_8cpp_source}{main.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00082\ \{}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \}}
+
+\end{DoxyCode}
+\Hypertarget{_geometry_2main_8cpp_af3c6aa598af301932e86d3b35797ade2}\label{_geometry_2main_8cpp_af3c6aa598af301932e86d3b35797ade2} 
+\index{main.cpp@{main.cpp}!lineTest@{lineTest}}
+\index{lineTest@{lineTest}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{lineTest()}{lineTest()}}
+{\footnotesize\ttfamily void line\+Test (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_geometry_2main_8cpp_source_l00039}{39}} of file \mbox{\hyperlink{_geometry_2main_8cpp_source}{main.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00040\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ P1(0.0f,\ 0.0f);}
+\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ P2(1.0f,\ 1.0f);}
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ P3(0.0f,\ 2.0f);}
+\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ P4(2.0f,\ 0.0f);}
+\DoxyCodeLine{00045\ \ \ \ \ }
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_line}{Line}}\ l1(P1,\ P2);}
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_line}{Line}}\ l2(P3,\ P4);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ std::cout\ <<\ (\mbox{\hyperlink{namespace_geometry_ae680321c371d9f6bd6def5844e915b6f}{getIntersectionPoint}}(l1,\ l2).value()\ ==\ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math::Vec2f}}(1.0f,\ 1.0f)\ ?\ \textcolor{stringliteral}{"{}OK"{}}\ :\ \textcolor{stringliteral}{"{}ERROR"{}})\ <<\ std::endl;}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ A(-\/5.43f,\ 1.5f);}
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ B(1.63f,\ -\/2.28f);}
+\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ C(-\/6.49f,\ -\/3.94f);}
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ D(2.81f,\ 0.4f);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_line}{Line}}\ l3(A,\ B);}
+\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_line}{Line}}\ l4(C,\ D);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ std::cout\ <<\ (\mbox{\hyperlink{namespace_geometry_ae680321c371d9f6bd6def5844e915b6f}{getIntersectionPoint}}(l3,\ l4).value()\ ==\ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math::Vec2f}}(-\/0.4949189596683f,\ -\/1.1422955145199f)\ ?\ \textcolor{stringliteral}{"{}OK"{}}\ :\ \textcolor{stringliteral}{"{}ERROR"{}})\ <<\ std::endl;}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ }
+\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ P5(0.0f,\ 0.0f);}
+\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ P6(1.0f,\ 1.0f);}
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ P7(0.0f,\ 1.0f);}
+\DoxyCodeLine{00066\ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ P8(1.0f,\ 2.0f);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_line}{Line}}\ l5(P5,\ P6);}
+\DoxyCodeLine{00069\ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_line}{Line}}\ l6(P7,\ P8);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ std::cout\ <<\ (!\mbox{\hyperlink{namespace_geometry_ae680321c371d9f6bd6def5844e915b6f}{getIntersectionPoint}}(l5,\ l6).has\_value()\ ?\ \textcolor{stringliteral}{"{}OK"{}}\ :\ \textcolor{stringliteral}{"{}ERROR"{}})\ <<\ std::endl;}
+\DoxyCodeLine{00072\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=294pt]{_geometry_2main_8cpp_af3c6aa598af301932e86d3b35797ade2_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{_geometry_2main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{_geometry_2main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_geometry_2main_8cpp_source_l00120}{120}} of file \mbox{\hyperlink{_geometry_2main_8cpp_source}{main.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00121\ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{comment}{//polygonTest();}}
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{comment}{//lineTest();}}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{comment}{//rotateTest();}}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \ \ \mbox{\hyperlink{_geometry_2main_8cpp_a3f2bb9b3d218349ecd3dcc0a49e6c829}{delanuayTest}}();}
+\DoxyCodeLine{00127\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_geometry_2main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{_geometry_2main_8cpp_a3eedb7a676435478b004867601200e2f}\label{_geometry_2main_8cpp_a3eedb7a676435478b004867601200e2f} 
+\index{main.cpp@{main.cpp}!polygonTest@{polygonTest}}
+\index{polygonTest@{polygonTest}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{polygonTest()}{polygonTest()}}
+{\footnotesize\ttfamily void polygon\+Test (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_geometry_2main_8cpp_source_l00011}{11}} of file \mbox{\hyperlink{_geometry_2main_8cpp_source}{main.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ std::vector<Math::Vec2f>\ points;}
+\DoxyCodeLine{00014\ \ \ \ \ points.push\_back(\mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}(0.0f,\ 0.0f));}
+\DoxyCodeLine{00015\ \ \ \ \ points.push\_back(\mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}(1.0f,\ 2.0f));}
+\DoxyCodeLine{00016\ \ \ \ \ points.push\_back(\mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}(2.0f,\ 0.0f));}
+\DoxyCodeLine{00017\ \ \ \ \ points.push\_back(\mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}(1.0f,\ -\/1.0f));}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_line}{Line}}\ l(\mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\{\ 0.0f,\ 0.0f\ \},\ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\{\ 1.0f,\ 1.0f\ \});}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_polygon}{Polygon}}\ p;}
+\DoxyCodeLine{00021\ \ \ \ \ p.\mbox{\hyperlink{class_geometry_1_1_polygon_a12c9321822bdf861cf7c304fa0c888e7}{addPoint}}(points[0]);}
+\DoxyCodeLine{00022\ \ \ \ \ p.addPoint(points[1]);}
+\DoxyCodeLine{00023\ \ \ \ \ p.addPoint(points[2]);}
+\DoxyCodeLine{00024\ \ \ \ \ p.addPoint(points[3]);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{comment}{//std::cout\ <<\ (p.isConvex()\ ?\ "{}convex"{}\ :\ "{}concave"{})\ <<\ std::endl;}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{comment}{//std::cout\ <<\ p2.Area();}}
+\DoxyCodeLine{00029\ \ \ \ \ std::vector<Math::Vec2f>\ intersections\ =\ \mbox{\hyperlink{namespace_geometry_a8dddd11d4083106d030f51b1ca825cfc}{getIntersectionPoints}}(l,\ p);}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{comment}{/*for\ (auto\ p\ :\ intersections) }}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ \ \ \ \ \ \ \ std::cout\ <<\ p\ <<\ std::endl;*/}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ std::vector<Polygon>\ dividedPolygons\ =\ \mbox{\hyperlink{namespace_geometry_aefbbcab5ceafe8317239d651d6b5137b}{dividePolygonByLine}}(l,\ p);}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{class_geometry_1_1_polygon}{Polygon}}\ poly\ :\ dividedPolygons)}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacestd}{std}}::cout\ <<\ poly;}
+\DoxyCodeLine{00037\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_geometry_2main_8cpp_a3eedb7a676435478b004867601200e2f_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{_geometry_2main_8cpp_a5307d2a6ea79490fb0f2227bfcaddde3}\label{_geometry_2main_8cpp_a5307d2a6ea79490fb0f2227bfcaddde3} 
+\index{main.cpp@{main.cpp}!rotateTest@{rotateTest}}
+\index{rotateTest@{rotateTest}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{rotateTest()}{rotateTest()}}
+{\footnotesize\ttfamily void rotate\+Test (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_geometry_2main_8cpp_source_l00074}{74}} of file \mbox{\hyperlink{_geometry_2main_8cpp_source}{main.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00075\ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ v(0.0f,\ 1.0f);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ std::cout\ <<\ \mbox{\hyperlink{namespace_geometry_a2a037051bb9263fa553810b06691426c}{Geometry::rotate}}(v,\ -\/90.0\_deg);}
+\DoxyCodeLine{00079\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_geometry_2main_8cpp_a5307d2a6ea79490fb0f2227bfcaddde3_cgraph}
+\end{center}
+\end{figure}

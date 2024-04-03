@@ -1,0 +1,79 @@
+\doxysection{LEMONGraph.\+hpp}
+\hypertarget{_l_e_m_o_n_graph_8hpp_source}{}\label{_l_e_m_o_n_graph_8hpp_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/Math/LEMONGraph.hpp@{C:/Dev/DungeonGenerator/DungeonGenerator/Math/LEMONGraph.hpp}}
+\mbox{\hyperlink{_l_e_m_o_n_graph_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}lemon/list\_graph.h"{}}}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00005}00005\ \textcolor{comment}{//using:\ http://lemon.cs.elte.hu/trac/lemon}}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00007}00007\ \textcolor{comment}{//\ LOW\ lemon\ graph\ eltavolitasa?}}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00009}00009\ \textcolor{comment}{//undirected}}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00010}00010\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ Type>}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00011}\mbox{\hyperlink{class_l_e_m_o_n_graph}{00011}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_l_e_m_o_n_graph}{LEMONGraph}}\ final\ \textcolor{comment}{//:\ public\ InternalGraph}}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00012}00012\ \{}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00013}00013\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00014}\mbox{\hyperlink{class_l_e_m_o_n_graph_afdd91698fe4cefcf7cb810035be8553a}{00014}}\ \ \ \ \ lemon::ListGraph::NodeMap<Type>*\ \mbox{\hyperlink{class_l_e_m_o_n_graph_afdd91698fe4cefcf7cb810035be8553a}{nodeMap}};}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00015}\mbox{\hyperlink{class_l_e_m_o_n_graph_a51e53056cb35b64b28a3701cd1be9615}{00015}}\ \ \ \ \ lemon::ListGraph*\ \mbox{\hyperlink{class_l_e_m_o_n_graph_a51e53056cb35b64b28a3701cd1be9615}{graph}};}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00016}\mbox{\hyperlink{class_l_e_m_o_n_graph_a451f72824dafc9db35de4638207c7087}{00016}}\ \ \ \ \ std::vector<lemon::ListDigraph::Arc>\ \mbox{\hyperlink{class_l_e_m_o_n_graph_a451f72824dafc9db35de4638207c7087}{edges}};}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00017}00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00018}00018\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00019}\mbox{\hyperlink{class_l_e_m_o_n_graph_a2958520bf680929cd5ee75dc480ea63d}{00019}}\ \ \ \ \ \mbox{\hyperlink{class_l_e_m_o_n_graph_a2958520bf680929cd5ee75dc480ea63d}{LEMONGraph}}()\ }
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00020}00020\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_l_e_m_o_n_graph_a51e53056cb35b64b28a3701cd1be9615}{graph}}\ =\ \textcolor{keyword}{new}\ lemon::ListGraph();}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_l_e_m_o_n_graph_afdd91698fe4cefcf7cb810035be8553a}{nodeMap}}\ =\ \textcolor{keyword}{new}\ lemon::ListGraph::NodeMap<Type>(*\mbox{\hyperlink{class_l_e_m_o_n_graph_a51e53056cb35b64b28a3701cd1be9615}{graph}});}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Log::info("{}Graph\ (LEMON)\ Created!"{});}}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00024}00024\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00026}\mbox{\hyperlink{class_l_e_m_o_n_graph_ada33743208ce167fddc37b8b9176687f}{00026}}\ \ \ \ \ \mbox{\hyperlink{class_l_e_m_o_n_graph_ada33743208ce167fddc37b8b9176687f}{\string~LEMONGraph}}()}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00027}00027\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ \mbox{\hyperlink{class_l_e_m_o_n_graph_a51e53056cb35b64b28a3701cd1be9615}{graph}};}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ \mbox{\hyperlink{class_l_e_m_o_n_graph_afdd91698fe4cefcf7cb810035be8553a}{nodeMap}};}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00030}00030\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00032}00032\ \ \ \ \ \textcolor{comment}{/*void\ f()}}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00033}00033\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00034}00034\ \textcolor{comment}{\ \ \ \ \ \ \ \ lemon::ListGraph\ graph;}}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00035}00035\ \textcolor{comment}{\ \ \ \ \ \ \ \ graph.addNode();}}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00036}00036\ \textcolor{comment}{\ \ \ \ \ \ \ \ lemon::ListGraph::NodeMap<int>\ nodeIds(graph);}}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00037}00037\ \textcolor{comment}{\ \ \ \ \}*/}}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00039}\mbox{\hyperlink{class_l_e_m_o_n_graph_a2d9c3e5f3530793e34a2f8bce77b8987}{00039}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_e_m_o_n_graph_a2d9c3e5f3530793e34a2f8bce77b8987}{addNode}}(\textcolor{keyword}{const}\ Type\&\ value)\textcolor{keyword}{\ override}}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00040}00040\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00041}00041\ \ \ \ \ \ \ \ \ lemon::ListGraph::Node\ newNode\ =\ \mbox{\hyperlink{class_l_e_m_o_n_graph_a51e53056cb35b64b28a3701cd1be9615}{graph}}-\/>addNode();}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00042}00042\ \ \ \ \ \ \ \ \ (*nodeMap)[newNode]\ =\ value;}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00043}00043\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*lemon::ListGraph::Node\ newNode\ =\ graph-\/>addNode();}}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00045}00045\ \textcolor{comment}{\ \ \ \ \ \ \ \ (*nodeIds)[newNode]\ =\ lemon::countNodes<lemon::ListGraph>(*graph);*/}}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00046}00046\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00048}\mbox{\hyperlink{class_l_e_m_o_n_graph_aa80ce0b85e7868c6a12bb0a29f6fb3df}{00048}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_e_m_o_n_graph_aa80ce0b85e7868c6a12bb0a29f6fb3df}{addEdge}}(\textcolor{keyword}{const}\ Type\&\ value1,\ \textcolor{keyword}{const}\ Type\&\ value2)\textcolor{keyword}{\ override}}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00049}00049\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00050}00050\ \ \ \ \ \ \ \ \ lemon::ListGraph::Node\ N1;}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00051}00051\ \ \ \ \ \ \ \ \ lemon::ListGraph::Node\ N2;}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*for\ (lemon::ListGraph::NodeIt\ u(*graph);\ u\ !=\ lemon::INVALID;\ ++u)}}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00055}00055\ \textcolor{comment}{\ \ \ \ \ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00056}00056\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ lemon::ListGraph::Node\ N\ =\ u;}}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00057}00057\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ if\ ((*nodeMap)[N]\ ==\ value1)}}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00058}00058\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ N1\ =\ u;}}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00059}00059\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ if\ ((*nodeMap)[N]\ ==\ value2)}}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00060}00060\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ N2\ =\ u;}}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00061}00061\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}*/}}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_l_e_m_o_n_graph_a51e53056cb35b64b28a3701cd1be9615}{graph}}-\/>addEdge(N1,\ N2);}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \textcolor{comment}{//graph.addEdge();}}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00066}00066\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00068}\mbox{\hyperlink{class_l_e_m_o_n_graph_a94c732497e7512a4ed1e8d9664100c4e}{00068}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_l_e_m_o_n_graph_a94c732497e7512a4ed1e8d9664100c4e}{listNodes}}()\textcolor{keyword}{\ override}}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00069}00069\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*for\ (lemon::ListGraph::NodeIt\ n(graph);\ n\ !=\ lemon::INVALID;\ ++n)}}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00071}00071\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ nodeMap[n]\ <<\ std::endl;*/}}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00072}00072\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_l_e_m_o_n_graph_8hpp_source_l00073}00073\ \};}
+
+\end{DoxyCode}

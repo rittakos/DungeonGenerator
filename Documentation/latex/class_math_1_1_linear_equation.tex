@@ -1,0 +1,170 @@
+\doxysection{Math\+::Linear\+Equation\texorpdfstring{$<$}{<} Variable\+Count \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_math_1_1_linear_equation}{}\label{class_math_1_1_linear_equation}\index{Math::LinearEquation$<$ VariableCount $>$@{Math::LinearEquation$<$ VariableCount $>$}}
+
+
+{\ttfamily \#include $<$equation\+System.\+hpp$>$}
+
+
+
+Collaboration diagram for Math\+::Linear\+Equation\texorpdfstring{$<$}{<} Variable\+Count \texorpdfstring{$>$}{>}\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=182pt]{class_math_1_1_linear_equation__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_math_1_1_linear_equation_aea749b1f5420319d2d6676a4e7029911}{Linear\+Equation}} ()=default
+\item 
+\mbox{\hyperlink{class_math_1_1_linear_equation_a38d40ad8e94c951a1351decbf3db912c}{Linear\+Equation}} (float \mbox{\hyperlink{class_math_1_1_linear_equation_a85df3369f55325f2efb693f8468d4c64}{right\+Value}}, std\+::array$<$ float, Variable\+Count $>$ variable\+Values)
+\item 
+float \mbox{\hyperlink{class_math_1_1_linear_equation_a6ea7d3b711ffde761e840f3eaa9b2949}{get\+Right\+Value}} () const
+\item 
+float \mbox{\hyperlink{class_math_1_1_linear_equation_a7539e7495b4a87af90e93df928735279}{get\+Variable}} (int idx) const
+\item 
+bool \mbox{\hyperlink{class_math_1_1_linear_equation_a6b95197e56584c34502f3a465d7cb207}{is\+Solution}} (std\+::initializer\+\_\+list$<$ float $>$ solution) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::array$<$ float, Variable\+Count $>$ \mbox{\hyperlink{class_math_1_1_linear_equation_a1158fb73e6093c2a98f926710f4ffada}{values}}
+\item 
+float \mbox{\hyperlink{class_math_1_1_linear_equation_a85df3369f55325f2efb693f8468d4c64}{right\+Value}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$int Variable\+Count$>$\newline
+class Math\+::\+Linear\+Equation$<$ Variable\+Count $>$}
+
+
+Definition at line \mbox{\hyperlink{equation_system_8hpp_source_l00014}{14}} of file \mbox{\hyperlink{equation_system_8hpp_source}{equation\+System.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_math_1_1_linear_equation_aea749b1f5420319d2d6676a4e7029911}\label{class_math_1_1_linear_equation_aea749b1f5420319d2d6676a4e7029911} 
+\index{Math::LinearEquation$<$ VariableCount $>$@{Math::LinearEquation$<$ VariableCount $>$}!LinearEquation@{LinearEquation}}
+\index{LinearEquation@{LinearEquation}!Math::LinearEquation$<$ VariableCount $>$@{Math::LinearEquation$<$ VariableCount $>$}}
+\doxysubsubsection{\texorpdfstring{LinearEquation()}{LinearEquation()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$int Variable\+Count$>$ \\
+\mbox{\hyperlink{class_math_1_1_linear_equation}{Math\+::\+Linear\+Equation}}$<$ Variable\+Count $>$\+::\+Linear\+Equation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{class_math_1_1_linear_equation_a38d40ad8e94c951a1351decbf3db912c}\label{class_math_1_1_linear_equation_a38d40ad8e94c951a1351decbf3db912c} 
+\index{Math::LinearEquation$<$ VariableCount $>$@{Math::LinearEquation$<$ VariableCount $>$}!LinearEquation@{LinearEquation}}
+\index{LinearEquation@{LinearEquation}!Math::LinearEquation$<$ VariableCount $>$@{Math::LinearEquation$<$ VariableCount $>$}}
+\doxysubsubsection{\texorpdfstring{LinearEquation()}{LinearEquation()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$int Variable\+Count$>$ \\
+\mbox{\hyperlink{class_math_1_1_linear_equation}{Math\+::\+Linear\+Equation}}$<$ Variable\+Count $>$\+::\+Linear\+Equation (\begin{DoxyParamCaption}\item[{float}]{right\+Value,  }\item[{std\+::array$<$ float, Variable\+Count $>$}]{variable\+Values }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{equation_system_8hpp_source_l00023}{23}} of file \mbox{\hyperlink{equation_system_8hpp_source}{equation\+System.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{class_math_1_1_linear_equation_a85df3369f55325f2efb693f8468d4c64}{rightValue}}\{\mbox{\hyperlink{class_math_1_1_linear_equation_a85df3369f55325f2efb693f8468d4c64}{rightValue}}\},\ \mbox{\hyperlink{class_math_1_1_linear_equation_a1158fb73e6093c2a98f926710f4ffada}{values}}\{variableValues\}\ \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_math_1_1_linear_equation_a6ea7d3b711ffde761e840f3eaa9b2949}\label{class_math_1_1_linear_equation_a6ea7d3b711ffde761e840f3eaa9b2949} 
+\index{Math::LinearEquation$<$ VariableCount $>$@{Math::LinearEquation$<$ VariableCount $>$}!getRightValue@{getRightValue}}
+\index{getRightValue@{getRightValue}!Math::LinearEquation$<$ VariableCount $>$@{Math::LinearEquation$<$ VariableCount $>$}}
+\doxysubsubsection{\texorpdfstring{getRightValue()}{getRightValue()}}
+{\footnotesize\ttfamily template$<$int Variable\+Count$>$ \\
+float \mbox{\hyperlink{class_math_1_1_linear_equation}{Math\+::\+Linear\+Equation}}$<$ Variable\+Count $>$\+::get\+Right\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{equation_system_8hpp_source_l00026}{26}} of file \mbox{\hyperlink{equation_system_8hpp_source}{equation\+System.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00026\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_math_1_1_linear_equation_a85df3369f55325f2efb693f8468d4c64}{rightValue}};\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_math_1_1_linear_equation_a7539e7495b4a87af90e93df928735279}\label{class_math_1_1_linear_equation_a7539e7495b4a87af90e93df928735279} 
+\index{Math::LinearEquation$<$ VariableCount $>$@{Math::LinearEquation$<$ VariableCount $>$}!getVariable@{getVariable}}
+\index{getVariable@{getVariable}!Math::LinearEquation$<$ VariableCount $>$@{Math::LinearEquation$<$ VariableCount $>$}}
+\doxysubsubsection{\texorpdfstring{getVariable()}{getVariable()}}
+{\footnotesize\ttfamily template$<$int Variable\+Count$>$ \\
+float \mbox{\hyperlink{class_math_1_1_linear_equation}{Math\+::\+Linear\+Equation}}$<$ Variable\+Count $>$\+::get\+Variable (\begin{DoxyParamCaption}\item[{int}]{idx }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{equation_system_8hpp_source_l00027}{27}} of file \mbox{\hyperlink{equation_system_8hpp_source}{equation\+System.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00027\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_math_1_1_linear_equation_a1158fb73e6093c2a98f926710f4ffada}{values}}[idx];\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_math_1_1_linear_equation_a6b95197e56584c34502f3a465d7cb207}\label{class_math_1_1_linear_equation_a6b95197e56584c34502f3a465d7cb207} 
+\index{Math::LinearEquation$<$ VariableCount $>$@{Math::LinearEquation$<$ VariableCount $>$}!isSolution@{isSolution}}
+\index{isSolution@{isSolution}!Math::LinearEquation$<$ VariableCount $>$@{Math::LinearEquation$<$ VariableCount $>$}}
+\doxysubsubsection{\texorpdfstring{isSolution()}{isSolution()}}
+{\footnotesize\ttfamily template$<$int Variable\+Count$>$ \\
+bool \mbox{\hyperlink{class_math_1_1_linear_equation}{Math\+::\+Linear\+Equation}}$<$ Variable\+Count $>$\+::is\+Solution (\begin{DoxyParamCaption}\item[{std\+::initializer\+\_\+list$<$ float $>$}]{solution }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{equation_system_8hpp_source_l00029}{29}} of file \mbox{\hyperlink{equation_system_8hpp_source}{equation\+System.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ assert(solution.size()\ ==\ \mbox{\hyperlink{class_math_1_1_linear_equation_a1158fb73e6093c2a98f926710f4ffada}{values}}.size());}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (solution.size()\ !=\ \mbox{\hyperlink{class_math_1_1_linear_equation_a1158fb73e6093c2a98f926710f4ffada}{values}}.size())}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ leftValue\ =\ 0.0f;}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ idx\ =\ 0;}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{float}\ s\ :\ solution)}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ leftValue\ +=\ s\ *\ \mbox{\hyperlink{class_math_1_1_linear_equation_a1158fb73e6093c2a98f926710f4ffada}{values}}[idx++];}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ fabs(leftValue\ -\/\ \mbox{\hyperlink{class_math_1_1_linear_equation_a85df3369f55325f2efb693f8468d4c64}{rightValue}})\ <\ \mbox{\hyperlink{namespace_math_1_1_constant_adb2a456ef71c62332f477d01b4c46fb9}{Math::Constant::epsilon}};\ \textcolor{comment}{//\ 0.01\ epsilon}}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_math_1_1_linear_equation_a6b95197e56584c34502f3a465d7cb207_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_math_1_1_linear_equation_a85df3369f55325f2efb693f8468d4c64}\label{class_math_1_1_linear_equation_a85df3369f55325f2efb693f8468d4c64} 
+\index{Math::LinearEquation$<$ VariableCount $>$@{Math::LinearEquation$<$ VariableCount $>$}!rightValue@{rightValue}}
+\index{rightValue@{rightValue}!Math::LinearEquation$<$ VariableCount $>$@{Math::LinearEquation$<$ VariableCount $>$}}
+\doxysubsubsection{\texorpdfstring{rightValue}{rightValue}}
+{\footnotesize\ttfamily template$<$int Variable\+Count$>$ \\
+float \mbox{\hyperlink{class_math_1_1_linear_equation}{Math\+::\+Linear\+Equation}}$<$ Variable\+Count $>$\+::right\+Value\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{equation_system_8hpp_source_l00018}{18}} of file \mbox{\hyperlink{equation_system_8hpp_source}{equation\+System.\+hpp}}.
+
+\Hypertarget{class_math_1_1_linear_equation_a1158fb73e6093c2a98f926710f4ffada}\label{class_math_1_1_linear_equation_a1158fb73e6093c2a98f926710f4ffada} 
+\index{Math::LinearEquation$<$ VariableCount $>$@{Math::LinearEquation$<$ VariableCount $>$}!values@{values}}
+\index{values@{values}!Math::LinearEquation$<$ VariableCount $>$@{Math::LinearEquation$<$ VariableCount $>$}}
+\doxysubsubsection{\texorpdfstring{values}{values}}
+{\footnotesize\ttfamily template$<$int Variable\+Count$>$ \\
+std\+::array$<$float, Variable\+Count$>$ \mbox{\hyperlink{class_math_1_1_linear_equation}{Math\+::\+Linear\+Equation}}$<$ Variable\+Count $>$\+::values\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{equation_system_8hpp_source_l00017}{17}} of file \mbox{\hyperlink{equation_system_8hpp_source}{equation\+System.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Math/\mbox{\hyperlink{equation_system_8hpp}{equation\+System.\+hpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,333 @@
+\doxysection{Geometry\+::Edge Class Reference}
+\hypertarget{class_geometry_1_1_edge}{}\label{class_geometry_1_1_edge}\index{Geometry::Edge@{Geometry::Edge}}
+
+
+{\ttfamily \#include $<$edge.\+hpp$>$}
+
+
+
+Collaboration diagram for Geometry\+::Edge\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=163pt]{class_geometry_1_1_edge__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_geometry_1_1_edge_a6a3a576ec9b51824c7f7032d22d7ac47}{Edge}} ()=default
+\item 
+\mbox{\hyperlink{class_geometry_1_1_edge_a1f83d5ef10b37fa928229621896da7e8}{Edge}} (\mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} \mbox{\hyperlink{class_geometry_1_1_edge_a5b4f8f2fac2c4745cbd8e9635d104105}{p1}}, \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} \mbox{\hyperlink{class_geometry_1_1_edge_adaa100000f5ab8b3fcba32828419ae39}{p2}})
+\item 
+\mbox{\hyperlink{class_geometry_1_1_edge_a6be170808c12e3833bec4c8c8d7720d4}{Edge}} (const \mbox{\hyperlink{class_geometry_1_1_edge}{Edge}} \&other)
+\item 
+\mbox{\hyperlink{class_geometry_1_1_edge}{Edge}} \& \mbox{\hyperlink{class_geometry_1_1_edge_a3192e56d5e902f8d9f798ecf2d868954}{operator=}} (const \mbox{\hyperlink{class_geometry_1_1_edge}{Edge}} \&other)
+\item 
+\mbox{\hyperlink{class_geometry_1_1_line}{Line}} \mbox{\hyperlink{class_geometry_1_1_edge_a0f13464ad4e6beb72ac11d60420ee522}{convert\+To\+Line}} () const
+\item 
+bool \mbox{\hyperlink{class_geometry_1_1_edge_a2c78bde87fb1927bb27bf3382079dfb1}{contains\+Point}} (\mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} p) const
+\item 
+bool \mbox{\hyperlink{class_geometry_1_1_edge_ad127bb37443f0ee46560e1cfaafad6a0}{in\+Range}} (\mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} p) const
+\item 
+std\+::array$<$ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}}, 2 $>$ \mbox{\hyperlink{class_geometry_1_1_edge_a58ac4d8cc22da6d34f811dafbf808b1f}{get\+Points}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} \mbox{\hyperlink{class_geometry_1_1_edge_a5b4f8f2fac2c4745cbd8e9635d104105}{p1}}
+\item 
+\mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} \mbox{\hyperlink{class_geometry_1_1_edge_adaa100000f5ab8b3fcba32828419ae39}{p2}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::optional$<$ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} $>$ \mbox{\hyperlink{class_geometry_1_1_edge_ad16df3a1a5be67f3c06bcc4172dddb73}{get\+Intersection\+Point}} (const \mbox{\hyperlink{class_geometry_1_1_edge}{Edge}} \&e1, const \mbox{\hyperlink{class_geometry_1_1_edge}{Edge}} \&e2)
+\item 
+std\+::optional$<$ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} $>$ \mbox{\hyperlink{class_geometry_1_1_edge_a737ba97a1497d21e9ff0acb1394f9f26}{get\+Intersection\+Point}} (const \mbox{\hyperlink{class_geometry_1_1_edge}{Edge}} \&edge, const \mbox{\hyperlink{class_geometry_1_1_line}{Line}} \&line)
+\item 
+bool \mbox{\hyperlink{class_geometry_1_1_edge_a02f62dc93f3810dedf600e1890d0a01a}{operator==}} (const \mbox{\hyperlink{class_geometry_1_1_edge}{Edge}} \&e1, const \mbox{\hyperlink{class_geometry_1_1_edge}{Edge}} \&e2)
+\item 
+bool \mbox{\hyperlink{class_geometry_1_1_edge_a60655f13baa37e528f693e9a7a2c63e9}{operator!=}} (const \mbox{\hyperlink{class_geometry_1_1_edge}{Edge}} \&e1, const \mbox{\hyperlink{class_geometry_1_1_edge}{Edge}} \&e2)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{edge_8hpp_source_l00009}{9}} of file \mbox{\hyperlink{edge_8hpp_source}{edge.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_geometry_1_1_edge_a6a3a576ec9b51824c7f7032d22d7ac47}\label{class_geometry_1_1_edge_a6a3a576ec9b51824c7f7032d22d7ac47} 
+\index{Geometry::Edge@{Geometry::Edge}!Edge@{Edge}}
+\index{Edge@{Edge}!Geometry::Edge@{Geometry::Edge}}
+\doxysubsubsection{\texorpdfstring{Edge()}{Edge()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Geometry\+::\+Edge\+::\+Edge (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{class_geometry_1_1_edge_a1f83d5ef10b37fa928229621896da7e8}\label{class_geometry_1_1_edge_a1f83d5ef10b37fa928229621896da7e8} 
+\index{Geometry::Edge@{Geometry::Edge}!Edge@{Edge}}
+\index{Edge@{Edge}!Geometry::Edge@{Geometry::Edge}}
+\doxysubsubsection{\texorpdfstring{Edge()}{Edge()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Geometry\+::\+Edge\+::\+Edge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}}}]{p1,  }\item[{\mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}}}]{p2 }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{edge_8cpp_source_l00006}{6}} of file \mbox{\hyperlink{edge_8cpp_source}{edge.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00007\ \ \ \ \ \{}
+\DoxyCodeLine{00008\ \ \ \ \ \ \ \ \ this-\/>p1\ =\ \mbox{\hyperlink{class_geometry_1_1_edge_a5b4f8f2fac2c4745cbd8e9635d104105}{p1}};}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ this-\/>p2\ =\ \mbox{\hyperlink{class_geometry_1_1_edge_adaa100000f5ab8b3fcba32828419ae39}{p2}};}
+\DoxyCodeLine{00010\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_geometry_1_1_edge_a6be170808c12e3833bec4c8c8d7720d4}\label{class_geometry_1_1_edge_a6be170808c12e3833bec4c8c8d7720d4} 
+\index{Geometry::Edge@{Geometry::Edge}!Edge@{Edge}}
+\index{Edge@{Edge}!Geometry::Edge@{Geometry::Edge}}
+\doxysubsubsection{\texorpdfstring{Edge()}{Edge()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Geometry\+::\+Edge\+::\+Edge (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_geometry_1_1_edge}{Edge}} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{edge_8cpp_source_l00017}{17}} of file \mbox{\hyperlink{edge_8cpp_source}{edge.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00018\ \ \ \ \ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_edge_a5b4f8f2fac2c4745cbd8e9635d104105}{p1}}\ =\ other.p1;}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_edge_adaa100000f5ab8b3fcba32828419ae39}{p2}}\ =\ other.p2;}
+\DoxyCodeLine{00021\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_geometry_1_1_edge_a2c78bde87fb1927bb27bf3382079dfb1}\label{class_geometry_1_1_edge_a2c78bde87fb1927bb27bf3382079dfb1} 
+\index{Geometry::Edge@{Geometry::Edge}!containsPoint@{containsPoint}}
+\index{containsPoint@{containsPoint}!Geometry::Edge@{Geometry::Edge}}
+\doxysubsubsection{\texorpdfstring{containsPoint()}{containsPoint()}}
+{\footnotesize\ttfamily bool Geometry\+::\+Edge\+::contains\+Point (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}}}]{p }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{edge_8cpp_source_l00031}{31}} of file \mbox{\hyperlink{edge_8cpp_source}{edge.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00032\ \ \ \ \ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_line}{Geometry::Line}}\ l(\mbox{\hyperlink{class_geometry_1_1_edge_a5b4f8f2fac2c4745cbd8e9635d104105}{p1}},\ \mbox{\hyperlink{class_geometry_1_1_edge_adaa100000f5ab8b3fcba32828419ae39}{p2}});}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!l.containsPoint(p))}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_geometry_1_1_edge_ad127bb37443f0ee46560e1cfaafad6a0}{inRange}}(p);}
+\DoxyCodeLine{00038\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_geometry_1_1_edge_a2c78bde87fb1927bb27bf3382079dfb1_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_geometry_1_1_edge_a0f13464ad4e6beb72ac11d60420ee522}\label{class_geometry_1_1_edge_a0f13464ad4e6beb72ac11d60420ee522} 
+\index{Geometry::Edge@{Geometry::Edge}!convertToLine@{convertToLine}}
+\index{convertToLine@{convertToLine}!Geometry::Edge@{Geometry::Edge}}
+\doxysubsubsection{\texorpdfstring{convertToLine()}{convertToLine()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_geometry_1_1_line}{Line}} Geometry\+::\+Edge\+::convert\+To\+Line (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{edge_8cpp_source_l00012}{12}} of file \mbox{\hyperlink{edge_8cpp_source}{edge.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00013\ \ \ \ \ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Line(\mbox{\hyperlink{class_geometry_1_1_edge_a5b4f8f2fac2c4745cbd8e9635d104105}{p1}},\ \mbox{\hyperlink{class_geometry_1_1_edge_adaa100000f5ab8b3fcba32828419ae39}{p2}});}
+\DoxyCodeLine{00015\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_geometry_1_1_edge_a58ac4d8cc22da6d34f811dafbf808b1f}\label{class_geometry_1_1_edge_a58ac4d8cc22da6d34f811dafbf808b1f} 
+\index{Geometry::Edge@{Geometry::Edge}!getPoints@{getPoints}}
+\index{getPoints@{getPoints}!Geometry::Edge@{Geometry::Edge}}
+\doxysubsubsection{\texorpdfstring{getPoints()}{getPoints()}}
+{\footnotesize\ttfamily std\+::array$<$ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}}, 2 $>$ Geometry\+::\+Edge\+::get\+Points (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{edge_8hpp_source_l00027}{27}} of file \mbox{\hyperlink{edge_8hpp_source}{edge.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00027\ \{\ \textcolor{keywordflow}{return}\{\ \mbox{\hyperlink{class_geometry_1_1_edge_a5b4f8f2fac2c4745cbd8e9635d104105}{p1}},\ \mbox{\hyperlink{class_geometry_1_1_edge_adaa100000f5ab8b3fcba32828419ae39}{p2}}\ \};\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_geometry_1_1_edge_ad127bb37443f0ee46560e1cfaafad6a0}\label{class_geometry_1_1_edge_ad127bb37443f0ee46560e1cfaafad6a0} 
+\index{Geometry::Edge@{Geometry::Edge}!inRange@{inRange}}
+\index{inRange@{inRange}!Geometry::Edge@{Geometry::Edge}}
+\doxysubsubsection{\texorpdfstring{inRange()}{inRange()}}
+{\footnotesize\ttfamily bool Geometry\+::\+Edge\+::in\+Range (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}}}]{p }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{edge_8cpp_source_l00040}{40}} of file \mbox{\hyperlink{edge_8cpp_source}{edge.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00041\ \ \ \ \ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p[0]\ <\ std::fmin(\mbox{\hyperlink{class_geometry_1_1_edge_a5b4f8f2fac2c4745cbd8e9635d104105}{p1}}[0],\ \mbox{\hyperlink{class_geometry_1_1_edge_adaa100000f5ab8b3fcba32828419ae39}{p2}}[0])\ ||\ p[0]\ >\ std::fmax(\mbox{\hyperlink{class_geometry_1_1_edge_a5b4f8f2fac2c4745cbd8e9635d104105}{p1}}[0],\ \mbox{\hyperlink{class_geometry_1_1_edge_adaa100000f5ab8b3fcba32828419ae39}{p2}}[0]))\ \textcolor{comment}{//based\ on\ x}}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p[1]\ <\ std::fmin(\mbox{\hyperlink{class_geometry_1_1_edge_a5b4f8f2fac2c4745cbd8e9635d104105}{p1}}[1],\ \mbox{\hyperlink{class_geometry_1_1_edge_adaa100000f5ab8b3fcba32828419ae39}{p2}}[1])\ ||\ p[1]\ >\ std::fmax(\mbox{\hyperlink{class_geometry_1_1_edge_a5b4f8f2fac2c4745cbd8e9635d104105}{p1}}[1],\ \mbox{\hyperlink{class_geometry_1_1_edge_adaa100000f5ab8b3fcba32828419ae39}{p2}}[1]))\ \textcolor{comment}{//based\ on\ y\ (not\ necessary)}}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00049\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_geometry_1_1_edge_ad127bb37443f0ee46560e1cfaafad6a0_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_geometry_1_1_edge_a3192e56d5e902f8d9f798ecf2d868954}\label{class_geometry_1_1_edge_a3192e56d5e902f8d9f798ecf2d868954} 
+\index{Geometry::Edge@{Geometry::Edge}!operator=@{operator=}}
+\index{operator=@{operator=}!Geometry::Edge@{Geometry::Edge}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_geometry_1_1_edge}{Edge}} \& Geometry\+::\+Edge\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_geometry_1_1_edge}{Edge}} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{edge_8cpp_source_l00023}{23}} of file \mbox{\hyperlink{edge_8cpp_source}{edge.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00024\ \ \ \ \ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_edge_a5b4f8f2fac2c4745cbd8e9635d104105}{p1}}\ =\ other.p1;}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_edge_adaa100000f5ab8b3fcba32828419ae39}{p2}}\ =\ other.p2;}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00029\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{class_geometry_1_1_edge_ad16df3a1a5be67f3c06bcc4172dddb73}\label{class_geometry_1_1_edge_ad16df3a1a5be67f3c06bcc4172dddb73} 
+\index{Geometry::Edge@{Geometry::Edge}!getIntersectionPoint@{getIntersectionPoint}}
+\index{getIntersectionPoint@{getIntersectionPoint}!Geometry::Edge@{Geometry::Edge}}
+\doxysubsubsection{\texorpdfstring{getIntersectionPoint}{getIntersectionPoint}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::optional$<$ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} $>$ get\+Intersection\+Point (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_geometry_1_1_edge}{Edge}} \&}]{e1,  }\item[{const \mbox{\hyperlink{class_geometry_1_1_edge}{Edge}} \&}]{e2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line \mbox{\hyperlink{edge_8cpp_source_l00051}{51}} of file \mbox{\hyperlink{edge_8cpp_source}{edge.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00052\ \ \ \ \ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ std::optional<Math::Vec2f>\ P\ =\ \mbox{\hyperlink{class_geometry_1_1_edge_ad16df3a1a5be67f3c06bcc4172dddb73}{getIntersectionPoint}}(e1.convertToLine(),\ e2.convertToLine());}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!P.has\_value())}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{\};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (e1.inRange(P.value())\ \&\&\ e2.inRange(P.value()))}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ P.value();}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{\};}
+\DoxyCodeLine{00062\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_geometry_1_1_edge_a737ba97a1497d21e9ff0acb1394f9f26}\label{class_geometry_1_1_edge_a737ba97a1497d21e9ff0acb1394f9f26} 
+\index{Geometry::Edge@{Geometry::Edge}!getIntersectionPoint@{getIntersectionPoint}}
+\index{getIntersectionPoint@{getIntersectionPoint}!Geometry::Edge@{Geometry::Edge}}
+\doxysubsubsection{\texorpdfstring{getIntersectionPoint}{getIntersectionPoint}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::optional$<$ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} $>$ get\+Intersection\+Point (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_geometry_1_1_edge}{Edge}} \&}]{edge,  }\item[{const \mbox{\hyperlink{class_geometry_1_1_line}{Line}} \&}]{line }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line \mbox{\hyperlink{edge_8cpp_source_l00064}{64}} of file \mbox{\hyperlink{edge_8cpp_source}{edge.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00065\ \ \ \ \ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ Line\ l2(edge.p1,\ edge.p2);}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ std::optional<Math::Vec2f>\ p\ =\ \mbox{\hyperlink{class_geometry_1_1_edge_ad16df3a1a5be67f3c06bcc4172dddb73}{getIntersectionPoint}}(line,\ l2);}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p.has\_value())}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (edge.inRange(p.value()))}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ p.value();}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{\};}
+\DoxyCodeLine{00072\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_geometry_1_1_edge_a60655f13baa37e528f693e9a7a2c63e9}\label{class_geometry_1_1_edge_a60655f13baa37e528f693e9a7a2c63e9} 
+\index{Geometry::Edge@{Geometry::Edge}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Geometry::Edge@{Geometry::Edge}}
+\doxysubsubsection{\texorpdfstring{operator"!=}{operator!=}}
+{\footnotesize\ttfamily bool operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_geometry_1_1_edge}{Edge}} \&}]{e1,  }\item[{const \mbox{\hyperlink{class_geometry_1_1_edge}{Edge}} \&}]{e2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line \mbox{\hyperlink{edge_8cpp_source_l00080}{80}} of file \mbox{\hyperlink{edge_8cpp_source}{edge.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00081\ \ \ \ \ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ !(e1\ ==\ e2);}
+\DoxyCodeLine{00083\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_geometry_1_1_edge_a02f62dc93f3810dedf600e1890d0a01a}\label{class_geometry_1_1_edge_a02f62dc93f3810dedf600e1890d0a01a} 
+\index{Geometry::Edge@{Geometry::Edge}!operator==@{operator==}}
+\index{operator==@{operator==}!Geometry::Edge@{Geometry::Edge}}
+\doxysubsubsection{\texorpdfstring{operator==}{operator==}}
+{\footnotesize\ttfamily bool operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_geometry_1_1_edge}{Edge}} \&}]{e1,  }\item[{const \mbox{\hyperlink{class_geometry_1_1_edge}{Edge}} \&}]{e2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line \mbox{\hyperlink{edge_8cpp_source_l00075}{75}} of file \mbox{\hyperlink{edge_8cpp_source}{edge.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00076\ \ \ \ \ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (e1.p1\ ==\ e2.p1\ \&\&\ e1.p2\ ==\ e2.p2)\ ||\ (e1.p1\ ==\ e2.p2\ \&\&\ e1.p2\ ==\ e2.p1);}
+\DoxyCodeLine{00078\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_geometry_1_1_edge_a5b4f8f2fac2c4745cbd8e9635d104105}\label{class_geometry_1_1_edge_a5b4f8f2fac2c4745cbd8e9635d104105} 
+\index{Geometry::Edge@{Geometry::Edge}!p1@{p1}}
+\index{p1@{p1}!Geometry::Edge@{Geometry::Edge}}
+\doxysubsubsection{\texorpdfstring{p1}{p1}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} Geometry\+::\+Edge\+::p1\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{edge_8hpp_source_l00012}{12}} of file \mbox{\hyperlink{edge_8hpp_source}{edge.\+hpp}}.
+
+\Hypertarget{class_geometry_1_1_edge_adaa100000f5ab8b3fcba32828419ae39}\label{class_geometry_1_1_edge_adaa100000f5ab8b3fcba32828419ae39} 
+\index{Geometry::Edge@{Geometry::Edge}!p2@{p2}}
+\index{p2@{p2}!Geometry::Edge@{Geometry::Edge}}
+\doxysubsubsection{\texorpdfstring{p2}{p2}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} Geometry\+::\+Edge\+::p2\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{edge_8hpp_source_l00013}{13}} of file \mbox{\hyperlink{edge_8hpp_source}{edge.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Geometry/\mbox{\hyperlink{edge_8hpp}{edge.\+hpp}}\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Geometry/\mbox{\hyperlink{edge_8cpp}{edge.\+cpp}}\end{DoxyCompactItemize}

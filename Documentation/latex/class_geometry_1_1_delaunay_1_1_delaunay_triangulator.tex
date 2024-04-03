@@ -1,0 +1,566 @@
+\doxysection{Geometry\+::Delaunay\+::Delaunay\+Triangulator Class Reference}
+\hypertarget{class_geometry_1_1_delaunay_1_1_delaunay_triangulator}{}\label{class_geometry_1_1_delaunay_1_1_delaunay_triangulator}\index{Geometry::Delaunay::DelaunayTriangulator@{Geometry::Delaunay::DelaunayTriangulator}}
+
+
+{\ttfamily \#include $<$delaunay.\+hpp$>$}
+
+
+
+Collaboration diagram for Geometry\+::Delaunay\+::Delaunay\+Triangulator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=208pt]{class_geometry_1_1_delaunay_1_1_delaunay_triangulator__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_ae1df51c3ea860305745e8ca7f60f9210}{Delaunay\+Triangulator}} (const std\+::vector$<$ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} $>$ \&\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_a1f6df495255726ddda7b6dee3fa52b97}{vertices}})
+\item 
+\mbox{\hyperlink{struct_geometry_1_1_delaunay_1_1_delaunay_triangulation}{Delaunay\+Triangulation}} \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_a921bd03d4bfa6885387c960c66293e01}{Triangulate}} (\mbox{\hyperlink{namespace_geometry_1_1_delaunay_a643e8f927eebc3f3a702ca86183886ab}{Triangle\+Direction}} direction=\mbox{\hyperlink{namespace_geometry_1_1_delaunay_a643e8f927eebc3f3a702ca86183886aba2a7a2eaef4c00214f4370cff589ce368}{Counter\+Clock\+Wise}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle}{Triangle}} $>$ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_ad4897f8bf662366cd4ef0c5ff4ab4df4}{triangulate}} ()
+\item 
+bool \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_a831e0817fcb53c7f774acd471be6d3a6}{is\+Point\+In\+Triangles\+Circle}} (\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle}{Triangle}} triangle, const \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index}{Point\+Index}} \&P) const
+\item 
+\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle}{Triangle}} \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_af636b712d53051910bb8cb9e922dff17}{create\+Super\+Triangle}} ()
+\item 
+\mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_ae028afd65295aee2711868bc470ce3c1}{get\+Value\+Of\+Point}} (const \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index}{Point\+Index}} \&point\+Idx) const
+\item 
+void \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_af3a90327ec8e2f6ada93d6fc772f6ce1}{transform\+All\+Triangles}} (std\+::vector$<$ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle}{Triangle}} $>$ \&triangles, \mbox{\hyperlink{namespace_geometry_1_1_delaunay_a643e8f927eebc3f3a702ca86183886ab}{Triangle\+Direction}} direction) const
+\item 
+bool \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_a74ef6e888f2eb487200c441d3947cc11}{is\+Clock\+Wise}} (const \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle}{Triangle}} \&triangle) const
+\item 
+std\+::optional$<$ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_edge}{Edge}} $>$ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_ab38b4d47cb57a4c47107819c002ec0fd}{has\+Common\+Edge}} (const \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle}{Triangle}} \&triangle1, const \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle}{Triangle}} \&triangle2) const
+\item 
+\mbox{\hyperlink{class_math_1_1_graph}{Math\+::\+Graph}}$<$ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle}{Triangle}} $>$ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_ae0c9fc57c7a2b2008ca7e84f5cb94f7d}{get\+Neighbourhood\+Graph}} (const std\+::vector$<$ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle}{Triangle}} $>$ \&triangulation) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} $>$ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_a1f6df495255726ddda7b6dee3fa52b97}{vertices}}
+\item 
+std\+::array$<$ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}}, 3 $>$ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_a61e9909126570bb2fdfb4e849337d390}{super\+Triangle\+Vertices}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{delaunay_8hpp_source_l00015}{15}} of file \mbox{\hyperlink{delaunay_8hpp_source}{delaunay.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_ae1df51c3ea860305745e8ca7f60f9210}\label{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_ae1df51c3ea860305745e8ca7f60f9210} 
+\index{Geometry::Delaunay::DelaunayTriangulator@{Geometry::Delaunay::DelaunayTriangulator}!DelaunayTriangulator@{DelaunayTriangulator}}
+\index{DelaunayTriangulator@{DelaunayTriangulator}!Geometry::Delaunay::DelaunayTriangulator@{Geometry::Delaunay::DelaunayTriangulator}}
+\doxysubsubsection{\texorpdfstring{DelaunayTriangulator()}{DelaunayTriangulator()}}
+{\footnotesize\ttfamily Geometry\+::\+Delaunay\+::\+Delaunay\+Triangulator\+::\+Delaunay\+Triangulator (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} $>$ \&}]{vertices }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{delaunay_8cpp_source_l00190}{190}} of file \mbox{\hyperlink{delaunay_8cpp_source}{delaunay.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_a1f6df495255726ddda7b6dee3fa52b97}{vertices}}\{\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_a1f6df495255726ddda7b6dee3fa52b97}{vertices}}\ \}}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_a1f6df495255726ddda7b6dee3fa52b97}{vertices}}.size()\ <\ 3)}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Not\ enough\ points!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Log::warn("{}Not\ enough\ points!"{});}}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_af636b712d53051910bb8cb9e922dff17}\label{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_af636b712d53051910bb8cb9e922dff17} 
+\index{Geometry::Delaunay::DelaunayTriangulator@{Geometry::Delaunay::DelaunayTriangulator}!createSuperTriangle@{createSuperTriangle}}
+\index{createSuperTriangle@{createSuperTriangle}!Geometry::Delaunay::DelaunayTriangulator@{Geometry::Delaunay::DelaunayTriangulator}}
+\doxysubsubsection{\texorpdfstring{createSuperTriangle()}{createSuperTriangle()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle}{Triangle}} Geometry\+::\+Delaunay\+::\+Delaunay\+Triangulator\+::create\+Super\+Triangle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{delaunay_8cpp_source_l00096}{96}} of file \mbox{\hyperlink{delaunay_8cpp_source}{delaunay.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ Triangle\ superTriangle(PointIndex(0,\ \textcolor{keyword}{true}),\ PointIndex(1,\ \textcolor{keyword}{true}),\ PointIndex(2,\ \textcolor{keyword}{true}));}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ minX\ =\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_a1f6df495255726ddda7b6dee3fa52b97}{vertices}}[0][0];}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ maxX\ =\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_a1f6df495255726ddda7b6dee3fa52b97}{vertices}}[0][0];}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ minY\ =\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_a1f6df495255726ddda7b6dee3fa52b97}{vertices}}[0][1];}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ maxY\ =\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_a1f6df495255726ddda7b6dee3fa52b97}{vertices}}[0][1];}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ v\ :\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_a1f6df495255726ddda7b6dee3fa52b97}{vertices}})}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ currentX\ =\ v[0];}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ currentY\ =\ v[1];}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (currentX\ >\ maxX)}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ maxX\ =\ currentX;}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (currentX\ <\ minX)}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ minX\ =\ currentX;}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (currentY\ <\ minY)}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ minY\ =\ currentY;}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (currentY\ >\ maxY)}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ maxY\ =\ currentY;}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ dx\ =\ maxX\ -\/\ minX;}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ dy\ =\ maxY\ -\/\ minY;}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{namespace_math_1_1_constant_ac99dbfbdfd0c9f6006acda74b4dfe294}{x}}\ =\ fmaxf(dx,\ dy)\ *\ 1.5f;}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ Px\ =\ (minX\ +\ maxX)\ /\ 2.0f;}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ Py\ =\ minY\ -\/\ 0.2f\ *\ \mbox{\hyperlink{namespace_math_1_1_constant_ac99dbfbdfd0c9f6006acda74b4dfe294}{x}};}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_a61e9909126570bb2fdfb4e849337d390}{superTriangleVertices}}[0]\ =\ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\{\ Px\ -\/\ 1.5f\ *\ \mbox{\hyperlink{namespace_math_1_1_constant_ac99dbfbdfd0c9f6006acda74b4dfe294}{x}}\ \ \ ,\ Py\ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_a61e9909126570bb2fdfb4e849337d390}{superTriangleVertices}}[1]\ =\ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\{\ Px\ \ \ \ \ \ \ \ \ \ \ \ \ \ ,\ Py\ +\ 1.5f\ *\ \mbox{\hyperlink{namespace_math_1_1_constant_ac99dbfbdfd0c9f6006acda74b4dfe294}{x}}\ \};}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_a61e9909126570bb2fdfb4e849337d390}{superTriangleVertices}}[2]\ =\ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\{\ Px\ +\ 1.5f\ *\ \mbox{\hyperlink{namespace_math_1_1_constant_ac99dbfbdfd0c9f6006acda74b4dfe294}{x}}\ \ \ ,\ Py\ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ superTriangle;}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_af636b712d53051910bb8cb9e922dff17_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_ae0c9fc57c7a2b2008ca7e84f5cb94f7d}\label{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_ae0c9fc57c7a2b2008ca7e84f5cb94f7d} 
+\index{Geometry::Delaunay::DelaunayTriangulator@{Geometry::Delaunay::DelaunayTriangulator}!getNeighbourhoodGraph@{getNeighbourhoodGraph}}
+\index{getNeighbourhoodGraph@{getNeighbourhoodGraph}!Geometry::Delaunay::DelaunayTriangulator@{Geometry::Delaunay::DelaunayTriangulator}}
+\doxysubsubsection{\texorpdfstring{getNeighbourhoodGraph()}{getNeighbourhoodGraph()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_math_1_1_graph}{Math\+::\+Graph}}$<$ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle}{Triangle}} $>$ Geometry\+::\+Delaunay\+::\+Delaunay\+Triangulator\+::get\+Neighbourhood\+Graph (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle}{Triangle}} $>$ \&}]{triangulation }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{delaunay_8cpp_source_l00197}{197}} of file \mbox{\hyperlink{delaunay_8cpp_source}{delaunay.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_graph}{Math::Graph<Triangle>}}\ graph;}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ Triangle\&\ triangle\ :\ triangulation)}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ graph.addNode(triangle);}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ 0;\ idx\ <\ triangulation.size()\ -\/\ 1;\ ++idx)}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ next\ =\ idx\ +\ 1;\ next\ <\ triangulation.size();\ ++next)}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::optional<Edge>\ edge\ =\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_ab38b4d47cb57a4c47107819c002ec0fd}{hasCommonEdge}}(triangulation[idx],\ triangulation[next]);}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (edge.has\_value())}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ graph.\mbox{\hyperlink{class_math_1_1_graph_a89eeb992ce1291bde48f820473d3a689}{addEdge}}(triangulation[idx],\ triangulation[next]);}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ graph.\mbox{\hyperlink{class_math_1_1_graph_a89eeb992ce1291bde48f820473d3a689}{addEdge}}(triangulation[next],\ triangulation[idx]);}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ graph;}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_ae0c9fc57c7a2b2008ca7e84f5cb94f7d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_ae0c9fc57c7a2b2008ca7e84f5cb94f7d_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_ae028afd65295aee2711868bc470ce3c1}\label{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_ae028afd65295aee2711868bc470ce3c1} 
+\index{Geometry::Delaunay::DelaunayTriangulator@{Geometry::Delaunay::DelaunayTriangulator}!getValueOfPoint@{getValueOfPoint}}
+\index{getValueOfPoint@{getValueOfPoint}!Geometry::Delaunay::DelaunayTriangulator@{Geometry::Delaunay::DelaunayTriangulator}}
+\doxysubsubsection{\texorpdfstring{getValueOfPoint()}{getValueOfPoint()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} Geometry\+::\+Delaunay\+::\+Delaunay\+Triangulator\+::get\+Value\+Of\+Point (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index}{Point\+Index}} \&}]{point\+Idx }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{delaunay_8cpp_source_l00137}{137}} of file \mbox{\hyperlink{delaunay_8cpp_source}{delaunay.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pointIdx.superTriangle)}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_a61e9909126570bb2fdfb4e849337d390}{superTriangleVertices}}[pointIdx.index];}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_a1f6df495255726ddda7b6dee3fa52b97}{vertices}}[pointIdx.index];}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_ae028afd65295aee2711868bc470ce3c1_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_ab38b4d47cb57a4c47107819c002ec0fd}\label{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_ab38b4d47cb57a4c47107819c002ec0fd} 
+\index{Geometry::Delaunay::DelaunayTriangulator@{Geometry::Delaunay::DelaunayTriangulator}!hasCommonEdge@{hasCommonEdge}}
+\index{hasCommonEdge@{hasCommonEdge}!Geometry::Delaunay::DelaunayTriangulator@{Geometry::Delaunay::DelaunayTriangulator}}
+\doxysubsubsection{\texorpdfstring{hasCommonEdge()}{hasCommonEdge()}}
+{\footnotesize\ttfamily std\+::optional$<$ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_edge}{Edge}} $>$ Geometry\+::\+Delaunay\+::\+Delaunay\+Triangulator\+::has\+Common\+Edge (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle}{Triangle}} \&}]{triangle1,  }\item[{const \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle}{Triangle}} \&}]{triangle2 }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{delaunay_8cpp_source_l00179}{179}} of file \mbox{\hyperlink{delaunay_8cpp_source}{delaunay.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (triangle1\ ==\ triangle2)}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{\};\ \textcolor{comment}{//\ egyezo\ haromszogeknel\ nem\ tekintjuk\ kozos\ elnek}}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ Edge\&\ edge\ :\ triangle1.getEdges())}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ if\ (triangle2.hasEdge(edge))}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ return\ edge;}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{\};}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_ab38b4d47cb57a4c47107819c002ec0fd_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_ab38b4d47cb57a4c47107819c002ec0fd_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_a74ef6e888f2eb487200c441d3947cc11}\label{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_a74ef6e888f2eb487200c441d3947cc11} 
+\index{Geometry::Delaunay::DelaunayTriangulator@{Geometry::Delaunay::DelaunayTriangulator}!isClockWise@{isClockWise}}
+\index{isClockWise@{isClockWise}!Geometry::Delaunay::DelaunayTriangulator@{Geometry::Delaunay::DelaunayTriangulator}}
+\doxysubsubsection{\texorpdfstring{isClockWise()}{isClockWise()}}
+{\footnotesize\ttfamily bool Geometry\+::\+Delaunay\+::\+Delaunay\+Triangulator\+::is\+Clock\+Wise (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle}{Triangle}} \&}]{triangle }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{delaunay_8cpp_source_l00168}{168}} of file \mbox{\hyperlink{delaunay_8cpp_source}{delaunay.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ A\ =\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_ae028afd65295aee2711868bc470ce3c1}{getValueOfPoint}}(triangle.P0);}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ B\ =\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_ae028afd65295aee2711868bc470ce3c1}{getValueOfPoint}}(triangle.P1);}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ C\ =\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_ae028afd65295aee2711868bc470ce3c1}{getValueOfPoint}}(triangle.P2);}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespace_math_acb53f49cacbc0754cf4b882a41837468}{Math::getAngle}}(A,\ B,\ C)\ <\ 180.0\_deg)\ \textcolor{comment}{//\ if\ clockwise\ rotate\ dir}}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_a74ef6e888f2eb487200c441d3947cc11_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_a74ef6e888f2eb487200c441d3947cc11_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_a831e0817fcb53c7f774acd471be6d3a6}\label{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_a831e0817fcb53c7f774acd471be6d3a6} 
+\index{Geometry::Delaunay::DelaunayTriangulator@{Geometry::Delaunay::DelaunayTriangulator}!isPointInTrianglesCircle@{isPointInTrianglesCircle}}
+\index{isPointInTrianglesCircle@{isPointInTrianglesCircle}!Geometry::Delaunay::DelaunayTriangulator@{Geometry::Delaunay::DelaunayTriangulator}}
+\doxysubsubsection{\texorpdfstring{isPointInTrianglesCircle()}{isPointInTrianglesCircle()}}
+{\footnotesize\ttfamily bool Geometry\+::\+Delaunay\+::\+Delaunay\+Triangulator\+::is\+Point\+In\+Triangles\+Circle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle}{Triangle}}}]{triangle,  }\item[{const \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index}{Point\+Index}} \&}]{P }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{delaunay_8cpp_source_l00077}{77}} of file \mbox{\hyperlink{delaunay_8cpp_source}{delaunay.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ A\ =\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_ae028afd65295aee2711868bc470ce3c1}{getValueOfPoint}}\ (triangle.P0);}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ B\ =\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_ae028afd65295aee2711868bc470ce3c1}{getValueOfPoint}}\ (triangle.P1);}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ C\ =\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_ae028afd65295aee2711868bc470ce3c1}{getValueOfPoint}}\ (triangle.P2);}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ D\ =\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_ae028afd65295aee2711868bc470ce3c1}{getValueOfPoint}}\ (P);}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_a74ef6e888f2eb487200c441d3947cc11}{isClockWise}}(triangle))\ \textcolor{comment}{//\ if\ clockwise\ rotate\ dir}}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::swap(B,\ C);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_mat}{Math::Mat<3,\ 3,\ float>}}\ matrix(\ \ A[0]\ -\/\ D[0],\ A[1]\ -\/\ D[1],\ (A[0]\ -\/\ D[0])\ *\ (A[0]\ -\/\ D[0])\ +\ (A[1]\ -\/\ D[1])\ *\ (A[1]\ -\/\ D[1]),}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ B[0]\ -\/\ D[0],\ B[1]\ -\/\ D[1],\ (B[0]\ -\/\ D[0])\ *\ (B[0]\ -\/\ D[0])\ +\ (B[1]\ -\/\ D[1])\ *\ (B[1]\ -\/\ D[1]),}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ C[0]\ -\/\ D[0],\ C[1]\ -\/\ D[1],\ (C[0]\ -\/\ D[0])\ *\ (C[0]\ -\/\ D[0])\ +\ (C[1]\ -\/\ D[1])\ *\ (C[1]\ -\/\ D[1]));}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ determinant\ =\ \mbox{\hyperlink{namespace_math_ad7e98ce6e9027ffbe4a87184f67f7034}{Math::det}}(matrix);}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ determinant\ >\ 0;}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_a831e0817fcb53c7f774acd471be6d3a6_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_a831e0817fcb53c7f774acd471be6d3a6_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_af3a90327ec8e2f6ada93d6fc772f6ce1}\label{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_af3a90327ec8e2f6ada93d6fc772f6ce1} 
+\index{Geometry::Delaunay::DelaunayTriangulator@{Geometry::Delaunay::DelaunayTriangulator}!transformAllTriangles@{transformAllTriangles}}
+\index{transformAllTriangles@{transformAllTriangles}!Geometry::Delaunay::DelaunayTriangulator@{Geometry::Delaunay::DelaunayTriangulator}}
+\doxysubsubsection{\texorpdfstring{transformAllTriangles()}{transformAllTriangles()}}
+{\footnotesize\ttfamily void Geometry\+::\+Delaunay\+::\+Delaunay\+Triangulator\+::transform\+All\+Triangles (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle}{Triangle}} $>$ \&}]{triangles,  }\item[{\mbox{\hyperlink{namespace_geometry_1_1_delaunay_a643e8f927eebc3f3a702ca86183886ab}{Triangle\+Direction}}}]{direction }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{delaunay_8cpp_source_l00147}{147}} of file \mbox{\hyperlink{delaunay_8cpp_source}{delaunay.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (direction\ ==\ \mbox{\hyperlink{namespace_geometry_1_1_delaunay_a643e8f927eebc3f3a702ca86183886abaf7cf5d94805c2514a5d4594b7bd558b3}{NotMatters}})}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (Triangle\&\ triangle\ :\ triangles)}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_a74ef6e888f2eb487200c441d3947cc11}{isClockWise}}(triangle))}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (direction\ ==\ \mbox{\hyperlink{namespace_geometry_1_1_delaunay_a643e8f927eebc3f3a702ca86183886aba2a7a2eaef4c00214f4370cff589ce368}{CounterClockWise}})}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ triangle.rotate();}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (direction\ ==\ \mbox{\hyperlink{namespace_geometry_1_1_delaunay_a643e8f927eebc3f3a702ca86183886abaea59a27b26cd393a09ae579c7b8d504a}{ClockWise}})}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ triangle.rotate();}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_af3a90327ec8e2f6ada93d6fc772f6ce1_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_af3a90327ec8e2f6ada93d6fc772f6ce1_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_ad4897f8bf662366cd4ef0c5ff4ab4df4}\label{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_ad4897f8bf662366cd4ef0c5ff4ab4df4} 
+\index{Geometry::Delaunay::DelaunayTriangulator@{Geometry::Delaunay::DelaunayTriangulator}!triangulate@{triangulate}}
+\index{triangulate@{triangulate}!Geometry::Delaunay::DelaunayTriangulator@{Geometry::Delaunay::DelaunayTriangulator}}
+\doxysubsubsection{\texorpdfstring{triangulate()}{triangulate()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle}{Triangle}} $>$ Geometry\+::\+Delaunay\+::\+Delaunay\+Triangulator\+::triangulate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{delaunay_8cpp_source_l00009}{9}} of file \mbox{\hyperlink{delaunay_8cpp_source}{delaunay.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Triangle>\ triangles;}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \ \ \ \ triangles.push\_back(\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_af636b712d53051910bb8cb9e922dff17}{createSuperTriangle}}());}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ vertexIdx\ =\ 0;\ vertexIdx\ <\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_a1f6df495255726ddda7b6dee3fa52b97}{vertices}}.size();\ ++vertexIdx)}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Triangle>\ badTriangles;}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ Triangle\&\ triangle\ :\ triangles)}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_a831e0817fcb53c7f774acd471be6d3a6}{isPointInTrianglesCircle}}(triangle,\ vertexIdx))}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ badTriangles.push\_back(triangle);}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Edge>\ polygon;}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ Triangle\&\ badTriangle\ :\ badTriangles)}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ Edge\&\ edge\ :\ badTriangle.getEdges())}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ edgeSharedByOtherBadTriangle\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ Triangle\&\ triangle\ :\ badTriangles)}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (badTriangle\ ==\ triangle)}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (triangle.hasEdge(edge))}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ edgeSharedByOtherBadTriangle\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!edgeSharedByOtherBadTriangle)}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ polygon.push\_back(edge);}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ Triangle\&\ triangle\ :\ badTriangles)}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Triangle>::iterator\ iter\ =\ std::find(triangles.begin(),\ triangles.end(),\ triangle);}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ triangles.erase(iter);}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ Edge\&\ edge\ :\ polygon)}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Triangle\ newTriangle(edge.P0,\ edge.P1,\ vertexIdx);}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ triangles.push\_back(newTriangle);}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ hasSuperTrianglePoint\ =\ [\&](\textcolor{keyword}{const}\ Triangle\&\ triangle)\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ triangle.P0.superTriangle\ ||\ triangle.P1.superTriangle\ ||\ triangle.P2.superTriangle;}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Triangle>\ triangulation;}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ Triangle\&\ triangle\ :\ triangles)}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ if\ (!hasSuperTrianglePoint(triangle))}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ triangulation.push\_back(triangle);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//std::remove\_if(triangles.begin(),\ triangles.end(),\ hasSuperTrianglePoint);}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ triangulation;}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_ad4897f8bf662366cd4ef0c5ff4ab4df4_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_ad4897f8bf662366cd4ef0c5ff4ab4df4_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_a921bd03d4bfa6885387c960c66293e01}\label{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_a921bd03d4bfa6885387c960c66293e01} 
+\index{Geometry::Delaunay::DelaunayTriangulator@{Geometry::Delaunay::DelaunayTriangulator}!Triangulate@{Triangulate}}
+\index{Triangulate@{Triangulate}!Geometry::Delaunay::DelaunayTriangulator@{Geometry::Delaunay::DelaunayTriangulator}}
+\doxysubsubsection{\texorpdfstring{Triangulate()}{Triangulate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_geometry_1_1_delaunay_1_1_delaunay_triangulation}{Delaunay\+Triangulation}} Geometry\+::\+Delaunay\+::\+Delaunay\+Triangulator\+::\+Triangulate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_geometry_1_1_delaunay_a643e8f927eebc3f3a702ca86183886ab}{Triangle\+Direction}}}]{direction = {\ttfamily \mbox{\hyperlink{namespace_geometry_1_1_delaunay_a643e8f927eebc3f3a702ca86183886aba2a7a2eaef4c00214f4370cff589ce368}{Counter\+Clock\+Wise}}} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{delaunay_8cpp_source_l00221}{221}} of file \mbox{\hyperlink{delaunay_8cpp_source}{delaunay.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \ \ \ \ DelaunayTriangulation\ result;}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Triangle>\ triangulation\ =\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_ad4897f8bf662366cd4ef0c5ff4ab4df4}{triangulate}}();}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_af3a90327ec8e2f6ada93d6fc772f6ce1}{transformAllTriangles}}(triangulation,\ direction);}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \ \ \ \ result.Vertices\ =\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_a1f6df495255726ddda7b6dee3fa52b97}{vertices}};}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \ \ \ \ result.Triangles\ =\ triangulation;}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ result.Neighbours\ =\ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_ae0c9fc57c7a2b2008ca7e84f5cb94f7d}{getNeighbourhoodGraph}}(triangulation);}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_a921bd03d4bfa6885387c960c66293e01_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_a921bd03d4bfa6885387c960c66293e01_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_a61e9909126570bb2fdfb4e849337d390}\label{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_a61e9909126570bb2fdfb4e849337d390} 
+\index{Geometry::Delaunay::DelaunayTriangulator@{Geometry::Delaunay::DelaunayTriangulator}!superTriangleVertices@{superTriangleVertices}}
+\index{superTriangleVertices@{superTriangleVertices}!Geometry::Delaunay::DelaunayTriangulator@{Geometry::Delaunay::DelaunayTriangulator}}
+\doxysubsubsection{\texorpdfstring{superTriangleVertices}{superTriangleVertices}}
+{\footnotesize\ttfamily std\+::array$<$\mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}}, 3$>$ Geometry\+::\+Delaunay\+::\+Delaunay\+Triangulator\+::super\+Triangle\+Vertices\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{delaunay_8hpp_source_l00019}{19}} of file \mbox{\hyperlink{delaunay_8hpp_source}{delaunay.\+hpp}}.
+
+\Hypertarget{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_a1f6df495255726ddda7b6dee3fa52b97}\label{class_geometry_1_1_delaunay_1_1_delaunay_triangulator_a1f6df495255726ddda7b6dee3fa52b97} 
+\index{Geometry::Delaunay::DelaunayTriangulator@{Geometry::Delaunay::DelaunayTriangulator}!vertices@{vertices}}
+\index{vertices@{vertices}!Geometry::Delaunay::DelaunayTriangulator@{Geometry::Delaunay::DelaunayTriangulator}}
+\doxysubsubsection{\texorpdfstring{vertices}{vertices}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}}$>$ Geometry\+::\+Delaunay\+::\+Delaunay\+Triangulator\+::vertices\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{delaunay_8hpp_source_l00018}{18}} of file \mbox{\hyperlink{delaunay_8hpp_source}{delaunay.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Geometry/\mbox{\hyperlink{delaunay_8hpp}{delaunay.\+hpp}}\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Geometry/\mbox{\hyperlink{delaunay_8cpp}{delaunay.\+cpp}}\end{DoxyCompactItemize}

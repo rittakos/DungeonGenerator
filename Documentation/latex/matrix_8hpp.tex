@@ -1,0 +1,68 @@
+\doxysection{C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Math/matrix.hpp File Reference}
+\hypertarget{matrix_8hpp}{}\label{matrix_8hpp}\index{C:/Dev/DungeonGenerator/DungeonGenerator/Math/matrix.hpp@{C:/Dev/DungeonGenerator/DungeonGenerator/Math/matrix.hpp}}
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include "{}math.\+hpp"{}}\newline
+{\ttfamily \#include "{}is\+All\+Same.\+hpp"{}}\newline
+{\ttfamily \#include "{}vector.\+hpp"{}}\newline
+Include dependency graph for matrix.\+hpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{matrix_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{matrix_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_math_1_1_mat}{Math\+::\+Mat$<$ H, W, Type $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_math}{Math}}
+\item 
+namespace \mbox{\hyperlink{namespace_math_1_1_constant}{Math\+::\+Constant}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespace_math_aa455d8dec0d1090697b3a5721cc71f90}{Math\+::\+Mat3x3f}} = \mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$3, 3, float$>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$int D, class Type $>$ }\\\mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ 1, D, Type $>$ \mbox{\hyperlink{namespace_math_ab92ba61c4061d6dbca8ecf4b727c18e5}{Math\+::create\+Matrix\+From\+Vector}} (\mbox{\hyperlink{class_math_1_1_vec}{Math\+::\+Vec}}$<$ D, Type $>$ vec)
+\item 
+{\footnotesize template$<$int W1, int H1, class Type1 $>$ }\\\mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ W1, H1, Type1 $>$ \mbox{\hyperlink{namespace_math_a6f686e44ef531f116542143a580a02ce}{Math\+::T}} (const \mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W1, Type1 $>$ \&m)
+\item 
+{\footnotesize template$<$int W1, int H1, class Type1 $>$ }\\float \mbox{\hyperlink{namespace_math_ad7e98ce6e9027ffbe4a87184f67f7034}{Math\+::det}} (\mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ W1, H1, Type1 $>$ m)
+\item 
+{\footnotesize template$<$int H1, int W1, class Type1 $>$ }\\std\+::ostream \& \mbox{\hyperlink{namespace_math_a302164d4878a290980ee559a4583e7b9}{Math\+::operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W1, Type1 $>$ \&m)
+\item 
+{\footnotesize template$<$int W1, int H1, class Type1 $>$ }\\std\+::istream \& \mbox{\hyperlink{namespace_math_af08e2151a06b520864821924e203be94}{Math\+::operator$>$$>$}} (std\+::istream \&is, \mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W1, Type1 $>$ \&m)
+\item 
+{\footnotesize template$<$int H1, int W1, class Type1 $>$ }\\\mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W1, float $>$ \mbox{\hyperlink{namespace_math_a19a34a0e7320c79458a20463a387ae3d}{Math\+::operator\texorpdfstring{$\ast$}{*}}} (const \mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W1, Type1 $>$ \&m, float skalar)
+\item 
+{\footnotesize template$<$int H1, int W1, class Type1 $>$ }\\\mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W1, float $>$ \mbox{\hyperlink{namespace_math_a7ef65bccde0286b8269ef014e72c5e13}{Math\+::operator\texorpdfstring{$\ast$}{*}}} (float skalar, const \mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W1, Type1 $>$ \&m)
+\item 
+{\footnotesize template$<$int H1, int W1, class Type1 $>$ }\\\mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W1, float $>$ \mbox{\hyperlink{namespace_math_aeb8b201c2a077719593910dc97c5e10e}{Math\+::operator/}} (const \mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W1, Type1 $>$ \&m, float skalar)
+\item 
+{\footnotesize template$<$int W1, int W2, int H1, int H2, class Type1 $>$ }\\\mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W2, Type1 $>$ \mbox{\hyperlink{namespace_math_ad302d4a12ce328bed1e6d4627511927c}{Math\+::operator\texorpdfstring{$\ast$}{*}}} (const \mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H1, W1, Type1 $>$ \&m1, const \mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ H2, W2, Type1 $>$ \&m2)
+\item 
+{\footnotesize template$<$int W1, int H1, int D, class Type1 $>$ }\\\mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ D, Type1 $>$ \mbox{\hyperlink{namespace_math_a98549687ea1b097e84cd2cfc28c7d813}{Math\+::operator\texorpdfstring{$\ast$}{*}}} (const \mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ D, Type1 $>$ \&v, const \mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ W1, H1, Type1 $>$ \&m)
+\item 
+{\footnotesize template$<$int W1, int H1, int D, class Type1 $>$ }\\\mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ D, Type1 $>$ \mbox{\hyperlink{namespace_math_a9cd63f3df19405b9474c0b5a2b2255fb}{Math\+::operator\texorpdfstring{$\ast$}{*}}} (const \mbox{\hyperlink{class_math_1_1_mat}{Mat}}$<$ W1, H1, Type1 $>$ \&m, const \mbox{\hyperlink{class_math_1_1_vec}{Vec}}$<$ D, Type1 $>$ \&v)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{namespace_math_aa455d8dec0d1090697b3a5721cc71f90}{Mat3x3f}} \mbox{\hyperlink{namespace_math_1_1_constant_a892952106abe07e82cf090f181885dce}{Math\+::\+Constant\+::E}} (1.\+0f, 0.\+0f, 0.\+0f, 0.\+0f, 1.\+0f, 0.\+0f, 0.\+0f, 0.\+0f, 1.\+0f)
+\end{DoxyCompactItemize}

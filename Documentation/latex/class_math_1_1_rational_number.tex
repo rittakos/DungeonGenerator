@@ -1,0 +1,107 @@
+\doxysection{Math\+::Rational\+Number Class Reference}
+\hypertarget{class_math_1_1_rational_number}{}\label{class_math_1_1_rational_number}\index{Math::RationalNumber@{Math::RationalNumber}}
+
+
+{\ttfamily \#include $<$rational\+Number.\+hpp$>$}
+
+
+
+Collaboration diagram for Math\+::Rational\+Number\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=186pt]{class_math_1_1_rational_number__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_math_1_1_rational_number_ad83c62c3de5e11996d7e3bc8daf92289}{Rational\+Number}} (int \mbox{\hyperlink{class_math_1_1_rational_number_abb7d76ba7ee842c96d261a4666aecb00}{numerator}}, int \mbox{\hyperlink{class_math_1_1_rational_number_ac68009338d3e6704f8273a7e273abf73}{denominator}})
+\item 
+\mbox{\hyperlink{class_math_1_1_rational_number_a9887ee4dcd9306c48d3ae03af1b202f1}{operator float}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_math_1_1_rational_number_abb7d76ba7ee842c96d261a4666aecb00}{numerator}}
+\item 
+int \mbox{\hyperlink{class_math_1_1_rational_number_ac68009338d3e6704f8273a7e273abf73}{denominator}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{rational_number_8hpp_source_l00006}{6}} of file \mbox{\hyperlink{rational_number_8hpp_source}{rational\+Number.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_math_1_1_rational_number_ad83c62c3de5e11996d7e3bc8daf92289}\label{class_math_1_1_rational_number_ad83c62c3de5e11996d7e3bc8daf92289} 
+\index{Math::RationalNumber@{Math::RationalNumber}!RationalNumber@{RationalNumber}}
+\index{RationalNumber@{RationalNumber}!Math::RationalNumber@{Math::RationalNumber}}
+\doxysubsubsection{\texorpdfstring{RationalNumber()}{RationalNumber()}}
+{\footnotesize\ttfamily Math\+::\+Rational\+Number\+::\+Rational\+Number (\begin{DoxyParamCaption}\item[{int}]{numerator,  }\item[{int}]{denominator }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{rational_number_8cpp_source_l00006}{6}} of file \mbox{\hyperlink{rational_number_8cpp_source}{rational\+Number.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00006\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{class_math_1_1_rational_number_abb7d76ba7ee842c96d261a4666aecb00}{numerator}}(\mbox{\hyperlink{class_math_1_1_rational_number_abb7d76ba7ee842c96d261a4666aecb00}{numerator}}),\ \mbox{\hyperlink{class_math_1_1_rational_number_ac68009338d3e6704f8273a7e273abf73}{denominator}}(\mbox{\hyperlink{class_math_1_1_rational_number_ac68009338d3e6704f8273a7e273abf73}{denominator}}) }
+\DoxyCodeLine{00007\ \ \ \ \ \{}
+\DoxyCodeLine{00008\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_math_1_1_rational_number_ac68009338d3e6704f8273a7e273abf73}{denominator}}\ ==\ 0)}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ ZeroDivisionException();}
+\DoxyCodeLine{00010\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_math_1_1_rational_number_a9887ee4dcd9306c48d3ae03af1b202f1}\label{class_math_1_1_rational_number_a9887ee4dcd9306c48d3ae03af1b202f1} 
+\index{Math::RationalNumber@{Math::RationalNumber}!operator float@{operator float}}
+\index{operator float@{operator float}!Math::RationalNumber@{Math::RationalNumber}}
+\doxysubsubsection{\texorpdfstring{operator float()}{operator float()}}
+{\footnotesize\ttfamily Math\+::\+Rational\+Number\+::operator float (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{rational_number_8cpp_source_l00012}{12}} of file \mbox{\hyperlink{rational_number_8cpp_source}{rational\+Number.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00013\ \ \ \ \ \{\ }
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\textcolor{keywordtype}{float})\mbox{\hyperlink{class_math_1_1_rational_number_abb7d76ba7ee842c96d261a4666aecb00}{numerator}}\ /\ (float)\mbox{\hyperlink{class_math_1_1_rational_number_ac68009338d3e6704f8273a7e273abf73}{denominator}};\ }
+\DoxyCodeLine{00015\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_math_1_1_rational_number_ac68009338d3e6704f8273a7e273abf73}\label{class_math_1_1_rational_number_ac68009338d3e6704f8273a7e273abf73} 
+\index{Math::RationalNumber@{Math::RationalNumber}!denominator@{denominator}}
+\index{denominator@{denominator}!Math::RationalNumber@{Math::RationalNumber}}
+\doxysubsubsection{\texorpdfstring{denominator}{denominator}}
+{\footnotesize\ttfamily int Math\+::\+Rational\+Number\+::denominator\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{rational_number_8hpp_source_l00010}{10}} of file \mbox{\hyperlink{rational_number_8hpp_source}{rational\+Number.\+hpp}}.
+
+\Hypertarget{class_math_1_1_rational_number_abb7d76ba7ee842c96d261a4666aecb00}\label{class_math_1_1_rational_number_abb7d76ba7ee842c96d261a4666aecb00} 
+\index{Math::RationalNumber@{Math::RationalNumber}!numerator@{numerator}}
+\index{numerator@{numerator}!Math::RationalNumber@{Math::RationalNumber}}
+\doxysubsubsection{\texorpdfstring{numerator}{numerator}}
+{\footnotesize\ttfamily int Math\+::\+Rational\+Number\+::numerator\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{rational_number_8hpp_source_l00009}{9}} of file \mbox{\hyperlink{rational_number_8hpp_source}{rational\+Number.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Math/\mbox{\hyperlink{rational_number_8hpp}{rational\+Number.\+hpp}}\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Math/\mbox{\hyperlink{rational_number_8cpp}{rational\+Number.\+cpp}}\end{DoxyCompactItemize}

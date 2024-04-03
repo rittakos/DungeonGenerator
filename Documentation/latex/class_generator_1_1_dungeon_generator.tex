@@ -1,0 +1,145 @@
+\doxysection{Generator\+::Dungeon\+Generator Class Reference}
+\hypertarget{class_generator_1_1_dungeon_generator}{}\label{class_generator_1_1_dungeon_generator}\index{Generator::DungeonGenerator@{Generator::DungeonGenerator}}
+
+
+{\ttfamily \#include $<$dungeon\+Generator.\+hpp$>$}
+
+
+
+Collaboration diagram for Generator\+::Dungeon\+Generator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=221pt]{class_generator_1_1_dungeon_generator__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_generator_1_1_dungeon_generator_a40d7eac32671aa3ab7352f7a596a5b73}{Dungeon\+Generator}} (\mbox{\hyperlink{class_dungeon_generator_settings}{Dungeon\+Generator\+Settings}} \mbox{\hyperlink{class_generator_1_1_dungeon_generator_a49adbd3e60f40de6b85fd680ad483604}{settings}})
+\item 
+void \mbox{\hyperlink{class_generator_1_1_dungeon_generator_adfdeccf9958044dd44eebc01ccaa2715}{generate}} (\mbox{\hyperlink{class_data_1_1_dungeon_data}{Data\+::\+Dungeon\+Data}} \&dungeon\+Data)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_dungeon_generator_settings}{Dungeon\+Generator\+Settings}} \mbox{\hyperlink{class_generator_1_1_dungeon_generator_a49adbd3e60f40de6b85fd680ad483604}{settings}}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_generator_1_1_generator_algorithm}{Generator\+::\+Generator\+Algorithm}} $>$ \mbox{\hyperlink{class_generator_1_1_dungeon_generator_a2cc8fb8f615ba0f265f2569f3f1b63c6}{algorithm}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{dungeon_generator_8hpp_source_l00011}{11}} of file \mbox{\hyperlink{dungeon_generator_8hpp_source}{dungeon\+Generator.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_generator_1_1_dungeon_generator_a40d7eac32671aa3ab7352f7a596a5b73}\label{class_generator_1_1_dungeon_generator_a40d7eac32671aa3ab7352f7a596a5b73} 
+\index{Generator::DungeonGenerator@{Generator::DungeonGenerator}!DungeonGenerator@{DungeonGenerator}}
+\index{DungeonGenerator@{DungeonGenerator}!Generator::DungeonGenerator@{Generator::DungeonGenerator}}
+\doxysubsubsection{\texorpdfstring{DungeonGenerator()}{DungeonGenerator()}}
+{\footnotesize\ttfamily Generator\+::\+Dungeon\+Generator\+::\+Dungeon\+Generator (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_dungeon_generator_settings}{Dungeon\+Generator\+Settings}}}]{settings }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{dungeon_generator_8cpp_source_l00010}{10}} of file \mbox{\hyperlink{dungeon_generator_8cpp_source}{dungeon\+Generator.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{class_generator_1_1_dungeon_generator_a49adbd3e60f40de6b85fd680ad483604}{settings}}\{\ \mbox{\hyperlink{class_generator_1_1_dungeon_generator_a49adbd3e60f40de6b85fd680ad483604}{settings}}\ \}}
+\DoxyCodeLine{00011\ \ \ \ \ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (\mbox{\hyperlink{class_generator_1_1_dungeon_generator_a49adbd3e60f40de6b85fd680ad483604}{settings}}.\mbox{\hyperlink{class_dungeon_generator_settings_a66f17902c7bcf2536836c605f809b0ac}{getAlgorithmType}}())}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{dungeon_genereator_settings_8hpp_ada2a74446377272bd4129f812d0d5ffca7b9a79909d7ec4f31f954a6938661150}{Voronoi}}:}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_log_acc334094de2c17174209b77597e7742d}{Log::info}}(\textcolor{stringliteral}{"{}Generation\ with\ Voronoi\ based\ algorithm!"{}});}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_generator_1_1_dungeon_generator_a2cc8fb8f615ba0f265f2569f3f1b63c6}{algorithm}}\ =\ std::make\_shared<Generator::VoronoiBasedGeneratorAlgorithm>();}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{dungeon_genereator_settings_8hpp_ada2a74446377272bd4129f812d0d5ffcaad26bd8e079b5cc9c32586fc970a9f8f}{Delaunay}}:}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_log_acc334094de2c17174209b77597e7742d}{Log::info}}(\textcolor{stringliteral}{"{}Generation\ with\ Delanuay\ based\ algorithm!"{}});}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_generator_1_1_dungeon_generator_a2cc8fb8f615ba0f265f2569f3f1b63c6}{algorithm}}\ =\ std::make\_shared<Generator::DelaunayBasedGeneratorAlgorithm>(\mbox{\hyperlink{class_generator_1_1_dungeon_generator_a49adbd3e60f40de6b85fd680ad483604}{settings}});}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_generator_1_1_dungeon_generator_a2cc8fb8f615ba0f265f2569f3f1b63c6}{algorithm}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00025\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_generator_1_1_dungeon_generator_a40d7eac32671aa3ab7352f7a596a5b73_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_generator_1_1_dungeon_generator_adfdeccf9958044dd44eebc01ccaa2715}\label{class_generator_1_1_dungeon_generator_adfdeccf9958044dd44eebc01ccaa2715} 
+\index{Generator::DungeonGenerator@{Generator::DungeonGenerator}!generate@{generate}}
+\index{generate@{generate}!Generator::DungeonGenerator@{Generator::DungeonGenerator}}
+\doxysubsubsection{\texorpdfstring{generate()}{generate()}}
+{\footnotesize\ttfamily void Generator\+::\+Dungeon\+Generator\+::generate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_data_1_1_dungeon_data}{Data\+::\+Dungeon\+Data}} \&}]{dungeon\+Data }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{dungeon_generator_8cpp_source_l00028}{28}} of file \mbox{\hyperlink{dungeon_generator_8cpp_source}{dungeon\+Generator.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029\ \ \ \ \ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_time_guard}{TimeGuard}}\ timeGuard(\textcolor{stringliteral}{"{}Room\ Generation"{}});}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_generator_1_1_dungeon_generator_a2cc8fb8f615ba0f265f2569f3f1b63c6}{algorithm}}-\/>Generate(dungeonData);}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_log_acc334094de2c17174209b77597e7742d}{Log::info}}(\textcolor{stringliteral}{"{}Generation\ done!"{}});}
+\DoxyCodeLine{00033\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_generator_1_1_dungeon_generator_adfdeccf9958044dd44eebc01ccaa2715_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_generator_1_1_dungeon_generator_adfdeccf9958044dd44eebc01ccaa2715_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_generator_1_1_dungeon_generator_a2cc8fb8f615ba0f265f2569f3f1b63c6}\label{class_generator_1_1_dungeon_generator_a2cc8fb8f615ba0f265f2569f3f1b63c6} 
+\index{Generator::DungeonGenerator@{Generator::DungeonGenerator}!algorithm@{algorithm}}
+\index{algorithm@{algorithm}!Generator::DungeonGenerator@{Generator::DungeonGenerator}}
+\doxysubsubsection{\texorpdfstring{algorithm}{algorithm}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_generator_1_1_generator_algorithm}{Generator\+::\+Generator\+Algorithm}}$>$ Generator\+::\+Dungeon\+Generator\+::algorithm\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{dungeon_generator_8hpp_source_l00015}{15}} of file \mbox{\hyperlink{dungeon_generator_8hpp_source}{dungeon\+Generator.\+hpp}}.
+
+\Hypertarget{class_generator_1_1_dungeon_generator_a49adbd3e60f40de6b85fd680ad483604}\label{class_generator_1_1_dungeon_generator_a49adbd3e60f40de6b85fd680ad483604} 
+\index{Generator::DungeonGenerator@{Generator::DungeonGenerator}!settings@{settings}}
+\index{settings@{settings}!Generator::DungeonGenerator@{Generator::DungeonGenerator}}
+\doxysubsubsection{\texorpdfstring{settings}{settings}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_dungeon_generator_settings}{Dungeon\+Generator\+Settings}} Generator\+::\+Dungeon\+Generator\+::settings\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{dungeon_generator_8hpp_source_l00014}{14}} of file \mbox{\hyperlink{dungeon_generator_8hpp_source}{dungeon\+Generator.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Generator/\mbox{\hyperlink{dungeon_generator_8hpp}{dungeon\+Generator.\+hpp}}\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Generator/\mbox{\hyperlink{dungeon_generator_8cpp}{dungeon\+Generator.\+cpp}}\end{DoxyCompactItemize}

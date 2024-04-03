@@ -1,0 +1,125 @@
+\doxysection{Math\+::Second\+Degree\+Equation Class Reference}
+\hypertarget{class_math_1_1_second_degree_equation}{}\label{class_math_1_1_second_degree_equation}\index{Math::SecondDegreeEquation@{Math::SecondDegreeEquation}}
+
+
+{\ttfamily \#include $<$second\+Degree\+Equation.\+hpp$>$}
+
+
+
+Collaboration diagram for Math\+::Second\+Degree\+Equation\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=219pt]{class_math_1_1_second_degree_equation__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_math_1_1_second_degree_equation_a9fce4656a72e0b1664f1d2fc2c4cf947}{Second\+Degree\+Equation}} (float \mbox{\hyperlink{class_math_1_1_second_degree_equation_a3bd429c4eeb5b47c708f08eac6baa7a1}{a}}, float \mbox{\hyperlink{class_math_1_1_second_degree_equation_a69a4d5991d643a3a0f70b20491744723}{b}}, float \mbox{\hyperlink{class_math_1_1_second_degree_equation_a69f562e440062e77c52846fad021d2db}{c}})
+\item 
+std\+::optional$<$ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} $>$ \mbox{\hyperlink{class_math_1_1_second_degree_equation_a27e2b6d3814e46c51a10b2101529757d}{get\+Solution}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{class_math_1_1_second_degree_equation_a3bd429c4eeb5b47c708f08eac6baa7a1}{a}}
+\item 
+float \mbox{\hyperlink{class_math_1_1_second_degree_equation_a69a4d5991d643a3a0f70b20491744723}{b}}
+\item 
+float \mbox{\hyperlink{class_math_1_1_second_degree_equation_a69f562e440062e77c52846fad021d2db}{c}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{second_degree_equation_8hpp_source_l00008}{8}} of file \mbox{\hyperlink{second_degree_equation_8hpp_source}{second\+Degree\+Equation.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_math_1_1_second_degree_equation_a9fce4656a72e0b1664f1d2fc2c4cf947}\label{class_math_1_1_second_degree_equation_a9fce4656a72e0b1664f1d2fc2c4cf947} 
+\index{Math::SecondDegreeEquation@{Math::SecondDegreeEquation}!SecondDegreeEquation@{SecondDegreeEquation}}
+\index{SecondDegreeEquation@{SecondDegreeEquation}!Math::SecondDegreeEquation@{Math::SecondDegreeEquation}}
+\doxysubsubsection{\texorpdfstring{SecondDegreeEquation()}{SecondDegreeEquation()}}
+{\footnotesize\ttfamily Math\+::\+Second\+Degree\+Equation\+::\+Second\+Degree\+Equation (\begin{DoxyParamCaption}\item[{float}]{a,  }\item[{float}]{b,  }\item[{float}]{c }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{second_degree_equation_8cpp_source_l00007}{7}} of file \mbox{\hyperlink{second_degree_equation_8cpp_source}{second\+Degree\+Equation.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00008\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{class_math_1_1_second_degree_equation_a3bd429c4eeb5b47c708f08eac6baa7a1}{a}}(\mbox{\hyperlink{class_math_1_1_second_degree_equation_a3bd429c4eeb5b47c708f08eac6baa7a1}{a}}),\ \mbox{\hyperlink{class_math_1_1_second_degree_equation_a69a4d5991d643a3a0f70b20491744723}{b}}(\mbox{\hyperlink{class_math_1_1_second_degree_equation_a69a4d5991d643a3a0f70b20491744723}{b}}),\ \mbox{\hyperlink{class_math_1_1_second_degree_equation_a69f562e440062e77c52846fad021d2db}{c}}(\mbox{\hyperlink{class_math_1_1_second_degree_equation_a69f562e440062e77c52846fad021d2db}{c}}) }
+\DoxyCodeLine{00009\ \ \ \ \ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_math_1_1_second_degree_equation_a27e2b6d3814e46c51a10b2101529757d}\label{class_math_1_1_second_degree_equation_a27e2b6d3814e46c51a10b2101529757d} 
+\index{Math::SecondDegreeEquation@{Math::SecondDegreeEquation}!getSolution@{getSolution}}
+\index{getSolution@{getSolution}!Math::SecondDegreeEquation@{Math::SecondDegreeEquation}}
+\doxysubsubsection{\texorpdfstring{getSolution()}{getSolution()}}
+{\footnotesize\ttfamily std\+::optional$<$ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} $>$ Math\+::\+Second\+Degree\+Equation\+::get\+Solution (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{second_degree_equation_8cpp_source_l00012}{12}} of file \mbox{\hyperlink{second_degree_equation_8cpp_source}{second\+Degree\+Equation.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00013\ \ \ \ \ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{comment}{//x1/2\ =\ (-\/b\ +-\/\ sqrt(b\string^2\ -\/\ 4ac))\ /\ (2a)}}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ D\ =\ \mbox{\hyperlink{class_math_1_1_second_degree_equation_a69a4d5991d643a3a0f70b20491744723}{b}}\ *\ \mbox{\hyperlink{class_math_1_1_second_degree_equation_a69a4d5991d643a3a0f70b20491744723}{b}}\ -\/\ 4.0f\ *\ \mbox{\hyperlink{class_math_1_1_second_degree_equation_a3bd429c4eeb5b47c708f08eac6baa7a1}{a}}\ *\ \mbox{\hyperlink{class_math_1_1_second_degree_equation_a69f562e440062e77c52846fad021d2db}{c}};}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (D\ <\ 0)}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{\};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ x1\ =\ (-\/\mbox{\hyperlink{class_math_1_1_second_degree_equation_a69a4d5991d643a3a0f70b20491744723}{b}}\ +\ std::sqrtf(D))\ /\ (2.0f\ *\ \mbox{\hyperlink{class_math_1_1_second_degree_equation_a3bd429c4eeb5b47c708f08eac6baa7a1}{a}});}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ x2\ =\ (-\/\mbox{\hyperlink{class_math_1_1_second_degree_equation_a69a4d5991d643a3a0f70b20491744723}{b}}\ -\/\ std::sqrtf(D))\ /\ (2.0f\ *\ \mbox{\hyperlink{class_math_1_1_second_degree_equation_a3bd429c4eeb5b47c708f08eac6baa7a1}{a}});}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Vec2f}}(x1,\ x2);}
+\DoxyCodeLine{00023\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_math_1_1_second_degree_equation_a3bd429c4eeb5b47c708f08eac6baa7a1}\label{class_math_1_1_second_degree_equation_a3bd429c4eeb5b47c708f08eac6baa7a1} 
+\index{Math::SecondDegreeEquation@{Math::SecondDegreeEquation}!a@{a}}
+\index{a@{a}!Math::SecondDegreeEquation@{Math::SecondDegreeEquation}}
+\doxysubsubsection{\texorpdfstring{a}{a}}
+{\footnotesize\ttfamily float Math\+::\+Second\+Degree\+Equation\+::a\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{second_degree_equation_8hpp_source_l00011}{11}} of file \mbox{\hyperlink{second_degree_equation_8hpp_source}{second\+Degree\+Equation.\+hpp}}.
+
+\Hypertarget{class_math_1_1_second_degree_equation_a69a4d5991d643a3a0f70b20491744723}\label{class_math_1_1_second_degree_equation_a69a4d5991d643a3a0f70b20491744723} 
+\index{Math::SecondDegreeEquation@{Math::SecondDegreeEquation}!b@{b}}
+\index{b@{b}!Math::SecondDegreeEquation@{Math::SecondDegreeEquation}}
+\doxysubsubsection{\texorpdfstring{b}{b}}
+{\footnotesize\ttfamily float Math\+::\+Second\+Degree\+Equation\+::b\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{second_degree_equation_8hpp_source_l00012}{12}} of file \mbox{\hyperlink{second_degree_equation_8hpp_source}{second\+Degree\+Equation.\+hpp}}.
+
+\Hypertarget{class_math_1_1_second_degree_equation_a69f562e440062e77c52846fad021d2db}\label{class_math_1_1_second_degree_equation_a69f562e440062e77c52846fad021d2db} 
+\index{Math::SecondDegreeEquation@{Math::SecondDegreeEquation}!c@{c}}
+\index{c@{c}!Math::SecondDegreeEquation@{Math::SecondDegreeEquation}}
+\doxysubsubsection{\texorpdfstring{c}{c}}
+{\footnotesize\ttfamily float Math\+::\+Second\+Degree\+Equation\+::c\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{second_degree_equation_8hpp_source_l00013}{13}} of file \mbox{\hyperlink{second_degree_equation_8hpp_source}{second\+Degree\+Equation.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Math/\mbox{\hyperlink{second_degree_equation_8hpp}{second\+Degree\+Equation.\+hpp}}\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Math/\mbox{\hyperlink{second_degree_equation_8cpp}{second\+Degree\+Equation.\+cpp}}\end{DoxyCompactItemize}

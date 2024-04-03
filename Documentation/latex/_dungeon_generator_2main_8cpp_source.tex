@@ -1,0 +1,444 @@
+\doxysection{main.\+cpp}
+\hypertarget{_dungeon_generator_2main_8cpp_source}{}\label{_dungeon_generator_2main_8cpp_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/DungeonGenerator/main.cpp@{C:/Dev/DungeonGenerator/DungeonGenerator/DungeonGenerator/main.cpp}}
+\mbox{\hyperlink{_dungeon_generator_2main_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <random>}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <cassert>}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{dungeon_genereator_settings_8hpp}{dungeonGenereatorSettings.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{random_8h}{random.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{dungeon_8hpp}{dungeon.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{maze_generator_settings_8hpp}{mazeGeneratorSettings.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{hole_generator_settings_8hpp}{holeGeneratorSettings.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00011}\mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7}{00011}}\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7}{Tile}}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00012}00012\ \{}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00013}00013\ \ \ \ \ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7a92e592d90b9548016776a6fb68dccded}{Unused}},}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00014}00014\ \ \ \ \ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7af91c008736f743d4a81dc92553e571a0}{DirtWall}},}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00015}00015\ \ \ \ \ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7afaefc6c46db8f233bf2fc4ddf6ac2bd6}{DirtFloor}},}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00016}00016\ \ \ \ \ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7a78b14475f6b820d3111037c2f17b5361}{Corridor}},}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00017}00017\ \ \ \ \ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7af44e14d49cd011d1e873d9fe0c4624f1}{Door}},}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00018}00018\ \ \ \ \ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7af206f85d6241680cf7cdb256d8b8dbdf}{UpStairs}},}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00019}00019\ \ \ \ \ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7acb38b4029eab73f5ccc9af24c527fd03}{DownStairs}}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00020}00020\ \};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00022}\mbox{\hyperlink{_dungeon_generator_2main_8cpp_a224b9163917ac32fc95a60d8c1eec3aa}{00022}}\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00023}00023\ \{}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00024}00024\ \ \ \ \ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_a224b9163917ac32fc95a60d8c1eec3aaa601560b94fbb188919dd1d36c8ab70a4}{North}},\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_a224b9163917ac32fc95a60d8c1eec3aaa263d7b2cf53802c9ed127b718c0bf9fd}{South}},\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_a224b9163917ac32fc95a60d8c1eec3aaaa99dc62d017d04cf67266593f9c3761e}{East}},\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_a224b9163917ac32fc95a60d8c1eec3aaabf495fc048d8d44b7f32536df5cf3930}{West}},}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00025}00025\ \};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00027}\mbox{\hyperlink{class_map}{00027}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_map}{Map}}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00028}00028\ \{}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00029}00029\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00031}\mbox{\hyperlink{class_map_a0f5ad0fd4563497b4214038cbca8b582}{00031}}\ \ \ \ \ \mbox{\hyperlink{class_map_a0f5ad0fd4563497b4214038cbca8b582}{Map}}()\ :}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_map_a19052d37067703cee90b41c1719caf49}{xSize}}(0),\ \mbox{\hyperlink{class_map_a8094c1ac27c2e09cbd1c4396142ad4f2}{ySize}}(0),}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_map_ae157b4fd272b8a57572000f383fd3aab}{data}}()\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00035}\mbox{\hyperlink{class_map_a367fb12d6bc5f661f8a83bf977a7eb44}{00035}}\ \ \ \ \ \mbox{\hyperlink{class_map_a367fb12d6bc5f661f8a83bf977a7eb44}{Map}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7}{Tile}}\ value\ =\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7a92e592d90b9548016776a6fb68dccded}{Tile::Unused}})\ :}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_map_a19052d37067703cee90b41c1719caf49}{xSize}}(x),\ \mbox{\hyperlink{class_map_a8094c1ac27c2e09cbd1c4396142ad4f2}{ySize}}(y),}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_map_ae157b4fd272b8a57572000f383fd3aab}{data}}(x*\ y,\ value)\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00039}\mbox{\hyperlink{class_map_a7ca1f7faa99f517dc20392fea8365be0}{00039}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_map_a7ca1f7faa99f517dc20392fea8365be0}{SetCell}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7}{Tile}}\ celltype)}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00040}00040\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ assert(\mbox{\hyperlink{class_map_a4de2da6d9b40ffca2a28b1d0b9596f8d}{IsXInBounds}}(x));}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ assert(\mbox{\hyperlink{class_map_a6b8d29d0524c3539845f3fa4e11e6856}{IsYInBounds}}(y));}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ idx\ =\ x\ +\ \mbox{\hyperlink{class_map_a19052d37067703cee90b41c1719caf49}{xSize}}\ *\ y;}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_map_ae157b4fd272b8a57572000f383fd3aab}{data}}[idx]\ =\ celltype;}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00046}00046\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00048}\mbox{\hyperlink{class_map_ad3ea7f31c54421e091ef5863d28fac61}{00048}}\ \ \ \ \ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7}{Tile}}\ \mbox{\hyperlink{class_map_ad3ea7f31c54421e091ef5863d28fac61}{GetCell}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00049}00049\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ assert(\mbox{\hyperlink{class_map_a4de2da6d9b40ffca2a28b1d0b9596f8d}{IsXInBounds}}(x));}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ assert(\mbox{\hyperlink{class_map_a6b8d29d0524c3539845f3fa4e11e6856}{IsYInBounds}}(y));}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ idx\ =\ x\ +\ \mbox{\hyperlink{class_map_a19052d37067703cee90b41c1719caf49}{xSize}}\ *\ y;}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_map_ae157b4fd272b8a57572000f383fd3aab}{data}}[idx];}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00055}00055\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00057}\mbox{\hyperlink{class_map_aee4abccaa57ef1c0c5f688c22811bce9}{00057}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_map_aee4abccaa57ef1c0c5f688c22811bce9}{SetCells}}(\textcolor{keywordtype}{int}\ xStart,\ \textcolor{keywordtype}{int}\ yStart,\ \textcolor{keywordtype}{int}\ xEnd,\ \textcolor{keywordtype}{int}\ yEnd,\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7}{Tile}}\ cellType)}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00058}00058\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ assert(\mbox{\hyperlink{class_map_a4de2da6d9b40ffca2a28b1d0b9596f8d}{IsXInBounds}}(xStart)\ \&\&\ \mbox{\hyperlink{class_map_a4de2da6d9b40ffca2a28b1d0b9596f8d}{IsXInBounds}}(xEnd));}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ assert(\mbox{\hyperlink{class_map_a6b8d29d0524c3539845f3fa4e11e6856}{IsYInBounds}}(yStart)\ \&\&\ \mbox{\hyperlink{class_map_a6b8d29d0524c3539845f3fa4e11e6856}{IsYInBounds}}(yEnd));}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ assert(xStart\ <=\ xEnd);}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ assert(yStart\ <=\ yEnd);}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ y\ =\ yStart;\ y\ !=\ yEnd\ +\ 1;\ ++y)}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ x\ =\ xStart;\ x\ !=\ xEnd\ +\ 1;\ ++x)}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_map_a7ca1f7faa99f517dc20392fea8365be0}{SetCell}}(x,\ y,\ cellType);}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00068}00068\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00070}\mbox{\hyperlink{class_map_a4de2da6d9b40ffca2a28b1d0b9596f8d}{00070}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_map_a4de2da6d9b40ffca2a28b1d0b9596f8d}{IsXInBounds}}(\textcolor{keywordtype}{int}\ x)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00071}00071\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ x\ >=\ 0\ \&\&\ x\ <\ \mbox{\hyperlink{class_map_a19052d37067703cee90b41c1719caf49}{xSize}};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00073}00073\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00075}\mbox{\hyperlink{class_map_a6b8d29d0524c3539845f3fa4e11e6856}{00075}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_map_a6b8d29d0524c3539845f3fa4e11e6856}{IsYInBounds}}(\textcolor{keywordtype}{int}\ y)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00076}00076\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ y\ >=\ 0\ \&\&\ y\ <\ \mbox{\hyperlink{class_map_a8094c1ac27c2e09cbd1c4396142ad4f2}{ySize}};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00078}00078\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00080}\mbox{\hyperlink{class_map_a8776c15802924d8455f4e86bbdcedc64}{00080}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_map_a8776c15802924d8455f4e86bbdcedc64}{IsAreaUnused}}(\textcolor{keywordtype}{int}\ xStart,\ \textcolor{keywordtype}{int}\ yStart,\ \textcolor{keywordtype}{int}\ xEnd,\ \textcolor{keywordtype}{int}\ yEnd)}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00081}00081\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00082}00082\ \ \ \ \ \ \ \ \ assert(\mbox{\hyperlink{class_map_a4de2da6d9b40ffca2a28b1d0b9596f8d}{IsXInBounds}}(xStart)\ \&\&\ \mbox{\hyperlink{class_map_a4de2da6d9b40ffca2a28b1d0b9596f8d}{IsXInBounds}}(xEnd));}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ assert(\mbox{\hyperlink{class_map_a6b8d29d0524c3539845f3fa4e11e6856}{IsYInBounds}}(yStart)\ \&\&\ \mbox{\hyperlink{class_map_a6b8d29d0524c3539845f3fa4e11e6856}{IsYInBounds}}(yEnd));}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00085}00085\ \ \ \ \ \ \ \ \ assert(xStart\ <=\ xEnd);}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ assert(yStart\ <=\ yEnd);}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ y\ =\ yStart;\ y\ !=\ yEnd\ +\ 1;\ ++y)}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ x\ =\ xStart;\ x\ !=\ xEnd\ +\ 1;\ ++x)}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_map_ad3ea7f31c54421e091ef5863d28fac61}{GetCell}}(x,\ y)\ !=\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7a92e592d90b9548016776a6fb68dccded}{Tile::Unused}})}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00094}00094\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00096}\mbox{\hyperlink{class_map_aa1f7005c3fbb9abb0378bf64d5e78a40}{00096}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_map_aa1f7005c3fbb9abb0378bf64d5e78a40}{IsAdjacent}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7}{Tile}}\ tile)}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00097}00097\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00098}00098\ \ \ \ \ \ \ \ \ assert(\mbox{\hyperlink{class_map_a4de2da6d9b40ffca2a28b1d0b9596f8d}{IsXInBounds}}(x\ -\/\ 1)\ \&\&\ \mbox{\hyperlink{class_map_a4de2da6d9b40ffca2a28b1d0b9596f8d}{IsXInBounds}}(x\ +\ 1));}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00099}00099\ \ \ \ \ \ \ \ \ assert(\mbox{\hyperlink{class_map_a6b8d29d0524c3539845f3fa4e11e6856}{IsYInBounds}}(y\ -\/\ 1)\ \&\&\ \mbox{\hyperlink{class_map_a6b8d29d0524c3539845f3fa4e11e6856}{IsYInBounds}}(y\ +\ 1));}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00101}00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_map_ad3ea7f31c54421e091ef5863d28fac61}{GetCell}}(x\ -\/\ 1,\ y)\ ==\ tile\ ||\ \mbox{\hyperlink{class_map_ad3ea7f31c54421e091ef5863d28fac61}{GetCell}}(x\ +\ 1,\ y)\ ==\ tile\ ||}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_map_ad3ea7f31c54421e091ef5863d28fac61}{GetCell}}(x,\ y\ -\/\ 1)\ ==\ tile\ ||\ \mbox{\hyperlink{class_map_ad3ea7f31c54421e091ef5863d28fac61}{GetCell}}(x,\ y\ +\ 1)\ ==\ tile;}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00104}00104\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00106}\mbox{\hyperlink{class_map_ad98f17483072d6f71a369dbde0ecc04e}{00106}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_map_ad98f17483072d6f71a369dbde0ecc04e}{Print}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00107}00107\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00108}00108\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ y\ =\ 0;\ y\ !=\ \mbox{\hyperlink{class_map_a8094c1ac27c2e09cbd1c4396142ad4f2}{ySize}};\ y++)}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00109}00109\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ x\ =\ 0;\ x\ !=\ \mbox{\hyperlink{class_map_a19052d37067703cee90b41c1719caf49}{xSize}};\ x++)}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (\mbox{\hyperlink{class_map_ad3ea7f31c54421e091ef5863d28fac61}{GetCell}}(x,\ y))}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7a92e592d90b9548016776a6fb68dccded}{Tile::Unused}}:}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7af91c008736f743d4a81dc92553e571a0}{Tile::DirtWall}}:}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\#"{}};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7afaefc6c46db8f233bf2fc4ddf6ac2bd6}{Tile::DirtFloor}}:}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7a78b14475f6b820d3111037c2f17b5361}{Tile::Corridor}}:}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00124}00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7af44e14d49cd011d1e873d9fe0c4624f1}{Tile::Door}}:}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}+"{}};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7af206f85d6241680cf7cdb256d8b8dbdf}{Tile::UpStairs}}:}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}<"{}};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7acb38b4029eab73f5ccc9af24c527fd03}{Tile::DownStairs}}:}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}>"{}};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00137}00137\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00139}00139\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00140}00140\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00141}00141\ \ \ \ \ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00142}00142\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00143}00143\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00144}00144\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00145}00145\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00146}\mbox{\hyperlink{class_map_a19052d37067703cee90b41c1719caf49}{00146}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_map_a19052d37067703cee90b41c1719caf49}{xSize}},\ \mbox{\hyperlink{class_map_a8094c1ac27c2e09cbd1c4396142ad4f2}{ySize}};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00147}00147\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00148}\mbox{\hyperlink{class_map_ae157b4fd272b8a57572000f383fd3aab}{00148}}\ \ \ \ \ std::vector<Tile>\ \mbox{\hyperlink{class_map_ae157b4fd272b8a57572000f383fd3aab}{data}};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00149}00149\ \};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00150}00150\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00151}\mbox{\hyperlink{class_dungeon_generator2}{00151}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_dungeon_generator2}{DungeonGenerator2}}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00152}00152\ \{}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00153}00153\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00154}00154\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00155}\mbox{\hyperlink{class_dungeon_generator2_a15207894fb466adc4eb7b9d6cc0d4a09}{00155}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_dungeon_generator2_a15207894fb466adc4eb7b9d6cc0d4a09}{Seed}};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00156}00156\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00157}\mbox{\hyperlink{class_dungeon_generator2_a970901efb54e1a19da29a8394b5e3046}{00157}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_dungeon_generator2_a970901efb54e1a19da29a8394b5e3046}{XSize}},\ \mbox{\hyperlink{class_dungeon_generator2_ab70799327fe0e7a3ca4bbb1a897508ee}{YSize}};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00158}00158\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00159}\mbox{\hyperlink{class_dungeon_generator2_a39cfbc0c78290e54c0ea855d4716f3d1}{00159}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_dungeon_generator2_a39cfbc0c78290e54c0ea855d4716f3d1}{MaxFeatures}};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00160}00160\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00161}\mbox{\hyperlink{class_dungeon_generator2_ab91a540a088db4bbb3582f5ed6119ac6}{00161}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_dungeon_generator2_a0f8a85a36057853958fd6ab66b39102b}{ChanceRoom}},\ \mbox{\hyperlink{class_dungeon_generator2_ab91a540a088db4bbb3582f5ed6119ac6}{ChanceCorridor}};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00162}00162\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00163}\mbox{\hyperlink{class_dungeon_generator2_af903d742257ccc0d8e55f1c8fdc7155f}{00163}}\ \ \ \ \ \mbox{\hyperlink{class_dungeon_generator2_af903d742257ccc0d8e55f1c8fdc7155f}{DungeonGenerator2}}()\ :}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00164}00164\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_dungeon_generator2_a15207894fb466adc4eb7b9d6cc0d4a09}{Seed}}(\mbox{\hyperlink{namespacestd}{std}}::random\_device()()),}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00165}00165\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_dungeon_generator2_a970901efb54e1a19da29a8394b5e3046}{XSize}}(80),\ \mbox{\hyperlink{class_dungeon_generator2_ab70799327fe0e7a3ca4bbb1a897508ee}{YSize}}(25),}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00166}00166\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_dungeon_generator2_a39cfbc0c78290e54c0ea855d4716f3d1}{MaxFeatures}}(100),}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00167}00167\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_dungeon_generator2_a0f8a85a36057853958fd6ab66b39102b}{ChanceRoom}}(75),\ \mbox{\hyperlink{class_dungeon_generator2_ab91a540a088db4bbb3582f5ed6119ac6}{ChanceCorridor}}(25)\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00168}00168\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00169}\mbox{\hyperlink{class_dungeon_generator2_ac5bf3725b8751bd6abc7514e5ca1bc2b}{00169}}\ \ \ \ \ \mbox{\hyperlink{class_map}{Map}}\ \mbox{\hyperlink{class_dungeon_generator2_ac5bf3725b8751bd6abc7514e5ca1bc2b}{Generate}}()}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00170}00170\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00171}00171\ \ \ \ \ \ \ \ \ assert(\mbox{\hyperlink{class_dungeon_generator2_a39cfbc0c78290e54c0ea855d4716f3d1}{MaxFeatures}}\ >\ 0\ \&\&\ \mbox{\hyperlink{class_dungeon_generator2_a39cfbc0c78290e54c0ea855d4716f3d1}{MaxFeatures}}\ <=\ 100);}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00172}00172\ \ \ \ \ \ \ \ \ assert(\mbox{\hyperlink{class_dungeon_generator2_a970901efb54e1a19da29a8394b5e3046}{XSize}}\ >\ 3\ \&\&\ \mbox{\hyperlink{class_dungeon_generator2_a970901efb54e1a19da29a8394b5e3046}{XSize}}\ <=\ 80);}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00173}00173\ \ \ \ \ \ \ \ \ assert(\mbox{\hyperlink{class_dungeon_generator2_ab70799327fe0e7a3ca4bbb1a897508ee}{YSize}}\ >\ 3\ \&\&\ \mbox{\hyperlink{class_dungeon_generator2_ab70799327fe0e7a3ca4bbb1a897508ee}{YSize}}\ <=\ 25);}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00174}00174\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00175}00175\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ rng\ =\ \mbox{\hyperlink{class_dungeon_generator2_a9aa17a5fbb04ce3237fff50e1735be20}{RngT}}(\mbox{\hyperlink{class_dungeon_generator2_a15207894fb466adc4eb7b9d6cc0d4a09}{Seed}});}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00176}00176\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ map\ =\ \mbox{\hyperlink{class_map}{Map}}(\mbox{\hyperlink{class_dungeon_generator2_a970901efb54e1a19da29a8394b5e3046}{XSize}},\ \mbox{\hyperlink{class_dungeon_generator2_ab70799327fe0e7a3ca4bbb1a897508ee}{YSize}},\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7a92e592d90b9548016776a6fb68dccded}{Tile::Unused}});}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00177}00177\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00178}00178\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_dungeon_generator2_a0189b42916b61c490df9152009da5f46}{MakeDungeon}}(map,\ rng);}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00179}00179\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00180}00180\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ map;}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00181}00181\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00182}00182\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00183}00183\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00184}00184\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00185}\mbox{\hyperlink{class_dungeon_generator2_a9aa17a5fbb04ce3237fff50e1735be20}{00185}}\ \ \ \ \ \textcolor{keyword}{typedef}\ std::mt19937\ \mbox{\hyperlink{class_dungeon_generator2_a9aa17a5fbb04ce3237fff50e1735be20}{RngT}};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00186}00186\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00187}\mbox{\hyperlink{class_dungeon_generator2_abb49186bb8d8ea2c4522926b9ed75926}{00187}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_dungeon_generator2_abb49186bb8d8ea2c4522926b9ed75926}{GetRandomInt}}(\mbox{\hyperlink{class_dungeon_generator2_a9aa17a5fbb04ce3237fff50e1735be20}{RngT}}\&\ rng,\ \textcolor{keywordtype}{int}\ min,\ \textcolor{keywordtype}{int}\ max)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00188}00188\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00189}00189\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::uniform\_int\_distribution<int>(min,\ max)(rng);}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00190}00190\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00191}00191\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00192}\mbox{\hyperlink{class_dungeon_generator2_a949068f247dd6f704608d316dcee54d8}{00192}}\ \ \ \ \ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}}\ \mbox{\hyperlink{class_dungeon_generator2_a949068f247dd6f704608d316dcee54d8}{GetRandomDirection}}(\mbox{\hyperlink{class_dungeon_generator2_a9aa17a5fbb04ce3237fff50e1735be20}{RngT}}\&\ rng)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00193}00193\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00194}00194\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}}(std::uniform\_int\_distribution<int>(0,\ 3)(rng));}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00195}00195\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00196}00196\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00197}\mbox{\hyperlink{class_dungeon_generator2_ad11624e9b36e96d279b762641b77ac9b}{00197}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_dungeon_generator2_ad11624e9b36e96d279b762641b77ac9b}{MakeCorridor}}(\mbox{\hyperlink{class_map}{Map}}\&\ map,\ \mbox{\hyperlink{class_dungeon_generator2_a9aa17a5fbb04ce3237fff50e1735be20}{RngT}}\&\ rng,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ maxLength,\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}}\ direction)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00198}00198\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00199}00199\ \ \ \ \ \ \ \ \ assert(x\ >=\ 0\ \&\&\ x\ <\ \mbox{\hyperlink{class_dungeon_generator2_a970901efb54e1a19da29a8394b5e3046}{XSize}});}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00200}00200\ \ \ \ \ \ \ \ \ assert(y\ >=\ 0\ \&\&\ y\ <\ \mbox{\hyperlink{class_dungeon_generator2_ab70799327fe0e7a3ca4bbb1a897508ee}{YSize}});}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00201}00201\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00202}00202\ \ \ \ \ \ \ \ \ assert(maxLength\ >\ 0\ \&\&\ maxLength\ <=\ std::max(\mbox{\hyperlink{class_dungeon_generator2_a970901efb54e1a19da29a8394b5e3046}{XSize}},\ \mbox{\hyperlink{class_dungeon_generator2_ab70799327fe0e7a3ca4bbb1a897508ee}{YSize}}));}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00203}00203\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00204}00204\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ length\ =\ \mbox{\hyperlink{class_dungeon_generator2_abb49186bb8d8ea2c4522926b9ed75926}{GetRandomInt}}(rng,\ 2,\ maxLength);}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00205}00205\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00206}00206\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ xStart\ =\ x;}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00207}00207\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ yStart\ =\ y;}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00208}00208\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00209}00209\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ xEnd\ =\ x;}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00210}00210\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ yEnd\ =\ y;}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00211}00211\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00212}00212\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (direction\ ==\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_a224b9163917ac32fc95a60d8c1eec3aaa601560b94fbb188919dd1d36c8ab70a4}{Direction::North}})}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00213}00213\ \ \ \ \ \ \ \ \ \ \ \ \ yStart\ =\ y\ -\/\ length;}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00214}00214\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (direction\ ==\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_a224b9163917ac32fc95a60d8c1eec3aaaa99dc62d017d04cf67266593f9c3761e}{Direction::East}})}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00215}00215\ \ \ \ \ \ \ \ \ \ \ \ \ xEnd\ =\ x\ +\ length;}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00216}00216\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (direction\ ==\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_a224b9163917ac32fc95a60d8c1eec3aaa263d7b2cf53802c9ed127b718c0bf9fd}{Direction::South}})}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00217}00217\ \ \ \ \ \ \ \ \ \ \ \ \ yEnd\ =\ y\ +\ length;}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00218}00218\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (direction\ ==\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_a224b9163917ac32fc95a60d8c1eec3aaabf495fc048d8d44b7f32536df5cf3930}{Direction::West}})}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00219}00219\ \ \ \ \ \ \ \ \ \ \ \ \ xStart\ =\ x\ -\/\ length;}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00220}00220\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00221}00221\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!map.\mbox{\hyperlink{class_map_a4de2da6d9b40ffca2a28b1d0b9596f8d}{IsXInBounds}}(xStart)\ ||\ !map.\mbox{\hyperlink{class_map_a4de2da6d9b40ffca2a28b1d0b9596f8d}{IsXInBounds}}(xEnd)\ ||\ !map.\mbox{\hyperlink{class_map_a6b8d29d0524c3539845f3fa4e11e6856}{IsYInBounds}}(yStart)\ ||\ !map.\mbox{\hyperlink{class_map_a6b8d29d0524c3539845f3fa4e11e6856}{IsYInBounds}}(yEnd))}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00222}00222\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00223}00223\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00224}00224\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!map.\mbox{\hyperlink{class_map_a8776c15802924d8455f4e86bbdcedc64}{IsAreaUnused}}(xStart,\ yStart,\ xEnd,\ yEnd))}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00225}00225\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00226}00226\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00227}00227\ \ \ \ \ \ \ \ \ map.\mbox{\hyperlink{class_map_aee4abccaa57ef1c0c5f688c22811bce9}{SetCells}}(xStart,\ yStart,\ xEnd,\ yEnd,\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7a78b14475f6b820d3111037c2f17b5361}{Tile::Corridor}});}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00228}00228\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00229}00229\ \ \ \ \ \ \ \ \ \textcolor{comment}{//std::cout\ <<\ "{}Corridor:\ (\ "{}\ <<\ xStart\ <<\ "{},\ "{}\ <<\ yStart\ <<\ "{}\ )\ to\ (\ "{}\ <<\ xEnd\ <<\ "{},\ "{}\ <<\ yEnd\ <<\ "{}\ )"{}\ <<\ std::endl;}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00230}00230\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00231}00231\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00232}00232\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00233}00233\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00234}\mbox{\hyperlink{class_dungeon_generator2_aa5e9c0ef641030d24de8585a25dd8ed7}{00234}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_dungeon_generator2_aa5e9c0ef641030d24de8585a25dd8ed7}{MakeRoom}}(\mbox{\hyperlink{class_map}{Map}}\&\ map,\ \mbox{\hyperlink{class_dungeon_generator2_a9aa17a5fbb04ce3237fff50e1735be20}{RngT}}\&\ rng,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ xMaxLength,\ \textcolor{keywordtype}{int}\ yMaxLength,\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}}\ direction)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00235}00235\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00236}00236\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Minimum\ room\ size\ of\ 4x4\ tiles\ (2x2\ for\ walking\ on,\ the\ rest\ is\ walls)}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00237}00237\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ xLength\ =\ \mbox{\hyperlink{class_dungeon_generator2_abb49186bb8d8ea2c4522926b9ed75926}{GetRandomInt}}(rng,\ 4,\ xMaxLength);}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00238}00238\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ yLength\ =\ \mbox{\hyperlink{class_dungeon_generator2_abb49186bb8d8ea2c4522926b9ed75926}{GetRandomInt}}(rng,\ 4,\ yMaxLength);}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00239}00239\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00240}00240\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ xStart\ =\ x;}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00241}00241\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ yStart\ =\ y;}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00242}00242\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00243}00243\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ xEnd\ =\ x;}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00244}00244\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ yEnd\ =\ y;}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00245}00245\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00246}00246\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (direction\ ==\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_a224b9163917ac32fc95a60d8c1eec3aaa601560b94fbb188919dd1d36c8ab70a4}{Direction::North}})}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00247}00247\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00248}00248\ \ \ \ \ \ \ \ \ \ \ \ \ yStart\ =\ y\ -\/\ yLength;}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00249}00249\ \ \ \ \ \ \ \ \ \ \ \ \ xStart\ =\ x\ -\/\ xLength\ /\ 2;}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00250}00250\ \ \ \ \ \ \ \ \ \ \ \ \ xEnd\ =\ x\ +\ (xLength\ +\ 1)\ /\ 2;}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00251}00251\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00252}00252\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (direction\ ==\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_a224b9163917ac32fc95a60d8c1eec3aaaa99dc62d017d04cf67266593f9c3761e}{Direction::East}})}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00253}00253\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00254}00254\ \ \ \ \ \ \ \ \ \ \ \ \ yStart\ =\ y\ -\/\ yLength\ /\ 2;}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00255}00255\ \ \ \ \ \ \ \ \ \ \ \ \ yEnd\ =\ y\ +\ (yLength\ +\ 1)\ /\ 2;}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00256}00256\ \ \ \ \ \ \ \ \ \ \ \ \ xEnd\ =\ x\ +\ xLength;}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00257}00257\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00258}00258\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (direction\ ==\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_a224b9163917ac32fc95a60d8c1eec3aaa263d7b2cf53802c9ed127b718c0bf9fd}{Direction::South}})}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00259}00259\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00260}00260\ \ \ \ \ \ \ \ \ \ \ \ \ yEnd\ =\ y\ +\ yLength;}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00261}00261\ \ \ \ \ \ \ \ \ \ \ \ \ xStart\ =\ x\ -\/\ xLength\ /\ 2;}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00262}00262\ \ \ \ \ \ \ \ \ \ \ \ \ xEnd\ =\ x\ +\ (xLength\ +\ 1)\ /\ 2;}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00263}00263\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00264}00264\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (direction\ ==\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_a224b9163917ac32fc95a60d8c1eec3aaabf495fc048d8d44b7f32536df5cf3930}{Direction::West}})}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00265}00265\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00266}00266\ \ \ \ \ \ \ \ \ \ \ \ \ yStart\ =\ y\ -\/\ yLength\ /\ 2;}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00267}00267\ \ \ \ \ \ \ \ \ \ \ \ \ yEnd\ =\ y\ +\ (yLength\ +\ 1)\ /\ 2;}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00268}00268\ \ \ \ \ \ \ \ \ \ \ \ \ xStart\ =\ x\ -\/\ xLength;}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00269}00269\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00270}00270\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00271}00271\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!map.\mbox{\hyperlink{class_map_a4de2da6d9b40ffca2a28b1d0b9596f8d}{IsXInBounds}}(xStart)\ ||\ !map.\mbox{\hyperlink{class_map_a4de2da6d9b40ffca2a28b1d0b9596f8d}{IsXInBounds}}(xEnd)\ ||\ !map.\mbox{\hyperlink{class_map_a6b8d29d0524c3539845f3fa4e11e6856}{IsYInBounds}}(yStart)\ ||\ !map.\mbox{\hyperlink{class_map_a6b8d29d0524c3539845f3fa4e11e6856}{IsYInBounds}}(yEnd))}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00272}00272\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00273}00273\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00274}00274\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!map.\mbox{\hyperlink{class_map_a8776c15802924d8455f4e86bbdcedc64}{IsAreaUnused}}(xStart,\ yStart,\ xEnd,\ yEnd))}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00275}00275\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00276}00276\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00277}00277\ \ \ \ \ \ \ \ \ map.\mbox{\hyperlink{class_map_aee4abccaa57ef1c0c5f688c22811bce9}{SetCells}}(xStart,\ yStart,\ xEnd,\ yEnd,\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7af91c008736f743d4a81dc92553e571a0}{Tile::DirtWall}});}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00278}00278\ \ \ \ \ \ \ \ \ map.\mbox{\hyperlink{class_map_aee4abccaa57ef1c0c5f688c22811bce9}{SetCells}}(xStart\ +\ 1,\ yStart\ +\ 1,\ xEnd\ -\/\ 1,\ yEnd\ -\/\ 1,\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7afaefc6c46db8f233bf2fc4ddf6ac2bd6}{Tile::DirtFloor}});}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00279}00279\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00280}00280\ \ \ \ \ \ \ \ \ \textcolor{comment}{//std::cout\ <<\ "{}Room:\ (\ "{}\ <<\ xStart\ <<\ "{},\ "{}\ <<\ yStart\ <<\ "{}\ )\ to\ (\ "{}\ <<\ xEnd\ <<\ "{},\ "{}\ <<\ yEnd\ <<\ "{}\ )"{}\ <<\ std::endl;}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00281}00281\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00282}00282\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00283}00283\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00284}00284\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00285}\mbox{\hyperlink{class_dungeon_generator2_a3fc8e6095e4e0685a68c55846ff12194}{00285}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_dungeon_generator2_a3fc8e6095e4e0685a68c55846ff12194}{MakeFeature}}(\mbox{\hyperlink{class_map}{Map}}\&\ map,\ \mbox{\hyperlink{class_dungeon_generator2_a9aa17a5fbb04ce3237fff50e1735be20}{RngT}}\&\ rng,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ xmod,\ \textcolor{keywordtype}{int}\ ymod,\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}}\ direction)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00286}00286\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00287}00287\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Choose\ what\ to\ build}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00288}00288\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ chance\ =\ \mbox{\hyperlink{class_dungeon_generator2_abb49186bb8d8ea2c4522926b9ed75926}{GetRandomInt}}(rng,\ 0,\ 100);}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00289}00289\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00290}00290\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (chance\ <=\ \mbox{\hyperlink{class_dungeon_generator2_a0f8a85a36057853958fd6ab66b39102b}{ChanceRoom}})}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00291}00291\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00292}00292\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_dungeon_generator2_aa5e9c0ef641030d24de8585a25dd8ed7}{MakeRoom}}(map,\ rng,\ x\ +\ xmod,\ y\ +\ ymod,\ 8,\ 6,\ direction))}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00293}00293\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00294}00294\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ map.\mbox{\hyperlink{class_map_a7ca1f7faa99f517dc20392fea8365be0}{SetCell}}(x,\ y,\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7af44e14d49cd011d1e873d9fe0c4624f1}{Tile::Door}});}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00295}00295\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00296}00296\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Remove\ wall\ next\ to\ the\ door.}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00297}00297\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ map.\mbox{\hyperlink{class_map_a7ca1f7faa99f517dc20392fea8365be0}{SetCell}}(x\ +\ xmod,\ y\ +\ ymod,\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7afaefc6c46db8f233bf2fc4ddf6ac2bd6}{Tile::DirtFloor}});}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00298}00298\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00299}00299\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00300}00300\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00301}00301\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00302}00302\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00303}00303\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00304}00304\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00305}00305\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00306}00306\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_dungeon_generator2_ad11624e9b36e96d279b762641b77ac9b}{MakeCorridor}}(map,\ rng,\ x\ +\ xmod,\ y\ +\ ymod,\ 6,\ direction))}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00307}00307\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00308}00308\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ map.\mbox{\hyperlink{class_map_a7ca1f7faa99f517dc20392fea8365be0}{SetCell}}(x,\ y,\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7af44e14d49cd011d1e873d9fe0c4624f1}{Tile::Door}});}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00309}00309\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00310}00310\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00311}00311\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00312}00312\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00313}00313\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00314}00314\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00315}00315\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00316}00316\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00317}\mbox{\hyperlink{class_dungeon_generator2_ab3aecc40a32af2afbee69c2b03aa041f}{00317}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_dungeon_generator2_ab3aecc40a32af2afbee69c2b03aa041f}{MakeFeature}}(\mbox{\hyperlink{class_map}{Map}}\&\ map,\ \mbox{\hyperlink{class_dungeon_generator2_a9aa17a5fbb04ce3237fff50e1735be20}{RngT}}\&\ rng)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00318}00318\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00319}00319\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ tries\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00320}00320\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ maxTries\ =\ 1000;}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00321}00321\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00322}00322\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (;\ tries\ !=\ maxTries;\ ++tries)}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00323}00323\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00324}00324\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Pick\ a\ random\ wall\ or\ corridor\ tile.}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00325}00325\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Make\ sure\ it\ has\ no\ adjacent\ doors\ (looks\ weird\ to\ have\ doors\ next\ to\ each\ other).}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00326}00326\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Find\ a\ direction\ from\ which\ it's\ reachable.}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00327}00327\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Attempt\ to\ make\ a\ feature\ (room\ or\ corridor)\ starting\ at\ this\ point.}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00328}00328\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00329}00329\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ x\ =\ \mbox{\hyperlink{class_dungeon_generator2_abb49186bb8d8ea2c4522926b9ed75926}{GetRandomInt}}(rng,\ 1,\ \mbox{\hyperlink{class_dungeon_generator2_a970901efb54e1a19da29a8394b5e3046}{XSize}}\ -\/\ 2);}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00330}00330\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ y\ =\ \mbox{\hyperlink{class_dungeon_generator2_abb49186bb8d8ea2c4522926b9ed75926}{GetRandomInt}}(rng,\ 1,\ \mbox{\hyperlink{class_dungeon_generator2_ab70799327fe0e7a3ca4bbb1a897508ee}{YSize}}\ -\/\ 2);}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00331}00331\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00332}00332\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (map.\mbox{\hyperlink{class_map_ad3ea7f31c54421e091ef5863d28fac61}{GetCell}}(x,\ y)\ !=\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7af91c008736f743d4a81dc92553e571a0}{Tile::DirtWall}}\ \&\&\ map.\mbox{\hyperlink{class_map_ad3ea7f31c54421e091ef5863d28fac61}{GetCell}}(x,\ y)\ !=\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7a78b14475f6b820d3111037c2f17b5361}{Tile::Corridor}})}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00333}00333\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00334}00334\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00335}00335\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (map.\mbox{\hyperlink{class_map_aa1f7005c3fbb9abb0378bf64d5e78a40}{IsAdjacent}}(x,\ y,\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7af44e14d49cd011d1e873d9fe0c4624f1}{Tile::Door}}))}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00336}00336\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00337}00337\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00338}00338\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (map.\mbox{\hyperlink{class_map_ad3ea7f31c54421e091ef5863d28fac61}{GetCell}}(x,\ y\ +\ 1)\ ==\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7afaefc6c46db8f233bf2fc4ddf6ac2bd6}{Tile::DirtFloor}}\ ||\ map.\mbox{\hyperlink{class_map_ad3ea7f31c54421e091ef5863d28fac61}{GetCell}}(x,\ y\ +\ 1)\ ==\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7a78b14475f6b820d3111037c2f17b5361}{Tile::Corridor}})}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00339}00339\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00340}00340\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_dungeon_generator2_a3fc8e6095e4e0685a68c55846ff12194}{MakeFeature}}(map,\ rng,\ x,\ y,\ 0,\ -\/1,\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_a224b9163917ac32fc95a60d8c1eec3aaa601560b94fbb188919dd1d36c8ab70a4}{Direction::North}}))}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00341}00341\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00342}00342\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00343}00343\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (map.\mbox{\hyperlink{class_map_ad3ea7f31c54421e091ef5863d28fac61}{GetCell}}(x\ -\/\ 1,\ y)\ ==\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7afaefc6c46db8f233bf2fc4ddf6ac2bd6}{Tile::DirtFloor}}\ ||\ map.\mbox{\hyperlink{class_map_ad3ea7f31c54421e091ef5863d28fac61}{GetCell}}(x\ -\/\ 1,\ y)\ ==\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7a78b14475f6b820d3111037c2f17b5361}{Tile::Corridor}})}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00344}00344\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00345}00345\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_dungeon_generator2_a3fc8e6095e4e0685a68c55846ff12194}{MakeFeature}}(map,\ rng,\ x,\ y,\ 1,\ 0,\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_a224b9163917ac32fc95a60d8c1eec3aaaa99dc62d017d04cf67266593f9c3761e}{Direction::East}}))}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00346}00346\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00347}00347\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00348}00348\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (map.\mbox{\hyperlink{class_map_ad3ea7f31c54421e091ef5863d28fac61}{GetCell}}(x,\ y\ -\/\ 1)\ ==\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7afaefc6c46db8f233bf2fc4ddf6ac2bd6}{Tile::DirtFloor}}\ ||\ map.\mbox{\hyperlink{class_map_ad3ea7f31c54421e091ef5863d28fac61}{GetCell}}(x,\ y\ -\/\ 1)\ ==\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7a78b14475f6b820d3111037c2f17b5361}{Tile::Corridor}})}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00349}00349\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00350}00350\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_dungeon_generator2_a3fc8e6095e4e0685a68c55846ff12194}{MakeFeature}}(map,\ rng,\ x,\ y,\ 0,\ 1,\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_a224b9163917ac32fc95a60d8c1eec3aaa263d7b2cf53802c9ed127b718c0bf9fd}{Direction::South}}))}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00351}00351\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00352}00352\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00353}00353\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (map.\mbox{\hyperlink{class_map_ad3ea7f31c54421e091ef5863d28fac61}{GetCell}}(x\ +\ 1,\ y)\ ==\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7afaefc6c46db8f233bf2fc4ddf6ac2bd6}{Tile::DirtFloor}}\ ||\ map.\mbox{\hyperlink{class_map_ad3ea7f31c54421e091ef5863d28fac61}{GetCell}}(x\ +\ 1,\ y)\ ==\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7a78b14475f6b820d3111037c2f17b5361}{Tile::Corridor}})}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00354}00354\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00355}00355\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_dungeon_generator2_a3fc8e6095e4e0685a68c55846ff12194}{MakeFeature}}(map,\ rng,\ x,\ y,\ -\/1,\ 0,\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_a224b9163917ac32fc95a60d8c1eec3aaabf495fc048d8d44b7f32536df5cf3930}{Direction::West}}))}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00356}00356\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00357}00357\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00358}00358\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00359}00359\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00360}00360\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00361}00361\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00362}00362\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00363}\mbox{\hyperlink{class_dungeon_generator2_a4bb14f8aa44a79f559e0a005870f650d}{00363}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_dungeon_generator2_a4bb14f8aa44a79f559e0a005870f650d}{MakeStairs}}(\mbox{\hyperlink{class_map}{Map}}\&\ map,\ \mbox{\hyperlink{class_dungeon_generator2_a9aa17a5fbb04ce3237fff50e1735be20}{RngT}}\&\ rng,\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7}{Tile}}\ tile)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00364}00364\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00365}00365\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ tries\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00366}00366\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ maxTries\ =\ 10000;}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00367}00367\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00368}00368\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (;\ tries\ !=\ maxTries;\ ++tries)}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00369}00369\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00370}00370\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ x\ =\ \mbox{\hyperlink{class_dungeon_generator2_abb49186bb8d8ea2c4522926b9ed75926}{GetRandomInt}}(rng,\ 1,\ \mbox{\hyperlink{class_dungeon_generator2_a970901efb54e1a19da29a8394b5e3046}{XSize}}\ -\/\ 2);}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00371}00371\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ y\ =\ \mbox{\hyperlink{class_dungeon_generator2_abb49186bb8d8ea2c4522926b9ed75926}{GetRandomInt}}(rng,\ 1,\ \mbox{\hyperlink{class_dungeon_generator2_ab70799327fe0e7a3ca4bbb1a897508ee}{YSize}}\ -\/\ 2);}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00372}00372\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00373}00373\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!map.\mbox{\hyperlink{class_map_aa1f7005c3fbb9abb0378bf64d5e78a40}{IsAdjacent}}(x,\ y,\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7afaefc6c46db8f233bf2fc4ddf6ac2bd6}{Tile::DirtFloor}})\ \&\&\ !map.\mbox{\hyperlink{class_map_aa1f7005c3fbb9abb0378bf64d5e78a40}{IsAdjacent}}(x,\ y,\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7a78b14475f6b820d3111037c2f17b5361}{Tile::Corridor}}))}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00374}00374\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00375}00375\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00376}00376\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (map.\mbox{\hyperlink{class_map_aa1f7005c3fbb9abb0378bf64d5e78a40}{IsAdjacent}}(x,\ y,\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7af44e14d49cd011d1e873d9fe0c4624f1}{Tile::Door}}))}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00377}00377\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00378}00378\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00379}00379\ \ \ \ \ \ \ \ \ \ \ \ \ map.\mbox{\hyperlink{class_map_a7ca1f7faa99f517dc20392fea8365be0}{SetCell}}(x,\ y,\ tile);}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00380}00380\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00381}00381\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00382}00382\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00383}00383\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00384}00384\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00385}00385\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00386}00386\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00387}\mbox{\hyperlink{class_dungeon_generator2_a0189b42916b61c490df9152009da5f46}{00387}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_dungeon_generator2_a0189b42916b61c490df9152009da5f46}{MakeDungeon}}(\mbox{\hyperlink{class_map}{Map}}\&\ map,\ \mbox{\hyperlink{class_dungeon_generator2_a9aa17a5fbb04ce3237fff50e1735be20}{RngT}}\&\ rng)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00388}00388\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00389}00389\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Make\ one\ room\ in\ the\ middle\ to\ start\ things\ off.}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00390}00390\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_dungeon_generator2_aa5e9c0ef641030d24de8585a25dd8ed7}{MakeRoom}}(map,\ rng,\ \mbox{\hyperlink{class_dungeon_generator2_a970901efb54e1a19da29a8394b5e3046}{XSize}}\ /\ 2,\ \mbox{\hyperlink{class_dungeon_generator2_ab70799327fe0e7a3ca4bbb1a897508ee}{YSize}}\ /\ 2,\ 8,\ 6,\ \mbox{\hyperlink{class_dungeon_generator2_a949068f247dd6f704608d316dcee54d8}{GetRandomDirection}}(rng));}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00391}00391\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00392}00392\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ features\ =\ 1;\ features\ !=\ \mbox{\hyperlink{class_dungeon_generator2_a39cfbc0c78290e54c0ea855d4716f3d1}{MaxFeatures}};\ ++features)}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00393}00393\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00394}00394\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_dungeon_generator2_a3fc8e6095e4e0685a68c55846ff12194}{MakeFeature}}(map,\ rng))}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00395}00395\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00396}00396\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Unable\ to\ place\ more\ features\ (placed\ "{}}\ <<\ features\ <<\ \textcolor{stringliteral}{"{})."{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00397}00397\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00398}00398\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00399}00399\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00400}00400\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00401}00401\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_dungeon_generator2_a4bb14f8aa44a79f559e0a005870f650d}{MakeStairs}}(map,\ rng,\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7af206f85d6241680cf7cdb256d8b8dbdf}{Tile::UpStairs}}))}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00402}00402\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Unable\ to\ place\ up\ stairs."{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00403}00403\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00404}00404\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_dungeon_generator2_a4bb14f8aa44a79f559e0a005870f650d}{MakeStairs}}(map,\ rng,\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_acd2017d946fd818c3b8ca377bc4006c7acb38b4029eab73f5ccc9af24c527fd03}{Tile::DownStairs}}))}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00405}00405\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Unable\ to\ place\ down\ stairs."{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00406}00406\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00407}00407\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00408}00408\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00409}00409\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00410}00410\ \};}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00411}00411\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00412}\mbox{\hyperlink{_dungeon_generator_2main_8cpp_a35cea9d83ca322ad6072fb3405a1eb38}{00412}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_dungeon_generator_2main_8cpp_a35cea9d83ca322ad6072fb3405a1eb38}{otherGenerator}}()}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00413}00413\ \{}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00414}00414\ \ \ \ \ \mbox{\hyperlink{class_dungeon_generator2}{DungeonGenerator2}}\ generator;}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00415}00415\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00416}00416\ \ \ \ \ \textcolor{keyword}{auto}\ map\ =\ generator.\mbox{\hyperlink{class_dungeon_generator2_ac5bf3725b8751bd6abc7514e5ca1bc2b}{Generate}}();}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00417}00417\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00418}00418\ \ \ \ \ map.\mbox{\hyperlink{class_map_ad98f17483072d6f71a369dbde0ecc04e}{Print}}();}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00419}00419\ \}}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00420}00420\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00421}00421\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00422}\mbox{\hyperlink{_dungeon_generator_2main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{00422}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_base_2main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}*\ argv[])}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00423}00423\ \{}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00424}00424\ \ \ \ \ \mbox{\hyperlink{class_random_1_1_seed}{Random::Seed}}\ seed(10);}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00425}00425\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00426}00426\ \ \ \ \ \mbox{\hyperlink{class_dungeon_generator_settings}{DungeonGeneratorSettings}}\ generatorSettings(\mbox{\hyperlink{dungeon_genereator_settings_8hpp_ada2a74446377272bd4129f812d0d5ffcaad26bd8e079b5cc9c32586fc970a9f8f}{GeneratorAlgorithmType::Delaunay}},\ seed,\ 10);}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00427}00427\ \ \ \ \ \mbox{\hyperlink{class_maze_generator_settings}{MazeGeneratorSettings}}\ mazeGeneratorSettings(\mbox{\hyperlink{maze_generator_settings_8hpp_a7fe2da35a8bbff7280f9bc893f1e87b4a0d56e294d45de50e7bbbd3ea63617d92}{MazeGeneratorType::Kruskal}},\ seed);}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00428}00428\ \ \ \ \ \mbox{\hyperlink{class_hole_generator_settings}{HoleGeneratorSettings}}\ holeGeneratorSettings(\mbox{\hyperlink{hole_generator_settings_8hpp_af2806801ae870bdf479d1804ae258fb3ae7daa0df03dc17e169eb5190f575f3ef}{HoleGeneratorType::Basic}},\ seed);}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00429}00429\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00430}00430\ \ \ \ \ \mbox{\hyperlink{class_random_af0a19f72c2e5bb10e5b0c93e2fe7a6c6}{Random::SetSeed}}(generatorSettings.\mbox{\hyperlink{class_dungeon_generator_settings_a6a78588be0359d4e293b6db3d6e21493}{getSeed}}());}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00431}00431\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00432}00432\ \ \ \ \ \mbox{\hyperlink{class_dungeon}{Dungeon}}\ dungeon;}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00433}00433\ \ \ \ \ dungeon.\mbox{\hyperlink{class_dungeon_a3bdb091db0247fe1b92439195c333359}{generateDungeon}}(generatorSettings);}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00434}00434\ \ \ \ \ dungeon.\mbox{\hyperlink{class_dungeon_afdabe22843a173ffe0737ac100cdc5b5}{generateMaze}}(mazeGeneratorSettings);}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00435}00435\ \ \ \ \ dungeon.\mbox{\hyperlink{class_dungeon_ae48d08d762378df847b8d09c6871daa7}{generateHoles}}(holeGeneratorSettings);}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00436}00436\ }
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00437}00437\ \ \ \ \ dungeon.\mbox{\hyperlink{class_dungeon_aaf6d5027e2783df4fdf332e87c4e4f44}{save}}(\textcolor{stringliteral}{"{}C:\(\backslash\)\(\backslash\)Projects\(\backslash\)\(\backslash\)DungeonGenerator\(\backslash\)\(\backslash\)dungeon.dg"{}});}
+\DoxyCodeLine{\Hypertarget{_dungeon_generator_2main_8cpp_source_l00438}00438\ \}}
+
+\end{DoxyCode}

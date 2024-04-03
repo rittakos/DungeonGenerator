@@ -1,0 +1,566 @@
+\doxysection{Math\+::Quaternion Class Reference}
+\hypertarget{class_math_1_1_quaternion}{}\label{class_math_1_1_quaternion}\index{Math::Quaternion@{Math::Quaternion}}
+
+
+{\ttfamily \#include $<$quaternion.\+hpp$>$}
+
+
+
+Collaboration diagram for Math\+::Quaternion\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=165pt]{class_math_1_1_quaternion__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_math_1_1_quaternion_1_1_trigonometric_form}{Trigonometric\+Form}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_math_1_1_quaternion_a0af09a51ab263e76041a90a035af8e30}{Quaternion}} ()
+\item 
+\mbox{\hyperlink{class_math_1_1_quaternion_a525378ee1fc3101dfcfd9bee2e625c27}{Quaternion}} (float \mbox{\hyperlink{class_math_1_1_quaternion_a169cce970414c401851ae55002908097}{a}})
+\item 
+\mbox{\hyperlink{class_math_1_1_quaternion_a09fad3771c5662fe499162296a1fe430}{Quaternion}} (\mbox{\hyperlink{class_math_1_1_angle}{Angle}} angle, \mbox{\hyperlink{namespace_math_a753baf5938292fd107023b09e4287523}{Vec3f}} v, float N=0.\+0f)
+\item 
+\mbox{\hyperlink{class_math_1_1_quaternion_a0771f55c12f9e0f21aea42a04ea74ede}{Quaternion}} (float \mbox{\hyperlink{class_math_1_1_quaternion_a169cce970414c401851ae55002908097}{a}}, float \mbox{\hyperlink{class_math_1_1_quaternion_a99de5cd84dde4b2166f3b6be3d67cb84}{b}}, float \mbox{\hyperlink{class_math_1_1_quaternion_ac65d917f695a04396b36d3636ec0ee05}{c}}, float \mbox{\hyperlink{class_math_1_1_quaternion_a99ff6eb759131be08ba61449ee702e7c}{d}})
+\item 
+\mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_math_1_1_quaternion_a8c258b7c67c68e8212211a6b1f6beeef}{Im}} () const
+\item 
+float \mbox{\hyperlink{class_math_1_1_quaternion_af37958bc019970ce12cf2ab69d532dd3}{Re}} () const
+\item 
+\mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_math_1_1_quaternion_a18d3a934c8bc11845841ce8824b209b8}{conjugation}} () const
+\item 
+float \mbox{\hyperlink{class_math_1_1_quaternion_ade6acc3efe3d998c0f45593f6797bd7f}{norm}} () const
+\item 
+float \mbox{\hyperlink{class_math_1_1_quaternion_ac6884d3900d18dc11ee565400f89ca73}{i}} () const
+\item 
+float \mbox{\hyperlink{class_math_1_1_quaternion_a97853ababc2cba1bc0484fd02b33914d}{j}} () const
+\item 
+float \mbox{\hyperlink{class_math_1_1_quaternion_a8b112e36c39b3ffa40a0110c73a1b236}{k}} () const
+\item 
+\mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_math_1_1_quaternion_adde0a8118ce656d6e140b249494da030}{operator-\/}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{class_math_1_1_quaternion_a169cce970414c401851ae55002908097}{a}}
+\item 
+float \mbox{\hyperlink{class_math_1_1_quaternion_a99de5cd84dde4b2166f3b6be3d67cb84}{b}}
+\item 
+float \mbox{\hyperlink{class_math_1_1_quaternion_ac65d917f695a04396b36d3636ec0ee05}{c}}
+\item 
+float \mbox{\hyperlink{class_math_1_1_quaternion_a99ff6eb759131be08ba61449ee702e7c}{d}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_math_1_1_quaternion_a55c89dc55cca66b19679705c566a165a}{operator+}} (const \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} \&q1, const \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} \&q2)
+\item 
+\mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_math_1_1_quaternion_a3a5605ba3f0bb654c528d2f7beb34147}{operator-\/}} (const \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} \&q1, const \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} \&q2)
+\item 
+\mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_math_1_1_quaternion_a02f988d3aef50bac26fc6fed8429d6a2}{operator\texorpdfstring{$\ast$}{*}}} (const \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} \&q1, const \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} \&q2)
+\item 
+\mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_math_1_1_quaternion_aa09032df565d20d2a7a3a46add8ecff5}{operator\texorpdfstring{$\ast$}{*}}} (float f, const \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} \&q)
+\item 
+\mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_math_1_1_quaternion_ac70d7a0ee943d788d45c607ddd9675c3}{operator\texorpdfstring{$\ast$}{*}}} (const \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} \&q, float f)
+\item 
+std\+::ostream \& \mbox{\hyperlink{class_math_1_1_quaternion_a2da180d301577cd15c3869079ae73256}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} \&q)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{quaternion_8hpp_source_l00008}{8}} of file \mbox{\hyperlink{quaternion_8hpp_source}{quaternion.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_math_1_1_quaternion_a0af09a51ab263e76041a90a035af8e30}\label{class_math_1_1_quaternion_a0af09a51ab263e76041a90a035af8e30} 
+\index{Math::Quaternion@{Math::Quaternion}!Quaternion@{Quaternion}}
+\index{Quaternion@{Quaternion}!Math::Quaternion@{Math::Quaternion}}
+\doxysubsubsection{\texorpdfstring{Quaternion()}{Quaternion()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily Math\+::\+Quaternion\+::\+Quaternion (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{quaternion_8cpp_source_l00008}{8}} of file \mbox{\hyperlink{quaternion_8cpp_source}{quaternion.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00008\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{class_math_1_1_quaternion_a169cce970414c401851ae55002908097}{a}}\{0\},\ \mbox{\hyperlink{class_math_1_1_quaternion_a99de5cd84dde4b2166f3b6be3d67cb84}{b}}\{0\},\ \mbox{\hyperlink{class_math_1_1_quaternion_ac65d917f695a04396b36d3636ec0ee05}{c}}\{0\},\ \mbox{\hyperlink{class_math_1_1_quaternion_a99ff6eb759131be08ba61449ee702e7c}{d}}\{0\}}
+\DoxyCodeLine{00009\ \ \ \ \ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_math_1_1_quaternion_a0af09a51ab263e76041a90a035af8e30_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_math_1_1_quaternion_a525378ee1fc3101dfcfd9bee2e625c27}\label{class_math_1_1_quaternion_a525378ee1fc3101dfcfd9bee2e625c27} 
+\index{Math::Quaternion@{Math::Quaternion}!Quaternion@{Quaternion}}
+\index{Quaternion@{Quaternion}!Math::Quaternion@{Math::Quaternion}}
+\doxysubsubsection{\texorpdfstring{Quaternion()}{Quaternion()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily Math\+::\+Quaternion\+::\+Quaternion (\begin{DoxyParamCaption}\item[{float}]{a }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{quaternion_8cpp_source_l00012}{12}} of file \mbox{\hyperlink{quaternion_8cpp_source}{quaternion.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{class_math_1_1_quaternion_a0af09a51ab263e76041a90a035af8e30}{Quaternion}}(\mbox{\hyperlink{class_math_1_1_quaternion_a169cce970414c401851ae55002908097}{a}},\ 0,\ 0,\ 0) }
+\DoxyCodeLine{00013\ \ \ \ \ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_math_1_1_quaternion_a09fad3771c5662fe499162296a1fe430}\label{class_math_1_1_quaternion_a09fad3771c5662fe499162296a1fe430} 
+\index{Math::Quaternion@{Math::Quaternion}!Quaternion@{Quaternion}}
+\index{Quaternion@{Quaternion}!Math::Quaternion@{Math::Quaternion}}
+\doxysubsubsection{\texorpdfstring{Quaternion()}{Quaternion()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily Math\+::\+Quaternion\+::\+Quaternion (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_math_1_1_angle}{Angle}}}]{angle,  }\item[{\mbox{\hyperlink{namespace_math_a753baf5938292fd107023b09e4287523}{Vec3f}}}]{v,  }\item[{float}]{N = {\ttfamily 0.0f} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{quaternion_8cpp_source_l00016}{16}} of file \mbox{\hyperlink{quaternion_8cpp_source}{quaternion.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00017\ \ \ \ \ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ angle\ =\ angle\ /\ 2.0f;}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{class_math_1_1_quaternion_a169cce970414c401851ae55002908097}{a}}\ =\ \mbox{\hyperlink{namespace_math_a07351496a0c0f761c78c20f13e52ab82}{cos}}(angle);}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{class_math_1_1_quaternion_a99de5cd84dde4b2166f3b6be3d67cb84}{b}}\ =\ v[0]\ *\ \mbox{\hyperlink{namespace_math_a6c2ee98486b2c89d39861f1a125b7ece}{sin}}(angle);}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{class_math_1_1_quaternion_ac65d917f695a04396b36d3636ec0ee05}{c}}\ =\ v[1]\ *\ \mbox{\hyperlink{namespace_math_a6c2ee98486b2c89d39861f1a125b7ece}{sin}}(angle);}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{class_math_1_1_quaternion_a99ff6eb759131be08ba61449ee702e7c}{d}}\ =\ v[2]\ *\ \mbox{\hyperlink{namespace_math_a6c2ee98486b2c89d39861f1a125b7ece}{sin}}(angle);}
+\DoxyCodeLine{00023\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=320pt]{class_math_1_1_quaternion_a09fad3771c5662fe499162296a1fe430_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_math_1_1_quaternion_a0771f55c12f9e0f21aea42a04ea74ede}\label{class_math_1_1_quaternion_a0771f55c12f9e0f21aea42a04ea74ede} 
+\index{Math::Quaternion@{Math::Quaternion}!Quaternion@{Quaternion}}
+\index{Quaternion@{Quaternion}!Math::Quaternion@{Math::Quaternion}}
+\doxysubsubsection{\texorpdfstring{Quaternion()}{Quaternion()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily Math\+::\+Quaternion\+::\+Quaternion (\begin{DoxyParamCaption}\item[{float}]{a,  }\item[{float}]{b,  }\item[{float}]{c,  }\item[{float}]{d }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{quaternion_8cpp_source_l00025}{25}} of file \mbox{\hyperlink{quaternion_8cpp_source}{quaternion.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{class_math_1_1_quaternion_a169cce970414c401851ae55002908097}{a}}\{\mbox{\hyperlink{class_math_1_1_quaternion_a169cce970414c401851ae55002908097}{a}}\},\ \mbox{\hyperlink{class_math_1_1_quaternion_a99de5cd84dde4b2166f3b6be3d67cb84}{b}}\{\mbox{\hyperlink{class_math_1_1_quaternion_a99de5cd84dde4b2166f3b6be3d67cb84}{b}}\},\ \mbox{\hyperlink{class_math_1_1_quaternion_ac65d917f695a04396b36d3636ec0ee05}{c}}\{\mbox{\hyperlink{class_math_1_1_quaternion_ac65d917f695a04396b36d3636ec0ee05}{c}}\},\ \mbox{\hyperlink{class_math_1_1_quaternion_a99ff6eb759131be08ba61449ee702e7c}{d}}\{\mbox{\hyperlink{class_math_1_1_quaternion_a99ff6eb759131be08ba61449ee702e7c}{d}}\}}
+\DoxyCodeLine{00026\ \ \ \ \ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_math_1_1_quaternion_a18d3a934c8bc11845841ce8824b209b8}\label{class_math_1_1_quaternion_a18d3a934c8bc11845841ce8824b209b8} 
+\index{Math::Quaternion@{Math::Quaternion}!conjugation@{conjugation}}
+\index{conjugation@{conjugation}!Math::Quaternion@{Math::Quaternion}}
+\doxysubsubsection{\texorpdfstring{conjugation()}{conjugation()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} Math\+::\+Quaternion\+::conjugation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{quaternion_8cpp_source_l00039}{39}} of file \mbox{\hyperlink{quaternion_8cpp_source}{quaternion.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00040\ \ \ \ \ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_math_1_1_quaternion_a0af09a51ab263e76041a90a035af8e30}{Quaternion}}(\mbox{\hyperlink{class_math_1_1_quaternion_a169cce970414c401851ae55002908097}{a}},\ -\/\mbox{\hyperlink{class_math_1_1_quaternion_a99de5cd84dde4b2166f3b6be3d67cb84}{b}},\ -\/\mbox{\hyperlink{class_math_1_1_quaternion_ac65d917f695a04396b36d3636ec0ee05}{c}},\ -\/\mbox{\hyperlink{class_math_1_1_quaternion_a99ff6eb759131be08ba61449ee702e7c}{d}});}
+\DoxyCodeLine{00042\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_math_1_1_quaternion_a18d3a934c8bc11845841ce8824b209b8_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_math_1_1_quaternion_a18d3a934c8bc11845841ce8824b209b8_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_math_1_1_quaternion_ac6884d3900d18dc11ee565400f89ca73}\label{class_math_1_1_quaternion_ac6884d3900d18dc11ee565400f89ca73} 
+\index{Math::Quaternion@{Math::Quaternion}!i@{i}}
+\index{i@{i}!Math::Quaternion@{Math::Quaternion}}
+\doxysubsubsection{\texorpdfstring{i()}{i()}}
+{\footnotesize\ttfamily float Math\+::\+Quaternion\+::i (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{quaternion_8hpp_source_l00032}{32}} of file \mbox{\hyperlink{quaternion_8hpp_source}{quaternion.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00032\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_math_1_1_quaternion_a99de5cd84dde4b2166f3b6be3d67cb84}{b}};\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_math_1_1_quaternion_ac6884d3900d18dc11ee565400f89ca73_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_math_1_1_quaternion_a8c258b7c67c68e8212211a6b1f6beeef}\label{class_math_1_1_quaternion_a8c258b7c67c68e8212211a6b1f6beeef} 
+\index{Math::Quaternion@{Math::Quaternion}!Im@{Im}}
+\index{Im@{Im}!Math::Quaternion@{Math::Quaternion}}
+\doxysubsubsection{\texorpdfstring{Im()}{Im()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} Math\+::\+Quaternion\+::\+Im (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{quaternion_8cpp_source_l00029}{29}} of file \mbox{\hyperlink{quaternion_8cpp_source}{quaternion.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00030\ \ \ \ \ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_math_1_1_quaternion_a0af09a51ab263e76041a90a035af8e30}{Quaternion}}(0,\ \mbox{\hyperlink{class_math_1_1_quaternion_a99de5cd84dde4b2166f3b6be3d67cb84}{b}},\ \mbox{\hyperlink{class_math_1_1_quaternion_ac65d917f695a04396b36d3636ec0ee05}{c}},\ \mbox{\hyperlink{class_math_1_1_quaternion_a99ff6eb759131be08ba61449ee702e7c}{d}});}
+\DoxyCodeLine{00032\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_math_1_1_quaternion_a8c258b7c67c68e8212211a6b1f6beeef_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_math_1_1_quaternion_a97853ababc2cba1bc0484fd02b33914d}\label{class_math_1_1_quaternion_a97853ababc2cba1bc0484fd02b33914d} 
+\index{Math::Quaternion@{Math::Quaternion}!j@{j}}
+\index{j@{j}!Math::Quaternion@{Math::Quaternion}}
+\doxysubsubsection{\texorpdfstring{j()}{j()}}
+{\footnotesize\ttfamily float Math\+::\+Quaternion\+::j (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{quaternion_8hpp_source_l00033}{33}} of file \mbox{\hyperlink{quaternion_8hpp_source}{quaternion.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00033\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_math_1_1_quaternion_ac65d917f695a04396b36d3636ec0ee05}{c}};\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_math_1_1_quaternion_a97853ababc2cba1bc0484fd02b33914d_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_math_1_1_quaternion_a8b112e36c39b3ffa40a0110c73a1b236}\label{class_math_1_1_quaternion_a8b112e36c39b3ffa40a0110c73a1b236} 
+\index{Math::Quaternion@{Math::Quaternion}!k@{k}}
+\index{k@{k}!Math::Quaternion@{Math::Quaternion}}
+\doxysubsubsection{\texorpdfstring{k()}{k()}}
+{\footnotesize\ttfamily float Math\+::\+Quaternion\+::k (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{quaternion_8hpp_source_l00034}{34}} of file \mbox{\hyperlink{quaternion_8hpp_source}{quaternion.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00034\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_math_1_1_quaternion_a99ff6eb759131be08ba61449ee702e7c}{d}};\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_math_1_1_quaternion_a8b112e36c39b3ffa40a0110c73a1b236_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_math_1_1_quaternion_ade6acc3efe3d998c0f45593f6797bd7f}\label{class_math_1_1_quaternion_ade6acc3efe3d998c0f45593f6797bd7f} 
+\index{Math::Quaternion@{Math::Quaternion}!norm@{norm}}
+\index{norm@{norm}!Math::Quaternion@{Math::Quaternion}}
+\doxysubsubsection{\texorpdfstring{norm()}{norm()}}
+{\footnotesize\ttfamily float Math\+::\+Quaternion\+::norm (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{quaternion_8cpp_source_l00044}{44}} of file \mbox{\hyperlink{quaternion_8cpp_source}{quaternion.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00045\ \ \ \ \ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ sqrt(\mbox{\hyperlink{class_math_1_1_quaternion_a169cce970414c401851ae55002908097}{a}}\ *\ \mbox{\hyperlink{class_math_1_1_quaternion_a169cce970414c401851ae55002908097}{a}}\ +\ \mbox{\hyperlink{class_math_1_1_quaternion_a99de5cd84dde4b2166f3b6be3d67cb84}{b}}\ *\ \mbox{\hyperlink{class_math_1_1_quaternion_a99de5cd84dde4b2166f3b6be3d67cb84}{b}}\ +\ \mbox{\hyperlink{class_math_1_1_quaternion_ac65d917f695a04396b36d3636ec0ee05}{c}}\ *\ \mbox{\hyperlink{class_math_1_1_quaternion_ac65d917f695a04396b36d3636ec0ee05}{c}}\ +\ \mbox{\hyperlink{class_math_1_1_quaternion_a99ff6eb759131be08ba61449ee702e7c}{d}}\ *\ \mbox{\hyperlink{class_math_1_1_quaternion_a99ff6eb759131be08ba61449ee702e7c}{d}});}
+\DoxyCodeLine{00047\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_math_1_1_quaternion_adde0a8118ce656d6e140b249494da030}\label{class_math_1_1_quaternion_adde0a8118ce656d6e140b249494da030} 
+\index{Math::Quaternion@{Math::Quaternion}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Math::Quaternion@{Math::Quaternion}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} Math\+::\+Quaternion\+::operator-\/ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{quaternion_8cpp_source_l00049}{49}} of file \mbox{\hyperlink{quaternion_8cpp_source}{quaternion.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00050\ \ \ \ \ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (*\textcolor{keyword}{this})\ *\ -\/1.0f;}
+\DoxyCodeLine{00052\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_math_1_1_quaternion_af37958bc019970ce12cf2ab69d532dd3}\label{class_math_1_1_quaternion_af37958bc019970ce12cf2ab69d532dd3} 
+\index{Math::Quaternion@{Math::Quaternion}!Re@{Re}}
+\index{Re@{Re}!Math::Quaternion@{Math::Quaternion}}
+\doxysubsubsection{\texorpdfstring{Re()}{Re()}}
+{\footnotesize\ttfamily float Math\+::\+Quaternion\+::\+Re (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{quaternion_8cpp_source_l00034}{34}} of file \mbox{\hyperlink{quaternion_8cpp_source}{quaternion.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00035\ \ \ \ \ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_math_1_1_quaternion_a169cce970414c401851ae55002908097}{a}};}
+\DoxyCodeLine{00037\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{class_math_1_1_quaternion_ac70d7a0ee943d788d45c607ddd9675c3}\label{class_math_1_1_quaternion_ac70d7a0ee943d788d45c607ddd9675c3} 
+\index{Math::Quaternion@{Math::Quaternion}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!Math::Quaternion@{Math::Quaternion}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}}{operator*}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} \&}]{q,  }\item[{float}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line \mbox{\hyperlink{quaternion_8hpp_source_l00105}{105}} of file \mbox{\hyperlink{quaternion_8hpp_source}{quaternion.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00106\ \ \ \ \ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ f\ *\ q;}
+\DoxyCodeLine{00108\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_math_1_1_quaternion_a02f988d3aef50bac26fc6fed8429d6a2}\label{class_math_1_1_quaternion_a02f988d3aef50bac26fc6fed8429d6a2} 
+\index{Math::Quaternion@{Math::Quaternion}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!Math::Quaternion@{Math::Quaternion}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}}{operator*}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} \&}]{q1,  }\item[{const \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} \&}]{q2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line \mbox{\hyperlink{quaternion_8hpp_source_l00061}{61}} of file \mbox{\hyperlink{quaternion_8hpp_source}{quaternion.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00062\ \ \ \ \ \{}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ Q\ \ |\ \ \ \ 1\ \ \ i\ \ \ j\ \ \ k\ \ -\/1\ \ -\/i\ \ -\/j\ \ -\/k}}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/|-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ 1\ \ |\ \ \ \ 1\ \ \ i\ \ \ j\ \ \ k\ \ -\/1\ \ -\/i\ \ -\/j\ \ -\/k}}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ i\ \ |\ \ \ \ i\ \ -\/1\ \ \ k\ \ -\/j\ \ -\/i\ \ \ 1\ \ \ k\ \ \ j}}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ j\ \ |\ \ \ \ j\ \ -\/k\ \ -\/1\ \ \ i\ \ -\/j\ \ \ k\ \ \ 1\ \ -\/i}}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ k\ \ |\ \ \ \ k\ \ \ j\ \ -\/i\ \ -\/1\ \ -\/k\ \ -\/j\ \ \ i\ \ \ 1}}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ -\/1\ \ |\ \ \ -\/1\ \ -\/i\ \ -\/j\ \ -\/k\ \ \ 1\ \ \ i\ \ \ j\ \ \ k}}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ -\/i\ \ |\ \ \ -\/i\ \ \ 1\ \ -\/k\ \ \ j\ \ \ i\ \ -\/1\ \ \ k\ \ -\/j}}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ -\/j\ \ |\ \ \ -\/j\ \ \ k\ \ \ 1\ \ -\/i\ \ \ j\ \ -\/k\ \ -\/1\ \ \ i}}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ -\/k\ \ |\ \ \ -\/k\ \ -\/j\ \ \ i\ \ \ 1\ \ \ k\ \ \ j\ \ -\/i\ \ -\/1}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ Sq1\ =\ q1.Re();}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ Sq2\ =\ q2.Re();}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_quaternion_a0af09a51ab263e76041a90a035af8e30}{Quaternion}}\ Vq1\ =\ q1.Im();}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_quaternion_a0af09a51ab263e76041a90a035af8e30}{Quaternion}}\ Vq2\ =\ q2.Im();}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ part1\ =\ Sq1\ *\ Sq2;}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_quaternion_a0af09a51ab263e76041a90a035af8e30}{Quaternion}}\ \ \ \ part2\ =\ Vq1\ *\ Sq2;}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_quaternion_a0af09a51ab263e76041a90a035af8e30}{Quaternion}}\ \ \ \ part3\ =\ Sq1\ *\ Vq2;}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ part4a\ =\ -\/(q1.b\ *\ q2.b\ +\ q1.c\ *\ q2.c\ +\ q1.d\ *\ q2.d);}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ part4b\ =\ (q1.c\ *\ q2.d\ -\/\ q1.d\ *\ q2.c);}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ part4c\ =\ (q1.d\ *\ q2.b\ -\/\ q1.b\ *\ q2.d);}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ part4d\ =\ (q1.b\ *\ q2.c\ -\/\ q1.c\ *\ q2.b);}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_quaternion_a0af09a51ab263e76041a90a035af8e30}{Quaternion}}\ \ \ \ part4\ =\ \mbox{\hyperlink{class_math_1_1_quaternion_a0af09a51ab263e76041a90a035af8e30}{Quaternion}}(part4a,\ part4b,\ part4c,\ part4d);}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_quaternion_a0af09a51ab263e76041a90a035af8e30}{Quaternion}}\ result\ =\ part1\ +\ part2\ +\ part3\ +\ part4;}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00094\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_math_1_1_quaternion_aa09032df565d20d2a7a3a46add8ecff5}\label{class_math_1_1_quaternion_aa09032df565d20d2a7a3a46add8ecff5} 
+\index{Math::Quaternion@{Math::Quaternion}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!Math::Quaternion@{Math::Quaternion}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}}{operator*}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{float}]{f,  }\item[{const \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} \&}]{q }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line \mbox{\hyperlink{quaternion_8hpp_source_l00096}{96}} of file \mbox{\hyperlink{quaternion_8hpp_source}{quaternion.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00097\ \ \ \ \ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_math_1_1_quaternion_a169cce970414c401851ae55002908097}{a}}\ =\ q.a\ *\ f;}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_math_1_1_quaternion_a99de5cd84dde4b2166f3b6be3d67cb84}{b}}\ =\ q.b\ *\ f;}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_math_1_1_quaternion_ac65d917f695a04396b36d3636ec0ee05}{c}}\ =\ q.c\ *\ f;}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_math_1_1_quaternion_a99ff6eb759131be08ba61449ee702e7c}{d}}\ =\ q.d\ *\ f;}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_math_1_1_quaternion_a0af09a51ab263e76041a90a035af8e30}{Quaternion}}(\mbox{\hyperlink{class_math_1_1_quaternion_a169cce970414c401851ae55002908097}{a}},\ \mbox{\hyperlink{class_math_1_1_quaternion_a99de5cd84dde4b2166f3b6be3d67cb84}{b}},\ \mbox{\hyperlink{class_math_1_1_quaternion_ac65d917f695a04396b36d3636ec0ee05}{c}},\ \mbox{\hyperlink{class_math_1_1_quaternion_a99ff6eb759131be08ba61449ee702e7c}{d}});}
+\DoxyCodeLine{00103\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_math_1_1_quaternion_a55c89dc55cca66b19679705c566a165a}\label{class_math_1_1_quaternion_a55c89dc55cca66b19679705c566a165a} 
+\index{Math::Quaternion@{Math::Quaternion}!operator+@{operator+}}
+\index{operator+@{operator+}!Math::Quaternion@{Math::Quaternion}}
+\doxysubsubsection{\texorpdfstring{operator+}{operator+}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} \&}]{q1,  }\item[{const \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} \&}]{q2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line \mbox{\hyperlink{quaternion_8hpp_source_l00047}{47}} of file \mbox{\hyperlink{quaternion_8hpp_source}{quaternion.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00048\ \ \ \ \ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_math_1_1_quaternion_a169cce970414c401851ae55002908097}{a}}\ =\ q1.a\ +\ q2.a;}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_math_1_1_quaternion_a99de5cd84dde4b2166f3b6be3d67cb84}{b}}\ =\ q1.b\ +\ q2.b;}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_math_1_1_quaternion_ac65d917f695a04396b36d3636ec0ee05}{c}}\ =\ q1.c\ +\ q2.c;}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_math_1_1_quaternion_a99ff6eb759131be08ba61449ee702e7c}{d}}\ =\ q1.d\ +\ q2.d;}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_math_1_1_quaternion_a0af09a51ab263e76041a90a035af8e30}{Quaternion}}(\mbox{\hyperlink{class_math_1_1_quaternion_a169cce970414c401851ae55002908097}{a}},\ \mbox{\hyperlink{class_math_1_1_quaternion_a99de5cd84dde4b2166f3b6be3d67cb84}{b}},\ \mbox{\hyperlink{class_math_1_1_quaternion_ac65d917f695a04396b36d3636ec0ee05}{c}},\ \mbox{\hyperlink{class_math_1_1_quaternion_a99ff6eb759131be08ba61449ee702e7c}{d}});}
+\DoxyCodeLine{00054\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_math_1_1_quaternion_a3a5605ba3f0bb654c528d2f7beb34147}\label{class_math_1_1_quaternion_a3a5605ba3f0bb654c528d2f7beb34147} 
+\index{Math::Quaternion@{Math::Quaternion}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Math::Quaternion@{Math::Quaternion}}
+\doxysubsubsection{\texorpdfstring{operator-\/}{operator-}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} \&}]{q1,  }\item[{const \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} \&}]{q2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line \mbox{\hyperlink{quaternion_8hpp_source_l00056}{56}} of file \mbox{\hyperlink{quaternion_8hpp_source}{quaternion.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00057\ \ \ \ \ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ q1\ +\ (-\/q2);}
+\DoxyCodeLine{00059\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_math_1_1_quaternion_a2da180d301577cd15c3869079ae73256}\label{class_math_1_1_quaternion_a2da180d301577cd15c3869079ae73256} 
+\index{Math::Quaternion@{Math::Quaternion}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Math::Quaternion@{Math::Quaternion}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{class_math_1_1_quaternion}{Quaternion}} \&}]{q }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line \mbox{\hyperlink{quaternion_8hpp_source_l00110}{110}} of file \mbox{\hyperlink{quaternion_8hpp_source}{quaternion.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00111\ \ \ \ \ \{}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_math_1_1_quaternion_a169cce970414c401851ae55002908097}{a}}\ =\ q.a;}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_math_1_1_quaternion_a99de5cd84dde4b2166f3b6be3d67cb84}{b}}\ =\ q.b;}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_math_1_1_quaternion_ac65d917f695a04396b36d3636ec0ee05}{c}}\ =\ q.c;}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_math_1_1_quaternion_a99ff6eb759131be08ba61449ee702e7c}{d}}\ =\ q.d;}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ os\ <<\ \mbox{\hyperlink{class_math_1_1_quaternion_a169cce970414c401851ae55002908097}{a}};}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_math_1_1_quaternion_a99de5cd84dde4b2166f3b6be3d67cb84}{b}}\ >=\ 0)}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ +\ "{}}\ <<\ \mbox{\hyperlink{class_math_1_1_quaternion_a99de5cd84dde4b2166f3b6be3d67cb84}{b}};}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ -\/\ "{}}\ <<\ fabs(\mbox{\hyperlink{class_math_1_1_quaternion_a99de5cd84dde4b2166f3b6be3d67cb84}{b}});}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}i"{}};}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_math_1_1_quaternion_ac65d917f695a04396b36d3636ec0ee05}{c}}\ >=\ 0)}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ +\ "{}}\ <<\ \mbox{\hyperlink{class_math_1_1_quaternion_ac65d917f695a04396b36d3636ec0ee05}{c}};}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ -\/\ "{}}\ <<\ fabs(\mbox{\hyperlink{class_math_1_1_quaternion_ac65d917f695a04396b36d3636ec0ee05}{c}});}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}j"{}};}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_math_1_1_quaternion_a99ff6eb759131be08ba61449ee702e7c}{d}}\ >=\ 0)}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ +\ "{}}\ <<\ \mbox{\hyperlink{class_math_1_1_quaternion_a99ff6eb759131be08ba61449ee702e7c}{d}};}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ -\/\ "{}}\ <<\ fabs(\mbox{\hyperlink{class_math_1_1_quaternion_a99ff6eb759131be08ba61449ee702e7c}{d}});}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}k"{}};}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ os;}
+\DoxyCodeLine{00138\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_math_1_1_quaternion_a169cce970414c401851ae55002908097}\label{class_math_1_1_quaternion_a169cce970414c401851ae55002908097} 
+\index{Math::Quaternion@{Math::Quaternion}!a@{a}}
+\index{a@{a}!Math::Quaternion@{Math::Quaternion}}
+\doxysubsubsection{\texorpdfstring{a}{a}}
+{\footnotesize\ttfamily float Math\+::\+Quaternion\+::a\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{quaternion_8hpp_source_l00011}{11}} of file \mbox{\hyperlink{quaternion_8hpp_source}{quaternion.\+hpp}}.
+
+\Hypertarget{class_math_1_1_quaternion_a99de5cd84dde4b2166f3b6be3d67cb84}\label{class_math_1_1_quaternion_a99de5cd84dde4b2166f3b6be3d67cb84} 
+\index{Math::Quaternion@{Math::Quaternion}!b@{b}}
+\index{b@{b}!Math::Quaternion@{Math::Quaternion}}
+\doxysubsubsection{\texorpdfstring{b}{b}}
+{\footnotesize\ttfamily float Math\+::\+Quaternion\+::b\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{quaternion_8hpp_source_l00012}{12}} of file \mbox{\hyperlink{quaternion_8hpp_source}{quaternion.\+hpp}}.
+
+\Hypertarget{class_math_1_1_quaternion_ac65d917f695a04396b36d3636ec0ee05}\label{class_math_1_1_quaternion_ac65d917f695a04396b36d3636ec0ee05} 
+\index{Math::Quaternion@{Math::Quaternion}!c@{c}}
+\index{c@{c}!Math::Quaternion@{Math::Quaternion}}
+\doxysubsubsection{\texorpdfstring{c}{c}}
+{\footnotesize\ttfamily float Math\+::\+Quaternion\+::c\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{quaternion_8hpp_source_l00013}{13}} of file \mbox{\hyperlink{quaternion_8hpp_source}{quaternion.\+hpp}}.
+
+\Hypertarget{class_math_1_1_quaternion_a99ff6eb759131be08ba61449ee702e7c}\label{class_math_1_1_quaternion_a99ff6eb759131be08ba61449ee702e7c} 
+\index{Math::Quaternion@{Math::Quaternion}!d@{d}}
+\index{d@{d}!Math::Quaternion@{Math::Quaternion}}
+\doxysubsubsection{\texorpdfstring{d}{d}}
+{\footnotesize\ttfamily float Math\+::\+Quaternion\+::d\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{quaternion_8hpp_source_l00014}{14}} of file \mbox{\hyperlink{quaternion_8hpp_source}{quaternion.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Math/\mbox{\hyperlink{quaternion_8hpp}{quaternion.\+hpp}}\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Math/\mbox{\hyperlink{quaternion_8cpp}{quaternion.\+cpp}}\end{DoxyCompactItemize}

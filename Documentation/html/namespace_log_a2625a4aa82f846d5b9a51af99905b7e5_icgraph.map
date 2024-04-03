@@ -1,0 +1,13 @@
+<map id="Log::error" name="Log::error">
+<area shape="rect" id="Node000001" title=" " alt="" coords="550,101,626,128"/>
+<area shape="rect" id="Node000002" href="$class_i_o_1_1_dungeon_writer.html#abcfb281b6e7718152c788387872b04d6" title=" " alt="" coords="322,5,458,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="555,95,501,62,458,46,459,41,503,58,558,90"/>
+<area shape="rect" id="Node000003" href="$namespace_test.html#a6b75d2713fdff74fa8fb2b93140ac0c8" title=" " alt="" coords="326,72,454,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="534,109,454,97,454,92,535,104"/>
+<area shape="rect" id="Node000004" href="$class_generator_1_1_voronoi_based_generator_algorithm.html#a3762866b91d53ab6afffce1da2d894a6" title=" " alt="" coords="278,123,502,165"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="535,125,503,130,502,125,534,120"/>
+<area shape="rect" id="Node000006" href="$class_error_1_1_error.html#a553007426fe13218921a005309b90ada" title=" " alt="" coords="335,189,445,216"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="563,140,535,161,503,180,446,197,445,192,501,175,532,157,559,136"/>
+<area shape="rect" id="Node000005" href="$class_generator_1_1_voronoi_based_generator_algorithm.html#aa1cf5412e39ca7c7fae0853f971e055f" title=" " alt="" coords="5,123,230,165"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="262,147,230,147,230,141,262,141"/>
+</map>

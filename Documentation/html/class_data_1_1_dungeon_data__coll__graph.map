@@ -1,0 +1,11 @@
+<map id="Data::DungeonData" name="Data::DungeonData">
+<area shape="rect" id="Node000001" title=" " alt="" coords="44,1056,169,1403"/>
+<area shape="rect" id="Node000002" href="$class_random_1_1_seed.html" title=" " alt="" coords="5,859,141,949"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="81,949,90,1039,84,1039,75,949"/>
+<area shape="rect" id="Node000003" href="$class_data_1_1_maze_data.html" title=" " alt="" coords="166,816,298,992"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="201,993,178,1052,173,1050,196,991"/>
+<area shape="rect" id="Node000004" href="$class_math_1_1_graph.html" title=" " alt="" coords="144,245,320,736"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="235,736,235,799,229,799,229,736"/>
+<area shape="rect" id="Node000005" href="$class_math_1_1_node.html" title=" " alt="" coords="166,5,298,181"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="235,181,235,228,229,228,229,181"/>
+</map>

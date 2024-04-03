@@ -1,0 +1,235 @@
+\doxysection{Dungeon Class Reference}
+\hypertarget{class_dungeon}{}\label{class_dungeon}\index{Dungeon@{Dungeon}}
+
+
+{\ttfamily \#include $<$dungeon.\+hpp$>$}
+
+
+
+Collaboration diagram for Dungeon\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_dungeon__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_dungeon_a556acaa766b2e25a89f51267c12daa66}{Dungeon}} ()
+\item 
+\mbox{\hyperlink{class_data_1_1_dungeon_data}{Data\+::\+Dungeon\+Data}} \mbox{\hyperlink{class_dungeon_a4aaf350d68fd4b2dba15be86cc8a5184}{get\+Data}} () const
+\item 
+void \mbox{\hyperlink{class_dungeon_a3bdb091db0247fe1b92439195c333359}{generate\+Dungeon}} (const \mbox{\hyperlink{class_dungeon_generator_settings}{Dungeon\+Generator\+Settings}} \&settings)
+\item 
+void \mbox{\hyperlink{class_dungeon_afdabe22843a173ffe0737ac100cdc5b5}{generate\+Maze}} (const \mbox{\hyperlink{class_maze_generator_settings}{Maze\+Generator\+Settings}} \&settings)
+\item 
+void \mbox{\hyperlink{class_dungeon_ae48d08d762378df847b8d09c6871daa7}{generate\+Holes}} (const \mbox{\hyperlink{class_hole_generator_settings}{Hole\+Generator\+Settings}} \&settings)
+\item 
+void \mbox{\hyperlink{class_dungeon_aaf6d5027e2783df4fdf332e87c4e4f44}{save}} (std\+::string path)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_data_1_1_dungeon_data}{Data\+::\+Dungeon\+Data}} \mbox{\hyperlink{class_dungeon_a1379766a969c24b47974e312259ac17c}{dungeon\+Data}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{dungeon_8hpp_source_l00008}{8}} of file \mbox{\hyperlink{dungeon_8hpp_source}{dungeon.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_dungeon_a556acaa766b2e25a89f51267c12daa66}\label{class_dungeon_a556acaa766b2e25a89f51267c12daa66} 
+\index{Dungeon@{Dungeon}!Dungeon@{Dungeon}}
+\index{Dungeon@{Dungeon}!Dungeon@{Dungeon}}
+\doxysubsubsection{\texorpdfstring{Dungeon()}{Dungeon()}}
+{\footnotesize\ttfamily Dungeon\+::\+Dungeon (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{dungeon_8cpp_source_l00008}{8}} of file \mbox{\hyperlink{dungeon_8cpp_source}{dungeon.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00009\ \{}
+\DoxyCodeLine{00010\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_dungeon_a3bdb091db0247fe1b92439195c333359}\label{class_dungeon_a3bdb091db0247fe1b92439195c333359} 
+\index{Dungeon@{Dungeon}!generateDungeon@{generateDungeon}}
+\index{generateDungeon@{generateDungeon}!Dungeon@{Dungeon}}
+\doxysubsubsection{\texorpdfstring{generateDungeon()}{generateDungeon()}}
+{\footnotesize\ttfamily void Dungeon\+::generate\+Dungeon (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_dungeon_generator_settings}{Dungeon\+Generator\+Settings}} \&}]{settings }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{dungeon_8cpp_source_l00012}{12}} of file \mbox{\hyperlink{dungeon_8cpp_source}{dungeon.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00013\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_generator_1_1_dungeon_generator}{Generator::DungeonGenerator}}\ generator(settings);}
+\DoxyCodeLine{00015\ \ \ \ \ generator.generate(\mbox{\hyperlink{class_dungeon_a1379766a969c24b47974e312259ac17c}{dungeonData}});}
+\DoxyCodeLine{00016\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_dungeon_a3bdb091db0247fe1b92439195c333359_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=289pt]{class_dungeon_a3bdb091db0247fe1b92439195c333359_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_dungeon_ae48d08d762378df847b8d09c6871daa7}\label{class_dungeon_ae48d08d762378df847b8d09c6871daa7} 
+\index{Dungeon@{Dungeon}!generateHoles@{generateHoles}}
+\index{generateHoles@{generateHoles}!Dungeon@{Dungeon}}
+\doxysubsubsection{\texorpdfstring{generateHoles()}{generateHoles()}}
+{\footnotesize\ttfamily void Dungeon\+::generate\+Holes (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_hole_generator_settings}{Hole\+Generator\+Settings}} \&}]{settings }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{dungeon_8cpp_source_l00024}{24}} of file \mbox{\hyperlink{dungeon_8cpp_source}{dungeon.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00025\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{class_generator_1_1_hole_generator}{Generator::HoleGenerator}}\ generator(settings);}
+\DoxyCodeLine{00027\ \ \ \ \ generator.generate(\mbox{\hyperlink{class_dungeon_a1379766a969c24b47974e312259ac17c}{dungeonData}});}
+\DoxyCodeLine{00028\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_dungeon_ae48d08d762378df847b8d09c6871daa7_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=276pt]{class_dungeon_ae48d08d762378df847b8d09c6871daa7_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_dungeon_afdabe22843a173ffe0737ac100cdc5b5}\label{class_dungeon_afdabe22843a173ffe0737ac100cdc5b5} 
+\index{Dungeon@{Dungeon}!generateMaze@{generateMaze}}
+\index{generateMaze@{generateMaze}!Dungeon@{Dungeon}}
+\doxysubsubsection{\texorpdfstring{generateMaze()}{generateMaze()}}
+{\footnotesize\ttfamily void Dungeon\+::generate\+Maze (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_maze_generator_settings}{Maze\+Generator\+Settings}} \&}]{settings }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{dungeon_8cpp_source_l00018}{18}} of file \mbox{\hyperlink{dungeon_8cpp_source}{dungeon.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00019\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{class_generator_1_1_maze_generator}{Generator::MazeGenerator}}\ generator(settings);}
+\DoxyCodeLine{00021\ \ \ \ \ generator.generate(\mbox{\hyperlink{class_dungeon_a1379766a969c24b47974e312259ac17c}{dungeonData}}.\mbox{\hyperlink{class_data_1_1_dungeon_data_ac75b4bd327be99d4a890c34dcd4504dc}{getMaze}}());}
+\DoxyCodeLine{00022\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_dungeon_afdabe22843a173ffe0737ac100cdc5b5_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=275pt]{class_dungeon_afdabe22843a173ffe0737ac100cdc5b5_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_dungeon_a4aaf350d68fd4b2dba15be86cc8a5184}\label{class_dungeon_a4aaf350d68fd4b2dba15be86cc8a5184} 
+\index{Dungeon@{Dungeon}!getData@{getData}}
+\index{getData@{getData}!Dungeon@{Dungeon}}
+\doxysubsubsection{\texorpdfstring{getData()}{getData()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_data_1_1_dungeon_data}{Data\+::\+Dungeon\+Data}} Dungeon\+::get\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{dungeon_8hpp_source_l00015}{15}} of file \mbox{\hyperlink{dungeon_8hpp_source}{dungeon.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00015\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_dungeon_a1379766a969c24b47974e312259ac17c}{dungeonData}};\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_dungeon_aaf6d5027e2783df4fdf332e87c4e4f44}\label{class_dungeon_aaf6d5027e2783df4fdf332e87c4e4f44} 
+\index{Dungeon@{Dungeon}!save@{save}}
+\index{save@{save}!Dungeon@{Dungeon}}
+\doxysubsubsection{\texorpdfstring{save()}{save()}}
+{\footnotesize\ttfamily void Dungeon\+::save (\begin{DoxyParamCaption}\item[{std\+::string}]{path }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{dungeon_8cpp_source_l00030}{30}} of file \mbox{\hyperlink{dungeon_8cpp_source}{dungeon.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00031\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{class_i_o_1_1_dungeon_writer}{IO::DungeonWriter}}\ writer(\mbox{\hyperlink{class_dungeon_a1379766a969c24b47974e312259ac17c}{dungeonData}},\ path);}
+\DoxyCodeLine{00033\ \ \ \ \ writer.write();}
+\DoxyCodeLine{00034\ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_dungeon_aaf6d5027e2783df4fdf332e87c4e4f44_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=233pt]{class_dungeon_aaf6d5027e2783df4fdf332e87c4e4f44_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_dungeon_a1379766a969c24b47974e312259ac17c}\label{class_dungeon_a1379766a969c24b47974e312259ac17c} 
+\index{Dungeon@{Dungeon}!dungeonData@{dungeonData}}
+\index{dungeonData@{dungeonData}!Dungeon@{Dungeon}}
+\doxysubsubsection{\texorpdfstring{dungeonData}{dungeonData}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_data_1_1_dungeon_data}{Data\+::\+Dungeon\+Data}} Dungeon\+::dungeon\+Data\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{dungeon_8hpp_source_l00011}{11}} of file \mbox{\hyperlink{dungeon_8hpp_source}{dungeon.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Dungeon\+Generator/\mbox{\hyperlink{dungeon_8hpp}{dungeon.\+hpp}}\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Dungeon\+Generator/\mbox{\hyperlink{dungeon_8cpp}{dungeon.\+cpp}}\end{DoxyCompactItemize}

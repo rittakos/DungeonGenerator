@@ -1,0 +1,9 @@
+<map id="Generator::VoronoiBasedGeneratorAlgorithm::getIntersectionPoints" name="Generator::VoronoiBasedGeneratorAlgorithm::getIntersectionPoints">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,39,230,81"/>
+<area shape="rect" id="Node000002" href="$class_generator_1_1_voronoi_based_generator_algorithm.html#a8d062a612739b3a2988e52897bfebf39" title=" " alt="" coords="278,5,502,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="230,44,262,40,262,45,230,49"/>
+<area shape="rect" id="Node000004" href="$namespace_geometry.html#ae680321c371d9f6bd6def5844e915b6f" title=" " alt="" coords="304,72,476,115"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="230,71,289,78,288,84,230,76"/>
+<area shape="rect" id="Node000003" href="$class_generator_1_1_voronoi_based_generator_algorithm.html#a73dee373c3e3f6f657f7f8f5385f32dc" title=" " alt="" coords="550,5,774,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="502,24,534,24,534,29,502,29"/>
+</map>

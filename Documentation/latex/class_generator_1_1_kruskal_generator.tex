@@ -1,0 +1,108 @@
+\doxysection{Generator\+::Kruskal\+Generator Class Reference}
+\hypertarget{class_generator_1_1_kruskal_generator}{}\label{class_generator_1_1_kruskal_generator}\index{Generator::KruskalGenerator@{Generator::KruskalGenerator}}
+
+
+{\ttfamily \#include $<$kruskal\+Generator.\+hpp$>$}
+
+
+
+Inheritance diagram for Generator\+::Kruskal\+Generator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=218pt]{class_generator_1_1_kruskal_generator__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Generator\+::Kruskal\+Generator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=218pt]{class_generator_1_1_kruskal_generator__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_generator_1_1_kruskal_generator_a9475e6ca5be1fa59cf42551d2022f91b}{Generate}} (\mbox{\hyperlink{class_data_1_1_maze_data}{Data\+::\+Maze\+Data}} \&maze\+Data) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_generator_1_1_maze_generator_algorithm}{Generator\+::\+Maze\+Generator\+Algorithm}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_generator_1_1_maze_generator_algorithm_a453729ae6e44779432aae27d852aa969}{\texorpdfstring{$\sim$}{\string~}\+Maze\+Generator\+Algorithm}} ()=default
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{kruskal_generator_8hpp_source_l00007}{7}} of file \mbox{\hyperlink{kruskal_generator_8hpp_source}{kruskal\+Generator.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_generator_1_1_kruskal_generator_a9475e6ca5be1fa59cf42551d2022f91b}\label{class_generator_1_1_kruskal_generator_a9475e6ca5be1fa59cf42551d2022f91b} 
+\index{Generator::KruskalGenerator@{Generator::KruskalGenerator}!Generate@{Generate}}
+\index{Generate@{Generate}!Generator::KruskalGenerator@{Generator::KruskalGenerator}}
+\doxysubsubsection{\texorpdfstring{Generate()}{Generate()}}
+{\footnotesize\ttfamily void Generator\+::\+Kruskal\+Generator\+::\+Generate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_data_1_1_maze_data}{Data\+::\+Maze\+Data}} \&}]{maze\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_generator_1_1_maze_generator_algorithm_a20c097ee9b36ec491858af184f140dfe}{Generator\+::\+Maze\+Generator\+Algorithm}}.
+
+
+
+Definition at line \mbox{\hyperlink{kruskal_generator_8cpp_source_l00005}{5}} of file \mbox{\hyperlink{kruskal_generator_8cpp_source}{kruskal\+Generator.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00006\ \ \ \ \ \{}
+\DoxyCodeLine{00007\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_graph}{Math::Graph<int,\ Geometry::Edge>}}\ graph\ =\ mazeData.\mbox{\hyperlink{class_data_1_1_maze_data_ad919b6076779ed23b15d10635fd2b8b4}{getGraph}}();}
+\DoxyCodeLine{00008\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_graph}{Math::Graph<int,\ Geometry::Edge>}}\ newGraph;}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ std::map<int,\ int>\ groups;}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ std::unordered\_map<Math::Edge,\ std::optional<Geometry::Edge>>\ edgeValues\ =\ mazeData.\mbox{\hyperlink{class_data_1_1_maze_data_ad919b6076779ed23b15d10635fd2b8b4}{getGraph}}().\mbox{\hyperlink{class_math_1_1_graph_aa02b9364daaa2729a02aaf3bb5d412e5}{getEdgesWithValues}}();}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ groupId\ =\ 0;}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ [node,\ value]\ :\ mazeData.getGraph().getNodes())}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ newGraph.\mbox{\hyperlink{class_math_1_1_graph_ad2db359eaa34de03842bcd384e248316}{addNode}}(value);}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ groups[value]\ =\ groupId;}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ ++groupId;}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ [from,\ toVector]\ :\ mazeData.getGraph().getEdges())}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{class_math_1_1_node}{Math::Node}}\&\ to\ :\ toVector)}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (groups[from.id]\ !=\ groups[to.id])}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ newGraph.\mbox{\hyperlink{class_math_1_1_graph_a89eeb992ce1291bde48f820473d3a689}{addEdge}}(from.id,\ to.id,\ edgeValues[\mbox{\hyperlink{class_math_1_1_edge}{Math::Edge}}\{\ from,\ to\ \}]);}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ groups[to.id]\ =\ groups[from.id];}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ mazeData.\mbox{\hyperlink{class_data_1_1_maze_data_a61cf6604c278d59a2ebc0aebe8949af1}{setMaze}}(newGraph);}
+\DoxyCodeLine{00035\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_generator_1_1_kruskal_generator_a9475e6ca5be1fa59cf42551d2022f91b_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Generator/\mbox{\hyperlink{kruskal_generator_8hpp}{kruskal\+Generator.\+hpp}}\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Generator/\mbox{\hyperlink{kruskal_generator_8cpp}{kruskal\+Generator.\+cpp}}\end{DoxyCompactItemize}

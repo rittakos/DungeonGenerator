@@ -1,0 +1,7 @@
+<map id="Generator::MazeGenerator::generate" name="Generator::MazeGenerator::generate">
+<area shape="rect" id="Node000001" title=" " alt="" coords="313,5,488,48"/>
+<area shape="rect" id="Node000002" href="$class_dungeon.html#afdabe22843a173ffe0737ac100cdc5b5" title=" " alt="" coords="103,13,265,40"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="298,29,265,29,265,24,298,24"/>
+<area shape="rect" id="Node000003" href="$_dungeon_generator_2main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,13,55,40"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="87,29,55,29,55,24,87,24"/>
+</map>

@@ -1,0 +1,28 @@
+<map id="C:/Dev/DungeonGenerator/DungeonGenerator/Math/quaternion.hpp" name="C:/Dev/DungeonGenerator/DungeonGenerator/Math/quaternion.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="41,5,212,64"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="21,112,89,139"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="106,66,77,101,72,98,101,63"/>
+<area shape="rect" id="Node000003" href="$angle_8hpp.html" title=" " alt="" coords="64,187,141,213"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="125,65,109,172,104,171,120,64"/>
+<area shape="rect" id="Node000008" href="$vector_8hpp.html" title=" " alt="" coords="225,112,306,139"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="173,62,234,101,231,106,170,67"/>
+<area shape="rect" id="Node000004" href="$math_8hpp.html" title=" " alt="" coords="92,261,167,288"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="110,213,122,246,117,248,105,215"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="5,336,67,363"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="115,291,66,329,62,324,111,286"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="192,336,267,363"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="148,286,201,324,198,329,145,291"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="91,336,168,363"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="132,289,132,320,127,320,127,289"/>
+<area shape="poly" id="edge13_Node000008_Node000003" title=" " alt="" coords="238,142,146,182,144,177,236,137"/>
+<area shape="poly" id="edge12_Node000008_Node000004" title=" " alt="" coords="256,141,153,251,149,248,252,137"/>
+<area shape="poly" id="edge11_Node000008_Node000006" title=" " alt="" coords="266,140,257,187,236,321,231,320,252,186,260,139"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="267,187,338,213"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="274,138,292,172,287,174,269,140"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="363,187,427,213"/>
+<area shape="poly" id="edge9_Node000008_Node000010" title=" " alt="" coords="289,137,360,176,357,181,287,142"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="451,187,506,213"/>
+<area shape="poly" id="edge10_Node000008_Node000011" title=" " alt="" coords="303,137,437,182,435,187,302,142"/>
+<area shape="rect" id="Node000012" href="$is_all_same_8hpp.html" title=" " alt="" coords="530,187,635,213"/>
+<area shape="poly" id="edge14_Node000008_Node000012" title=" " alt="" coords="306,133,515,181,514,186,305,138"/>
+</map>

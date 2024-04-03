@@ -1,0 +1,309 @@
+\doxysection{Data\+::Layout\+Data Class Reference}
+\hypertarget{class_data_1_1_layout_data}{}\label{class_data_1_1_layout_data}\index{Data::LayoutData@{Data::LayoutData}}
+
+
+{\ttfamily \#include $<$layout\+Data.\+hpp$>$}
+
+
+
+Collaboration diagram for Data\+::Layout\+Data\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_data_1_1_layout_data__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_data_1_1_layout_data_a070b01671003c628c6f1e54d0eb7bd98}{Layout\+Data}} (const \mbox{\hyperlink{class_geometry_1_1_polygon}{Geometry\+::\+Polygon}} \&\mbox{\hyperlink{class_data_1_1_layout_data_a41ae3ec54c62c920602d502744484abc}{polygon}})
+\item 
+\mbox{\hyperlink{class_geometry_1_1_polygon}{Geometry\+::\+Polygon}} \mbox{\hyperlink{class_data_1_1_layout_data_a459274e04257649888b135d9d8b3848e}{get\+Polygon}} () const
+\item 
+void \mbox{\hyperlink{class_data_1_1_layout_data_a2296e02f19e06eb0f99ea267c63da4e4}{set\+Polygon}} (const \mbox{\hyperlink{class_geometry_1_1_polygon}{Geometry\+::\+Polygon}} \&\mbox{\hyperlink{class_data_1_1_layout_data_a41ae3ec54c62c920602d502744484abc}{polygon}})
+\item 
+std\+::vector$<$ \mbox{\hyperlink{namespace_math_a38403b98e9aeb47ec7fd300a7a8e896a}{Math\+::\+Vec3i}} $>$ \mbox{\hyperlink{class_data_1_1_layout_data_a2407f920a97acbeec2e4928a62627816}{get\+Triangles\+Clock\+Wise}} () const
+\item 
+std\+::vector$<$ \mbox{\hyperlink{namespace_math_a38403b98e9aeb47ec7fd300a7a8e896a}{Math\+::\+Vec3i}} $>$ \mbox{\hyperlink{class_data_1_1_layout_data_af2ae57fc3a964ee0220f340d32817ae1}{get\+Triangles\+Counter\+Clockwise}} () const
+\item 
+std\+::vector$<$ \mbox{\hyperlink{namespace_math_a753baf5938292fd107023b09e4287523}{Math\+::\+Vec3f}} $>$ \mbox{\hyperlink{class_data_1_1_layout_data_ad0327c57353bc5f5407a436d980b073d}{get\+Points}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_data_1_1_layout_data_a04efcfe6e95802616126cc961b3126cf}{triangulate}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_geometry_1_1_polygon}{Geometry\+::\+Polygon}} \mbox{\hyperlink{class_data_1_1_layout_data_a41ae3ec54c62c920602d502744484abc}{polygon}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{namespace_math_a753baf5938292fd107023b09e4287523}{Math\+::\+Vec3f}} $>$ \mbox{\hyperlink{class_data_1_1_layout_data_aed17909c4a0e70243fa325c04a0ec435}{points}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{namespace_math_a38403b98e9aeb47ec7fd300a7a8e896a}{Math\+::\+Vec3i}} $>$ \mbox{\hyperlink{class_data_1_1_layout_data_a84d2d89182d3c52474ab6708d196e455}{triangles}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{namespace_math_a38403b98e9aeb47ec7fd300a7a8e896a}{Math\+::\+Vec3i}} $>$ \mbox{\hyperlink{class_data_1_1_layout_data_aec4c88ab3396e53fe16796405459ab91}{counter\+Triangles}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{layout_data_8hpp_source_l00008}{8}} of file \mbox{\hyperlink{layout_data_8hpp_source}{layout\+Data.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_data_1_1_layout_data_a070b01671003c628c6f1e54d0eb7bd98}\label{class_data_1_1_layout_data_a070b01671003c628c6f1e54d0eb7bd98} 
+\index{Data::LayoutData@{Data::LayoutData}!LayoutData@{LayoutData}}
+\index{LayoutData@{LayoutData}!Data::LayoutData@{Data::LayoutData}}
+\doxysubsubsection{\texorpdfstring{LayoutData()}{LayoutData()}}
+{\footnotesize\ttfamily Data\+::\+Layout\+Data\+::\+Layout\+Data (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_geometry_1_1_polygon}{Geometry\+::\+Polygon}} \&}]{polygon }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{layout_data_8cpp_source_l00007}{7}} of file \mbox{\hyperlink{layout_data_8cpp_source}{layout\+Data.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00007\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{class_data_1_1_layout_data_a41ae3ec54c62c920602d502744484abc}{polygon}}(\mbox{\hyperlink{class_data_1_1_layout_data_a41ae3ec54c62c920602d502744484abc}{polygon}}) }
+\DoxyCodeLine{00008\ \ \ \ \ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_data_1_1_layout_data_a04efcfe6e95802616126cc961b3126cf}{triangulate}}();}
+\DoxyCodeLine{00010\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_data_1_1_layout_data_a070b01671003c628c6f1e54d0eb7bd98_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_data_1_1_layout_data_ad0327c57353bc5f5407a436d980b073d}\label{class_data_1_1_layout_data_ad0327c57353bc5f5407a436d980b073d} 
+\index{Data::LayoutData@{Data::LayoutData}!getPoints@{getPoints}}
+\index{getPoints@{getPoints}!Data::LayoutData@{Data::LayoutData}}
+\doxysubsubsection{\texorpdfstring{getPoints()}{getPoints()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{namespace_math_a753baf5938292fd107023b09e4287523}{Math\+::\+Vec3f}} $>$ Data\+::\+Layout\+Data\+::get\+Points (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{layout_data_8cpp_source_l00053}{53}} of file \mbox{\hyperlink{layout_data_8cpp_source}{layout\+Data.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00054\ \ \ \ \ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_data_1_1_layout_data_aed17909c4a0e70243fa325c04a0ec435}{points}};}
+\DoxyCodeLine{00056\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_data_1_1_layout_data_ad0327c57353bc5f5407a436d980b073d_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_data_1_1_layout_data_a459274e04257649888b135d9d8b3848e}\label{class_data_1_1_layout_data_a459274e04257649888b135d9d8b3848e} 
+\index{Data::LayoutData@{Data::LayoutData}!getPolygon@{getPolygon}}
+\index{getPolygon@{getPolygon}!Data::LayoutData@{Data::LayoutData}}
+\doxysubsubsection{\texorpdfstring{getPolygon()}{getPolygon()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_geometry_1_1_polygon}{Geometry\+::\+Polygon}} Data\+::\+Layout\+Data\+::get\+Polygon (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{layout_data_8cpp_source_l00012}{12}} of file \mbox{\hyperlink{layout_data_8cpp_source}{layout\+Data.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00013\ \ \ \ \ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_data_1_1_layout_data_a41ae3ec54c62c920602d502744484abc}{polygon}};}
+\DoxyCodeLine{00015\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_data_1_1_layout_data_a459274e04257649888b135d9d8b3848e_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_data_1_1_layout_data_a2407f920a97acbeec2e4928a62627816}\label{class_data_1_1_layout_data_a2407f920a97acbeec2e4928a62627816} 
+\index{Data::LayoutData@{Data::LayoutData}!getTrianglesClockWise@{getTrianglesClockWise}}
+\index{getTrianglesClockWise@{getTrianglesClockWise}!Data::LayoutData@{Data::LayoutData}}
+\doxysubsubsection{\texorpdfstring{getTrianglesClockWise()}{getTrianglesClockWise()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{namespace_math_a38403b98e9aeb47ec7fd300a7a8e896a}{Math\+::\+Vec3i}} $>$ Data\+::\+Layout\+Data\+::get\+Triangles\+Clock\+Wise (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{layout_data_8cpp_source_l00043}{43}} of file \mbox{\hyperlink{layout_data_8cpp_source}{layout\+Data.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00044\ \ \ \ \ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_data_1_1_layout_data_a84d2d89182d3c52474ab6708d196e455}{triangles}};}
+\DoxyCodeLine{00046\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=318pt]{class_data_1_1_layout_data_a2407f920a97acbeec2e4928a62627816_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_data_1_1_layout_data_af2ae57fc3a964ee0220f340d32817ae1}\label{class_data_1_1_layout_data_af2ae57fc3a964ee0220f340d32817ae1} 
+\index{Data::LayoutData@{Data::LayoutData}!getTrianglesCounterClockwise@{getTrianglesCounterClockwise}}
+\index{getTrianglesCounterClockwise@{getTrianglesCounterClockwise}!Data::LayoutData@{Data::LayoutData}}
+\doxysubsubsection{\texorpdfstring{getTrianglesCounterClockwise()}{getTrianglesCounterClockwise()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{namespace_math_a38403b98e9aeb47ec7fd300a7a8e896a}{Math\+::\+Vec3i}} $>$ Data\+::\+Layout\+Data\+::get\+Triangles\+Counter\+Clockwise (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{layout_data_8cpp_source_l00048}{48}} of file \mbox{\hyperlink{layout_data_8cpp_source}{layout\+Data.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00049\ \ \ \ \ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_data_1_1_layout_data_aec4c88ab3396e53fe16796405459ab91}{counterTriangles}};}
+\DoxyCodeLine{00051\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=318pt]{class_data_1_1_layout_data_af2ae57fc3a964ee0220f340d32817ae1_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_data_1_1_layout_data_a2296e02f19e06eb0f99ea267c63da4e4}\label{class_data_1_1_layout_data_a2296e02f19e06eb0f99ea267c63da4e4} 
+\index{Data::LayoutData@{Data::LayoutData}!setPolygon@{setPolygon}}
+\index{setPolygon@{setPolygon}!Data::LayoutData@{Data::LayoutData}}
+\doxysubsubsection{\texorpdfstring{setPolygon()}{setPolygon()}}
+{\footnotesize\ttfamily void Data\+::\+Layout\+Data\+::set\+Polygon (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_geometry_1_1_polygon}{Geometry\+::\+Polygon}} \&}]{polygon }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{layout_data_8cpp_source_l00017}{17}} of file \mbox{\hyperlink{layout_data_8cpp_source}{layout\+Data.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00018\ \ \ \ \ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ this-\/>polygon\ =\ \mbox{\hyperlink{class_data_1_1_layout_data_a41ae3ec54c62c920602d502744484abc}{polygon}};}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_data_1_1_layout_data_a04efcfe6e95802616126cc961b3126cf}{triangulate}}();}
+\DoxyCodeLine{00021\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_data_1_1_layout_data_a2296e02f19e06eb0f99ea267c63da4e4_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_data_1_1_layout_data_a04efcfe6e95802616126cc961b3126cf}\label{class_data_1_1_layout_data_a04efcfe6e95802616126cc961b3126cf} 
+\index{Data::LayoutData@{Data::LayoutData}!triangulate@{triangulate}}
+\index{triangulate@{triangulate}!Data::LayoutData@{Data::LayoutData}}
+\doxysubsubsection{\texorpdfstring{triangulate()}{triangulate()}}
+{\footnotesize\ttfamily void Data\+::\+Layout\+Data\+::triangulate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{layout_data_8cpp_source_l00023}{23}} of file \mbox{\hyperlink{layout_data_8cpp_source}{layout\+Data.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00024\ \ \ \ \ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_polygon_triangulator}{Geometry::Delaunay::PolygonTriangulator}}\ triangulator(\mbox{\hyperlink{class_data_1_1_layout_data_a41ae3ec54c62c920602d502744484abc}{polygon}});}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_geometry_1_1_delaunay_1_1_delaunay_triangulation}{Geometry::Delaunay::DelaunayTriangulation}}\ triangulation\ =\ triangulator.Triangulate(\mbox{\hyperlink{namespace_geometry_1_1_delaunay_a643e8f927eebc3f3a702ca86183886abaea59a27b26cd393a09ae579c7b8d504a}{Geometry::Delaunay::ClockWise}});}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_data_1_1_layout_data_aed17909c4a0e70243fa325c04a0ec435}{points}}.clear();}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ p\ :\ triangulation.Vertices)}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_data_1_1_layout_data_aed17909c4a0e70243fa325c04a0ec435}{points}}.push\_back(\mbox{\hyperlink{namespace_math}{Math}}::\mbox{\hyperlink{namespace_math_a753baf5938292fd107023b09e4287523}{Vec3f}}(p[0],\ p[1],\ 0.0f));}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_data_1_1_layout_data_a84d2d89182d3c52474ab6708d196e455}{triangles}}.clear();}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_data_1_1_layout_data_aec4c88ab3396e53fe16796405459ab91}{counterTriangles}}.clear();}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ triangle\ :\ triangulation.Triangles)}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_data_1_1_layout_data_a84d2d89182d3c52474ab6708d196e455}{triangles}}.push\_back(\mbox{\hyperlink{class_math_1_1_vec}{Math::Vec3i}}(triangle.P0.index,\ triangle.P1.index,\ triangle.P2.index));}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_data_1_1_layout_data_aec4c88ab3396e53fe16796405459ab91}{counterTriangles}}.push\_back(\mbox{\hyperlink{class_math_1_1_vec}{Math::Vec3i}}(triangle.P2.index,\ triangle.P1.index,\ triangle.P0.index));}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00041\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_data_1_1_layout_data_a04efcfe6e95802616126cc961b3126cf_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_data_1_1_layout_data_a04efcfe6e95802616126cc961b3126cf_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_data_1_1_layout_data_aec4c88ab3396e53fe16796405459ab91}\label{class_data_1_1_layout_data_aec4c88ab3396e53fe16796405459ab91} 
+\index{Data::LayoutData@{Data::LayoutData}!counterTriangles@{counterTriangles}}
+\index{counterTriangles@{counterTriangles}!Data::LayoutData@{Data::LayoutData}}
+\doxysubsubsection{\texorpdfstring{counterTriangles}{counterTriangles}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{namespace_math_a38403b98e9aeb47ec7fd300a7a8e896a}{Math\+::\+Vec3i}}$>$ Data\+::\+Layout\+Data\+::counter\+Triangles\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{layout_data_8hpp_source_l00015}{15}} of file \mbox{\hyperlink{layout_data_8hpp_source}{layout\+Data.\+hpp}}.
+
+\Hypertarget{class_data_1_1_layout_data_aed17909c4a0e70243fa325c04a0ec435}\label{class_data_1_1_layout_data_aed17909c4a0e70243fa325c04a0ec435} 
+\index{Data::LayoutData@{Data::LayoutData}!points@{points}}
+\index{points@{points}!Data::LayoutData@{Data::LayoutData}}
+\doxysubsubsection{\texorpdfstring{points}{points}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{namespace_math_a753baf5938292fd107023b09e4287523}{Math\+::\+Vec3f}}$>$ Data\+::\+Layout\+Data\+::points\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{layout_data_8hpp_source_l00013}{13}} of file \mbox{\hyperlink{layout_data_8hpp_source}{layout\+Data.\+hpp}}.
+
+\Hypertarget{class_data_1_1_layout_data_a41ae3ec54c62c920602d502744484abc}\label{class_data_1_1_layout_data_a41ae3ec54c62c920602d502744484abc} 
+\index{Data::LayoutData@{Data::LayoutData}!polygon@{polygon}}
+\index{polygon@{polygon}!Data::LayoutData@{Data::LayoutData}}
+\doxysubsubsection{\texorpdfstring{polygon}{polygon}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_geometry_1_1_polygon}{Geometry\+::\+Polygon}} Data\+::\+Layout\+Data\+::polygon\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{layout_data_8hpp_source_l00011}{11}} of file \mbox{\hyperlink{layout_data_8hpp_source}{layout\+Data.\+hpp}}.
+
+\Hypertarget{class_data_1_1_layout_data_a84d2d89182d3c52474ab6708d196e455}\label{class_data_1_1_layout_data_a84d2d89182d3c52474ab6708d196e455} 
+\index{Data::LayoutData@{Data::LayoutData}!triangles@{triangles}}
+\index{triangles@{triangles}!Data::LayoutData@{Data::LayoutData}}
+\doxysubsubsection{\texorpdfstring{triangles}{triangles}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{namespace_math_a38403b98e9aeb47ec7fd300a7a8e896a}{Math\+::\+Vec3i}}$>$ Data\+::\+Layout\+Data\+::triangles\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{layout_data_8hpp_source_l00014}{14}} of file \mbox{\hyperlink{layout_data_8hpp_source}{layout\+Data.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Data/\mbox{\hyperlink{layout_data_8hpp}{layout\+Data.\+hpp}}\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Data/\mbox{\hyperlink{layout_data_8cpp}{layout\+Data.\+cpp}}\end{DoxyCompactItemize}

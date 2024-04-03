@@ -1,0 +1,5 @@
+<map id="Geometry::Polygon::addHole" name="Geometry::Polygon::addHole">
+<area shape="rect" id="Node000001" title=" " alt="" coords="256,5,397,48"/>
+<area shape="rect" id="Node000002" href="$class_generator_1_1_basic_hole_generator.html#a71278848337a912910e27af122004b0f" title=" " alt="" coords="5,5,208,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="240,29,208,29,208,24,240,24"/>
+</map>

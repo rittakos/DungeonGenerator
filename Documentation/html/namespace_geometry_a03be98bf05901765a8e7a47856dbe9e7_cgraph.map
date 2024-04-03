@@ -1,0 +1,15 @@
+<map id="Geometry::rotate" name="Geometry::rotate">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,81,125,108"/>
+<area shape="rect" id="Node000002" href="$namespace_geometry.html#a2a037051bb9263fa553810b06691426c" title=" " alt="" coords="173,81,292,108"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="125,92,157,92,157,97,125,97"/>
+<area shape="rect" id="Node000003" href="$class_math_1_1_quaternion.html#a18d3a934c8bc11845841ce8824b209b8" title=" " alt="" coords="340,5,535,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="258,78,339,42,361,34,363,39,341,46,260,83"/>
+<area shape="rect" id="Node000005" href="$class_math_1_1_quaternion.html#ac6884d3900d18dc11ee565400f89ca73" title=" " alt="" coords="372,56,504,83"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="292,85,356,77,356,82,293,90"/>
+<area shape="rect" id="Node000006" href="$class_math_1_1_quaternion.html#a97853ababc2cba1bc0484fd02b33914d" title=" " alt="" coords="372,107,504,133"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="293,99,356,107,356,113,292,105"/>
+<area shape="rect" id="Node000007" href="$class_math_1_1_quaternion.html#a8b112e36c39b3ffa40a0110c73a1b236" title=" " alt="" coords="370,157,506,184"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="260,106,341,143,363,150,361,155,339,148,258,111"/>
+<area shape="rect" id="Node000004" href="$class_math_1_1_quaternion.html#a0af09a51ab263e76041a90a035af8e30" title=" " alt="" coords="583,5,776,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="536,16,568,16,568,21,536,21"/>
+</map>

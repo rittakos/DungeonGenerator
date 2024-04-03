@@ -1,0 +1,9 @@
+<map id="Generator::MazeGenerator::MazeGenerator" name="Generator::MazeGenerator::MazeGenerator">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,35,181,77"/>
+<area shape="rect" id="Node000002" href="$class_maze_generator_settings.html#a51fb19290b5417c48ca3a00c69fe1343" title=" " alt="" coords="229,5,387,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="181,41,213,37,214,42,182,47"/>
+<area shape="rect" id="Node000003" href="$namespace_log.html#acc334094de2c17174209b77597e7742d" title=" " alt="" coords="273,72,343,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="182,65,258,76,257,81,181,71"/>
+<area shape="rect" id="Node000004" href="$class_log_1_1_logger.html#a45aece334a9680706aabc171f1c1fc64" title=" " alt="" coords="435,72,552,99"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="344,83,420,83,420,88,344,88"/>
+</map>

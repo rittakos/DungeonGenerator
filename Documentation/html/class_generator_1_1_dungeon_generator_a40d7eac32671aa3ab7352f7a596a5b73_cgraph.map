@@ -1,0 +1,9 @@
+<map id="Generator::DungeonGenerator::DungeonGenerator" name="Generator::DungeonGenerator::DungeonGenerator">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,35,200,77"/>
+<area shape="rect" id="Node000002" href="$class_dungeon_generator_settings.html#a66f17902c7bcf2536836c605f809b0ac" title=" " alt="" coords="248,5,425,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="200,41,232,37,233,42,201,46"/>
+<area shape="rect" id="Node000003" href="$namespace_log.html#acc334094de2c17174209b77597e7742d" title=" " alt="" coords="301,72,372,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="201,66,286,76,285,82,200,71"/>
+<area shape="rect" id="Node000004" href="$class_log_1_1_logger.html#a45aece334a9680706aabc171f1c1fc64" title=" " alt="" coords="473,72,590,99"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="372,83,457,83,457,88,372,88"/>
+</map>

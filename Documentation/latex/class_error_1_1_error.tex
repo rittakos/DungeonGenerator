@@ -1,0 +1,254 @@
+\doxysection{Error\+::Error Class Reference}
+\hypertarget{class_error_1_1_error}{}\label{class_error_1_1_error}\index{Error::Error@{Error::Error}}
+
+
+{\ttfamily \#include $<$error.\+h$>$}
+
+
+
+Collaboration diagram for Error\+::Error\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=203pt]{class_error_1_1_error__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_error_1_1_error_a2d4c950e011be5cd197c7fdf05d970af}{Error}} (const \mbox{\hyperlink{namespace_error_a6d460dab6fb061fb931b6531593ba687}{Error\+Type}} \mbox{\hyperlink{class_error_1_1_error_a412a79792bfdbb4358dbdb101c3bd899}{type}}=\mbox{\hyperlink{namespace_error_a6d460dab6fb061fb931b6531593ba687a2dea1023046ecd687f05ee44f6678b8b}{Basic}}, std\+::optional$<$ std\+::string $>$ message=\{\})
+\item 
+void \mbox{\hyperlink{class_error_1_1_error_a553007426fe13218921a005309b90ada}{log}} () const
+\item 
+bool \mbox{\hyperlink{class_error_1_1_error_ab78be6cece48e98b04408527306a3e01}{operator==}} (const \mbox{\hyperlink{class_error_1_1_error}{Error}} \&other) const
+\item 
+bool \mbox{\hyperlink{class_error_1_1_error_a37b794c41dc1941b649cf3229baab94a}{operator!=}} (const \mbox{\hyperlink{class_error_1_1_error}{Error}} \&other) const
+\item 
+std\+::ostream \& \mbox{\hyperlink{class_error_1_1_error_a1783d0d0ab7b2bedc695083e577e9fbe}{operator$<$$<$}} (std\+::ostream \&os) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{class_error_1_1_error_ad70eb9c7b88cbeac61896852e5239b66}{Log\+Errors}} = true
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{class_error_1_1_error_a76a9a0c1c90310ffd0836a037974dd9c}{get\+Composed\+Message}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const std\+::map$<$ const \mbox{\hyperlink{namespace_error_a6d460dab6fb061fb931b6531593ba687}{Error\+Type}}, std\+::string $>$ \mbox{\hyperlink{class_error_1_1_error_aa519474a4c1e6e8d60240f17d400914f}{messages}}
+\item 
+const \mbox{\hyperlink{namespace_error_a6d460dab6fb061fb931b6531593ba687}{Error\+Type}} \mbox{\hyperlink{class_error_1_1_error_a412a79792bfdbb4358dbdb101c3bd899}{type}}
+\item 
+const std\+::optional$<$ std\+::string $>$ \mbox{\hyperlink{class_error_1_1_error_a5dc2292521f1868ef14afbed51d03846}{error\+Message}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{error_8h_source_l00016}{16}} of file \mbox{\hyperlink{error_8h_source}{error.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_error_1_1_error_a2d4c950e011be5cd197c7fdf05d970af}\label{class_error_1_1_error_a2d4c950e011be5cd197c7fdf05d970af} 
+\index{Error::Error@{Error::Error}!Error@{Error}}
+\index{Error@{Error}!Error::Error@{Error::Error}}
+\doxysubsubsection{\texorpdfstring{Error()}{Error()}}
+{\footnotesize\ttfamily Error\+::\+Error\+::\+Error (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespace_error_a6d460dab6fb061fb931b6531593ba687}{Error\+Type}}}]{type = {\ttfamily \mbox{\hyperlink{namespace_error_a6d460dab6fb061fb931b6531593ba687a2dea1023046ecd687f05ee44f6678b8b}{Basic}}},  }\item[{std\+::optional$<$ std\+::string $>$}]{message = {\ttfamily \{\}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Definition at line \mbox{\hyperlink{error_8h_source_l00042}{42}} of file \mbox{\hyperlink{error_8h_source}{error.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\})\ :\ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_error_1_1_error_a412a79792bfdbb4358dbdb101c3bd899}{type}}(\mbox{\hyperlink{class_error_1_1_error_a412a79792bfdbb4358dbdb101c3bd899}{type}}),\ \mbox{\hyperlink{class_error_1_1_error_a5dc2292521f1868ef14afbed51d03846}{errorMessage}}(message)}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_error_1_1_error_a76a9a0c1c90310ffd0836a037974dd9c}\label{class_error_1_1_error_a76a9a0c1c90310ffd0836a037974dd9c} 
+\index{Error::Error@{Error::Error}!getComposedMessage@{getComposedMessage}}
+\index{getComposedMessage@{getComposedMessage}!Error::Error@{Error::Error}}
+\doxysubsubsection{\texorpdfstring{getComposedMessage()}{getComposedMessage()}}
+{\footnotesize\ttfamily std\+::string Error\+::\+Error\+::get\+Composed\+Message (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{error_8h_source_l00027}{27}} of file \mbox{\hyperlink{error_8h_source}{error.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ message\ =\ \mbox{\hyperlink{class_error_1_1_error_aa519474a4c1e6e8d60240f17d400914f}{messages}}.at(\mbox{\hyperlink{class_error_1_1_error_a412a79792bfdbb4358dbdb101c3bd899}{type}});}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_error_1_1_error_a5dc2292521f1868ef14afbed51d03846}{errorMessage}}.has\_value())}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ message\ +=\ \textcolor{stringliteral}{"{}:\ "{}};}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ message\ +=\ \mbox{\hyperlink{class_error_1_1_error_a5dc2292521f1868ef14afbed51d03846}{errorMessage}}.value();}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ message;}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_error_1_1_error_a553007426fe13218921a005309b90ada}\label{class_error_1_1_error_a553007426fe13218921a005309b90ada} 
+\index{Error::Error@{Error::Error}!log@{log}}
+\index{log@{log}!Error::Error@{Error::Error}}
+\doxysubsubsection{\texorpdfstring{log()}{log()}}
+{\footnotesize\ttfamily void Error\+::\+Error\+::log (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{error_8h_source_l00048}{48}} of file \mbox{\hyperlink{error_8h_source}{error.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_error_1_1_error_ad70eb9c7b88cbeac61896852e5239b66}{LogErrors}})}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ logMessage\ =\ \mbox{\hyperlink{class_error_1_1_error_a76a9a0c1c90310ffd0836a037974dd9c}{getComposedMessage}}();}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_error_1_1_error_a412a79792bfdbb4358dbdb101c3bd899}{type}}\ ==\ \mbox{\hyperlink{namespace_error_a6d460dab6fb061fb931b6531593ba687af92f2340b862cf509421e89bb5ae4305}{NoError}})}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_log_acc334094de2c17174209b77597e7742d}{Log::info}}(logMessage);}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_log_a2625a4aa82f846d5b9a51af99905b7e5}{Log::error}}(logMessage);}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_error_1_1_error_a553007426fe13218921a005309b90ada_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_error_1_1_error_a37b794c41dc1941b649cf3229baab94a}\label{class_error_1_1_error_a37b794c41dc1941b649cf3229baab94a} 
+\index{Error::Error@{Error::Error}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Error::Error@{Error::Error}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily bool Error\+::\+Error\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_error_1_1_error}{Error}} \&}]{other }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{error_8h_source_l00066}{66}} of file \mbox{\hyperlink{error_8h_source}{error.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ !(*\textcolor{keyword}{this}\ ==\ other);}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_error_1_1_error_a1783d0d0ab7b2bedc695083e577e9fbe}\label{class_error_1_1_error_a1783d0d0ab7b2bedc695083e577e9fbe} 
+\index{Error::Error@{Error::Error}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Error::Error@{Error::Error}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily std\+::ostream \& Error\+::\+Error\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{error_8h_source_l00071}{71}} of file \mbox{\hyperlink{error_8h_source}{error.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ \mbox{\hyperlink{class_error_1_1_error_a76a9a0c1c90310ffd0836a037974dd9c}{getComposedMessage}}()\ <<\ std::endl;}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ os;}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_error_1_1_error_ab78be6cece48e98b04408527306a3e01}\label{class_error_1_1_error_ab78be6cece48e98b04408527306a3e01} 
+\index{Error::Error@{Error::Error}!operator==@{operator==}}
+\index{operator==@{operator==}!Error::Error@{Error::Error}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Error\+::\+Error\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_error_1_1_error}{Error}} \&}]{other }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{error_8h_source_l00061}{61}} of file \mbox{\hyperlink{error_8h_source}{error.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{class_error_1_1_error_a412a79792bfdbb4358dbdb101c3bd899}{type}}\ ==\ other.type;}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_error_1_1_error_a5dc2292521f1868ef14afbed51d03846}\label{class_error_1_1_error_a5dc2292521f1868ef14afbed51d03846} 
+\index{Error::Error@{Error::Error}!errorMessage@{errorMessage}}
+\index{errorMessage@{errorMessage}!Error::Error@{Error::Error}}
+\doxysubsubsection{\texorpdfstring{errorMessage}{errorMessage}}
+{\footnotesize\ttfamily const std\+::optional$<$std\+::string$>$ Error\+::\+Error\+::error\+Message\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{error_8h_source_l00025}{25}} of file \mbox{\hyperlink{error_8h_source}{error.\+h}}.
+
+\Hypertarget{class_error_1_1_error_ad70eb9c7b88cbeac61896852e5239b66}\label{class_error_1_1_error_ad70eb9c7b88cbeac61896852e5239b66} 
+\index{Error::Error@{Error::Error}!LogErrors@{LogErrors}}
+\index{LogErrors@{LogErrors}!Error::Error@{Error::Error}}
+\doxysubsubsection{\texorpdfstring{LogErrors}{LogErrors}}
+{\footnotesize\ttfamily bool Error\+::\+Error\+::\+Log\+Errors = true\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{error_8h_source_l00040}{40}} of file \mbox{\hyperlink{error_8h_source}{error.\+h}}.
+
+\Hypertarget{class_error_1_1_error_aa519474a4c1e6e8d60240f17d400914f}\label{class_error_1_1_error_aa519474a4c1e6e8d60240f17d400914f} 
+\index{Error::Error@{Error::Error}!messages@{messages}}
+\index{messages@{messages}!Error::Error@{Error::Error}}
+\doxysubsubsection{\texorpdfstring{messages}{messages}}
+{\footnotesize\ttfamily const std\+::map$<$const \mbox{\hyperlink{namespace_error_a6d460dab6fb061fb931b6531593ba687}{Error\+Type}}, std\+::string$>$ Error\+::\+Error\+::messages\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\mbox{\hyperlink{namespace_error_a6d460dab6fb061fb931b6531593ba687af92f2340b862cf509421e89bb5ae4305}{NoError}},\ \ \ \ \textcolor{stringliteral}{"{}OK"{}}\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\mbox{\hyperlink{namespace_error_a6d460dab6fb061fb931b6531593ba687a2dea1023046ecd687f05ee44f6678b8b}{Basic}},\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Error"{}}\}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{error_8h_source_l00018}{18}} of file \mbox{\hyperlink{error_8h_source}{error.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\mbox{\hyperlink{namespace_error_a6d460dab6fb061fb931b6531593ba687af92f2340b862cf509421e89bb5ae4305}{NoError}},\ \ \ \ \textcolor{stringliteral}{"{}OK"{}}\},}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\mbox{\hyperlink{namespace_error_a6d460dab6fb061fb931b6531593ba687a2dea1023046ecd687f05ee44f6678b8b}{Basic}},\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Error"{}}\}}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+
+\end{DoxyCode}
+\Hypertarget{class_error_1_1_error_a412a79792bfdbb4358dbdb101c3bd899}\label{class_error_1_1_error_a412a79792bfdbb4358dbdb101c3bd899} 
+\index{Error::Error@{Error::Error}!type@{type}}
+\index{type@{type}!Error::Error@{Error::Error}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{namespace_error_a6d460dab6fb061fb931b6531593ba687}{Error\+Type}} Error\+::\+Error\+::type\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{error_8h_source_l00024}{24}} of file \mbox{\hyperlink{error_8h_source}{error.\+h}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Base/\mbox{\hyperlink{error_8h}{error.\+h}}\end{DoxyCompactItemize}

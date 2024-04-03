@@ -1,0 +1,51 @@
+\doxysection{log.\+ixx}
+\hypertarget{log_8ixx_source}{}\label{log_8ixx_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/Base/log.ixx@{C:/Dev/DungeonGenerator/DungeonGenerator/Base/log.ixx}}
+\mbox{\hyperlink{log_8ixx}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{log_8ixx_source_l00001}00001\ \textcolor{keyword}{export}\ \textcolor{keyword}{module}\ \mbox{\hyperlink{module_log}{log}};}
+\DoxyCodeLine{\Hypertarget{log_8ixx_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{log_8ixx_source_l00003}00003\ \textcolor{comment}{//\#include\ "{}spdlog/spdlog.h"{}}}
+\DoxyCodeLine{\Hypertarget{log_8ixx_source_l00004}00004\ \textcolor{comment}{//import\ "{}log.h"{};}}
+\DoxyCodeLine{\Hypertarget{log_8ixx_source_l00005}00005\ import\ <string>;}
+\DoxyCodeLine{\Hypertarget{log_8ixx_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{log_8ixx_source_l00007}00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_log}{Log}}}
+\DoxyCodeLine{\Hypertarget{log_8ixx_source_l00008}00008\ \{}
+\DoxyCodeLine{\Hypertarget{log_8ixx_source_l00009}00009\ \ \ \ \ \textcolor{comment}{//enum\ LogType\ \{\ Standard,\ Test\ \};}}
+\DoxyCodeLine{\Hypertarget{log_8ixx_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{log_8ixx_source_l00011}00011\ \ \ \ \ \textcolor{comment}{//struct\ LogData}}
+\DoxyCodeLine{\Hypertarget{log_8ixx_source_l00012}00012\ \ \ \ \ \textcolor{comment}{//\{}}
+\DoxyCodeLine{\Hypertarget{log_8ixx_source_l00013}00013\ \ \ \ \ \textcolor{comment}{//\ \ static\ const\ std::string\ \ \ \ pattern;}}
+\DoxyCodeLine{\Hypertarget{log_8ixx_source_l00014}00014\ \ \ \ \ \textcolor{comment}{//\ \ static\ const\ std::string\ \ \ \ testPattern;}}
+\DoxyCodeLine{\Hypertarget{log_8ixx_source_l00015}00015\ \ \ \ \ \textcolor{comment}{//\ \ static\ bool\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ setUp;}}
+\DoxyCodeLine{\Hypertarget{log_8ixx_source_l00016}00016\ \ \ \ \ \textcolor{comment}{//\ \ static\ LogType\ \ \ \ \ \ \ \ \ \ \ \ \ \ logType;}}
+\DoxyCodeLine{\Hypertarget{log_8ixx_source_l00017}00017\ \ \ \ \ \textcolor{comment}{//\ \ //static\ std::shared\_ptr\ <\ spdlog::logger>\ ;}}
+\DoxyCodeLine{\Hypertarget{log_8ixx_source_l00018}00018\ \ \ \ \ \textcolor{comment}{//\};}}
+\DoxyCodeLine{\Hypertarget{log_8ixx_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{log_8ixx_source_l00020}00020\ \ \ \ \ \textcolor{comment}{//bool\ LogData::setUp\ =\ false;}}
+\DoxyCodeLine{\Hypertarget{log_8ixx_source_l00021}00021\ \ \ \ \ \textcolor{comment}{//const\ std::string\ LogData::pattern\ =\ "{}[testlogger][error(red)][\%H:\%M:\%S\ \%z]\ [thread\ \%t]\ \%v"{};}}
+\DoxyCodeLine{\Hypertarget{log_8ixx_source_l00022}00022\ \ \ \ \ \textcolor{comment}{//const\ std::string\ LogData::pattern\ =\ "{}[\%\string^info(green)\%\$]\ Some\ message"{};}}
+\DoxyCodeLine{\Hypertarget{log_8ixx_source_l00023}00023\ \ \ \ \ \textcolor{comment}{//const\ std::string\ LogData::pattern\ =\ "{}[\%!]\%\string^\%v\%\$"{};}}
+\DoxyCodeLine{\Hypertarget{log_8ixx_source_l00024}00024\ \ \ \ \ \textcolor{comment}{//const\ std::string\ LogData::testPattern\ =\ "{}[\%!]\%\string^\%v\%\$"{};}}
+\DoxyCodeLine{\Hypertarget{log_8ixx_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{log_8ixx_source_l00026}00026\ \ \ \ \ \textcolor{comment}{/*void\ SetupLogger()}}
+\DoxyCodeLine{\Hypertarget{log_8ixx_source_l00027}00027\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{log_8ixx_source_l00028}00028\ \textcolor{comment}{\ \ \ \ \ \ \ \ if\ (LogData::setUp)}}
+\DoxyCodeLine{\Hypertarget{log_8ixx_source_l00029}00029\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ return;}}
+\DoxyCodeLine{\Hypertarget{log_8ixx_source_l00030}00030\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{log_8ixx_source_l00031}00031\ \textcolor{comment}{\ \ \ \ \ \ \ \ spdlog::set\_pattern(LogData::testPattern);}}
+\DoxyCodeLine{\Hypertarget{log_8ixx_source_l00032}00032\ \textcolor{comment}{\ \ \ \ \}*/}}
+\DoxyCodeLine{\Hypertarget{log_8ixx_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{log_8ixx_source_l00034}00034\ \ \ \ \ \textcolor{comment}{//export\ void\ error(std::string\ message)}}
+\DoxyCodeLine{\Hypertarget{log_8ixx_source_l00035}00035\ \ \ \ \ \textcolor{comment}{//\{}}
+\DoxyCodeLine{\Hypertarget{log_8ixx_source_l00036}00036\ \ \ \ \ \ \ \ \ \textcolor{comment}{//SetupLogger();}}
+\DoxyCodeLine{\Hypertarget{log_8ixx_source_l00037}00037\ \ \ \ \ \ \ \ \ \textcolor{comment}{//spdlog::error("{}\{\}"{},\ message);}}
+\DoxyCodeLine{\Hypertarget{log_8ixx_source_l00038}00038\ \ \ \ \ \textcolor{comment}{//\}}}
+\DoxyCodeLine{\Hypertarget{log_8ixx_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{log_8ixx_source_l00040}00040\ \ \ \ \ \textcolor{comment}{/*static\ void\ info(std::string\ message)}}
+\DoxyCodeLine{\Hypertarget{log_8ixx_source_l00041}00041\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{log_8ixx_source_l00042}00042\ \textcolor{comment}{\ \ \ \ \ \ \ \ SetupLogger();}}
+\DoxyCodeLine{\Hypertarget{log_8ixx_source_l00043}00043\ \textcolor{comment}{\ \ \ \ \ \ \ \ spdlog::info("{}\{\}"{},\ message);}}
+\DoxyCodeLine{\Hypertarget{log_8ixx_source_l00044}00044\ \textcolor{comment}{\ \ \ \ \}*/}}
+\DoxyCodeLine{\Hypertarget{log_8ixx_source_l00045}00045\ \}}
+
+\end{DoxyCode}

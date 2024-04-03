@@ -1,0 +1,279 @@
+\doxysection{graph.\+hpp}
+\hypertarget{graph_8hpp_source}{}\label{graph_8hpp_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/Math/graph.hpp@{C:/Dev/DungeonGenerator/DungeonGenerator/Math/graph.hpp}}
+\mbox{\hyperlink{graph_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ GRAPH\_HPP}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00002}00002\ \textcolor{preprocessor}{\#define\ GRAPH\_HPP}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00004}00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <optional>}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <set>}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00013}00013\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_math}{Math}}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00014}00014\ \{}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00016}\mbox{\hyperlink{class_math_1_1_node}{00016}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_math_1_1_node}{Node}}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00017}00017\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00018}00018\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \textcolor{comment}{//const\ int\ id;}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00020}\mbox{\hyperlink{class_math_1_1_node_aaf97f7262f0efb7861eff10ca4ded5f7}{00020}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_math_1_1_node_aaf97f7262f0efb7861eff10ca4ded5f7}{id}};}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00021}\mbox{\hyperlink{class_math_1_1_node_af8c37614183f0c66ff0823dc3e2902a3}{00021}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_math_1_1_node_af8c37614183f0c66ff0823dc3e2902a3}{Node}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id}\ =\ -\/1)\ :\ \mbox{\hyperlink{class_math_1_1_node_aaf97f7262f0efb7861eff10ca4ded5f7}{id}}(\mbox{\hyperlink{class_math_1_1_node_aaf97f7262f0efb7861eff10ca4ded5f7}{id}})\ \{\}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00023}\mbox{\hyperlink{class_math_1_1_node_a319bb76082cd276543905bff0bc17b83}{00023}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_math_1_1_node_a319bb76082cd276543905bff0bc17b83}{operator==\ }}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_math_1_1_node}{Node}}\&\ other)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00024}00024\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keywordtype}{id}\ ==\ other.\mbox{\hyperlink{class_math_1_1_node_aaf97f7262f0efb7861eff10ca4ded5f7}{id}};}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00027}00027\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00029}\mbox{\hyperlink{class_math_1_1_edge}{00029}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_math_1_1_edge}{Edge}}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00030}00030\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00031}00031\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \textcolor{comment}{//const\ Node\ from;}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00033}\mbox{\hyperlink{class_math_1_1_edge_a32f5c42d4ba64547cb0c54b4247d6fe6}{00033}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_node}{Node}}\ \mbox{\hyperlink{class_math_1_1_edge_a32f5c42d4ba64547cb0c54b4247d6fe6}{from}};}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \textcolor{comment}{//const\ Node\ to;}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00035}\mbox{\hyperlink{class_math_1_1_edge_acbe8393d25b0b486cbe6595aaed7f9c7}{00035}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_node}{Node}}\ \mbox{\hyperlink{class_math_1_1_edge_acbe8393d25b0b486cbe6595aaed7f9c7}{to}};}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00038}00038\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \textcolor{comment}{//const\ int\ id;}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00040}\mbox{\hyperlink{class_math_1_1_edge_a20254d60ca5546537d13ab8141973c48}{00040}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_math_1_1_edge_a20254d60ca5546537d13ab8141973c48}{id}};}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00042}\mbox{\hyperlink{class_math_1_1_edge_ad1c64d01a32cb9ac62981f6ffa577b1a}{00042}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_edge_ad1c64d01a32cb9ac62981f6ffa577b1a}{Edge}}(\mbox{\hyperlink{class_math_1_1_node}{Node}}\ \mbox{\hyperlink{class_math_1_1_edge_a32f5c42d4ba64547cb0c54b4247d6fe6}{from}},\ \mbox{\hyperlink{class_math_1_1_node}{Node}}\ \mbox{\hyperlink{class_math_1_1_edge_acbe8393d25b0b486cbe6595aaed7f9c7}{to}},\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id}\ =\ -\/1)\ :\ \mbox{\hyperlink{class_math_1_1_edge_a32f5c42d4ba64547cb0c54b4247d6fe6}{from}}(\mbox{\hyperlink{class_math_1_1_edge_a32f5c42d4ba64547cb0c54b4247d6fe6}{from}}),\ \mbox{\hyperlink{class_math_1_1_edge_acbe8393d25b0b486cbe6595aaed7f9c7}{to}}(\mbox{\hyperlink{class_math_1_1_edge_acbe8393d25b0b486cbe6595aaed7f9c7}{to}}),\ \mbox{\hyperlink{class_math_1_1_edge_a20254d60ca5546537d13ab8141973c48}{id}}(\mbox{\hyperlink{class_math_1_1_edge_a20254d60ca5546537d13ab8141973c48}{id}})\ \{\}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00044}\mbox{\hyperlink{class_math_1_1_edge_ac1d74ca4a72990ad5850e6a266318bb3}{00044}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_math_1_1_edge_ac1d74ca4a72990ad5850e6a266318bb3}{operator==\ }}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_math_1_1_edge}{Edge}}\&\ other)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00045}00045\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_math_1_1_edge_a32f5c42d4ba64547cb0c54b4247d6fe6}{from}}\ ==\ other.\mbox{\hyperlink{class_math_1_1_edge_a32f5c42d4ba64547cb0c54b4247d6fe6}{from}}\ \&\&\ \mbox{\hyperlink{class_math_1_1_edge_acbe8393d25b0b486cbe6595aaed7f9c7}{to}}\ ==\ other.\mbox{\hyperlink{class_math_1_1_edge_acbe8393d25b0b486cbe6595aaed7f9c7}{to}};}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00049}00049\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00050}00050\ \}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00052}00052\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacestd}{std}}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00053}00053\ \{}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00054}00054\ \ \ \ \ \textcolor{keyword}{template}\ <>}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00055}\mbox{\hyperlink{structstd_1_1hash_3_01_math_1_1_node_01_4}{00055}}\ \ \ \ \ \textcolor{keyword}{struct\ }hash<\mbox{\hyperlink{namespace_math}{Math}}::Node>}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00056}00056\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00057}\mbox{\hyperlink{structstd_1_1hash_3_01_math_1_1_node_01_4_abb49d74ac7a24cc46a7646fd260f4957}{00057}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structstd_1_1hash_3_01_math_1_1_node_01_4_abb49d74ac7a24cc46a7646fd260f4957}{operator()}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_math_1_1_node}{Math::Node}}\&\ record)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00058}00058\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ hash<int>()(record.\mbox{\hyperlink{class_math_1_1_node_aaf97f7262f0efb7861eff10ca4ded5f7}{id}});}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00061}00061\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00063}00063\ \ \ \ \ \textcolor{keyword}{template}\ <>}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00064}\mbox{\hyperlink{structstd_1_1hash_3_01_math_1_1_edge_01_4}{00064}}\ \ \ \ \ \textcolor{keyword}{struct\ }hash<\mbox{\hyperlink{namespace_math}{Math}}::Edge>}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00065}00065\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00066}\mbox{\hyperlink{structstd_1_1hash_3_01_math_1_1_edge_01_4_a467810a4d603cffe7d13fd2f3655d12c}{00066}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structstd_1_1hash_3_01_math_1_1_edge_01_4_a467810a4d603cffe7d13fd2f3655d12c}{operator()}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_math_1_1_edge}{Math::Edge}}\&\ record)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00067}00067\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ hash<int>()(record.\mbox{\hyperlink{class_math_1_1_edge_a20254d60ca5546537d13ab8141973c48}{id}});}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00070}00070\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00071}00071\ \}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00074}00074\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_math}{Math}}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00075}00075\ \{}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00077}00077\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ NodeType,\ \textcolor{keyword}{class}\ EdgeType\ =\ \textcolor{keywordtype}{int}>}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00078}\mbox{\hyperlink{class_math_1_1_graph}{00078}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_math_1_1_graph}{Graph}}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00079}00079\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00080}00080\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00081}\mbox{\hyperlink{class_math_1_1_graph_a5ef23306162c55880d472108584a4350}{00081}}\ \ \ \ \ \ \ \ \ std::unordered\_map<Node,\ NodeType>\ \mbox{\hyperlink{class_math_1_1_graph_a5ef23306162c55880d472108584a4350}{values}};}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00082}\mbox{\hyperlink{class_math_1_1_graph_a9166ef1b3f381d099380ed8f54e16603}{00082}}\ \ \ \ \ \ \ \ \ std::unordered\_map<Edge,\ std::optional<EdgeType>>\ \mbox{\hyperlink{class_math_1_1_graph_a9166ef1b3f381d099380ed8f54e16603}{edgeValues}};}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00084}\mbox{\hyperlink{class_math_1_1_graph_ab1a4eff789486fcf855ce1613779aadd}{00084}}\ \ \ \ \ \ \ \ \ std::unordered\_map<Node,\ std::vector<Node>>\ \mbox{\hyperlink{class_math_1_1_graph_ab1a4eff789486fcf855ce1613779aadd}{neighbours}};}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00086}\mbox{\hyperlink{class_math_1_1_graph_aef23193d463ded29d26d25c487211ff3}{00086}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_math_1_1_graph_aef23193d463ded29d26d25c487211ff3}{maxId}};}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00088}\mbox{\hyperlink{class_math_1_1_graph_a66a6c7bc433b9d3e9e0cdd16de11ac3e}{00088}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_node}{Node}}\ \mbox{\hyperlink{class_math_1_1_graph_a66a6c7bc433b9d3e9e0cdd16de11ac3e}{getNodeFromValue}}(\textcolor{keyword}{const}\ NodeType\&\ value)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00089}\mbox{\hyperlink{class_math_1_1_graph_a222a02d8dec0fe35a993dde7d22bcc30}{00089}}\ \ \ \ \ \ \ \ \ std::vector<NodeType>\ \mbox{\hyperlink{class_math_1_1_graph_a222a02d8dec0fe35a993dde7d22bcc30}{getValues}}(\textcolor{keyword}{const}\ std::vector<Node>\&\ \mbox{\hyperlink{class_math_1_1_graph_a0e4a9e3432388c56bca361e1db886a97}{nodes}})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00091}00091\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00092}\mbox{\hyperlink{class_math_1_1_graph_afa445cc4bcaacb31868f9d45a14d5d7c}{00092}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_math_1_1_node}{Node}}\ \mbox{\hyperlink{class_math_1_1_graph_afa445cc4bcaacb31868f9d45a14d5d7c}{InvalidNode}};}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00094}\mbox{\hyperlink{class_math_1_1_graph_af0618a12fda422e80bbd65055baf8f7f}{00094}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_graph_af0618a12fda422e80bbd65055baf8f7f}{Graph}}();}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00095}\mbox{\hyperlink{class_math_1_1_graph_ac28ecad5f41acf356da03968bb4f15b0}{00095}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_graph_ac28ecad5f41acf356da03968bb4f15b0}{\string~Graph}}();}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00097}\mbox{\hyperlink{class_math_1_1_graph_a8666dc117f107fb78016d242cda92ff6}{00097}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_graph_a8666dc117f107fb78016d242cda92ff6}{Graph}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_math_1_1_graph}{Graph}}\&\ other);}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00098}\mbox{\hyperlink{class_math_1_1_graph_af7a9ba2d8b39197f344366c67b10dcb8}{00098}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_graph}{Graph<NodeType,\ EdgeType>}}\&\ \mbox{\hyperlink{class_math_1_1_graph_af7a9ba2d8b39197f344366c67b10dcb8}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_math_1_1_graph}{Graph<NodeType,\ EdgeType>}}\&\ other);}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00100}\mbox{\hyperlink{class_math_1_1_graph_a01b529027212d47e4d904f5ad1608a14}{00100}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_math_1_1_graph_a01b529027212d47e4d904f5ad1608a14}{containsValue}}(\textcolor{keyword}{const}\ NodeType\&\ value)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00101}\mbox{\hyperlink{class_math_1_1_graph_a6611ea170055977d12a70dfdc53f80fe}{00101}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_math_1_1_graph_a6611ea170055977d12a70dfdc53f80fe}{containsEdge}}(\textcolor{keyword}{const}\ NodeType\&\ from,\ \textcolor{keyword}{const}\ NodeType\&\ to)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00103}\mbox{\hyperlink{class_math_1_1_graph_ad2db359eaa34de03842bcd384e248316}{00103}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_math_1_1_graph_ad2db359eaa34de03842bcd384e248316}{addNode}}(\textcolor{keyword}{const}\ NodeType\&\ value,\ \textcolor{keywordtype}{bool}\ forcedAdd\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00104}\mbox{\hyperlink{class_math_1_1_graph_a89eeb992ce1291bde48f820473d3a689}{00104}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_math_1_1_graph_a89eeb992ce1291bde48f820473d3a689}{addEdge}}(\textcolor{keyword}{const}\ NodeType\&\ from,\ \textcolor{keyword}{const}\ NodeType\&\ to,\ std::optional<EdgeType>\ edgeValue\ =\ \{\},\ \textcolor{keywordtype}{bool}\ forcedAdd\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO\ addEdges\ from\ Nodes}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00107}\mbox{\hyperlink{class_math_1_1_graph_acbe25d44ffd1c8f9b23a91f8ab4dd300}{00107}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_math_1_1_graph_acbe25d44ffd1c8f9b23a91f8ab4dd300}{removeEdge}}(\textcolor{keyword}{const}\ NodeType\&\ from,\ \textcolor{keyword}{const}\ NodeType\&\ to);}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00109}\mbox{\hyperlink{class_math_1_1_graph_aece949eacd514b0ead90afe682998f92}{00109}}\ \ \ \ \ \ \ \ \ std::unordered\_map<Node,\ NodeType>\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_graph_aece949eacd514b0ead90afe682998f92}{getNodes}}()\textcolor{keyword}{\ const\ }}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00110}00110\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_math_1_1_graph_a5ef23306162c55880d472108584a4350}{values}};\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00112}00112\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00113}\mbox{\hyperlink{class_math_1_1_graph_a8bc2dc616881b34cb85e25ded83407a3}{00113}}\ \ \ \ \ \ \ \ \ std::unordered\_map<Node,\ std::vector<Node>>\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_graph_a8bc2dc616881b34cb85e25ded83407a3}{getEdges}}()\textcolor{keyword}{\ const\ }}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00114}00114\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_math_1_1_graph_ab1a4eff789486fcf855ce1613779aadd}{neighbours}};\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00116}00116\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00117}\mbox{\hyperlink{class_math_1_1_graph_ab4241d1809a7c631192d5e9c4dc02596}{00117}}\ \ \ \ \ \ \ \ \ std::vector<EdgeType>\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_graph_ab4241d1809a7c631192d5e9c4dc02596}{getEdgeValues}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00118}\mbox{\hyperlink{class_math_1_1_graph_aa02b9364daaa2729a02aaf3bb5d412e5}{00118}}\ \ \ \ \ \ \ \ \ std::unordered\_map<Edge,\ std::optional<EdgeType>>\ \ \ \mbox{\hyperlink{class_math_1_1_graph_aa02b9364daaa2729a02aaf3bb5d412e5}{getEdgesWithValues}}()\textcolor{keyword}{\ const\ }}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00119}00119\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_math_1_1_graph_a9166ef1b3f381d099380ed8f54e16603}{edgeValues}};\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00121}00121\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00122}00122\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00124}00124\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ NodeType1,\ \textcolor{keyword}{class}\ EdgeType1>}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00125}\mbox{\hyperlink{class_math_1_1_graph_a9321441ec5e20331dd615ca778b9a109}{00125}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_math_1_1_graph_a9321441ec5e20331dd615ca778b9a109}{operator==}}(\mbox{\hyperlink{class_math_1_1_graph}{Graph<NodeType1,\ EdgeType1>}}\ graph1,\ \mbox{\hyperlink{class_math_1_1_graph}{Graph<NodeType1,\ EdgeType1>}}\ graph2);}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00126}00126\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00128}00128\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00129}00129\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ NodeType,\ \textcolor{keyword}{class}\ EdgeType>}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00130}00130\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_math_1_1_node}{Node}}\ \mbox{\hyperlink{class_math_1_1_graph}{Graph<NodeType,\ EdgeType>::InvalidNode}}\ =\ \mbox{\hyperlink{class_math_1_1_node}{Node}}(-\/1);}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00132}00132\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ NodeType,\ \textcolor{keyword}{class}\ EdgeType>}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00133}\mbox{\hyperlink{class_math_1_1_graph_af0618a12fda422e80bbd65055baf8f7f}{00133}}\ \ \ \ \ \mbox{\hyperlink{class_math_1_1_graph_af0618a12fda422e80bbd65055baf8f7f}{Graph<NodeType,\ EdgeType>::Graph}}()\ :\ maxId(1)}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00134}00134\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00135}00135\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00136}00136\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00137}00137\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00138}00138\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class\ }NodeType,\ \textcolor{keyword}{class\ }EdgeType\ \textcolor{comment}{/*=\ int*/}>}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00139}\mbox{\hyperlink{class_math_1_1_graph_a8666dc117f107fb78016d242cda92ff6}{00139}}\ \ \ \ \ \mbox{\hyperlink{class_math_1_1_graph_af0618a12fda422e80bbd65055baf8f7f}{Math::Graph<NodeType,\ EdgeType>::Graph}}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{class_math_1_1_graph}{Graph}}\&\ other)\ :\ \mbox{\hyperlink{class_math_1_1_graph}{Graph}}()}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00140}00140\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00141}00141\ \ \ \ \ \ \ \ \ *\textcolor{keyword}{this}\ =\ other;}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00142}00142\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00143}00143\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00144}00144\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class\ }NodeType,\ \textcolor{keyword}{class\ }EdgeType\ \textcolor{comment}{/*=\ int*/}>}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00145}\mbox{\hyperlink{class_math_1_1_graph_ac28ecad5f41acf356da03968bb4f15b0}{00145}}\ \ \ \ \ \mbox{\hyperlink{class_math_1_1_graph_ac28ecad5f41acf356da03968bb4f15b0}{Math::Graph<NodeType,\ EdgeType>::\string~Graph}}\ ()}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00146}00146\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00147}00147\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00148}00148\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00149}00149\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00150}00150\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ NodeType,\ \textcolor{keyword}{class}\ EdgeType>}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00151}\mbox{\hyperlink{class_math_1_1_graph_af7a9ba2d8b39197f344366c67b10dcb8}{00151}}\ \ \ \ \ \mbox{\hyperlink{class_math_1_1_graph}{Graph<NodeType,\ EdgeType>}}\&\ \mbox{\hyperlink{class_math_1_1_graph_af7a9ba2d8b39197f344366c67b10dcb8}{Graph<NodeType,\ EdgeType>::operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_math_1_1_graph}{Graph<NodeType,\ EdgeType>}}\&\ other)}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00152}00152\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00153}00153\ \ \ \ \ \ \ \ \ maxId\ =\ other.\mbox{\hyperlink{class_math_1_1_graph_aef23193d463ded29d26d25c487211ff3}{maxId}};}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00154}00154\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00155}00155\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ [key,\ value]\ :\ other.\mbox{\hyperlink{class_math_1_1_graph_a5ef23306162c55880d472108584a4350}{values}})}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00156}00156\ \ \ \ \ \ \ \ \ \ \ \ \ values[key]\ =\ value;}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00157}00157\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00158}00158\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ [key,\ value]\ :\ other.\mbox{\hyperlink{class_math_1_1_graph_a9166ef1b3f381d099380ed8f54e16603}{edgeValues}})}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00159}00159\ \ \ \ \ \ \ \ \ \ \ \ \ edgeValues[key]\ =\ value;}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00160}00160\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00161}00161\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ [key,\ value]\ :\ other.\mbox{\hyperlink{class_math_1_1_graph_ab1a4eff789486fcf855ce1613779aadd}{neighbours}})}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ neighbours[key]\ =\ value;}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00163}00163\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00164}00164\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00165}00165\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00166}00166\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00167}00167\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ NodeType,\ \textcolor{keyword}{class}\ EdgeType>}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00168}\mbox{\hyperlink{class_math_1_1_graph_ab4241d1809a7c631192d5e9c4dc02596}{00168}}\ \ \ \ \ std::vector<EdgeType>\ \ \ \mbox{\hyperlink{class_math_1_1_graph_ab4241d1809a7c631192d5e9c4dc02596}{Graph<NodeType,\ EdgeType>::getEdgeValues}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00169}00169\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00170}00170\ \ \ \ \ \ \ \ \ std::vector<EdgeType>\ values;}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00171}00171\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ [key,\ val]\ :\ edgeValues)}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(std::find(values.begin(),\ values.end(),\ val.value())\ ==\ std::end(values))}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ values.push\_back(val.value());}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00174}00174\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ values;}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00175}00175\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00176}00176\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00177}00177\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ NodeType,\ \textcolor{keyword}{class}\ EdgeType>}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00178}\mbox{\hyperlink{class_math_1_1_graph_a66a6c7bc433b9d3e9e0cdd16de11ac3e}{00178}}\ \ \ \ \ \mbox{\hyperlink{class_math_1_1_node}{Node}}\ \mbox{\hyperlink{class_math_1_1_graph_a66a6c7bc433b9d3e9e0cdd16de11ac3e}{Graph<NodeType,\ EdgeType>::getNodeFromValue}}(\textcolor{keyword}{const}\ NodeType\&\ value)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00179}00179\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00180}00180\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ [key,\ val]\ :\ values)}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00181}00181\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (value\ ==\ val)}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00182}00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ key;}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00183}00183\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_math_1_1_graph}{Graph<NodeType>::InvalidNode}};}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00184}00184\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00185}00185\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00186}00186\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ NodeType,\ \textcolor{keyword}{class}\ EdgeType>}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00187}\mbox{\hyperlink{class_math_1_1_graph_a01b529027212d47e4d904f5ad1608a14}{00187}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_math_1_1_graph_a01b529027212d47e4d904f5ad1608a14}{Graph<NodeType,\ EdgeType>::containsValue}}(\textcolor{keyword}{const}\ NodeType\&\ value)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00188}00188\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00189}00189\ \ \ \ \ \ \ \ \ \textcolor{comment}{//TODO}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00190}00190\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00191}00191\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00192}00192\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00193}00193\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ NodeType,\ \textcolor{keyword}{class}\ EdgeType>}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00194}\mbox{\hyperlink{class_math_1_1_graph_a6611ea170055977d12a70dfdc53f80fe}{00194}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_math_1_1_graph_a6611ea170055977d12a70dfdc53f80fe}{Graph<NodeType,\ EdgeType>::containsEdge}}(\textcolor{keyword}{const}\ NodeType\&\ from,\ \textcolor{keyword}{const}\ NodeType\&\ to)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00195}00195\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00196}00196\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_node}{Node}}\ fromNode\ =\ getNodeFromValue(from);}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00197}00197\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_node}{Node}}\ toNode\ =\ getNodeFromValue(to);}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00198}00198\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00199}00199\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00200}00200\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00201}00201\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Node>\ nextNodes\ =\ neighbours.at(fromNode);}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00202}00202\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::find(nextNodes.begin(),\ nextNodes.end(),\ toNode)\ !=\ std::end(nextNodes);}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00203}00203\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00204}00204\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (...)}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00205}00205\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00206}00206\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00207}00207\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00208}00208\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00209}00209\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00210}00210\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ NodeType,\ \textcolor{keyword}{class}\ EdgeType>}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00211}\mbox{\hyperlink{class_math_1_1_graph_ad2db359eaa34de03842bcd384e248316}{00211}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_math_1_1_graph_ad2db359eaa34de03842bcd384e248316}{Graph<NodeType,\ EdgeType>::addNode}}(\textcolor{keyword}{const}\ NodeType\&\ value,\ \textcolor{keywordtype}{bool}\ forcedAdd)}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00212}00212\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00213}00213\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (forcedAdd\ ||\ !containsValue(value))}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00214}00214\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00215}00215\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_node}{Node}}\ newNode(maxId);}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00216}00216\ \ \ \ \ \ \ \ \ \ \ \ \ values[newNode]\ =\ value;}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00217}00217\ \ \ \ \ \ \ \ \ \ \ \ \ ++maxId;}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00218}00218\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00219}00219\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00220}00220\ \ \ \ \ \ \ \ \ \textcolor{comment}{//throw\ new\ std::exception("{}Can\ not\ add\ Node!"{});}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00221}00221\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00222}00222\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00223}00223\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ NodeType,\ \textcolor{keyword}{class}\ EdgeType>}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00224}\mbox{\hyperlink{class_math_1_1_graph_a89eeb992ce1291bde48f820473d3a689}{00224}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_math_1_1_graph_a89eeb992ce1291bde48f820473d3a689}{Graph<NodeType,\ EdgeType>::addEdge}}(\textcolor{keyword}{const}\ NodeType\&\ from,\ \textcolor{keyword}{const}\ NodeType\&\ to,\ std::optional<EdgeType>\ edgeValue,\ \textcolor{keywordtype}{bool}\ forcedAdd)}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00225}00225\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00226}00226\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (forcedAdd\ ||\ !containsEdge(from,\ to))}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00227}00227\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00228}00228\ \ \ \ \ \ \ \ \ \ \ \ \ neighbours[getNodeFromValue(from)].push\_back(getNodeFromValue(to));}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00229}00229\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_edge}{Edge}}\ newEdge(getNodeFromValue(from),\ getNodeFromValue(to));}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00230}00230\ \ \ \ \ \ \ \ \ \ \ \ \ edgeValues[newEdge]\ =\ edgeValue;}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00231}00231\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00232}00232\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00233}00233\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00234}00234\ \ \ \ \ \ \ \ \ \textcolor{comment}{//throw\ new\ std::exception("{}Can\ not\ add\ Edge!"{});}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00235}00235\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00236}00236\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00237}00237\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ NodeType,\ \textcolor{keyword}{class}\ EdgeType>}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00238}\mbox{\hyperlink{class_math_1_1_graph_acbe25d44ffd1c8f9b23a91f8ab4dd300}{00238}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_math_1_1_graph_acbe25d44ffd1c8f9b23a91f8ab4dd300}{Graph<NodeType,\ EdgeType>::removeEdge}}(\textcolor{keyword}{const}\ NodeType\&\ from,\ \textcolor{keyword}{const}\ NodeType\&\ to)}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00239}00239\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00240}00240\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (containsEdge(from,\ to))}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00241}00241\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00242}00242\ \ \ \ \ \ \ \ \ \ \ \ \ neighbours[getNodeFromValue(from)].push\_back(getNodeFromValue(to));}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00243}00243\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<NodeType>\ n\ =\ neighbours[getNodeFromValue(from)];}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00244}00244\ \ \ \ \ \ \ \ \ \ \ \ \ n.erase(std::remove(n.begin(),\ n.end(),\ to),\ n.end());}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00245}00245\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00246}00246\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (n.empty())}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00247}00247\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ neighbours.erase(getNodeFromValue(from));}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00248}00248\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00249}00249\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_edge}{Edge}}\ edge(getNodeFromValue(from),\ getNodeFromValue(to));}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00250}00250\ \ \ \ \ \ \ \ \ \ \ \ \ edgeValues.erase(edge);}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00251}00251\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00252}00252\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00253}00253\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00254}00254\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00255}00255\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ NodeType,\ \textcolor{keyword}{class}\ EdgeType>}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00256}\mbox{\hyperlink{namespace_math_af101691560a371a73f6fe4af76ccf1ab}{00256}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespace_math_af101691560a371a73f6fe4af76ccf1ab}{operator==}}(\mbox{\hyperlink{class_math_1_1_graph}{Graph<NodeType,\ EdgeType>}}\ graph1,\ \mbox{\hyperlink{class_math_1_1_graph}{Graph<NodeType,\ EdgeType>}}\ graph2)}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00257}00257\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00258}00258\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*if\ (!std::is\_same<Type1,\ Type2>::value)}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00259}00259\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ return\ false;*/}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00260}00260\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00261}00261\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (graph1.\mbox{\hyperlink{class_math_1_1_graph_a5ef23306162c55880d472108584a4350}{values}}\ !=\ graph2.\mbox{\hyperlink{class_math_1_1_graph_a5ef23306162c55880d472108584a4350}{values}})}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00262}00262\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00263}00263\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00264}00264\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (graph1.\mbox{\hyperlink{class_math_1_1_graph_ab1a4eff789486fcf855ce1613779aadd}{neighbours}}\ !=\ graph2.\mbox{\hyperlink{class_math_1_1_graph_ab1a4eff789486fcf855ce1613779aadd}{neighbours}})}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00265}00265\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00266}00266\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00267}00267\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00268}00268\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00269}00269\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00270}00270\ \}}
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00271}00271\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00272}00272\ }
+\DoxyCodeLine{\Hypertarget{graph_8hpp_source_l00273}00273\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

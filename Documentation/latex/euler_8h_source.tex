@@ -1,0 +1,198 @@
+\doxysection{euler.\+h}
+\hypertarget{euler_8h_source}{}\label{euler_8h_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/lemon/euler.h@{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/lemon/euler.h}}
+\mbox{\hyperlink{euler_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00001}00001\ \textcolor{comment}{/*\ -\/*-\/\ mode:\ C++;\ indent-\/tabs-\/mode:\ nil;\ -\/*-\/}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00002}00002\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00003}00003\ \textcolor{comment}{\ *\ This\ file\ is\ a\ part\ of\ LEMON,\ a\ generic\ C++\ optimization\ library.}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00004}00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00005}00005\ \textcolor{comment}{\ *\ Copyright\ (C)\ 2003-\/2013}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00006}00006\ \textcolor{comment}{\ *\ Egervary\ Jeno\ Kombinatorikus\ Optimalizalasi\ Kutatocsoport}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00007}00007\ \textcolor{comment}{\ *\ (Egervary\ Research\ Group\ on\ Combinatorial\ Optimization,\ EGRES).}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00008}00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00009}00009\ \textcolor{comment}{\ *\ Permission\ to\ use,\ modify\ and\ distribute\ this\ software\ is\ granted}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00010}00010\ \textcolor{comment}{\ *\ provided\ that\ this\ copyright\ notice\ appears\ in\ all\ copies.\ For}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00011}00011\ \textcolor{comment}{\ *\ precise\ terms\ see\ the\ accompanying\ LICENSE\ file.}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00012}00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00013}00013\ \textcolor{comment}{\ *\ This\ software\ is\ provided\ "{}AS\ IS"{}\ with\ no\ warranty\ of\ any\ kind,}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00014}00014\ \textcolor{comment}{\ *\ express\ or\ implied,\ and\ with\ no\ claim\ as\ to\ its\ suitability\ for\ any}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00015}00015\ \textcolor{comment}{\ *\ purpose.}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00016}00016\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00017}00017\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00019}00019\ \textcolor{preprocessor}{\#ifndef\ LEMON\_EULER\_H}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00020}00020\ \textcolor{preprocessor}{\#define\ LEMON\_EULER\_H}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00022}00022\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{lemon_2core_8h}{lemon/core.h}}>}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00023}00023\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{adaptors_8h}{lemon/adaptors.h}}>}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00024}00024\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{connectivity_8h}{lemon/connectivity.h}}>}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00025}00025\ \textcolor{preprocessor}{\#include\ <list>}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00035}00035\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacelemon}{lemon}}\ \{}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00055}00055\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ GR>}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00056}\mbox{\hyperlink{classlemon_1_1_di_euler_it}{00056}}\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_di_euler_it}{DiEulerIt}}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00057}00057\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00058}\mbox{\hyperlink{classlemon_1_1_di_euler_it_a3e87d00eb2123f044d50d199b91bab60}{00058}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ GR::Node\ \mbox{\hyperlink{classlemon_1_1_di_euler_it_a3e87d00eb2123f044d50d199b91bab60}{Node}};}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00059}\mbox{\hyperlink{classlemon_1_1_di_euler_it_aab034f53472f01fce8ffe70c730d44f2}{00059}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ GR::NodeIt\ \mbox{\hyperlink{classlemon_1_1_di_euler_it_aab034f53472f01fce8ffe70c730d44f2}{NodeIt}};}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00060}\mbox{\hyperlink{classlemon_1_1_di_euler_it_ab099c52b68fb74718ae92d3b3d8c539a}{00060}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ GR::Arc\ \mbox{\hyperlink{classlemon_1_1_di_euler_it_ab099c52b68fb74718ae92d3b3d8c539a}{Arc}};}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00061}\mbox{\hyperlink{classlemon_1_1_di_euler_it_a72d60aa031a3c66275bc820d281f5c2d}{00061}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ GR::ArcIt\ \mbox{\hyperlink{classlemon_1_1_di_euler_it_a72d60aa031a3c66275bc820d281f5c2d}{ArcIt}};}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00062}\mbox{\hyperlink{classlemon_1_1_di_euler_it_aa3a6327e1cb33bcac2f5d3a7f05cf845}{00062}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ GR::OutArcIt\ \mbox{\hyperlink{classlemon_1_1_di_euler_it_aa3a6327e1cb33bcac2f5d3a7f05cf845}{OutArcIt}};}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00063}\mbox{\hyperlink{classlemon_1_1_di_euler_it_ac48d5156d7998b42d5b5c3d37a9a305b}{00063}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ GR::InArcIt\ \mbox{\hyperlink{classlemon_1_1_di_euler_it_ac48d5156d7998b42d5b5c3d37a9a305b}{InArcIt}};}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00065}\mbox{\hyperlink{classlemon_1_1_di_euler_it_a539d50b7c1c4bf2e7ec9903adcf35bbf}{00065}}\ \ \ \ \ \textcolor{keyword}{const}\ GR\ \&\mbox{\hyperlink{classlemon_1_1_di_euler_it_a539d50b7c1c4bf2e7ec9903adcf35bbf}{g}};}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00066}\mbox{\hyperlink{classlemon_1_1_di_euler_it_a39f4c9c45e35bd01e524a8f0cf3abc20}{00066}}\ \ \ \ \ \textcolor{keyword}{typename}\ GR::template\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{NodeMap<OutArcIt>}}\ \mbox{\hyperlink{classlemon_1_1_di_euler_it_a39f4c9c45e35bd01e524a8f0cf3abc20}{narc}};}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00067}\mbox{\hyperlink{classlemon_1_1_di_euler_it_abd527f841dcae0aaaf7e718b857170f9}{00067}}\ \ \ \ \ std::list<Arc>\ \mbox{\hyperlink{classlemon_1_1_di_euler_it_abd527f841dcae0aaaf7e718b857170f9}{euler}};}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00069}00069\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00077}\mbox{\hyperlink{classlemon_1_1_di_euler_it_a0cbebd6e14bd3d66a80f92a1987b13cf}{00077}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_di_euler_it_a0cbebd6e14bd3d66a80f92a1987b13cf}{DiEulerIt}}(\textcolor{keyword}{const}\ GR\ \&\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{gr}},\ \textcolor{keyword}{typename}\ GR::Node\ start\ =\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}})}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00078}00078\ \ \ \ \ \ \ :\ \mbox{\hyperlink{classlemon_1_1_di_euler_it_a539d50b7c1c4bf2e7ec9903adcf35bbf}{g}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{gr}}),\ \mbox{\hyperlink{classlemon_1_1_di_euler_it_a39f4c9c45e35bd01e524a8f0cf3abc20}{narc}}(\mbox{\hyperlink{classlemon_1_1_di_euler_it_a539d50b7c1c4bf2e7ec9903adcf35bbf}{g}})}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00079}00079\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00080}00080\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (start==\mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}})\ \{}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00081}00081\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_di_euler_it_aab034f53472f01fce8ffe70c730d44f2}{NodeIt}}\ n(\mbox{\hyperlink{classlemon_1_1_di_euler_it_a539d50b7c1c4bf2e7ec9903adcf35bbf}{g}});}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00082}00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (n!=\mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}}\ \&\&\ \mbox{\hyperlink{classlemon_1_1_di_euler_it_aa3a6327e1cb33bcac2f5d3a7f05cf845}{OutArcIt}}(\mbox{\hyperlink{classlemon_1_1_di_euler_it_a539d50b7c1c4bf2e7ec9903adcf35bbf}{g}},n)==\mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}})\ ++n;}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00083}00083\ \ \ \ \ \ \ \ \ start=n;}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00084}00084\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00085}00085\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (start!=\mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}})\ \{}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00086}00086\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{classlemon_1_1_di_euler_it_aab034f53472f01fce8ffe70c730d44f2}{NodeIt}}\ n(\mbox{\hyperlink{classlemon_1_1_di_euler_it_a539d50b7c1c4bf2e7ec9903adcf35bbf}{g}});\ n!=\mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ ++n)\ \mbox{\hyperlink{classlemon_1_1_di_euler_it_a39f4c9c45e35bd01e524a8f0cf3abc20}{narc}}[n]=\mbox{\hyperlink{classlemon_1_1_di_euler_it_aa3a6327e1cb33bcac2f5d3a7f05cf845}{OutArcIt}}(\mbox{\hyperlink{classlemon_1_1_di_euler_it_a539d50b7c1c4bf2e7ec9903adcf35bbf}{g}},n);}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00087}00087\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{classlemon_1_1_di_euler_it_a39f4c9c45e35bd01e524a8f0cf3abc20}{narc}}[start]!=\mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}})\ \{}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_di_euler_it_abd527f841dcae0aaaf7e718b857170f9}{euler}}.push\_back(\mbox{\hyperlink{classlemon_1_1_di_euler_it_a39f4c9c45e35bd01e524a8f0cf3abc20}{narc}}[start]);}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_di_euler_it_a3e87d00eb2123f044d50d199b91bab60}{Node}}\ next=\mbox{\hyperlink{classlemon_1_1_di_euler_it_a539d50b7c1c4bf2e7ec9903adcf35bbf}{g}}.\mbox{\hyperlink{classlemon_1_1_reverse_digraph_base_ac58ab1c4df36df3a2b77cf4ede280fce}{target}}(\mbox{\hyperlink{classlemon_1_1_di_euler_it_a39f4c9c45e35bd01e524a8f0cf3abc20}{narc}}[start]);}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ ++\mbox{\hyperlink{classlemon_1_1_di_euler_it_a39f4c9c45e35bd01e524a8f0cf3abc20}{narc}}[start];}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ start=next;}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00092}00092\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00093}00093\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00094}00094\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00097}\mbox{\hyperlink{classlemon_1_1_di_euler_it_a69505fc6687bca6d65d3249ca24103d3}{00097}}\ \ \ \ \ \textcolor{keyword}{operator}\ \mbox{\hyperlink{classlemon_1_1_di_euler_it_ab099c52b68fb74718ae92d3b3d8c539a}{Arc}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_di_euler_it_abd527f841dcae0aaaf7e718b857170f9}{euler}}.empty()?\mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}}:\mbox{\hyperlink{classlemon_1_1_di_euler_it_abd527f841dcae0aaaf7e718b857170f9}{euler}}.front();\ \}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00099}\mbox{\hyperlink{classlemon_1_1_di_euler_it_af1bbd626fcb6e2b5fe23cbfb0b0d9223}{00099}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_di_euler_it_af1bbd626fcb6e2b5fe23cbfb0b0d9223}{operator==}}(\mbox{\hyperlink{structlemon_1_1_invalid}{Invalid}})\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_di_euler_it_abd527f841dcae0aaaf7e718b857170f9}{euler}}.empty();\ \}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00101}\mbox{\hyperlink{classlemon_1_1_di_euler_it_a85380fdec1ae34bb192a9f9e879a466e}{00101}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_di_euler_it_a85380fdec1ae34bb192a9f9e879a466e}{operator!=}}(\mbox{\hyperlink{structlemon_1_1_invalid}{Invalid}})\ \{\ \textcolor{keywordflow}{return}\ !\mbox{\hyperlink{classlemon_1_1_di_euler_it_abd527f841dcae0aaaf7e718b857170f9}{euler}}.empty();\ \}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00107}\mbox{\hyperlink{classlemon_1_1_di_euler_it_aa4bde019b08c167f7e499739e98d02e9}{00107}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_di_euler_it}{DiEulerIt}}\ \&\mbox{\hyperlink{classlemon_1_1_di_euler_it_aa4bde019b08c167f7e499739e98d02e9}{operator++}}()\ \{}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00108}00108\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_di_euler_it_a3e87d00eb2123f044d50d199b91bab60}{Node}}\ s=\mbox{\hyperlink{classlemon_1_1_di_euler_it_a539d50b7c1c4bf2e7ec9903adcf35bbf}{g}}.target(\mbox{\hyperlink{classlemon_1_1_di_euler_it_abd527f841dcae0aaaf7e718b857170f9}{euler}}.front());}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00109}00109\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_di_euler_it_abd527f841dcae0aaaf7e718b857170f9}{euler}}.pop\_front();}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00110}00110\ \ \ \ \ \ \ \textcolor{keyword}{typename}\ std::list<Arc>::iterator\ next=\mbox{\hyperlink{classlemon_1_1_di_euler_it_abd527f841dcae0aaaf7e718b857170f9}{euler}}.begin();}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00111}00111\ \ \ \ \ \ \ \textcolor{keywordflow}{while}(\mbox{\hyperlink{classlemon_1_1_di_euler_it_a39f4c9c45e35bd01e524a8f0cf3abc20}{narc}}[s]!=\mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}})\ \{}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00112}00112\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_di_euler_it_abd527f841dcae0aaaf7e718b857170f9}{euler}}.insert(next,\mbox{\hyperlink{classlemon_1_1_di_euler_it_a39f4c9c45e35bd01e524a8f0cf3abc20}{narc}}[s]);}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00113}00113\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_di_euler_it_a3e87d00eb2123f044d50d199b91bab60}{Node}}\ n=\mbox{\hyperlink{classlemon_1_1_di_euler_it_a539d50b7c1c4bf2e7ec9903adcf35bbf}{g}}.target(\mbox{\hyperlink{classlemon_1_1_di_euler_it_a39f4c9c45e35bd01e524a8f0cf3abc20}{narc}}[s]);}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00114}00114\ \ \ \ \ \ \ \ \ ++\mbox{\hyperlink{classlemon_1_1_di_euler_it_a39f4c9c45e35bd01e524a8f0cf3abc20}{narc}}[s];}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00115}00115\ \ \ \ \ \ \ \ \ s=n;}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00116}00116\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00117}00117\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00118}00118\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00126}\mbox{\hyperlink{classlemon_1_1_di_euler_it_a55c5cb7a1f19b74a97a2654be74ee57e}{00126}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_di_euler_it_ab099c52b68fb74718ae92d3b3d8c539a}{Arc}}\ \mbox{\hyperlink{classlemon_1_1_di_euler_it_a55c5cb7a1f19b74a97a2654be74ee57e}{operator++}}(\textcolor{keywordtype}{int})}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00127}00127\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00128}00128\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_di_euler_it_ab099c52b68fb74718ae92d3b3d8c539a}{Arc}}\ e=*\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00129}00129\ \ \ \ \ \ \ ++(*this);}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00130}00130\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ e;}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00131}00131\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00132}00132\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00135}00135\ }
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00156}00156\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ GR>}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00157}\mbox{\hyperlink{classlemon_1_1_euler_it}{00157}}\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1_euler_it}{EulerIt}}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00158}00158\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00159}\mbox{\hyperlink{classlemon_1_1_euler_it_a88e9f71d7aec9db0b76bdca6697a7123}{00159}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ GR::Node\ \mbox{\hyperlink{classlemon_1_1_euler_it_a88e9f71d7aec9db0b76bdca6697a7123}{Node}};}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00160}\mbox{\hyperlink{classlemon_1_1_euler_it_a8b370ac8c549f9bceb2dde1d74bea7c2}{00160}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ GR::NodeIt\ \mbox{\hyperlink{classlemon_1_1_euler_it_a8b370ac8c549f9bceb2dde1d74bea7c2}{NodeIt}};}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00161}\mbox{\hyperlink{classlemon_1_1_euler_it_a5338fc5547ff6fd9334a158d5f10fbbb}{00161}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ GR::Arc\ \mbox{\hyperlink{classlemon_1_1_euler_it_a5338fc5547ff6fd9334a158d5f10fbbb}{Arc}};}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00162}\mbox{\hyperlink{classlemon_1_1_euler_it_a60f0a87ae7fe5777ee17e23f8944d7cf}{00162}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ GR::Edge\ \mbox{\hyperlink{classlemon_1_1_euler_it_a60f0a87ae7fe5777ee17e23f8944d7cf}{Edge}};}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00163}\mbox{\hyperlink{classlemon_1_1_euler_it_ab8ff446cbec7f1527f02dbfb96539ddd}{00163}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ GR::ArcIt\ \mbox{\hyperlink{classlemon_1_1_euler_it_ab8ff446cbec7f1527f02dbfb96539ddd}{ArcIt}};}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00164}\mbox{\hyperlink{classlemon_1_1_euler_it_a4c24f1f78964f17fa34a4c23805f344d}{00164}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ GR::OutArcIt\ \mbox{\hyperlink{classlemon_1_1_euler_it_a4c24f1f78964f17fa34a4c23805f344d}{OutArcIt}};}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00165}\mbox{\hyperlink{classlemon_1_1_euler_it_acc65216554d2851caf847780df0ca7b4}{00165}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ GR::InArcIt\ \mbox{\hyperlink{classlemon_1_1_euler_it_acc65216554d2851caf847780df0ca7b4}{InArcIt}};}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00166}00166\ }
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00167}\mbox{\hyperlink{classlemon_1_1_euler_it_af3dfb5ada6bf47d146f3931fcadbfcbf}{00167}}\ \ \ \ \ \textcolor{keyword}{const}\ GR\ \&\mbox{\hyperlink{classlemon_1_1_euler_it_af3dfb5ada6bf47d146f3931fcadbfcbf}{g}};}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00168}\mbox{\hyperlink{classlemon_1_1_euler_it_a9d32d46bc1362f5650240225e6e3a2b3}{00168}}\ \ \ \ \ \textcolor{keyword}{typename}\ GR::template\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{NodeMap<OutArcIt>}}\ \mbox{\hyperlink{classlemon_1_1_euler_it_a9d32d46bc1362f5650240225e6e3a2b3}{narc}};}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00169}\mbox{\hyperlink{classlemon_1_1_euler_it_a09d6eb2764bf8635d1ba8c64d1eed505}{00169}}\ \ \ \ \ \textcolor{keyword}{typename}\ GR::template\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{EdgeMap<bool>}}\ \mbox{\hyperlink{classlemon_1_1_euler_it_a09d6eb2764bf8635d1ba8c64d1eed505}{visited}};}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00170}\mbox{\hyperlink{classlemon_1_1_euler_it_a3ac7546924879ee1f90decc54eaeea8e}{00170}}\ \ \ \ \ std::list<Arc>\ \mbox{\hyperlink{classlemon_1_1_euler_it_a3ac7546924879ee1f90decc54eaeea8e}{euler}};}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00171}00171\ }
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00172}00172\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00173}00173\ }
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00175}00175\ }
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00180}\mbox{\hyperlink{classlemon_1_1_euler_it_ad25b141bf111ef68a5ce2187608b1659}{00180}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_euler_it_ad25b141bf111ef68a5ce2187608b1659}{EulerIt}}(\textcolor{keyword}{const}\ GR\ \&\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{gr}},\ \textcolor{keyword}{typename}\ GR::Node\ start\ =\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}})}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00181}00181\ \ \ \ \ \ \ :\ \mbox{\hyperlink{classlemon_1_1_euler_it_af3dfb5ada6bf47d146f3931fcadbfcbf}{g}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{gr}}),\ \mbox{\hyperlink{classlemon_1_1_euler_it_a9d32d46bc1362f5650240225e6e3a2b3}{narc}}(\mbox{\hyperlink{classlemon_1_1_euler_it_af3dfb5ada6bf47d146f3931fcadbfcbf}{g}}),\ \mbox{\hyperlink{classlemon_1_1_euler_it_a09d6eb2764bf8635d1ba8c64d1eed505}{visited}}(\mbox{\hyperlink{classlemon_1_1_euler_it_af3dfb5ada6bf47d146f3931fcadbfcbf}{g}},\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{false}})}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00182}00182\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00183}00183\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (start==\mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}})\ \{}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00184}00184\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_euler_it_a8b370ac8c549f9bceb2dde1d74bea7c2}{NodeIt}}\ n(\mbox{\hyperlink{classlemon_1_1_euler_it_af3dfb5ada6bf47d146f3931fcadbfcbf}{g}});}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00185}00185\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (n!=\mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}}\ \&\&\ \mbox{\hyperlink{classlemon_1_1_euler_it_a4c24f1f78964f17fa34a4c23805f344d}{OutArcIt}}(\mbox{\hyperlink{classlemon_1_1_euler_it_af3dfb5ada6bf47d146f3931fcadbfcbf}{g}},n)==\mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}})\ ++n;}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00186}00186\ \ \ \ \ \ \ \ \ start=n;}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00187}00187\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00188}00188\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (start!=\mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}})\ \{}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00189}00189\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{classlemon_1_1_euler_it_a8b370ac8c549f9bceb2dde1d74bea7c2}{NodeIt}}\ n(\mbox{\hyperlink{classlemon_1_1_euler_it_af3dfb5ada6bf47d146f3931fcadbfcbf}{g}});\ n!=\mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ ++n)\ \mbox{\hyperlink{classlemon_1_1_euler_it_a9d32d46bc1362f5650240225e6e3a2b3}{narc}}[n]=\mbox{\hyperlink{classlemon_1_1_euler_it_a4c24f1f78964f17fa34a4c23805f344d}{OutArcIt}}(\mbox{\hyperlink{classlemon_1_1_euler_it_af3dfb5ada6bf47d146f3931fcadbfcbf}{g}},n);}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00190}00190\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(\mbox{\hyperlink{classlemon_1_1_euler_it_a9d32d46bc1362f5650240225e6e3a2b3}{narc}}[start]!=\mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}})\ \{}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00191}00191\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_euler_it_a3ac7546924879ee1f90decc54eaeea8e}{euler}}.push\_back(\mbox{\hyperlink{classlemon_1_1_euler_it_a9d32d46bc1362f5650240225e6e3a2b3}{narc}}[start]);}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00192}00192\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_euler_it_a09d6eb2764bf8635d1ba8c64d1eed505}{visited}}[\mbox{\hyperlink{classlemon_1_1_euler_it_a9d32d46bc1362f5650240225e6e3a2b3}{narc}}[start]]=\textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00193}00193\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_euler_it_a88e9f71d7aec9db0b76bdca6697a7123}{Node}}\ next=\mbox{\hyperlink{classlemon_1_1_euler_it_af3dfb5ada6bf47d146f3931fcadbfcbf}{g}}.target(\mbox{\hyperlink{classlemon_1_1_euler_it_a9d32d46bc1362f5650240225e6e3a2b3}{narc}}[start]);}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00194}00194\ \ \ \ \ \ \ \ \ \ \ ++\mbox{\hyperlink{classlemon_1_1_euler_it_a9d32d46bc1362f5650240225e6e3a2b3}{narc}}[start];}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00195}00195\ \ \ \ \ \ \ \ \ \ \ start=next;}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00196}00196\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(\mbox{\hyperlink{classlemon_1_1_euler_it_a9d32d46bc1362f5650240225e6e3a2b3}{narc}}[start]!=\mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}}\ \&\&\ \mbox{\hyperlink{classlemon_1_1_euler_it_a09d6eb2764bf8635d1ba8c64d1eed505}{visited}}[\mbox{\hyperlink{classlemon_1_1_euler_it_a9d32d46bc1362f5650240225e6e3a2b3}{narc}}[start]])\ ++\mbox{\hyperlink{classlemon_1_1_euler_it_a9d32d46bc1362f5650240225e6e3a2b3}{narc}}[start];}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00197}00197\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00198}00198\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00199}00199\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00200}00200\ }
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00202}\mbox{\hyperlink{classlemon_1_1_euler_it_ad54d6c42959d1c746d6e1c3cf2dd4365}{00202}}\ \ \ \ \ \textcolor{keyword}{operator}\ \mbox{\hyperlink{classlemon_1_1_euler_it_a5338fc5547ff6fd9334a158d5f10fbbb}{Arc}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_euler_it_a3ac7546924879ee1f90decc54eaeea8e}{euler}}.empty()?\mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}}:\mbox{\hyperlink{classlemon_1_1_euler_it_a3ac7546924879ee1f90decc54eaeea8e}{euler}}.front();\ \}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00204}\mbox{\hyperlink{classlemon_1_1_euler_it_ab7cbf3b3fafe625d16ad5dffee5cdf69}{00204}}\ \ \ \ \ \textcolor{keyword}{operator}\ \mbox{\hyperlink{classlemon_1_1_euler_it_a60f0a87ae7fe5777ee17e23f8944d7cf}{Edge}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_euler_it_a3ac7546924879ee1f90decc54eaeea8e}{euler}}.empty()?\mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}}:\mbox{\hyperlink{classlemon_1_1_euler_it_a3ac7546924879ee1f90decc54eaeea8e}{euler}}.front();\ \}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00206}\mbox{\hyperlink{classlemon_1_1_euler_it_a8461c797d01eb572f4a180d001257c40}{00206}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_euler_it_a8461c797d01eb572f4a180d001257c40}{operator==}}(\mbox{\hyperlink{structlemon_1_1_invalid}{Invalid}})\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classlemon_1_1_euler_it_a3ac7546924879ee1f90decc54eaeea8e}{euler}}.empty();\ \}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00208}\mbox{\hyperlink{classlemon_1_1_euler_it_afe76b1ccf7d36be0a616ba064bbdcc49}{00208}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classlemon_1_1_euler_it_afe76b1ccf7d36be0a616ba064bbdcc49}{operator!=}}(\mbox{\hyperlink{structlemon_1_1_invalid}{Invalid}})\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ !\mbox{\hyperlink{classlemon_1_1_euler_it_a3ac7546924879ee1f90decc54eaeea8e}{euler}}.empty();\ \}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00209}00209\ }
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00211}00211\ }
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00214}\mbox{\hyperlink{classlemon_1_1_euler_it_a3c0e5b2eb5268396f9f69dc15e4d7867}{00214}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_euler_it}{EulerIt}}\ \&\mbox{\hyperlink{classlemon_1_1_euler_it_a3c0e5b2eb5268396f9f69dc15e4d7867}{operator++}}()\ \{}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00215}00215\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_euler_it_a88e9f71d7aec9db0b76bdca6697a7123}{Node}}\ s=\mbox{\hyperlink{classlemon_1_1_euler_it_af3dfb5ada6bf47d146f3931fcadbfcbf}{g}}.target(\mbox{\hyperlink{classlemon_1_1_euler_it_a3ac7546924879ee1f90decc54eaeea8e}{euler}}.front());}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00216}00216\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_euler_it_a3ac7546924879ee1f90decc54eaeea8e}{euler}}.pop\_front();}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00217}00217\ \ \ \ \ \ \ \textcolor{keyword}{typename}\ std::list<Arc>::iterator\ next=\mbox{\hyperlink{classlemon_1_1_euler_it_a3ac7546924879ee1f90decc54eaeea8e}{euler}}.begin();}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00218}00218\ \ \ \ \ \ \ \textcolor{keywordflow}{while}(\mbox{\hyperlink{classlemon_1_1_euler_it_a9d32d46bc1362f5650240225e6e3a2b3}{narc}}[s]!=\mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}})\ \{}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00219}00219\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(\mbox{\hyperlink{classlemon_1_1_euler_it_a9d32d46bc1362f5650240225e6e3a2b3}{narc}}[s]!=\mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}}\ \&\&\ \mbox{\hyperlink{classlemon_1_1_euler_it_a09d6eb2764bf8635d1ba8c64d1eed505}{visited}}[\mbox{\hyperlink{classlemon_1_1_euler_it_a9d32d46bc1362f5650240225e6e3a2b3}{narc}}[s]])\ ++\mbox{\hyperlink{classlemon_1_1_euler_it_a9d32d46bc1362f5650240225e6e3a2b3}{narc}}[s];}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00220}00220\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classlemon_1_1_euler_it_a9d32d46bc1362f5650240225e6e3a2b3}{narc}}[s]==\mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}})\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00221}00221\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00222}00222\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_euler_it_a3ac7546924879ee1f90decc54eaeea8e}{euler}}.insert(next,\mbox{\hyperlink{classlemon_1_1_euler_it_a9d32d46bc1362f5650240225e6e3a2b3}{narc}}[s]);}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00223}00223\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_euler_it_a09d6eb2764bf8635d1ba8c64d1eed505}{visited}}[\mbox{\hyperlink{classlemon_1_1_euler_it_a9d32d46bc1362f5650240225e6e3a2b3}{narc}}[s]]=\textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00224}00224\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_euler_it_a88e9f71d7aec9db0b76bdca6697a7123}{Node}}\ n=\mbox{\hyperlink{classlemon_1_1_euler_it_af3dfb5ada6bf47d146f3931fcadbfcbf}{g}}.target(\mbox{\hyperlink{classlemon_1_1_euler_it_a9d32d46bc1362f5650240225e6e3a2b3}{narc}}[s]);}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00225}00225\ \ \ \ \ \ \ \ \ \ \ ++\mbox{\hyperlink{classlemon_1_1_euler_it_a9d32d46bc1362f5650240225e6e3a2b3}{narc}}[s];}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00226}00226\ \ \ \ \ \ \ \ \ \ \ s=n;}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00227}00227\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00228}00228\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00229}00229\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00230}00230\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00231}00231\ }
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00233}00233\ }
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00238}\mbox{\hyperlink{classlemon_1_1_euler_it_afb96f1bbd307eee583158cb54c7bd144}{00238}}\ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_euler_it_a5338fc5547ff6fd9334a158d5f10fbbb}{Arc}}\ \mbox{\hyperlink{classlemon_1_1_euler_it_afb96f1bbd307eee583158cb54c7bd144}{operator++}}(\textcolor{keywordtype}{int})}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00239}00239\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00240}00240\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_euler_it_a5338fc5547ff6fd9334a158d5f10fbbb}{Arc}}\ e=*\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00241}00241\ \ \ \ \ \ \ ++(*this);}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00242}00242\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ e;}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00243}00243\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00244}00244\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00245}00245\ }
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00246}00246\ }
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00248}00248\ }
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00264}00264\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ GR>}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00265}00265\ \textcolor{preprocessor}{\#ifdef\ DOXYGEN}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00266}00266\ \ \ \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00267}00267\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00268}00268\ \ \ \textcolor{keyword}{typename}\ enable\_if<UndirectedTagIndicator<GR>,\textcolor{keywordtype}{bool}>\mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a7aead736a07eaf25623ad7bfa1f0ee2d}{::type}}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00269}\mbox{\hyperlink{namespacelemon_aa948594b50a2b1f7ed6f7dcc0479fd9f}{00269}}\ \ \ \mbox{\hyperlink{namespacelemon_aa948594b50a2b1f7ed6f7dcc0479fd9f}{eulerian}}(\textcolor{keyword}{const}\ GR\ \&g)}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00270}00270\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00271}00271\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keyword}{typename}\ GR::NodeIt\ n(g);n!=\mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};++n)}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00272}00272\ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__gutils_gae93681c4e849f6fd3a102fcb2756e317}{countIncEdges}}(g,n)\%2)\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00273}00273\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacelemon_ad5c8d1b650f6b614a852f8430d90e184}{connected}}(g);}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00274}00274\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00275}00275\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ GR>}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00276}00276\ \ \ \textcolor{keyword}{typename}\ disable\_if<UndirectedTagIndicator<GR>,\textcolor{keywordtype}{bool}>\mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a7aead736a07eaf25623ad7bfa1f0ee2d}{::type}}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00277}00277\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00278}\mbox{\hyperlink{namespacelemon_a32132e21fa33c1071ed9c53aad9d21fe}{00278}}\ \ \ \mbox{\hyperlink{namespacelemon_aa948594b50a2b1f7ed6f7dcc0479fd9f}{eulerian}}(\textcolor{keyword}{const}\ GR\ \&g)}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00279}00279\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00280}00280\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keyword}{typename}\ GR::NodeIt\ n(g);n!=\mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};++n)}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00281}00281\ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group__gutils_ga03d0d2f770d7f7faac66438139ae9b18}{countInArcs}}(g,n)!=\mbox{\hyperlink{group__gutils_gaf199da654058dd16da1702f38b60f30c}{countOutArcs}}(g,n))\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00282}00282\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacelemon_ad5c8d1b650f6b614a852f8430d90e184}{connected}}(undirector(g));}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00283}00283\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00284}00284\ }
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00285}00285\ \}}
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00286}00286\ }
+\DoxyCodeLine{\Hypertarget{euler_8h_source_l00287}00287\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

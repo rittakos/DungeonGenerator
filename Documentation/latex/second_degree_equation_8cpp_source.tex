@@ -1,0 +1,31 @@
+\doxysection{second\+Degree\+Equation.\+cpp}
+\hypertarget{second_degree_equation_8cpp_source}{}\label{second_degree_equation_8cpp_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/Math/secondDegreeEquation.cpp@{C:/Dev/DungeonGenerator/DungeonGenerator/Math/secondDegreeEquation.cpp}}
+\mbox{\hyperlink{second_degree_equation_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{second_degree_equation_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{second_degree_equation_8hpp}{secondDegreeEquation.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{second_degree_equation_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{second_degree_equation_8cpp_source_l00003}00003\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_math}{Math}}}
+\DoxyCodeLine{\Hypertarget{second_degree_equation_8cpp_source_l00004}00004\ \{}
+\DoxyCodeLine{\Hypertarget{second_degree_equation_8cpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{second_degree_equation_8cpp_source_l00006}00006\ \ \ \ \ \textcolor{comment}{//\ a*x\string^2\ +\ b*x\ +\ c\ =\ 0}}
+\DoxyCodeLine{\Hypertarget{second_degree_equation_8cpp_source_l00007}\mbox{\hyperlink{class_math_1_1_second_degree_equation_a9fce4656a72e0b1664f1d2fc2c4cf947}{00007}}\ \ \ \ \ \mbox{\hyperlink{class_math_1_1_second_degree_equation_a9fce4656a72e0b1664f1d2fc2c4cf947}{Math::SecondDegreeEquation::SecondDegreeEquation}}(\textcolor{keywordtype}{float}\ a,\ \textcolor{keywordtype}{float}\ b,\ \textcolor{keywordtype}{float}\ c)\ }
+\DoxyCodeLine{\Hypertarget{second_degree_equation_8cpp_source_l00008}00008\ \ \ \ \ \ \ \ \ :\ a(a),\ b(b),\ c(c)}
+\DoxyCodeLine{\Hypertarget{second_degree_equation_8cpp_source_l00009}00009\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{second_degree_equation_8cpp_source_l00010}00010\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{second_degree_equation_8cpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{second_degree_equation_8cpp_source_l00012}\mbox{\hyperlink{class_math_1_1_second_degree_equation_a27e2b6d3814e46c51a10b2101529757d}{00012}}\ \ \ \ \ std::optional<Math::Vec2f>\ \mbox{\hyperlink{class_math_1_1_second_degree_equation_a27e2b6d3814e46c51a10b2101529757d}{Math::SecondDegreeEquation::getSolution}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{second_degree_equation_8cpp_source_l00013}00013\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{second_degree_equation_8cpp_source_l00014}00014\ \ \ \ \ \ \ \ \ \textcolor{comment}{//x1/2\ =\ (-\/b\ +-\/\ sqrt(b\string^2\ -\/\ 4ac))\ /\ (2a)}}
+\DoxyCodeLine{\Hypertarget{second_degree_equation_8cpp_source_l00015}00015\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ D\ =\ b\ *\ b\ -\/\ 4.0f\ *\ a\ *\ c;}
+\DoxyCodeLine{\Hypertarget{second_degree_equation_8cpp_source_l00016}00016\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (D\ <\ 0)}
+\DoxyCodeLine{\Hypertarget{second_degree_equation_8cpp_source_l00017}00017\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{\};}
+\DoxyCodeLine{\Hypertarget{second_degree_equation_8cpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{second_degree_equation_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ x1\ =\ (-\/b\ +\ std::sqrtf(D))\ /\ (2.0f\ *\ a);}
+\DoxyCodeLine{\Hypertarget{second_degree_equation_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ x2\ =\ (-\/b\ -\/\ std::sqrtf(D))\ /\ (2.0f\ *\ a);}
+\DoxyCodeLine{\Hypertarget{second_degree_equation_8cpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{second_degree_equation_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Vec2f}}(x1,\ x2);}
+\DoxyCodeLine{\Hypertarget{second_degree_equation_8cpp_source_l00023}00023\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{second_degree_equation_8cpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{second_degree_equation_8cpp_source_l00025}00025\ \}}
+
+\end{DoxyCode}

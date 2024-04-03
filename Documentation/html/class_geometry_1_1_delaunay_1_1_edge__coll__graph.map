@@ -1,0 +1,5 @@
+<map id="Geometry::Delaunay::Edge" name="Geometry::Delaunay::Edge">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,256,137,341"/>
+<area shape="rect" id="Node000002" href="$class_geometry_1_1_delaunay_1_1_point_index.html" title=" " alt="" coords="5,5,137,176"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="74,176,74,239,69,239,69,176"/>
+</map>

@@ -1,0 +1,11 @@
+<map id="Geometry::Delaunay::PolygonTriangulator::removeHoles" name="Geometry::Delaunay::PolygonTriangulator::removeHoles">
+<area shape="rect" id="Node000001" title=" " alt="" coords="679,15,823,73"/>
+<area shape="rect" id="Node000002" href="$class_geometry_1_1_delaunay_1_1_polygon_triangulator.html#af16f9414e72248d90710aade9710cfdb" title=" " alt="" coords="488,15,631,73"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="664,47,632,47,632,41,664,41"/>
+<area shape="rect" id="Node000003" href="$class_data_1_1_layout_data.html#a04efcfe6e95802616126cc961b3126cf" title=" " alt="" coords="250,31,440,57"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="472,47,440,47,440,41,472,41"/>
+<area shape="rect" id="Node000004" href="$class_data_1_1_layout_data.html#a070b01671003c628c6f1e54d0eb7bd98" title=" " alt="" coords="5,5,202,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="234,35,202,32,202,26,234,30"/>
+<area shape="rect" id="Node000005" href="$class_data_1_1_layout_data.html#a2296e02f19e06eb0f99ea267c63da4e4" title=" " alt="" coords="6,56,201,83"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="234,58,202,62,201,56,234,53"/>
+</map>

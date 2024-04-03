@@ -1,0 +1,163 @@
+\doxysection{Math\+::Node\texorpdfstring{$<$}{<} Type \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_math_1_1_node}{}\label{class_math_1_1_node}\index{Math::Node$<$ Type $>$@{Math::Node$<$ Type $>$}}
+
+
+{\ttfamily \#include $<$graph.\+hpp$>$}
+
+
+
+Collaboration diagram for Math\+::Node\texorpdfstring{$<$}{<} Type \texorpdfstring{$>$}{>}\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=179pt]{class_math_1_1_node__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_math_1_1_node_af8c37614183f0c66ff0823dc3e2902a3}{Node}} (int \mbox{\hyperlink{class_math_1_1_node_aaf97f7262f0efb7861eff10ca4ded5f7}{id}}=-\/1)
+\item 
+bool \mbox{\hyperlink{class_math_1_1_node_a319bb76082cd276543905bff0bc17b83}{operator==}} (const \mbox{\hyperlink{class_math_1_1_node}{Node}} \&other) const
+\item 
+\mbox{\hyperlink{class_math_1_1_node_a3b5dcba54f2c3c34822e7c93f6e04b5e}{Node}} (int \mbox{\hyperlink{class_math_1_1_node_aaf97f7262f0efb7861eff10ca4ded5f7}{id}}, std\+::shared\+\_\+ptr$<$ Type $>$ \mbox{\hyperlink{class_math_1_1_node_abc7510324f4ff78979ed76cd8d603699}{value}})
+\item 
+Type \mbox{\hyperlink{class_math_1_1_node_a0f6a908d39bf8dc5bbd2e558c3a64129}{get\+Value}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_math_1_1_node_aaf97f7262f0efb7861eff10ca4ded5f7}{id}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ Type $>$ \mbox{\hyperlink{class_math_1_1_node_abc7510324f4ff78979ed76cd8d603699}{value}}
+\item 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_math_1_1_node}{Node}}$<$ Type $>$ $>$ $>$ \mbox{\hyperlink{class_math_1_1_node_a416a33803c16bb8533c4f5f9fba43f15}{neighbours}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class Type$>$\newline
+class Math\+::\+Node$<$ Type $>$}
+
+
+Definition at line \mbox{\hyperlink{graph_8hpp_source_l00016}{16}} of file \mbox{\hyperlink{graph_8hpp_source}{graph.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_math_1_1_node_af8c37614183f0c66ff0823dc3e2902a3}\label{class_math_1_1_node_af8c37614183f0c66ff0823dc3e2902a3} 
+\index{Math::Node$<$ Type $>$@{Math::Node$<$ Type $>$}!Node@{Node}}
+\index{Node@{Node}!Math::Node$<$ Type $>$@{Math::Node$<$ Type $>$}}
+\doxysubsubsection{\texorpdfstring{Node()}{Node()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class Type $>$ \\
+\mbox{\hyperlink{class_math_1_1_node}{Math\+::\+Node}}$<$ Type $>$\+::\+Node (\begin{DoxyParamCaption}\item[{int}]{id = {\ttfamily -\/1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Definition at line \mbox{\hyperlink{graph_8hpp_source_l00021}{21}} of file \mbox{\hyperlink{graph_8hpp_source}{graph.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00021\ :\ \mbox{\hyperlink{class_math_1_1_node_aaf97f7262f0efb7861eff10ca4ded5f7}{id}}(\textcolor{keywordtype}{id})\ \{\}}
+
+\end{DoxyCode}
+\Hypertarget{class_math_1_1_node_a3b5dcba54f2c3c34822e7c93f6e04b5e}\label{class_math_1_1_node_a3b5dcba54f2c3c34822e7c93f6e04b5e} 
+\index{Math::Node$<$ Type $>$@{Math::Node$<$ Type $>$}!Node@{Node}}
+\index{Node@{Node}!Math::Node$<$ Type $>$@{Math::Node$<$ Type $>$}}
+\doxysubsubsection{\texorpdfstring{Node()}{Node()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class Type $>$ \\
+\mbox{\hyperlink{class_math_1_1_node}{Math\+::\+Node}}$<$ Type $>$\+::\+Node (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{std\+::shared\+\_\+ptr$<$ Type $>$}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_my_graph_8hpp_source_l00036}{36}} of file \mbox{\hyperlink{_my_graph_8hpp_source}{My\+Graph.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00036\ :\ \textcolor{keywordtype}{id}\{\ \textcolor{keywordtype}{id}\ \},\ \mbox{\hyperlink{class_math_1_1_node_abc7510324f4ff78979ed76cd8d603699}{value}}\{\ \mbox{\hyperlink{class_math_1_1_node_abc7510324f4ff78979ed76cd8d603699}{value}}\ \}\ \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_math_1_1_node_a0f6a908d39bf8dc5bbd2e558c3a64129}\label{class_math_1_1_node_a0f6a908d39bf8dc5bbd2e558c3a64129} 
+\index{Math::Node$<$ Type $>$@{Math::Node$<$ Type $>$}!getValue@{getValue}}
+\index{getValue@{getValue}!Math::Node$<$ Type $>$@{Math::Node$<$ Type $>$}}
+\doxysubsubsection{\texorpdfstring{getValue()}{getValue()}}
+{\footnotesize\ttfamily template$<$class Type $>$ \\
+Type \mbox{\hyperlink{class_math_1_1_node}{Math\+::\+Node}}$<$ Type $>$\+::get\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_my_graph_8hpp_source_l00038}{38}} of file \mbox{\hyperlink{_my_graph_8hpp_source}{My\+Graph.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\mbox{\hyperlink{class_math_1_1_node_abc7510324f4ff78979ed76cd8d603699}{value}};}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_math_1_1_node_a319bb76082cd276543905bff0bc17b83}\label{class_math_1_1_node_a319bb76082cd276543905bff0bc17b83} 
+\index{Math::Node$<$ Type $>$@{Math::Node$<$ Type $>$}!operator==@{operator==}}
+\index{operator==@{operator==}!Math::Node$<$ Type $>$@{Math::Node$<$ Type $>$}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily template$<$class Type $>$ \\
+bool \mbox{\hyperlink{class_math_1_1_node}{Math\+::\+Node}}$<$ Type $>$\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_math_1_1_node}{Node}}$<$ Type $>$ \&}]{other }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{graph_8hpp_source_l00023}{23}} of file \mbox{\hyperlink{graph_8hpp_source}{graph.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keywordtype}{id}\ ==\ other.id;}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_math_1_1_node_aaf97f7262f0efb7861eff10ca4ded5f7}\label{class_math_1_1_node_aaf97f7262f0efb7861eff10ca4ded5f7} 
+\index{Math::Node$<$ Type $>$@{Math::Node$<$ Type $>$}!id@{id}}
+\index{id@{id}!Math::Node$<$ Type $>$@{Math::Node$<$ Type $>$}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily template$<$class Type $>$ \\
+int \mbox{\hyperlink{class_math_1_1_node}{Math\+::\+Node}}$<$ Type $>$\+::id}
+
+
+
+Definition at line \mbox{\hyperlink{graph_8hpp_source_l00020}{20}} of file \mbox{\hyperlink{graph_8hpp_source}{graph.\+hpp}}.
+
+\Hypertarget{class_math_1_1_node_a416a33803c16bb8533c4f5f9fba43f15}\label{class_math_1_1_node_a416a33803c16bb8533c4f5f9fba43f15} 
+\index{Math::Node$<$ Type $>$@{Math::Node$<$ Type $>$}!neighbours@{neighbours}}
+\index{neighbours@{neighbours}!Math::Node$<$ Type $>$@{Math::Node$<$ Type $>$}}
+\doxysubsubsection{\texorpdfstring{neighbours}{neighbours}}
+{\footnotesize\ttfamily template$<$class Type $>$ \\
+std\+::vector$<$std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_math_1_1_node}{Node}}$<$Type$>$ $>$ $>$ \mbox{\hyperlink{class_math_1_1_node}{Math\+::\+Node}}$<$ Type $>$\+::neighbours\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_my_graph_8hpp_source_l00033}{33}} of file \mbox{\hyperlink{_my_graph_8hpp_source}{My\+Graph.\+hpp}}.
+
+\Hypertarget{class_math_1_1_node_abc7510324f4ff78979ed76cd8d603699}\label{class_math_1_1_node_abc7510324f4ff78979ed76cd8d603699} 
+\index{Math::Node$<$ Type $>$@{Math::Node$<$ Type $>$}!value@{value}}
+\index{value@{value}!Math::Node$<$ Type $>$@{Math::Node$<$ Type $>$}}
+\doxysubsubsection{\texorpdfstring{value}{value}}
+{\footnotesize\ttfamily template$<$class Type $>$ \\
+std\+::shared\+\_\+ptr$<$Type$>$ \mbox{\hyperlink{class_math_1_1_node}{Math\+::\+Node}}$<$ Type $>$\+::value\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_my_graph_8hpp_source_l00031}{31}} of file \mbox{\hyperlink{_my_graph_8hpp_source}{My\+Graph.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Math/\mbox{\hyperlink{graph_8hpp}{graph.\+hpp}}\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Math/\mbox{\hyperlink{_my_graph_8hpp}{My\+Graph.\+hpp}}\end{DoxyCompactItemize}

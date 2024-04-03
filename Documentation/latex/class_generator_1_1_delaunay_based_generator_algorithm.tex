@@ -1,0 +1,455 @@
+\doxysection{Generator\+::Delaunay\+Based\+Generator\+Algorithm Class Reference}
+\hypertarget{class_generator_1_1_delaunay_based_generator_algorithm}{}\label{class_generator_1_1_delaunay_based_generator_algorithm}\index{Generator::DelaunayBasedGeneratorAlgorithm@{Generator::DelaunayBasedGeneratorAlgorithm}}
+
+
+{\ttfamily \#include $<$delaunay\+Generator.\+hpp$>$}
+
+
+
+Inheritance diagram for Generator\+::Delaunay\+Based\+Generator\+Algorithm\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=262pt]{class_generator_1_1_delaunay_based_generator_algorithm__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Generator\+::Delaunay\+Based\+Generator\+Algorithm\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_generator_1_1_delaunay_based_generator_algorithm__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_a554a43e67c4285d3d5f461cc1652554a}{Delaunay\+Based\+Generator\+Algorithm}} (const \mbox{\hyperlink{class_dungeon_generator_settings}{Dungeon\+Generator\+Settings}} \&settings)
+\item 
+virtual void \mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_ad3c444ceb88e6094c3895ce8e80d5fdd}{Generate}} (\mbox{\hyperlink{class_data_1_1_dungeon_data}{Data\+::\+Dungeon\+Data}} \&dungeon\+Data) override
+\item 
+virtual \mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_a47bc78a01f58b7139886fb0eb047d7ee}{\texorpdfstring{$\sim$}{\string~}\+Delaunay\+Based\+Generator\+Algorithm}} ()=default
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_generator_1_1_generator_algorithm}{Generator\+::\+Generator\+Algorithm}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_generator_1_1_generator_algorithm_ae926c2a9f53d2c836721bfe66813db7d}{\texorpdfstring{$\sim$}{\string~}\+Generator\+Algorithm}} ()=default
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_aa682af311f406cf2188c58b481760cb9}{generate\+Points}} ()
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_geometry_1_1_polygon}{Geometry\+::\+Polygon}} $>$ \mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_a7e7d5e463916c3bb8cfa2cae64e6f04f}{create\+Polygons}} (const \mbox{\hyperlink{struct_geometry_1_1_delaunay_1_1_delaunay_triangulation}{Geometry\+::\+Delaunay\+::\+Delaunay\+Triangulation}} \&\mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_afc6f8e9eb421f18cc5239aedc91b69c9}{triangulation}}) const
+\item 
+\mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} \mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_a1f37c1ca06ea91b542c697c5d2e5e227}{calc\+Outter\+Circle\+Center}} (const \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle}{Geometry\+::\+Delaunay\+::\+Triangle}} \&triangle) const
+\item 
+\mbox{\hyperlink{class_math_1_1_angle}{Math\+::\+Angle}} \mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_a5423902394361ccedfeb43e8ae2e0f35}{get\+Sum\+Angle\+Around\+Point}} (int point\+Idx, const std\+::vector$<$ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle}{Geometry\+::\+Delaunay\+::\+Triangle}} $>$ \&traingles\+Around) const
+\item 
+\mbox{\hyperlink{class_math_1_1_angle}{Math\+::\+Angle}} \mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_a7b5edce424e33273d3c86d2259044de6}{get\+Angle\+Of\+Triangle}} (const \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle}{Geometry\+::\+Delaunay\+::\+Triangle}} \&triangle, int point\+Idx) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const unsigned int \mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_a232f58cf570bb090d95a3c4ed0274293}{point\+Count}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} $>$ \mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_a0ac2119bc6436e23b2c1639e5c3f1be4}{points}}
+\item 
+\mbox{\hyperlink{struct_geometry_1_1_delaunay_1_1_delaunay_triangulation}{Geometry\+::\+Delaunay\+::\+Delaunay\+Triangulation}} \mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_afc6f8e9eb421f18cc5239aedc91b69c9}{triangulation}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{delaunay_generator_8hpp_source_l00011}{11}} of file \mbox{\hyperlink{delaunay_generator_8hpp_source}{delaunay\+Generator.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_generator_1_1_delaunay_based_generator_algorithm_a554a43e67c4285d3d5f461cc1652554a}\label{class_generator_1_1_delaunay_based_generator_algorithm_a554a43e67c4285d3d5f461cc1652554a} 
+\index{Generator::DelaunayBasedGeneratorAlgorithm@{Generator::DelaunayBasedGeneratorAlgorithm}!DelaunayBasedGeneratorAlgorithm@{DelaunayBasedGeneratorAlgorithm}}
+\index{DelaunayBasedGeneratorAlgorithm@{DelaunayBasedGeneratorAlgorithm}!Generator::DelaunayBasedGeneratorAlgorithm@{Generator::DelaunayBasedGeneratorAlgorithm}}
+\doxysubsubsection{\texorpdfstring{DelaunayBasedGeneratorAlgorithm()}{DelaunayBasedGeneratorAlgorithm()}}
+{\footnotesize\ttfamily Generator\+::\+Delaunay\+Based\+Generator\+Algorithm\+::\+Delaunay\+Based\+Generator\+Algorithm (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_dungeon_generator_settings}{Dungeon\+Generator\+Settings}} \&}]{settings }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{delaunay_generator_8cpp_source_l00133}{133}} of file \mbox{\hyperlink{delaunay_generator_8cpp_source}{delaunay\+Generator.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_a232f58cf570bb090d95a3c4ed0274293}{pointCount}}(settings.\mbox{\hyperlink{class_dungeon_generator_settings_aa4d0fe10f4a94b4193a1b63c925459e4}{getRoomCount}}()) }
+\DoxyCodeLine{00135\ \ \ \ \ \{}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_generator_1_1_delaunay_based_generator_algorithm_a47bc78a01f58b7139886fb0eb047d7ee}\label{class_generator_1_1_delaunay_based_generator_algorithm_a47bc78a01f58b7139886fb0eb047d7ee} 
+\index{Generator::DelaunayBasedGeneratorAlgorithm@{Generator::DelaunayBasedGeneratorAlgorithm}!````~DelaunayBasedGeneratorAlgorithm@{\texorpdfstring{$\sim$}{\string~}DelaunayBasedGeneratorAlgorithm}}
+\index{````~DelaunayBasedGeneratorAlgorithm@{\texorpdfstring{$\sim$}{\string~}DelaunayBasedGeneratorAlgorithm}!Generator::DelaunayBasedGeneratorAlgorithm@{Generator::DelaunayBasedGeneratorAlgorithm}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}DelaunayBasedGeneratorAlgorithm()}{\string~DelaunayBasedGeneratorAlgorithm()}}
+{\footnotesize\ttfamily virtual Generator\+::\+Delaunay\+Based\+Generator\+Algorithm\+::\texorpdfstring{$\sim$}{\string~}\+Delaunay\+Based\+Generator\+Algorithm (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_generator_1_1_delaunay_based_generator_algorithm_a1f37c1ca06ea91b542c697c5d2e5e227}\label{class_generator_1_1_delaunay_based_generator_algorithm_a1f37c1ca06ea91b542c697c5d2e5e227} 
+\index{Generator::DelaunayBasedGeneratorAlgorithm@{Generator::DelaunayBasedGeneratorAlgorithm}!calcOutterCircleCenter@{calcOutterCircleCenter}}
+\index{calcOutterCircleCenter@{calcOutterCircleCenter}!Generator::DelaunayBasedGeneratorAlgorithm@{Generator::DelaunayBasedGeneratorAlgorithm}}
+\doxysubsubsection{\texorpdfstring{calcOutterCircleCenter()}{calcOutterCircleCenter()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}} Generator\+::\+Delaunay\+Based\+Generator\+Algorithm\+::calc\+Outter\+Circle\+Center (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle}{Geometry\+::\+Delaunay\+::\+Triangle}} \&}]{triangle }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{delaunay_generator_8cpp_source_l00081}{81}} of file \mbox{\hyperlink{delaunay_generator_8cpp_source}{delaunay\+Generator.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00082\ \ \ \ \ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ A\ =\ \mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_a0ac2119bc6436e23b2c1639e5c3f1be4}{points}}[triangle.\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a5393f6fbc2544c6aca2e3a4b0459034d}{P0}}.\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index_a1652441f28986d9e30535c39be8df5ef}{index}}];}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ B\ =\ \mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_a0ac2119bc6436e23b2c1639e5c3f1be4}{points}}[triangle.\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a0bfa7ea205fcff658484be77c282b145}{P1}}.\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index_a1652441f28986d9e30535c39be8df5ef}{index}}];}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\ C\ =\ \mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_a0ac2119bc6436e23b2c1639e5c3f1be4}{points}}[triangle.\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a0dbb112e10abc660457705488d2c1412}{P2}}.\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index_a1652441f28986d9e30535c39be8df5ef}{index}}];}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespace_geometry_aea68bd24e7a4d0f97ea9372f24e7e6a8}{Geometry::calcTriangleOutterCircleCenter}}(\{\ A,\ B,\ C\ \});}
+\DoxyCodeLine{00088\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_generator_1_1_delaunay_based_generator_algorithm_a1f37c1ca06ea91b542c697c5d2e5e227_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_generator_1_1_delaunay_based_generator_algorithm_a1f37c1ca06ea91b542c697c5d2e5e227_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_generator_1_1_delaunay_based_generator_algorithm_a7e7d5e463916c3bb8cfa2cae64e6f04f}\label{class_generator_1_1_delaunay_based_generator_algorithm_a7e7d5e463916c3bb8cfa2cae64e6f04f} 
+\index{Generator::DelaunayBasedGeneratorAlgorithm@{Generator::DelaunayBasedGeneratorAlgorithm}!createPolygons@{createPolygons}}
+\index{createPolygons@{createPolygons}!Generator::DelaunayBasedGeneratorAlgorithm@{Generator::DelaunayBasedGeneratorAlgorithm}}
+\doxysubsubsection{\texorpdfstring{createPolygons()}{createPolygons()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_geometry_1_1_polygon}{Geometry\+::\+Polygon}} $>$ Generator\+::\+Delaunay\+Based\+Generator\+Algorithm\+::create\+Polygons (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_geometry_1_1_delaunay_1_1_delaunay_triangulation}{Geometry\+::\+Delaunay\+::\+Delaunay\+Triangulation}} \&}]{triangulation }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{delaunay_generator_8cpp_source_l00030}{30}} of file \mbox{\hyperlink{delaunay_generator_8cpp_source}{delaunay\+Generator.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00031\ \ \ \ \ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ std::vector<std::vector<Geometry::Delaunay::Triangle>>\ \mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_a0ac2119bc6436e23b2c1639e5c3f1be4}{points}}(\mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_afc6f8e9eb421f18cc5239aedc91b69c9}{triangulation}}.\mbox{\hyperlink{struct_geometry_1_1_delaunay_1_1_delaunay_triangulation_a8276e067aa96cc68fb35249965e3705e}{Vertices}}.size());}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ triangle\ :\ \mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_afc6f8e9eb421f18cc5239aedc91b69c9}{triangulation}}.Triangles)}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_a0ac2119bc6436e23b2c1639e5c3f1be4}{points}}[triangle.P0.index].push\_back(triangle);}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_a0ac2119bc6436e23b2c1639e5c3f1be4}{points}}[triangle.P1.index].push\_back(triangle);}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_a0ac2119bc6436e23b2c1639e5c3f1be4}{points}}[triangle.P2.index].push\_back(triangle);}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ std::vector<int>\ relevantPoints;}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ 0;\ idx\ <\ \mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_a0ac2119bc6436e23b2c1639e5c3f1be4}{points}}.size();\ ++idx)}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_angle}{Math::Angle}}\ sumAngle\ =\ \mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_a5423902394361ccedfeb43e8ae2e0f35}{getSumAngleAroundPoint}}(idx,\ \mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_a0ac2119bc6436e23b2c1639e5c3f1be4}{points}}[idx]);}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (sumAngle\ ==\ 360.0\_deg)}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ relevantPoints.push\_back(idx);}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ std::vector<std::vector<int>>\ polygonsWithIndices;\ \textcolor{comment}{//\ TODO\ mi\ van\ it????\ nope}}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ std::vector<Geometry::Polygon>\ polygons;}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ relevantPoints.size();\ ++i)}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ p\ =\ relevantPoints[i];}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<int>\ trianglesInOrder;}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ trianglesInOrder.push\_back(0);}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (trianglesInOrder.size()\ !=\ \mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_a0ac2119bc6436e23b2c1639e5c3f1be4}{points}}[p].size())}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ 1;\ idx\ <\ \mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_a0ac2119bc6436e23b2c1639e5c3f1be4}{points}}[p].size();\ ++idx)}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (std::find(trianglesInOrder.begin(),\ trianglesInOrder.end(),\ idx)\ !=\ std::end(trianglesInOrder))}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_afc6f8e9eb421f18cc5239aedc91b69c9}{triangulation}}.\mbox{\hyperlink{struct_geometry_1_1_delaunay_1_1_delaunay_triangulation_a3ea5df731feaa3ea1cd1db2dd0448a2c}{Neighbours}}.containsEdge(\mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_a0ac2119bc6436e23b2c1639e5c3f1be4}{points}}[p][idx],\ \mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_a0ac2119bc6436e23b2c1639e5c3f1be4}{points}}[p][trianglesInOrder.back()]))}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ trianglesInOrder.push\_back(idx);}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_polygon}{Geometry::Polygon}}\ newPolygon;}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ triangleId\ :\ trianglesInOrder)}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ newPolygon.\mbox{\hyperlink{class_geometry_1_1_polygon_a12c9321822bdf861cf7c304fa0c888e7}{addPoint}}(\mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_a1f37c1ca06ea91b542c697c5d2e5e227}{calcOutterCircleCenter}}(\mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_a0ac2119bc6436e23b2c1639e5c3f1be4}{points}}[p][triangleId]));}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ polygons.push\_back(newPolygon);}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ polygons;}
+\DoxyCodeLine{00079\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_generator_1_1_delaunay_based_generator_algorithm_a7e7d5e463916c3bb8cfa2cae64e6f04f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_generator_1_1_delaunay_based_generator_algorithm_a7e7d5e463916c3bb8cfa2cae64e6f04f_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_generator_1_1_delaunay_based_generator_algorithm_ad3c444ceb88e6094c3895ce8e80d5fdd}\label{class_generator_1_1_delaunay_based_generator_algorithm_ad3c444ceb88e6094c3895ce8e80d5fdd} 
+\index{Generator::DelaunayBasedGeneratorAlgorithm@{Generator::DelaunayBasedGeneratorAlgorithm}!Generate@{Generate}}
+\index{Generate@{Generate}!Generator::DelaunayBasedGeneratorAlgorithm@{Generator::DelaunayBasedGeneratorAlgorithm}}
+\doxysubsubsection{\texorpdfstring{Generate()}{Generate()}}
+{\footnotesize\ttfamily void Generator\+::\+Delaunay\+Based\+Generator\+Algorithm\+::\+Generate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_data_1_1_dungeon_data}{Data\+::\+Dungeon\+Data}} \&}]{dungeon\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_generator_1_1_generator_algorithm_a87092774c992eb30b1383c3db0b3ef2e}{Generator\+::\+Generator\+Algorithm}}.
+
+
+
+Definition at line \mbox{\hyperlink{delaunay_generator_8cpp_source_l00139}{139}} of file \mbox{\hyperlink{delaunay_generator_8cpp_source}{delaunay\+Generator.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00140\ \ \ \ \ \{}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_aa682af311f406cf2188c58b481760cb9}{generatePoints}}();}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_delaunay_triangulator}{Geometry::Delaunay::DelaunayTriangulator}}\ triangulator(\mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_a0ac2119bc6436e23b2c1639e5c3f1be4}{points}});}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_afc6f8e9eb421f18cc5239aedc91b69c9}{triangulation}}\ =\ triangulator.Triangulate(\mbox{\hyperlink{namespace_geometry_1_1_delaunay_a643e8f927eebc3f3a702ca86183886abaea59a27b26cd393a09ae579c7b8d504a}{Geometry::Delaunay::ClockWise}});}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_graph}{Math::Graph<int,\ Geometry::Edge>}}\ maze;}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{class_geometry_1_1_polygon}{Geometry::Polygon}}\ poly\ :\ \mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_a7e7d5e463916c3bb8cfa2cae64e6f04f}{createPolygons}}(\mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_afc6f8e9eb421f18cc5239aedc91b69c9}{triangulation}}))}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_data_1_1_room_data}{Data::RoomData}}\ room\ (poly);}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ dungeonData.\mbox{\hyperlink{class_data_1_1_dungeon_data_ae2edb77eade409c7d8cfe4dc0d519a31}{addRoom}}(room);}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ maze.\mbox{\hyperlink{class_math_1_1_graph_ad2db359eaa34de03842bcd384e248316}{addNode}}(room.getId());}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ roomCount\ =\ dungeonData.\mbox{\hyperlink{class_data_1_1_dungeon_data_ac1254b047a02d00344fccd75205ec2b2}{getRooms}}().size();}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ roomIdx1\ =\ 0;\ roomIdx1\ <\ roomCount\ -\/\ 1;\ ++roomIdx1)}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_data_1_1_room_data}{Data::RoomData}}\ room1\ =\ dungeonData.\mbox{\hyperlink{class_data_1_1_dungeon_data_ac1254b047a02d00344fccd75205ec2b2}{getRooms}}()[roomIdx1];}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ roomIdx2\ =\ roomIdx1\ +\ 1;\ roomIdx2\ <\ roomCount;\ ++roomIdx2)}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_data_1_1_room_data}{Data::RoomData}}\ room2\ =\ dungeonData.\mbox{\hyperlink{class_data_1_1_dungeon_data_ac1254b047a02d00344fccd75205ec2b2}{getRooms}}()[roomIdx2];}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::optional<Geometry::Edge>\ commonEdge\ =\ \mbox{\hyperlink{namespace_geometry_a47382c3242a7cfd6a05bf7c0a27d1bf6}{Geometry::getCommonEdge}}(room1.\mbox{\hyperlink{class_data_1_1_room_data_a4947a350140bd6b9c64c3c84b4157b37}{getFloor}}().\mbox{\hyperlink{class_data_1_1_layout_data_a459274e04257649888b135d9d8b3848e}{getPolygon}}(),\ room2.\mbox{\hyperlink{class_data_1_1_room_data_a4947a350140bd6b9c64c3c84b4157b37}{getFloor}}().\mbox{\hyperlink{class_data_1_1_layout_data_a459274e04257649888b135d9d8b3848e}{getPolygon}}());}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (commonEdge.has\_value())}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ maze.\mbox{\hyperlink{class_math_1_1_graph_a89eeb992ce1291bde48f820473d3a689}{addEdge}}(room1.\mbox{\hyperlink{class_data_1_1_room_data_a788bf47403cecd19b0590a947990f6a0}{getId}}(),\ room2.\mbox{\hyperlink{class_data_1_1_room_data_a788bf47403cecd19b0590a947990f6a0}{getId}}(),\ commonEdge.value());}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ maze.\mbox{\hyperlink{class_math_1_1_graph_a89eeb992ce1291bde48f820473d3a689}{addEdge}}(room2.\mbox{\hyperlink{class_data_1_1_room_data_a788bf47403cecd19b0590a947990f6a0}{getId}}(),\ room1.\mbox{\hyperlink{class_data_1_1_room_data_a788bf47403cecd19b0590a947990f6a0}{getId}}(),\ commonEdge.value());}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ dungeonData.\mbox{\hyperlink{class_data_1_1_dungeon_data_ac75b4bd327be99d4a890c34dcd4504dc}{getMaze}}().\mbox{\hyperlink{class_data_1_1_maze_data_ad88d719c05f32186e3687936500295f8}{setGraph}}(maze);}
+\DoxyCodeLine{00173\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_generator_1_1_delaunay_based_generator_algorithm_ad3c444ceb88e6094c3895ce8e80d5fdd_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_generator_1_1_delaunay_based_generator_algorithm_aa682af311f406cf2188c58b481760cb9}\label{class_generator_1_1_delaunay_based_generator_algorithm_aa682af311f406cf2188c58b481760cb9} 
+\index{Generator::DelaunayBasedGeneratorAlgorithm@{Generator::DelaunayBasedGeneratorAlgorithm}!generatePoints@{generatePoints}}
+\index{generatePoints@{generatePoints}!Generator::DelaunayBasedGeneratorAlgorithm@{Generator::DelaunayBasedGeneratorAlgorithm}}
+\doxysubsubsection{\texorpdfstring{generatePoints()}{generatePoints()}}
+{\footnotesize\ttfamily void Generator\+::\+Delaunay\+Based\+Generator\+Algorithm\+::generate\+Points (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{delaunay_generator_8cpp_source_l00008}{8}} of file \mbox{\hyperlink{delaunay_generator_8cpp_source}{delaunay\+Generator.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00009\ \ \ \ \ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ MUST\ kirakni\ valahova}}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \textcolor{comment}{//for\ (int\ idx\ =\ 0;\ idx\ <\ pointCount;\ ++idx)}}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Math::Vec2f\ newPoint;}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ i\ =\ 0.0f;}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ col\ =\ 0;\ col\ <\ 10;\ col++)}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ row\ =\ 0;\ row\ <\ 10;\ row++)}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_a0ac2119bc6436e23b2c1639e5c3f1be4}{points}}.push\_back(\mbox{\hyperlink{class_math_1_1_vec}{Math::Vec2f}}\{row\ *\ 100.0f,\ col\ *\ 100.0f\ +\ i\});}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ i\ +=\ 20.0f;}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//points.push\_back(newPoint);}}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00028\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_generator_1_1_delaunay_based_generator_algorithm_aa682af311f406cf2188c58b481760cb9_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_generator_1_1_delaunay_based_generator_algorithm_a7b5edce424e33273d3c86d2259044de6}\label{class_generator_1_1_delaunay_based_generator_algorithm_a7b5edce424e33273d3c86d2259044de6} 
+\index{Generator::DelaunayBasedGeneratorAlgorithm@{Generator::DelaunayBasedGeneratorAlgorithm}!getAngleOfTriangle@{getAngleOfTriangle}}
+\index{getAngleOfTriangle@{getAngleOfTriangle}!Generator::DelaunayBasedGeneratorAlgorithm@{Generator::DelaunayBasedGeneratorAlgorithm}}
+\doxysubsubsection{\texorpdfstring{getAngleOfTriangle()}{getAngleOfTriangle()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_math_1_1_angle}{Math\+::\+Angle}} Generator\+::\+Delaunay\+Based\+Generator\+Algorithm\+::get\+Angle\+Of\+Triangle (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle}{Geometry\+::\+Delaunay\+::\+Triangle}} \&}]{triangle,  }\item[{int}]{point\+Idx }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{delaunay_generator_8cpp_source_l00098}{98}} of file \mbox{\hyperlink{delaunay_generator_8cpp_source}{delaunay\+Generator.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00099\ \ \ \ \ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_angle}{Math::Angle}}\ angle;}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ center;}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ P0;}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ P1;}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (triangle.\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a5393f6fbc2544c6aca2e3a4b0459034d}{P0}}\ ==\ pointIdx)}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ center\ =\ triangle.\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a5393f6fbc2544c6aca2e3a4b0459034d}{P0}}.\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index_a1652441f28986d9e30535c39be8df5ef}{index}};}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ P0\ =\ triangle.\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a0dbb112e10abc660457705488d2c1412}{P2}}.\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index_a1652441f28986d9e30535c39be8df5ef}{index}};}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ P1\ =\ triangle.\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a0bfa7ea205fcff658484be77c282b145}{P1}}.\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index_a1652441f28986d9e30535c39be8df5ef}{index}};}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (triangle.\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a0bfa7ea205fcff658484be77c282b145}{P1}}\ ==\ pointIdx)}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ center\ =\ triangle.\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a0bfa7ea205fcff658484be77c282b145}{P1}}.\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index_a1652441f28986d9e30535c39be8df5ef}{index}};}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ P0\ =\ triangle.\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a5393f6fbc2544c6aca2e3a4b0459034d}{P0}}.\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index_a1652441f28986d9e30535c39be8df5ef}{index}};}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ P1\ =\ triangle.\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a0dbb112e10abc660457705488d2c1412}{P2}}.\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index_a1652441f28986d9e30535c39be8df5ef}{index}};}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (triangle.\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a0dbb112e10abc660457705488d2c1412}{P2}}\ ==\ pointIdx)}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ center\ =\ triangle.\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a0dbb112e10abc660457705488d2c1412}{P2}}.\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index_a1652441f28986d9e30535c39be8df5ef}{index}};}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ P0\ =\ triangle.\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a5393f6fbc2544c6aca2e3a4b0459034d}{P0}}.\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index_a1652441f28986d9e30535c39be8df5ef}{index}};}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ P1\ =\ triangle.\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle_a0bfa7ea205fcff658484be77c282b145}{P1}}.\mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_point_index_a1652441f28986d9e30535c39be8df5ef}{index}};}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ angle\ =\ \mbox{\hyperlink{namespace_math_acb53f49cacbc0754cf4b882a41837468}{Math::getAngle}}(\mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_afc6f8e9eb421f18cc5239aedc91b69c9}{triangulation}}.\mbox{\hyperlink{struct_geometry_1_1_delaunay_1_1_delaunay_triangulation_a8276e067aa96cc68fb35249965e3705e}{Vertices}}[P0],\ \mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_afc6f8e9eb421f18cc5239aedc91b69c9}{triangulation}}.\mbox{\hyperlink{struct_geometry_1_1_delaunay_1_1_delaunay_triangulation_a8276e067aa96cc68fb35249965e3705e}{Vertices}}[center],\ \mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_afc6f8e9eb421f18cc5239aedc91b69c9}{triangulation}}.\mbox{\hyperlink{struct_geometry_1_1_delaunay_1_1_delaunay_triangulation_a8276e067aa96cc68fb35249965e3705e}{Vertices}}[P1]);}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (angle\ >\ 180.0\_deg)}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ angle\ =\ 360.0\_deg\ -\/\ angle;}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ angle;}
+\DoxyCodeLine{00131\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{class_generator_1_1_delaunay_based_generator_algorithm_a7b5edce424e33273d3c86d2259044de6_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_generator_1_1_delaunay_based_generator_algorithm_a7b5edce424e33273d3c86d2259044de6_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_generator_1_1_delaunay_based_generator_algorithm_a5423902394361ccedfeb43e8ae2e0f35}\label{class_generator_1_1_delaunay_based_generator_algorithm_a5423902394361ccedfeb43e8ae2e0f35} 
+\index{Generator::DelaunayBasedGeneratorAlgorithm@{Generator::DelaunayBasedGeneratorAlgorithm}!getSumAngleAroundPoint@{getSumAngleAroundPoint}}
+\index{getSumAngleAroundPoint@{getSumAngleAroundPoint}!Generator::DelaunayBasedGeneratorAlgorithm@{Generator::DelaunayBasedGeneratorAlgorithm}}
+\doxysubsubsection{\texorpdfstring{getSumAngleAroundPoint()}{getSumAngleAroundPoint()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_math_1_1_angle}{Math\+::\+Angle}} Generator\+::\+Delaunay\+Based\+Generator\+Algorithm\+::get\+Sum\+Angle\+Around\+Point (\begin{DoxyParamCaption}\item[{int}]{point\+Idx,  }\item[{const std\+::vector$<$ \mbox{\hyperlink{class_geometry_1_1_delaunay_1_1_triangle}{Geometry\+::\+Delaunay\+::\+Triangle}} $>$ \&}]{traingles\+Around }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{delaunay_generator_8cpp_source_l00090}{90}} of file \mbox{\hyperlink{delaunay_generator_8cpp_source}{delaunay\+Generator.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00091\ \ \ \ \ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_angle}{Math::Angle}}\ angle\ =\ 0.0\_deg;}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ triangle\ :\ trainglesAround)}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ angle\ +=\ \mbox{\hyperlink{class_generator_1_1_delaunay_based_generator_algorithm_a7b5edce424e33273d3c86d2259044de6}{getAngleOfTriangle}}(triangle,\ pointIdx);}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ angle;}
+\DoxyCodeLine{00096\ \ \ \ \ \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_generator_1_1_delaunay_based_generator_algorithm_a5423902394361ccedfeb43e8ae2e0f35_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_generator_1_1_delaunay_based_generator_algorithm_a5423902394361ccedfeb43e8ae2e0f35_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_generator_1_1_delaunay_based_generator_algorithm_a232f58cf570bb090d95a3c4ed0274293}\label{class_generator_1_1_delaunay_based_generator_algorithm_a232f58cf570bb090d95a3c4ed0274293} 
+\index{Generator::DelaunayBasedGeneratorAlgorithm@{Generator::DelaunayBasedGeneratorAlgorithm}!pointCount@{pointCount}}
+\index{pointCount@{pointCount}!Generator::DelaunayBasedGeneratorAlgorithm@{Generator::DelaunayBasedGeneratorAlgorithm}}
+\doxysubsubsection{\texorpdfstring{pointCount}{pointCount}}
+{\footnotesize\ttfamily const unsigned int Generator\+::\+Delaunay\+Based\+Generator\+Algorithm\+::point\+Count\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{delaunay_generator_8hpp_source_l00014}{14}} of file \mbox{\hyperlink{delaunay_generator_8hpp_source}{delaunay\+Generator.\+hpp}}.
+
+\Hypertarget{class_generator_1_1_delaunay_based_generator_algorithm_a0ac2119bc6436e23b2c1639e5c3f1be4}\label{class_generator_1_1_delaunay_based_generator_algorithm_a0ac2119bc6436e23b2c1639e5c3f1be4} 
+\index{Generator::DelaunayBasedGeneratorAlgorithm@{Generator::DelaunayBasedGeneratorAlgorithm}!points@{points}}
+\index{points@{points}!Generator::DelaunayBasedGeneratorAlgorithm@{Generator::DelaunayBasedGeneratorAlgorithm}}
+\doxysubsubsection{\texorpdfstring{points}{points}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{namespace_math_ab201d576e9167c8e4384272d9d3039d5}{Math\+::\+Vec2f}}$>$ Generator\+::\+Delaunay\+Based\+Generator\+Algorithm\+::points\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{delaunay_generator_8hpp_source_l00015}{15}} of file \mbox{\hyperlink{delaunay_generator_8hpp_source}{delaunay\+Generator.\+hpp}}.
+
+\Hypertarget{class_generator_1_1_delaunay_based_generator_algorithm_afc6f8e9eb421f18cc5239aedc91b69c9}\label{class_generator_1_1_delaunay_based_generator_algorithm_afc6f8e9eb421f18cc5239aedc91b69c9} 
+\index{Generator::DelaunayBasedGeneratorAlgorithm@{Generator::DelaunayBasedGeneratorAlgorithm}!triangulation@{triangulation}}
+\index{triangulation@{triangulation}!Generator::DelaunayBasedGeneratorAlgorithm@{Generator::DelaunayBasedGeneratorAlgorithm}}
+\doxysubsubsection{\texorpdfstring{triangulation}{triangulation}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_geometry_1_1_delaunay_1_1_delaunay_triangulation}{Geometry\+::\+Delaunay\+::\+Delaunay\+Triangulation}} Generator\+::\+Delaunay\+Based\+Generator\+Algorithm\+::triangulation\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{delaunay_generator_8hpp_source_l00016}{16}} of file \mbox{\hyperlink{delaunay_generator_8hpp_source}{delaunay\+Generator.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Generator/\mbox{\hyperlink{delaunay_generator_8hpp}{delaunay\+Generator.\+hpp}}\item 
+C\+:/\+Dev/\+Dungeon\+Generator/\+Dungeon\+Generator/\+Generator/\mbox{\hyperlink{delaunay_generator_8cpp}{delaunay\+Generator.\+cpp}}\end{DoxyCompactItemize}

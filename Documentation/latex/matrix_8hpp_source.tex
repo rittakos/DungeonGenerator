@@ -1,0 +1,369 @@
+\doxysection{matrix.\+hpp}
+\hypertarget{matrix_8hpp_source}{}\label{matrix_8hpp_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/Math/matrix.hpp@{C:/Dev/DungeonGenerator/DungeonGenerator/Math/matrix.hpp}}
+\mbox{\hyperlink{matrix_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{math_8hpp}{math.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{is_all_same_8hpp}{isAllSame.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{vector_8hpp}{vector.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00009}00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_math}{Math}}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00010}00010\ \{}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00011}00011\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keywordtype}{int}\ X,\ \textcolor{keywordtype}{int}\ Y,\ VecNumber\ Type\ =\ \textcolor{keywordtype}{float}>}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00012}00012\ \ \ \ \ \textcolor{keyword}{class\ }Mat;}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00014}\mbox{\hyperlink{namespace_math_aa455d8dec0d1090697b3a5721cc71f90}{00014}}\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_math_1_1_mat}{Mat3x3f}}\ =\ \mbox{\hyperlink{class_math_1_1_mat}{Mat<3,\ 3,\ float>}};}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00016}00016\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keywordtype}{int}\ H,\ \textcolor{keywordtype}{int}\ W,\ VecNumber\ Type>}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00017}\mbox{\hyperlink{class_math_1_1_mat}{00017}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_math_1_1_mat}{Mat}}\ final}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00018}00018\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00019}\mbox{\hyperlink{class_math_1_1_mat_a85b24a2a0861361430225315a640aea1}{00019}}\ \ \ \ \ \ \ \ \ Type\ \mbox{\hyperlink{class_math_1_1_mat_a85b24a2a0861361430225315a640aea1}{coords}}[W\ *\ H];}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00021}\mbox{\hyperlink{class_math_1_1_mat_afb14c5ece4abb9e4c50b5ae4d9e27349}{00021}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_math_1_1_mat_afb14c5ece4abb9e4c50b5ae4d9e27349}{length}};}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00022}\mbox{\hyperlink{class_math_1_1_mat_a1168929b2b537dc294de182ba1f02719}{00022}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_math_1_1_mat_a1168929b2b537dc294de182ba1f02719}{width}}\ =\ W;}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00023}\mbox{\hyperlink{class_math_1_1_mat_a24bd14c58add0b2d8ed6b1fe94d0baba}{00023}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_math_1_1_mat_a24bd14c58add0b2d8ed6b1fe94d0baba}{height}}\ =\ H;}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00025}00025\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Constructors}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00028}\mbox{\hyperlink{class_math_1_1_mat_a90b7936572ccec8379e5361c741d18b5}{00028}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_mat_a90b7936572ccec8379e5361c741d18b5}{Mat}}()}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_mat_afb14c5ece4abb9e4c50b5ae4d9e27349}{length}}\ =\ W\ *\ H;}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ 0;\ idx\ <\ \mbox{\hyperlink{class_math_1_1_mat_afb14c5ece4abb9e4c50b5ae4d9e27349}{length}};\ ++idx)}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_mat_a85b24a2a0861361430225315a640aea1}{coords}}[idx]\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ...T>}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00037}\mbox{\hyperlink{class_math_1_1_mat_ae4e3157263d5bad4616170390be738f9}{00037}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_math_1_1_mat_ae4e3157263d5bad4616170390be738f9}{Mat}}(\mbox{\hyperlink{class_math_1_1_mat_ac6d8eb230910430f3bb4e4364054593c}{T}}...\ args)\ :\ \mbox{\hyperlink{class_math_1_1_mat}{Mat}}()}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_assert}(\mbox{\hyperlink{structis__all__same}{is\_all\_same}}<Type,\ \mbox{\hyperlink{class_math_1_1_mat_ac6d8eb230910430f3bb4e4364054593c}{T}}...>::value,\ \textcolor{stringliteral}{"{}Type\ mismatch!"{}});}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Type>\ vec\ =\ \{\ args...\ \};}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_math_1_1_mat_afb14c5ece4abb9e4c50b5ae4d9e27349}{length}}\ !=\ vec.size())}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_math_1_1_too_much_parameters_exception}{TooMuchParametersException}}(\textcolor{comment}{/*length,\ vec.size()*/});}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ i\ =\ 0;\ i\ <\ vec.size();\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_mat_a85b24a2a0861361430225315a640aea1}{coords}}[i]\ =\ vec[i];}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{comment}{//explicit\ Mat(std::initializer\_list<Vec<X,\ Type>>\ vecs)\ :\ Mat()}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\{}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ //std::vector<Type>\ vec\ =\ \{\ args...\ \};}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ if\ (length\ !=\ vecs.size())}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ throw\ new\ TooMuchParametersException(/*length,\ vec.size()*/);}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ for\ (unsigned\ i\ =\ 0;\ i\ <\ vecs.size();\ ++i)\ \{}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ coords[i]\ =\ vecs[i];}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \}}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\}}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \textcolor{comment}{//logical\ operators}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00063}\mbox{\hyperlink{class_math_1_1_mat_af6b0845e52d47b9366313f5f1d5bed58}{00063}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \mbox{\hyperlink{class_math_1_1_mat_af6b0845e52d47b9366313f5f1d5bed58}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_math_1_1_mat}{Mat}}\&\ other)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00064}00064\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ 0;\ idx\ <\ \mbox{\hyperlink{class_math_1_1_mat_afb14c5ece4abb9e4c50b5ae4d9e27349}{length}};\ ++idx)}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{namespace_math_a42a948d5fe666f25ee0f13d5b02b2a74}{isEqual}}(this-\/>coords[idx],\ other.\mbox{\hyperlink{class_math_1_1_mat_a85b24a2a0861361430225315a640aea1}{coords}}[idx]))}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00070}\mbox{\hyperlink{class_math_1_1_mat_ad03408a65b5b54203aeaaec57ed179ca}{00070}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \mbox{\hyperlink{class_math_1_1_mat_ad03408a65b5b54203aeaaec57ed179ca}{operator<}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_math_1_1_mat}{Mat}}\&\ other)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00071}\mbox{\hyperlink{class_math_1_1_mat_ad994b2cf5dec3945d232b582956080c3}{00071}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \mbox{\hyperlink{class_math_1_1_mat_ad994b2cf5dec3945d232b582956080c3}{operator>}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_math_1_1_mat}{Mat}}\&\ other)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \textcolor{comment}{//arithmetic\ operator}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00074}\mbox{\hyperlink{class_math_1_1_mat_a303c936eabfd35c087a30abe3f6f7173}{00074}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_mat}{Mat}}\ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_mat_a303c936eabfd35c087a30abe3f6f7173}{operator+}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_math_1_1_mat}{Mat}}\&\ other)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00075}00075\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_mat}{Mat<H,\ W,\ Type>}}\ result;}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ 0;\ idx\ <\ \mbox{\hyperlink{class_math_1_1_mat_afb14c5ece4abb9e4c50b5ae4d9e27349}{length}};\ ++idx)}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result.\mbox{\hyperlink{class_math_1_1_mat_a85b24a2a0861361430225315a640aea1}{coords}}[idx]\ =\ \mbox{\hyperlink{class_math_1_1_mat_a85b24a2a0861361430225315a640aea1}{coords}}[idx]\ +\ other.\mbox{\hyperlink{class_math_1_1_mat_a85b24a2a0861361430225315a640aea1}{coords}}[idx];}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00082}\mbox{\hyperlink{class_math_1_1_mat_a37b36d2b925d906ee67119dd9f7bcb02}{00082}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_mat}{Mat}}\ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_mat_a37b36d2b925d906ee67119dd9f7bcb02}{operator-\/}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_math_1_1_mat}{Mat}}\&\ other)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00083}00083\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this}\ +\ (-\/1.0\ *\ other);}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00086}\mbox{\hyperlink{class_math_1_1_mat_ad346b1bc51e7bac0a485ccab9fae7ee6}{00086}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_mat}{Mat}}\ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_mat_ad346b1bc51e7bac0a485ccab9fae7ee6}{operator-\/}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00087}00087\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this}\ *\ -\/1.0;}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00089}00089\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \textcolor{comment}{//index\ operator}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00092}\mbox{\hyperlink{class_math_1_1_mat_aed2b630f5e25c88c6e2c80283caa4457}{00092}}\ \ \ \ \ \ \ \ \ Type\&\ \ \ \mbox{\hyperlink{class_math_1_1_mat_aed2b630f5e25c88c6e2c80283caa4457}{operator()}}(\textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ col)}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_math_1_1_mat_a85b24a2a0861361430225315a640aea1}{coords}}[row\ *\ \mbox{\hyperlink{class_math_1_1_mat_a1168929b2b537dc294de182ba1f02719}{width}}\ +\ col];}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00095}00095\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00096}\mbox{\hyperlink{class_math_1_1_mat_a4519dbbf18cb0efc6270080e3f064aed}{00096}}\ \ \ \ \ \ \ \ \ Type\ \ \ \ \mbox{\hyperlink{class_math_1_1_mat_a4519dbbf18cb0efc6270080e3f064aed}{operator()}}(\textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ col)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00097}00097\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_math_1_1_mat_a85b24a2a0861361430225315a640aea1}{coords}}[row\ *\ \mbox{\hyperlink{class_math_1_1_mat_a1168929b2b537dc294de182ba1f02719}{width}}\ +\ col];}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00099}00099\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00101}00101\ \ \ \ \ \ \ \ \ \textcolor{comment}{//inverse\ operator}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00102}00102\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00103}\mbox{\hyperlink{class_math_1_1_mat_aaa53bffbff488f39230c1a1df2226931}{00103}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_mat}{Mat}}\ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_mat_aaa53bffbff488f39230c1a1df2226931}{operator\string~}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00104}00104\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_mat}{Mat}}\ result;}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO\ inverz\ implemetalasa}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00109}00109\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00111}00111\ \ \ \ \ \ \ \ \ \textcolor{comment}{//other\ functions}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00113}\mbox{\hyperlink{class_math_1_1_mat_a05f83755707894349059cf2074398b91}{00113}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_math_1_1_mat_a05f83755707894349059cf2074398b91}{hasInverse}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_math_1_1_mat_a1168929b2b537dc294de182ba1f02719}{width}}\ ==\ \mbox{\hyperlink{class_math_1_1_mat_a24bd14c58add0b2d8ed6b1fe94d0baba}{height}}\ \&\&\ !\mbox{\hyperlink{namespace_math_a42a948d5fe666f25ee0f13d5b02b2a74}{isEqual}}(Det(*\textcolor{keyword}{this}),\ 0.0f);\ \}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00116}\mbox{\hyperlink{class_math_1_1_mat_a2daa4191769a86606ee7805a36341f09}{00116}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_math_1_1_mat_a2daa4191769a86606ee7805a36341f09}{swapRows}}(\textcolor{keywordtype}{int}\ row1,\ \textcolor{keywordtype}{int}\ row2)}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00117}00117\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Type>\ tempRow1;}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ 0;\ idx\ <\ \mbox{\hyperlink{class_math_1_1_mat_a1168929b2b537dc294de182ba1f02719}{width}};\ ++idx)}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tempRow1.push\_back((*\textcolor{keyword}{this})(row1,\ idx));}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*this)(row1,\ idx)\ =\ (*\textcolor{keyword}{this})(row2,\ idx);}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ 0;\ idx\ <\ \mbox{\hyperlink{class_math_1_1_mat_a1168929b2b537dc294de182ba1f02719}{width}};\ ++idx)}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (*this)(row2,\ idx)\ =\ tempRow1[idx];}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00129}00129\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00130}00130\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00132}\mbox{\hyperlink{class_math_1_1_mat_a8240f85e3ea39ab44e0a793429bbaaa9}{00132}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_mat}{Mat}}\ \mbox{\hyperlink{class_math_1_1_mat_a8240f85e3ea39ab44e0a793429bbaaa9}{gaussianEliminate}}(\textcolor{keywordtype}{int}\&\ sign)}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00133}00133\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ sign\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00135}00135\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_mat}{Mat}}\ result(*\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00137}00137\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ rows\ =\ \mbox{\hyperlink{class_math_1_1_mat_a24bd14c58add0b2d8ed6b1fe94d0baba}{height}};}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cols\ =\ \mbox{\hyperlink{class_math_1_1_mat_a1168929b2b537dc294de182ba1f02719}{width}};}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ Acols\ =\ cols\ -\/\ 1;}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ eps\ =\ \mbox{\hyperlink{namespace_math_1_1_constant_adb2a456ef71c62332f477d01b4c46fb9}{Math::Constant::epsilon}};}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00142}00142\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ row\ =\ 0;\ \textcolor{comment}{//\ row\ tracker}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ col\ =\ 0;\ \textcolor{comment}{//\ column\ tracker}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00145}00145\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ iterate\ through\ the\ rows}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (row\ <\ rows)}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00148}00148\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ find\ a\ pivot\ for\ the\ row}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ pivot\_found\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (col\ <\ Acols\ \&\&\ !pivot\_found)}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (result(row,\ col)\ !=\ 0)\ \{\ \textcolor{comment}{//\ pivot\ not\ equal\ to\ 0}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pivot\_found\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00156}00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{\ \textcolor{comment}{//\ check\ for\ a\ possible\ swap}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00157}00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ max\_row\ =\ row;}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ max\_val\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00159}00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ row\ +\ 1;\ k\ <\ rows;\ ++k)}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ cur\_abs\ =\ result(k,\ col)\ >=\ 0\ ?\ result(k,\ col)\ :\ -\/1\ *\ result(k,\ col);}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cur\_abs\ >\ max\_val)}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00164}00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ max\_row\ =\ k;}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ max\_val\ =\ cur\_abs;}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00167}00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00168}00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (max\_row\ !=\ row)\ \{}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result.\mbox{\hyperlink{class_math_1_1_mat_a2daa4191769a86606ee7805a36341f09}{swapRows}}(max\_row,\ row);}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pivot\_found\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sign\ *=\ -\/1;}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00174}00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ col++;}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00175}00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00176}00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00177}00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00178}00178\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00179}00179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ perform\ elimination\ as\ normal\ if\ pivot\ was\ found}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00180}00180\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pivot\_found)}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00181}00181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00182}00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ t\ =\ row\ +\ 1;\ t\ <\ rows;\ ++t)\ \{}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00183}00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ s\ =\ col\ +\ 1;\ s\ <\ cols;\ ++s)\ \{}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00184}00184\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result(t,\ s)\ =\ result(t,\ s)\ -\/\ result(row,\ s)\ *\ (result(t,\ col)\ /\ result(row,\ col));}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00185}00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (result(t,\ s)\ <\ eps\ \&\&\ result(t,\ s)\ >\ -\/1\ *\ eps)}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00186}00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result(t,\ s)\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00187}00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00188}00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result(t,\ col)\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00189}00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00190}00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00191}00191\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00192}00192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ row++;}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00193}00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ col++;}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00194}00194\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00195}00195\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00196}00196\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00197}00197\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00198}00198\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00199}00199\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00200}\mbox{\hyperlink{class_math_1_1_mat_afb6403569d8acf2e13786265adea8848}{00200}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Vec<W,\ Type>}}\ \mbox{\hyperlink{class_math_1_1_mat_afb6403569d8acf2e13786265adea8848}{getVectorFromRow}}(\textcolor{keywordtype}{int}\ row\ =\ 0)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00201}00201\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00202}00202\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Vec<W,\ Type>}}\ result;}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00203}00203\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00204}00204\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ 0;\ idx\ <\ \mbox{\hyperlink{class_math_1_1_mat_a1168929b2b537dc294de182ba1f02719}{width}};\ ++idx)}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00205}00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result[idx]\ =\ (*\textcolor{keyword}{this})(row,\ idx);}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00206}00206\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00207}00207\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00208}00208\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00209}00209\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00210}00210\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00211}\mbox{\hyperlink{class_math_1_1_mat_aded90c97c64634b19138107df8ae29df}{00211}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Vec<H,\ Type>}}\ \mbox{\hyperlink{class_math_1_1_mat_aded90c97c64634b19138107df8ae29df}{getVectorFromCol}}(\textcolor{keywordtype}{int}\ col\ =\ 0)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00212}00212\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00213}00213\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Vec<H,\ Type>}}\ result;}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00214}00214\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00215}00215\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ 0;\ idx\ <\ \mbox{\hyperlink{class_math_1_1_mat_a24bd14c58add0b2d8ed6b1fe94d0baba}{height}};\ ++idx)}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00216}00216\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result[idx]\ =\ (*\textcolor{keyword}{this})(idx,\ col);}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00217}00217\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00218}00218\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00219}00219\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00220}00220\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00221}00221\ \ \ \ \ \ \ \ \ \textcolor{comment}{//external\ functions}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00222}00222\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00223}00223\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keywordtype}{int}\ W1,\ \textcolor{keywordtype}{int}\ H1,\ \textcolor{keyword}{class}\ Type1\ >\ \ \textcolor{keyword}{friend}\ \mbox{\hyperlink{class_math_1_1_mat}{Mat<W1,\ H1,\ Type1>}}\ \mbox{\hyperlink{class_math_1_1_mat_ac6d8eb230910430f3bb4e4364054593c}{T}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_math_1_1_mat}{Mat<H1,\ W1,\ Type1>}}\&\ m);}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00224}\mbox{\hyperlink{class_math_1_1_mat_a27dfcf6cf547691c63cf5ca83cc7827f}{00224}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keywordtype}{int}\ W1,\ \textcolor{keywordtype}{int}\ H1,\ \textcolor{keyword}{class}\ Type1\ >\ \ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{float}\ \ \ \ \mbox{\hyperlink{class_math_1_1_mat_a27dfcf6cf547691c63cf5ca83cc7827f}{det}}(\mbox{\hyperlink{class_math_1_1_mat}{Mat<H1,\ W1,\ Type1>}}\ m);}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00225}00225\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00226}00226\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00227}00227\ \ \ \ \ \ \ \ \ \textcolor{comment}{//external\ operators}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00228}00228\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keywordtype}{int}\ H1,\ \textcolor{keywordtype}{int}\ W1,\ \textcolor{keyword}{class}\ Type1\ >\ \ \textcolor{keyword}{friend}\ std::ostream\&\ \mbox{\hyperlink{class_math_1_1_mat_a3f6d85d84c2574e69b4c75a2da89a971}{operator<<}}(std::ostream\&\ os,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_math_1_1_mat}{Mat<H1,\ W1,\ Type1>}}\&\ m);}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00229}\mbox{\hyperlink{class_math_1_1_mat_ad5889e08445bfd3808fd08fd6ea88862}{00229}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keywordtype}{int}\ H1,\ \textcolor{keywordtype}{int}\ W1,\ \textcolor{keyword}{class}\ Type1\ >\ \ \textcolor{keyword}{friend}\ std::istream\&\ \mbox{\hyperlink{class_math_1_1_mat_ad5889e08445bfd3808fd08fd6ea88862}{operator>>}}(std::istream\&\ is,\ \mbox{\hyperlink{class_math_1_1_mat}{Mat<W1,\ H1,\ Type1>}}\&\ m);}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00230}00230\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keywordtype}{int}\ H1,\ \textcolor{keywordtype}{int}\ W1,\ \textcolor{keyword}{class}\ Type1\ >\ \ \textcolor{keyword}{friend}\ \mbox{\hyperlink{class_math_1_1_mat}{Mat<H1,\ W1,\ float>}}\ \mbox{\hyperlink{class_math_1_1_mat_acca04589c2762aed6a26d8c1e01d8da7}{operator*}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_math_1_1_mat}{Mat<H1,\ W1,\ Type1>}}\&\ m,\ \textcolor{keywordtype}{float}\ skalar);}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00231}00231\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keywordtype}{int}\ H1,\ \textcolor{keywordtype}{int}\ W1,\ \textcolor{keyword}{class}\ Type1\ >\ \ \textcolor{keyword}{friend}\ \mbox{\hyperlink{class_math_1_1_mat}{Mat<H1,\ W1,\ float>}}\ \mbox{\hyperlink{class_math_1_1_mat_acca04589c2762aed6a26d8c1e01d8da7}{operator*}}(\textcolor{keywordtype}{float}\ skalar,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_math_1_1_mat}{Mat<H1,\ W1,\ Type1>}}\&\ m);}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00232}00232\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keywordtype}{int}\ H1,\ \textcolor{keywordtype}{int}\ W1,\ \textcolor{keyword}{class}\ Type1\ >\ \ \textcolor{keyword}{friend}\ \mbox{\hyperlink{class_math_1_1_mat}{Mat<H1,\ W1,\ float>}}\ \mbox{\hyperlink{class_math_1_1_mat_ade6bc015aece0119cd2e2eedc2d62166}{operator/}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_math_1_1_mat}{Mat<H1,\ W1,\ Type1>}}\&\ m,\ \textcolor{keywordtype}{float}\ skalar);}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00233}00233\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00234}00234\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keywordtype}{int}\ W1,\ \textcolor{keywordtype}{int}\ W2,\ \textcolor{keywordtype}{int}\ H1,\ \textcolor{keywordtype}{int}\ H2,\ \textcolor{keyword}{class}\ Type1\ >\ \ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00235}00235\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \mbox{\hyperlink{class_math_1_1_mat}{Mat<H1,\ W2,\ Type1>}}\ \mbox{\hyperlink{class_math_1_1_mat_acca04589c2762aed6a26d8c1e01d8da7}{operator*}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_math_1_1_mat}{Mat<H1,\ W1,\ Type1>}}\&\ m1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_math_1_1_mat}{Mat<H2,\ W2,\ Type1>}}\&\ m2);}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00236}00236\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00237}00237\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00238}00238\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keywordtype}{int}\ D,\ \textcolor{keyword}{class}\ Type>}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00239}\mbox{\hyperlink{namespace_math_ab92ba61c4061d6dbca8ecf4b727c18e5}{00239}}\ \ \ \ \ \mbox{\hyperlink{class_math_1_1_mat}{Mat<1,\ D,\ Type>}}\ \mbox{\hyperlink{namespace_math_ab92ba61c4061d6dbca8ecf4b727c18e5}{createMatrixFromVector}}(\mbox{\hyperlink{class_math_1_1_vec}{Math::Vec<D,\ Type>}}\ vec)}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00240}00240\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00241}00241\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_mat}{Mat<1,\ D,\ Type>}}\ m;}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00242}00242\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00243}00243\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ 0;\ idx\ <\ D;\ ++idx)}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00244}00244\ \ \ \ \ \ \ \ \ \ \ \ \ m(0,\ idx)\ =\ vec[idx];}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00245}00245\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00246}00246\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m;}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00247}00247\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00248}00248\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00249}00249\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keywordtype}{int}\ W1,\ \textcolor{keywordtype}{int}\ H1,\ \textcolor{keyword}{class}\ Type1\ >\ \ \textcolor{comment}{//Transponate}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00250}\mbox{\hyperlink{class_math_1_1_mat_ac6d8eb230910430f3bb4e4364054593c}{00250}}\ \ \ \ \ \mbox{\hyperlink{class_math_1_1_mat}{Mat<W1,\ H1,\ Type1>}}\ \ \ \ \mbox{\hyperlink{namespace_math_a6f686e44ef531f116542143a580a02ce}{T}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_math_1_1_mat}{Mat<H1,\ W1,\ Type1>}}\&\ m)}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00251}00251\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00252}00252\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_mat}{Mat<W1,\ H1,\ Type1>}}\ result;}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00253}00253\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00254}00254\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ row\ =\ 0;\ row\ <\ m.\mbox{\hyperlink{class_math_1_1_mat_a24bd14c58add0b2d8ed6b1fe94d0baba}{height}};\ ++row)\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00255}00255\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ col\ =\ 0;\ col\ <\ m.\mbox{\hyperlink{class_math_1_1_mat_a1168929b2b537dc294de182ba1f02719}{width}};\ ++col)\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00256}00256\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result(col,\ row)\ =\ m(row,\ col);}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00257}00257\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00258}00258\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00259}00259\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00260}00260\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00261}00261\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keywordtype}{int}\ W1,\ \textcolor{keywordtype}{int}\ H1,\ \textcolor{keyword}{class}\ Type1\ >\ \ \textcolor{comment}{//Determinant}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00262}\mbox{\hyperlink{namespace_math_ad7e98ce6e9027ffbe4a87184f67f7034}{00262}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \mbox{\hyperlink{namespace_math_ad7e98ce6e9027ffbe4a87184f67f7034}{det}}(\mbox{\hyperlink{class_math_1_1_mat}{Mat<W1,\ H1,\ Type1>}}\ m)}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00263}00263\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00264}00264\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (W1\ !=\ H1)}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00265}00265\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ std::exception();}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00266}00266\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{namespace_math_ad7e98ce6e9027ffbe4a87184f67f7034}{det}}\ =\ 1.0f;}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00267}00267\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ signal;}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00268}00268\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00269}00269\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_mat}{Mat}}\ gauss\ =\ m.\mbox{\hyperlink{class_math_1_1_mat_a8240f85e3ea39ab44e0a793429bbaaa9}{gaussianEliminate}}(signal);}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00270}00270\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ 0;\ idx\ <\ W1\ \&\&\ idx\ <\ H1;\ ++idx)}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00271}00271\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_math_ad7e98ce6e9027ffbe4a87184f67f7034}{det}}\ *=\ gauss(idx,\ idx);}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00272}00272\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00273}00273\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_math_ad7e98ce6e9027ffbe4a87184f67f7034}{det}}\ *=\ (float)signal;}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00274}00274\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00275}00275\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespace_math_ad7e98ce6e9027ffbe4a87184f67f7034}{det}};}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00276}00276\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00277}00277\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00278}00278\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keywordtype}{int}\ H1,\ \textcolor{keywordtype}{int}\ W1,\ \textcolor{keyword}{class}\ Type1\ >}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00279}\mbox{\hyperlink{class_math_1_1_mat_a3f6d85d84c2574e69b4c75a2da89a971}{00279}}\ \ \ \ \ std::ostream\&\ \mbox{\hyperlink{namespace_math_a302164d4878a290980ee559a4583e7b9}{operator<<}}(std::ostream\&\ os,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_math_1_1_mat}{Mat<H1,\ W1,\ Type1>}}\&\ m)}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00280}00280\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00281}00281\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*os\ <<\ m.height\ <<\ "{}\(\backslash\)t"{}\ <<\ m.width\ <<\ "{}\(\backslash\)n"{};*/}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00282}00282\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ 0;\ idx\ <\ m.\mbox{\hyperlink{class_math_1_1_mat_afb14c5ece4abb9e4c50b5ae4d9e27349}{length}}\ -\/\ 1;\ ++idx)}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00283}00283\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00284}00284\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ m.\mbox{\hyperlink{class_math_1_1_mat_a85b24a2a0861361430225315a640aea1}{coords}}[idx]\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)t"{}};}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00285}00285\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00286}00286\ \ \ \ \ \ \ \ \ os\ <<\ m.\mbox{\hyperlink{class_math_1_1_mat_a85b24a2a0861361430225315a640aea1}{coords}}[m.\mbox{\hyperlink{class_math_1_1_mat_afb14c5ece4abb9e4c50b5ae4d9e27349}{length}}\ -\/\ 1];}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00287}00287\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ os;}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00288}00288\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00289}00289\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00290}00290\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keywordtype}{int}\ W1,\ \textcolor{keywordtype}{int}\ H1,\ \textcolor{keyword}{class}\ Type1\ >\ \ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00291}\mbox{\hyperlink{namespace_math_af08e2151a06b520864821924e203be94}{00291}}\ \ \ \ \ std::istream\&\ \mbox{\hyperlink{namespace_math_af08e2151a06b520864821924e203be94}{operator>>}}(std::istream\&\ is,\ \mbox{\hyperlink{class_math_1_1_mat}{Mat<H1,\ W1,\ Type1>}}\&\ m)}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00292}00292\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00293}00293\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ coord;}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00294}00294\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ 0;\ idx\ <\ H1\ *\ W1;\ ++idx)}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00295}00295\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00296}00296\ \ \ \ \ \ \ \ \ \ \ \ \ is\ >>\ coord;}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00297}00297\ \ \ \ \ \ \ \ \ \ \ \ \ m.\mbox{\hyperlink{class_math_1_1_mat_a85b24a2a0861361430225315a640aea1}{coords}}[idx]\ =\ coord;}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00298}00298\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00299}00299\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00300}00300\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ is;}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00301}00301\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00302}00302\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00303}00303\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keywordtype}{int}\ H1,\ \textcolor{keywordtype}{int}\ W1,\ \textcolor{keyword}{class}\ Type1\ >\ \ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00304}\mbox{\hyperlink{class_math_1_1_mat_acca04589c2762aed6a26d8c1e01d8da7}{00304}}\ \ \ \ \ \mbox{\hyperlink{class_math_1_1_mat}{Mat<H1,\ W1,\ float>}}\ \ \ \ \mbox{\hyperlink{namespace_math_abe6214b00c20d4e4859ef3f2a9f95702}{operator*}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_math_1_1_mat}{Mat<H1,\ W1,\ Type1>}}\&\ m,\ \textcolor{keywordtype}{float}\ skalar)}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00305}00305\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00306}00306\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_mat}{Mat<H1,\ W1,\ float>}}\ result;}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00307}00307\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx\ =\ 0;\ idx\ <\ m.\mbox{\hyperlink{class_math_1_1_mat_afb14c5ece4abb9e4c50b5ae4d9e27349}{length}};\ ++idx)}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00308}00308\ \ \ \ \ \ \ \ \ \ \ \ \ result.\mbox{\hyperlink{class_math_1_1_mat_a85b24a2a0861361430225315a640aea1}{coords}}[idx]\ =\ m.\mbox{\hyperlink{class_math_1_1_mat_a85b24a2a0861361430225315a640aea1}{coords}}[idx]\ *\ skalar;}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00309}00309\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00310}00310\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00311}00311\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00312}00312\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00313}00313\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keywordtype}{int}\ H1,\ \textcolor{keywordtype}{int}\ W1,\ \textcolor{keyword}{class}\ Type1\ >\ \ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00314}\mbox{\hyperlink{class_math_1_1_mat_a2f92bcdce2f0969e6b4d03a0d87a59b9}{00314}}\ \ \ \ \ \mbox{\hyperlink{class_math_1_1_mat}{Mat<H1,\ W1,\ float>}}\ \ \ \ \mbox{\hyperlink{namespace_math_abe6214b00c20d4e4859ef3f2a9f95702}{operator*}}(\textcolor{keywordtype}{float}\ skalar,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_math_1_1_mat}{Mat<H1,\ W1,\ Type1>}}\&\ m)}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00315}00315\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00316}00316\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\ *\ skalar;}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00317}00317\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00318}00318\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00319}00319\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keywordtype}{int}\ H1,\ \textcolor{keywordtype}{int}\ W1,\ \textcolor{keyword}{class}\ Type1\ >\ \ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00320}\mbox{\hyperlink{class_math_1_1_mat_ade6bc015aece0119cd2e2eedc2d62166}{00320}}\ \ \ \ \ \mbox{\hyperlink{class_math_1_1_mat}{Mat<H1,\ W1,\ float>}}\ \ \ \ \mbox{\hyperlink{namespace_math_acc53036f27eb30c66e163209631ad15b}{operator/}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_math_1_1_mat}{Mat<H1,\ W1,\ Type1>}}\&\ m,\ \textcolor{keywordtype}{float}\ skalar)}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00321}00321\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00322}00322\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (skalar\ ==\ 0.0f)}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00323}00323\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_math_1_1_zero_division_exception}{ZeroDivisionException}}();}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00324}00324\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\ *\ (1.0f\ /\ skalar);}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00325}00325\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00326}00326\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00327}00327\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keywordtype}{int}\ W1,\ \textcolor{keywordtype}{int}\ W2,\ \textcolor{keywordtype}{int}\ H1,\ \textcolor{keywordtype}{int}\ H2,\ \textcolor{keyword}{class}\ Type1\ >}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00328}\mbox{\hyperlink{class_math_1_1_mat_ac4e0048001acb48d6ac64558d1aa4471}{00328}}\ \ \ \ \ \mbox{\hyperlink{class_math_1_1_mat}{Mat<H1,\ W2,\ Type1>}}\ \ \ \ \mbox{\hyperlink{namespace_math_abe6214b00c20d4e4859ef3f2a9f95702}{operator*}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_math_1_1_mat}{Mat<H1,\ W1,\ Type1>}}\&\ m1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_math_1_1_mat}{Mat<H2,\ W2,\ Type1>}}\&\ m2)}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00329}00329\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00330}00330\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_assert}(W1\ ==\ H2,\ \textcolor{stringliteral}{"{}Can\ not\ multiple\ these\ matrixes!!'"{}});}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00331}00331\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_mat}{Mat<H1,\ W2,\ Type1>}}\ result;}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00332}00332\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00333}00333\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ row\ =\ 0;\ row\ <\ m1.\mbox{\hyperlink{class_math_1_1_mat_a24bd14c58add0b2d8ed6b1fe94d0baba}{height}};\ ++row)\ \{}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00334}00334\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ col\ =\ 0;\ col\ <\ m2.\mbox{\hyperlink{class_math_1_1_mat_a1168929b2b537dc294de182ba1f02719}{width}};\ ++col)\ \{}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00335}00335\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ 0;\ k\ <\ m1.\mbox{\hyperlink{class_math_1_1_mat_a1168929b2b537dc294de182ba1f02719}{width}};\ ++k)\ \{}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00336}00336\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result(row,\ col)\ +=\ (m1(row,\ k)\ *\ m2(k,\ col));}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00337}00337\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00338}00338\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00339}00339\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00340}00340\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00341}00341\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00342}00342\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00343}00343\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00344}00344\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keywordtype}{int}\ W1,\ \textcolor{keywordtype}{int}\ H1,\ \textcolor{keywordtype}{int}\ D,\ \textcolor{keyword}{class}\ Type1\ >}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00345}\mbox{\hyperlink{namespace_math_a98549687ea1b097e84cd2cfc28c7d813}{00345}}\ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Vec<D,\ Type1>}}\ \ \mbox{\hyperlink{namespace_math_abe6214b00c20d4e4859ef3f2a9f95702}{operator*}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_math_1_1_vec}{Vec<D,\ Type1>}}\&\ v,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_math_1_1_mat}{Mat<W1,\ H1,\ Type1>}}\&\ m)}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00346}00346\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00347}00347\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{namespace_math_ab92ba61c4061d6dbca8ecf4b727c18e5}{createMatrixFromVector}}(v)\ *\ m).getVectorFromRow();}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00348}00348\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00349}00349\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00350}00350\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keywordtype}{int}\ W1,\ \textcolor{keywordtype}{int}\ H1,\ \textcolor{keywordtype}{int}\ D,\ \textcolor{keyword}{class}\ Type1\ >}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00351}\mbox{\hyperlink{namespace_math_a9cd63f3df19405b9474c0b5a2b2255fb}{00351}}\ \ \ \ \ \mbox{\hyperlink{class_math_1_1_vec}{Vec<D,\ Type1>}}\ \ \mbox{\hyperlink{namespace_math_abe6214b00c20d4e4859ef3f2a9f95702}{operator*}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_math_1_1_mat}{Mat<W1,\ H1,\ Type1>}}\&\ m,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_math_1_1_vec}{Vec<D,\ Type1>}}\&\ v)}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00352}00352\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00353}00353\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_math_1_1_mat}{Mat}}\ vm\ =\ \mbox{\hyperlink{namespace_math_a6f686e44ef531f116542143a580a02ce}{T}}(\mbox{\hyperlink{namespace_math_ab92ba61c4061d6dbca8ecf4b727c18e5}{createMatrixFromVector}}(v));}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00354}00354\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (m\ *\ vm).getVectorFromCol();}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00355}00355\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00356}00356\ }
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00357}00357\ \ \ \ \ \textcolor{keyword}{namespace\ }Constant}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00358}00358\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00359}\mbox{\hyperlink{namespace_math_1_1_constant_a892952106abe07e82cf090f181885dce}{00359}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_math_1_1_mat}{Mat3x3f}}\ \ \ \ \mbox{\hyperlink{namespace_math_1_1_constant_a892952106abe07e82cf090f181885dce}{E}}(\ 1.0f,\ 0.0f,\ 0.0f,}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00360}00360\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0.0f,\ 1.0f,\ 0.0f,}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00361}00361\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0.0f,\ 0.0f,\ 1.0f);}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00362}00362\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{matrix_8hpp_source_l00363}00363\ \}}
+
+\end{DoxyCode}

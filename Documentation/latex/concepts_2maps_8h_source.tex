@@ -1,0 +1,189 @@
+\doxysection{maps.\+h}
+\hypertarget{concepts_2maps_8h_source}{}\label{concepts_2maps_8h_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/lemon/concepts/maps.h@{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/lemon/concepts/maps.h}}
+\mbox{\hyperlink{concepts_2maps_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00001}00001\ \textcolor{comment}{/*\ -\/*-\/\ mode:\ C++;\ indent-\/tabs-\/mode:\ nil;\ -\/*-\/}}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00002}00002\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00003}00003\ \textcolor{comment}{\ *\ This\ file\ is\ a\ part\ of\ LEMON,\ a\ generic\ C++\ optimization\ library.}}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00004}00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00005}00005\ \textcolor{comment}{\ *\ Copyright\ (C)\ 2003-\/2013}}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00006}00006\ \textcolor{comment}{\ *\ Egervary\ Jeno\ Kombinatorikus\ Optimalizalasi\ Kutatocsoport}}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00007}00007\ \textcolor{comment}{\ *\ (Egervary\ Research\ Group\ on\ Combinatorial\ Optimization,\ EGRES).}}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00008}00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00009}00009\ \textcolor{comment}{\ *\ Permission\ to\ use,\ modify\ and\ distribute\ this\ software\ is\ granted}}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00010}00010\ \textcolor{comment}{\ *\ provided\ that\ this\ copyright\ notice\ appears\ in\ all\ copies.\ For}}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00011}00011\ \textcolor{comment}{\ *\ precise\ terms\ see\ the\ accompanying\ LICENSE\ file.}}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00012}00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00013}00013\ \textcolor{comment}{\ *\ This\ software\ is\ provided\ "{}AS\ IS"{}\ with\ no\ warranty\ of\ any\ kind,}}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00014}00014\ \textcolor{comment}{\ *\ express\ or\ implied,\ and\ with\ no\ claim\ as\ to\ its\ suitability\ for\ any}}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00015}00015\ \textcolor{comment}{\ *\ purpose.}}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00016}00016\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00017}00017\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00019}00019\ \textcolor{preprocessor}{\#ifndef\ LEMON\_CONCEPTS\_MAPS\_H}}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00020}00020\ \textcolor{preprocessor}{\#define\ LEMON\_CONCEPTS\_MAPS\_H}}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{lemon_2core_8h}{lemon/core.h}}>}}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00023}00023\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{concept__check_8h}{lemon/concept\_check.h}}>}}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00029}00029\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacelemon}{lemon}}\ \{}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00031}00031\ \ \ \textcolor{keyword}{namespace\ }concepts\ \{}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00040}00040\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K,\ \textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00041}\mbox{\hyperlink{classlemon_1_1concepts_1_1_read_map}{00041}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1concepts_1_1_read_map}{ReadMap}}}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00042}00042\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00043}00043\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00045}\mbox{\hyperlink{group__map__concepts_ga9ddde88218a9ae79ad89904b4dcef0b6}{00045}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ K\ \mbox{\hyperlink{group__map__concepts_ga9ddde88218a9ae79ad89904b4dcef0b6}{Key}};}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00048}\mbox{\hyperlink{group__map__concepts_ga1e25f61d0ae8aac8edbe12ed9c80d4c7}{00048}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ T\ \mbox{\hyperlink{group__map__concepts_ga1e25f61d0ae8aac8edbe12ed9c80d4c7}{Value}};}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00051}\mbox{\hyperlink{group__map__concepts_ga6209ce1999567977aa98550907dbbefe}{00051}}\ \ \ \ \ \ \ \mbox{\hyperlink{group__map__concepts_ga1e25f61d0ae8aac8edbe12ed9c80d4c7}{Value}}\ \mbox{\hyperlink{group__map__concepts_ga6209ce1999567977aa98550907dbbefe}{operator[]}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{group__map__concepts_ga9ddde88218a9ae79ad89904b4dcef0b6}{Key}}\ \&)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00052}00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *(\textcolor{keyword}{static\_cast<}\mbox{\hyperlink{group__map__concepts_ga1e25f61d0ae8aac8edbe12ed9c80d4c7}{Value}}\ *\textcolor{keyword}{>}(0)+1);}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00053}00053\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00055}00055\ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ \_ReadMap>}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00056}\mbox{\hyperlink{structlemon_1_1concepts_1_1_read_map_1_1_constraints}{00056}}\ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1concepts_1_1_read_map_1_1_constraints}{Constraints}}\ \{}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00057}\mbox{\hyperlink{group__map__concepts_ga0e16c7a93c28152d773c2b9ad4a87538}{00057}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group__map__concepts_ga0e16c7a93c28152d773c2b9ad4a87538}{constraints}}()\ \{}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__map__concepts_ga1e25f61d0ae8aac8edbe12ed9c80d4c7}{Value}}\ val\ =\ \mbox{\hyperlink{group__map__concepts_ga149a069dfab6d9e26734f621fa013db2}{m}}[\mbox{\hyperlink{group__map__concepts_ga2fc8ca5d0484d7679944e85e0f1d6564}{key}}];}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ val\ =\ \mbox{\hyperlink{group__map__concepts_ga149a069dfab6d9e26734f621fa013db2}{m}}[\mbox{\hyperlink{group__map__concepts_ga2fc8ca5d0484d7679944e85e0f1d6564}{key}}];}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ \_ReadMap::Value\ own\_val\ =\ \mbox{\hyperlink{group__map__concepts_ga149a069dfab6d9e26734f621fa013db2}{m}}[\mbox{\hyperlink{group__map__concepts_ga01f2f13f6cd0ccec60ec499ce51fa34f}{own\_key}}];}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ own\_val\ =\ \mbox{\hyperlink{group__map__concepts_ga149a069dfab6d9e26734f621fa013db2}{m}}[\mbox{\hyperlink{group__map__concepts_ga01f2f13f6cd0ccec60ec499ce51fa34f}{own\_key}}];}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelemon_a0362774395838bda46cb4400a1189f21}{::lemon::ignore\_unused\_variable\_warning}}(\mbox{\hyperlink{group__map__concepts_ga2fc8ca5d0484d7679944e85e0f1d6564}{key}});}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelemon_a0362774395838bda46cb4400a1189f21}{::lemon::ignore\_unused\_variable\_warning}}(val);}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelemon_a0362774395838bda46cb4400a1189f21}{::lemon::ignore\_unused\_variable\_warning}}(\mbox{\hyperlink{group__map__concepts_ga01f2f13f6cd0ccec60ec499ce51fa34f}{own\_key}});}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelemon_a0362774395838bda46cb4400a1189f21}{::lemon::ignore\_unused\_variable\_warning}}(own\_val);}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00067}00067\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00068}\mbox{\hyperlink{group__map__concepts_ga2fc8ca5d0484d7679944e85e0f1d6564}{00068}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{group__map__concepts_ga9ddde88218a9ae79ad89904b4dcef0b6}{Key}}\&\ \mbox{\hyperlink{group__map__concepts_ga2fc8ca5d0484d7679944e85e0f1d6564}{key}};}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00069}\mbox{\hyperlink{group__map__concepts_ga01f2f13f6cd0ccec60ec499ce51fa34f}{00069}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{typename}\ \_ReadMap::Key\&\ \mbox{\hyperlink{group__map__concepts_ga01f2f13f6cd0ccec60ec499ce51fa34f}{own\_key}};}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00070}\mbox{\hyperlink{group__map__concepts_ga149a069dfab6d9e26734f621fa013db2}{00070}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_ReadMap}}\&\ \mbox{\hyperlink{group__map__concepts_ga149a069dfab6d9e26734f621fa013db2}{m}};}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00071}\mbox{\hyperlink{group__map__concepts_gac1a4503a30baa997440c0e42e974788b}{00071}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__map__concepts_gac1a4503a30baa997440c0e42e974788b}{Constraints}}()\ \{\}}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00072}00072\ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00074}00074\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00081}00081\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K,\ \textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00082}\mbox{\hyperlink{classlemon_1_1concepts_1_1_write_map}{00082}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1concepts_1_1_write_map}{WriteMap}}}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00083}00083\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00084}00084\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00086}\mbox{\hyperlink{group__map__concepts_ga4a130c104d9eb48cdd0021af221de570}{00086}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ K\ \mbox{\hyperlink{group__map__concepts_ga4a130c104d9eb48cdd0021af221de570}{Key}};}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00089}\mbox{\hyperlink{group__map__concepts_gaaee1b0d4ad0463f7d81213cd1edadbcc}{00089}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ T\ \mbox{\hyperlink{group__map__concepts_gaaee1b0d4ad0463f7d81213cd1edadbcc}{Value}};}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00092}\mbox{\hyperlink{group__map__concepts_gae4b28047de412e0082047c3dd65927ce}{00092}}\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group__map__concepts_gae4b28047de412e0082047c3dd65927ce}{set}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{group__map__concepts_ga4a130c104d9eb48cdd0021af221de570}{Key}}\ \&,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{group__map__concepts_gaaee1b0d4ad0463f7d81213cd1edadbcc}{Value}}\ \&)\ \{\}}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00095}\mbox{\hyperlink{group__map__concepts_gae55df67ba56c92deee51d3aae580f63c}{00095}}\ \ \ \ \ \ \ \mbox{\hyperlink{group__map__concepts_gae55df67ba56c92deee51d3aae580f63c}{WriteMap}}()\ \{\}}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00097}00097\ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ \_WriteMap>}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00098}\mbox{\hyperlink{structlemon_1_1concepts_1_1_write_map_1_1_constraints}{00098}}\ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1concepts_1_1_write_map_1_1_constraints}{Constraints}}\ \{}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00099}\mbox{\hyperlink{group__map__concepts_ga2b1584fdc7be30da7c01fd8519ca5a02}{00099}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group__map__concepts_ga2b1584fdc7be30da7c01fd8519ca5a02}{constraints}}()\ \{}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__map__concepts_ga46a1bb8a85147fa6e9fb89c95eb469a6}{m}}.set(\mbox{\hyperlink{group__map__concepts_gaf45ab9d300afac722d365c86a0f99c31}{key}},\ \mbox{\hyperlink{group__map__concepts_gacbbc170a2584b5d828de1292372b8860}{val}});}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__map__concepts_ga46a1bb8a85147fa6e9fb89c95eb469a6}{m}}.set(\mbox{\hyperlink{group__map__concepts_ga1eef1b1cc07ca71f99a52ea838b44a4c}{own\_key}},\ \mbox{\hyperlink{group__map__concepts_ga8bfd47bea3a781db1c2aaef9b8dc80f9}{own\_val}});}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelemon_a0362774395838bda46cb4400a1189f21}{::lemon::ignore\_unused\_variable\_warning}}(\mbox{\hyperlink{group__map__concepts_gaf45ab9d300afac722d365c86a0f99c31}{key}});}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelemon_a0362774395838bda46cb4400a1189f21}{::lemon::ignore\_unused\_variable\_warning}}(\mbox{\hyperlink{group__map__concepts_gacbbc170a2584b5d828de1292372b8860}{val}});}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelemon_a0362774395838bda46cb4400a1189f21}{::lemon::ignore\_unused\_variable\_warning}}(\mbox{\hyperlink{group__map__concepts_ga1eef1b1cc07ca71f99a52ea838b44a4c}{own\_key}});}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelemon_a0362774395838bda46cb4400a1189f21}{::lemon::ignore\_unused\_variable\_warning}}(\mbox{\hyperlink{group__map__concepts_ga8bfd47bea3a781db1c2aaef9b8dc80f9}{own\_val}});}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00107}00107\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00108}\mbox{\hyperlink{group__map__concepts_gaf45ab9d300afac722d365c86a0f99c31}{00108}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{group__map__concepts_ga4a130c104d9eb48cdd0021af221de570}{Key}}\&\ \mbox{\hyperlink{group__map__concepts_gaf45ab9d300afac722d365c86a0f99c31}{key}};}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00109}\mbox{\hyperlink{group__map__concepts_gacbbc170a2584b5d828de1292372b8860}{00109}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{group__map__concepts_gaaee1b0d4ad0463f7d81213cd1edadbcc}{Value}}\&\ \mbox{\hyperlink{group__map__concepts_gacbbc170a2584b5d828de1292372b8860}{val}};}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00110}\mbox{\hyperlink{group__map__concepts_ga1eef1b1cc07ca71f99a52ea838b44a4c}{00110}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{typename}\ \_WriteMap::Key\&\ \mbox{\hyperlink{group__map__concepts_ga1eef1b1cc07ca71f99a52ea838b44a4c}{own\_key}};}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00111}\mbox{\hyperlink{group__map__concepts_ga8bfd47bea3a781db1c2aaef9b8dc80f9}{00111}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{typename}\ \_WriteMap::Value\&\ \mbox{\hyperlink{group__map__concepts_ga8bfd47bea3a781db1c2aaef9b8dc80f9}{own\_val}};}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00112}\mbox{\hyperlink{group__map__concepts_ga46a1bb8a85147fa6e9fb89c95eb469a6}{00112}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_WriteMap}}\&\ \mbox{\hyperlink{group__map__concepts_ga46a1bb8a85147fa6e9fb89c95eb469a6}{m}};}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00113}\mbox{\hyperlink{group__map__concepts_gade772ec16ba9a125dd40b965cf8c934b}{00113}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__map__concepts_gade772ec16ba9a125dd40b965cf8c934b}{Constraints}}()\ \{\}}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00114}00114\ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00115}00115\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00121}00121\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K,\ \textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00122}\mbox{\hyperlink{classlemon_1_1concepts_1_1_read_write_map}{00122}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1concepts_1_1_read_write_map}{ReadWriteMap}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_read_map}{ReadMap}}<K,T>,}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_write_map}{WriteMap}}<K,T>}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00124}00124\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00125}00125\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00127}\mbox{\hyperlink{group__map__concepts_ga876e284df9c704f8273b94d7f6b4850c}{00127}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ K\ \mbox{\hyperlink{group__map__concepts_ga876e284df9c704f8273b94d7f6b4850c}{Key}};}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00130}\mbox{\hyperlink{group__map__concepts_ga0daabc061a133e7c7eba6bc3c248e526}{00130}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ T\ \mbox{\hyperlink{group__map__concepts_ga0daabc061a133e7c7eba6bc3c248e526}{Value}};}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00133}\mbox{\hyperlink{group__map__concepts_gae3462816e64ba9145873887b869fdd66}{00133}}\ \ \ \ \ \ \ \mbox{\hyperlink{group__map__concepts_ga0daabc061a133e7c7eba6bc3c248e526}{Value}}\ \mbox{\hyperlink{group__map__concepts_gae3462816e64ba9145873887b869fdd66}{operator[]}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{group__map__concepts_ga876e284df9c704f8273b94d7f6b4850c}{Key}}\ \&)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00134}00134\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__map__concepts_ga0daabc061a133e7c7eba6bc3c248e526}{Value}}\ *r\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00135}00135\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *r;}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00136}00136\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00137}00137\ }
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00139}\mbox{\hyperlink{group__map__concepts_ga0f51f31abe161568a7b22ad4f3b51eb1}{00139}}\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group__map__concepts_ga0f51f31abe161568a7b22ad4f3b51eb1}{set}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{group__map__concepts_ga876e284df9c704f8273b94d7f6b4850c}{Key}}\ \&,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{group__map__concepts_ga0daabc061a133e7c7eba6bc3c248e526}{Value}}\ \&)\ \{\}}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00140}00140\ }
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00141}00141\ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ \_ReadWriteMap>}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00142}\mbox{\hyperlink{structlemon_1_1concepts_1_1_read_write_map_1_1_constraints}{00142}}\ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1concepts_1_1_read_write_map_1_1_constraints}{Constraints}}\ \{}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00143}\mbox{\hyperlink{group__map__concepts_ga42710707c681864b1d31231fe409fce5}{00143}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group__map__concepts_ga42710707c681864b1d31231fe409fce5}{constraints}}()\ \{}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{checkConcept<ReadMap<K,\ T>}},\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_ReadWriteMap}}\ >();}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{checkConcept<WriteMap<K,\ T>}},\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_ReadWriteMap}}\ >();}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00146}00146\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00147}00147\ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00148}00148\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00149}00149\ }
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00150}00150\ }
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00152}00152\ }
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00155}00155\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K,\ \textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ R,\ \textcolor{keyword}{typename}\ CR>}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00156}\mbox{\hyperlink{classlemon_1_1concepts_1_1_reference_map}{00156}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlemon_1_1concepts_1_1_reference_map}{ReferenceMap}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classlemon_1_1concepts_1_1_read_write_map}{ReadWriteMap}}<K,T>}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00157}00157\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00158}00158\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00160}\mbox{\hyperlink{group__map__concepts_gad0fdb0b93436061a0b3a5871bca6eae7}{00160}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{structlemon_1_1_true}{True}}\ \mbox{\hyperlink{group__map__concepts_gad0fdb0b93436061a0b3a5871bca6eae7}{ReferenceMapTag}};}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00162}\mbox{\hyperlink{group__map__concepts_ga4d2c59f4aca4069b7a2425ef9e49673d}{00162}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ K\ \mbox{\hyperlink{group__map__concepts_ga4d2c59f4aca4069b7a2425ef9e49673d}{Key}};}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00165}\mbox{\hyperlink{group__map__concepts_gaf32e9b40ebb7ce59b340efa0bbb18d06}{00165}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ T\ \mbox{\hyperlink{group__map__concepts_gaf32e9b40ebb7ce59b340efa0bbb18d06}{Value}};}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00167}\mbox{\hyperlink{group__map__concepts_ga90186b6d96d180207efa899b6167d9ce}{00167}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ R\ \mbox{\hyperlink{group__map__concepts_ga90186b6d96d180207efa899b6167d9ce}{Reference}};}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00169}\mbox{\hyperlink{group__map__concepts_ga194b7968a97b12ec998c58938b6c1408}{00169}}\ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{CR}}\ \mbox{\hyperlink{group__map__concepts_ga194b7968a97b12ec998c58938b6c1408}{ConstReference}};}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00170}00170\ }
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00171}00171\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00172}00172\ }
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00174}\mbox{\hyperlink{group__map__concepts_gab105179664fafee797a49085c145330f}{00174}}\ \ \ \ \ \ \ \mbox{\hyperlink{group__map__concepts_ga90186b6d96d180207efa899b6167d9ce}{Reference}}\ \mbox{\hyperlink{group__map__concepts_gab105179664fafee797a49085c145330f}{operator[]}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{group__map__concepts_ga4d2c59f4aca4069b7a2425ef9e49673d}{Key}}\ \&)\ \{}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00175}00175\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__map__concepts_gaf32e9b40ebb7ce59b340efa0bbb18d06}{Value}}\ *r\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00176}00176\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *r;}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00177}00177\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00178}00178\ }
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00180}\mbox{\hyperlink{group__map__concepts_ga92b74797436b934b685b64570d7437d9}{00180}}\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ConstReference}}\ \mbox{\hyperlink{group__map__concepts_ga92b74797436b934b685b64570d7437d9}{operator[]}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{group__map__concepts_ga4d2c59f4aca4069b7a2425ef9e49673d}{Key}}\ \&)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00181}00181\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__map__concepts_gaf32e9b40ebb7ce59b340efa0bbb18d06}{Value}}\ *r\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00182}00182\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *r;}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00183}00183\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00184}00184\ }
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00186}\mbox{\hyperlink{group__map__concepts_ga36235a3fbc3b08575c6e31ba8b82f55b}{00186}}\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group__map__concepts_ga36235a3fbc3b08575c6e31ba8b82f55b}{set}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{group__map__concepts_ga4d2c59f4aca4069b7a2425ef9e49673d}{Key}}\ \&k,\textcolor{keyword}{const}\ \mbox{\hyperlink{group__map__concepts_gaf32e9b40ebb7ce59b340efa0bbb18d06}{Value}}\ \&t)\ \{\ \mbox{\hyperlink{group__map__concepts_gab105179664fafee797a49085c145330f}{operator[]}}(k)=t;\ \}}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00187}00187\ }
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00188}00188\ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ \_ReferenceMap>}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00189}\mbox{\hyperlink{structlemon_1_1concepts_1_1_reference_map_1_1_constraints}{00189}}\ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1concepts_1_1_reference_map_1_1_constraints}{Constraints}}\ \{}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00190}00190\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{enable\_if<typename\ \_ReferenceMap::ReferenceMapTag,\ void>::type}}}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00191}\mbox{\hyperlink{group__map__concepts_gacd2adcd8e8aff14b39038ebc81cf6b1c}{00191}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__map__concepts_gacd2adcd8e8aff14b39038ebc81cf6b1c}{constraints}}()\ \{}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00192}00192\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{checkConcept<ReadWriteMap<K,\ T>}},\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_ReferenceMap}}\ >();}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00193}00193\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__map__concepts_ga723d51fb10a046c23c286f7a65020192}{ref}}\ =\ \mbox{\hyperlink{group__map__concepts_ga0e81cd3636b237018e1e3b2fa28e75d5}{m}}[\mbox{\hyperlink{group__map__concepts_ga0c6465b8b593bdabd642aa05d1b38ca7}{key}}];}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00194}00194\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__map__concepts_ga0e81cd3636b237018e1e3b2fa28e75d5}{m}}[\mbox{\hyperlink{group__map__concepts_ga0c6465b8b593bdabd642aa05d1b38ca7}{key}}]\ =\ \mbox{\hyperlink{group__map__concepts_gaeaaaa3b48eab250c22b2a4ee711877ba}{val}};}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00195}00195\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__map__concepts_ga0e81cd3636b237018e1e3b2fa28e75d5}{m}}[\mbox{\hyperlink{group__map__concepts_ga0c6465b8b593bdabd642aa05d1b38ca7}{key}}]\ =\ \mbox{\hyperlink{group__map__concepts_ga723d51fb10a046c23c286f7a65020192}{ref}};}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00196}00196\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__map__concepts_ga0e81cd3636b237018e1e3b2fa28e75d5}{m}}[\mbox{\hyperlink{group__map__concepts_ga0c6465b8b593bdabd642aa05d1b38ca7}{key}}]\ =\ \mbox{\hyperlink{group__map__concepts_gad2185651117d14a6a541ccb9056a0534}{cref}};}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00197}00197\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__map__concepts_ga5068013a40aeddbd5cd7f5440606dfc2}{own\_ref}}\ =\ \mbox{\hyperlink{group__map__concepts_ga0e81cd3636b237018e1e3b2fa28e75d5}{m}}[\mbox{\hyperlink{group__map__concepts_ga9e30da17bde7b62561b58899189ab7d3}{own\_key}}];}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00198}00198\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__map__concepts_ga0e81cd3636b237018e1e3b2fa28e75d5}{m}}[\mbox{\hyperlink{group__map__concepts_ga9e30da17bde7b62561b58899189ab7d3}{own\_key}}]\ =\ \mbox{\hyperlink{group__map__concepts_ga6f9af6ef7551efef185a7b07420708cf}{own\_val}};}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00199}00199\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__map__concepts_ga0e81cd3636b237018e1e3b2fa28e75d5}{m}}[\mbox{\hyperlink{group__map__concepts_ga9e30da17bde7b62561b58899189ab7d3}{own\_key}}]\ =\ \mbox{\hyperlink{group__map__concepts_ga5068013a40aeddbd5cd7f5440606dfc2}{own\_ref}};}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00200}00200\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__map__concepts_ga0e81cd3636b237018e1e3b2fa28e75d5}{m}}[\mbox{\hyperlink{group__map__concepts_ga9e30da17bde7b62561b58899189ab7d3}{own\_key}}]\ =\ \mbox{\hyperlink{group__map__concepts_gaf702939f71cdfa7236fecd6828943ca2}{own\_cref}};}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00201}00201\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__map__concepts_ga0e81cd3636b237018e1e3b2fa28e75d5}{m}}[\mbox{\hyperlink{group__map__concepts_ga0c6465b8b593bdabd642aa05d1b38ca7}{key}}]\ =\ \mbox{\hyperlink{group__map__concepts_ga0e81cd3636b237018e1e3b2fa28e75d5}{m}}[\mbox{\hyperlink{group__map__concepts_ga9e30da17bde7b62561b58899189ab7d3}{own\_key}}];}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00202}00202\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__map__concepts_ga0e81cd3636b237018e1e3b2fa28e75d5}{m}}[\mbox{\hyperlink{group__map__concepts_ga9e30da17bde7b62561b58899189ab7d3}{own\_key}}]\ =\ \mbox{\hyperlink{group__map__concepts_ga0e81cd3636b237018e1e3b2fa28e75d5}{m}}[\mbox{\hyperlink{group__map__concepts_ga0c6465b8b593bdabd642aa05d1b38ca7}{key}}];}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00203}00203\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00204}\mbox{\hyperlink{group__map__concepts_ga0c6465b8b593bdabd642aa05d1b38ca7}{00204}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{group__map__concepts_ga4d2c59f4aca4069b7a2425ef9e49673d}{Key}}\&\ \mbox{\hyperlink{group__map__concepts_ga0c6465b8b593bdabd642aa05d1b38ca7}{key}};}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00205}\mbox{\hyperlink{group__map__concepts_gaeaaaa3b48eab250c22b2a4ee711877ba}{00205}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__map__concepts_gaf32e9b40ebb7ce59b340efa0bbb18d06}{Value}}\&\ \mbox{\hyperlink{group__map__concepts_gaeaaaa3b48eab250c22b2a4ee711877ba}{val}};}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00206}\mbox{\hyperlink{group__map__concepts_ga723d51fb10a046c23c286f7a65020192}{00206}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__map__concepts_ga90186b6d96d180207efa899b6167d9ce}{Reference}}\ \mbox{\hyperlink{group__map__concepts_ga723d51fb10a046c23c286f7a65020192}{ref}};}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00207}\mbox{\hyperlink{group__map__concepts_gad2185651117d14a6a541ccb9056a0534}{00207}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{ConstReference}}\ \mbox{\hyperlink{group__map__concepts_gad2185651117d14a6a541ccb9056a0534}{cref}};}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00208}\mbox{\hyperlink{group__map__concepts_ga9e30da17bde7b62561b58899189ab7d3}{00208}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{typename}\ \_ReferenceMap::Key\&\ \mbox{\hyperlink{group__map__concepts_ga9e30da17bde7b62561b58899189ab7d3}{own\_key}};}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00209}\mbox{\hyperlink{group__map__concepts_ga6f9af6ef7551efef185a7b07420708cf}{00209}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ \_ReferenceMap::Value\&\ \mbox{\hyperlink{group__map__concepts_ga6f9af6ef7551efef185a7b07420708cf}{own\_val}};}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00210}\mbox{\hyperlink{group__map__concepts_ga5068013a40aeddbd5cd7f5440606dfc2}{00210}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ \_ReferenceMap::Reference\ \mbox{\hyperlink{group__map__concepts_ga5068013a40aeddbd5cd7f5440606dfc2}{own\_ref}};}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00211}\mbox{\hyperlink{group__map__concepts_gaf702939f71cdfa7236fecd6828943ca2}{00211}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ \_ReferenceMap::ConstReference\ \mbox{\hyperlink{group__map__concepts_gaf702939f71cdfa7236fecd6828943ca2}{own\_cref}};}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00212}\mbox{\hyperlink{group__map__concepts_ga0e81cd3636b237018e1e3b2fa28e75d5}{00212}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{\_ReferenceMap}}\&\ \mbox{\hyperlink{group__map__concepts_ga0e81cd3636b237018e1e3b2fa28e75d5}{m}};}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00213}\mbox{\hyperlink{group__map__concepts_ga31b3e907305e09e0cb019b12f8252290}{00213}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__map__concepts_ga31b3e907305e09e0cb019b12f8252290}{Constraints}}()\ \{\}}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00214}00214\ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00215}00215\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00216}00216\ }
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00217}00217\ \ \ \ \ \textcolor{comment}{//\ @\}}}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00218}00218\ }
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00219}00219\ \ \ \}\ \textcolor{comment}{//namespace\ concepts}}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00220}00220\ }
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00221}00221\ \}\ \textcolor{comment}{//namespace\ lemon}}
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00222}00222\ }
+\DoxyCodeLine{\Hypertarget{concepts_2maps_8h_source_l00223}00223\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

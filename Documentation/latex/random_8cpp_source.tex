@@ -1,0 +1,47 @@
+\doxysection{random.\+cpp}
+\hypertarget{random_8cpp_source}{}\label{random_8cpp_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/Base/random.cpp@{C:/Dev/DungeonGenerator/DungeonGenerator/Base/random.cpp}}
+\mbox{\hyperlink{random_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{random_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{random_8h}{random.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{random_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <time.h>}}
+\DoxyCodeLine{\Hypertarget{random_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <cassert>}}
+\DoxyCodeLine{\Hypertarget{random_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <random>}}
+\DoxyCodeLine{\Hypertarget{random_8cpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{random_8cpp_source_l00006}00006\ \mbox{\hyperlink{class_random_1_1_seed}{Random::Seed}}\ \ \mbox{\hyperlink{class_random_ae58bc46824b7193c45b7cffbe1284f43}{Random::seed}}\ =\ \mbox{\hyperlink{class_random_1_1_seed}{Random::Seed}}(std::random\_device()());}
+\DoxyCodeLine{\Hypertarget{random_8cpp_source_l00007}00007\ std::mt19937\ \ \mbox{\hyperlink{class_random_a30c3ccf9b57b559356a0109f90d89bc2}{Random::rng}}\ =\ std::mt19937(seed.getUnsignedValue\ ());}
+\DoxyCodeLine{\Hypertarget{random_8cpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{random_8cpp_source_l00009}00009\ \textcolor{comment}{//Random::Random::Random()\ :\ seed(Seed(std::random\_device()()))}}
+\DoxyCodeLine{\Hypertarget{random_8cpp_source_l00010}00010\ \textcolor{comment}{//\{}}
+\DoxyCodeLine{\Hypertarget{random_8cpp_source_l00011}00011\ \textcolor{comment}{//\ \ //srand(seed.getUnsignedValue());}}
+\DoxyCodeLine{\Hypertarget{random_8cpp_source_l00012}00012\ \textcolor{comment}{//\ \ rng\ =\ std::mt19937(seed.getUnsignedValue());}}
+\DoxyCodeLine{\Hypertarget{random_8cpp_source_l00013}00013\ \textcolor{comment}{//\}}}
+\DoxyCodeLine{\Hypertarget{random_8cpp_source_l00014}00014\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{random_8cpp_source_l00015}00015\ \textcolor{comment}{//Random::Random::Random(Seed\ seed)\ :\ seed\{\ seed\ \}}}
+\DoxyCodeLine{\Hypertarget{random_8cpp_source_l00016}00016\ \textcolor{comment}{//\{}}
+\DoxyCodeLine{\Hypertarget{random_8cpp_source_l00017}00017\ \textcolor{comment}{//\ \ //srand(seed.getUnsignedValue());}}
+\DoxyCodeLine{\Hypertarget{random_8cpp_source_l00018}00018\ \textcolor{comment}{//\ \ rng\ =\ std::mt19937(seed.getUnsignedValue());}}
+\DoxyCodeLine{\Hypertarget{random_8cpp_source_l00019}00019\ \textcolor{comment}{//\}}}
+\DoxyCodeLine{\Hypertarget{random_8cpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{random_8cpp_source_l00021}00021\ \textcolor{comment}{//float\ Random::Random::getFloat()}}
+\DoxyCodeLine{\Hypertarget{random_8cpp_source_l00022}00022\ \textcolor{comment}{//\{}}
+\DoxyCodeLine{\Hypertarget{random_8cpp_source_l00023}00023\ \textcolor{comment}{//\ \ return\ 0.0f;}}
+\DoxyCodeLine{\Hypertarget{random_8cpp_source_l00024}00024\ \textcolor{comment}{//\}}}
+\DoxyCodeLine{\Hypertarget{random_8cpp_source_l00025}00025\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{random_8cpp_source_l00026}00026\ \textcolor{comment}{//long\ int\ Random::Random::getInt()}}
+\DoxyCodeLine{\Hypertarget{random_8cpp_source_l00027}00027\ \textcolor{comment}{//\{}}
+\DoxyCodeLine{\Hypertarget{random_8cpp_source_l00028}00028\ \textcolor{comment}{//\ \ return\ rand();}}
+\DoxyCodeLine{\Hypertarget{random_8cpp_source_l00029}00029\ \textcolor{comment}{//\}}}
+\DoxyCodeLine{\Hypertarget{random_8cpp_source_l00030}00030\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{random_8cpp_source_l00031}00031\ \textcolor{comment}{//long\ int\ Random::Random::getInt(long\ int\ min,\ long\ int\ max)}}
+\DoxyCodeLine{\Hypertarget{random_8cpp_source_l00032}00032\ \textcolor{comment}{//\{}}
+\DoxyCodeLine{\Hypertarget{random_8cpp_source_l00033}00033\ \textcolor{comment}{//\ \ assert("{}Invalid\ min\ and\ max\ values"{},\ min\ <=\ max);}}
+\DoxyCodeLine{\Hypertarget{random_8cpp_source_l00034}00034\ \textcolor{comment}{//\ \ long\ int\ intervalSize\ =\ max\ -\/\ min\ +\ 1;}}
+\DoxyCodeLine{\Hypertarget{random_8cpp_source_l00035}00035\ \textcolor{comment}{//\ \ return\ rand()\ \%\ intervalSize\ +\ min;}}
+\DoxyCodeLine{\Hypertarget{random_8cpp_source_l00036}00036\ \textcolor{comment}{//\}}}
+\DoxyCodeLine{\Hypertarget{random_8cpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{random_8cpp_source_l00038}00038\ \textcolor{comment}{//long\ int\ Random::GetRandomInteger(long\ int\ min,\ long\ int\ max)}}
+\DoxyCodeLine{\Hypertarget{random_8cpp_source_l00039}00039\ \textcolor{comment}{//\{}}
+\DoxyCodeLine{\Hypertarget{random_8cpp_source_l00040}00040\ \textcolor{comment}{//\ \ return\ 0;}}
+\DoxyCodeLine{\Hypertarget{random_8cpp_source_l00041}00041\ \textcolor{comment}{//\}}}
+
+\end{DoxyCode}

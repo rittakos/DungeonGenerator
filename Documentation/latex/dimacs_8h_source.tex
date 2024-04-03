@@ -1,0 +1,340 @@
+\doxysection{dimacs.\+h}
+\hypertarget{dimacs_8h_source}{}\label{dimacs_8h_source}\index{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/lemon/dimacs.h@{C:/Dev/DungeonGenerator/DungeonGenerator/additional\_includes/lemon/dimacs.h}}
+\mbox{\hyperlink{dimacs_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00001}00001\ \textcolor{comment}{/*\ -\/*-\/\ mode:\ C++;\ indent-\/tabs-\/mode:\ nil;\ -\/*-\/}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00002}00002\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00003}00003\ \textcolor{comment}{\ *\ This\ file\ is\ a\ part\ of\ LEMON,\ a\ generic\ C++\ optimization\ library.}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00004}00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00005}00005\ \textcolor{comment}{\ *\ Copyright\ (C)\ 2003-\/2013}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00006}00006\ \textcolor{comment}{\ *\ Egervary\ Jeno\ Kombinatorikus\ Optimalizalasi\ Kutatocsoport}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00007}00007\ \textcolor{comment}{\ *\ (Egervary\ Research\ Group\ on\ Combinatorial\ Optimization,\ EGRES).}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00008}00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00009}00009\ \textcolor{comment}{\ *\ Permission\ to\ use,\ modify\ and\ distribute\ this\ software\ is\ granted}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00010}00010\ \textcolor{comment}{\ *\ provided\ that\ this\ copyright\ notice\ appears\ in\ all\ copies.\ For}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00011}00011\ \textcolor{comment}{\ *\ precise\ terms\ see\ the\ accompanying\ LICENSE\ file.}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00012}00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00013}00013\ \textcolor{comment}{\ *\ This\ software\ is\ provided\ "{}AS\ IS"{}\ with\ no\ warranty\ of\ any\ kind,}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00014}00014\ \textcolor{comment}{\ *\ express\ or\ implied,\ and\ with\ no\ claim\ as\ to\ its\ suitability\ for\ any}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00015}00015\ \textcolor{comment}{\ *\ purpose.}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00016}00016\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00017}00017\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00019}00019\ \textcolor{preprocessor}{\#ifndef\ LEMON\_DIMACS\_H}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00020}00020\ \textcolor{preprocessor}{\#define\ LEMON\_DIMACS\_H}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00023}00023\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00024}00024\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00025}00025\ \textcolor{preprocessor}{\#include\ <limits>}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00026}00026\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{maps_8h}{lemon/maps.h}}>}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00027}00027\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{additional__includes_2lemon_2error_8h}{lemon/error.h}}>}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00032}00032\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacelemon}{lemon}}\ \{}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00038}\mbox{\hyperlink{structlemon_1_1_dimacs_descriptor}{00038}}\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlemon_1_1_dimacs_descriptor}{DimacsDescriptor}}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00039}00039\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00043}\mbox{\hyperlink{structlemon_1_1_dimacs_descriptor_ab64b403c1f540893f312bf1d24041601}{00043}}\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{structlemon_1_1_dimacs_descriptor_ab64b403c1f540893f312bf1d24041601}{Type}}\ \{}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00044}\mbox{\hyperlink{structlemon_1_1_dimacs_descriptor_ab64b403c1f540893f312bf1d24041601a0c4752f9d243d8b622e6740294ab139c}{00044}}\ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_dimacs_descriptor_ab64b403c1f540893f312bf1d24041601a0c4752f9d243d8b622e6740294ab139c}{NONE}},\ \ }
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00045}\mbox{\hyperlink{structlemon_1_1_dimacs_descriptor_ab64b403c1f540893f312bf1d24041601aa541b2e33b2b0695cbd25ede2f43cc07}{00045}}\ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_dimacs_descriptor_ab64b403c1f540893f312bf1d24041601aa541b2e33b2b0695cbd25ede2f43cc07}{MIN}},\ \ \ }
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00046}\mbox{\hyperlink{structlemon_1_1_dimacs_descriptor_ab64b403c1f540893f312bf1d24041601ac5a37430a822205c665e0216dd8e9ff2}{00046}}\ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_dimacs_descriptor_ab64b403c1f540893f312bf1d24041601ac5a37430a822205c665e0216dd8e9ff2}{MAX}},\ \ \ }
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00047}\mbox{\hyperlink{structlemon_1_1_dimacs_descriptor_ab64b403c1f540893f312bf1d24041601ad1751bf027c0e2235fd9929e299e9133}{00047}}\ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_dimacs_descriptor_ab64b403c1f540893f312bf1d24041601ad1751bf027c0e2235fd9929e299e9133}{SP}},\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00048}00048\ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_dimacs_descriptor_ab64b403c1f540893f312bf1d24041601ae8723c80255bd54248f78b442fae7d9e}{MAT}}\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00049}\mbox{\hyperlink{structlemon_1_1_dimacs_descriptor_ab64b403c1f540893f312bf1d24041601ae8723c80255bd54248f78b442fae7d9e}{00049}}\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00051}\mbox{\hyperlink{structlemon_1_1_dimacs_descriptor_aa92abd520d8d7b3a080aff29e58f7c64}{00051}}\ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_dimacs_descriptor_ab64b403c1f540893f312bf1d24041601}{Type}}\ \mbox{\hyperlink{structlemon_1_1_dimacs_descriptor_aa92abd520d8d7b3a080aff29e58f7c64}{type}};}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00053}\mbox{\hyperlink{structlemon_1_1_dimacs_descriptor_aebcfe3b952dc895cbd6b0b80d56f726e}{00053}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structlemon_1_1_dimacs_descriptor_aebcfe3b952dc895cbd6b0b80d56f726e}{nodeNum}};}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00055}\mbox{\hyperlink{structlemon_1_1_dimacs_descriptor_a0eb7c89a0e0bc157db313399c846e2b4}{00055}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structlemon_1_1_dimacs_descriptor_a0eb7c89a0e0bc157db313399c846e2b4}{edgeNum}};}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00056}\mbox{\hyperlink{structlemon_1_1_dimacs_descriptor_ab4191b83bb1c47ddd2bb560054a6b6cf}{00056}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structlemon_1_1_dimacs_descriptor_ab4191b83bb1c47ddd2bb560054a6b6cf}{lineShift}};}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00058}\mbox{\hyperlink{structlemon_1_1_dimacs_descriptor_a4ed1b6f96dc99811afe7e9b70a9a903d}{00058}}\ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_dimacs_descriptor_a4ed1b6f96dc99811afe7e9b70a9a903d}{DimacsDescriptor}}()\ :\ \mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a7aead736a07eaf25623ad7bfa1f0ee2d}{type}}(\mbox{\hyperlink{structlemon_1_1_dimacs_descriptor_ab64b403c1f540893f312bf1d24041601a0c4752f9d243d8b622e6740294ab139c}{NONE}})\ \{\}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00059}00059\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00067}\mbox{\hyperlink{group__dimacs__group_gad16c7910d72fa073be372881e1b3b087}{00067}}\ \ \ \mbox{\hyperlink{structlemon_1_1_dimacs_descriptor}{DimacsDescriptor}}\ \mbox{\hyperlink{group__dimacs__group_gad16c7910d72fa073be372881e1b3b087}{dimacsType}}(std::istream\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}})}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00068}00068\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00069}00069\ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_dimacs_descriptor}{DimacsDescriptor}}\ r;}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00070}00070\ \ \ \ \ std::string\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{problem}},str;}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00071}00071\ \ \ \ \ \textcolor{keywordtype}{char}\ c;}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00072}00072\ \ \ \ \ r.\mbox{\hyperlink{structlemon_1_1_dimacs_descriptor_ab4191b83bb1c47ddd2bb560054a6b6cf}{lineShift}}=0;}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00073}00073\ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}}\ >>\ c)}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00074}00074\ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(c)}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00075}00075\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00076}00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'p'}:}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}}\ >>\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{problem}}\ >>\ r.\mbox{\hyperlink{structlemon_1_1_dimacs_descriptor_aebcfe3b952dc895cbd6b0b80d56f726e}{nodeNum}}\ >>\ r.\mbox{\hyperlink{structlemon_1_1_dimacs_descriptor_a0eb7c89a0e0bc157db313399c846e2b4}{edgeNum}})}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{getline}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}},\ str);}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ r.\mbox{\hyperlink{structlemon_1_1_dimacs_descriptor_ab4191b83bb1c47ddd2bb560054a6b6cf}{lineShift}}++;}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{problem}}==\textcolor{stringliteral}{"{}min"{}})\ r.\mbox{\hyperlink{structlemon_1_1_dimacs_descriptor_aa92abd520d8d7b3a080aff29e58f7c64}{type}}=\mbox{\hyperlink{structlemon_1_1_dimacs_descriptor_ab64b403c1f540893f312bf1d24041601aa541b2e33b2b0695cbd25ede2f43cc07}{DimacsDescriptor::MIN}};}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{problem}}==\textcolor{stringliteral}{"{}max"{}})\ r.\mbox{\hyperlink{structlemon_1_1_dimacs_descriptor_aa92abd520d8d7b3a080aff29e58f7c64}{type}}=\mbox{\hyperlink{structlemon_1_1_dimacs_descriptor_ab64b403c1f540893f312bf1d24041601ac5a37430a822205c665e0216dd8e9ff2}{DimacsDescriptor::MAX}};}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{problem}}==\textcolor{stringliteral}{"{}sp"{}})\ r.\mbox{\hyperlink{structlemon_1_1_dimacs_descriptor_aa92abd520d8d7b3a080aff29e58f7c64}{type}}=\mbox{\hyperlink{structlemon_1_1_dimacs_descriptor_ab64b403c1f540893f312bf1d24041601ad1751bf027c0e2235fd9929e299e9133}{DimacsDescriptor::SP}};}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{problem}}==\textcolor{stringliteral}{"{}mat"{}})\ r.\mbox{\hyperlink{structlemon_1_1_dimacs_descriptor_aa92abd520d8d7b3a080aff29e58f7c64}{type}}=\mbox{\hyperlink{structlemon_1_1_dimacs_descriptor_ab64b403c1f540893f312bf1d24041601ae8723c80255bd54248f78b442fae7d9e}{DimacsDescriptor::MAT}};}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classlemon_1_1_format_error}{FormatError}}(\textcolor{stringliteral}{"{}Unknown\ problem\ type"{}});}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ r;}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classlemon_1_1_format_error}{FormatError}}(\textcolor{stringliteral}{"{}Missing\ or\ wrong\ problem\ type\ declaration."{}});}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00093}00093\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'c'}:}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{getline}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}},\ str);}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ r.\mbox{\hyperlink{structlemon_1_1_dimacs_descriptor_ab4191b83bb1c47ddd2bb560054a6b6cf}{lineShift}}++;}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00097}00097\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classlemon_1_1_format_error}{FormatError}}(\textcolor{stringliteral}{"{}Unknown\ DIMACS\ declaration."{}});}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00099}00099\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00100}00100\ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classlemon_1_1_format_error}{FormatError}}(\textcolor{stringliteral}{"{}Missing\ problem\ type\ declaration."{}});}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00101}00101\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00126}00126\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Digraph,\ \textcolor{keyword}{typename}\ LowerMap,}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ CapacityMap,\ \textcolor{keyword}{typename}\ CostMap,}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ SupplyMap>}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00129}\mbox{\hyperlink{group__dimacs__group_ga309d99eda5d1f5f3df2b2ca2d57ec024}{00129}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group__dimacs__group_ga309d99eda5d1f5f3df2b2ca2d57ec024}{readDimacsMin}}(std::istream\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}},}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Digraph\ \&g,}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LowerMap\&\ lower,}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CapacityMap\&\ capacity,}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CostMap\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cost}},}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SupplyMap\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{supply}},}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ CapacityMap::Value\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{infty}}\ =\ 0,}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_dimacs_descriptor}{DimacsDescriptor}}\ desc=\mbox{\hyperlink{structlemon_1_1_dimacs_descriptor}{DimacsDescriptor}}())}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00137}00137\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00138}00138\ \ \ \ \ g.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_af2726dacd301d1fdc114b18b6eeb5f51}{clear}}();}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00139}00139\ \ \ \ \ std::vector<typename\ Digraph::Node>\ nodes;}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00140}00140\ \ \ \ \ \textcolor{keyword}{typename}\ Digraph::Arc\ e;}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00141}00141\ \ \ \ \ std::string\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{problem}},\ str;}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00142}00142\ \ \ \ \ \textcolor{keywordtype}{char}\ c;}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00143}00143\ \ \ \ \ \textcolor{keywordtype}{int}\ i,\ j;}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00144}00144\ \ \ \ \ \textcolor{keywordflow}{if}(desc.type==\mbox{\hyperlink{structlemon_1_1_dimacs_descriptor_ab64b403c1f540893f312bf1d24041601a0c4752f9d243d8b622e6740294ab139c}{DimacsDescriptor::NONE}})\ desc=\mbox{\hyperlink{group__dimacs__group_gad16c7910d72fa073be372881e1b3b087}{dimacsType}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}});}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00145}00145\ \ \ \ \ \textcolor{keywordflow}{if}(desc.type!=\mbox{\hyperlink{structlemon_1_1_dimacs_descriptor_ab64b403c1f540893f312bf1d24041601aa541b2e33b2b0695cbd25ede2f43cc07}{DimacsDescriptor::MIN}})}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00146}00146\ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classlemon_1_1_format_error}{FormatError}}(\textcolor{stringliteral}{"{}Problem\ type\ mismatch"{}});}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00147}00147\ }
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00148}00148\ \ \ \ \ nodes.resize(desc.nodeNum\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00149}00149\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ 1;\ k\ <=\ desc.nodeNum;\ ++k)\ \{}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00150}00150\ \ \ \ \ \ \ nodes[k]\ =\ g.addNode();}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00151}00151\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{supply}}.set(nodes[k],\ 0);}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00152}00152\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00153}00153\ }
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00154}00154\ \ \ \ \ \textcolor{keyword}{typename}\ SupplyMap::Value\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{sup}};}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00155}00155\ \ \ \ \ \textcolor{keyword}{typename}\ CapacityMap::Value\ low;}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00156}00156\ \ \ \ \ \textcolor{keyword}{typename}\ CapacityMap::Value\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cap}};}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00157}00157\ \ \ \ \ \textcolor{keyword}{typename}\ CostMap::Value\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{co}};}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00158}00158\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ CapacityMap::Value\ Capacity;}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00159}00159\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{infty}}==0)}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00160}00160\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{infty}}\ =\ std::numeric\_limits<Capacity>::has\_infinity\ ?}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00161}00161\ \ \ \ \ \ \ \ \ std::numeric\_limits<Capacity>::infinity()\ :}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00162}00162\ \ \ \ \ \ \ \ \ std::numeric\_limits<Capacity>::max();}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00163}00163\ }
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00164}00164\ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}}\ >>\ c)\ \{}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00165}00165\ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (c)\ \{}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00166}00166\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'c'}:\ \textcolor{comment}{//\ comment\ line}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00167}00167\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{getline}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}},\ str);}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00168}00168\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00169}00169\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'n'}:\ \textcolor{comment}{//\ node\ definition\ line}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00170}00170\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}}\ >>\ i\ >>\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{sup}};}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00171}00171\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{getline}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}},\ str);}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00172}00172\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{supply}}.set(nodes[i],\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{sup}});}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00173}00173\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00174}00174\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'a'}:\ \textcolor{comment}{//\ arc\ definition\ line}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00175}00175\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}}\ >>\ i\ >>\ j\ >>\ low\ >>\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cap}}\ >>\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{co}};}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00176}00176\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{getline}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}},\ str);}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00177}00177\ \ \ \ \ \ \ \ \ e\ =\ g.addArc(nodes[i],\ nodes[j]);}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00178}00178\ \ \ \ \ \ \ \ \ lower.set(e,\ low);}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00179}00179\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cap}}\ >=\ low)}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00180}00180\ \ \ \ \ \ \ \ \ \ \ capacity.set(e,\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cap}});}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00181}00181\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00182}00182\ \ \ \ \ \ \ \ \ \ \ capacity.set(e,\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{infty}});}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00183}00183\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{cost}}.set(e,\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{co}});}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00184}00184\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00185}00185\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00186}00186\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00187}00187\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00188}00188\ }
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00189}00189\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Digraph,\ \textcolor{keyword}{typename}\ CapacityMap>}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00190}\mbox{\hyperlink{group__dimacs__group_gaf92c12ba954f78e4735fd59c816d37d5}{00190}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group__dimacs__group_gaf92c12ba954f78e4735fd59c816d37d5}{\_readDimacs}}(std::istream\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}},}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00191}00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Digraph\ \&g,}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00192}00192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CapacityMap\&\ capacity,}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00193}00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ Digraph::Node\ \&s,}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00194}00194\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ Digraph::Node\ \&t,}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00195}00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ CapacityMap::Value\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{infty}}\ =\ 0,}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00196}00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_dimacs_descriptor}{DimacsDescriptor}}\ desc=\mbox{\hyperlink{structlemon_1_1_dimacs_descriptor}{DimacsDescriptor}}())\ \{}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00197}00197\ \ \ \ \ g.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_af2726dacd301d1fdc114b18b6eeb5f51}{clear}}();}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00198}00198\ \ \ \ \ s=t=\mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00199}00199\ \ \ \ \ std::vector<typename\ Digraph::Node>\ nodes;}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00200}00200\ \ \ \ \ \textcolor{keyword}{typename}\ Digraph::Arc\ e;}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00201}00201\ \ \ \ \ \textcolor{keywordtype}{char}\ c,\ d;}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00202}00202\ \ \ \ \ \textcolor{keywordtype}{int}\ i,\ j;}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00203}00203\ \ \ \ \ \textcolor{keyword}{typename}\ CapacityMap::Value\ \_cap;}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00204}00204\ \ \ \ \ std::string\ str;}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00205}00205\ \ \ \ \ nodes.resize(desc.nodeNum\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00206}00206\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ 1;\ k\ <=\ desc.nodeNum;\ ++k)\ \{}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00207}00207\ \ \ \ \ \ \ nodes[k]\ =\ g.addNode();}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00208}00208\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00209}00209\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ CapacityMap::Value\ Capacity;}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00210}00210\ }
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00211}00211\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{infty}}==0)}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00212}00212\ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{infty}}\ =\ std::numeric\_limits<Capacity>::has\_infinity\ ?}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00213}00213\ \ \ \ \ \ \ \ \ std::numeric\_limits<Capacity>::infinity()\ :}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00214}00214\ \ \ \ \ \ \ \ \ std::numeric\_limits<Capacity>::max();}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00215}00215\ }
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00216}00216\ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}}\ >>\ c)\ \{}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00217}00217\ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (c)\ \{}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00218}00218\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'c'}:\ \textcolor{comment}{//\ comment\ line}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00219}00219\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{getline}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}},\ str);}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00220}00220\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00221}00221\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'n'}:\ \textcolor{comment}{//\ node\ definition\ line}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00222}00222\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (desc.type==\mbox{\hyperlink{structlemon_1_1_dimacs_descriptor_ab64b403c1f540893f312bf1d24041601ad1751bf027c0e2235fd9929e299e9133}{DimacsDescriptor::SP}})\ \{\ \textcolor{comment}{//\ shortest\ path\ problem}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00223}00223\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}}\ >>\ i;}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00224}00224\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{getline}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}},\ str);}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00225}00225\ \ \ \ \ \ \ \ \ \ \ s\ =\ nodes[i];}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00226}00226\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00227}00227\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (desc.type==\mbox{\hyperlink{structlemon_1_1_dimacs_descriptor_ab64b403c1f540893f312bf1d24041601ac5a37430a822205c665e0216dd8e9ff2}{DimacsDescriptor::MAX}})\ \{\ \textcolor{comment}{//\ max\ flow\ problem}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00228}00228\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}}\ >>\ i\ >>\ d;}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00229}00229\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{getline}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}},\ str);}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00230}00230\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (d\ ==\ \textcolor{charliteral}{'s'})\ s\ =\ nodes[i];}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00231}00231\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (d\ ==\ \textcolor{charliteral}{'t'})\ t\ =\ nodes[i];}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00232}00232\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00233}00233\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00234}00234\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'a'}:\ \textcolor{comment}{//\ arc\ definition\ line}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00235}00235\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (desc.type==\mbox{\hyperlink{structlemon_1_1_dimacs_descriptor_ab64b403c1f540893f312bf1d24041601ad1751bf027c0e2235fd9929e299e9133}{DimacsDescriptor::SP}})\ \{}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00236}00236\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}}\ >>\ i\ >>\ j\ >>\ \_cap;}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00237}00237\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{getline}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}},\ str);}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00238}00238\ \ \ \ \ \ \ \ \ \ \ e\ =\ g.addArc(nodes[i],\ nodes[j]);}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00239}00239\ \ \ \ \ \ \ \ \ \ \ capacity.set(e,\ \_cap);}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00240}00240\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00241}00241\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (desc.type==\mbox{\hyperlink{structlemon_1_1_dimacs_descriptor_ab64b403c1f540893f312bf1d24041601ac5a37430a822205c665e0216dd8e9ff2}{DimacsDescriptor::MAX}})\ \{}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00242}00242\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}}\ >>\ i\ >>\ j\ >>\ \_cap;}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00243}00243\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{getline}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}},\ str);}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00244}00244\ \ \ \ \ \ \ \ \ \ \ e\ =\ g.addArc(nodes[i],\ nodes[j]);}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00245}00245\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\_cap\ >=\ 0)}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00246}00246\ \ \ \ \ \ \ \ \ \ \ \ \ capacity.set(e,\ \_cap);}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00247}00247\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00248}00248\ \ \ \ \ \ \ \ \ \ \ \ \ capacity.set(e,\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{infty}});}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00249}00249\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00250}00250\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00251}00251\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}}\ >>\ i\ >>\ j;}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00252}00252\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{getline}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}},\ str);}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00253}00253\ \ \ \ \ \ \ \ \ \ \ g.addArc(nodes[i],\ nodes[j]);}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00254}00254\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00255}00255\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00256}00256\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00257}00257\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00258}00258\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00259}00259\ }
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00280}00280\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Digraph,\ \textcolor{keyword}{typename}\ CapacityMap>}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00281}\mbox{\hyperlink{group__dimacs__group_ga44cf335757161623864f8b1ef4446601}{00281}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group__dimacs__group_ga44cf335757161623864f8b1ef4446601}{readDimacsMax}}(std::istream\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}},}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00282}00282\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Digraph\ \&g,}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00283}00283\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CapacityMap\&\ capacity,}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00284}00284\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ Digraph::Node\ \&s,}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00285}00285\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ Digraph::Node\ \&t,}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00286}00286\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ CapacityMap::Value\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{infty}}\ =\ 0,}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00287}00287\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_dimacs_descriptor}{DimacsDescriptor}}\ desc=\mbox{\hyperlink{structlemon_1_1_dimacs_descriptor}{DimacsDescriptor}}())\ \{}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00288}00288\ \ \ \ \ \textcolor{keywordflow}{if}(desc.type==\mbox{\hyperlink{structlemon_1_1_dimacs_descriptor_ab64b403c1f540893f312bf1d24041601a0c4752f9d243d8b622e6740294ab139c}{DimacsDescriptor::NONE}})\ desc=\mbox{\hyperlink{group__dimacs__group_gad16c7910d72fa073be372881e1b3b087}{dimacsType}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}});}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00289}00289\ \ \ \ \ \textcolor{keywordflow}{if}(desc.type!=\mbox{\hyperlink{structlemon_1_1_dimacs_descriptor_ab64b403c1f540893f312bf1d24041601ac5a37430a822205c665e0216dd8e9ff2}{DimacsDescriptor::MAX}})}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00290}00290\ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classlemon_1_1_format_error}{FormatError}}(\textcolor{stringliteral}{"{}Problem\ type\ mismatch"{}});}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00291}00291\ \ \ \ \ \mbox{\hyperlink{group__dimacs__group_gaf92c12ba954f78e4735fd59c816d37d5}{\_readDimacs}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}},g,capacity,s,t,\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{infty}},desc);}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00292}00292\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00293}00293\ }
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00307}00307\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Digraph,\ \textcolor{keyword}{typename}\ LengthMap>}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00308}\mbox{\hyperlink{group__dimacs__group_gae8f5ba3e3f9ce3281f83c152d193625b}{00308}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group__dimacs__group_gae8f5ba3e3f9ce3281f83c152d193625b}{readDimacsSp}}(std::istream\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}},}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00309}00309\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Digraph\ \&g,}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00310}00310\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LengthMap\&\ length,}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00311}00311\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ Digraph::Node\ \&s,}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00312}00312\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_dimacs_descriptor}{DimacsDescriptor}}\ desc=\mbox{\hyperlink{structlemon_1_1_dimacs_descriptor}{DimacsDescriptor}}())\ \{}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00313}00313\ \ \ \ \ \textcolor{keyword}{typename}\ Digraph::Node\ t;}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00314}00314\ \ \ \ \ \textcolor{keywordflow}{if}(desc.type==\mbox{\hyperlink{structlemon_1_1_dimacs_descriptor_ab64b403c1f540893f312bf1d24041601a0c4752f9d243d8b622e6740294ab139c}{DimacsDescriptor::NONE}})\ desc=\mbox{\hyperlink{group__dimacs__group_gad16c7910d72fa073be372881e1b3b087}{dimacsType}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}});}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00315}00315\ \ \ \ \ \textcolor{keywordflow}{if}(desc.type!=\mbox{\hyperlink{structlemon_1_1_dimacs_descriptor_ab64b403c1f540893f312bf1d24041601ad1751bf027c0e2235fd9929e299e9133}{DimacsDescriptor::SP}})}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00316}00316\ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classlemon_1_1_format_error}{FormatError}}(\textcolor{stringliteral}{"{}Problem\ type\ mismatch"{}});}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00317}00317\ \ \ \ \ \mbox{\hyperlink{group__dimacs__group_gaf92c12ba954f78e4735fd59c816d37d5}{\_readDimacs}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}},\ g,\ length,\ s,\ t,\ 0,\ desc);}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00318}00318\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00319}00319\ }
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00338}00338\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Digraph,\ \textcolor{keyword}{typename}\ CapacityMap>}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00339}\mbox{\hyperlink{group__dimacs__group_ga2ec47d238c02a465037377e65875793d}{00339}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group__dimacs__group_ga2ec47d238c02a465037377e65875793d}{readDimacsCap}}(std::istream\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}},}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00340}00340\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Digraph\ \&g,}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00341}00341\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CapacityMap\&\ capacity,}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00342}00342\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ CapacityMap::Value\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{infty}}\ =\ 0,}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00343}00343\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_dimacs_descriptor}{DimacsDescriptor}}\ desc=\mbox{\hyperlink{structlemon_1_1_dimacs_descriptor}{DimacsDescriptor}}())\ \{}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00344}00344\ \ \ \ \ \textcolor{keyword}{typename}\ Digraph::Node\ u,v;}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00345}00345\ \ \ \ \ \textcolor{keywordflow}{if}(desc.type==\mbox{\hyperlink{structlemon_1_1_dimacs_descriptor_ab64b403c1f540893f312bf1d24041601a0c4752f9d243d8b622e6740294ab139c}{DimacsDescriptor::NONE}})\ desc=\mbox{\hyperlink{group__dimacs__group_gad16c7910d72fa073be372881e1b3b087}{dimacsType}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}});}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00346}00346\ \ \ \ \ \textcolor{keywordflow}{if}(desc.type!=\mbox{\hyperlink{structlemon_1_1_dimacs_descriptor_ab64b403c1f540893f312bf1d24041601ac5a37430a822205c665e0216dd8e9ff2}{DimacsDescriptor::MAX}}\ ||\ desc.type!=\mbox{\hyperlink{structlemon_1_1_dimacs_descriptor_ab64b403c1f540893f312bf1d24041601ad1751bf027c0e2235fd9929e299e9133}{DimacsDescriptor::SP}})}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00347}00347\ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classlemon_1_1_format_error}{FormatError}}(\textcolor{stringliteral}{"{}Problem\ type\ mismatch"{}});}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00348}00348\ \ \ \ \ \mbox{\hyperlink{group__dimacs__group_gaf92c12ba954f78e4735fd59c816d37d5}{\_readDimacs}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}},\ g,\ capacity,\ u,\ v,\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{infty}},\ desc);}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00349}00349\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00350}00350\ }
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00351}00351\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Graph>}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00352}00352\ \ \ \textcolor{keyword}{typename}\ enable\_if<lemon::UndirectedTagIndicator<Graph>,\textcolor{keywordtype}{void}>\mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a7aead736a07eaf25623ad7bfa1f0ee2d}{::type}}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00353}\mbox{\hyperlink{group__dimacs__group_ga81d9e29d99a38dfd5763bad9da5f9650}{00353}}\ \ \ \mbox{\hyperlink{group__dimacs__group_ga81d9e29d99a38dfd5763bad9da5f9650}{\_addArcEdge}}(Graph\ \&g,\ \textcolor{keyword}{typename}\ Graph::Node\ s,\ \textcolor{keyword}{typename}\ Graph::Node\ t,}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00354}00354\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{dummy<0>}}\ =\ 0)}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00355}00355\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00356}00356\ \ \ \ \ g.addEdge(s,t);}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00357}00357\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00358}00358\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Graph>}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00359}00359\ \ \ \textcolor{keyword}{typename}\ disable\_if<lemon::UndirectedTagIndicator<Graph>,\textcolor{keywordtype}{void}>\mbox{\hyperlink{spdlog_2fmt_2bundled_2core_8h_a7aead736a07eaf25623ad7bfa1f0ee2d}{::type}}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00360}\mbox{\hyperlink{group__dimacs__group_ga607f95725959a06b001edd9cba5b7690}{00360}}\ \ \ \mbox{\hyperlink{group__dimacs__group_ga81d9e29d99a38dfd5763bad9da5f9650}{\_addArcEdge}}(Graph\ \&g,\ \textcolor{keyword}{typename}\ Graph::Node\ s,\ \textcolor{keyword}{typename}\ Graph::Node\ t,}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00361}00361\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{dummy<1>}}\ =\ 1)}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00362}00362\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00363}00363\ \ \ \ \ g.\mbox{\hyperlink{classlemon_1_1_reverse_digraph_base_a02dd49afbca56321bacd49e939ccab85}{addArc}}(s,t);}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00364}00364\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00365}00365\ }
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00378}00378\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Graph>}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00379}\mbox{\hyperlink{group__dimacs__group_ga2f4cd9537b1e6da13b64220bed687ad2}{00379}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group__dimacs__group_ga2f4cd9537b1e6da13b64220bed687ad2}{readDimacsMat}}(std::istream\&\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}},\ Graph\ \&g,}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00380}00380\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlemon_1_1_dimacs_descriptor}{DimacsDescriptor}}\ desc=\mbox{\hyperlink{structlemon_1_1_dimacs_descriptor}{DimacsDescriptor}}())}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00381}00381\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00382}00382\ \ \ \ \ \textcolor{keywordflow}{if}(desc.type==\mbox{\hyperlink{structlemon_1_1_dimacs_descriptor_ab64b403c1f540893f312bf1d24041601a0c4752f9d243d8b622e6740294ab139c}{DimacsDescriptor::NONE}})\ desc=\mbox{\hyperlink{group__dimacs__group_gad16c7910d72fa073be372881e1b3b087}{dimacsType}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}});}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00383}00383\ \ \ \ \ \textcolor{keywordflow}{if}(desc.type!=\mbox{\hyperlink{structlemon_1_1_dimacs_descriptor_ab64b403c1f540893f312bf1d24041601ae8723c80255bd54248f78b442fae7d9e}{DimacsDescriptor::MAT}})}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00384}00384\ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classlemon_1_1_format_error}{FormatError}}(\textcolor{stringliteral}{"{}Problem\ type\ mismatch"{}});}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00385}00385\ }
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00386}00386\ \ \ \ \ g.clear();}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00387}00387\ \ \ \ \ std::vector<typename\ Graph::Node>\ nodes;}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00388}00388\ \ \ \ \ \textcolor{keywordtype}{char}\ c;}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00389}00389\ \ \ \ \ \textcolor{keywordtype}{int}\ i,\ j;}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00390}00390\ \ \ \ \ std::string\ str;}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00391}00391\ \ \ \ \ nodes.resize(desc.nodeNum\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00392}00392\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ 1;\ k\ <=\ desc.nodeNum;\ ++k)\ \{}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00393}00393\ \ \ \ \ \ \ nodes[k]\ =\ g.addNode();}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00394}00394\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00395}00395\ }
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00396}00396\ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}}\ >>\ c)\ \{}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00397}00397\ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (c)\ \{}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00398}00398\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'c'}:\ \textcolor{comment}{//\ comment\ line}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00399}00399\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{getline}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}},\ str);}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00400}00400\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00401}00401\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'n'}:\ \textcolor{comment}{//\ node\ definition\ line}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00402}00402\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00403}00403\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'a'}:\ \textcolor{comment}{//\ arc\ definition\ line}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00404}00404\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}}\ >>\ i\ >>\ j;}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00405}00405\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{getline}}(\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{is}},\ str);}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00406}00406\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__dimacs__group_ga81d9e29d99a38dfd5763bad9da5f9650}{\_addArcEdge}}(g,nodes[i],\ nodes[j]);}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00407}00407\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00408}00408\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00409}00409\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00410}00410\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00411}00411\ }
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00422}00422\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Digraph>}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00423}\mbox{\hyperlink{group__dimacs__group_gada363b719022ba1fe1c03978ba6cece9}{00423}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group__dimacs__group_gada363b719022ba1fe1c03978ba6cece9}{writeDimacsMat}}(std::ostream\&\ os,\ \textcolor{keyword}{const}\ Digraph\ \&g,}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00424}00424\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{comment}}=\textcolor{stringliteral}{"{}"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00425}00425\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Digraph::NodeIt\ NodeIt;}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00426}00426\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Digraph::ArcIt\ ArcIt;}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00427}00427\ }
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00428}00428\ \ \ \ \ \textcolor{keywordflow}{if}(!\mbox{\hyperlink{classlemon_1_1_reverse_digraph}{comment}}.empty())}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00429}00429\ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}c\ "{}}\ <<\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{comment}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00430}00430\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}p\ mat\ "{}}\ <<\ g.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a7b463bd24fc739b4297056f32417fb12}{nodeNum}}()\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ g.\mbox{\hyperlink{classlemon_1_1_digraph_adaptor_base_a39cd76a6e5a2ec77084e23de8fd0059d}{arcNum}}()\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00431}00431\ }
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00432}00432\ \ \ \ \ \textcolor{keyword}{typename}\ Digraph::template\ \mbox{\hyperlink{classlemon_1_1_reverse_digraph}{NodeMap<int>}}\ nodes(g);}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00433}00433\ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00434}00434\ \ \ \ \ \textcolor{keywordflow}{for}(NodeIt\ v(g);\ v\ !=\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ ++v)\ \{}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00435}00435\ \ \ \ \ \ \ nodes.set(v,\ i);}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00436}00436\ \ \ \ \ \ \ ++i;}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00437}00437\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00438}00438\ \ \ \ \ \textcolor{keywordflow}{for}(ArcIt\ e(g);\ e\ !=\ \mbox{\hyperlink{namespacelemon_a56d18b7fae5a86c1683ace3c9cd8a5d1}{INVALID}};\ ++e)\ \{}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00439}00439\ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}a\ "{}}\ <<\ nodes[g.source(e)]\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ nodes[g.target(e)]}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00440}00440\ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00441}00441\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00442}00442\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00443}00443\ }
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00445}00445\ }
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00446}00446\ \}\ \textcolor{comment}{//namespace\ lemon}}
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00447}00447\ }
+\DoxyCodeLine{\Hypertarget{dimacs_8h_source_l00448}00448\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//LEMON\_DIMACS\_H}}
+
+\end{DoxyCode}
