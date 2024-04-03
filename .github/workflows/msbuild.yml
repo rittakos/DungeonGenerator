@@ -50,4 +50,4 @@ jobs:
     - name: Run VSTest
       id: run_vstest
       working-directory: ${{github.workspace}}
-      run: vstest.console.exe /Platform:x64 .\DungeonGenerator\libraries\UnitTest.dll
+      run: vstest.console.exe /Platform:x64 .\DungeonGenerator\x64\Release\UnitTest.dll
