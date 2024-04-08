@@ -13,23 +13,23 @@ namespace Data
 	class MazeData
 	{
 	private:
-		Math::Graph<int, Geometry::Edge> maze;	// maze, edges are the doors
-		Math::Graph<int, Geometry::Edge> graph; // neighbours
+		Math::Graph::Graph<int, Geometry::Edge> maze;	// maze, edges are the doors
+		Math::Graph::Graph<int, Geometry::Edge> graph; // neighbours
 	public:
 		MazeData() = default;
 
-		void setGraph(const Math::Graph<int, Geometry::Edge>& graph)
+		void setGraph(const Math::Graph::Graph<int, Geometry::Edge>& graph)
 		{
 			this->graph = graph;
 		}
 
-		void setMaze(const Math::Graph<int, Geometry::Edge>& graph)
+		void setMaze(const Math::Graph::Graph<int, Geometry::Edge>& graph)
 		{
 			this->maze = graph;
 		}
 
-		Math::Graph<int, Geometry::Edge> getMaze() const { return maze; }
-		Math::Graph<int, Geometry::Edge> getGraph() const 
+		Math::Graph::Graph<int, Geometry::Edge> getMaze() const { return maze; }
+		Math::Graph::Graph<int, Geometry::Edge> getGraph() const
 		{ 
 			return graph; 
 		}

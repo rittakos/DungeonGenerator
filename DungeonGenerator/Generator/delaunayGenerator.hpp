@@ -8,7 +8,7 @@ namespace Generator
 {
 
 	// https://en.wikipedia.org/wiki/Delaunay_triangulation
-	class DelaunayBasedGeneratorAlgorithm final : public GeneratorAlgorithm
+	class DelaunayBasedGeneratorAlgorithm final : public DungeonGeneratorAlgorithm
 	{
 	private:
 		const unsigned int pointCount;

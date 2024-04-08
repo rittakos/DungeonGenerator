@@ -35,9 +35,15 @@ public:
 		return std::uniform_int_distribution<int>(min, max)(rng);
 	}
 
-	static float GetFloat(float min, float max)
+	static float GetFloat(float min = 0.0f, float max = 1.0f)
 	{
 		return std::uniform_real_distribution<float>(min, max)(rng);
+	}
+
+	template<class T>
+	static void Shuffle(std::vector<T>& vector)
+	{
+		std::shuffle(std::begin(vector), std::end(vector), rng);
 	}
 
 	static std::vector<float> GetFloatWithFixedSum(const int count, const float sum, const float spread = 0.0f)

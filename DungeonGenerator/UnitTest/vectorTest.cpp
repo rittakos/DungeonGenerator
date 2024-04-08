@@ -31,11 +31,6 @@ protected:
 	Math::Vec3f v4;
 };
 
-TEST_F(VectorTest, Fault)
-{
-	EXPECT_TRUE(false);
-}
-
 TEST_F(VectorTest, InitVec3Test)
 {
 	EXPECT_EQ(v0[0], 0);

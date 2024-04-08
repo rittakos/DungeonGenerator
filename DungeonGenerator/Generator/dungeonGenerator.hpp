@@ -12,7 +12,7 @@ namespace Generator
 	{
 	private:
 		DungeonGeneratorSettings settings;
-		std::shared_ptr<Generator::GeneratorAlgorithm> algorithm;
+		std::shared_ptr<Generator::DungeonGeneratorAlgorithm> algorithm;
 	public:
 		DungeonGenerator(DungeonGeneratorSettings settings);
 

@@ -61,7 +61,7 @@ namespace Geometry::Delaunay
 	{
 		std::vector<Math::Vec2f>	Vertices;
 		std::vector<Triangle>		Triangles;
-		Math::Graph<Triangle>		Neighbours;
+		Math::Graph::Graph<Triangle>		Neighbours;
 
 		bool operator ==(const DelaunayTriangulation& other) const
 		{

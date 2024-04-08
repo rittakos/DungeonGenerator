@@ -4,7 +4,7 @@
 
 namespace Generator
 {
-	class VoronoiBasedGeneratorAlgorithm : public GeneratorAlgorithm
+	class VoronoiBasedGeneratorAlgorithm : public DungeonGeneratorAlgorithm
 	{
 	private:
 		int width = 0;			// count of the horisontal cells

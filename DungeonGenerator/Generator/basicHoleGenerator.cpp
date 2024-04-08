@@ -4,7 +4,6 @@ namespace Generator
 {
 	void BasicHoleGenerator::Generate(Data::DungeonData& dungeonData)
 	{
-		// MUST implement
 		for (Data::RoomData& room : dungeonData.getRooms())
 		{
 			Geometry::Polygon polygon = room.getFloor().getPolygon();

@@ -10,7 +10,7 @@
 #include <unordered_map>
 
 
-namespace Math
+namespace Math::Graph
 {
 
 	class Node
@@ -47,23 +47,24 @@ namespace Math
 		}
 
 	};
+	
 }
 
 namespace std
 {
 	template <>
-	struct hash<Math::Node>
+	struct hash<Math::Graph::Node>
 	{
-		size_t operator()(const Math::Node& record) const
+		size_t operator()(const Math::Graph::Node& record) const
 		{
 			return hash<int>()(record.id);
 		}
 	};
 
 	template <>
-	struct hash<Math::Edge>
+	struct hash<Math::Graph::Edge>
 	{
-		size_t operator()(const Math::Edge& record) const
+		size_t operator()(const Math::Graph::Edge& record) const
 		{
 			return hash<int>()(record.id);
 		}
@@ -71,7 +72,7 @@ namespace std
 }
 
 
-namespace Math
+namespace Math::Graph
 {
 
 	template<class NodeType, class EdgeType = int>
@@ -99,10 +100,11 @@ namespace Math
 
 		bool containsValue(const NodeType& value) const;
 		bool containsEdge(const NodeType& from, const NodeType& to) const;
+		bool containsEdge(const Node& from, const Node& to) const;
 			
 		void addNode(const NodeType& value, bool forcedAdd = false);
 		void addEdge(const NodeType& from, const NodeType& to, std::optional<EdgeType> edgeValue = {}, bool forcedAdd = false);
-		// TODO addEdges from Nodes
+		void addEdge(const Node& from, const Node& to, std::optional<EdgeType> edgeValue = {}, bool forcedAdd = false);
 
 		void removeEdge(const NodeType& from, const NodeType& to);
 
@@ -136,13 +138,13 @@ namespace Math
 	}
 
 	template<class NodeType, class EdgeType /*= int*/>
-	Math::Graph<NodeType, EdgeType>::Graph (const Graph& other) : Graph()
+	Math::Graph::Graph<NodeType, EdgeType>::Graph (const Graph& other) : Graph()
 	{
 		*this = other;
 	}
 
 	template<class NodeType, class EdgeType /*= int*/>
-	Math::Graph<NodeType, EdgeType>::~Graph ()
+	Math::Graph::Graph<NodeType, EdgeType>::~Graph ()
 	{
 
 	}
@@ -196,10 +198,16 @@ namespace Math
 		Node fromNode = getNodeFromValue(from);
 		Node toNode = getNodeFromValue(to);
 
+		return containsEdge(fromNode, toNode);
+	}
+
+	template<class NodeType, class EdgeType>
+	bool Graph<NodeType, EdgeType>::containsEdge(const Node& from, const Node& to) const
+	{
 		try
 		{
-			std::vector<Node> nextNodes = neighbours.at(fromNode);
-			return std::find(nextNodes.begin(), nextNodes.end(), toNode) != std::end(nextNodes);
+			std::vector<Node> nextNodes = neighbours.at(from);
+			return std::find(nextNodes.begin(), nextNodes.end(), to) != std::end(nextNodes);
 		}
 		catch (...)
 		{
@@ -227,6 +235,20 @@ namespace Math
 		{
 			neighbours[getNodeFromValue(from)].push_back(getNodeFromValue(to));
 			Edge newEdge(getNodeFromValue(from), getNodeFromValue(to));
+			edgeValues[newEdge] = edgeValue;
+
+		}
+
+		//throw new std::exception("Can not add Edge!");
+	}
+
+	template<class NodeType, class EdgeType>
+	void Graph<NodeType, EdgeType>::addEdge(const Node& from, const Node& to, std::optional<EdgeType> edgeValue, bool forcedAdd)
+	{
+		if (forcedAdd || !containsEdge(from, to))
+		{
+			neighbours[from].push_back(to);
+			Edge newEdge(from, to);
 			edgeValues[newEdge] = edgeValue;
 
 		}

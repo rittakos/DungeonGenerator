@@ -1,17 +1,23 @@
 #include <vector>
 #include <vector.hpp>
+#include "generatorAlgorithm.hpp"
 
 
 namespace Generator
 {
-	template<class Point>
-	class ControlPointGenerator
+	template<int D>
+	static Math::Vec<D, float> GetRandomFloatVector(Math::Vec<D, float> min, Math::Vec<D, float> max)
 	{
-	public:
-		virtual std::vector<Point> generate() const = 0;
-	};
+		Math::Vec<D, float> randomVector;
+		for (int idx = 0; idx < D; ++idx)
+		{
+			randomVector[idx] = Random::GetFloat(min[idx], max[idx]);
+		}
 
+		return randomVector;
+	}
 
+	
 	class Grid2DControlPointGenerator : public ControlPointGenerator<Math::Vec2f>
 	{
 		const Math::Vec2f leftUpCorner;

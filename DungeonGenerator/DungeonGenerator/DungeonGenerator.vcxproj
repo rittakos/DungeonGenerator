@@ -107,6 +107,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <AdditionalIncludeDirectories>$(SolutionDir)\Math;$(SolutionDir)\Base;$(SolutionDir)\Geometry;$(SolutionDir)\Base;$(SolutionDir)\Generator;$(SolutionDir)\additional_includes;$(SolutionDir)\Data;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

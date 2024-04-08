@@ -194,9 +194,9 @@ namespace Geometry
             //Log::warn("Not enough points!");
         }
 
-        Math::Graph<Triangle> DelaunayTriangulator::getNeighbourhoodGraph(const std::vector<Triangle>& triangulation) const
+        Math::Graph::Graph<Triangle> DelaunayTriangulator::getNeighbourhoodGraph(const std::vector<Triangle>& triangulation) const
         {
-            Math::Graph<Triangle> graph;
+            Math::Graph::Graph<Triangle> graph;
 
             for (const Triangle& triangle : triangulation)
                 graph.addNode(triangle);

@@ -4,12 +4,19 @@
 
 namespace Generator
 {
-	class GeneratorAlgorithm
+	template<class Point>
+	class ControlPointGenerator
+	{
+	public:
+		virtual std::vector<Point> generate() const = 0;
+	};
+
+	class DungeonGeneratorAlgorithm
 	{
 	public:
 		virtual void Generate(Data::DungeonData& dungeonData) = 0;
 
-		virtual ~GeneratorAlgorithm() = default;
+		virtual ~DungeonGeneratorAlgorithm() = default;
 	};
 
 

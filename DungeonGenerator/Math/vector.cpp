@@ -1,4 +1,5 @@
 #include "vector.hpp"
+#include <cmath>
 
 
 namespace Math

@@ -1,30 +1,20 @@
 #include "delaunayGenerator.hpp"
 #include "delaunay.hpp"
 #include "geometry.hpp"
+#include "controlPointGenerator.hpp"
 
 namespace Generator
 {
 
 	void DelaunayBasedGeneratorAlgorithm::generatePoints()
 	{
-		// MUST kirakni valahova
-		//for (int idx = 0; idx < pointCount; ++idx)
-		{
-			//Math::Vec2f newPoint;
+		std::shared_ptr<ControlPointGenerator<Math::Vec2f>> pointGenerator;
+		pointGenerator = std::make_shared<Grid2DControlPointGenerator>(45, 45);
 
-			float i = 0.0f;
+		points = pointGenerator->generate();
 
-			for (int col = 0; col < 10; col++)
-			{
-				for (int row = 0; row < 10; row++)
-				{
-					points.push_back(Math::Vec2f{row * 100.0f, col * 100.0f + i});
-					i += 20.0f;
-				}
-			}
-
-			//points.push_back(newPoint);
-		}
+		/*for(auto& p : points)
+			std::cout << p << std::endl;*/
 	}
 
 	std::vector<Geometry::Polygon> DelaunayBasedGeneratorAlgorithm::createPolygons(const Geometry::Delaunay::DelaunayTriangulation& triangulation) const
@@ -72,7 +62,9 @@ namespace Generator
 				newPolygon.addPoint(calcOutterCircleCenter(points[p][triangleId]));
 			}
 
-			polygons.push_back(newPolygon);
+			//std::cout << newPolygon.beauty() << std::endl;
+			if(newPolygon.beauty() > 0.5f)
+				polygons.push_back(newPolygon);
 		}
 
 		return polygons;
@@ -143,7 +135,7 @@ namespace Generator
 
 		triangulation = triangulator.Triangulate(Geometry::Delaunay::ClockWise);
 
-		Math::Graph<int, Geometry::Edge> maze;
+		Math::Graph::Graph<int, Geometry::Edge> maze;
 
 		for (Geometry::Polygon poly : createPolygons(triangulation))
 		{

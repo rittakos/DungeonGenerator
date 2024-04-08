@@ -58,6 +58,26 @@ namespace Geometry
         calculateConvexity();
     }
 
+    std::vector<Math::Angle> Polygon::getAngles() const
+    {
+        std::vector<Math::Angle> angles;
+
+        if (n < 3)
+            return angles;
+
+        angles.push_back(Math::getAngle(points[n - 1], points[0], points[1]));
+
+        for (int idx = 1; idx < n - 1; ++idx)
+        {
+            Math::Angle angle = Math::getAngle(points[idx - 1], points[idx], points[idx + 1]);
+            angles.push_back(angle);
+        }
+
+        angles.push_back(Math::getAngle(points[n - 2], points[n - 1], points[0]));
+
+        return angles;
+    }
+
     float Polygon::Area() const //shoelace formula
     {
         double area = 0.0f;
@@ -167,6 +187,25 @@ namespace Geometry
         innerAngle += Math::getAngle(points[n - 2], points[n - 1], points[0]);
 
         return innerAngle == calcInnerAngle();
+    }
+
+    float	Polygon::beauty() const
+    {
+        // beetween 0 and 1
+        /*if (!isConvex())
+            return 0.1f;*/
+
+        for (const Math::Angle& angle : getAngles()) 
+        {
+            Math::Angle idealAngle = calcInnerAngle() / (float)n;
+            float angelIdealRation = idealAngle.getDeg() / angle.getDeg();
+            if (angelIdealRation < 0.25f || angelIdealRation > 1.0f / 0.25f)
+                return 0.1f;
+            if (angle < 20.0_deg)
+                return 0.2f;
+        }
+            
+        return 1.0f;
     }
 
     bool	Polygon::containsPoint(const Math::Vec2f& P) const

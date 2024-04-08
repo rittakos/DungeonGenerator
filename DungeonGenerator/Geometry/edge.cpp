@@ -1,5 +1,6 @@
 #include "edge.hpp"
 #include "line.hpp"
+#include <cmath>
 
 namespace Geometry
 {

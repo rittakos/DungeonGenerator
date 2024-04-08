@@ -31,7 +31,7 @@ namespace Geometry
 
 			std::optional<Edge> hasCommonEdge(const Triangle& triangle1, const Triangle& triangle2) const;
 
-			Math::Graph<Triangle> getNeighbourhoodGraph(const std::vector<Triangle>& triangulation) const;
+			Math::Graph::Graph<Triangle> getNeighbourhoodGraph(const std::vector<Triangle>& triangulation) const;
 		public:
 			DelaunayTriangulator(const std::vector<Math::Vec2f>& vertices);
 
